@@ -10,19 +10,19 @@ var groupOfButtons
 var disabledColor
 var gameScore = 0
 var gameRunning = false
-var j
+var playerTurn = false
+var currentPopulate = 0
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _on_ready():
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")
-	
-#	label.get_stylebox("normal").bg_color = new_color 
+	_add_next_value()
 	for i in len(groupOfButtons):
-		j=i+1
-		objectOfButtonsForMapping[j]=groupOfButtons[i]
-#		groupOfButtons[i].disabled = gameDisabled
+		print(i, ' is i')
+		objectOfButtonsForMapping[i]=groupOfButtons[i]
+		groupOfButtons[i].disabled = gameDisabled
 		
 	update_score(gameScore)
 	print(objectOfButtonsForMapping)
@@ -32,67 +32,75 @@ func _on_ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(playerTurn):
+		for i in len(arrayOfButtonsToFollow):
+			if(arrayToPopulate[i] == arrayOfButtonsToFollow[i]):
+				if(len(arrayOfButtonsToFollow) == len(arrayOfButtonsToFollow)):
+					playerTurn = !playerTurn
+			else:
+				$Aww_Sound.play()
 	
 	pass
 
 
 func _on_button_first_pressed():
-	print('hee')
-#	for child in get_children():
-#		print(child)
-#		if child is AudioStreamPlayer:
-#			child.play()
+	$Button_First/Button_First_Sound.play()
+	if(playerTurn):
+		arrayOfButtonsToFollow.append(0)
 	pass # Replace with function body.
 
 
 func _on_button_second_pressed():
-	$Button_First/Button_Second_Sound.play()
-	print('second')
+	$Button_Second/Button_Second_Sound.play()
+	if(playerTurn):
+		arrayOfButtonsToFollow.append(1)
 	pass # Replace with function body.
 
 
 func _on_button_third_pressed():
 
-	$Button_First/Button_First_Sound.play()
-	print('third')
+	$Button_Third/Button_Third_Sound.play()
+	if(playerTurn):
+		arrayOfButtonsToFollow.append(2)
 	pass # Replace with function body.
 
 
 func _on_button_fourth_pressed():
-	$Button_First/Button_First_Sound.play()
-	print('fouth')
+	$Button_Fourth/Button_Fourth_Sound.play()
+	if(playerTurn):
+		arrayOfButtonsToFollow.append(3)
 	pass # Replace with function body.
 
 func _get_next_value():
-	buttonToAdd = ceil(rng.randf_range(0, 4))
+	buttonToAdd = floor(rng.randf_range(0, 4))
 	return buttonToAdd
 	
 func _add_next_value():
 	arrayToPopulate.append(_get_next_value())
-	print(arrayToPopulate)
+
 	pass # Replace with function body.
 
 func update_score(gameScore):
 	$ScoreLabel.text = str(gameScore)
-
-
-
-
-
-
 
 func _ready():
 	pass # Replace with function body.
 
 
 func _play_button_pressed():
+	gameDisabled = !gameDisabled
 	if(gameRunning == false):
-		_add_next_value()
-	
-		_run_sequence_to_follow()
-	
+		$PlaybackTimer.start()
+		print(arrayToPopulate)
+	for i in len(groupOfButtons):
+		groupOfButtons[i].disabled = gameDisabled
 	pass # Replace with function body.
-
-func _run_sequence_to_follow():
 	
-	pass
+func _on_playback_timer_timeout():
+	groupOfButtons[arrayToPopulate[currentPopulate]].emit_signal("pressed")
+	currentPopulate+=1
+	if(currentPopulate == len(arrayToPopulate)):
+		$PlaybackTimer.stop()
+		playerTurn = true
+		currentPopulate = 0
+	pass # Replace with function body.

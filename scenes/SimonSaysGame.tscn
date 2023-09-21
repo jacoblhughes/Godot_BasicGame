@@ -1,11 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcxdvv4qwwmqm"]
+[gd_scene load_steps=12 format=3 uid="uid://bcxdvv4qwwmqm"]
 
 [ext_resource type="Script" path="res://scripts/SimonsSays/SimonSaysMain.gd" id="1_ndbqx"]
 [ext_resource type="Theme" uid="uid://c3vsilsjx2s6p" path="res://themes/SimonSays/button_first.tres" id="2_cy3og"]
 [ext_resource type="Theme" uid="uid://b7lwuqn0tqpbj" path="res://themes/SimonSays/button_second.tres" id="3_inbdr"]
 [ext_resource type="AudioStream" uid="uid://brarlhu18wx0d" path="res://sounds/SimonSays/a_sharp.wav" id="3_mjncv"]
 [ext_resource type="Theme" uid="uid://nyhghu8fbow5" path="res://themes/SimonSays/button_third.tres" id="4_03vn0"]
+[ext_resource type="AudioStream" uid="uid://05dbcdpo80hl" path="res://sounds/SimonSays/c_sharp.wav" id="5_rh8yq"]
 [ext_resource type="Theme" uid="uid://cir6elrno3uxj" path="res://themes/SimonSays/button_fourth.tres" id="5_x1bgx"]
+[ext_resource type="AudioStream" uid="uid://dnmvsy3dhnw3j" path="res://sounds/SimonSays/d_sharp.wav" id="7_4ikna"]
+[ext_resource type="AudioStream" uid="uid://c57a64j7t5ah8" path="res://sounds/SimonSays/f_sharp.wav" id="9_s2q4i"]
+[ext_resource type="AudioStream" uid="uid://ctrnbl5q2voss" path="res://sounds/SimonSays/aww.wav" id="10_8vjif"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_mmi2k"]
 
@@ -45,7 +49,7 @@ offset_top = 128.0
 offset_right = 576.0
 offset_bottom = 320.0
 theme = ExtResource("2_cy3og")
-toggle_mode = true
+action_mode = 0
 script = ExtResource("1_ndbqx")
 
 [node name="Button_First_Sound" type="AudioStreamPlayer" parent="Button_First"]
@@ -59,11 +63,12 @@ offset_right = 768.0
 offset_bottom = 320.0
 theme = ExtResource("3_inbdr")
 toggle_mode = true
+action_mode = 0
 icon = SubResource("ImageTexture_mmi2k")
 script = ExtResource("1_ndbqx")
 
 [node name="Button_Second_Sound" type="AudioStreamPlayer" parent="Button_Second"]
-stream = ExtResource("3_mjncv")
+stream = ExtResource("5_rh8yq")
 
 [node name="Button_Third" type="Button" parent="." groups=["simonSaysGameButtons"]]
 layout_mode = 0
@@ -73,10 +78,11 @@ offset_right = 576.0
 offset_bottom = 512.0
 theme = ExtResource("4_03vn0")
 toggle_mode = true
+action_mode = 0
 script = ExtResource("1_ndbqx")
 
 [node name="Button_Third_Sound" type="AudioStreamPlayer" parent="Button_Third"]
-stream = ExtResource("3_mjncv")
+stream = ExtResource("7_4ikna")
 
 [node name="Button_Fourth" type="Button" parent="." groups=["simonSaysGameButtons"]]
 layout_mode = 0
@@ -86,12 +92,14 @@ offset_right = 768.0
 offset_bottom = 512.0
 theme = ExtResource("5_x1bgx")
 toggle_mode = true
+action_mode = 0
 script = ExtResource("1_ndbqx")
 
 [node name="Button_Fourth_Sound" type="AudioStreamPlayer" parent="Button_Fourth"]
-stream = ExtResource("3_mjncv")
+stream = ExtResource("9_s2q4i")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="PlaybackTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="Play_Button" type="Button" parent="."]
 layout_mode = 0
@@ -123,9 +131,13 @@ offset_top = 136.0
 offset_right = 184.0
 offset_bottom = 256.0
 
+[node name="Aww_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_8vjif")
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="Button_First" to="." method="_on_button_first_pressed"]
 [connection signal="pressed" from="Button_Second" to="." method="_on_button_second_pressed"]
 [connection signal="pressed" from="Button_Third" to="." method="_on_button_third_pressed"]
 [connection signal="pressed" from="Button_Fourth" to="." method="_on_button_fourth_pressed"]
+[connection signal="timeout" from="PlaybackTimer" to="." method="_on_playback_timer_timeout"]
 [connection signal="pressed" from="Play_Button" to="." method="_play_button_pressed"]
