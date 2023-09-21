@@ -86,7 +86,6 @@ script = ExtResource("1_ndbqx")
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="pressed" from="Button_First" to="." method="_on_button_first_pressed"]
-[connection signal="ready" from="Button_First" to="." method="_on_button_first_ready"]
 [connection signal="pressed" from="Button_Second" to="." method="_on_button_second_pressed"]
 [connection signal="pressed" from="Button_Third" to="." method="_on_button_third_pressed"]
 [connection signal="pressed" from="Button_Fourth" to="." method="_on_button_fourth_pressed"]
