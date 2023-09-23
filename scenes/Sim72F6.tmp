@@ -381,4 +381,4 @@ animation = &"resting"
 [connection signal="pressed" from="Play_Button" to="." method="_play_button_pressed"]
 [connection signal="reset_button_pressed" from="Reset_Button" to="." method="_on_reset_button_reset_button_pressed"]
 [connection signal="pressed" from="TEST" to="." method="_on_test_pressed"]
-[connection signal="this_button_pressed" from="B5" to="." method="_on_b_5_this_button_pressed"]
+[connection signal="pressed" from="B5" to="." method="_on_b_5_pressed"]

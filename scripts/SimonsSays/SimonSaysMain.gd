@@ -214,7 +214,7 @@ func _on_animation_timer_timeout():
 	pass # Replace with function body.
 	
 
-func _on_button_first_button_down(which):
+func _on_button_first_button_down():
 	
 
 	
@@ -323,4 +323,23 @@ func _on_reset_button_reset_button_pressed(which):
 	update_score(gameScore)
 	_player_turn_end()
 	update_status("RESET")
+	pass # Replace with function body.
+
+
+func _on_test_pressed():
+	_change_game_disabled(false)
+	
+	pass # Replace with function body.
+
+
+func _on_b_5_pressed(which):
+
+
+	pass # Replace with function body.
+
+
+func _on_b_5_this_button_pressed(which):
+	print('dfdfdfdf')
+	print(which)
+	which.thisButtonSound.play()
 	pass # Replace with function body.

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ckpqmqx1najki"]
 
-[ext_resource type="Script" path="res://scripts/SimonsSays/Main.gd" id="1_42kx1"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_ewocd"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -23,7 +23,7 @@ offset_top = 64.0
 offset_right = 256.0
 offset_bottom = 192.0
 text = "Simon Says Game"
-script = ExtResource("1_42kx1")
+script = ExtResource("1_ewocd")
 
 [node name="Snake" type="Button" parent="."]
 layout_mode = 0
@@ -32,7 +32,7 @@ offset_top = 64.0
 offset_right = 512.0
 offset_bottom = 192.0
 text = "Snake"
-script = ExtResource("1_42kx1")
+script = ExtResource("1_ewocd")
 
 [connection signal="pressed" from="SimonSays" to="SimonSays" method="_on_simonsays_pressed"]
 [connection signal="pressed" from="Snake" to="SimonSays" method="_on_snake_pressed"]

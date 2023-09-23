@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cim2cmg2eak8j" path="res://art/SimonSays/YellowLight.png" id="20_l1xjp"]
 [ext_resource type="Script" path="res://scripts/SimonsSays/Reset_Button.gd" id="21_2806q"]
 [ext_resource type="Script" path="res://scenes/TEST.gd" id="22_cvcsf"]
-[ext_resource type="Script" path="res://scripts/SimonsSays/GameButton.gd" id="24_1wiyo"]
+[ext_resource type="Script" path="res://scenes/GameButton.gd" id="24_gd6vl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0megc"]
 animations = [{
@@ -338,7 +338,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="B5" type="Button" parent="." groups=["simonSaysGameButtons"]]
-layout_mode = 0
 offset_left = 216.0
 offset_top = 40.0
 offset_right = 408.0
@@ -346,7 +345,7 @@ offset_bottom = 232.0
 theme = ExtResource("2_cy3og")
 action_mode = 0
 keep_pressed_outside = true
-script = ExtResource("24_1wiyo")
+script = ExtResource("24_gd6vl")
 
 [node name="Button_Sound" type="AudioStreamPlayer" parent="B5"]
 stream = ExtResource("3_mjncv")
@@ -381,4 +380,4 @@ animation = &"resting"
 [connection signal="pressed" from="Play_Button" to="." method="_play_button_pressed"]
 [connection signal="reset_button_pressed" from="Reset_Button" to="." method="_on_reset_button_reset_button_pressed"]
 [connection signal="pressed" from="TEST" to="." method="_on_test_pressed"]
-[connection signal="this_button_pressed" from="B5" to="." method="_on_b_5_this_button_pressed"]
+[connection signal="pressed" from="B5" to="." method="_on_b_5_pressed"]
