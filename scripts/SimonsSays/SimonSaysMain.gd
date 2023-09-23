@@ -15,19 +15,26 @@ var gameRunning = false
 var playerTurn = false
 var computerPopulate = 0
 var playerPopulate = -1
+var button_pressed
+var buttonObject = {}
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _on_ready():
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")
+	for button in groupOfButtons:
+		print(button.name)
+		buttonObject[button.name] = button
+		
 	groupOfButtonAnimations = get_tree().get_nodes_in_group("simonSaysGameButtonAnimations")
 	for i in len(groupOfButtons):
-		print(i, ' is i')
+
 		objectOfButtonsForMapping[i]=groupOfButtons[i]
 		groupOfButtons[i].disabled = gameDisabled
 		
 	update_score(gameScore)
-	print(objectOfButtonsForMapping)
+
 	
 	pass # Replace with function body.
 
@@ -35,8 +42,8 @@ func _on_ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(playerTurn):
-		print(playerPopulate+1)
-		print(arrayOfButtonsToFollow)
+
+
 		if(len(arrayOfPlayerResponse)>0):
 			if(arrayOfButtonsToFollow[playerPopulate] == arrayOfPlayerResponse[playerPopulate]):
 				if(len(arrayOfButtonsToFollow) == len(arrayOfPlayerResponse)):
@@ -163,9 +170,9 @@ func _ready():
 
 
 func _play_button_pressed():
-	print('heeeeeee')
+
 	if(gameInitialized == false and gameRunning == false):
-		print('eeeee')
+
 		gameInitialized = !gameInitialized
 		gameRunning = !gameRunning
 		
@@ -205,9 +212,11 @@ func _on_animation_timer_timeout():
 	$B3/Face_Animation.play("resting")
 	$B4/Face_Animation.play("resting")
 	pass # Replace with function body.
+	
 
-
-func _on_button_first_button_down():
+func _on_button_first_button_down(which):
+	
+	which/Button_Sound.play()
 	
 	$B1/Button_Sound.play()
 	$B1/Face_Animation.play("default")
@@ -281,4 +290,37 @@ func _on_button_third_button_up():
 func _on_button_fourth_button_up():
 	
 
+	pass # Replace with function body.
+
+
+func _on_reset_button_reset_button_pressed(which):
+	print(which.name)
+	
+	$PlaybackTimer.stop()
+	$AnimationTimer.stop()
+	$B1/Face_Animation.stop()
+	$B2/Face_Animation.stop()
+	$B3/Face_Animation.stop()
+	$B4/Face_Animation.stop()
+	
+	$B1/Button_Animation.play("dark")
+	$B2/Button_Animation.play("dark")
+	$B3/Button_Animation.play("dark")
+	$B4/Button_Animation.play("dark")
+	
+	$B1/Button_Sound.stop()
+	$B2/Button_Sound.stop()
+	$B3/Button_Sound.stop()
+	$B4/Button_Sound.stop()
+	
+	$Aww_Sound.play()
+	_change_game_disabled(true)
+	gameScore = 0
+	gameInitialized = false
+	gameRunning = false
+	computerPopulate = 0
+	arrayOfButtonsToFollow = []
+	update_score(gameScore)
+	_player_turn_end()
+	update_status("RESET")
 	pass # Replace with function body.

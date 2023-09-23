@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bcxdvv4qwwmqm"]
+[gd_scene load_steps=29 format=3 uid="uid://bcxdvv4qwwmqm"]
 
 [ext_resource type="Script" path="res://scripts/SimonsSays/SimonSaysMain.gd" id="1_ndbqx"]
 [ext_resource type="Theme" uid="uid://c3vsilsjx2s6p" path="res://themes/SimonSays/button_first.tres" id="2_cy3og"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bduw3ydlhurfi" path="res://art/SimonSays/BlueLight.png" id="16_5ejjj"]
 [ext_resource type="Texture2D" uid="uid://cre61em3lnt7f" path="res://art/SimonSays/YellowDark.png" id="19_ap3x6"]
 [ext_resource type="Texture2D" uid="uid://cim2cmg2eak8j" path="res://art/SimonSays/YellowLight.png" id="20_l1xjp"]
+[ext_resource type="Script" path="res://scenes/Reset_Button.gd" id="21_v57wu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0megc"]
 animations = [{
@@ -133,8 +134,8 @@ script = ExtResource("1_ndbqx")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1148.0
-offset_bottom = 649.0
+offset_right = 720.0
+offset_bottom = 1280.0
 color = Color(0.105882, 0.321569, 0.317647, 1)
 
 [node name="Play_Area" type="ColorRect" parent="."]
@@ -145,18 +146,18 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -320.0
-offset_top = -260.0
+offset_top = -368.0
 offset_right = 320.0
-offset_bottom = 252.0
+offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="B1" type="Button" parent="." groups=["simonSaysGameButtons"]]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 128.0
-offset_right = 576.0
-offset_bottom = 320.0
+offset_left = 168.0
+offset_top = 320.0
+offset_right = 360.0
+offset_bottom = 512.0
 theme = ExtResource("2_cy3og")
 action_mode = 0
 keep_pressed_outside = true
@@ -179,10 +180,10 @@ animation = &"resting"
 
 [node name="B2" type="Button" parent="." groups=["simonSaysGameButtons"]]
 layout_mode = 0
-offset_left = 576.0
-offset_top = 128.0
-offset_right = 768.0
-offset_bottom = 320.0
+offset_left = 360.0
+offset_top = 320.0
+offset_right = 552.0
+offset_bottom = 512.0
 theme = ExtResource("3_inbdr")
 toggle_mode = true
 action_mode = 0
@@ -206,10 +207,10 @@ animation = &"resting"
 
 [node name="B3" type="Button" parent="." groups=["simonSaysGameButtons"]]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 320.0
-offset_right = 576.0
-offset_bottom = 512.0
+offset_left = 168.0
+offset_top = 512.0
+offset_right = 360.0
+offset_bottom = 704.0
 theme = ExtResource("4_03vn0")
 toggle_mode = true
 action_mode = 0
@@ -232,10 +233,10 @@ animation = &"resting"
 
 [node name="B4" type="Button" parent="." groups=["simonSaysGameButtons"]]
 layout_mode = 0
-offset_left = 576.0
-offset_top = 320.0
-offset_right = 768.0
-offset_bottom = 512.0
+offset_left = 360.0
+offset_top = 512.0
+offset_right = 552.0
+offset_bottom = 704.0
 theme = ExtResource("5_x1bgx")
 toggle_mode = true
 action_mode = 0
@@ -266,35 +267,36 @@ wait_time = 1.25
 [node name="Play_Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 256.0
+offset_top = 1088.0
 offset_right = 192.0
-offset_bottom = 384.0
+offset_bottom = 1216.0
 text = "Play"
 
 [node name="Reset_Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 408.0
-offset_right = 192.0
-offset_bottom = 536.0
+offset_left = 520.0
+offset_top = 1088.0
+offset_right = 648.0
+offset_bottom = 1216.0
 text = "Reset"
+script = ExtResource("21_v57wu")
 
 [node name="GameStatus" type="Label" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 64.0
-offset_right = 200.0
-offset_bottom = 128.0
+offset_left = 192.0
+offset_top = 832.0
+offset_right = 320.0
+offset_bottom = 896.0
 text = "Not Loaded"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 192.0
-offset_right = 192.0
-offset_bottom = 248.0
+offset_left = 192.0
+offset_top = 896.0
+offset_right = 320.0
+offset_bottom = 960.0
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -305,9 +307,20 @@ stream = ExtResource("10_8vjif")
 [node name="Score_Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 136.0
+offset_top = 896.0
 offset_right = 192.0
-offset_bottom = 192.0
+offset_bottom = 960.0
+text = "Game Score:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameStatus_Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 832.0
+offset_right = 192.0
+offset_bottom = 896.0
 text = "Game Score:
 "
 horizontal_alignment = 1
@@ -329,3 +342,4 @@ vertical_alignment = 1
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
 [connection signal="timeout" from="PlaybackTimer" to="." method="_on_playback_timer_timeout"]
 [connection signal="pressed" from="Play_Button" to="." method="_play_button_pressed"]
+[connection signal="reset_button_pressed" from="Reset_Button" to="." method="_on_reset_button_reset_button_pressed"]
