@@ -216,7 +216,7 @@ func _on_animation_timer_timeout():
 
 func _on_button_first_button_down(which):
 	
-	which/Button_Sound.play()
+
 	
 	$B1/Button_Sound.play()
 	$B1/Face_Animation.play("default")
