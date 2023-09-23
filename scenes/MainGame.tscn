@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://ckpqmqx1najki"]
 
-[ext_resource type="Script" path="res://scripts/SimonsSays/SimonSaysNavigate.gd" id="1_kfx0j"]
+[ext_resource type="Script" path="res://scripts/SimonsSays/Main.gd" id="1_42kx1"]
 
-[node name="Control" type="Control"]
+[node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,19 +10,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.105882, 0.321569, 0.317647, 1)
 
-[node name="Button" type="Button" parent="."]
+[node name="SimonSays" type="Button" parent="."]
 layout_mode = 0
-offset_left = 106.0
-offset_top = 301.0
-offset_right = 249.0
-offset_bottom = 390.0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 192.0
 text = "Simon Says Game"
-script = ExtResource("1_kfx0j")
+script = ExtResource("1_42kx1")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="Snake" type="Button" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 64.0
+offset_right = 512.0
+offset_bottom = 192.0
+text = "Snake"
+script = ExtResource("1_42kx1")
+
+[connection signal="pressed" from="SimonSays" to="SimonSays" method="_on_simonsays_pressed"]
+[connection signal="pressed" from="Snake" to="SimonSays" method="_on_snake_pressed"]

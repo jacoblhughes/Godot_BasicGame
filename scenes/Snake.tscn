@@ -1,32 +1,33 @@
-[gd_scene load_steps=28 format=3 uid="uid://bcxdvv4qwwmqm"]
+[gd_scene load_steps=29 format=3 uid="uid://c1ov306httsie"]
 
-[ext_resource type="Script" path="res://scripts/SimonsSays/SimonSaysMain.gd" id="1_ndbqx"]
-[ext_resource type="Theme" uid="uid://c3vsilsjx2s6p" path="res://themes/SimonSays/button_first.tres" id="2_cy3og"]
-[ext_resource type="Theme" uid="uid://b7lwuqn0tqpbj" path="res://themes/SimonSays/button_second.tres" id="3_inbdr"]
-[ext_resource type="AudioStream" uid="uid://brarlhu18wx0d" path="res://sounds/SimonSays/a_sharp.wav" id="3_mjncv"]
-[ext_resource type="Texture2D" uid="uid://be45kmc54xiob" path="res://art/SimonSays/Roddy1.png" id="4_0pn47"]
-[ext_resource type="Theme" uid="uid://nyhghu8fbow5" path="res://themes/SimonSays/button_third.tres" id="4_03vn0"]
-[ext_resource type="Texture2D" uid="uid://df8m8hrwu206j" path="res://art/SimonSays/RedDark.png" id="4_xckeu"]
-[ext_resource type="Texture2D" uid="uid://weu4g7hwjuv1" path="res://art/SimonSays/Roddy2.png" id="5_fpt8q"]
-[ext_resource type="AudioStream" uid="uid://05dbcdpo80hl" path="res://sounds/SimonSays/c_sharp.wav" id="5_rh8yq"]
-[ext_resource type="Texture2D" uid="uid://qcaphq88gpta" path="res://art/SimonSays/RedLight.png" id="5_wedva"]
-[ext_resource type="Theme" uid="uid://cir6elrno3uxj" path="res://themes/SimonSays/button_fourth.tres" id="5_x1bgx"]
-[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/SimonSays/Roddy.png" id="6_sg3if"]
-[ext_resource type="AudioStream" uid="uid://dnmvsy3dhnw3j" path="res://sounds/SimonSays/d_sharp.wav" id="7_4ikna"]
-[ext_resource type="AudioStream" uid="uid://c57a64j7t5ah8" path="res://sounds/SimonSays/f_sharp.wav" id="9_s2q4i"]
-[ext_resource type="AudioStream" uid="uid://ctrnbl5q2voss" path="res://sounds/SimonSays/aww.wav" id="10_8vjif"]
-[ext_resource type="Texture2D" uid="uid://c7exay53no6cn" path="res://art/SimonSays/GreenDark.png" id="11_4shnx"]
-[ext_resource type="Texture2D" uid="uid://dmjokkrvu7kvn" path="res://art/SimonSays/GreenLight.png" id="12_r5cvb"]
-[ext_resource type="Texture2D" uid="uid://dj2wa6j27hxto" path="res://art/SimonSays/BlueDark.png" id="15_0aen4"]
-[ext_resource type="Texture2D" uid="uid://bduw3ydlhurfi" path="res://art/SimonSays/BlueLight.png" id="16_5ejjj"]
-[ext_resource type="Texture2D" uid="uid://cre61em3lnt7f" path="res://art/SimonSays/YellowDark.png" id="19_ap3x6"]
-[ext_resource type="Texture2D" uid="uid://cim2cmg2eak8j" path="res://art/SimonSays/YellowLight.png" id="20_l1xjp"]
+[ext_resource type="Script" path="res://scripts/SimonsSays/Snake.gd" id="1_0mdrt"]
+[ext_resource type="Script" path="res://scripts/SimonsSays/SimonSaysMain.gd" id="1_jwdpg"]
+[ext_resource type="Theme" uid="uid://c3vsilsjx2s6p" path="res://themes/SimonSays/button_first.tres" id="2_imt3n"]
+[ext_resource type="AudioStream" uid="uid://brarlhu18wx0d" path="res://sounds/SimonSays/a_sharp.wav" id="3_a4qxk"]
+[ext_resource type="Texture2D" uid="uid://df8m8hrwu206j" path="res://art/SimonSays/RedDark.png" id="4_11cfx"]
+[ext_resource type="Texture2D" uid="uid://qcaphq88gpta" path="res://art/SimonSays/RedLight.png" id="5_sajcp"]
+[ext_resource type="Texture2D" uid="uid://be45kmc54xiob" path="res://art/SimonSays/Roddy1.png" id="6_5tswa"]
+[ext_resource type="Texture2D" uid="uid://weu4g7hwjuv1" path="res://art/SimonSays/Roddy2.png" id="7_87dua"]
+[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/SimonSays/Roddy.png" id="8_jlmsg"]
+[ext_resource type="Theme" uid="uid://b7lwuqn0tqpbj" path="res://themes/SimonSays/button_second.tres" id="9_76gdb"]
+[ext_resource type="AudioStream" uid="uid://05dbcdpo80hl" path="res://sounds/SimonSays/c_sharp.wav" id="10_mam1q"]
+[ext_resource type="Texture2D" uid="uid://c7exay53no6cn" path="res://art/SimonSays/GreenDark.png" id="11_k1bo4"]
+[ext_resource type="Texture2D" uid="uid://dmjokkrvu7kvn" path="res://art/SimonSays/GreenLight.png" id="12_d5v28"]
+[ext_resource type="Theme" uid="uid://nyhghu8fbow5" path="res://themes/SimonSays/button_third.tres" id="13_4tvp1"]
+[ext_resource type="AudioStream" uid="uid://dnmvsy3dhnw3j" path="res://sounds/SimonSays/d_sharp.wav" id="14_48q10"]
+[ext_resource type="Texture2D" uid="uid://dj2wa6j27hxto" path="res://art/SimonSays/BlueDark.png" id="15_frjou"]
+[ext_resource type="Texture2D" uid="uid://bduw3ydlhurfi" path="res://art/SimonSays/BlueLight.png" id="16_8ayvq"]
+[ext_resource type="Theme" uid="uid://cir6elrno3uxj" path="res://themes/SimonSays/button_fourth.tres" id="17_yfhj6"]
+[ext_resource type="AudioStream" uid="uid://c57a64j7t5ah8" path="res://sounds/SimonSays/f_sharp.wav" id="18_ro54u"]
+[ext_resource type="Texture2D" uid="uid://cre61em3lnt7f" path="res://art/SimonSays/YellowDark.png" id="19_6g1db"]
+[ext_resource type="Texture2D" uid="uid://cim2cmg2eak8j" path="res://art/SimonSays/YellowLight.png" id="20_lwukt"]
+[ext_resource type="AudioStream" uid="uid://ctrnbl5q2voss" path="res://sounds/SimonSays/aww.wav" id="21_qhyy2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0megc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_xckeu")
+"texture": ExtResource("4_11cfx")
 }],
 "loop": false,
 "name": &"dark",
@@ -34,7 +35,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_wedva")
+"texture": ExtResource("5_sajcp")
 }],
 "loop": false,
 "name": &"light",
@@ -45,10 +46,10 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_0pn47")
+"texture": ExtResource("6_5tswa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_fpt8q")
+"texture": ExtResource("7_87dua")
 }],
 "loop": true,
 "name": &"default",
@@ -56,7 +57,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_sg3if")
+"texture": ExtResource("8_jlmsg")
 }],
 "loop": true,
 "name": &"resting",
@@ -69,7 +70,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_4shnx")
+"texture": ExtResource("11_k1bo4")
 }],
 "loop": false,
 "name": &"dark",
@@ -77,7 +78,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_r5cvb")
+"texture": ExtResource("12_d5v28")
 }],
 "loop": false,
 "name": &"light",
@@ -88,7 +89,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_0aen4")
+"texture": ExtResource("15_frjou")
 }],
 "loop": false,
 "name": &"dark",
@@ -96,7 +97,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("16_5ejjj")
+"texture": ExtResource("16_8ayvq")
 }],
 "loop": false,
 "name": &"light",
@@ -107,7 +108,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("19_ap3x6")
+"texture": ExtResource("19_6g1db")
 }],
 "loop": false,
 "name": &"dark",
@@ -115,21 +116,21 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("20_l1xjp")
+"texture": ExtResource("20_lwukt")
 }],
 "loop": false,
 "name": &"light",
 "speed": 5.0
 }]
 
-[node name="SimonSaysGame" type="Control"]
+[node name="Snake" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ndbqx")
+script = ExtResource("1_0mdrt")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -157,13 +158,13 @@ offset_left = 384.0
 offset_top = 128.0
 offset_right = 576.0
 offset_bottom = 320.0
-theme = ExtResource("2_cy3og")
+theme = ExtResource("2_imt3n")
 action_mode = 0
 keep_pressed_outside = true
-script = ExtResource("1_ndbqx")
+script = ExtResource("1_jwdpg")
 
 [node name="Button_Sound" type="AudioStreamPlayer" parent="B1"]
-stream = ExtResource("3_mjncv")
+stream = ExtResource("3_a4qxk")
 
 [node name="Button_Animation" type="AnimatedSprite2D" parent="B1"]
 position = Vector2(96, 96)
@@ -183,14 +184,14 @@ offset_left = 576.0
 offset_top = 128.0
 offset_right = 768.0
 offset_bottom = 320.0
-theme = ExtResource("3_inbdr")
+theme = ExtResource("9_76gdb")
 toggle_mode = true
 action_mode = 0
 icon = SubResource("ImageTexture_mmi2k")
-script = ExtResource("1_ndbqx")
+script = ExtResource("1_jwdpg")
 
 [node name="Button_Sound" type="AudioStreamPlayer" parent="B2"]
-stream = ExtResource("5_rh8yq")
+stream = ExtResource("10_mam1q")
 
 [node name="Button_Animation" type="AnimatedSprite2D" parent="B2"]
 position = Vector2(96, 96)
@@ -210,13 +211,13 @@ offset_left = 384.0
 offset_top = 320.0
 offset_right = 576.0
 offset_bottom = 512.0
-theme = ExtResource("4_03vn0")
+theme = ExtResource("13_4tvp1")
 toggle_mode = true
 action_mode = 0
-script = ExtResource("1_ndbqx")
+script = ExtResource("1_jwdpg")
 
 [node name="Button_Sound" type="AudioStreamPlayer" parent="B3"]
-stream = ExtResource("7_4ikna")
+stream = ExtResource("14_48q10")
 
 [node name="Button_Animation" type="AnimatedSprite2D" parent="B3"]
 position = Vector2(96, 96)
@@ -236,13 +237,13 @@ offset_left = 576.0
 offset_top = 320.0
 offset_right = 768.0
 offset_bottom = 512.0
-theme = ExtResource("5_x1bgx")
+theme = ExtResource("17_yfhj6")
 toggle_mode = true
 action_mode = 0
-script = ExtResource("1_ndbqx")
+script = ExtResource("1_jwdpg")
 
 [node name="Button_Sound" type="AudioStreamPlayer" parent="B4"]
-stream = ExtResource("9_s2q4i")
+stream = ExtResource("18_ro54u")
 
 [node name="Button_Animation" type="AnimatedSprite2D" parent="B4"]
 position = Vector2(96, 96)
@@ -300,7 +301,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Aww_Sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_8vjif")
+stream = ExtResource("21_qhyy2")
 
 [node name="Score_Label" type="Label" parent="."]
 layout_mode = 0

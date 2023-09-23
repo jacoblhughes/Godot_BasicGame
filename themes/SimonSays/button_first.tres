@@ -1,14 +1,18 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c3vsilsjx2s6p"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c3vsilsjx2s6p"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0pc1"]
-bg_color = Color(0.588235, 0.117647, 0.0588235, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6i16n"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngmc8"]
-bg_color = Color(0.976471, 0.372549, 0.321569, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_acoop"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drljm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4b7o3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0vq4"]
 
 [resource]
-Button/styles/disabled = SubResource("StyleBoxFlat_u0pc1")
-Button/styles/focus = SubResource("StyleBoxFlat_ngmc8")
-Button/styles/hover = SubResource("StyleBoxFlat_ngmc8")
-Button/styles/normal = SubResource("StyleBoxFlat_ngmc8")
-Button/styles/pressed = SubResource("StyleBoxFlat_u0pc1")
+Button/styles/disabled = SubResource("StyleBoxEmpty_6i16n")
+Button/styles/focus = SubResource("StyleBoxEmpty_acoop")
+Button/styles/hover = SubResource("StyleBoxEmpty_drljm")
+Button/styles/normal = SubResource("StyleBoxEmpty_4b7o3")
+Button/styles/pressed = SubResource("StyleBoxEmpty_l0vq4")
