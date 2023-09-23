@@ -40,6 +40,7 @@ func _process(delta):
 		if(len(arrayOfPlayerResponse)>0):
 			if(arrayOfButtonsToFollow[playerPopulate] == arrayOfPlayerResponse[playerPopulate]):
 				if(len(arrayOfButtonsToFollow) == len(arrayOfPlayerResponse)):
+					_change_game_disabled(true)
 					_player_turn_end()
 					_computer_turn_start()
 			else:
@@ -86,43 +87,43 @@ func update_status(status):
 
 func _on_button_first_pressed():
 
-	$Button_First/Button_First_Animation.play("default")
-	$Button_First/Button_First_Sound.play()
-	$AnimationTimer.start()
-	if(playerTurn):
-		arrayOfPlayerResponse.append(0)
-		playerPopulate += 1
+#	$Button_First/Button_First_Animation.play("default")
+#	$Button_First/Button_First_Sound.play()
+#	$AnimationTimer.start()
+#	if(playerTurn):
+#		arrayOfPlayerResponse.append(0)
+#		playerPopulate += 1
 	pass # Replace with function body.
 
 
 func _on_button_second_pressed():
 
-	$Button_Second/Button_Second_Sound.play()
-	$Button_Second/Button_Second_Animation.play("default")
-	$AnimationTimer.start()
-	if(playerTurn):
-		arrayOfPlayerResponse.append(1)
-		playerPopulate += 1
+#	$Button_Second/Button_Second_Sound.play()
+#	$Button_Second/Button_Second_Animation.play("default")
+#	$AnimationTimer.start()
+#	if(playerTurn):
+#		arrayOfPlayerResponse.append(1)
+#		playerPopulate += 1
 	pass # Replace with function body.
 
 
 func _on_button_third_pressed():
-	$Button_Third/Button_Third_Animation.play("default")
-	$Button_Third/Button_Third_Sound.play()
-	$AnimationTimer.start()
-	if(playerTurn):
-		arrayOfPlayerResponse.append(2)
-		playerPopulate += 1
+#	$Button_Third/Button_Third_Animation.play("default")
+#	$Button_Third/Button_Third_Sound.play()
+#	$AnimationTimer.start()
+#	if(playerTurn):
+#		arrayOfPlayerResponse.append(2)
+#		playerPopulate += 1
 	pass # Replace with function body.
 
 
 func _on_button_fourth_pressed():
-	$Button_Fourth/Button_Fourth_Sound.play()
-	$Button_Fourth/Button_Fourth_Animation.play("default")
-	$AnimationTimer.start()
-	if(playerTurn):
-		arrayOfPlayerResponse.append(3)
-		playerPopulate += 1
+#	$Button_Fourth/Button_Fourth_Sound.play()
+#	$Button_Fourth/Button_Fourth_Animation.play("default")
+#	$AnimationTimer.start()
+#	if(playerTurn):
+#		arrayOfPlayerResponse.append(3)
+#		playerPopulate += 1
 	pass # Replace with function body.
 
 func _get_next_value():
@@ -155,7 +156,7 @@ func _play_button_pressed():
 	
 func _on_playback_timer_timeout():
 
-	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]].emit_signal("pressed")
+	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]].emit_signal("button_down")
 
 	computerPopulate+=1
 
@@ -174,4 +175,55 @@ func _on_animation_timer_timeout():
 	$Button_Second/Button_Second_Animation.stop()
 	$Button_Third/Button_Third_Animation.stop()
 	$Button_Fourth/Button_Fourth_Animation.stop()
+	
+	$Button_First/Button_First_Animation.play("resting")
+	$Button_Second/Button_Second_Animation.play("resting")
+	$Button_Third/Button_Third_Animation.play("resting")
+	$Button_Fourth/Button_Fourth_Animation.play("resting")
+	pass # Replace with function body.
+
+
+func _on_button_first_button_down():
+	
+	$Button_First/Button_First_Animation.play("default")
+	$Button_First/Button_First_Sound.play()
+	$AnimationTimer.start()
+	if(playerTurn):
+		arrayOfPlayerResponse.append(0)
+		playerPopulate += 1
+	pass # Replace with function body.
+	
+	pass # Replace with function body.
+
+
+func _on_button_second_button_down():
+	
+	$Button_Second/Button_Second_Sound.play()
+	$Button_Second/Button_Second_Animation.play("default")
+	$AnimationTimer.start()
+	if(playerTurn):
+		arrayOfPlayerResponse.append(1)
+		playerPopulate += 1
+	
+	pass # Replace with function body.
+
+
+func _on_button_third_button_down():
+	$Button_Third/Button_Third_Animation.play("default")
+	$Button_Third/Button_Third_Sound.play()
+	$AnimationTimer.start()
+	if(playerTurn):
+		arrayOfPlayerResponse.append(2)
+		playerPopulate += 1
+	pass # Replace with function body.
+
+
+func _on_button_fourth_button_down():
+	$Button_Fourth/Button_Fourth_Sound.play()
+	$Button_Fourth/Button_Fourth_Animation.play("default")
+	$AnimationTimer.start()
+	if(playerTurn):
+		arrayOfPlayerResponse.append(3)
+		playerPopulate += 1
+	
 	pass # Replace with function body.
