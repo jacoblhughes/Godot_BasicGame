@@ -118,15 +118,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HighScorePopup" type="PopupPanel" parent="."]
-position = Vector2i(40, 272)
-size = Vector2i(640, 512)
 script = ExtResource("4_fax66")
 
 [node name="ColorRect" type="ColorRect" parent="HighScorePopup"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 636.0
-offset_bottom = 508.0
+offset_right = 96.0
+offset_bottom = 96.0
 
 [connection signal="timeout" from="PlaybackTimer" to="." method="_on_playback_timer_timeout"]
 [connection signal="pressed" from="Play_Button" to="." method="_play_button_pressed"]

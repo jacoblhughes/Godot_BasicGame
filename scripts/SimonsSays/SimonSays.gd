@@ -1,5 +1,6 @@
 extends Node
 
+var config = ConfigFile.new()
 var arrayOfPlayerResponse = []
 var arrayOfButtonsToFollow = []
 var objectOfButtonsForMapping = {}
@@ -32,6 +33,8 @@ var yellowButton
 @onready var blueButtonScene = preload("res://scenes/SimonSays/BlueButton.tscn")
 @onready var greenButtonScene = preload("res://scenes/SimonSays/GreenButton.tscn")
 @onready var yellowButtonScene = preload("res://scenes/SimonSays/YellowButton.tscn")
+
+@onready var err = config.load("res://data/SimonSays/SimonSays.cfg")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -69,7 +72,9 @@ func _ready():
 		button.disabled = true
 #
 	update_score(gameScore)
-
+	
+	var configFileSections = config.get_sections()
+	print(configFileSections)
 	pass # Replace with function body.
 
 
@@ -91,6 +96,9 @@ func _process(delta):
 
 func _game_lose():
 	
+	config.set_value("highscores", "player_name", "JLH")
+	config.set_value("highscores", "highscore", gameScore)
+	config.save("res://data/SimonSays/SimonSays.cfg")
 	_stop_game_button_sounds()
 	_stop_game_button_animations_and_timer()
 	$PlaybackTimer.stop()
@@ -167,7 +175,7 @@ func _play_button_pressed():
 	pass # Replace with function body.
 	
 func _on_playback_timer_timeout():
-	
+
 	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]]._pressed()
 	computerPopulate+=1
 	if(computerPopulate == len(arrayOfButtonsToFollow)):
