@@ -95,9 +95,6 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Aww_Sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("23_yd87t")
-
 [node name="Score_Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 64.0
@@ -119,6 +116,29 @@ text = "Game Score:
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Initials_Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 192.0
+offset_bottom = 256.0
+text = "Initials:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Initials" type="Label" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 192.0
+offset_right = 320.0
+offset_bottom = 256.0
+text = "JLH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Aww_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_yd87t")
 
 [node name="HighScorePopup" type="PopupPanel" parent="."]
 position = Vector2i(40, 272)
@@ -152,22 +172,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 select_mode = 1
 max_text_lines = 20
 same_column_width = true
-
-[node name="Initials_Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 200.0
-offset_right = 112.0
-offset_bottom = 248.0
-text = "Initials:"
-
-[node name="Initials" type="Label" parent="."]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 200.0
-offset_right = 184.0
-offset_bottom = 248.0
-text = "JLH"
 
 [connection signal="timeout" from="PlaybackTimer" to="." method="_on_playback_timer_timeout"]
 [connection signal="pressed" from="Play_Button" to="." method="_play_button_pressed"]
