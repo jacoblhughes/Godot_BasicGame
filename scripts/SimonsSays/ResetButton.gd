@@ -14,4 +14,4 @@ func _process(delta):
 
 func _pressed():
 
-	reset_button_pressed.emit(self)
+	reset_button_pressed.emit()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://c1ov306httsie"]
 
-[ext_resource type="Script" path="res://scripts/SimonsSays/Snake.gd" id="1_0mdrt"]
-[ext_resource type="Script" path="res://scripts/SimonsSays/SimonSaysMain.gd" id="1_jwdpg"]
+[ext_resource type="Script" path="res://scripts/Snake/Snake.gd" id="1_0mdrt"]
+[ext_resource type="Script" path="res://scripts/SimonsSays/SimonSays.gd" id="1_jwdpg"]
 [ext_resource type="Theme" uid="uid://c3vsilsjx2s6p" path="res://themes/SimonSays/button_first.tres" id="2_imt3n"]
 [ext_resource type="AudioStream" uid="uid://brarlhu18wx0d" path="res://sounds/SimonSays/a_sharp.wav" id="3_a4qxk"]
 [ext_resource type="Texture2D" uid="uid://df8m8hrwu206j" path="res://art/SimonSays/RedDark.png" id="4_11cfx"]

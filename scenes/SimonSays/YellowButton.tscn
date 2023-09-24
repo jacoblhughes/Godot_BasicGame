@@ -61,7 +61,7 @@ script = ExtResource("2_gibyd")
 [node name="Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_cva76")
 
-[node name="Animation" type="AnimatedSprite2D" parent="."]
+[node name="animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(96, 96)
 scale = Vector2(1.28, 1.28)
 sprite_frames = SubResource("SpriteFrames_0megc")
@@ -72,3 +72,8 @@ position = Vector2(96, 96)
 scale = Vector2(1.28, 1.28)
 sprite_frames = SubResource("SpriteFrames_vprhw")
 animation = &"resting"
+
+[node name="animationTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="animationTimer" to="." method="_on_animation_timer_timeout"]
