@@ -131,8 +131,8 @@ func _game_lose():
 		high_scores.remove_at(high_scores.size() - 1)
 		high_scores_names.remove_at(high_scores_names.size() - 1)
 
-	config.set_value("highscores", "player_name", "JLH")
-	config.set_value("highscores", "highscore", gameScore)
+#	config.set_value("highscores", "player_name", "JLH")
+
 	config.save("res://data/SimonSays/SimonSays.cfg")
 	_stop_game_button_sounds()
 	_stop_game_button_animations_and_timer()
