@@ -17,22 +17,56 @@ var computerPopulate = 0
 var playerPopulate = -1
 var button_pressed
 var buttonObject = {}
+var simonButtons = 4
+var gameButtonDim = 96*2
 
+var originalGameButtonX = 168
+var originalGameButtonY = 320
 
+@onready var redButtonScene = preload("res://scenes/SimonSays/RedButton.tscn")
+@onready var blueButtonScene = preload("res://scenes/SimonSays/BlueButton.tscn")
+@onready var greenButtonScene = preload("res://scenes/SimonSays/GreenButton.tscn")
+@onready var yellowButtonScene = preload("res://scenes/SimonSays/YellowButton.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _on_ready():
+
+
+
+	var redButton = redButtonScene.instantiate()
+	var blueButton = blueButtonScene.instantiate()
+	var greenButton = greenButtonScene.instantiate()
+	var yellowButton = yellowButtonScene.instantiate()
+	redButton.position = Vector2(originalGameButtonX,originalGameButtonY)
+	blueButton.position = Vector2(originalGameButtonX + gameButtonDim,originalGameButtonY)
+	greenButton.position = Vector2(originalGameButtonX,originalGameButtonY + gameButtonDim)
+	yellowButton.position = Vector2(originalGameButtonX + gameButtonDim,originalGameButtonY + gameButtonDim)
+
+	redButton.game_button_pressed.connect(_on_game_button_pressed)
+	blueButton.game_button_pressed.connect(_on_game_button_pressed)
+	greenButton.game_button_pressed.connect(_on_game_button_pressed)
+	yellowButton.game_button_pressed.connect(_on_game_button_pressed)
+	add_child(redButton)
+	add_child(blueButton)
+	add_child(greenButton)
+	add_child(yellowButton)
+	
+	redButton.add_to_group("simonSaysGameButtons")
+	blueButton.add_to_group("simonSaysGameButtons")
+	greenButton.add_to_group("simonSaysGameButtons")
+	yellowButton.add_to_group("simonSaysGameButtons")
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")
+	
 	for button in groupOfButtons:
 		print(button.name)
 		buttonObject[button.name] = button
-		
-	groupOfButtonAnimations = get_tree().get_nodes_in_group("simonSaysGameButtonAnimations")
-	for i in len(groupOfButtons):
-
-		objectOfButtonsForMapping[i]=groupOfButtons[i]
-		groupOfButtons[i].disabled = gameDisabled
-		
+		button.disabled = true
+#	groupOfButtonAnimations = get_tree().get_nodes_in_group("simonSaysGameButtonAnimations")
+#	for i in len(groupOfButtons):
+#
+#		objectOfButtonsForMapping[i]=groupOfButtons[i]
+#		groupOfButtons[i].disabled = gameDisabled
+#
 	update_score(gameScore)
 
 	
@@ -42,8 +76,6 @@ func _on_ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(playerTurn):
-
-
 		if(len(arrayOfPlayerResponse)>0):
 			if(arrayOfButtonsToFollow[playerPopulate] == arrayOfPlayerResponse[playerPopulate]):
 				if(len(arrayOfButtonsToFollow) == len(arrayOfPlayerResponse)):
@@ -73,13 +105,15 @@ func _game_lose():
 	$B4/Button_Sound.stop()
 	
 	$Aww_Sound.play()
+	
 	_change_game_disabled(true)
 	gameScore = 0
+	update_score(gameScore)
 	gameInitialized = false
 	gameRunning = false
 	computerPopulate = 0
 	arrayOfButtonsToFollow = []
-	update_score(gameScore)
+
 	_player_turn_end()
 	update_status("LOSER")
 
@@ -218,7 +252,7 @@ func _on_button_first_button_down():
 	
 
 	
-	$B1/Button_Sound.play()
+
 	$B1/Face_Animation.play("default")
 	$B1/Button_Animation.play("light")
 	$AnimationTimer.start()
@@ -232,7 +266,7 @@ func _on_button_first_button_down():
 
 func _on_button_second_button_down():
 	
-	$B2/Button_Sound.play()
+
 	$B2/Button_Animation.play("light")
 	$B2/Face_Animation.play("default")
 	$AnimationTimer.start()
@@ -245,7 +279,7 @@ func _on_button_second_button_down():
 
 func _on_button_third_button_down():
 	
-	$B3/Button_Sound.play()
+
 	$B3/Face_Animation.play("default")
 	$B3/Button_Animation.play("light")
 
@@ -258,7 +292,7 @@ func _on_button_third_button_down():
 
 func _on_button_fourth_button_down():
 	
-	$B4/Button_Sound.play()
+
 	$B4/Face_Animation.play("default")
 	$B4/Button_Animation.play("light")
 	$AnimationTimer.start()
@@ -267,31 +301,6 @@ func _on_button_fourth_button_down():
 		playerPopulate += 1
 	
 	pass # Replace with function body.
-
-
-func _on_button_first_button_up():
-	
-
-	pass # Replace with function body.
-
-
-func _on_button_second_button_up():
-
-
-	pass # Replace with function body.
-
-
-func _on_button_third_button_up():
-
-
-	pass # Replace with function body.
-
-
-func _on_button_fourth_button_up():
-	
-
-	pass # Replace with function body.
-
 
 func _on_reset_button_reset_button_pressed(which):
 	print(which.name)
@@ -332,14 +341,10 @@ func _on_test_pressed():
 	pass # Replace with function body.
 
 
-func _on_b_5_pressed(which):
-
-
-	pass # Replace with function body.
-
-
-func _on_b_5_this_button_pressed(which):
-	print('dfdfdfdf')
+func _on_game_button_pressed(which):
 	print(which)
-	which.thisButtonSound.play()
-	pass # Replace with function body.
+	which.sound.play()
+	which.faceAnimation.play("default")
+	which.animation.play("light")
+	$AnimationTimer.start()
+	pass
