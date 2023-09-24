@@ -29,6 +29,11 @@ var blueButton
 var greenButton
 var yellowButton
 
+var high_scores_for_popup
+var high_scores_names
+var high_scores
+var currentInitials  # Replace this with the player's initials
+
 @onready var redButtonScene = preload("res://scenes/SimonSays/RedButton.tscn")
 @onready var blueButtonScene = preload("res://scenes/SimonSays/BlueButton.tscn")
 @onready var greenButtonScene = preload("res://scenes/SimonSays/GreenButton.tscn")
@@ -38,6 +43,8 @@ var yellowButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	currentInitials = $Initials.text
 	
 	redButton = redButtonScene.instantiate()
 	blueButton = blueButtonScene.instantiate()
@@ -73,8 +80,20 @@ func _ready():
 #
 	update_score(gameScore)
 	
-	var configFileSections = config.get_sections()
-	print(configFileSections)
+	var section_name = "highscores"
+	high_scores_names = config.get_value(section_name, "names", [])
+	high_scores = config.get_value(section_name, "scores", [])
+	var item_list = $HighScorePopup/ColorRect/ItemList
+	if high_scores_names.size() != high_scores.size():
+		print("Error: Names and scores arrays have different sizes.")
+		return
+	for i in range(high_scores_names.size()):
+		var name = high_scores_names[i]
+		var score = high_scores[i]
+		var displayText = name + ": " + str(score)  # Format as needed
+
+		item_list.add_item(displayText)
+			
 	pass # Replace with function body.
 
 
@@ -95,7 +114,23 @@ func _process(delta):
 	pass
 
 func _game_lose():
-	
+	var added = false
+
+	for i in range(high_scores.size()):
+		if gameScore > high_scores[i]:
+			high_scores.insert(i, gameScore)
+			high_scores_names.insert(i, currentInitials)
+			added = true
+			break
+
+	if not added and high_scores.size() < 10:
+		high_scores.append(gameScore)
+		high_scores_names.append(currentInitials)
+
+	while high_scores.size() > 10:
+		high_scores.remove_at(high_scores.size() - 1)
+		high_scores_names.remove_at(high_scores_names.size() - 1)
+
 	config.set_value("highscores", "player_name", "JLH")
 	config.set_value("highscores", "highscore", gameScore)
 	config.save("res://data/SimonSays/SimonSays.cfg")
@@ -115,8 +150,6 @@ func _game_lose():
 
 	_player_turn_end()
 	update_status("LOSER")
-
-
 
 func _computer_turn_start():
 	

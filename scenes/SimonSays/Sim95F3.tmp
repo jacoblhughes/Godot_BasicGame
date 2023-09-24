@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scripts/SimonsSays/HighScorePopup.gd" id="4_fax66"]
 [ext_resource type="AudioStream" uid="uid://ctrnbl5q2voss" path="res://sounds/SimonSays/aww.wav" id="23_yd87t"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_spgrt"]
+[sub_resource type="LabelSettings" id="LabelSettings_gm4ys"]
 font_color = Color(0, 0, 0, 1)
 
 [node name="SimonSaysGame" type="Control"]
@@ -121,57 +121,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HighScorePopup" type="PopupPanel" parent="."]
-position = Vector2i(40, 272)
-size = Vector2i(640, 512)
-unresizable = false
-always_on_top = true
 script = ExtResource("4_fax66")
 
-[node name="HighScoreTitle" type="Label" parent="HighScorePopup"]
-visible = false
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 636.0
-offset_bottom = 508.0
-text = "High Scores:"
-label_settings = SubResource("LabelSettings_spgrt")
-autowrap_mode = 1
-
 [node name="ColorRect" type="ColorRect" parent="HighScorePopup"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 636.0
-offset_bottom = 508.0
+offset_right = 92.0
+offset_bottom = 92.0
 color = Color(0.505882, 1, 1, 1)
 
-[node name="ItemList" type="ItemList" parent="HighScorePopup/ColorRect"]
-layout_mode = 0
-offset_right = 632.0
-offset_bottom = 504.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-select_mode = 1
-max_text_lines = 20
-same_column_width = true
-
-[node name="Initials_Label" type="Label" parent="."]
-layout_mode = 0
+[node name="HighScoreTitle" type="Label" parent="HighScorePopup"]
 offset_left = 40.0
-offset_top = 200.0
-offset_right = 112.0
-offset_bottom = 248.0
-text = "Initials:"
-
-[node name="Initials" type="Label" parent="."]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 200.0
-offset_right = 184.0
-offset_bottom = 248.0
-text = "JLH"
+offset_top = 272.0
+offset_right = 135.0
+offset_bottom = 364.0
+text = "High Scores:"
+label_settings = SubResource("LabelSettings_gm4ys")
 
 [connection signal="timeout" from="PlaybackTimer" to="." method="_on_playback_timer_timeout"]
 [connection signal="pressed" from="Play_Button" to="." method="_play_button_pressed"]
 [connection signal="reset_button_pressed" from="Reset_Button" to="." method="_on_reset_button_reset_button_pressed"]
 [connection signal="pressed" from="View_High_Scores" to="HighScorePopup" method="_on_view_high_scores_pressed"]
 [connection signal="pressed" from="TEST" to="." method="_on_test_pressed"]
-[connection signal="focus_exited" from="HighScorePopup" to="HighScorePopup" method="_on_focus_exited"]

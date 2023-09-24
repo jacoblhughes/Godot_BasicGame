@@ -153,22 +153,6 @@ select_mode = 1
 max_text_lines = 20
 same_column_width = true
 
-[node name="Initials_Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 200.0
-offset_right = 112.0
-offset_bottom = 248.0
-text = "Initials:"
-
-[node name="Initials" type="Label" parent="."]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 200.0
-offset_right = 184.0
-offset_bottom = 248.0
-text = "JLH"
-
 [connection signal="timeout" from="PlaybackTimer" to="." method="_on_playback_timer_timeout"]
 [connection signal="pressed" from="Play_Button" to="." method="_play_button_pressed"]
 [connection signal="reset_button_pressed" from="Reset_Button" to="." method="_on_reset_button_reset_button_pressed"]
