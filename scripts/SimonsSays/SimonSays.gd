@@ -113,6 +113,7 @@ func _process(delta):
 	pass
 
 func _game_lose():
+	
 	var added = false
 
 	for i in range(high_scores.size()):
