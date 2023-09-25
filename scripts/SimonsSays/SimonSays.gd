@@ -32,7 +32,7 @@ var yellowButton
 var high_scores_for_popup
 var high_scores_names
 var high_scores
-var currentInitials  # Replace this with the player's initials
+var section_name = "highscores"
 
 @onready var redButtonScene = preload("res://scenes/SimonSays/RedButton.tscn")
 @onready var blueButtonScene = preload("res://scenes/SimonSays/BlueButton.tscn")
@@ -40,11 +40,11 @@ var currentInitials  # Replace this with the player's initials
 @onready var yellowButtonScene = preload("res://scenes/SimonSays/YellowButton.tscn")
 
 @onready var err = config.load("res://data/SimonSays/SimonSays.cfg")
-
+@onready var currentInitials = config.get_value(section_name, "initials")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	currentInitials = $Initials.text
+
+	$Initials.text = currentInitials
 	
 	redButton = redButtonScene.instantiate()
 	blueButton = blueButtonScene.instantiate()
@@ -80,7 +80,6 @@ func _ready():
 #
 	update_score(gameScore)
 	
-	var section_name = "highscores"
 	high_scores_names = config.get_value(section_name, "names", [])
 	high_scores = config.get_value(section_name, "scores", [])
 	var item_list = $HighScorePopup/ColorRect/ItemList
