@@ -45,41 +45,9 @@ var section_name = "highscores"
 func _ready():
 
 	$Initials.text = currentInitials
-	
-	redButton = redButtonScene.instantiate()
-	blueButton = blueButtonScene.instantiate()
-	greenButton = greenButtonScene.instantiate()
-	yellowButton = yellowButtonScene.instantiate()
-	redButton.position = Vector2(originalGameButtonX,originalGameButtonY)
-	redButton.buttonNumber = 0
-	blueButton.position = Vector2(originalGameButtonX + gameButtonDim,originalGameButtonY)
-	blueButton.buttonNumber = 1
-	greenButton.position = Vector2(originalGameButtonX,originalGameButtonY + gameButtonDim)
-	greenButton.buttonNumber = 2
-	yellowButton.position = Vector2(originalGameButtonX + gameButtonDim,originalGameButtonY + gameButtonDim)
-	yellowButton.buttonNumber = 3
-	redButton.game_button_pressed.connect(_on_game_button_pressed)
-	blueButton.game_button_pressed.connect(_on_game_button_pressed)
-	greenButton.game_button_pressed.connect(_on_game_button_pressed)
-	yellowButton.game_button_pressed.connect(_on_game_button_pressed)
-	add_child(redButton)
-	add_child(blueButton)
-	add_child(greenButton)
-	add_child(yellowButton)
-	
-	redButton.add_to_group("simonSaysGameButtons")
-	blueButton.add_to_group("simonSaysGameButtons")
-	greenButton.add_to_group("simonSaysGameButtons")
-	yellowButton.add_to_group("simonSaysGameButtons")
-	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")
-	
-	for button in groupOfButtons:
-
-		buttonObject[button.name] = button
-		button.disabled = true
-#
+	initializeButtons()
+	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")#
 	update_score(gameScore)
-	
 	high_scores_names = config.get_value(section_name, "names", [])
 	high_scores = config.get_value(section_name, "scores", [])
 	var item_list = $HighScorePopup/ColorRect/ItemList
@@ -121,6 +89,7 @@ func _game_lose():
 			high_scores.insert(i, gameScore)
 			high_scores_names.insert(i, currentInitials)
 			added = true
+			$Applause_Sound.play()
 			break
 
 	if not added and high_scores.size() < 10:
@@ -137,8 +106,10 @@ func _game_lose():
 	_stop_game_button_sounds()
 	_stop_game_button_animations_and_timer()
 	$PlaybackTimer.stop()
-	
-	$Aww_Sound.play()
+	if(added):
+		$Applause_Sound.play()
+	else:
+		$Aww_Sound.play()
 	
 	_change_game_disabled(true)
 	gameScore = 0
@@ -150,6 +121,21 @@ func _game_lose():
 
 	_player_turn_end()
 	update_status("LOSER")
+
+func initializeButtons():
+	var buttonScenes = [
+		redButtonScene,blueButtonScene,greenButtonScene,yellowButtonScene
+	]
+
+	for i in range(buttonScenes.size()):
+		var button = buttonScenes[i].instantiate()
+		button.position = Vector2(originalGameButtonX + (i % 2) * gameButtonDim, originalGameButtonY + (i / 2) * gameButtonDim)
+		button.buttonNumber = i
+		button.game_button_pressed.connect(_on_game_button_pressed)
+		button.add_to_group("simonSaysGameButtons")
+		add_child(button)
+		buttonObject[button.name] = button
+		button.disabled = true
 
 func _computer_turn_start():
 	
