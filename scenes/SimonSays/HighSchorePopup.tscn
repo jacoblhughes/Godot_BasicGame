@@ -21,6 +21,7 @@ offset_bottom = 508.0
 color = Color(0.505882, 1, 1, 1)
 
 [node name="ItemList" type="ItemList" parent="ColorRect"]
+layout_mode = 0
 offset_right = 632.0
 offset_bottom = 504.0
 select_mode = 1
