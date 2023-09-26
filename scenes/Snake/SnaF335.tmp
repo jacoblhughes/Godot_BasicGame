@@ -231,4 +231,5 @@ tile_set = SubResource("TileSet_eounh")
 cell_quadrant_size = 64
 format = 2
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="focus_exited" from="HighScorePopup" to="HighScorePopup" method="_on_focus_exited"]

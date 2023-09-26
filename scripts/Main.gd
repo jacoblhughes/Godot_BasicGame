@@ -8,7 +8,6 @@ var section_key = "initials"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(new_initials)
 	$Initials.text = new_initials
 	pass # Replace with function body.
 

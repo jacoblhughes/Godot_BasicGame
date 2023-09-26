@@ -11,7 +11,7 @@ var inputs = {"right": Vector2.RIGHT,
 			"down": Vector2.DOWN}
 
 func _ready():
-	screen_size = get_parent().get_node("Play_Area").size
+	screen_size = get_parent().get_node("Node2D").get_node("Play_Area").size
 	tile_size = screen_size.x/64
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size/2
@@ -44,4 +44,4 @@ func _process(delta):
 	pass
 
 func _input(event):
-	print(event)
+	pass
