@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1ov306httsie"]
+[gd_scene load_steps=14 format=3 uid="uid://c1ov306httsie"]
 
 [ext_resource type="Script" path="res://scripts/Snake/SnakeGame.gd" id="1_v748h"]
 [ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/SimonSays/button.tres" id="2_hej57"]
@@ -8,22 +8,11 @@
 [ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/SimonSays/applause.wav" id="7_rq3xa"]
 [ext_resource type="Script" path="res://scripts/SimonsSays/HighScorePopup.gd" id="8_jkvh0"]
 [ext_resource type="Script" path="res://scripts/Snake/Player.gd" id="9_4thv3"]
-[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/Snake/Roddy.png" id="10_jbpxy"]
+[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/SimonSays/Roddy.png" id="10_p252r"]
 [ext_resource type="AudioStream" uid="uid://ctrnbl5q2voss" path="res://sounds/SimonSays/aww.wav" id="21_qhyy2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8x47m"]
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_p28rm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_jbpxy")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rao5q"]
 
@@ -211,11 +200,15 @@ same_column_width = true
 [node name="Snake" type="Area2D" parent="."]
 script = ExtResource("9_4thv3")
 
+[node name="Sprite2D" type="Sprite2D" parent="Snake"]
+position = Vector2(40, 272)
+texture = ExtResource("10_p252r")
+
 [node name="Collision" type="CollisionShape2D" parent="Snake"]
 
-[node name="Animation" type="AnimatedSprite2D" parent="Snake"]
-position = Vector2(40, 272)
-sprite_frames = SubResource("SpriteFrames_p28rm")
+[node name="RayCast2D" type="RayCast2D" parent="Snake"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Snake"]
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
