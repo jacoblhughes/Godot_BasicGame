@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd45fmga1y04c"]
+
+[ext_resource type="Script" path="res://scripts/Main/Hud.gd" id="1_jw538"]
+[ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/SimonSays/label.tres" id="1_u2suk"]
+[ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/SimonSays/button.tres" id="3_jn4in"]
+
+[node name="HudCanvasLayer" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_jw538")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+mouse_filter = 2
+
+[node name="Initials_Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 152.0
+offset_bottom = 88.0
+theme = ExtResource("1_u2suk")
+text = "Initials:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Initials" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 24.0
+offset_right = 304.0
+offset_bottom = 88.0
+theme = ExtResource("1_u2suk")
+text = "JLH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Home_Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 24.0
+offset_right = 696.0
+offset_bottom = 88.0
+theme = ExtResource("3_jn4in")
+text = "Home"
+
+[connection signal="pressed" from="Control/Home_Button" to="." method="_on_home_button_pressed"]

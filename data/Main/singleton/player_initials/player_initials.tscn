@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6ivujn6p1qpa"]
+
+[ext_resource type="Script" path="res://data/Main/singleton/player_initials/player_initials.gd" id="1_klntn"]
+
+[node name="player_initials" type="Node"]
+script = ExtResource("1_klntn")

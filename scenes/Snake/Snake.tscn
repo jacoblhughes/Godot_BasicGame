@@ -130,28 +130,6 @@ text = "Game Status:
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Initials_Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 72.0
-offset_right = 168.0
-offset_bottom = 136.0
-theme = ExtResource("5_6tuw8")
-text = "Initials:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Initials" type="Label" parent="."]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 72.0
-offset_right = 320.0
-offset_bottom = 136.0
-theme = ExtResource("5_6tuw8")
-text = "JLH"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Aww_Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_qhyy2")
 

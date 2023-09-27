@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="BasicGames"
-run/main_scene="res://scenes/MainGame.tscn"
+run/main_scene="res://scenes/Main/MainGame.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerInitials="*res://data/Main/singleton/player_initials/player_initials.gd"
 
 [display]
 
@@ -49,3 +53,5 @@ move_down={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.0313726, 0.0313726, 0.0313726, 1)
