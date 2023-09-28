@@ -22,7 +22,7 @@ var simonButtons = 4
 var gameButtonDim = 96*2
 
 var originalGameButtonX = 168
-var originalGameButtonY = 320
+var originalGameButtonY = 288
 
 var redButton
 var blueButton

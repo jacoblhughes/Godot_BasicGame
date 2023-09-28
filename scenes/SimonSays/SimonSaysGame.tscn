@@ -29,17 +29,10 @@ color = Color(0.152941, 0.152941, 0.152941, 1)
 
 [node name="Play_Area" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -368.0
-offset_right = 320.0
-offset_bottom = 144.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 40.0
+offset_top = 160.0
+offset_right = 680.0
+offset_bottom = 800.0
 color = Color(0.4, 0.6, 0.607843, 1)
 
 [node name="PlaybackTimer" type="Timer" parent="."]

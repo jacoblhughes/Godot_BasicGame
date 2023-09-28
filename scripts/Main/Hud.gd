@@ -4,6 +4,10 @@ extends CanvasLayer
 @onready var player_initials = PlayerInitials.get_initials()
 @onready var InitialsInput : Label
 
+var child_node_to_delete
+
+@onready var buttons  = get_tree().get_root().get_node("Main").get_node("Buttons")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	InitialsInput = $Control/Initials
@@ -25,4 +29,9 @@ func update_initials_label():
 
 func _on_home_button_pressed():
 	
+	child_node_to_delete = get_tree().get_root().get_node("Main").get_node("GameScene").get_children()
+	if child_node_to_delete:
+		buttons.visible = true
+		for child in child_node_to_delete:
+			child.queue_free()
 	pass # Replace with function body.
