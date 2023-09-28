@@ -7,6 +7,9 @@ extends Node2D
 
 @onready var sizewidth = width/cells
 @onready var sizeheight = height/cells
+
+var originalx = 40
+var originaly = 160
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print(width)
@@ -18,12 +21,12 @@ func _draw():
 
 	for i in cells+1:
 
-		var vectortest = Vector2(i*sizewidth,0)
-		var vectortest1 = Vector2(i*sizewidth,height)
+		var vectortest = Vector2(i*sizewidth+originalx,0+originaly)
+		var vectortest1 = Vector2(i*sizewidth+originalx,height+originaly)
 		draw_line(vectortest,vectortest1,'white')
 	for i in cells+1:
-		var vectortest2 = Vector2(0,i*sizeheight)
-		var vectortest3 = Vector2(width,i*sizeheight)
+		var vectortest2 = Vector2(0+originalx,i*sizeheight+originaly)
+		var vectortest3 = Vector2(width+originalx,i*sizeheight+originaly)
 		draw_line(vectortest2,vectortest3,'white')
 
 

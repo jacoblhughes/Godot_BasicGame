@@ -9,6 +9,9 @@ var inputs = {"right": Vector2.RIGHT,
 			"left": Vector2.LEFT,
 			"up": Vector2.UP,
 			"down": Vector2.DOWN}
+			
+var originalx = 40
+var originaly = 160
 
 func _ready():
 	screen_size = get_parent().get_node("Node2D").get_node("Play_Area").size
@@ -40,7 +43,13 @@ func _process(delta):
 		pass
 	
 	position += velocity * (tile_size/128)
-	position = position.clamp(Vector2.ZERO, screen_size)
+		# Calculate the maximum position within the play area.
+	var max_position = Vector2(screen_size.x - tile_size + originalx, screen_size.y - tile_size + originaly)
+	var original_posiiton = Vector2(originalx, originaly)
+	# Clamp the player's position to stay within the play area.
+	position = position.clamp(original_posiiton, max_position)
+
+	position = position.clamp(Vector2.ZERO, max_position)
 	pass
 
 func _input(event):
