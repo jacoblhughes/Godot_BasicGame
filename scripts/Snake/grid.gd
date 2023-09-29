@@ -14,6 +14,7 @@ var originaly = 160
 func _ready():
 	print(width)
 	print(height)
+	print(SnakeVariables.snakecells)
 	pass
 	
 func _draw():
