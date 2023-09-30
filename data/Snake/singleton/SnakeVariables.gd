@@ -1,9 +1,9 @@
 extends Node
 
 var snakecells = 8
-var snakecellsize := Vector2(64,64)
+var snakecellsize := Vector2(80,80)
 var GRID_SIZE := Vector2(0,0)
-var GRID_POSITION := Vector2(0,0)
+var GRID_POSITION := Vector2(40,160)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

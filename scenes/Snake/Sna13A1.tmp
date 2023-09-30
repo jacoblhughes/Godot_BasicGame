@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1ov306httsie"]
+[gd_scene load_steps=14 format=3 uid="uid://c1ov306httsie"]
 
 [ext_resource type="Script" path="res://scripts/Snake/SnakeGame.gd" id="1_v748h"]
 [ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/SimonSays/button.tres" id="2_hej57"]
@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/SimonSays/applause.wav" id="7_rq3xa"]
 [ext_resource type="Script" path="res://scripts/SimonsSays/HighScorePopup.gd" id="8_jkvh0"]
 [ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/Snake/Roddy.png" id="10_p252r"]
-[ext_resource type="Script" path="res://scripts/Snake/spawn_food.gd" id="12_bwawo"]
 [ext_resource type="Script" path="res://scripts/Snake/snake.gd" id="12_rblek"]
 [ext_resource type="AudioStream" uid="uid://ctrnbl5q2voss" path="res://sounds/SimonSays/aww.wav" id="21_qhyy2"]
 
@@ -172,7 +171,6 @@ max_text_lines = 20
 same_column_width = true
 
 [node name="Snake" type="Area2D" parent="."]
-visible = false
 position = Vector2(40, 160)
 
 [node name="Sprite2D" type="Sprite2D" parent="Snake"]
@@ -187,9 +185,6 @@ shape = SubResource("CapsuleShape2D_nyv4a")
 
 [node name="snake" type="Node2D" parent="."]
 script = ExtResource("12_rblek")
-
-[node name="spawner_food" type="Node2D" parent="."]
-script = ExtResource("12_bwawo")
 
 [connection signal="timeout" from="Snake_Move_Timer" to="snake" method="_on_snake_move_timer_timeout"]
 [connection signal="focus_exited" from="HighScorePopup" to="HighScorePopup" method="_on_focus_exited"]
