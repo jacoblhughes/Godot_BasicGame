@@ -3,8 +3,11 @@ extends Node2D
 #var food := Food.new()
 @onready var snake := get_parent().get_node("snake") as Snake
 var my_food_instance
-
+var tween_rotate: Tween
 var score = 0
+var radius = 100  # Radius of the circular path
+var speed = 90    # Angular speed (degrees per second)
+var angle = 0     # Current angle in degrees
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	HUD._set_new_score(0)
@@ -56,5 +59,16 @@ func spawn_food():
 
 func _on_food_initialized():
 	
+	var x = radius * cos(deg_to_rad(angle))
+	var y = radius * sin(deg_to_rad(angle))
+	
+	tween_rotate = create_tween()
+	tween_rotate.finished.connect(_on_tween_completed)
+	tween_rotate.tween_property(my_food_instance.my_sprite, "position", Vector2(x,y), 2.0).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+#	tween_rotate.tween_property(my_food_instance.my_sprite, "position",  Vector2(320,320), 1.0)
 	pass
-
+func _on_tween_completed():
+	angle += speed * 2.0  # Multiply by 2.0 to adjust the speed
+	
+	# Restart the circular motion
+	_on_food_initialized()

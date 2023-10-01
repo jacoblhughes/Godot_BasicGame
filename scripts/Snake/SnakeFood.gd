@@ -1,10 +1,10 @@
 extends Food
-@onready var my_sprite: Sprite2D
+@onready var my_sprite: AnimatedSprite2D
 signal SnakeFoodReady
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	my_sprite = $AppleSprite
+	my_sprite = $AppleSpriteAnimated
 	SnakeFoodReady.emit()
 	pass # Replace with function body.
 

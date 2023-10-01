@@ -6,7 +6,6 @@ var minisnakes := [] as Array[Minisnake]
 var next_direction = Vector2.ZERO
 var curr_direction = Vector2.ZERO
 
-var tween_move: Tween
 
 var snake_length = 0
 var play_area_min = Vector2(40, 160)
