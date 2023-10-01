@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1lvj4sddaalt"]
 
 [ext_resource type="Script" path="res://scripts/Snake/SnakeFood.gd" id="1_b364c"]
-[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/Snake/Roddy.png" id="2_peerw"]
+[ext_resource type="Texture2D" uid="uid://dfj04vjftc8ls" path="res://art/SimonSays/Camee.png" id="2_g36tw"]
 [ext_resource type="Texture2D" uid="uid://be45kmc54xiob" path="res://art/Snake/Roddy1.png" id="3_7i563"]
 [ext_resource type="Texture2D" uid="uid://weu4g7hwjuv1" path="res://art/Snake/Roddy2.png" id="4_wnuxe"]
 
@@ -23,15 +23,15 @@ animations = [{
 script = ExtResource("1_b364c")
 
 [node name="AppleSprite" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(0.426667, 0.426667)
+texture = ExtResource("2_g36tw")
+offset = Vector2(92, 92)
+
+[node name="AppleSpriteAnimated" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(32, 32)
 scale = Vector2(0.426667, 0.426667)
-texture = ExtResource("2_peerw")
-
-[node name="AppleSpriteAnimated" type="AnimatedSprite2D" parent="."]
-position = Vector2(32, 32)
-scale = Vector2(0.426667, 0.426667)
 sprite_frames = SubResource("SpriteFrames_cydmy")
-autoplay = "default"
 speed_scale = 2.0
 offset = Vector2(92, 92)

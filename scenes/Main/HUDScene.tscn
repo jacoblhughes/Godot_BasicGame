@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd45fmga1y04c"]
+[gd_scene load_steps=10 format=3 uid="uid://dd45fmga1y04c"]
 
-[ext_resource type="Script" path="res://scripts/Main/HUD.gd" id="1_p2yk8"]
+[ext_resource type="Script" path="res://scripts/Main/HUDScene.gd" id="1_p2yk8"]
 [ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/SimonSays/label.tres" id="1_u2suk"]
 [ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/SimonSays/button.tres" id="3_jn4in"]
 [ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/Main/applause.wav" id="5_lidvl"]
 [ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://sounds/Main/gameover.wav" id="6_sy8vj"]
-[ext_resource type="Script" path="res://scripts/SimonsSays/ResetButton.gd" id="7_ivm7h"]
+[ext_resource type="Script" path="res://scripts/SimonsSays/View_High_Scores.gd" id="7_0351u"]
 [ext_resource type="AudioStream" uid="uid://csg3bmyrqi0d7" path="res://sounds/Main/House In a Forest Loop.ogg" id="7_yycmp"]
+[ext_resource type="Script" path="res://scripts/SimonsSays/HighScorePopup.gd" id="8_lsmpx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d2i8v"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="HudCanvasLayer" type="CanvasLayer"]
 layer = 2
@@ -106,6 +110,7 @@ stream = ExtResource("6_sy8vj")
 stream = ExtResource("7_yycmp")
 
 [node name="Play_Button" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 1120.0
 offset_right = 152.0
@@ -114,20 +119,68 @@ theme = ExtResource("3_jn4in")
 text = "Play"
 
 [node name="Reset_Button" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 1200.0
 offset_right = 152.0
 offset_bottom = 1256.0
 theme = ExtResource("3_jn4in")
 text = "Reset"
-script = ExtResource("7_ivm7h")
 
 [node name="TEST" type="Button" parent="Control"]
-offset_left = 560.0
+layout_mode = 0
+offset_left = 624.0
 offset_top = 1120.0
 offset_right = 696.0
 offset_bottom = 1256.0
 theme = ExtResource("3_jn4in")
 text = "TEST"
 
+[node name="View_High_Scores" type="Button" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 464.0
+offset_top = 1120.0
+offset_right = 600.0
+offset_bottom = 1256.0
+theme = ExtResource("3_jn4in")
+text = "High Scores"
+script = ExtResource("7_0351u")
+
+[node name="HighScorePopup" type="PopupPanel" parent="Control"]
+position = Vector2i(40, 272)
+size = Vector2i(640, 512)
+unresizable = false
+always_on_top = true
+script = ExtResource("8_lsmpx")
+
+[node name="HighScoreTitle" type="Label" parent="Control/HighScorePopup"]
+visible = false
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 636.0
+offset_bottom = 508.0
+text = "High Scores:"
+label_settings = SubResource("LabelSettings_d2i8v")
+autowrap_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control/HighScorePopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 636.0
+offset_bottom = 508.0
+color = Color(0.4, 0.6, 0.607843, 1)
+
+[node name="ItemList" type="ItemList" parent="Control/HighScorePopup/ColorRect"]
+layout_mode = 0
+offset_right = 632.0
+offset_bottom = 504.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+select_mode = 1
+max_text_lines = 20
+same_column_width = true
+
 [connection signal="pressed" from="Control/Home_Button" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="Control/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/Reset_Button" to="." method="_on_reset_button_pressed"]
+[connection signal="focus_exited" from="Control/HighScorePopup" to="Control/HighScorePopup" method="_on_focus_exited"]

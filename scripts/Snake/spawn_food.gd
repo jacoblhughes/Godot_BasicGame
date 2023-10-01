@@ -10,7 +10,7 @@ var speed = 90   # Angular speed (degrees per second)
 var angle = 0     # Current angle in degrees
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	HUDVariables._set_new_score(0)
+	HUDVariables.set_new_score(0)
 	my_food_instance = preload("res://scenes/Snake/SnakeFood.tscn").instantiate()
 	spawn_food()
 
@@ -30,7 +30,7 @@ func _process(delta):
 	
 	if my_food_instance.get_rect().intersects(snake.head.get_rect()):
 		
-		HUDVariables._set_new_score(1)
+		HUDVariables.set_new_score(1)
 		snake.grow()
 		spawn_food()
 	angle += (speed * 2)*delta

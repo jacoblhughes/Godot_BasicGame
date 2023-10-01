@@ -24,7 +24,7 @@ func _ready():
 #	tween_move.tween_callback(move).set_delay(2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 
 	queue_redraw()
 	pass

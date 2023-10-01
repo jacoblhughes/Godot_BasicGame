@@ -13,14 +13,14 @@ var simon_says_scene
 var snake_scene
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(new_initials)
+
 	InitialsInput = $Initials
 	InitialsInput.text = new_initials
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 

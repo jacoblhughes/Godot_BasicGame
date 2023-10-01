@@ -7,6 +7,3 @@ var color := SnakeColors.YELLOW
 
 func get_rect() -> Rect2:
 	return Rect2(food_position,size)
-	
-func print_help() -> String:
-	return "OKAY"

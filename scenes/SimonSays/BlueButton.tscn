@@ -3,11 +3,11 @@
 [ext_resource type="Theme" uid="uid://c3vsilsjx2s6p" path="res://themes/SimonSays/button_first.tres" id="1_mvowp"]
 [ext_resource type="Script" path="res://scripts/SimonsSays/GameButton.gd" id="2_s0xlv"]
 [ext_resource type="AudioStream" uid="uid://05dbcdpo80hl" path="res://sounds/SimonSays/c_sharp.wav" id="3_gtjvc"]
-[ext_resource type="Texture2D" uid="uid://dj2wa6j27hxto" path="res://art/SimonSays/BlueDark.png" id="4_1ble6"]
-[ext_resource type="Texture2D" uid="uid://bduw3ydlhurfi" path="res://art/SimonSays/BlueLight.png" id="5_jghl8"]
-[ext_resource type="Texture2D" uid="uid://be45kmc54xiob" path="res://art/SimonSays/Roddy1.png" id="6_1t8ae"]
-[ext_resource type="Texture2D" uid="uid://weu4g7hwjuv1" path="res://art/SimonSays/Roddy2.png" id="7_f78ib"]
-[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/SimonSays/Roddy.png" id="8_7kvmq"]
+[ext_resource type="Texture2D" uid="uid://dj2wa6j27hxto" path="res://art/Snake/BlueDark.png" id="4_1ble6"]
+[ext_resource type="Texture2D" uid="uid://bduw3ydlhurfi" path="res://art/Snake/BlueLight.png" id="5_jghl8"]
+[ext_resource type="Texture2D" uid="uid://be45kmc54xiob" path="res://art/Snake/Roddy1.png" id="6_1t8ae"]
+[ext_resource type="Texture2D" uid="uid://weu4g7hwjuv1" path="res://art/Snake/Roddy2.png" id="7_f78ib"]
+[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/Snake/Roddy.png" id="8_7kvmq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0megc"]
 animations = [{

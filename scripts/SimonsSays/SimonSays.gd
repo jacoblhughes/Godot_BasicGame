@@ -33,7 +33,7 @@ var high_scores_for_popup
 var high_scores_names
 var high_scores
 var section_name = "SimonSays"
-
+var signalEmitted = false
 @onready var redButtonScene = preload("res://scenes/SimonSays/RedButton.tscn")
 @onready var blueButtonScene = preload("res://scenes/SimonSays/BlueButton.tscn")
 @onready var greenButtonScene = preload("res://scenes/SimonSays/GreenButton.tscn")
@@ -41,29 +41,35 @@ var section_name = "SimonSays"
 
 @onready var err = config.load("res://data/ConfigFile.cfg")
 @onready var currentInitials = HUDVariables.get_initials_from_HUD()
+
+@onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	initializeButtons()
+	HUDSIGNALS.startButtonPressed.connect(_on_play_button_pressed)
+	HUDSIGNALS.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")#
 	update_score(gameScore)
 	high_scores_names = config.get_value(section_name, "names", [])
 	high_scores = config.get_value(section_name, "scores", [])
-	var item_list = $HighScorePopup/ColorRect/ItemList
+#	var item_list = $HighScorePopup/ColorRect/ItemList
 	if high_scores_names.size() != high_scores.size():
 		print("Error: Names and scores arrays have different sizes.")
 		return
-	for i in range(high_scores_names.size()):
-		var name = high_scores_names[i]
-		var score = high_scores[i]
-		var displayText = name + ": " + str(score)  # Format as needed
+#	for i in range(high_scores_names.size()):
+#		var name = high_scores_names[i]
+#		var score = high_scores[i]
+#		var displayText = name + ": " + str(score)  # Format as needed
+#
+#		item_list.add_item(displayText)
 
-		item_list.add_item(displayText)
-			
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	if(playerTurn):
 
@@ -164,7 +170,7 @@ func _player_turn_end():
 
 func update_status(status):
 	
-	HUDVariables._set_new_status(status)
+	HUDVariables.set_new_status(status)
 
 func _get_next_value():
 	
@@ -179,10 +185,11 @@ func _add_next_value():
 
 func update_score(numbah):
 	
-	HUDVariables._set_new_score(numbah)
+	HUDVariables.set_new_score(numbah)
 
-func _play_button_pressed():
-	
+func _on_play_button_pressed():
+
+
 	if(gameInitialized == false and gameRunning == false):
 		gameInitialized = true
 		gameRunning = true
@@ -219,7 +226,7 @@ func _stop_game_button_animations_and_timer():
 	for button in groupOfButtons:
 		button.animationTimer.stop()
 
-func _on_reset_button_reset_button_pressed():
+func on_reset_button_reset_button_pressed():
 	
 	_stop_game_button_sounds()
 	_stop_game_button_animations_and_timer()
