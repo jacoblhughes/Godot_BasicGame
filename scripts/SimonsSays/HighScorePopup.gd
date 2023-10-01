@@ -16,9 +16,9 @@ func _process(delta):
 func _on_view_high_scores_pressed():
 	should_be_open = true
 	popup()
-	print('Opened popup')
 
-	print('heer')
+
+
 	pass # Replace with function body.
 
 
@@ -26,4 +26,4 @@ func _on_focus_exited():
 	if should_be_open:
 		hide()
 		should_be_open = false
-		print('Closed popup')
+

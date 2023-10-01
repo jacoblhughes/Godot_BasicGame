@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerInitials="*res://data/Main/singleton/player_initials/player_initials.gd"
 SnakeVariables="*res://data/Snake/singleton/SnakeVariables.gd"
+HUD="*res://scripts/Main/HUD.gd"
 
 [display]
 

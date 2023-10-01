@@ -43,8 +43,6 @@ var section_name = "highscores"
 @onready var currentInitials = config.get_value(section_name, "initials")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-	$Initials.text = currentInitials
 	initializeButtons()
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")#
 	update_score(gameScore)
@@ -89,7 +87,6 @@ func _game_lose():
 			high_scores.insert(i, gameScore)
 			high_scores_names.insert(i, currentInitials)
 			added = true
-			$Applause_Sound.play()
 			break
 
 	if not added and high_scores.size() < 10:
@@ -107,9 +104,9 @@ func _game_lose():
 	_stop_game_button_animations_and_timer()
 	$PlaybackTimer.stop()
 	if(added):
-		$Applause_Sound.play()
+		HUD.play_applause()
 	else:
-		$Aww_Sound.play()
+		HUD.play_game_over()
 	
 	_change_game_disabled(true)
 	gameScore = 0
@@ -167,7 +164,7 @@ func _player_turn_end():
 
 func update_status(status):
 	
-	$"GameStatus".text = status
+	HUD._set_new_status(status)
 
 func _get_next_value():
 	
@@ -182,7 +179,7 @@ func _add_next_value():
 
 func update_score(numbah):
 	
-	$Score.text = str(gameScore)
+	HUD._set_new_score(numbah)
 
 func _play_button_pressed():
 	

@@ -5,14 +5,14 @@
 [ext_resource type="Script" path="res://scripts/Snake/grid.gd" id="2_t6b4s"]
 [ext_resource type="Script" path="res://scripts/SimonsSays/ResetButton.gd" id="3_wms2y"]
 [ext_resource type="Script" path="res://scripts/SimonsSays/View_High_Scores.gd" id="4_0nth7"]
-[ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/Main/applause.wav" id="7_rq3xa"]
+[ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/SimonSays/applause.wav" id="7_rq3xa"]
 [ext_resource type="Script" path="res://scripts/SimonsSays/HighScorePopup.gd" id="8_jkvh0"]
 [ext_resource type="Script" path="res://scripts/Snake/Player.gd" id="9_baejh"]
 [ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/Snake/Roddy.png" id="10_p252r"]
 [ext_resource type="Script" path="res://scripts/Snake/spawn_food.gd" id="12_bwawo"]
 [ext_resource type="Script" path="res://scripts/Snake/snake.gd" id="12_rblek"]
 [ext_resource type="Script" path="res://scripts/Snake/hit_spotter.gd" id="13_3giuc"]
-[ext_resource type="AudioStream" uid="uid://ctrnbl5q2voss" path="res://sounds/Main/aww.wav" id="21_qhyy2"]
+[ext_resource type="AudioStream" uid="uid://ctrnbl5q2voss" path="res://sounds/SimonSays/aww.wav" id="21_qhyy2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8x47m"]
 font_color = Color(0, 0, 0, 1)

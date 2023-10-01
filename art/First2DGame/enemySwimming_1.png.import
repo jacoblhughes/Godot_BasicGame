@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cotipjehg1rse"
-path="res://.godot/imported/playerGrey_walk1.png-c4773fe7a7bf85d7ab732eb4458c2742.ctex"
+uid="uid://dfnfvj41n0dmv"
+path="res://.godot/imported/enemySwimming_1.png-a176ef598c320a96821527f3add5c7c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/playerGrey_walk1.png"
-dest_files=["res://.godot/imported/playerGrey_walk1.png-c4773fe7a7bf85d7ab732eb4458c2742.ctex"]
+source_file="res://art/First2DGame/enemySwimming_1.png"
+dest_files=["res://.godot/imported/enemySwimming_1.png-a176ef598c320a96821527f3add5c7c1.ctex"]
 
 [params]
 

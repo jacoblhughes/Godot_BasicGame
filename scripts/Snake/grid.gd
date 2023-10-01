@@ -21,7 +21,6 @@ func _ready():
 	pass
 	
 func _draw():
-	SnakeColorsInstance._see_if_works()
 
 	for i in SnakeVariables.snakecells+1:
 

@@ -24,15 +24,10 @@ func _process(delta):
 
 
 func _on_initials_text_changed(new_text):
-	print('changed')
-	print(new_text)
 	config.set_value(section_name, section_key, new_text)
 	config.save("res://data/SimonSays/SimonSays.cfg")
 	PlayerInitials.set_initials(new_text)
 	pass # Replace with function body.
-
-
-
 
 func _on_simon_says_pressed():
 	self.visible = false
@@ -45,3 +40,4 @@ func _on_snake_pressed():
 	snake_scene = snake.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(snake_scene)
 	pass # Replace with function body.
+

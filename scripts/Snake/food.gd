@@ -1,8 +1,12 @@
 class_name Food
-
-var position := Vector2()
+extends Node2D
+var food_position := Vector2()
 var size := SnakeVariables.snakecellsize
-var color := SnakeColors.BLUE
+var color := SnakeColors.YELLOW
+
 
 func get_rect() -> Rect2:
-	return Rect2(position,size)
+	return Rect2(food_position,size)
+	
+func print_help() -> String:
+	return "OKAY"

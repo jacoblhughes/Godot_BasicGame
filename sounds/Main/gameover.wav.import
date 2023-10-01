@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://x3n1q7m1tucn"
-path="res://.godot/imported/applause.wav-7f906f1a2d0fc7da6c26d9fc16b583bf.sample"
+uid="uid://dnw4emjqovlsj"
+path="res://.godot/imported/gameover.wav-3a549a871274cd11c4264d70b4e40c92.sample"
 
 [deps]
 
-source_file="res://sounds/SimonSays/applause.wav"
-dest_files=["res://.godot/imported/applause.wav-7f906f1a2d0fc7da6c26d9fc16b583bf.sample"]
+source_file="res://sounds/Main/gameover.wav"
+dest_files=["res://.godot/imported/gameover.wav-3a549a871274cd11c4264d70b4e40c92.sample"]
 
 [params]
 

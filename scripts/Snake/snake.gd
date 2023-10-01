@@ -15,8 +15,8 @@ signal hit(minisnake_hit: Minisnake)
 func _ready():
 
 	head.size = SnakeVariables.snakecellsize
-	head.color = SnakeColors.RED
-	head.curr_position = play_area_min
+	head.color = SnakeColors.DARKBLUE
+	head.curr_position = play_area_min + Vector2(SnakeVariables.GRID_SIZE.x/2,SnakeVariables.GRID_SIZE.y/2)
 	minisnakes.push_front(head)
 
 	hit.connect(_on_hit)
@@ -29,11 +29,6 @@ func _process(delta):
 
 	queue_redraw()
 	pass
-	
-func add_snake():
-	snake_length +=1
-	for snake in snake_length:
-		print(snake)
 	
 func _draw():
 
@@ -51,8 +46,6 @@ func _input(event):
 		next_direction = Vector2.DOWN
 	if Input.is_action_pressed("move_up"):
 		next_direction = Vector2.UP
-	if Input.is_action_pressed("hit_space"):
-		grow()
 
 func move() -> void:
 
@@ -69,12 +62,13 @@ func move() -> void:
 		if head.get_rect().intersects(minisnakes[i].get_rect()):
 			hit.emit(minisnakes[i])
 			break
+			
 func _on_snake_move_timer_timeout():
 	move()
 	pass # Replace with function body.
 
 func grow() -> void:
-	print('grow')
+
 	var minisnake := Minisnake.new()
 	var last_minisnake := minisnakes.back() as Minisnake
 	minisnake.curr_position = last_minisnake.curr_position
@@ -85,5 +79,8 @@ func grow() -> void:
 
 func _on_hit(mini:Minisnake) -> void:
 	get_parent().get_node("Snake_Move_Timer").stop()
+	
+	await get_tree().process_frame
+	
 	for minisnake in minisnakes:
 		minisnake.go_to_previous_position()

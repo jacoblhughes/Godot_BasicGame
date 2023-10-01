@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size
 # Called when the node enters the scene tree for the first time.
