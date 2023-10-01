@@ -1,9 +1,9 @@
 extends Node
 
 var config = ConfigFile.new()
-var section_name = "highscores"
+var section_name = "Main"
 var section_key = "initials"
-@onready var err = config.load("res://data/SimonSays/SimonSays.cfg")
+@onready var err = config.load("res://data/ConfigFile.cfg")
 @onready var new_initials = config.get_value(section_name, section_key)
 
 

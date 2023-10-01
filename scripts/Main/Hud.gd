@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 # Export the NodePath to the player_initials scene
-@onready var player_initials = PlayerInitials.get_initials()
+@onready var player_initials = PlayerVariables.get_initials()
 @onready var InitialsInput : Label
 @onready var ScoreLabel : Label
 @onready var StatusLabel : Label
@@ -16,19 +16,19 @@ var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	InitialsInput = get_tree().get_root().get_node("Main").get_node("Hud").get_node("Control").get_node("Initials")
-	ScoreLabel = get_tree().get_root().get_node("Main").get_node("Hud").get_node("Control").get_node("Score")
-	StatusLabel = get_tree().get_root().get_node("Main").get_node("Hud").get_node("Control").get_node("GameStatus")
-	GameOverSound = get_tree().get_root().get_node("Main").get_node("Hud").get_node("Control").get_node("GameOver")
-	ApplauseSound = get_tree().get_root().get_node("Main").get_node("Hud").get_node("Control").get_node("Applause")
-	BackGroundMusic = get_tree().get_root().get_node("Main").get_node("Hud").get_node("Control").get_node("BackGroundMusic")
+	InitialsInput = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("Initials")
+	ScoreLabel = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("Score")
+	StatusLabel = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("GameStatus")
+	GameOverSound = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("GameOver")
+	ApplauseSound = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("Applause")
+	BackGroundMusic = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("BackGroundMusic")
 	
 	update_initials_label()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
-	player_initials = PlayerInitials.get_initials()
+	player_initials = PlayerVariables.get_initials()
 	InitialsInput.text = player_initials
 
 func update_initials_label():
@@ -65,3 +65,6 @@ func play_game_over():
 	GameOverSound.play()
 func play_applause():
 	ApplauseSound.play()
+	
+func get_initials_from_HUD() -> String:
+	return InitialsInput.text

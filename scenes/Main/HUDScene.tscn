@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scripts/Main/HUD.gd" id="1_p2yk8"]
 [ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/SimonSays/label.tres" id="1_u2suk"]
 [ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/SimonSays/button.tres" id="3_jn4in"]
-[ext_resource type="Script" path="res://scripts/Snake/Score.gd" id="4_ttm4b"]
 [ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/Main/applause.wav" id="5_lidvl"]
 [ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://sounds/Main/gameover.wav" id="6_sy8vj"]
+[ext_resource type="Script" path="res://scripts/SimonsSays/ResetButton.gd" id="7_ivm7h"]
 [ext_resource type="AudioStream" uid="uid://csg3bmyrqi0d7" path="res://sounds/Main/House In a Forest Loop.ogg" id="7_yycmp"]
 
 [node name="HudCanvasLayer" type="CanvasLayer"]
@@ -52,10 +52,10 @@ text = "Home"
 
 [node name="GameStatus_Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 832.0
-offset_right = 168.0
-offset_bottom = 896.0
+offset_left = 176.0
+offset_top = 1200.0
+offset_right = 296.0
+offset_bottom = 1256.0
 theme = ExtResource("1_u2suk")
 text = "Game Status:
 "
@@ -64,10 +64,10 @@ vertical_alignment = 1
 
 [node name="GameStatus" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 832.0
-offset_right = 320.0
-offset_bottom = 896.0
+offset_left = 320.0
+offset_top = 1200.0
+offset_right = 440.0
+offset_bottom = 1256.0
 theme = ExtResource("1_u2suk")
 text = "Not Loaded"
 horizontal_alignment = 1
@@ -75,10 +75,10 @@ vertical_alignment = 1
 
 [node name="Score_Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 400.0
-offset_top = 832.0
-offset_right = 528.0
-offset_bottom = 896.0
+offset_left = 176.0
+offset_top = 1120.0
+offset_right = 296.0
+offset_bottom = 1176.0
 theme = ExtResource("1_u2suk")
 text = "Game Score:
 "
@@ -87,15 +87,14 @@ vertical_alignment = 1
 
 [node name="Score" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 552.0
-offset_top = 832.0
-offset_right = 680.0
-offset_bottom = 896.0
+offset_left = 320.0
+offset_top = 1120.0
+offset_right = 440.0
+offset_bottom = 1176.0
 theme = ExtResource("1_u2suk")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("4_ttm4b")
 
 [node name="Applause" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("5_lidvl")
@@ -105,5 +104,30 @@ stream = ExtResource("6_sy8vj")
 
 [node name="BackGroundMusic" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("7_yycmp")
+
+[node name="Play_Button" type="Button" parent="Control"]
+offset_left = 24.0
+offset_top = 1120.0
+offset_right = 152.0
+offset_bottom = 1176.0
+theme = ExtResource("3_jn4in")
+text = "Play"
+
+[node name="Reset_Button" type="Button" parent="Control"]
+offset_left = 24.0
+offset_top = 1200.0
+offset_right = 152.0
+offset_bottom = 1256.0
+theme = ExtResource("3_jn4in")
+text = "Reset"
+script = ExtResource("7_ivm7h")
+
+[node name="TEST" type="Button" parent="Control"]
+offset_left = 560.0
+offset_top = 1120.0
+offset_right = 696.0
+offset_bottom = 1256.0
+theme = ExtResource("3_jn4in")
+text = "TEST"
 
 [connection signal="pressed" from="Control/Home_Button" to="." method="_on_home_button_pressed"]

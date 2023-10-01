@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerInitials="*res://data/Main/singleton/player_initials/player_initials.gd"
+PlayerVariables="*res://data/Main/singleton/player_initials/player_initials.gd"
 SnakeVariables="*res://data/Snake/singleton/SnakeVariables.gd"
-HUD="*res://scripts/Main/HUD.gd"
+HUDVariables="*res://scripts/Main/HUD.gd"
 
 [display]
 

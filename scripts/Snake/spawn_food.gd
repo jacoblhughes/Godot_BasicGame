@@ -5,12 +5,12 @@ extends Node2D
 var my_food_instance
 var tween_rotate: Tween
 var score = 0
-var radius = 100  # Radius of the circular path
-var speed = 90    # Angular speed (degrees per second)
+var radius = 10  # Radius of the circular path
+var speed = 90   # Angular speed (degrees per second)
 var angle = 0     # Current angle in degrees
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	HUD._set_new_score(0)
+	HUDVariables._set_new_score(0)
 	my_food_instance = preload("res://scenes/Snake/SnakeFood.tscn").instantiate()
 	spawn_food()
 
@@ -30,21 +30,18 @@ func _process(delta):
 	
 	if my_food_instance.get_rect().intersects(snake.head.get_rect()):
 		
-		HUD._set_new_score(1)
+		HUDVariables._set_new_score(1)
 		snake.grow()
 		spawn_food()
-
+	angle += (speed * 2)*delta
 func _draw():
-
+	pass
 #	draw_texture(my_food_texture,food.food_position)
-	draw_rect(my_food_instance.get_rect(),my_food_instance.color)
+#	draw_rect(my_food_instance.get_rect(),my_food_instance.color)
 	
 func spawn_food():
-
 	var is_on_occupied_position = true
-
 	while is_on_occupied_position:
-
 		var random_position = Vector2()
 		random_position.x = randi_range(0, SnakeVariables.GRID_SIZE.x - SnakeVariables.snakecellsize.x)
 		random_position.y = randi_range(0, SnakeVariables.GRID_SIZE.y - SnakeVariables.snakecellsize.y)
@@ -64,11 +61,12 @@ func _on_food_initialized():
 	
 	tween_rotate = create_tween()
 	tween_rotate.finished.connect(_on_tween_completed)
-	tween_rotate.tween_property(my_food_instance.my_sprite, "position", Vector2(x,y), 2.0).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	tween_rotate.tween_property(my_food_instance.my_sprite, "position", Vector2(x,y), .1).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 #	tween_rotate.tween_property(my_food_instance.my_sprite, "position",  Vector2(320,320), 1.0)
+
 	pass
 func _on_tween_completed():
-	angle += speed * 2.0  # Multiply by 2.0 to adjust the speed
+	pass# Multiply by 2.0 to adjust the speed
 	
 	# Restart the circular motion
 	_on_food_initialized()

@@ -32,15 +32,15 @@ var yellowButton
 var high_scores_for_popup
 var high_scores_names
 var high_scores
-var section_name = "highscores"
+var section_name = "SimonSays"
 
 @onready var redButtonScene = preload("res://scenes/SimonSays/RedButton.tscn")
 @onready var blueButtonScene = preload("res://scenes/SimonSays/BlueButton.tscn")
 @onready var greenButtonScene = preload("res://scenes/SimonSays/GreenButton.tscn")
 @onready var yellowButtonScene = preload("res://scenes/SimonSays/YellowButton.tscn")
 
-@onready var err = config.load("res://data/SimonSays/SimonSays.cfg")
-@onready var currentInitials = config.get_value(section_name, "initials")
+@onready var err = config.load("res://data/ConfigFile.cfg")
+@onready var currentInitials = HUDVariables.get_initials_from_HUD()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	initializeButtons()
@@ -97,16 +97,16 @@ func _game_lose():
 		high_scores.remove_at(high_scores.size() - 1)
 		high_scores_names.remove_at(high_scores_names.size() - 1)
 
-#	config.set_value("highscores", "player_name", "JLH")
 
-	config.save("res://data/SimonSays/SimonSays.cfg")
+
+	config.save("res://data/ConfigFile.cfg")
 	_stop_game_button_sounds()
 	_stop_game_button_animations_and_timer()
 	$PlaybackTimer.stop()
 	if(added):
-		HUD.play_applause()
+		HUDVariables.play_applause()
 	else:
-		HUD.play_game_over()
+		HUDVariables.play_game_over()
 	
 	_change_game_disabled(true)
 	gameScore = 0
@@ -156,15 +156,15 @@ func _stop_all_animations():
 func _player_turn_end():
 	
 	if(gameRunning==true):
-		gameScore +=1
-		update_score(gameScore)
+		
+		update_score(1)
 	playerTurn = false
 	arrayOfPlayerResponse = []
 	playerPopulate = -1
 
 func update_status(status):
 	
-	HUD._set_new_status(status)
+	HUDVariables._set_new_status(status)
 
 func _get_next_value():
 	
@@ -179,7 +179,7 @@ func _add_next_value():
 
 func update_score(numbah):
 	
-	HUD._set_new_score(numbah)
+	HUDVariables._set_new_score(numbah)
 
 func _play_button_pressed():
 	

@@ -34,3 +34,4 @@ scale = Vector2(0.426667, 0.426667)
 sprite_frames = SubResource("SpriteFrames_cydmy")
 autoplay = "default"
 speed_scale = 2.0
+offset = Vector2(92, 92)

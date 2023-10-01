@@ -1,25 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1ov306httsie"]
+[gd_scene load_steps=13 format=3 uid="uid://c1ov306httsie"]
 
-[ext_resource type="Script" path="res://scripts/Snake/SnakeGame.gd" id="1_v748h"]
-[ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/SimonSays/button.tres" id="2_hej57"]
-[ext_resource type="Script" path="res://scripts/Snake/grid.gd" id="2_t6b4s"]
-[ext_resource type="Script" path="res://scripts/SimonsSays/ResetButton.gd" id="3_wms2y"]
-[ext_resource type="Script" path="res://scripts/SimonsSays/View_High_Scores.gd" id="4_0nth7"]
-[ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/Main/applause.wav" id="7_rq3xa"]
-[ext_resource type="Script" path="res://scripts/SimonsSays/HighScorePopup.gd" id="8_jkvh0"]
-[ext_resource type="Script" path="res://scripts/Snake/Player.gd" id="9_baejh"]
-[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/Snake/Roddy.png" id="10_p252r"]
-[ext_resource type="Script" path="res://scripts/Snake/spawn_food.gd" id="12_bwawo"]
-[ext_resource type="Script" path="res://scripts/Snake/snake.gd" id="12_rblek"]
-[ext_resource type="Script" path="res://scripts/Snake/hit_spotter.gd" id="13_3giuc"]
-[ext_resource type="AudioStream" uid="uid://ctrnbl5q2voss" path="res://sounds/Main/aww.wav" id="21_qhyy2"]
+[ext_resource type="Script" path="res://scripts/Snake/SnakeGame.gd" id="1_1smft"]
+[ext_resource type="Script" path="res://scripts/Snake/grid.gd" id="2_sqbg3"]
+[ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/SimonSays/button.tres" id="3_88bxh"]
+[ext_resource type="Script" path="res://scripts/SimonsSays/ResetButton.gd" id="4_16ey0"]
+[ext_resource type="Script" path="res://scripts/SimonsSays/View_High_Scores.gd" id="5_rnf3a"]
+[ext_resource type="AudioStream" uid="uid://ctrnbl5q2voss" path="res://sounds/Main/aww.wav" id="6_u12mp"]
+[ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/Main/applause.wav" id="7_bk2tx"]
+[ext_resource type="Script" path="res://scripts/SimonsSays/HighScorePopup.gd" id="8_06wlt"]
+[ext_resource type="Script" path="res://scripts/Snake/snake.gd" id="11_dg51t"]
+[ext_resource type="Script" path="res://scripts/Snake/spawn_food.gd" id="12_ivaia"]
+[ext_resource type="Script" path="res://scripts/Snake/hit_spotter.gd" id="13_rlfor"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8x47m"]
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nyv4a"]
-radius = 40.0
-height = 144.0
 
 [node name="Snake" type="Control"]
 layout_mode = 3
@@ -28,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_v748h")
+script = ExtResource("1_1smft")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -37,7 +31,7 @@ offset_bottom = 1280.0
 color = Color(0.152941, 0.152941, 0.152941, 1)
 
 [node name="Node2D" type="Node2D" parent="."]
-script = ExtResource("2_t6b4s")
+script = ExtResource("2_sqbg3")
 
 [node name="Play_Area" type="ColorRect" parent="Node2D"]
 offset_left = 40.0
@@ -56,7 +50,7 @@ offset_left = 40.0
 offset_top = 1088.0
 offset_right = 168.0
 offset_bottom = 1216.0
-theme = ExtResource("2_hej57")
+theme = ExtResource("3_88bxh")
 text = "Play"
 
 [node name="Reset_Button" type="Button" parent="."]
@@ -65,9 +59,9 @@ offset_left = 384.0
 offset_top = 1088.0
 offset_right = 512.0
 offset_bottom = 1216.0
-theme = ExtResource("2_hej57")
+theme = ExtResource("3_88bxh")
 text = "Reset"
-script = ExtResource("3_wms2y")
+script = ExtResource("4_16ey0")
 
 [node name="View_High_Scores" type="Button" parent="."]
 layout_mode = 0
@@ -75,9 +69,9 @@ offset_left = 552.0
 offset_top = 1088.0
 offset_right = 680.0
 offset_bottom = 1216.0
-theme = ExtResource("2_hej57")
+theme = ExtResource("3_88bxh")
 text = "High Scores"
-script = ExtResource("4_0nth7")
+script = ExtResource("5_rnf3a")
 
 [node name="TEST" type="Button" parent="."]
 layout_mode = 0
@@ -85,21 +79,21 @@ offset_left = 208.0
 offset_top = 1088.0
 offset_right = 336.0
 offset_bottom = 1216.0
-theme = ExtResource("2_hej57")
+theme = ExtResource("3_88bxh")
 text = "TEST"
 
 [node name="Aww_Sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("21_qhyy2")
+stream = ExtResource("6_u12mp")
 
 [node name="Applause_Sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_rq3xa")
+stream = ExtResource("7_bk2tx")
 
 [node name="HighScorePopup" type="PopupPanel" parent="."]
 position = Vector2i(40, 272)
 size = Vector2i(640, 512)
 unresizable = false
 always_on_top = true
-script = ExtResource("8_jkvh0")
+script = ExtResource("8_06wlt")
 
 [node name="HighScoreTitle" type="Label" parent="HighScorePopup"]
 offset_left = 4.0
@@ -126,29 +120,14 @@ select_mode = 1
 max_text_lines = 20
 same_column_width = true
 
-[node name="Snake" type="Node2D" parent="."]
-visible = false
-position = Vector2(40, 160)
-script = ExtResource("9_baejh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Snake"]
-texture = ExtResource("10_p252r")
-
-[node name="Collision" type="CollisionShape2D" parent="Snake"]
-shape = SubResource("CapsuleShape2D_nyv4a")
-
-[node name="RayCast2D" type="RayCast2D" parent="Snake"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Snake"]
-
 [node name="snake" type="Node2D" parent="."]
-script = ExtResource("12_rblek")
+script = ExtResource("11_dg51t")
 
 [node name="spawner_food" type="Node2D" parent="."]
-script = ExtResource("12_bwawo")
+script = ExtResource("12_ivaia")
 
 [node name="hit_spotter" type="Node2D" parent="."]
-script = ExtResource("13_3giuc")
+script = ExtResource("13_rlfor")
 
 [connection signal="timeout" from="Snake_Move_Timer" to="snake" method="_on_snake_move_timer_timeout"]
 [connection signal="focus_exited" from="HighScorePopup" to="HighScorePopup" method="_on_focus_exited"]
