@@ -1,9 +1,9 @@
 extends Node
 
 var snakecells = 8
-var snakecellsize := Vector2(80,80)
+var snakecellsize := Vector2(0,0)
 var GRID_SIZE := Vector2(0,0)
-var GRID_POSITION := Vector2(40,160)
+var GRID_POSITION := Vector2(0,0)
 
 const BLUE := Color('blue')
 const RED := Color('red')
@@ -12,10 +12,10 @@ const YELLOW := Color('yellow')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	
 	pass
 
 func _set_play_area_size(item):
@@ -23,3 +23,6 @@ func _set_play_area_size(item):
 	
 func _set_play_area_position(item):
 	GRID_POSITION = Vector2(item.x,item.y)
+
+func set_snake_cell_size(item):
+	snakecellsize = Vector2(item.x,item.y)

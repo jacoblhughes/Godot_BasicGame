@@ -12,7 +12,7 @@ var curr_direction = Vector2.ZERO
 
 
 var snake_length = 0
-var play_area_min = Vector2(40, 160)
+var play_area_min = HUDVariables.get_play_area_position_from_HUD()
 signal hit(minisnake_hit: Minisnake)
 
 func _ready():
@@ -62,8 +62,8 @@ func move() -> void:
 
 	curr_direction = next_direction
 	var next_position = head.curr_position + (curr_direction * SnakeVariables.snakecellsize)
-	next_position.x = 40 + fposmod(next_position.x - 40,SnakeVariables.GRID_SIZE.x) 
-	next_position.y = 160 + fposmod(next_position.y - 160,SnakeVariables.GRID_SIZE.y)
+	next_position.x = play_area_min.x + fposmod(next_position.x - play_area_min.x,SnakeVariables.GRID_SIZE.x) 
+	next_position.y = play_area_min.y + fposmod(next_position.y - play_area_min.y,SnakeVariables.GRID_SIZE.y)
 	head.curr_position = next_position
 
 	for i in range(1, minisnakes.size()):

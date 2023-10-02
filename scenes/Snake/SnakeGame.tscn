@@ -15,15 +15,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1smft")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="grid" type="Node2D" parent="."]
 script = ExtResource("2_sqbg3")
-
-[node name="Play_Area" type="ColorRect" parent="Node2D"]
-offset_left = 40.0
-offset_top = 160.0
-offset_right = 680.0
-offset_bottom = 800.0
-color = Color(1, 1, 1, 0.117647)
 
 [node name="Snake_Move_Timer" type="Timer" parent="."]
 wait_time = 0.5

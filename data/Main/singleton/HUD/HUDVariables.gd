@@ -8,6 +8,7 @@ extends Node
 @onready var GameOverSound: AudioStreamPlayer
 @onready var ApplauseSound: AudioStreamPlayer
 @onready var BackGroundMusic: AudioStreamPlayer
+@onready var PlayArea: ColorRect
 var child_node_to_delete
 
 @onready var buttons  = get_tree().get_root().get_node("Main").get_node("Buttons")
@@ -23,7 +24,7 @@ func _ready():
 	GameOverSound = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("GameOver")
 	ApplauseSound = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("Applause")
 	BackGroundMusic = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("BackGroundMusic")
-	
+	PlayArea = get_tree().get_root().get_node("Main").get_node("PlayArea")
 func set_new_score(new_score):
 		if new_score == 0:
 			score = 0
@@ -45,3 +46,9 @@ func play_applause():
 	
 func get_initials_from_HUD() -> String:
 	return InitialsInput.text
+
+func get_play_area_size_from_HUD():
+	return PlayArea.size
+	
+func get_play_area_position_from_HUD():
+	return PlayArea.position

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/Main/Buttons.gd" id="1_d3apa"]
 [ext_resource type="Theme" uid="uid://cc5frax1el0v6" path="res://themes/SimonSays/line_edit.tres" id="2_jlewo"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://scenes/SimonSays/SimonSaysGame.tscn" id="2_vqi0v"]
-[ext_resource type="PackedScene" uid="uid://c1ov306httsie" path="res://scenes/Snake/Snake.tscn" id="3_kj1q5"]
+[ext_resource type="PackedScene" uid="uid://c1ov306httsie" path="res://scenes/Snake/SnakeGame.tscn" id="3_kj1q5"]
 [ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/SimonSays/label.tres" id="3_t812x"]
 
 [node name="Buttons" type="Control"]
@@ -18,40 +18,47 @@ script = ExtResource("1_d3apa")
 simon_says = ExtResource("2_vqi0v")
 snake = ExtResource("3_kj1q5")
 
+[node name="Play_Area" type="ColorRect" parent="."]
+offset_left = 24.0
+offset_top = 144.0
+offset_right = 696.0
+offset_bottom = 816.0
+color = Color(1, 1, 1, 0.117647)
+
 [node name="SimonSays" type="Button" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 200.0
-offset_right = 216.0
-offset_bottom = 328.0
+offset_left = 48.0
+offset_top = 256.0
+offset_right = 240.0
+offset_bottom = 384.0
 theme = ExtResource("1_0twhk")
 text = "Simon Says Game"
 
 [node name="Snake" type="Button" parent="."]
 layout_mode = 0
-offset_left = 240.0
-offset_top = 200.0
-offset_right = 432.0
-offset_bottom = 328.0
+offset_left = 264.0
+offset_top = 256.0
+offset_right = 456.0
+offset_bottom = 384.0
 theme = ExtResource("1_0twhk")
 text = "Snake"
 
 [node name="Initials" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 240.0
-offset_top = 112.0
-offset_right = 432.0
-offset_bottom = 176.0
+offset_left = 264.0
+offset_top = 168.0
+offset_right = 456.0
+offset_bottom = 232.0
 theme = ExtResource("2_jlewo")
 alignment = 1
 max_length = 3
 
 [node name="InitialsLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 112.0
-offset_right = 216.0
-offset_bottom = 176.0
+offset_left = 48.0
+offset_top = 168.0
+offset_right = 240.0
+offset_bottom = 232.0
 theme = ExtResource("3_t812x")
 text = "Input Initials:"
 horizontal_alignment = 1
