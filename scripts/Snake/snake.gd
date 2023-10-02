@@ -3,8 +3,8 @@ extends Node2D
 
 
 
-var head := Minisnake.new()
-#var head
+#var head := Minisnake.new()
+var head
 var minisnakes := [] as Array[Minisnake]
 
 var next_direction = Vector2.ZERO
@@ -16,10 +16,12 @@ var play_area_min = Vector2(40, 160)
 signal hit(minisnake_hit: Minisnake)
 
 func _ready():
-#	head  = preload("res://scenes/Snake/SnakePlayer.tscn").instantiate()
+	head  = preload("res://scenes/Snake/SnakePlayer.tscn").instantiate()
+	get_parent().add_child.call_deferred(head)
 	head.size = SnakeVariables.snakecellsize
 	head.color = SnakeVariables.DARKBLUE
 	head.curr_position = play_area_min + Vector2(SnakeVariables.GRID_SIZE.x/2,SnakeVariables.GRID_SIZE.y/2)
+
 	minisnakes.push_front(head)
 
 	hit.connect(_on_hit)
@@ -29,13 +31,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-
+	head.position = head.curr_position
 	queue_redraw()
 	pass
 	
 func _draw():
 
 	for minisnake in minisnakes:
+		print(minisnake)
 		draw_rect(minisnake.get_rect(),minisnake.color)
 
 

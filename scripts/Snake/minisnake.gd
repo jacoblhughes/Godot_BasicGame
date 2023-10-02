@@ -1,5 +1,5 @@
 class_name Minisnake
-
+extends Node2D
 var curr_position := Vector2() : set = _set_curr_position
 var prev_position := Vector2()
 var size := Vector2()
