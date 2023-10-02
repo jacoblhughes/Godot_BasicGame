@@ -8,6 +8,7 @@ var score = 0
 var radius = 10  # Radius of the circular path
 var speed = 90   # Angular speed (degrees per second)
 var angle = 0     # Current angle in degrees
+var png_size = 150
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	HUDVariables.set_new_score(0)
@@ -15,7 +16,7 @@ func _ready():
 	spawn_food()
 
 	my_food_instance.SnakeFoodReady.connect(_on_food_initialized)
-	get_parent().add_child.call_deferred(my_food_instance)
+	get_parent().get_node("body").add_child.call_deferred(my_food_instance)
 
 
 	pass # Replace with function body.
@@ -24,7 +25,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	my_food_instance.position = my_food_instance.food_position
+	my_food_instance.position = my_food_instance.food_position + SnakeVariables.get_snake_cell_size()/2
 	
 	queue_redraw()
 	
@@ -46,6 +47,8 @@ func spawn_food():
 		random_position.x = randi_range(0, SnakeVariables.GRID_SIZE.x - SnakeVariables.snakecellsize.x)
 		random_position.y = randi_range(0, SnakeVariables.GRID_SIZE.y - SnakeVariables.snakecellsize.y)
 		my_food_instance.food_position = random_position.snapped(SnakeVariables.snakecellsize) + SnakeVariables.GRID_POSITION
+		my_food_instance.scale.x = SnakeVariables.snakecellsize.x/png_size
+		my_food_instance.scale.y = SnakeVariables.snakecellsize.y/png_size
 		for minisnake in snake.minisnakes:
 			if my_food_instance.get_rect().intersects(minisnake.get_rect()):
 				is_on_occupied_position = true

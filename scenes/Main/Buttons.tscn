@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=8 format=3 uid="uid://d4cpf87cb1bs0"]
 
 [ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/SimonSays/button.tres" id="1_0twhk"]
 [ext_resource type="Script" path="res://scripts/Main/Buttons.gd" id="1_d3apa"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://scenes/SimonSays/SimonSaysGame.tscn" id="2_vqi0v"]
 [ext_resource type="PackedScene" uid="uid://c1ov306httsie" path="res://scenes/Snake/SnakeGame.tscn" id="3_kj1q5"]
 [ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/SimonSays/label.tres" id="3_t812x"]
+[ext_resource type="PackedScene" uid="uid://c1n3bt7ntc5gf" path="res://scenes/Pong/perry.tscn" id="4_uxid6"]
 
 [node name="Buttons" type="Control"]
 layout_mode = 3
@@ -17,8 +18,10 @@ grow_vertical = 2
 script = ExtResource("1_d3apa")
 simon_says = ExtResource("2_vqi0v")
 snake = ExtResource("3_kj1q5")
+pong = ExtResource("4_uxid6")
 
 [node name="Play_Area" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 144.0
 offset_right = 696.0
@@ -43,6 +46,16 @@ offset_bottom = 384.0
 theme = ExtResource("1_0twhk")
 text = "Snake"
 
+[node name="Perry" type="Button" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 256.0
+offset_right = 672.0
+offset_bottom = 384.0
+theme = ExtResource("1_0twhk")
+text = "Perry
+"
+
 [node name="Initials" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 264.0
@@ -66,4 +79,5 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="SimonSays" to="." method="_on_simon_says_pressed"]
 [connection signal="pressed" from="Snake" to="." method="_on_snake_pressed"]
+[connection signal="pressed" from="Perry" to="." method="_on_pong_pressed"]
 [connection signal="text_changed" from="Initials" to="." method="_on_initials_text_changed"]

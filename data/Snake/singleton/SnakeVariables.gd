@@ -5,7 +5,7 @@ var snakecellsize := Vector2(0,0)
 var GRID_SIZE := Vector2(0,0)
 var GRID_POSITION := Vector2(0,0)
 
-const BLUE := Color('blue')
+const BLUE := Color('#66999b')
 const RED := Color('red')
 const DARKBLUE := Color('darkblue')
 const YELLOW := Color('yellow')
@@ -26,3 +26,6 @@ func _set_play_area_position(item):
 
 func set_snake_cell_size(item):
 	snakecellsize = Vector2(item.x,item.y)
+
+func get_snake_cell_size():
+	return snakecellsize

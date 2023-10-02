@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var config = ConfigFile.new()
 var arrayOfPlayerResponse = []

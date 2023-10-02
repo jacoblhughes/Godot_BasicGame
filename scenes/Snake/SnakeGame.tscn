@@ -1,26 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1ov306httsie"]
+[gd_scene load_steps=5 format=3 uid="uid://c1ov306httsie"]
 
-[ext_resource type="Script" path="res://scripts/Snake/SnakeGame.gd" id="1_1smft"]
 [ext_resource type="Script" path="res://scripts/Snake/grid.gd" id="2_sqbg3"]
 [ext_resource type="Script" path="res://scripts/Snake/snake.gd" id="11_dg51t"]
 [ext_resource type="Script" path="res://scripts/Snake/spawn_food.gd" id="12_ivaia"]
 [ext_resource type="Script" path="res://scripts/Snake/hit_spotter.gd" id="13_rlfor"]
 
-[node name="Snake" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_1smft")
+[node name="Snake" type="Node2D"]
+
+[node name="body" type="Node2D" parent="."]
 
 [node name="grid" type="Node2D" parent="."]
 script = ExtResource("2_sqbg3")
 
 [node name="Snake_Move_Timer" type="Timer" parent="."]
 wait_time = 0.5
-autostart = true
 
 [node name="snake" type="Node2D" parent="."]
 script = ExtResource("11_dg51t")
