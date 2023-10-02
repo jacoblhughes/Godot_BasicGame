@@ -6,7 +6,7 @@ var sizewidth
 var sizeheight
 var originalx
 var originaly
-var SnakeColorsInstance
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SnakeVariables._set_play_area_size($Play_Area.size)
@@ -17,7 +17,7 @@ func _ready():
 	height = SnakeVariables.GRID_SIZE.y
 	originalx = SnakeVariables.GRID_POSITION.x
 	originaly = SnakeVariables.GRID_POSITION.y
-	SnakeColorsInstance = SnakeColors.new()
+
 	pass
 	
 func _draw():
@@ -26,11 +26,11 @@ func _draw():
 
 		var vectortest = Vector2(i*sizewidth+originalx,0+originaly)
 		var vectortest1 = Vector2(i*sizewidth+originalx,height+originaly)
-		draw_line(vectortest,vectortest1,SnakeColors.BLUE)
+		draw_line(vectortest,vectortest1,SnakeVariables.BLUE)
 	for i in SnakeVariables.snakecells+1:
 		var vectortest2 = Vector2(0+originalx,i*sizeheight+originaly)
 		var vectortest3 = Vector2(width+originalx,i*sizeheight+originaly)
-		draw_line(vectortest2,vectortest3,SnakeColors.BLUE)
+		draw_line(vectortest2,vectortest3,SnakeVariables.BLUE)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -18,12 +18,12 @@ signal resetButtonPressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	InitialsInput = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("Initials")
-	ScoreLabel = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("Score")
-	StatusLabel = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("GameStatus")
-	GameOverSound = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("GameOver")
-	ApplauseSound = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("Applause")
-	BackGroundMusic = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("BackGroundMusic")
+	InitialsInput = $Control/Initials
+	ScoreLabel = $Control/Score
+	StatusLabel = $Control/GameStatus
+	GameOverSound = $Control/GameOver
+	ApplauseSound = $Control/Applause
+	BackGroundMusic = $Control/BackGroundMusic
 	
 	_update_initials_label()
 

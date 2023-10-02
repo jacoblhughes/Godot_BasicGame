@@ -1,6 +1,10 @@
-class_name Snake extends Node2D
+class_name Snake
+extends Node2D
+
+
 
 var head := Minisnake.new()
+#var head
 var minisnakes := [] as Array[Minisnake]
 
 var next_direction = Vector2.ZERO
@@ -12,9 +16,9 @@ var play_area_min = Vector2(40, 160)
 signal hit(minisnake_hit: Minisnake)
 
 func _ready():
-
+#	head  = preload("res://scenes/Snake/SnakePlayer.tscn").instantiate()
 	head.size = SnakeVariables.snakecellsize
-	head.color = SnakeColors.DARKBLUE
+	head.color = SnakeVariables.DARKBLUE
 	head.curr_position = play_area_min + Vector2(SnakeVariables.GRID_SIZE.x/2,SnakeVariables.GRID_SIZE.y/2)
 	minisnakes.push_front(head)
 
@@ -71,7 +75,7 @@ func grow() -> void:
 	var minisnake := Minisnake.new()
 	var last_minisnake := minisnakes.back() as Minisnake
 	minisnake.curr_position = last_minisnake.curr_position
-	minisnake.color = SnakeColors.BLUE
+	minisnake.color = SnakeVariables.BLUE
 	minisnake.size = SnakeVariables.snakecellsize
 
 	minisnakes.push_back(minisnake)

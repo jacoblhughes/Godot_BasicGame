@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://df8hy5adevjw7"]
+
+[ext_resource type="Script" path="res://scripts/Snake/MyPlayer.gd" id="1_266r6"]
+[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/Snake/Roddy.png" id="2_ol1jq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_121gs"]
+size = Vector2(128, 128)
+
+[node name="MyPlayer" type="Area2D"]
+script = ExtResource("1_266r6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, 64)
+scale = Vector2(0.853333, 0.853333)
+texture = ExtResource("2_ol1jq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_121gs")

@@ -12,7 +12,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_d2i8v"]
 font_color = Color(0, 0, 0, 1)
 
-[node name="HudCanvasLayer" type="CanvasLayer"]
+[node name="HUDScene" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_p2yk8")
 
