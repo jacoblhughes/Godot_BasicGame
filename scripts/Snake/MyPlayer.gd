@@ -1,3 +1,4 @@
+class_name SnakeBoy
 extends Minisnake
 
 

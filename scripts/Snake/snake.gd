@@ -32,13 +32,18 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	head.position = head.curr_position
+	
+	var test_children = get_tree().get_nodes_in_group("snakeLengths")
+	for child in test_children:
+		child.position = child.curr_position
+		
 	queue_redraw()
 	pass
 	
 func _draw():
 
 	for minisnake in minisnakes:
-		print(minisnake)
+		
 		draw_rect(minisnake.get_rect(),minisnake.color)
 
 
@@ -75,14 +80,20 @@ func _on_snake_move_timer_timeout():
 
 func grow() -> void:
 
-	var minisnake := Minisnake.new()
-	var last_minisnake := minisnakes.back() as Minisnake
-	minisnake.curr_position = last_minisnake.curr_position
-	minisnake.color = SnakeVariables.BLUE
-	minisnake.size = SnakeVariables.snakecellsize
-
-	minisnakes.push_back(minisnake)
-
+#	var minisnake := Minisnake.new()
+#	var last_minisnake := minisnakes.back() as Minisnake
+#	minisnake.curr_position = last_minisnake.curr_position
+#	minisnake.color = SnakeVariables.BLUE
+#	minisnake.size = SnakeVariables.snakecellsize
+#	minisnakes.push_back(minisnake)
+	var new_head = preload("res://scenes/Snake/SnakePlayer.tscn").instantiate()
+	var last_head :=minisnakes.back() as SnakeBoy
+	new_head.curr_position = last_head.curr_position
+	new_head.color = SnakeVariables.BLUE
+	new_head.size = SnakeVariables.snakecellsize
+	new_head.add_to_group("snakeLengths")
+	minisnakes.push_back(new_head)
+	get_parent().add_child.call_deferred(new_head)
 func _on_hit(mini:Minisnake) -> void:
 	get_parent().get_node("Snake_Move_Timer").stop()
 	
