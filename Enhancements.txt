@@ -1,0 +1,16 @@
+Perry Arcade
+
+
+
+HUD - learn to differenciate HUD scene and HUD autoload
+
+Simon - Make buttons better animations
+
+Snake - highscore
+	why am I getting an error
+	start and stop
+	maybe - make the scenes in the body do someting
+		make the food do something
+		improve collision logic
+
+Background music

@@ -1,14 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1n3bt7ntc5gf"]
+[gd_scene load_steps=13 format=3 uid="uid://c1n3bt7ntc5gf"]
 
 [ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/Snake/Roddy.png" id="1_wg3fc"]
+[ext_resource type="Script" path="res://scripts/Pong/Player.gd" id="2_hn2tv"]
+[ext_resource type="Texture2D" uid="uid://dnt13b1vj20t7" path="res://art/Pong/Bouncy Platform Medium.png" id="2_m40h2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ym6vl"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wq4sv"]
+radius = 44.0
+height = 128.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p42yw"]
+friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7eiv"]
-size = Vector2(730, 20)
+size = Vector2(730, 16)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_taktc"]
-radius = 72.0
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1uhjp"]
+friction = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt0k7"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7excd"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vy3e8"]
+size = Vector2(32, 664)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xopmw"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwr1e"]
+size = Vector2(33, 225)
 
 [node name="Perry" type="Node2D"]
 
@@ -21,7 +44,21 @@ offset_right = 696.0
 offset_bottom = 816.0
 color = Color(1, 1, 1, 0.117647)
 
-[node name="Top Wall" type="Area2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(136, 664)
+physics_material_override = SubResource("PhysicsMaterial_ym6vl")
+gravity_scale = 0.0
+linear_velocity = Vector2(-100, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("1_wg3fc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(6, 0)
+shape = SubResource("CapsuleShape2D_wq4sv")
+
+[node name="Top Wall" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_p42yw")
 
 [node name="ColorRect" type="ColorRect" parent="Top Wall"]
 offset_left = 24.0
@@ -34,16 +71,8 @@ color = Color(1, 0.0705882, 1, 1)
 position = Vector2(360, 136)
 shape = SubResource("RectangleShape2D_c7eiv")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(160, 280)
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-texture = ExtResource("1_wg3fc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("CircleShape2D_taktc")
-
-[node name="Bottom Wall" type="Area2D" parent="."]
+[node name="Bottom Wall" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_1uhjp")
 
 [node name="ColorRect2" type="ColorRect" parent="Bottom Wall"]
 offset_left = 24.0
@@ -56,8 +85,30 @@ color = Color(1, 0.0705882, 1, 1)
 position = Vector2(360, 824)
 shape = SubResource("RectangleShape2D_c7eiv")
 
-[node name="Left Wall" type="Area2D" parent="."]
-position = Vector2(24, 448)
+[node name="Left Wall" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_7excd")
+
+[node name="ColorRect2" type="ColorRect" parent="Left Wall"]
+offset_left = -8.0
+offset_top = 128.0
+offset_right = 24.0
+offset_bottom = 808.0
+color = Color(1, 0.0705882, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall"]
-shape = SubResource("RectangleShape2D_mt0k7")
+position = Vector2(8, 476)
+shape = SubResource("RectangleShape2D_vy3e8")
+
+[node name="Player" type="StaticBody2D" parent="."]
+position = Vector2(704, 496)
+physics_material_override = SubResource("PhysicsMaterial_xopmw")
+script = ExtResource("2_hn2tv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(3, 2.25)
+scale = Vector2(0.186275, 4.00877)
+texture = ExtResource("2_m40h2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(3.49976, 1.74994)
+shape = SubResource("RectangleShape2D_fwr1e")
