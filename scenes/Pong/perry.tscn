@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1n3bt7ntc5gf"]
+[gd_scene load_steps=5 format=3 uid="uid://c1n3bt7ntc5gf"]
 
-[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/SimonSays/Roddy.png" id="1_wg3fc"]
+[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/Snake/Roddy.png" id="1_wg3fc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7eiv"]
 size = Vector2(730, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_taktc"]
 radius = 72.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt0k7"]
 
 [node name="Perry" type="Node2D"]
 
@@ -19,39 +21,43 @@ offset_right = 696.0
 offset_bottom = 816.0
 color = Color(1, 1, 1, 0.117647)
 
-[node name="Node2D" type="Area2D" parent="."]
+[node name="Top Wall" type="Area2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Node2D"]
+[node name="ColorRect" type="ColorRect" parent="Top Wall"]
 offset_left = 24.0
 offset_top = 128.0
 offset_right = 704.0
 offset_bottom = 144.0
 color = Color(1, 0.0705882, 1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top Wall"]
 position = Vector2(360, 136)
 shape = SubResource("RectangleShape2D_c7eiv")
 
-[node name="Node2D3" type="Area2D" parent="."]
-position = Vector2(24, 144)
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(160, 280)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D3"]
-position = Vector2(288, 352)
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("1_wg3fc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D3"]
-position = Vector2(288, 352)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_taktc")
 
-[node name="Node2D2" type="Area2D" parent="."]
+[node name="Bottom Wall" type="Area2D" parent="."]
 
-[node name="ColorRect2" type="ColorRect" parent="Node2D2"]
+[node name="ColorRect2" type="ColorRect" parent="Bottom Wall"]
 offset_left = 24.0
 offset_top = 816.0
 offset_right = 704.0
 offset_bottom = 832.0
 color = Color(1, 0.0705882, 1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom Wall"]
 position = Vector2(360, 824)
 shape = SubResource("RectangleShape2D_c7eiv")
+
+[node name="Left Wall" type="Area2D" parent="."]
+position = Vector2(24, 448)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall"]
+shape = SubResource("RectangleShape2D_mt0k7")
