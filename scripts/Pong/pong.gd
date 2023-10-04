@@ -25,11 +25,23 @@ func _on_left_wall_body_entered(body):
 
 func _on_ball_body_entered(body):
 
-	print(body)
+
 	pass # Replace with function body.
 
 
 func _on_ball_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 
-	print(body_rid, body, body_shape_index, local_shape_index)
+
+	pass # Replace with function body.
+
+
+func _on_player_2_body_entered(body):
+	print('player 2 body entered')
+	print(body)
+	pass # Replace with function body.
+
+
+func _on_player_2_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	print('player 2 body entered')
+	print(body)
 	pass # Replace with function body.
