@@ -8,12 +8,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	pass
 
 
 func _on_left_wall_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	body.linear_velocity = body.linear_velocity
+	print(body)
 	pass # Replace with function body.
 
 
