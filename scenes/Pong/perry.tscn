@@ -66,6 +66,7 @@ position = Vector2(6, 0)
 shape = SubResource("CapsuleShape2D_wq4sv")
 
 [node name="Paddle - Rigid" type="RigidBody2D" parent="."]
+position = Vector2(600, 456)
 max_contacts_reported = 6
 contact_monitor = true
 linear_damp_mode = 1
@@ -73,12 +74,12 @@ angular_damp_mode = 1
 script = ExtResource("5_s6d30")
 
 [node name="Sprite2D" type="Sprite2D" parent="Paddle - Rigid"]
-position = Vector2(619, 498.25)
+position = Vector2(0.621338, 10.4902)
 scale = Vector2(0.186275, 4.00877)
 texture = ExtResource("2_m40h2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle - Rigid"]
-position = Vector2(619, 490.25)
+position = Vector2(0.621399, 2.49017)
 shape = SubResource("RectangleShape2D_fwr1e")
 
 [node name="Left Wall" type="StaticBody2D" parent="."]
