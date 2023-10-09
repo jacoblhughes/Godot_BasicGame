@@ -1,9 +1,9 @@
 extends Node2D
 
-
+@onready var ball : RigidBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	ball = get_parent().get_node("Ball")
 	pass # Replace with function body.
 
 
@@ -24,11 +24,11 @@ func _on_left_wall_body_entered(body):
 
 
 func _on_ball_body_entered(body):
-	print("Ball ",body.name)
-
-	pass # Replace with function body.
-
-
+	print("Ball",body.name)
+	if body.name == "Paddle - Computer" or body.name == "Paddle = Static":
+		ball.linear_velocity *= 1.01
+		#keep collition from occuring right after
+		
 func _on_ball_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 
 
