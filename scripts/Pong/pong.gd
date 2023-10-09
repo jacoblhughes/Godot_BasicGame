@@ -24,18 +24,12 @@ func _physics_process(delta):
 func _on_ball_body_entered(body):
 	print("Ball",body.name)
 	if body.name == "Paddle - Computer" or body.name == "Paddle - Player":
-		print('increasing')
+
 		ball.linear_velocity = ball.linear_velocity.normalized() * (ball.linear_velocity.length() * 1.20)
 		#keep collition from occuring right after
 #		ball.get_node("CollisionShape2D").disabled = true
 #		await(.5)  # Wait for 0.5 seconds
-	if body.name == "Win":
-		print("Win")
-		playerScore +=1
-	if body.name == "Lose":
-		print("Lose")
-#		# Re-enable collision
-		playerScore -=1
+
 
 func _on_ball_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	
@@ -52,4 +46,21 @@ func _on_player_2_body_entered(body):
 func _on_player_2_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 
 
+	pass # Replace with function body.
+
+
+
+func _on_win_body_entered(body):
+	if(body.name == "Ball"):
+		print("Win")
+		HUDVariables.set_new_score(1)
+		print(body.name)
+	pass # Replace with function body.
+
+
+func _on_lose_body_entered(body):
+	if(body.name == "Ball"):
+		print("Lose")
+		HUDVariables.set_new_score(-1)
+		print(body.name)
 	pass # Replace with function body.

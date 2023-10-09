@@ -127,3 +127,5 @@ shape = SubResource("RectangleShape2D_1g147")
 
 [connection signal="body_entered" from="Ball" to="pong" method="_on_ball_body_entered"]
 [connection signal="body_shape_entered" from="Ball" to="pong" method="_on_ball_body_shape_entered"]
+[connection signal="body_entered" from="Win" to="pong" method="_on_win_body_entered"]
+[connection signal="body_entered" from="Lose" to="pong" method="_on_lose_body_entered"]
