@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1n3bt7ntc5gf"]
+[gd_scene load_steps=13 format=3 uid="uid://c1n3bt7ntc5gf"]
 
 [ext_resource type="Script" path="res://scripts/Pong/pong.gd" id="1_owxaf"]
 [ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/Snake/Roddy.png" id="1_wg3fc"]
-[ext_resource type="Texture2D" uid="uid://dnt13b1vj20t7" path="res://art/Pong/Bouncy Platform Medium.png" id="2_m40h2"]
 [ext_resource type="Script" path="res://scripts/Pong/PlayerStatic.gd" id="3_obkky"]
 [ext_resource type="Script" path="res://scripts/Pong/Computer.gd" id="5_rsaa7"]
 
@@ -11,27 +10,20 @@ friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wq4sv"]
-radius = 44.0
-height = 128.0
+radius = 32.0
+height = 96.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwr1e"]
-size = Vector2(39.8786, 225)
+size = Vector2(16, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5bfcs"]
-size = Vector2(32, 256)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7excd"]
-friction = 0.0
-absorbent = true
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vy3e8"]
-size = Vector2(24, 664)
+size = Vector2(16, 128)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p42yw"]
 friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7eiv"]
-size = Vector2(730, 16)
+size = Vector2(672, 16)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1uhjp"]
 friction = 0.0
@@ -51,7 +43,7 @@ offset_bottom = 816.0
 color = Color(1, 1, 1, 0.117647)
 
 [node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(376, 480)
+position = Vector2(384, 480)
 physics_material_override = SubResource("PhysicsMaterial_ym6vl")
 gravity_scale = 0.0
 max_contacts_reported = 10
@@ -61,48 +53,39 @@ linear_damp_mode = 1
 angular_damp_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
+position = Vector2(-2.75002, 0)
+scale = Vector2(0.676666, 0.713333)
 texture = ExtResource("1_wg3fc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-position = Vector2(6, 0)
 shape = SubResource("CapsuleShape2D_wq4sv")
 
 [node name="Paddle - Player" type="StaticBody2D" parent="."]
-position = Vector2(672, 458)
+position = Vector2(672, 480)
 script = ExtResource("3_obkky")
 
-[node name="Sprite2D" type="Sprite2D" parent="Paddle - Player"]
-position = Vector2(3, 2.24995)
-scale = Vector2(0.186275, 4.00877)
-texture = ExtResource("2_m40h2")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle - Player"]
-position = Vector2(3.00015, 2.24995)
 shape = SubResource("RectangleShape2D_fwr1e")
 
+[node name="ColorRect" type="ColorRect" parent="Paddle - Player"]
+offset_left = -8.0
+offset_top = -64.0
+offset_right = 8.0
+offset_bottom = 64.0
+
 [node name="Paddle - Computer" type="CharacterBody2D" parent="."]
-position = Vector2(104, 424)
+position = Vector2(40, 480)
 script = ExtResource("5_rsaa7")
 
-[node name="Sprite2D" type="Sprite2D" parent="Paddle - Computer"]
-scale = Vector2(0.147059, 4.28947)
-texture = ExtResource("2_m40h2")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle - Computer"]
+position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_5bfcs")
 
-[node name="Left Wall" type="StaticBody2D" parent="."]
-physics_material_override = SubResource("PhysicsMaterial_7excd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall"]
-position = Vector2(24, 472)
-shape = SubResource("RectangleShape2D_vy3e8")
-
-[node name="ColorRect2" type="ColorRect" parent="Left Wall"]
-offset_top = 128.0
-offset_right = 40.0
-offset_bottom = 808.0
-color = Color(1, 0.0705882, 1, 1)
+[node name="ColorRect" type="ColorRect" parent="Paddle - Computer"]
+offset_top = -64.0
+offset_right = 16.0
+offset_bottom = 64.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Top Wall" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_p42yw")
@@ -110,9 +93,9 @@ physics_material_override = SubResource("PhysicsMaterial_p42yw")
 [node name="ColorRect" type="ColorRect" parent="Top Wall"]
 offset_left = 24.0
 offset_top = 128.0
-offset_right = 704.0
+offset_right = 696.0
 offset_bottom = 144.0
-color = Color(1, 0.0705882, 1, 1)
+color = Color(0.4, 0.6, 0.607843, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top Wall"]
 position = Vector2(360, 136)
@@ -124,9 +107,9 @@ physics_material_override = SubResource("PhysicsMaterial_1uhjp")
 [node name="ColorRect2" type="ColorRect" parent="Bottom Wall"]
 offset_left = 24.0
 offset_top = 816.0
-offset_right = 704.0
+offset_right = 696.0
 offset_bottom = 832.0
-color = Color(1, 0.0705882, 1, 1)
+color = Color(0.4, 0.6, 0.607843, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom Wall"]
 position = Vector2(360, 824)
