@@ -14,9 +14,6 @@ bounce = 1.0
 radius = 44.0
 height = 128.0
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xopmw"]
-friction = 0.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwr1e"]
 size = Vector2(39.8786, 225)
 
@@ -38,6 +35,8 @@ size = Vector2(730, 16)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1uhjp"]
 friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08oo8"]
 
 [node name="Perry" type="Node2D"]
 
@@ -68,21 +67,20 @@ texture = ExtResource("1_wg3fc")
 position = Vector2(6, 0)
 shape = SubResource("CapsuleShape2D_wq4sv")
 
-[node name="Paddle - Static" type="StaticBody2D" parent="."]
+[node name="Paddle - Player" type="StaticBody2D" parent="."]
 position = Vector2(672, 458)
-physics_material_override = SubResource("PhysicsMaterial_xopmw")
 script = ExtResource("3_obkky")
 
-[node name="Sprite2D" type="Sprite2D" parent="Paddle - Static"]
+[node name="Sprite2D" type="Sprite2D" parent="Paddle - Player"]
 position = Vector2(3, 2.24995)
 scale = Vector2(0.186275, 4.00877)
 texture = ExtResource("2_m40h2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle - Static"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle - Player"]
 position = Vector2(3.00015, 2.24995)
 shape = SubResource("RectangleShape2D_fwr1e")
 
-[node name="Paddle - Computer" type="StaticBody2D" parent="."]
+[node name="Paddle - Computer" type="CharacterBody2D" parent="."]
 position = Vector2(104, 424)
 script = ExtResource("5_rsaa7")
 
@@ -133,6 +131,11 @@ color = Color(1, 0.0705882, 1, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom Wall"]
 position = Vector2(360, 824)
 shape = SubResource("RectangleShape2D_c7eiv")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_08oo8")
 
 [connection signal="body_entered" from="Ball" to="pong" method="_on_ball_body_entered"]
 [connection signal="body_shape_entered" from="Ball" to="pong" method="_on_ball_body_shape_entered"]

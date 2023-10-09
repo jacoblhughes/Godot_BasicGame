@@ -1,9 +1,9 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 @onready var ball : RigidBody2D
 var lag_timer = 0.0
 var lag_duration = 0.5  # Adjust this value to control the lag duration
-
+var speed = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ball = get_parent().get_node("Ball")
@@ -12,16 +12,32 @@ func _ready():
 
 
 func _physics_process(delta):
-	var ball_pos = ball.position
 
-	# Calculate the distance between the node and the ball
-	var distance = abs(position.y - ball_pos.y)
+	# Get the current position of the ball
+	var ball_position = ball.position
 
-	# Calculate the new position of the node, 10% of the distance between the ball and the node
-	var new_y = ball_pos.y + (distance * 0.1)
+	# Calculate the direction to move the paddle based on the ball's position
+	var direction = 0
+	if ball_position.y < position.y:
+		direction = -1  # Move up
+	elif ball_position.y > position.y:
+		direction = 1   # Move down
 
-	# Update the node's position
-	position.y = new_y
+	# Move the paddle
+	var velocity = Vector2(0, direction * speed)
+	move_and_collide(velocity)
+
+#	sleep
+#	var ball_pos = ball.position
+#
+#	# Calculate the distance between the node and the ball
+#	var distance = abs(position.y - ball_pos.y)
+#
+#	# Calculate the new position of the node, 10% of the distance between the ball and the node
+#	var new_y = ball_pos.y + (distance * 0.1)
+#
+#	# Update the node's position
+#	position.y = new_y
 
 #func _physics_process(delta):
 #	var ball_pos = ball.position
