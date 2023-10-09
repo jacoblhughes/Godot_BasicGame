@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c34y2fdklm14p"
-path="res://.godot/imported/BlueLight.png-7f8a5f28b6160b7bf807248aa7a30425.ctex"
+uid="uid://crepray35ed7g"
+path="res://.godot/imported/Roddy Reference.png-599e188f76d2516360ac5c98f55c7f52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/SimonSays/BlueLight.png"
-dest_files=["res://.godot/imported/BlueLight.png-7f8a5f28b6160b7bf807248aa7a30425.ctex"]
+source_file="res://art/Main/Roddy Reference.png"
+dest_files=["res://.godot/imported/Roddy Reference.png-599e188f76d2516360ac5c98f55c7f52.ctex"]
 
 [params]
 

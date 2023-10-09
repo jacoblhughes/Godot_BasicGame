@@ -3,17 +3,17 @@
 [ext_resource type="Theme" uid="uid://c3vsilsjx2s6p" path="res://themes/SimonSays/button_first.tres" id="1_gqn7e"]
 [ext_resource type="Script" path="res://scripts/SimonsSays/GameButton.gd" id="2_3y2go"]
 [ext_resource type="AudioStream" uid="uid://brarlhu18wx0d" path="res://sounds/SimonSays/a_sharp.wav" id="3_7l2s0"]
-[ext_resource type="Texture2D" uid="uid://df8m8hrwu206j" path="res://art/SimonSays/RedDark.png" id="4_6ledq"]
-[ext_resource type="Texture2D" uid="uid://qcaphq88gpta" path="res://art/SimonSays/RedLight.png" id="5_8ewxx"]
-[ext_resource type="Texture2D" uid="uid://be45kmc54xiob" path="res://art/SimonSays/Roddy1.png" id="6_ajqca"]
-[ext_resource type="Texture2D" uid="uid://weu4g7hwjuv1" path="res://art/SimonSays/Roddy2.png" id="7_6dt60"]
-[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/SimonSays/Roddy.png" id="8_e88gv"]
+[ext_resource type="Texture2D" uid="uid://dimscu3rie0v3" path="res://art/SimonSays/RedDark.png" id="4_ohfp0"]
+[ext_resource type="Texture2D" uid="uid://bnm7ixck0e0g5" path="res://art/SimonSays/RedLight.png" id="5_odwj6"]
+[ext_resource type="Texture2D" uid="uid://d27t0vjdu81c5" path="res://art/Main/Roddy Open Mouth Tilted Left.png" id="6_7tom4"]
+[ext_resource type="Texture2D" uid="uid://bilyrox678nfu" path="res://art/Main/Roddy Open Mouth Tilted Right.png" id="7_x3jxb"]
+[ext_resource type="Texture2D" uid="uid://dpetxgmxxyxnp" path="res://art/Main/Roddy.png" id="8_6pqf3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0megc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_6ledq")
+"texture": ExtResource("4_ohfp0")
 }],
 "loop": false,
 "name": &"dark",
@@ -21,7 +21,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_8ewxx")
+"texture": ExtResource("5_odwj6")
 }],
 "loop": false,
 "name": &"light",
@@ -32,10 +32,10 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_ajqca")
+"texture": ExtResource("6_7tom4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_6dt60")
+"texture": ExtResource("7_x3jxb")
 }],
 "loop": true,
 "name": &"default",
@@ -43,7 +43,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_e88gv")
+"texture": ExtResource("8_6pqf3")
 }],
 "loop": true,
 "name": &"resting",

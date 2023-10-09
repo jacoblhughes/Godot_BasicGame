@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c34y2fdklm14p"
-path="res://.godot/imported/BlueLight.png-7f8a5f28b6160b7bf807248aa7a30425.ctex"
+uid="uid://bjmtllw66oe1g"
+path="res://.godot/imported/SnakeBody.png-62c16fed0092cdea8ce449989ea94587.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/SimonSays/BlueLight.png"
-dest_files=["res://.godot/imported/BlueLight.png-7f8a5f28b6160b7bf807248aa7a30425.ctex"]
+source_file="res://art/Snake/SnakeBody.png"
+dest_files=["res://.godot/imported/SnakeBody.png-62c16fed0092cdea8ce449989ea94587.ctex"]
 
 [params]
 

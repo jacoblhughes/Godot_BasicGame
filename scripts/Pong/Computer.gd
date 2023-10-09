@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var my_sprite : ColorRect
 var lag_timer = 0.0
 var lag_duration = 0.5  # Adjust this value to control the lag duration
-var speed = 3
+var speed = 2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	my_sprite = $ColorRect
@@ -30,7 +30,7 @@ func _physics_process(delta):
 	var velocity = Vector2(0, direction * speed)
 	move_and_collide(velocity)
 	position.y = clamp(position.y, HUDVariables.PlayArea.global_position.y + my_sprite.size.y/2,HUDVariables.PlayArea.global_position.y+HUDVariables.PlayArea.size.y - my_sprite.size.y/2)
-#	sleep
+
 #	var ball_pos = ball.position
 #
 #	# Calculate the distance between the node and the ball

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://c1n3bt7ntc5gf"]
 
 [ext_resource type="Script" path="res://scripts/Pong/pong.gd" id="1_owxaf"]
-[ext_resource type="Texture2D" uid="uid://dpetxgmxxyxnp" path="res://art/Main/Roddy.png" id="2_up12u"]
+[ext_resource type="Texture2D" uid="uid://cvpxls48map84" path="res://art/Snake/Roddy.png" id="1_wg3fc"]
 [ext_resource type="Script" path="res://scripts/Pong/PlayerStatic.gd" id="3_obkky"]
 [ext_resource type="Script" path="res://scripts/Pong/Computer.gd" id="5_rsaa7"]
 
@@ -45,7 +45,6 @@ physics_material_override = SubResource("PhysicsMaterial_ym6vl")
 gravity_scale = 0.0
 max_contacts_reported = 10
 contact_monitor = true
-lock_rotation = true
 linear_velocity = Vector2(-200, -200)
 linear_damp_mode = 1
 angular_damp_mode = 1
@@ -53,7 +52,7 @@ angular_damp_mode = 1
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
 position = Vector2(-2.75002, 0)
 scale = Vector2(0.676666, 0.713333)
-texture = ExtResource("2_up12u")
+texture = ExtResource("1_wg3fc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("CapsuleShape2D_wq4sv")
