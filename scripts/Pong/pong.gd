@@ -8,6 +8,7 @@ var playerScore = 0
 var computerScore = 0
 var game_disabled = true
 var original_position = Vector2(0,0)
+var game_reset = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent().get_node("Paddle - Player")
@@ -21,9 +22,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-
-	pass
+#func _physics_process(delta):
+#
+#	pass
 
 
 
@@ -78,8 +79,23 @@ func _on_play_button_pressed():
 		ball.linear_velocity = Vector2(-100,-100)
 		game_disabled = false
 
-
+func _integrate_forces():
+	print('here')
+	if game_reset == true:
+		print('heeeeeeeeeeee')
+		ball.position = original_position
+		ball.linear_velocity = Vector2(0, 0)
+		game_reset = false
+	else:
+		# Apply your regular physics logic here
+		# This is where you would handle movement, forces, etc.
+		pass
+	
 func on_reset_button_reset_button_pressed():
+	print('reset',original_position)
+	game_reset = true
+	print(game_reset)
+	_integrate_forces()
 #	ball.linear_velocity = Vector2(0,0)
 #	print(original_position)
 #	ball.position= original_position
