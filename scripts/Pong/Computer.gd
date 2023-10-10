@@ -27,32 +27,11 @@ func _physics_process(delta):
 		direction = 1   # Move down
 
 	# Move the paddle
-	var velocity = Vector2(0, direction * speed)
-	move_and_collide(velocity)
+	var paddle_velocity = Vector2(0, direction * speed)
+	var collision = move_and_collide(paddle_velocity)
+	if collision:
+		# A collision occurred, set velocity to zero to prevent movement
+		velocity = Vector2(0, 0)
 	position.y = clamp(position.y, HUDVariables.PlayArea.global_position.y + my_sprite.size.y/2,HUDVariables.PlayArea.global_position.y+HUDVariables.PlayArea.size.y - my_sprite.size.y/2)
 
-#	var ball_pos = ball.position
-#
-#	# Calculate the distance between the node and the ball
-#	var distance = abs(position.y - ball_pos.y)
-#
-#	# Calculate the new position of the node, 10% of the distance between the ball and the node
-#	var new_y = ball_pos.y + (distance * 0.1)
-#
-#	# Update the node's position
-#	position.y = new_y
 
-#func _physics_process(delta):
-#	var ball_pos = ball.position
-#
-#	# Calculate the distance between the node and the ball
-#	var distance = abs(position.y - ball_pos.y)
-#
-#	# Calculate the new position of the node, always halfway between the ball and the node
-#	var new_y = ball_pos.y + (distance / 30.0)
-#
-#	# Calculate the velocity to move towards the new position
-#	var velocity = (Vector2(0, new_y) - position).normalized() * ball.velocity.y  # Replace your_speed_value with the desired speed
-#
-#	# Update the node's position using the velocity
-#	position += velocity * delta

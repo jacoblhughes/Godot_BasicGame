@@ -126,6 +126,5 @@ shape = SubResource("RectangleShape2D_ek0n5")
 position = Vector2(708, 480)
 shape = SubResource("RectangleShape2D_1g147")
 
-[connection signal="body_entered" from="Ball" to="Ball" method="_on_body_entered"]
 [connection signal="body_entered" from="Win" to="pong" method="_on_win_body_entered"]
 [connection signal="body_entered" from="Lose" to="pong" method="_on_lose_body_entered"]

@@ -20,43 +20,6 @@ func _ready():
 
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _physics_process(delta):
-#
-#	pass
-
-
-
-func _on_ball_body_entered(body):
-	print("Ball",body.name)
-	if body.name == "Paddle - Computer" or body.name == "Paddle - Player":
-
-		ball.linear_velocity = ball.linear_velocity.normalized() * (ball.linear_velocity.length() * 1.20)
-		#keep collition from occuring right after
-#		ball.get_node("CollisionShape2D").disabled = true
-#		await(.5)  # Wait for 0.5 seconds
-
-
-func _on_ball_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	
-
-	pass # Replace with function body.
-
-
-func _on_player_2_body_entered(body):
-
-	print("Player ",body.name)
-	pass # Replace with function body.
-
-
-func _on_player_2_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-
-
-	pass # Replace with function body.
-
-
-
 func _on_win_body_entered(body):
 	if(body.name == "Ball"):
 		print("Win")
@@ -76,31 +39,12 @@ func _change_game_disabled(value):
 	game_disabled = value
 
 func _on_play_button_pressed():
-		ball.linear_velocity = Vector2(-100,-100)
+
 		game_disabled = false
 
-func _integrate_forces(state):
-	print(state)
-	print('here')
-	if game_reset == true:
-		print('heeeeeeeeeeee')
-		ball.position = original_position
-		ball.linear_velocity = Vector2(0, 0)
-		game_reset = false
-	else:
-		# Apply your regular physics logic here
-		# This is where you would handle movement, forces, etc.
-		pass
-	
+
 func on_reset_button_reset_button_pressed():
-	print('reset',original_position)
 	game_reset = true
-	print(game_reset)
-
-#	ball.linear_velocity = Vector2(0,0)
-#	print(original_position)
-#	ball.position= original_position
-
 
 	_change_game_disabled(true)
 	HUDVariables.set_new_score(0)
