@@ -7,8 +7,7 @@ extends Node2D
 var playerScore = 0
 var computerScore = 0
 var game_disabled = true
-var original_x = 0
-var original_y = 0
+var original_position = Vector2(0,0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent().get_node("Paddle - Player")
@@ -16,8 +15,8 @@ func _ready():
 	ball = get_parent().get_node("Ball")
 	HUDSIGNALS.startButtonPressed.connect(_on_play_button_pressed)
 	HUDSIGNALS.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
-	original_x = ball.position.x
-	original_y = ball.position.y
+	original_position = ball.position
+
 	pass # Replace with function body.
 
 
@@ -76,15 +75,15 @@ func _change_game_disabled(value):
 	game_disabled = value
 
 func _on_play_button_pressed():
-
+		ball.linear_velocity = Vector2(-100,-100)
 		game_disabled = false
 
 
 func on_reset_button_reset_button_pressed():
+#	ball.linear_velocity = Vector2(0,0)
+#	print(original_position)
+#	ball.position= original_position
 
-	ball.position.x = original_x
-	ball.position.y = original_y
-	ball.linear_velocity = Vector2(0,0)
 
 	_change_game_disabled(true)
 	HUDVariables.set_new_score(0)

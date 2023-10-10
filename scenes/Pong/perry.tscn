@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Pong/pong.gd" id="1_owxaf"]
 [ext_resource type="Texture2D" uid="uid://dpetxgmxxyxnp" path="res://art/Main/Roddy.png" id="2_up12u"]
-[ext_resource type="Script" path="res://scripts/Pong/PlayerStatic.gd" id="3_obkky"]
+[ext_resource type="Script" path="res://scripts/Pong/Player.gd" id="3_lukah"]
 [ext_resource type="Script" path="res://scripts/Pong/Computer.gd" id="5_rsaa7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ym6vl"]
@@ -46,7 +46,6 @@ gravity_scale = 0.0
 max_contacts_reported = 10
 contact_monitor = true
 lock_rotation = true
-linear_velocity = Vector2(-200, -200)
 linear_damp_mode = 1
 angular_damp_mode = 1
 
@@ -60,7 +59,7 @@ shape = SubResource("CapsuleShape2D_wq4sv")
 
 [node name="Paddle - Player" type="StaticBody2D" parent="."]
 position = Vector2(672, 480)
-script = ExtResource("3_obkky")
+script = ExtResource("3_lukah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle - Player"]
 shape = SubResource("RectangleShape2D_fwr1e")
