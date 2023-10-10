@@ -79,7 +79,8 @@ func _on_play_button_pressed():
 		ball.linear_velocity = Vector2(-100,-100)
 		game_disabled = false
 
-func _integrate_forces():
+func _integrate_forces(state):
+	print(state)
 	print('here')
 	if game_reset == true:
 		print('heeeeeeeeeeee')
@@ -95,7 +96,7 @@ func on_reset_button_reset_button_pressed():
 	print('reset',original_position)
 	game_reset = true
 	print(game_reset)
-	_integrate_forces()
+
 #	ball.linear_velocity = Vector2(0,0)
 #	print(original_position)
 #	ball.position= original_position
