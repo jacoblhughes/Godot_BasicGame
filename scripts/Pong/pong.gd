@@ -20,21 +20,6 @@ func _ready():
 
 	pass # Replace with function body.
 
-func _on_win_body_entered(body):
-	if(body.name == "Ball"):
-		print("Win")
-		HUDVariables.set_new_score(1)
-		print(body.name)
-	pass # Replace with function body.
-
-
-func _on_lose_body_entered(body):
-	if(body.name == "Ball"):
-		print("Lose")
-		HUDVariables.set_new_score(-1)
-		print(body.name)
-	pass # Replace with function body.
-
 func _change_game_disabled(value):
 	game_disabled = value
 
