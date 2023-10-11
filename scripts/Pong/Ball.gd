@@ -23,7 +23,7 @@ func _integrate_forces(state):
 		pass
 
 func _on_play_button_pressed():
-	linear_velocity = Vector2(-100,-100)
+	self.apply_central_impulse(Vector2(-1,-1) * 200)
 
 func _on_reset_button_reset_button_pressed():
 	position_reset = true
@@ -31,9 +31,11 @@ func _on_reset_button_reset_button_pressed():
 func _on_body_entered(body):
 	print("Ball hit: ",body.name)
 	if body.name == "Paddle - Computer" or body.name == "Paddle - Player":
-		linear_velocity = linear_velocity.normalized() * (linear_velocity.length() * 1.20)
+		pass
+#		linear_velocity = linear_velocity.normalized() * (linear_velocity.length() * 1.20)
 	if body.name == "Paddle - Computer":
-		linear_velocity = Vector2(100,100)
+		pass
+#		linear_velocity = Vector2(100,100)
 	if body.name == "Win":
 		position_reset = true
 		HUDSIGNALS.set_new_score(1)
