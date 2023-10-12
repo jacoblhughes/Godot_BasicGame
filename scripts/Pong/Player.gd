@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends CharacterBody2D
 
 @onready var my_sprite : ColorRect
 @onready var collision_object : CollisionShape2D

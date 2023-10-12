@@ -1,7 +1,9 @@
 extends Node2D
 
+signal position_reset
+
 @onready var ball : CharacterBody2D
-@onready var player : RigidBody2D
+@onready var player : CharacterBody2D
 @onready var computer : CharacterBody2D
 @onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
 var playerScore = 0
@@ -34,4 +36,18 @@ func on_reset_button_reset_button_pressed():
 	_change_game_disabled(true)
 	HUDVariables.set_new_score(0)
 	
+	pass # Replace with function body.
+
+
+func _on_win_body_entered(body):
+	if body.name == "Ball":
+		position_reset.emit()
+		HUDVariables.set_new_score(1)
+	pass # Replace with function body.
+
+
+func _on_lose_body_entered(body):
+	if body.name == "Ball":
+		position_reset.emit()
+		HUDVariables.set_new_score(-1)
 	pass # Replace with function body.
