@@ -9,7 +9,7 @@ var speed = 1
 func _ready():
 	my_sprite = $ColorRect
 	ball = get_parent().get_node("Ball")
-#	position.y = clamp(position.y,0,HUDVariables.PlayArea.position.y)
+
 	pass # Replace with function body.
 
 
