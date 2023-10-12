@@ -1,8 +1,8 @@
-extends StaticBody2D
+extends RigidBody2D
 
 @onready var my_sprite : ColorRect
 @onready var collision_object : CollisionShape2D
-@onready var ball : RigidBody2D
+@onready var ball : CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	my_sprite = $ColorRect

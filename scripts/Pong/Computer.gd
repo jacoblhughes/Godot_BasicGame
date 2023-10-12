@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var ball : RigidBody2D
+@onready var ball : CharacterBody2D
 @onready var my_sprite : ColorRect
 var lag_timer = 0.0
 var lag_duration = 0.5  # Adjust this value to control the lag duration

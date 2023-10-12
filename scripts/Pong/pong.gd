@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var ball : RigidBody2D
-@onready var player : StaticBody2D
+@onready var ball : CharacterBody2D
+@onready var player : RigidBody2D
 @onready var computer : CharacterBody2D
 @onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
 var playerScore = 0

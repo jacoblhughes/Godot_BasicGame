@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends CharacterBody2D
 var reset_round = false
 @onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
 # Called when the node enters the scene tree for the first time.
@@ -23,8 +23,9 @@ func _integrate_forces(state):
 		pass
 
 func _on_play_button_pressed():
-	self.apply_central_impulse(Vector2(-1,-1) * 200)
-
+	#	self.apply_central_impulse(Vector2(-1,-1) * 200)
+	move_and_collide(Vector2(-100,-100))
+	pass
 func _on_reset_button_reset_button_pressed():
 	position_reset = true
 	
@@ -48,5 +49,5 @@ func _on_body_entered(body):
 func _input(event):
 
 	if Input.is_action_pressed("left_mouse_click") and reset_round:
-		linear_velocity = Vector2(-100,-100)
+#		linear_velocity = Vector2(-100,-100)
 		reset_round = false
