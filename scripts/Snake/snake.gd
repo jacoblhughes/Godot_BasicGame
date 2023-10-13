@@ -15,6 +15,8 @@ var snake_length = 0
 var play_area_min = HUDVariables.get_play_area_position_from_HUD()
 signal hit(minisnake_hit: Minisnake)
 var SnakeTimer
+var isFirst = true
+var isFirstminiSnake = true
 @onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
 @onready var SPAWNSIGNALS = get_parent().get_node("spawner_food")
 func _ready():
@@ -134,11 +136,18 @@ func on_reset_button_reset_button_pressed():
 	SnakeTimer.stop()
 	
 	# Remove all minisnakes from the scene
+#	for minisnake in minisnakes:
+#		minisnake.queue_free()
 	for minisnake in minisnakes:
+		if isFirstminiSnake:
+			isFirstminiSnake = false
+			continue
 		minisnake.queue_free()
-		
 	var bodyNode = get_parent().get_node("body")
 	for child in bodyNode.get_children():
+		if isFirst:
+			isFirst = false
+			continue
 		child.queue_free()
 	# Clear the minisnakes array
 	minisnakes.clear()
@@ -156,7 +165,8 @@ func on_reset_button_reset_button_pressed():
 	
 	# Reset the score displayed in HUD
 	HUDVariables.set_new_score(0)
-
+	isFirst = true
+	isFirstminiSnake = true
 func game_over():
 	SnakeTimer.stop()
 	HUDVariables.set_new_score(0)

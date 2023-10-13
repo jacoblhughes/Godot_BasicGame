@@ -18,7 +18,7 @@ func _ready():
 	spawn_food()
 
 	my_food_instance.SnakeFoodReady.connect(_on_food_initialized)
-	get_parent().get_node("body").add_child.call_deferred(my_food_instance)
+	get_parent().add_child.call_deferred(my_food_instance)
 
 
 	pass # Replace with function body.
