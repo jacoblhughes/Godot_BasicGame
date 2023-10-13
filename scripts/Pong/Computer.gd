@@ -14,7 +14,7 @@ func _ready():
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	# Get the current position of the ball
 	var ball_position = ball.position

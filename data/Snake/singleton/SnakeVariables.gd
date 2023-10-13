@@ -1,6 +1,6 @@
 extends Node
 
-var snakecells = 4
+var snakecells = 6
 var snakecellsize := Vector2(0,0)
 var GRID_SIZE := Vector2(0,0)
 var GRID_POSITION := Vector2(0,0)

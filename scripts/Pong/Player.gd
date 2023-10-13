@@ -13,7 +13,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	var mouse_pos = get_viewport().get_mouse_position()
 	position.y = mouse_pos.y
 	position.y = clamp(position.y, HUDVariables.PlayArea.global_position.y + my_sprite.size.y/2,HUDVariables.PlayArea.global_position.y+HUDVariables.PlayArea.size.y - my_sprite.size.y/2)

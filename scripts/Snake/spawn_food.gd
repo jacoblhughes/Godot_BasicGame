@@ -9,6 +9,8 @@ var radius = 10  # Radius of the circular path
 var speed = 90   # Angular speed (degrees per second)
 var angle = 0     # Current angle in degrees
 var png_size = 150
+
+signal PlayerWin
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	HUDVariables.set_new_score(0)
@@ -32,8 +34,13 @@ func _process(delta):
 	if my_food_instance.get_rect().intersects(snake.head.get_rect()):
 		
 		HUDVariables.set_new_score(1)
-		snake.grow()
-		spawn_food()
+		if(int(HUDVariables.get_current_score()) == (SnakeVariables.snakecells * SnakeVariables.snakecells)):
+			print("WIN")
+			PlayerWin.emit()
+			
+		else:
+			snake.grow()
+			spawn_food()
 	angle += (speed * 2)*delta
 func _draw():
 	pass

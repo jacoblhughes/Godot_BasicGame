@@ -56,7 +56,7 @@ func _on_position_reset():
 
 	_reset_ball()
 
-func _input(event):
+func _input(_event):
 
 	if Input.is_action_pressed("left_mouse_click") and reset_round:
 

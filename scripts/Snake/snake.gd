@@ -16,10 +16,12 @@ var play_area_min = HUDVariables.get_play_area_position_from_HUD()
 signal hit(minisnake_hit: Minisnake)
 var SnakeTimer
 @onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
+@onready var SPAWNSIGNALS = get_parent().get_node("spawner_food")
 func _ready():
 	SnakeTimer = get_parent().get_node("Snake_Move_Timer")
 	HUDSIGNALS.startButtonPressed.connect(_on_play_button_pressed)
 	HUDSIGNALS.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
+	SPAWNSIGNALS.PlayerWin.connect(_on_player_win)
 	head  = preload("res://scenes/Snake/SnakePlayer.tscn").instantiate()
 	get_parent().add_child.call_deferred(head)
 	head.size = SnakeVariables.snakecellsize
@@ -37,14 +39,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	head.position = head.curr_position + SnakeVariables.get_snake_cell_size()/2
-	
+	if head:
+		head.position = head.curr_position + SnakeVariables.get_snake_cell_size()/2
+
 	var test_children = get_tree().get_nodes_in_group("snakeLengths")
 	for child in test_children:
-		child.position = child.curr_position + SnakeVariables.get_snake_cell_size()/2
+		if child:
+			child.position = child.curr_position + SnakeVariables.get_snake_cell_size()/2
 		
 	queue_redraw()
-	pass
 	
 func _draw():
 	pass
@@ -53,7 +56,7 @@ func _draw():
 #		draw_rect(minisnake.get_rect(),minisnake.color)
 
 
-func _input(event):
+func _input(_event):
 
 	if Input.is_action_pressed("move_right"):
 		head.my_sprite.rotation = 0
@@ -129,12 +132,30 @@ func _on_play_button_pressed():
 
 func on_reset_button_reset_button_pressed():
 	SnakeTimer.stop()
-	minisnakes = []
-
-	_change_game_disabled(true)
-	HUDVariables.set_new_score(0)
 	
-	pass # Replace with function body.
+	# Remove all minisnakes from the scene
+	for minisnake in minisnakes:
+		minisnake.queue_free()
+		
+	var bodyNode = get_parent().get_node("body")
+	for child in bodyNode.get_children():
+		child.queue_free()
+	# Clear the minisnakes array
+	minisnakes.clear()
+	
+	# Reset head position and add to minisnakes list
+	head.curr_position = play_area_min + Vector2(SnakeVariables.GRID_SIZE.x/2,SnakeVariables.GRID_SIZE.y/2)
+	minisnakes.push_front(head)
+	
+	# Reset movement directions
+	next_direction = Vector2.ZERO
+	curr_direction = Vector2.ZERO
+	
+	# Reset game state
+	_change_game_disabled(true)
+	
+	# Reset the score displayed in HUD
+	HUDVariables.set_new_score(0)
 
 func game_over():
 	SnakeTimer.stop()
@@ -144,3 +165,6 @@ func game_over():
 
 func _change_game_disabled(status):
 	game_disabled = status
+
+func _on_player_win():
+	pass

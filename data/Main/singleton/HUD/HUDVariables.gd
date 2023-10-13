@@ -15,7 +15,6 @@ var child_node_to_delete
 var score = 0
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	InitialsInput = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("Initials")
@@ -52,3 +51,6 @@ func get_play_area_size_from_HUD():
 	
 func get_play_area_position_from_HUD():
 	return PlayArea.position
+
+func get_current_score():
+	return ScoreLabel.text
