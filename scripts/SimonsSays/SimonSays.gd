@@ -194,7 +194,7 @@ func _on_play_button_pressed():
 		gameInitialized = true
 		gameRunning = true
 		_computer_turn_start()
-
+	print('wow')
 	pass # Replace with function body.
 	
 func _on_playback_timer_timeout():
