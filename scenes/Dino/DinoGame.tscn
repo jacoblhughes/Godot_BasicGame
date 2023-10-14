@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cgu5dun6rgtic"]
+[gd_scene load_steps=16 format=3 uid="uid://cgu5dun6rgtic"]
 
 [ext_resource type="Script" path="res://scripts/Dino/dino.gd" id="1_6p3q1"]
 [ext_resource type="Texture2D" uid="uid://bo54ob6kkbcat" path="res://art/Dino/floor.png" id="1_nefk3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bwq6vhyamxakq" path="res://art/Dino/Llama Jumping.png" id="5_j3gvf"]
 [ext_resource type="Texture2D" uid="uid://cii58wta6uq53" path="res://art/Dino/Llama Walking.png" id="6_uvc04"]
 [ext_resource type="Texture2D" uid="uid://dvnnkd6b2r0gv" path="res://art/Dino/fire.png" id="7_yscen"]
+[ext_resource type="Texture2D" uid="uid://dpetxgmxxyxnp" path="res://art/Main/Roddy.png" id="8_ue7ir"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p4gh0"]
 
@@ -103,9 +104,15 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Despawn"]
+visible = false
 position = Vector2(8, 60)
 scale = Vector2(0.00649614, 0.00666667)
 texture = ExtResource("7_yscen")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Despawn"]
+position = Vector2(4, 60)
+scale = Vector2(0.266667, 0.266667)
+texture = ExtResource("8_ue7ir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Despawn"]
 position = Vector2(-4, 35)
