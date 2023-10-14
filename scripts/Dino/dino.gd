@@ -1,12 +1,13 @@
 extends Node2D
 @onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
 @onready var enemy_scene  = preload("res://scenes/Dino/Enemy.tscn")
+
 var enemy_counter = 1
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+#	HUDSIGNALS.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
 
 	
 	pass # Replace with function body.
@@ -16,6 +17,8 @@ func _ready():
 func _physics_process(delta):
 
 	pass
+	
+	
 
 
 func _on_enemy_spawn_timer_timeout():

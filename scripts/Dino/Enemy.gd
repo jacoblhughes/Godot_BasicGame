@@ -16,12 +16,7 @@ func _physics_process(delta):
 	# Handle Jump.
 	velocity.x = -1 * SPEED
 	move_and_slide()
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
 
-		if(collision.get_collider().name == "Player"):
-			player_collision.emit()
-			self.queue_free()
 	
 	
 	
