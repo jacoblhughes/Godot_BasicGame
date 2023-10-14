@@ -1,16 +1,46 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgu5dun6rgtic"]
+[gd_scene load_steps=12 format=3 uid="uid://cgu5dun6rgtic"]
 
 [ext_resource type="Script" path="res://scripts/Dino/dino.gd" id="1_6p3q1"]
 [ext_resource type="Texture2D" uid="uid://bo54ob6kkbcat" path="res://art/Dino/floor.png" id="1_nefk3"]
 [ext_resource type="Texture2D" uid="uid://bfev0n88gh0b6" path="res://art/Dino/Llama Standing.png" id="2_0jhlf"]
+[ext_resource type="Script" path="res://scripts/Dino/Player.gd" id="3_lf0tl"]
+[ext_resource type="Texture2D" uid="uid://bwq6vhyamxakq" path="res://art/Dino/Llama Jumping.png" id="5_j3gvf"]
+[ext_resource type="Texture2D" uid="uid://cii58wta6uq53" path="res://art/Dino/Llama Walking.png" id="6_uvc04"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p4gh0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nchlr"]
 size = Vector2(672, 40)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_t46dg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0jhlf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_j3gvf")
+}],
+"loop": false,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_uvc04")
+}],
+"loop": false,
+"name": &"walking",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8xow"]
-size = Vector2(48, 72)
+size = Vector2(48, 77)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pk4an"]
 size = Vector2(42, 90)
@@ -42,13 +72,15 @@ position = Vector2(336, 20)
 shape = SubResource("RectangleShape2D_nchlr")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(104, 520)
+position = Vector2(112, 619)
+script = ExtResource("3_lf0tl")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("2_0jhlf")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_t46dg")
+animation = &"walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 4)
+position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_t8xow")
 
 [node name="Enemy_Spawn_Timer" type="Timer" parent="."]
@@ -57,7 +89,6 @@ autostart = true
 
 [node name="Despawn" type="Area2D" parent="."]
 position = Vector2(32, 584)
-collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Despawn"]
 position = Vector2(11, 35)

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 200.0
-
+signal player_collision
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -19,8 +19,9 @@ func _physics_process(delta):
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
 
-		if(collision.get_collider().name != "Floor"):
-			print(collision.get_collider().name)
+		if(collision.get_collider().name == "Player"):
+			player_collision.emit()
+			self.queue_free()
 	
 	
 	
