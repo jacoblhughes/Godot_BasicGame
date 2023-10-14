@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgu5dun6rgtic"]
+
+[ext_resource type="Script" path="res://scripts/Dino/dino.gd" id="1_6p3q1"]
+[ext_resource type="Texture2D" uid="uid://bo54ob6kkbcat" path="res://art/Dino/floor.png" id="1_nefk3"]
+[ext_resource type="Texture2D" uid="uid://bfev0n88gh0b6" path="res://art/Dino/Llama Standing.png" id="2_0jhlf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p4gh0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nchlr"]
+size = Vector2(672, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8xow"]
+size = Vector2(48, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk4an"]
+size = Vector2(42, 90)
+
+[node name="Dino" type="Node2D"]
+metadata/_edit_horizontal_guides_ = []
+
+[node name="dino" type="Node2D" parent="."]
+script = ExtResource("1_6p3q1")
+
+[node name="PlayArea" type="ColorRect" parent="."]
+offset_left = 24.0
+offset_top = 144.0
+offset_right = 696.0
+offset_bottom = 816.0
+color = Color(1, 1, 1, 0.117647)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(24, 664)
+physics_material_override = SubResource("PhysicsMaterial_p4gh0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(336, 20)
+scale = Vector2(10.5, 0.625)
+texture = ExtResource("1_nefk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(336, 20)
+shape = SubResource("RectangleShape2D_nchlr")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(104, 520)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_0jhlf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_t8xow")
+
+[node name="Enemy_Spawn_Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Despawn" type="Area2D" parent="."]
+position = Vector2(32, 584)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawn"]
+position = Vector2(11, 35)
+shape = SubResource("RectangleShape2D_pk4an")
+
+[connection signal="timeout" from="Enemy_Spawn_Timer" to="dino" method="_on_enemy_spawn_timer_timeout"]
+[connection signal="body_entered" from="Despawn" to="dino" method="_on_despawn_body_entered"]

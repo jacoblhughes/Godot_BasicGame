@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=9 format=3 uid="uid://d4cpf87cb1bs0"]
 
-[ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/SimonSays/button.tres" id="1_0twhk"]
 [ext_resource type="Script" path="res://scripts/Main/Buttons.gd" id="1_d3apa"]
-[ext_resource type="Theme" uid="uid://cc5frax1el0v6" path="res://themes/SimonSays/line_edit.tres" id="2_jlewo"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://scenes/SimonSays/SimonSaysGame.tscn" id="2_vqi0v"]
 [ext_resource type="PackedScene" uid="uid://c1ov306httsie" path="res://scenes/Snake/SnakeGame.tscn" id="3_kj1q5"]
-[ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/SimonSays/label.tres" id="3_t812x"]
 [ext_resource type="PackedScene" uid="uid://c1n3bt7ntc5gf" path="res://scenes/Pong/perry.tscn" id="4_uxid6"]
+[ext_resource type="PackedScene" uid="uid://cgu5dun6rgtic" path="res://scenes/Dino/DinoGame.tscn" id="5_c04dh"]
+[ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/Main/button.tres" id="5_o7461"]
+[ext_resource type="Theme" uid="uid://cc5frax1el0v6" path="res://themes/Main/line_edit.tres" id="6_qwswx"]
+[ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/Main/label.tres" id="7_7s5q7"]
 
 [node name="Buttons" type="Control"]
 layout_mode = 3
@@ -19,6 +20,7 @@ script = ExtResource("1_d3apa")
 simon_says = ExtResource("2_vqi0v")
 snake = ExtResource("3_kj1q5")
 pong = ExtResource("4_uxid6")
+dino = ExtResource("5_c04dh")
 
 [node name="Play_Area" type="ColorRect" parent="."]
 layout_mode = 0
@@ -34,7 +36,7 @@ offset_left = 48.0
 offset_top = 256.0
 offset_right = 240.0
 offset_bottom = 384.0
-theme = ExtResource("1_0twhk")
+theme = ExtResource("5_o7461")
 text = "Simon Says Game"
 
 [node name="Snake" type="Button" parent="."]
@@ -43,7 +45,7 @@ offset_left = 264.0
 offset_top = 256.0
 offset_right = 456.0
 offset_bottom = 384.0
-theme = ExtResource("1_0twhk")
+theme = ExtResource("5_o7461")
 text = "Snake"
 
 [node name="Perry" type="Button" parent="."]
@@ -52,9 +54,18 @@ offset_left = 480.0
 offset_top = 256.0
 offset_right = 672.0
 offset_bottom = 384.0
-theme = ExtResource("1_0twhk")
+theme = ExtResource("5_o7461")
 text = "Perry
 "
+
+[node name="Dino" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 408.0
+offset_right = 240.0
+offset_bottom = 536.0
+theme = ExtResource("5_o7461")
+text = "Dino"
 
 [node name="Initials" type="LineEdit" parent="."]
 layout_mode = 0
@@ -62,7 +73,7 @@ offset_left = 264.0
 offset_top = 168.0
 offset_right = 456.0
 offset_bottom = 232.0
-theme = ExtResource("2_jlewo")
+theme = ExtResource("6_qwswx")
 alignment = 1
 max_length = 3
 
@@ -72,7 +83,7 @@ offset_left = 48.0
 offset_top = 168.0
 offset_right = 240.0
 offset_bottom = 232.0
-theme = ExtResource("3_t812x")
+theme = ExtResource("7_7s5q7")
 text = "Input Initials:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -80,4 +91,5 @@ vertical_alignment = 1
 [connection signal="pressed" from="SimonSays" to="." method="_on_simon_says_pressed"]
 [connection signal="pressed" from="Snake" to="." method="_on_snake_pressed"]
 [connection signal="pressed" from="Perry" to="." method="_on_pong_pressed"]
+[connection signal="pressed" from="Dino" to="." method="_on_dino_pressed"]
 [connection signal="text_changed" from="Initials" to="." method="_on_initials_text_changed"]

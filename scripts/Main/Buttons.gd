@@ -13,6 +13,8 @@ var simon_says_scene
 var snake_scene
 @export var pong: PackedScene
 var pong_scene
+@export var dino: PackedScene
+var dino_scene
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -48,4 +50,10 @@ func _on_pong_pressed():
 	self.visible = false
 	pong_scene = pong.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(pong_scene)
+	pass # Replace with function body.
+
+func _on_dino_pressed():
+	self.visible = false
+	dino_scene = dino.instantiate()
+	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(dino_scene)
 	pass # Replace with function body.

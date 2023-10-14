@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd45fmga1y04c"]
+[gd_scene load_steps=8 format=3 uid="uid://cyl28swe7b43k"]
 
 [ext_resource type="Script" path="res://scripts/Main/HUDScene.gd" id="1_p2yk8"]
-[ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/SimonSays/label.tres" id="1_u2suk"]
-[ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/SimonSays/button.tres" id="3_jn4in"]
+[ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/Main/label.tres" id="2_xlm02"]
+[ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/Main/button.tres" id="3_y5hwm"]
 [ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/Main/applause.wav" id="5_lidvl"]
 [ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://sounds/Main/gameover.wav" id="6_sy8vj"]
 [ext_resource type="AudioStream" uid="uid://csg3bmyrqi0d7" path="res://sounds/Main/House In a Forest Loop.ogg" id="7_yycmp"]
@@ -27,7 +27,7 @@ offset_left = 24.0
 offset_top = 24.0
 offset_right = 152.0
 offset_bottom = 88.0
-theme = ExtResource("1_u2suk")
+theme = ExtResource("2_xlm02")
 text = "Initials:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -38,7 +38,7 @@ offset_left = 176.0
 offset_top = 24.0
 offset_right = 304.0
 offset_bottom = 88.0
-theme = ExtResource("1_u2suk")
+theme = ExtResource("2_xlm02")
 text = "JLH"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -49,7 +49,7 @@ offset_left = 328.0
 offset_top = 24.0
 offset_right = 696.0
 offset_bottom = 88.0
-theme = ExtResource("3_jn4in")
+theme = ExtResource("3_y5hwm")
 text = "Home"
 
 [node name="GameStatus_Label" type="Label" parent="Control"]
@@ -58,7 +58,7 @@ offset_left = 176.0
 offset_top = 1200.0
 offset_right = 296.0
 offset_bottom = 1256.0
-theme = ExtResource("1_u2suk")
+theme = ExtResource("2_xlm02")
 text = "Game Status:
 "
 horizontal_alignment = 1
@@ -70,7 +70,7 @@ offset_left = 320.0
 offset_top = 1200.0
 offset_right = 440.0
 offset_bottom = 1256.0
-theme = ExtResource("1_u2suk")
+theme = ExtResource("2_xlm02")
 text = "Not Loaded"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -81,7 +81,7 @@ offset_left = 176.0
 offset_top = 1120.0
 offset_right = 296.0
 offset_bottom = 1176.0
-theme = ExtResource("1_u2suk")
+theme = ExtResource("2_xlm02")
 text = "Game Score:
 "
 horizontal_alignment = 1
@@ -93,7 +93,7 @@ offset_left = 320.0
 offset_top = 1120.0
 offset_right = 440.0
 offset_bottom = 1176.0
-theme = ExtResource("1_u2suk")
+theme = ExtResource("2_xlm02")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -113,7 +113,7 @@ offset_left = 24.0
 offset_top = 1120.0
 offset_right = 152.0
 offset_bottom = 1176.0
-theme = ExtResource("3_jn4in")
+theme = ExtResource("3_y5hwm")
 text = "Play"
 
 [node name="Reset_Button" type="Button" parent="Control"]
@@ -122,7 +122,7 @@ offset_left = 24.0
 offset_top = 1200.0
 offset_right = 152.0
 offset_bottom = 1256.0
-theme = ExtResource("3_jn4in")
+theme = ExtResource("3_y5hwm")
 text = "Reset"
 
 [node name="Highscore_Button" type="Button" parent="Control"]
@@ -131,7 +131,7 @@ offset_left = 464.0
 offset_top = 1120.0
 offset_right = 696.0
 offset_bottom = 1256.0
-theme = ExtResource("3_jn4in")
+theme = ExtResource("3_y5hwm")
 text = "Highschore?"
 
 [node name="HighScorePopup" type="Window" parent="Control"]
