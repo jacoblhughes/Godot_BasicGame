@@ -15,6 +15,8 @@ var snake_scene
 var pong_scene
 @export var dino: PackedScene
 var dino_scene
+@export var creep: PackedScene
+var creep_scene
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -56,4 +58,11 @@ func _on_dino_pressed():
 	self.visible = false
 	dino_scene = dino.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(dino_scene)
+	pass # Replace with function body.
+
+
+func _on_creep_pressed():
+	self.visible = false
+	creep_scene = creep.instantiate()
+	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(creep_scene)
 	pass # Replace with function body.

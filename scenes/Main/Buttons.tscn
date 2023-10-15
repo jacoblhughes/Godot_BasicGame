@@ -67,6 +67,15 @@ offset_bottom = 536.0
 theme = ExtResource("5_o7461")
 text = "Dino"
 
+[node name="Creep" type="Button" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 408.0
+offset_right = 456.0
+offset_bottom = 536.0
+theme = ExtResource("5_o7461")
+text = "Avoid the Creep"
+
 [node name="Initials" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 264.0
@@ -92,4 +101,5 @@ vertical_alignment = 1
 [connection signal="pressed" from="Snake" to="." method="_on_snake_pressed"]
 [connection signal="pressed" from="Perry" to="." method="_on_pong_pressed"]
 [connection signal="pressed" from="Dino" to="." method="_on_dino_pressed"]
+[connection signal="pressed" from="Creep" to="." method="_on_creep_pressed"]
 [connection signal="text_changed" from="Initials" to="." method="_on_initials_text_changed"]
