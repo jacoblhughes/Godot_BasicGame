@@ -1,22 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjw6sh7j2lsq3"]
+[gd_scene load_steps=5 format=3 uid="uid://bjw6sh7j2lsq3"]
 
 [ext_resource type="Script" path="res://scripts/Creep/creep.gd" id="1_g5d1d"]
+[ext_resource type="PackedScene" uid="uid://5w3s3bekcgvy" path="res://scenes/Creep/Mob.tscn" id="2_fw2al"]
+[ext_resource type="PackedScene" uid="uid://0dmkhtys2fv3" path="res://scenes/Creep/Player.tscn" id="3_s8gjb"]
 
-[sub_resource type="Curve2D" id="Curve2D_uqp78"]
+[sub_resource type="Curve2D" id="Curve2D_mulw1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 24, 144, 0, 0, 0, 0, 696, 144, 0, 0, 0, 0, 696, 816, 0, 0, 0, 0, 24, 816, 0, 0, 0, 0, 24, 144)
+}
+point_count = 5
 
 [node name="Creep" type="Node2D"]
 
 [node name="creep" type="Node2D" parent="."]
 script = ExtResource("1_g5d1d")
+mob_scene = ExtResource("2_fw2al")
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="MobTimer" type="Timer" parent="."]
 
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 5.0
+
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(332.893, 612.805)
 
 [node name="MobPath" type="Path2D" parent="."]
-curve = SubResource("Curve2D_uqp78")
+curve = SubResource("Curve2D_mulw1")
 
 [node name="MobPathFollow" type="PathFollow2D" parent="MobPath"]
+position = Vector2(24, 144)
+
+[node name="Player" parent="." instance=ExtResource("3_s8gjb")]
+
+[connection signal="timeout" from="ScoreTimer" to="creep" method="_on_score_timer_timeout"]
+[connection signal="timeout" from="MobTimer" to="creep" method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="creep" method="_on_start_timer_timeout"]
