@@ -21,7 +21,7 @@ mob_scene = ExtResource("2_fw2al")
 [node name="MobTimer" type="Timer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(332.893, 612.805)

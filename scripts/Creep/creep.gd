@@ -11,11 +11,13 @@ var score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	StartTimer = get_parent().get_node("StartTimer")
 	ScoreTimer = get_parent().get_node("ScoreTimer")
 	MobTimer = get_parent().get_node("MobTimer")
 	StartPosition = get_parent().get_node("StartPosition")
 	Player = get_parent().get_node("Player")
+	Player.hit.connect(_on_player_hit)
 	new_game()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -76,3 +78,6 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	get_parent().add_child(mob)
+
+func _on_player_hit():
+	HUDVariables.set_new_status("Game Over")

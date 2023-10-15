@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj0i3bqn4ap1r"]
+
+[ext_resource type="Script" path="res://scripts/Flappy/flappy.gd" id="1_47p76"]
+[ext_resource type="Script" path="res://scripts/Flappy/Player.gd" id="1_drtwh"]
+[ext_resource type="Texture2D" uid="uid://dpetxgmxxyxnp" path="res://art/Main/Roddy.png" id="2_46on7"]
+[ext_resource type="Script" path="res://scripts/Flappy/enemy_spawn.gd" id="5_2rn4w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dfi4"]
+radius = 31.0278
+
+[node name="Flappy" type="Node2D"]
+
+[node name="flappy" type="Node2D" parent="."]
+script = ExtResource("1_47p76")
+
+[node name="enemy_spawn" type="Node2D" parent="."]
+script = ExtResource("5_2rn4w")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(299.411, 470.509)
+script = ExtResource("1_drtwh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_46on7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_0dfi4")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="enemy_spawn" method="_on_spawn_timer_timeout"]

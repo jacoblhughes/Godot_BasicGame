@@ -36,6 +36,7 @@ radius = 24.0
 height = 64.0
 
 [node name="Player" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_djvcr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -45,3 +46,5 @@ animation = &"up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_jme0u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
