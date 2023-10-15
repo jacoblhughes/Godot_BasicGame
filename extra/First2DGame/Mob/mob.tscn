@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://rimmu1c72n61"]
+
+[ext_resource type="Texture2D" uid="uid://sk510bjjqld1" path="res://art/enemyFlyingAlt_1.png" id="1_3lx5n"]
+[ext_resource type="Script" path="res://Mob/mob.gd" id="1_wtdsf"]
+[ext_resource type="Texture2D" uid="uid://cjvirg2rrcvjn" path="res://art/enemyFlyingAlt_2.png" id="2_3k7mc"]
+[ext_resource type="Texture2D" uid="uid://bbimn42hrkjrm" path="res://art/enemySwimming_1.png" id="3_p8bv1"]
+[ext_resource type="Texture2D" uid="uid://dt6cyoh6va2u3" path="res://art/enemySwimming_2.png" id="4_enaqy"]
+[ext_resource type="Texture2D" uid="uid://ddhb0kotw133v" path="res://art/enemyWalking_1.png" id="5_52d1v"]
+[ext_resource type="Texture2D" uid="uid://cbkur67c6q688" path="res://art/enemyWalking_2.png" id="6_dws0i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rystv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3lx5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3k7mc")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_p8bv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_enaqy")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_52d1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dws0i")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_do71d"]
+radius = 98.0
+height = 196.0
+
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_wtdsf")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_rystv")
+animation = &"fly"
+frame_progress = 0.748373
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_do71d")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
