@@ -9,10 +9,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
-	# Add the gravity.
-
-
-
+	var space_state = get_world_2d().direct_space_state
+	# use global coordinates, not local to node
+	var query = PhysicsRayQueryParameters2D.create(Vector2(0, 0), Vector2(50, 100))
+	var result = space_state.intersect_ray(query)
+#	print(result)
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept"):
 		velocity.y = JUMP_VELOCITY

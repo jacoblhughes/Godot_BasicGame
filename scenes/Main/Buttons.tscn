@@ -26,14 +26,6 @@ dino = ExtResource("5_c04dh")
 creep = ExtResource("6_xbjbf")
 flappy = ExtResource("7_8y6xu")
 
-[node name="Play_Area" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 144.0
-offset_right = 696.0
-offset_bottom = 816.0
-color = Color(1, 1, 1, 0.117647)
-
 [node name="SimonSays" type="Button" parent="."]
 layout_mode = 0
 offset_left = 48.0
