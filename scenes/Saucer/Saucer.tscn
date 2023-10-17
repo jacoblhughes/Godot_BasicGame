@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://cf4xkqs74ytur"]
+
+[ext_resource type="Texture2D" uid="uid://dpoog2l453my6" path="res://art/Saucer/purple.png" id="1_dthc4"]
+[ext_resource type="Script" path="res://scripts/Saucer/saucer.gd" id="1_kgi7c"]
+[ext_resource type="Script" path="res://scripts/Saucer/Player.gd" id="2_cccpi"]
+[ext_resource type="Texture2D" uid="uid://dce0ranae3u3u" path="res://art/Saucer/saucer.png" id="2_qlfj8"]
+[ext_resource type="Texture2D" uid="uid://ckcs1ydpbl1rx" path="res://art/Saucer/darkPurple.png" id="4_wautr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fe6q2"]
+radius = 20.004
+
+[node name="Saucer" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 144.0
+offset_right = 696.0
+offset_bottom = 816.0
+scale = Vector2(1.00947, 1.10502)
+texture = ExtResource("1_dthc4")
+stretch_mode = 1
+
+[node name="saucer" type="Node2D" parent="."]
+script = ExtResource("1_kgi7c")
+
+[node name="Player" type="RigidBody2D" parent="."]
+z_index = 2
+position = Vector2(148.297, 244.54)
+gravity_scale = 0.0
+script = ExtResource("2_cccpi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_qlfj8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_fe6q2")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+
+[node name="Maze" type="Area2D" parent="."]
+z_index = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maze"]
+polygon = PackedVector2Array(72, 184, 656, 184, 664, 752, 72, 760, 64, 344, 536, 344, 528, 632, 184, 648, 184, 456, 424, 456, 408, 512, 240, 512, 240, 584, 456, 568, 448, 408, 160, 416, 160, 672, 552, 672, 560, 312, 80, 304)
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze"]
+texture_repeat = 2
+texture = ExtResource("4_wautr")
+polygon = PackedVector2Array(72, 184, 656, 184, 664, 752, 72, 760, 64, 344, 536, 344, 528, 632, 184, 648, 184, 456, 424, 456, 408, 512, 240, 512, 240, 584, 456, 568, 448, 408, 160, 416, 160, 672, 552, 672, 560, 312, 80, 304)
+
+[connection signal="body_exited" from="Maze" to="saucer" method="_on_maze_body_exited"]

@@ -19,6 +19,8 @@ var dino_scene
 var creep_scene
 @export var flappy: PackedScene
 var flappy_scene
+@export var saucer: PackedScene
+var saucer_scene
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -74,4 +76,11 @@ func _on_flappy_pressed():
 	self.visible = false
 	flappy_scene = flappy.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(flappy_scene)
+	pass # Replace with function body.
+
+
+func _on_saucer_pressed():
+	self.visible = false
+	saucer_scene = saucer.instantiate()
+	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(saucer_scene)
 	pass # Replace with function body.

@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgu5dun6rgtic"]
+[gd_scene load_steps=17 format=3 uid="uid://cgu5dun6rgtic"]
 
 [ext_resource type="Script" path="res://scripts/Dino/dino.gd" id="1_6p3q1"]
 [ext_resource type="Texture2D" uid="uid://bo54ob6kkbcat" path="res://art/Dino/floor.png" id="1_nefk3"]
+[ext_resource type="Texture2D" uid="uid://cpabchmbtrroe" path="res://art/Dino/Background.png" id="1_rljat"]
 [ext_resource type="Texture2D" uid="uid://bfev0n88gh0b6" path="res://art/Dino/Llama Standing.png" id="2_0jhlf"]
 [ext_resource type="Script" path="res://scripts/Dino/Player.gd" id="3_lf0tl"]
 [ext_resource type="Texture2D" uid="uid://bwq6vhyamxakq" path="res://art/Dino/Llama Jumping.png" id="5_j3gvf"]
@@ -55,6 +56,13 @@ size = Vector2(24, 216)
 
 [node name="Dino" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 24.0
+offset_top = 144.0
+offset_right = 696.0
+offset_bottom = 816.0
+texture = ExtResource("1_rljat")
 
 [node name="dino" type="Node2D" parent="."]
 script = ExtResource("1_6p3q1")
