@@ -13,6 +13,7 @@ height = 528.0
 [node name="attack" type="Node2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
 offset_left = 24.0
