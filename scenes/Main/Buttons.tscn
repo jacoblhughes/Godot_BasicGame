@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=13 format=3 uid="uid://d4cpf87cb1bs0"]
 
 [ext_resource type="Script" path="res://scripts/Main/Buttons.gd" id="1_d3apa"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://scenes/SimonSays/SimonSaysGame.tscn" id="2_vqi0v"]
@@ -11,6 +11,7 @@
 [ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/Main/label.tres" id="7_7s5q7"]
 [ext_resource type="PackedScene" uid="uid://cj0i3bqn4ap1r" path="res://scenes/Flappy/Flappy.tscn" id="7_8y6xu"]
 [ext_resource type="PackedScene" uid="uid://cf4xkqs74ytur" path="res://scenes/Saucer/Saucer.tscn" id="8_8ftby"]
+[ext_resource type="PackedScene" uid="uid://dx4hwtnr40m1r" path="res://scenes/Attack/Attack.tscn" id="9_2365c"]
 
 [node name="Buttons" type="Control"]
 layout_mode = 3
@@ -27,6 +28,7 @@ dino = ExtResource("5_c04dh")
 creep = ExtResource("6_xbjbf")
 flappy = ExtResource("7_8y6xu")
 saucer = ExtResource("8_8ftby")
+attack = ExtResource("9_2365c")
 
 [node name="SimonSays" type="Button" parent="."]
 layout_mode = 0
@@ -92,13 +94,14 @@ offset_bottom = 688.0
 theme = ExtResource("5_o7461")
 text = "Saucer"
 
-[node name="TBD" type="Button" parent="."]
+[node name="Attack" type="Button" parent="."]
 layout_mode = 0
 offset_left = 264.0
 offset_top = 560.0
 offset_right = 456.0
 offset_bottom = 688.0
 theme = ExtResource("5_o7461")
+text = "Alien Attack"
 
 [node name="TBD2" type="Button" parent="."]
 layout_mode = 0
@@ -136,4 +139,5 @@ vertical_alignment = 1
 [connection signal="pressed" from="Creep" to="." method="_on_creep_pressed"]
 [connection signal="pressed" from="Flappy" to="." method="_on_flappy_pressed"]
 [connection signal="pressed" from="Saucer" to="." method="_on_saucer_pressed"]
+[connection signal="pressed" from="Attack" to="." method="_on_attack_pressed"]
 [connection signal="text_changed" from="Initials" to="." method="_on_initials_text_changed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc4q2tw7iiuig"
-path="res://.godot/imported/playerGrey_up2.png-20b9ac4b3f5b01f24983976f5ce6fc9a.ctex"
+uid="uid://cxtumc5gmht2o"
+path="res://.godot/imported/enemy_ship_2.png-53a3c799980983eab961169593125726.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/First2DGame/playerGrey_up2.png"
-dest_files=["res://.godot/imported/playerGrey_up2.png-20b9ac4b3f5b01f24983976f5ce6fc9a.ctex"]
+source_file="res://art/Attack/enemy_ship_2.png"
+dest_files=["res://.godot/imported/enemy_ship_2.png-53a3c799980983eab961169593125726.ctex"]
 
 [params]
 

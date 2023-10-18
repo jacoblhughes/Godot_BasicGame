@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj4gixuyt2gxy"
-path="res://.godot/imported/enemyFlyingAlt_1 - Copy.png-56a90d6af38094a20e9194fffa301584.ctex"
+uid="uid://baki24j1nvjf5"
+path="res://.godot/imported/orb.png-060915670562aeafed758025cca588b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/First2DGame/enemyFlyingAlt_1 - Copy.png"
-dest_files=["res://.godot/imported/enemyFlyingAlt_1 - Copy.png-56a90d6af38094a20e9194fffa301584.ctex"]
+source_file="res://art/Attack/orb.png"
+dest_files=["res://.godot/imported/orb.png-060915670562aeafed758025cca588b7.ctex"]
 
 [params]
 

@@ -21,6 +21,8 @@ var creep_scene
 var flappy_scene
 @export var saucer: PackedScene
 var saucer_scene
+@export var attack: PackedScene
+var attack_scene
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -83,4 +85,11 @@ func _on_saucer_pressed():
 	self.visible = false
 	saucer_scene = saucer.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(saucer_scene)
+	pass # Replace with function body.
+
+
+func _on_attack_pressed():
+	self.visible = false
+	attack_scene = attack.instantiate()
+	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(attack_scene)
 	pass # Replace with function body.
