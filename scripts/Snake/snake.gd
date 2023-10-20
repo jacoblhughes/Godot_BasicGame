@@ -24,7 +24,7 @@ func _ready():
 	HUDSIGNALS.startButtonPressed.connect(_on_play_button_pressed)
 	HUDSIGNALS.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
 	SPAWNSIGNALS.PlayerWin.connect(_on_player_win)
-	head  = preload("res://scenes/Snake/SnakePlayer.tscn").instantiate()
+	head  = preload("res://scenes/Snake/Player.tscn").instantiate()
 	get_parent().add_child.call_deferred(head)
 	head.size = SnakeVariables.snakecellsize
 #	head.color = SnakeVariables.DARKBLUE
@@ -61,7 +61,7 @@ func _draw():
 func _input(event):
 	
 	if event is InputEventScreenTouch and event.pressed == true:
-		HUDVariables.GameOverSound.play()
+		print(event)
 
 	if Input.is_action_pressed("move_right"):
 		head.my_sprite.rotation = 0
@@ -111,7 +111,7 @@ func grow() -> void:
 #	minisnake.color = SnakeVariables.BLUE
 #	minisnake.size = SnakeVariables.snakecellsize
 #	minisnakes.push_back(minisnake)
-	var new_head = preload("res://scenes/Snake/SnakeBody.tscn").instantiate()
+	var new_head = preload("res://scenes/Snake/Segment.tscn").instantiate()
 	var last_head :=minisnakes.back() as SnakeBoy
 	new_head.curr_position = last_head.curr_position
 #	new_head.color = SnakeVariables.BLUE
