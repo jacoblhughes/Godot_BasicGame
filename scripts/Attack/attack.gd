@@ -4,6 +4,7 @@ extends Node2D
 @onready var StartPosition : Marker2D
 @onready var EnemyHitSound : AudioStreamPlayer = get_parent().get_node("EnemyHitSound")
 @onready var PlayerDamageSound : AudioStreamPlayer = get_parent().get_node("PlayerDamageSound")
+@onready var LiveLeftLabel :Label = get_parent().get_node("LivesLeft")
 var lives = 3
 var score = 0
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +13,7 @@ var screen_position = HUDVariables.get_play_area_position_from_HUD()
 
 
 func _ready():
+	LiveLeftLabel.text = str(lives)
 	Player = get_parent().get_node("Player")
 	StartPosition = get_parent().get_node("StartPosition")
 	Player.start(StartPosition.position)
@@ -26,6 +28,7 @@ func _process(delta):
 
 func _on_player_take_damage():
 	lives -=1
+	LiveLeftLabel.text = str(lives)
 	PlayerDamageSound.play()
 
 func _on_deathzone_area_entered(area):

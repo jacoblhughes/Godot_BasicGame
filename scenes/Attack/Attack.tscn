@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dx4hwtnr40m1r"]
+[gd_scene load_steps=17 format=3 uid="uid://dx4hwtnr40m1r"]
 
 [ext_resource type="Script" path="res://scripts/Attack/attack.gd" id="1_451sh"]
 [ext_resource type="Texture2D" uid="uid://brcwr8l3xwf74" path="res://art/Attack/backgroud.png" id="1_kbw5f"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/Attack/EnemySpawner.gd" id="5_mamu2"]
 [ext_resource type="AudioStream" uid="uid://vb1ppmhh8en1" path="res://sounds/Attack/hit.wav" id="6_lysea"]
 [ext_resource type="AudioStream" uid="uid://crjkhotcldat0" path="res://sounds/Attack/explode.wav" id="8_xpq0a"]
+[ext_resource type="Texture2D" uid="uid://baki24j1nvjf5" path="res://art/Attack/orb.png" id="9_w2o3i"]
 
 [sub_resource type="Gradient" id="Gradient_fecji"]
 colors = PackedColorArray(0.939454, 0.905903, 1.54018e-06, 1, 1, 0, 0, 1)
@@ -128,6 +129,25 @@ stream = ExtResource("6_lysea")
 
 [node name="PlayerDamageSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_xpq0a")
+
+[node name="LifeArt" type="Sprite2D" parent="."]
+position = Vector2(72, 192)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_w2o3i")
+
+[node name="X" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 184.0
+offset_right = 168.0
+offset_bottom = 210.0
+text = "X"
+
+[node name="LivesLeft" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 184.0
+offset_right = 200.0
+offset_bottom = 207.0
+text = "0"
 
 [connection signal="enemy_spawned" from="EnemySpawner" to="attack" method="_on_enemy_spawner_enemy_spawned"]
 [connection signal="path_enemy_spawned" from="EnemySpawner" to="attack" method="_on_enemy_spawner_path_enemy_spawned"]
