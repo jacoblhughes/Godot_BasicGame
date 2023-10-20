@@ -69,6 +69,7 @@ animation = &"dark"
 position = Vector2(96, 96)
 scale = Vector2(1.28, 1.28)
 sprite_frames = SubResource("SpriteFrames_vprhw")
+animation = &"resting"
 
 [node name="animationTimer" type="Timer" parent="."]
 wait_time = 0.5

@@ -17,7 +17,7 @@ layer = -1
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
 offset_left = 24.0
 offset_top = 144.0
-offset_right = 696.0
+offset_right = 690.0
 offset_bottom = 816.0
 scale = Vector2(1.00947, 1.10502)
 texture = ExtResource("1_dthc4")
@@ -40,6 +40,7 @@ texture = ExtResource("2_qlfj8")
 shape = SubResource("CircleShape2D_fe6q2")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+enabled = false
 zoom = Vector2(3, 3)
 
 [node name="Maze" type="Area2D" parent="."]

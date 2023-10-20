@@ -23,7 +23,7 @@ func _ready():
 	GameOverSound = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("GameOver")
 	ApplauseSound = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("Applause")
 	BackGroundMusic = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("BackGroundMusic")
-	PlayArea = get_tree().get_root().get_node("Main").get_node("PlayArea")
+	PlayArea = get_tree().get_root().get_node("Main").get_node("PlayAreaCanvas").get_node("PlayArea")
 func set_new_score(new_score):
 		if new_score == 0:
 			score = 0

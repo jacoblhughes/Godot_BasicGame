@@ -24,9 +24,9 @@ mouse_filter = 2
 [node name="Initials_Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 24.0
+offset_top = 1192.0
 offset_right = 152.0
-offset_bottom = 88.0
+offset_bottom = 1256.0
 theme = ExtResource("2_xlm02")
 text = "Initials:"
 horizontal_alignment = 1
@@ -35,9 +35,9 @@ vertical_alignment = 1
 [node name="Initials" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 176.0
-offset_top = 24.0
+offset_top = 1192.0
 offset_right = 304.0
-offset_bottom = 88.0
+offset_bottom = 1256.0
 theme = ExtResource("2_xlm02")
 text = "JLH"
 horizontal_alignment = 1
@@ -46,18 +46,18 @@ vertical_alignment = 1
 [node name="Home_Button" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 328.0
-offset_top = 24.0
+offset_top = 1192.0
 offset_right = 696.0
-offset_bottom = 88.0
+offset_bottom = 1256.0
 theme = ExtResource("3_y5hwm")
 text = "Home"
 
 [node name="GameStatus_Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 176.0
-offset_top = 1200.0
+offset_top = 1112.0
 offset_right = 296.0
-offset_bottom = 1256.0
+offset_bottom = 1168.0
 theme = ExtResource("2_xlm02")
 text = "Game Status:
 "
@@ -67,9 +67,9 @@ vertical_alignment = 1
 [node name="GameStatus" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 320.0
-offset_top = 1200.0
+offset_top = 1112.0
 offset_right = 440.0
-offset_bottom = 1256.0
+offset_bottom = 1168.0
 theme = ExtResource("2_xlm02")
 text = "Not Loaded"
 horizontal_alignment = 1
@@ -78,9 +78,9 @@ vertical_alignment = 1
 [node name="Score_Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 176.0
-offset_top = 1120.0
+offset_top = 1032.0
 offset_right = 296.0
-offset_bottom = 1176.0
+offset_bottom = 1088.0
 theme = ExtResource("2_xlm02")
 text = "Game Score:
 "
@@ -90,9 +90,9 @@ vertical_alignment = 1
 [node name="Score" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 320.0
-offset_top = 1120.0
+offset_top = 1032.0
 offset_right = 440.0
-offset_bottom = 1176.0
+offset_bottom = 1088.0
 theme = ExtResource("2_xlm02")
 text = "0"
 horizontal_alignment = 1
@@ -110,27 +110,27 @@ stream = ExtResource("7_yycmp")
 [node name="Play_Button" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 1120.0
+offset_top = 1032.0
 offset_right = 152.0
-offset_bottom = 1176.0
+offset_bottom = 1088.0
 theme = ExtResource("3_y5hwm")
 text = "Play"
 
 [node name="Reset_Button" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 1200.0
+offset_top = 1112.0
 offset_right = 152.0
-offset_bottom = 1256.0
+offset_bottom = 1168.0
 theme = ExtResource("3_y5hwm")
 text = "Reset"
 
 [node name="Highscore_Button" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 464.0
-offset_top = 1120.0
+offset_top = 1032.0
 offset_right = 696.0
-offset_bottom = 1256.0
+offset_bottom = 1168.0
 theme = ExtResource("3_y5hwm")
 text = "Highschore?"
 

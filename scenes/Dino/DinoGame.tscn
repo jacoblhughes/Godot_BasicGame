@@ -57,7 +57,10 @@ size = Vector2(24, 216)
 [node name="Dino" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="BackgroundCanvas" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="BackgroundCanvas"]
 offset_left = 24.0
 offset_top = 144.0
 offset_right = 696.0

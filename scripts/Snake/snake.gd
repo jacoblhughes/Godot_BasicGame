@@ -58,7 +58,10 @@ func _draw():
 #		draw_rect(minisnake.get_rect(),minisnake.color)
 
 
-func _input(_event):
+func _input(event):
+	
+	if event is InputEventScreenTouch and event.pressed == true:
+		HUDVariables.GameOverSound.play()
 
 	if Input.is_action_pressed("move_right"):
 		head.my_sprite.rotation = 0
