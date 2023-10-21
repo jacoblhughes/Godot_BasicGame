@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var ball : CharacterBody2D
 @onready var my_sprite : ColorRect
+@export var sizeOfPaddle : Vector2
 var lag_timer = 0.0
 var lag_duration = 0.5  # Adjust this value to control the lag duration
 var speed = 1
@@ -9,7 +10,7 @@ var speed = 1
 func _ready():
 	my_sprite = $ColorRect
 	ball = get_parent().get_node("Ball")
-
+	sizeOfPaddle = my_sprite.size
 	pass # Replace with function body.
 
 

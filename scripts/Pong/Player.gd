@@ -3,11 +3,13 @@ extends CharacterBody2D
 @onready var my_sprite : ColorRect
 @onready var collision_object : CollisionShape2D
 @onready var ball : CharacterBody2D
+@export var sizeOfPaddle: Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	my_sprite = $ColorRect
 	collision_object=$CollisionShape2D
 	ball = get_parent().get_node("Ball")
+	sizeOfPaddle = my_sprite.size
 
 	pass # Replace with function body.
 

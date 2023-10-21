@@ -61,27 +61,52 @@ func _draw():
 func _input(event):
 	
 	if event is InputEventScreenTouch and event.pressed == true:
-		print(event)
+		var click_position = event.position
+		var head_position = head.position
+		var distance = click_position - head_position
 
-	if Input.is_action_pressed("move_right"):
-		head.my_sprite.rotation = 0
-		next_direction = Vector2.RIGHT
-		head.my_sprite.rotation = 90
-		head.my_sprite.flip_v = false
-	if Input.is_action_pressed("move_left"):
-		head.my_sprite.rotation = 0
-		next_direction = Vector2.LEFT
-		head.my_sprite.rotation = -90
-		head.my_sprite.flip_v = false
-	if Input.is_action_pressed("move_down"):
-		head.my_sprite.rotation = 0
-		next_direction = Vector2.DOWN
-		head.my_sprite.flip_v = true
-	if Input.is_action_pressed("move_up"):
-		head.my_sprite.rotation = 0
-		next_direction = Vector2.UP
-		head.my_sprite.rotation = 0
-		head.my_sprite.flip_v = false
+		if abs(distance.x) > abs(distance.y):
+			if(distance.x<0):
+				head.my_sprite.rotation = 0
+				next_direction = Vector2.LEFT
+				head.my_sprite.rotation = -90
+				head.my_sprite.flip_v = false
+			else:
+				head.my_sprite.rotation = 0
+				next_direction = Vector2.RIGHT
+				head.my_sprite.rotation = 90
+				head.my_sprite.flip_v = false
+				
+		elif abs(distance.x) < abs(distance.y):
+			if(distance.y<0):
+				head.my_sprite.rotation = 0
+				next_direction = Vector2.UP
+				head.my_sprite.rotation = 0
+				head.my_sprite.flip_v = false
+			else:
+				head.my_sprite.rotation = 0
+				next_direction = Vector2.DOWN
+				head.my_sprite.flip_v = true
+
+#	if Input.is_action_pressed("move_right"):
+#		head.my_sprite.rotation = 0
+#		next_direction = Vector2.RIGHT
+#		head.my_sprite.rotation = 90
+#		head.my_sprite.flip_v = false
+#	if Input.is_action_pressed("move_left"):
+#		head.my_sprite.rotation = 0
+#		next_direction = Vector2.LEFT
+#		head.my_sprite.rotation = -90
+#		head.my_sprite.flip_v = false
+#	if Input.is_action_pressed("move_down"):
+#		head.my_sprite.rotation = 0
+#		next_direction = Vector2.DOWN
+#		head.my_sprite.flip_v = true
+#	if Input.is_action_pressed("move_up"):
+#		head.my_sprite.rotation = 0
+#		next_direction = Vector2.UP
+#		head.my_sprite.rotation = 0
+#		head.my_sprite.flip_v = false
 func move() -> void:
 
 	curr_direction = next_direction
