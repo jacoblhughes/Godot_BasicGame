@@ -73,7 +73,7 @@ func _physics_process(delta):
 			elif(third == 2):
 				var reflect = collision.get_remainder().bounce(collision.get_normal())
 				velocity = velocity.bounce(collision.get_normal())*speed_increase
-#				move_and_collide(reflect)
+				move_and_collide(reflect)
 			else:
 
 #				var reflect = collision.get_remainder().bounce(collision.get_normal())
@@ -89,15 +89,16 @@ func _physics_process(delta):
 				else:
 					bounce_direction = Vector2(-1, 1).normalized()
 				# Reflect the velocity along the new direction
-				velocity = velocity.bounce(bounce_direction) * speed_increase
-
+#				var reflect = collision.get_remainder().bounce(bounce_direction)
+#				print(reflect)
+#				velocity = velocity.bounce(bounce_direction) * speed_increase
 				# Apply an additional velocity in the new direction
-#				velocity += bounce_direction * vel
+				velocity += bounce_direction * velocity
 #
 #				# Continue with your existing code for other thirds
 #				var reflect = collision.get_remainder().bounce(collision.get_normal())
 #				velocity = velocity.bounce(collision.get_normal()) * 1.1
-#				move_and_collide(reflect)
+				move_and_collide(velocity*delta)
 		else:
 			var reflect = collision.get_remainder().bounce(collision.get_normal())
 			velocity = velocity.bounce(collision.get_normal())
