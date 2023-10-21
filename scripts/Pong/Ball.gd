@@ -36,73 +36,35 @@ func _physics_process(delta):
 			var third = int(ratio*3)+1
 			var normal_direction = collision.get_normal().x
 #			var vel = velocity.x/10
-			print(third,"normal: ",normal_direction)
+			print(third," normal: ",normal_direction)
 			var bounce_direction
 			var speed_increase = 1.05
 			if(third == 1):
-
-#				var reflect = collision.get_remainder().bounce(collision.get_normal())
-#				velocity = velocity.bounce(collision.get_normal())*1.1
-#
-#				if (normal_direction >0):
-#					velocity+=Vector2(vel,-vel)
-#				else:
-#					velocity+=Vector2(-vel,-vel)
-#				move_and_collide(reflect)
- # Calculate the new direction vector for a 45-degree angle bounce
-	# Calculate the new direction vector for a 45-degree angle bounce
-
 				if (normal_direction >0):
 					bounce_direction = Vector2(1, -1).normalized()
 				else:
 					bounce_direction = Vector2(-1, -1).normalized()
 				# Reflect the velocity along the new direction
-				print(bounce_direction)
-				var reflect = collision.get_remainder().bounce(bounce_direction)
-				print(reflect)
-				velocity = velocity.bounce(bounce_direction) * speed_increase
-
-				move_and_collide(reflect)
-				# Apply an additional velocity in the new direction
-#				velocity += bounce_direction * vel
-#
-#				# Continue with your existing code for other thirds
-#				var reflect = collision.get_remainder().bounce(collision.get_normal())
-#				velocity = velocity.bounce(collision.get_normal()) * speed_increase
-#				move_and_collide(bounce_direction)
+				var reflect_direction = collision.get_remainder().bounce((collision.get_normal()*bounce_direction).normalized())
+				velocity = velocity.bounce((collision.get_normal()*bounce_direction).normalized())*speed_increase
+				move_and_collide(reflect_direction)
 			elif(third == 2):
-				var reflect = collision.get_remainder().bounce(collision.get_normal())
+				var reflect_direction = collision.get_remainder().bounce(collision.get_normal())
 				velocity = velocity.bounce(collision.get_normal())*speed_increase
-				move_and_collide(reflect)
+				move_and_collide(reflect_direction)
 			else:
-
-#				var reflect = collision.get_remainder().bounce(collision.get_normal())
-#				velocity = velocity.bounce(collision.get_normal())*1.1
-#				if (normal_direction >0):
-#					velocity+=Vector2(vel,vel)
-#				else:
-#					velocity+=Vector2(-vel,vel)
-#				move_and_collide(reflect)
-
 				if (normal_direction >0):
 					bounce_direction = Vector2(1, 1).normalized()
 				else:
 					bounce_direction = Vector2(-1, 1).normalized()
-				# Reflect the velocity along the new direction
-#				var reflect = collision.get_remainder().bounce(bounce_direction)
-#				print(reflect)
-#				velocity = velocity.bounce(bounce_direction) * speed_increase
-				# Apply an additional velocity in the new direction
-				velocity += bounce_direction * velocity
-#
-#				# Continue with your existing code for other thirds
-#				var reflect = collision.get_remainder().bounce(collision.get_normal())
-#				velocity = velocity.bounce(collision.get_normal()) * 1.1
-				move_and_collide(velocity*delta)
+				var reflect_direction = collision.get_remainder().bounce((collision.get_normal()*bounce_direction).normalized())
+				velocity = velocity.bounce((collision.get_normal()*bounce_direction).normalized())*speed_increase
+				move_and_collide(reflect_direction)
+				print(bounce_direction,"    ",reflect_direction)
 		else:
-			var reflect = collision.get_remainder().bounce(collision.get_normal())
+			var reflect_direction = collision.get_remainder().bounce(collision.get_normal())
 			velocity = velocity.bounce(collision.get_normal())
-#			move_and_collide(reflect)
+			move_and_collide(reflect_direction)
 #	move_and_slide()
 #	for i in range(get_slide_collision_count()):
 #		# Check if cooldown is active
@@ -135,7 +97,7 @@ func _input(_event):
 
 	if Input.is_action_pressed("left_mouse_click") and reset_round:
 
-		velocity = Vector2(100,0)
+		velocity = Vector2(150,-50)
 		reset_round = false
 
 func _reset_ball():

@@ -40,6 +40,8 @@ func on_reset_button_reset_button_pressed():
 
 
 func _on_win_body_entered(body):
+	#first to 11
+	
 	if body.name == "Ball":
 		position_reset.emit()
 		HUDVariables.set_new_score(1)

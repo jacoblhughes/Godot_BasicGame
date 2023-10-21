@@ -13,4 +13,56 @@ Snake - highscore
 		make the food do something
 		improve collision logic
 
+	
+
+Pong
+	To start the game properly, have a splash screen
+	Keep high score?
+	
+	When one or the other reaches 11, the game is over.
+		Make gameover when this happens
+			Then a reset
+
+Dino
+	Make touch screen responsive
+	Make differente enemy scenes
+	Game over and such
+
+
+Creep
+	Make touch screen responsive
+	Make splashscreen to start
+	Reset screen
+	Game over and such
+
+Flappy
+	Needs different scenes
+	Way to count score
+	Reset
+	Game Over
+
+Saucer
+	
+	Design a few levels
+	Make game mission
+
+Alien Attack
+
+	Improve
+	Rest
+	Game Over
+
+
+	
+
+
+
 Background music
+
+
+Make directions for each game
+
+
+
+
+
