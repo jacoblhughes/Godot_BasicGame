@@ -85,7 +85,19 @@ func _process(_delta):
 	pass
 
 func _game_lose():
-	
+	_check_highscore_and_rank()
+	_change_game_disabled(true)
+	gameScore = 0
+	update_score(gameScore)
+	gameInitialized = false
+	gameRunning = false
+	computerPopulate = 0
+	arrayOfButtonsToFollow = []
+
+	_player_turn_end()
+
+
+func _check_highscore_and_rank():
 	var added = false
 
 	for i in range(high_scores.size()):
@@ -113,17 +125,6 @@ func _game_lose():
 		HUDVariables.play_applause()
 	else:
 		HUDVariables.play_game_over()
-	
-	_change_game_disabled(true)
-	gameScore = 0
-	update_score(gameScore)
-	gameInitialized = false
-	gameRunning = false
-	computerPopulate = 0
-	arrayOfButtonsToFollow = []
-
-	_player_turn_end()
-	update_status("LOSER")
 
 func initializeButtons():
 	var buttonScenes = [
@@ -142,7 +143,7 @@ func initializeButtons():
 
 func _computer_turn_start():
 	
-	update_status("Computer Turn")
+
 	_change_game_disabled(true)
 	_add_next_value()
 	if(gameRunning == true):
@@ -167,11 +168,6 @@ func _player_turn_end():
 	playerTurn = false
 	arrayOfPlayerResponse = []
 	playerPopulate = -1
-
-func update_status(status):
-	
-#	HUDVariables.set_new_status(status)
-	pass
 
 func _get_next_value():
 	
@@ -204,7 +200,7 @@ func _on_playback_timer_timeout():
 	computerPopulate+=1
 	if(computerPopulate == len(arrayOfButtonsToFollow)):
 		playerTurn = true
-		update_status("Player Turn")
+
 		computerPopulate = 0
 		_change_game_disabled(false)
 		$PlaybackTimer.stop()
@@ -240,15 +236,11 @@ func on_reset_button_reset_button_pressed():
 	arrayOfButtonsToFollow = []
 	update_score(gameScore)
 	_player_turn_end()
-	update_status("RESET")
+
 	
 	pass # Replace with function body.
 
-func _on_test_pressed():
-	
-	_change_game_disabled(false)
-	
-	pass # Replace with function body.
+
 
 func _on_game_button_pressed(which):
 	

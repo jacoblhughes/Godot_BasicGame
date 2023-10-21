@@ -1,14 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyl28swe7b43k"]
+[gd_scene load_steps=10 format=3 uid="uid://cyl28swe7b43k"]
 
 [ext_resource type="Script" path="res://scripts/Main/HUDScene.gd" id="1_p2yk8"]
 [ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/Main/label.tres" id="2_xlm02"]
 [ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/Main/button.tres" id="3_y5hwm"]
 [ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/Main/applause.wav" id="5_lidvl"]
 [ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://sounds/Main/gameover.wav" id="6_sy8vj"]
+[ext_resource type="StyleBox" uid="uid://bi1h1qrx1ms0j" path="res://themes/Main/panel.tres" id="7_x8ttk"]
 [ext_resource type="AudioStream" uid="uid://csg3bmyrqi0d7" path="res://sounds/Main/House In a Forest Loop.ogg" id="7_yycmp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_d2i8v"]
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0fsyn"]
+font_size = 22
 
 [node name="HUDScene" type="CanvasLayer"]
 layer = 2
@@ -143,15 +147,47 @@ visible = false
 [node name="Panel" type="Panel" parent="Control/GameStartPanel"]
 offset_right = 720.0
 offset_bottom = 1280.0
+theme_override_styles/panel = ExtResource("7_x8ttk")
 
 [node name="Play_Button" type="Button" parent="Control/GameStartPanel/Panel"]
 layout_mode = 0
-offset_left = 200.0
-offset_top = 312.0
-offset_right = 520.0
-offset_bottom = 632.0
+offset_left = 64.0
+offset_top = 656.0
+offset_right = 656.0
+offset_bottom = 808.0
 theme = ExtResource("3_y5hwm")
 text = "Play"
+
+[node name="Title" type="Label" parent="Control/GameStartPanel/Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 656.0
+offset_bottom = 256.0
+text = "TITLE"
+label_settings = SubResource("LabelSettings_0fsyn")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Directions_Note" type="Label" parent="Control/GameStartPanel/Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 148.0
+offset_bottom = 282.0
+text = "Directions:"
+
+[node name="Directions" type="Label" parent="Control/GameStartPanel/Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 282.0
+offset_right = 656.0
+offset_bottom = 520.0
+text = "Directions"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="Control/Home_Button" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="Control/Reset_Button" to="." method="_on_reset_button_pressed"]

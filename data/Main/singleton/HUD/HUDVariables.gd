@@ -10,7 +10,8 @@ extends Node
 @onready var BackGroundMusic: AudioStreamPlayer
 @onready var PlayArea: ColorRect
 @onready var GameStartPanel : CanvasLayer
-
+@onready var Title : Label
+@onready var Directions : Label
 
 var child_node_to_delete
 
@@ -28,6 +29,8 @@ func _ready():
 	BackGroundMusic = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("BackGroundMusic")
 	PlayArea = get_tree().get_root().get_node("Main").get_node("PlayAreaCanvas").get_node("PlayArea")
 	GameStartPanel = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("GameStartPanel")
+	Title = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("GameStartPanel").get_node("Panel").get_node("Title")
+	Directions = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("GameStartPanel").get_node("Panel").get_node("Directions")
 func set_new_score(new_score):
 		if new_score == 0:
 			score = 0
@@ -61,3 +64,9 @@ func get_current_score():
 
 func set_gamestartpanel(vis):
 	GameStartPanel.visible = vis
+	
+func set_title(title):
+	Title.text=title
+
+func set_directions(directions):
+	Directions.text = directions

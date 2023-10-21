@@ -7,8 +7,6 @@ var section_key = "initials"
 
 var InitialsInput : LineEdit
 
-@onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
-
 @export var simon_says: PackedScene
 var simon_says_scene
 @export var snake: PackedScene
@@ -47,6 +45,8 @@ func _on_initials_text_changed(new_text):
 func _on_simon_says_pressed():
 	self.visible = false
 	HUDVariables.set_gamestartpanel(true)
+	HUDVariables.set_title('TEST')
+	HUDVariables.set_directions("OKAY")
 	simon_says_scene = simon_says.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(simon_says_scene)
 	pass # Replace with function body.
