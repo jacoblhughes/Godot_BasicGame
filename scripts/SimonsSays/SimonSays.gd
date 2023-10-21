@@ -170,7 +170,8 @@ func _player_turn_end():
 
 func update_status(status):
 	
-	HUDVariables.set_new_status(status)
+#	HUDVariables.set_new_status(status)
+	pass
 
 func _get_next_value():
 	

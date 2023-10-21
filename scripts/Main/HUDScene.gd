@@ -10,6 +10,7 @@ extends CanvasLayer
 @onready var BackGroundMusic: AudioStreamPlayer
 @onready var HighscorePopup : Window
 @onready var HighscorePopupList : ItemList
+@onready var GameStartPanel : CanvasLayer
 var child_node_to_delete
 var config = ConfigFile.new()
 @onready var configFile = config.load("res://data/ConfigFile.cfg")
@@ -24,12 +25,13 @@ signal highscoreButtonpressed
 func _ready():	
 	InitialsInput = $Control/Initials
 	ScoreLabel = $Control/Score
-	StatusLabel = $Control/GameStatus
+#	StatusLabel = $Control/GameStatus
 	GameOverSound = $Control/GameOver
 	ApplauseSound = $Control/Applause
 	BackGroundMusic = $Control/BackGroundMusic
 	HighscorePopup = $Control/HighScorePopup
 	HighscorePopupList = $Control/HighScorePopup/ItemList
+	GameStartPanel = $Control/GameStartPanel
 	_update_initials_label()
 	# Get data for SimonSays
 	var simon_names = config.get_value("SimonSays", "names", [])
@@ -76,7 +78,7 @@ func _on_home_button_pressed():
 	pass # Replace with function body.
 	
 func _on_play_button_pressed():
-
+	GameStartPanel.visible = false
 	startButtonPressed.emit()
 	pass # Replace with function body.
 
@@ -92,3 +94,4 @@ func _on_highscore_pressed():
 	pass # Replace with function body.
 
 
+	

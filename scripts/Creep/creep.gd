@@ -80,4 +80,5 @@ func _on_mob_timer_timeout():
 	get_parent().add_child(mob)
 
 func _on_player_hit():
-	HUDVariables.set_new_status("Game Over")
+#	HUDVariables.set_new_status("Game Over")
+	pass

@@ -24,9 +24,9 @@ mouse_filter = 2
 [node name="Initials_Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 1192.0
+offset_top = 24.0
 offset_right = 152.0
-offset_bottom = 1256.0
+offset_bottom = 88.0
 theme = ExtResource("2_xlm02")
 text = "Initials:"
 horizontal_alignment = 1
@@ -35,9 +35,9 @@ vertical_alignment = 1
 [node name="Initials" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 176.0
-offset_top = 1192.0
+offset_top = 24.0
 offset_right = 304.0
-offset_bottom = 1256.0
+offset_bottom = 88.0
 theme = ExtResource("2_xlm02")
 text = "JLH"
 horizontal_alignment = 1
@@ -51,29 +51,6 @@ offset_right = 696.0
 offset_bottom = 1256.0
 theme = ExtResource("3_y5hwm")
 text = "Home"
-
-[node name="GameStatus_Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 176.0
-offset_top = 1112.0
-offset_right = 296.0
-offset_bottom = 1168.0
-theme = ExtResource("2_xlm02")
-text = "Game Status:
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GameStatus" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 320.0
-offset_top = 1112.0
-offset_right = 440.0
-offset_bottom = 1168.0
-theme = ExtResource("2_xlm02")
-text = "Not Loaded"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Score_Label" type="Label" parent="Control"]
 layout_mode = 0
@@ -106,15 +83,6 @@ stream = ExtResource("6_sy8vj")
 
 [node name="BackGroundMusic" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("7_yycmp")
-
-[node name="Play_Button" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 1032.0
-offset_right = 152.0
-offset_bottom = 1088.0
-theme = ExtResource("3_y5hwm")
-text = "Play"
 
 [node name="Reset_Button" type="Button" parent="Control"]
 layout_mode = 0
@@ -168,7 +136,24 @@ select_mode = 1
 max_text_lines = 20
 same_column_width = true
 
+[node name="GameStartPanel" type="CanvasLayer" parent="Control"]
+layer = 3
+visible = false
+
+[node name="Panel" type="Panel" parent="Control/GameStartPanel"]
+offset_right = 720.0
+offset_bottom = 1280.0
+
+[node name="Play_Button" type="Button" parent="Control/GameStartPanel/Panel"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 312.0
+offset_right = 520.0
+offset_bottom = 632.0
+theme = ExtResource("3_y5hwm")
+text = "Play"
+
 [connection signal="pressed" from="Control/Home_Button" to="." method="_on_home_button_pressed"]
-[connection signal="pressed" from="Control/Play_Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/Reset_Button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Control/Highscore_Button" to="." method="_on_highscore_pressed"]
+[connection signal="pressed" from="Control/GameStartPanel/Panel/Play_Button" to="." method="_on_play_button_pressed"]
