@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cgu5dun6rgtic"]
+[gd_scene load_steps=21 format=3 uid="uid://cgu5dun6rgtic"]
 
 [ext_resource type="Script" path="res://scripts/Dino/dino.gd" id="1_6p3q1"]
 [ext_resource type="Texture2D" uid="uid://bo54ob6kkbcat" path="res://art/Dino/floor.png" id="1_nefk3"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bwq6vhyamxakq" path="res://art/Dino/Llama Jumping.png" id="5_j3gvf"]
 [ext_resource type="Texture2D" uid="uid://cii58wta6uq53" path="res://art/Dino/Llama Walking.png" id="6_uvc04"]
 [ext_resource type="Texture2D" uid="uid://dvnnkd6b2r0gv" path="res://art/Dino/fire.png" id="7_yscen"]
-[ext_resource type="Texture2D" uid="uid://dpetxgmxxyxnp" path="res://art/Main/Roddy.png" id="8_ue7ir"]
+[ext_resource type="Script" path="res://scripts/Dino/MagicRoddy.gd" id="9_j2oqc"]
+[ext_resource type="Texture2D" uid="uid://42wiycp2pxxq" path="res://art/Dino/MagicRoddy 1.png" id="9_u3oh5"]
+[ext_resource type="Texture2D" uid="uid://bmrl73a4q1ijw" path="res://art/Dino/MagicRoddy 2.png" id="10_lrfju"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p4gh0"]
 
@@ -53,6 +55,38 @@ size = Vector2(24, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yttxo"]
 size = Vector2(24, 216)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4alin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_lrfju")
+}],
+"loop": false,
+"name": &"appear",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_u3oh5")
+}],
+"loop": true,
+"name": &"waving",
+"speed": 5.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2apcd"]
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 0)
+spread = 25.75
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -100.0
+initial_velocity_max = -100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 10.0
+scale_max = 10.0
+color = Color(0.882353, 0.666667, 0.12549, 1)
 
 [node name="Dino" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
@@ -108,15 +142,9 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Despawn"]
-visible = false
 position = Vector2(8, 60)
 scale = Vector2(0.00649614, 0.00666667)
 texture = ExtResource("7_yscen")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Despawn"]
-position = Vector2(4, 60)
-scale = Vector2(0.266667, 0.266667)
-texture = ExtResource("8_ue7ir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Despawn"]
 position = Vector2(-4, 35)
@@ -140,5 +168,20 @@ collision_mask = 13
 position = Vector2(4.00006, -92)
 shape = SubResource("RectangleShape2D_yttxo")
 
+[node name="MagicRoddy" type="Node2D" parent="."]
+position = Vector2(616.747, 357.488)
+script = ExtResource("9_j2oqc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MagicRoddy"]
+sprite_frames = SubResource("SpriteFrames_4alin")
+animation = &"waving"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="MagicRoddy"]
+position = Vector2(-56.7469, -21.4879)
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_2apcd")
+
 [connection signal="timeout" from="Enemy_Spawn_Timer" to="dino" method="_on_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="Enemy_Spawn_Timer" to="MagicRoddy" method="_on_enemy_spawn_timer_timeout"]
 [connection signal="body_entered" from="Despawn" to="dino" method="_on_despawn_body_entered"]
