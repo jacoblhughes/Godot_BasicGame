@@ -15,7 +15,8 @@ func _physics_process(delta):
 	var result = space_state.intersect_ray(query)
 #	print(result)
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept"):
+
+	if Input.is_action_just_pressed("left_mouse_click"):
 		velocity.y = JUMP_VELOCITY
 	else:
 		velocity.y += gravity * delta
