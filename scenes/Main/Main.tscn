@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckpqmqx1najki"]
 
-[ext_resource type="Script" path="res://scripts/Main/Main.gd" id="1_8l5w7"]
-[ext_resource type="PackedScene" uid="uid://cyl28swe7b43k" path="res://scenes/Main/HUD.tscn" id="2_3hhfe"]
-[ext_resource type="PackedScene" uid="uid://d4cpf87cb1bs0" path="res://scenes/Main/Buttons.tscn" id="3_uibrh"]
+[ext_resource type="Script" path="res://scripts/Main/Main.gd" id="1_opphj"]
+[ext_resource type="PackedScene" uid="uid://cyl28swe7b43k" path="res://scenes/Main/HUD.tscn" id="2_kig2x"]
+[ext_resource type="PackedScene" uid="uid://d4cpf87cb1bs0" path="res://scenes/Main/Buttons.tscn" id="3_sfhvv"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8l5w7")
+script = ExtResource("1_opphj")
 
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
 layer = -3
@@ -31,9 +31,9 @@ offset_right = 696.0
 offset_bottom = 816.0
 color = Color(0.114935, 0.205596, 0.209237, 1)
 
-[node name="HUD_SCENE" parent="." instance=ExtResource("2_3hhfe")]
+[node name="HUD" parent="." instance=ExtResource("2_kig2x")]
 
-[node name="Buttons" parent="." instance=ExtResource("3_uibrh")]
+[node name="Buttons" parent="." instance=ExtResource("3_sfhvv")]
 layout_mode = 1
 
 [node name="GameScene" type="Node" parent="."]

@@ -14,7 +14,7 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_0fsyn"]
 font_size = 22
 
-[node name="HUDScene" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_mflag")
 

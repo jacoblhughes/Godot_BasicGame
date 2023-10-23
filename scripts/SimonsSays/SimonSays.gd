@@ -47,9 +47,8 @@ var signalEmitted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	initializeButtons()
-	GameManager.startButtonPressed.connect(_on_play_button_pressed)
-	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
+	_initialize_buttons()
+	_game_initialize()
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")#
 	update_score(gameScore)
 	high_scores_names = config.get_value(section_name, "names", [])
@@ -66,7 +65,11 @@ func _ready():
 #		item_list.add_item(displayText)
 
 	pass # Replace with function body.
-
+	
+func _game_initialize():
+	
+	GameManager.startButtonPressed.connect(_on_play_button_pressed)
+	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -126,7 +129,7 @@ func _check_highscore_and_rank():
 	else:
 		GameManager.play_game_over()
 
-func initializeButtons():
+func _initialize_buttons():
 	var buttonScenes = [
 		redButtonScene,blueButtonScene,greenButtonScene,yellowButtonScene
 	]
@@ -185,8 +188,6 @@ func update_score(numbah):
 	GameManager.set_new_score(numbah)
 
 func _on_play_button_pressed():
-
-
 	if(gameInitialized == false and gameRunning == false):
 		gameInitialized = true
 		gameRunning = true
@@ -239,8 +240,6 @@ func on_reset_button_reset_button_pressed():
 
 	
 	pass # Replace with function body.
-
-
 
 func _on_game_button_pressed(which):
 	
