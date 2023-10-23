@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://cgu5dun6rgtic"]
 
-[ext_resource type="Script" path="res://scripts/Dino/dino.gd" id="1_6p3q1"]
+[ext_resource type="Script" path="res://scripts/Dino/Dino.gd" id="1_6p3q1"]
 [ext_resource type="Texture2D" uid="uid://bo54ob6kkbcat" path="res://art/Dino/floor.png" id="1_nefk3"]
 [ext_resource type="Texture2D" uid="uid://cpabchmbtrroe" path="res://art/Dino/Background.png" id="1_rljat"]
 [ext_resource type="Texture2D" uid="uid://bfev0n88gh0b6" path="res://art/Dino/Llama Standing.png" id="2_0jhlf"]

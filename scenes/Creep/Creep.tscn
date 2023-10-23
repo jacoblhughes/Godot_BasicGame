@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bjw6sh7j2lsq3"]
 
-[ext_resource type="Script" path="res://scripts/Creep/creep.gd" id="1_g5d1d"]
-[ext_resource type="PackedScene" uid="uid://5w3s3bekcgvy" path="res://scenes/Creep/Mob.tscn" id="2_fw2al"]
+[ext_resource type="Script" path="res://scripts/Creep/Creep.gd" id="1_g5d1d"]
+[ext_resource type="PackedScene" uid="uid://5w3s3bekcgvy" path="res://scenes/Creep/Enemy.tscn" id="2_fw2al"]
 [ext_resource type="PackedScene" uid="uid://0dmkhtys2fv3" path="res://scenes/Creep/Player.tscn" id="3_s8gjb"]
 
 [sub_resource type="Curve2D" id="Curve2D_mulw1"]

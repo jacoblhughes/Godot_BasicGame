@@ -4,9 +4,10 @@ extends Node2D
 @onready var EnemyWall2 = preload("res://scenes/Flappy/EnemyWall2.tscn")
 @onready var EnemyWall3  = preload("res://scenes/Flappy/EnemyWall3.tscn")
 var scenes
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+
 	scenes = [EnemyWall, EnemyWall2, EnemyWall3]
 
 	# Choose a scene randomly

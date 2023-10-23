@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c1n3bt7ntc5gf"]
 
-[ext_resource type="Script" path="res://scripts/Pong/pong.gd" id="1_owxaf"]
+[ext_resource type="Script" path="res://scripts/Pong/Pong.gd" id="1_owxaf"]
 [ext_resource type="Script" path="res://scripts/Pong/Ball.gd" id="2_qykp5"]
 [ext_resource type="Texture2D" uid="uid://dpetxgmxxyxnp" path="res://art/Main/Roddy.png" id="2_up12u"]
 [ext_resource type="Script" path="res://scripts/Pong/Player.gd" id="3_lukah"]

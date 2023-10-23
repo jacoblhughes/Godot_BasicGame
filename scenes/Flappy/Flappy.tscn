@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cj0i3bqn4ap1r"]
 
-[ext_resource type="Script" path="res://scripts/Flappy/flappy.gd" id="1_47p76"]
 [ext_resource type="Script" path="res://scripts/Flappy/Player.gd" id="1_drtwh"]
+[ext_resource type="Script" path="res://scripts/Flappy/Flappy.gd" id="1_q2sg6"]
 [ext_resource type="Texture2D" uid="uid://cybepxl1f4kxx" path="res://art/Flappy/RoddyFlappy.png" id="4_gg5du"]
 [ext_resource type="Script" path="res://scripts/Flappy/enemy_spawn.gd" id="5_2rn4w"]
 
@@ -32,7 +32,7 @@ color_ramp = SubResource("GradientTexture1D_yn8so")
 [node name="Flappy" type="Node2D"]
 
 [node name="flappy" type="Node2D" parent="."]
-script = ExtResource("1_47p76")
+script = ExtResource("1_q2sg6")
 
 [node name="enemy_spawn" type="Node2D" parent="."]
 script = ExtResource("5_2rn4w")
