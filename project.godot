@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerVariables="*res://data/Main/singleton/player_initials/player_initials.gd"
 SnakeVariables="*res://data/Snake/singleton/SnakeVariables.gd"
-HUDVariables="*res://data/Main/singleton/HUD/HUDVariables.gd"
+GameManager="*res://data/Main/GameManager.gd"
+AudioManager="*res://data/Main/AudioManager.gd"
 
 [display]
 

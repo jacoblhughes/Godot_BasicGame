@@ -10,11 +10,11 @@ var inputs = {"right": Vector2.RIGHT,
 			"up": Vector2.UP,
 			"down": Vector2.DOWN}
 			
-var originalx = HUDVariables.get_play_area_position_from_HUD().x
-var originaly = HUDVariables.get_play_area_position_from_HUD().y
+var originalx = GameManager.get_play_area_position_from_HUD().x
+var originaly = GameManager.get_play_area_position_from_HUD().y
 
 func _ready():
-	screen_size = HUDVariables.get_play_area_size_from_HUD()
+	screen_size = GameManager.get_play_area_size_from_HUD()
 	tile_size = screen_size.x/64
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size/2

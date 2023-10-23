@@ -1,5 +1,5 @@
 extends Node2D
-@onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
+
 @onready var enemy_scene  = preload("res://scenes/Dino/Enemy.tscn")
 
 var enemy_counter = 1
@@ -7,7 +7,7 @@ var enemy_counter = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	HUDSIGNALS.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
+#	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
 
 	
 	pass # Replace with function body.
@@ -33,5 +33,5 @@ func _on_despawn_body_entered(body):
 
 	if("Enemy" in body.name):
 		body.queue_free()
-		HUDVariables.set_new_score(1)
+		GameManager.set_new_score(1)
 	pass # Replace with function body.

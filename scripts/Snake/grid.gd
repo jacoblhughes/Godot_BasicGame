@@ -9,10 +9,10 @@ var originaly
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	SnakeVariables._set_play_area_size(HUDVariables.get_play_area_size_from_HUD())
-	SnakeVariables._set_play_area_position(HUDVariables.get_play_area_position_from_HUD())
-	var cellX = HUDVariables.get_play_area_size_from_HUD().x/SnakeVariables.snakecells
-	var cellY = HUDVariables.get_play_area_size_from_HUD().y/SnakeVariables.snakecells
+	SnakeVariables._set_play_area_size(GameManager.get_play_area_size_from_HUD())
+	SnakeVariables._set_play_area_position(GameManager.get_play_area_position_from_HUD())
+	var cellX = GameManager.get_play_area_size_from_HUD().x/SnakeVariables.snakecells
+	var cellY = GameManager.get_play_area_size_from_HUD().y/SnakeVariables.snakecells
 	SnakeVariables.set_snake_cell_size(Vector2(cellX,cellY))
 	sizewidth = SnakeVariables.GRID_SIZE.x/SnakeVariables.snakecells
 	sizeheight = SnakeVariables.GRID_SIZE.y/SnakeVariables.snakecells

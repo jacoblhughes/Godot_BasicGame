@@ -33,6 +33,6 @@ func _physics_process(_delta):
 	if collision:
 		# A collision occurred, set velocity to zero to prevent movement
 		velocity = Vector2(0, 0)
-	position.y = clamp(position.y, HUDVariables.PlayArea.global_position.y + my_sprite.size.y/2,HUDVariables.PlayArea.global_position.y+HUDVariables.PlayArea.size.y - my_sprite.size.y/2)
+	position.y = clamp(position.y, GameManager.PlayArea.global_position.y + my_sprite.size.y/2,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y - my_sprite.size.y/2)
 
 

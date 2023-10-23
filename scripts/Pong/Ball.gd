@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var reset_round = false
-@onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
+
 @onready var PONGSIGNALS = get_tree().get_root().get_node("Main").get_node("GameScene").get_node("Perry").get_node("pong")
 # Called when the node enters the scene tree for the first time.
 var position_reset = false
@@ -8,9 +8,9 @@ var original_position = Vector2(0,0)
 
 
 func _ready():
-	HUDSIGNALS.startButtonPressed.connect(_on_play_button_pressed)
-	HUDSIGNALS.resetButtonPressed.connect(_on_reset_button_reset_button_pressed)
-	PONGSIGNALS.position_reset.connect(_on_position_reset)
+	GameManager.startButtonPressed.connect(_on_play_button_pressed)
+	GameManager.resetButtonPressed.connect(_on_reset_button_reset_button_pressed)
+	GameManager.position_reset.connect(_on_position_reset)
 	original_position = position
 	reset_round = true
 	pass # Replace with function body.

@@ -10,8 +10,8 @@ var screen_position
 func _ready():
 
 #	CollisionShape = $CollisionShape2D
-	screen_size = HUDVariables.get_play_area_size_from_HUD()
-	screen_position = HUDVariables.get_play_area_position_from_HUD()
+	screen_size = GameManager.get_play_area_size_from_HUD()
+	screen_position = GameManager.get_play_area_position_from_HUD()
 #	hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

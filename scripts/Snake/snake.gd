@@ -12,17 +12,17 @@ var curr_direction = Vector2.ZERO
 var png_size = 150
 var game_disabled = true
 var snake_length = 0
-var play_area_min = HUDVariables.get_play_area_position_from_HUD()
+var play_area_min = GameManager.get_play_area_position_from_HUD()
 signal hit(minisnake_hit: Minisnake)
 var SnakeTimer
 var isFirst = true
 var isFirstminiSnake = true
-@onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
+
 @onready var SPAWNSIGNALS = get_parent().get_node("spawner_food")
 func _ready():
 	SnakeTimer = get_parent().get_node("Snake_Move_Timer")
-	HUDSIGNALS.startButtonPressed.connect(_on_play_button_pressed)
-	HUDSIGNALS.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
+	GameManager.startButtonPressed.connect(_on_play_button_pressed)
+	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
 	SPAWNSIGNALS.PlayerWin.connect(_on_player_win)
 	head  = preload("res://scenes/Snake/Player.tscn").instantiate()
 	get_parent().add_child.call_deferred(head)
@@ -192,12 +192,12 @@ func on_reset_button_reset_button_pressed():
 	_change_game_disabled(true)
 	
 	# Reset the score displayed in HUD
-	HUDVariables.set_new_score(0)
+	GameManager.set_new_score(0)
 	isFirst = true
 	isFirstminiSnake = true
 func game_over():
 	SnakeTimer.stop()
-	HUDVariables.set_new_score(0)
+	GameManager.set_new_score(0)
 	minisnakes = []
 	pass
 

@@ -1,11 +1,11 @@
 extends Node2D
 
-@onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
+
 @onready var SpawnTimer : Timer = get_parent().get_node("SpawnTimer")
 signal startgame
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	HUDSIGNALS.startButtonPressed.connect(_on_play_button_pressed)
+	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 
 	pass # Replace with function body.
 

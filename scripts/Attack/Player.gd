@@ -7,8 +7,8 @@ signal took_damage
 @onready var RocketShootSound : AudioStreamPlayer = $RocketShootSound
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
-var screen_size = HUDVariables.get_play_area_size_from_HUD()
-var screen_position = HUDVariables.get_play_area_position_from_HUD()
+var screen_size = GameManager.get_play_area_size_from_HUD()
+var screen_position = GameManager.get_play_area_position_from_HUD()
 
 @onready var rocket_scene = preload("res://scenes/Attack/rocket.tscn")
 

@@ -13,7 +13,7 @@ var png_size = 150
 signal PlayerWin
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	HUDVariables.set_new_score(0)
+	GameManager.set_new_score(0)
 	my_food_instance = preload("res://scenes/Snake/Food.tscn").instantiate()
 	spawn_food()
 
@@ -33,8 +33,8 @@ func _process(delta):
 	
 	if my_food_instance.get_rect().intersects(snake.head.get_rect()):
 		
-		HUDVariables.set_new_score(1)
-		if(int(HUDVariables.get_current_score()) == (SnakeVariables.snakecells * SnakeVariables.snakecells)):
+		GameManager.set_new_score(1)
+		if(int(GameManager.get_current_score()) == (SnakeVariables.snakecells * SnakeVariables.snakecells)):
 			print("WIN")
 			PlayerWin.emit()
 			

@@ -43,7 +43,7 @@ func new_game():
 
 	
 func _on_score_timer_timeout():
-	HUDVariables.set_new_score(1)
+	GameManager.set_new_score(1)
 #	$HUD.update_score(score)
 
 func _on_start_timer_timeout():
@@ -80,5 +80,5 @@ func _on_mob_timer_timeout():
 	get_parent().add_child(mob)
 
 func _on_player_hit():
-#	HUDVariables.set_new_status("Game Over")
+#	GameManager.set_new_status("Game Over")
 	pass

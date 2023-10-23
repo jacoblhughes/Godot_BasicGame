@@ -18,4 +18,4 @@ func _ready():
 func _physics_process(_delta):
 	var mouse_pos = get_viewport().get_mouse_position()
 	position.y = mouse_pos.y
-	position.y = clamp(position.y, HUDVariables.PlayArea.global_position.y + my_sprite.size.y/2,HUDVariables.PlayArea.global_position.y+HUDVariables.PlayArea.size.y - my_sprite.size.y/2)
+	position.y = clamp(position.y, GameManager.PlayArea.global_position.y + my_sprite.size.y/2,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y - my_sprite.size.y/2)

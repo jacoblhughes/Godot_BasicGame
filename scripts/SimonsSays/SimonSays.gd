@@ -40,16 +40,16 @@ var signalEmitted = false
 @onready var yellowButtonScene = preload("res://scenes/SimonSays/YellowButton.tscn")
 
 @onready var err = config.load("res://data/ConfigFile.cfg")
-@onready var currentInitials = HUDVariables.get_initials_from_HUD()
+@onready var currentInitials = GameManager.get_initials_from_HUD()
 
-@onready var HUDSIGNALS = get_tree().get_root().get_node("Main").get_node("HUD_SCENE")
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	initializeButtons()
-	HUDSIGNALS.startButtonPressed.connect(_on_play_button_pressed)
-	HUDSIGNALS.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
+	GameManager.startButtonPressed.connect(_on_play_button_pressed)
+	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")#
 	update_score(gameScore)
 	high_scores_names = config.get_value(section_name, "names", [])
@@ -122,9 +122,9 @@ func _check_highscore_and_rank():
 	_stop_game_button_animations_and_timer()
 	$PlaybackTimer.stop()
 	if(added):
-		HUDVariables.play_applause()
+		GameManager.play_applause()
 	else:
-		HUDVariables.play_game_over()
+		GameManager.play_game_over()
 
 func initializeButtons():
 	var buttonScenes = [
@@ -182,7 +182,7 @@ func _add_next_value():
 
 func update_score(numbah):
 	
-	HUDVariables.set_new_score(numbah)
+	GameManager.set_new_score(numbah)
 
 func _on_play_button_pressed():
 

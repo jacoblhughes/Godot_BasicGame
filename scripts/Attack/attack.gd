@@ -8,8 +8,8 @@ extends Node2D
 var lives = 3
 var score = 0
 # Called when the node enters the scene tree for the first time.
-var screen_size = HUDVariables.get_play_area_size_from_HUD()
-var screen_position = HUDVariables.get_play_area_position_from_HUD()
+var screen_size = GameManager.get_play_area_size_from_HUD()
+var screen_position = GameManager.get_play_area_position_from_HUD()
 
 
 func _ready():
