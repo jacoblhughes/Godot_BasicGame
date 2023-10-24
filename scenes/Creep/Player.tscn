@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://0dmkhtys2fv3"]
 
-[ext_resource type="Script" path="res://scripts/Creep/Player.gd" id="1_djvcr"]
+[ext_resource type="Script" path="res://scripts/Creep/player.gd" id="1_djvcr"]
 [ext_resource type="Texture2D" uid="uid://d0yjhc8catg68" path="res://art/Creep/Player Walk 1.png" id="2_bprxx"]
 [ext_resource type="Texture2D" uid="uid://dl0remgl0fovp" path="res://art/Creep/Player Up 1.png" id="2_p5ome"]
 [ext_resource type="Texture2D" uid="uid://c585p4xkv8ox1" path="res://art/Creep/Player Up 2.png" id="3_dmxnt"]

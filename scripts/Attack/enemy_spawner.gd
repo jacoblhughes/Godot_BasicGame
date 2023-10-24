@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var enemy_scene = preload("res://scenes/Attack/Enemy.tscn")
-@onready var path_enemy_scene = preload("res://scenes/Attack/Path_Enemy.tscn")
+@onready var enemy_scene = preload("res://scenes/Attack/enemy.tscn")
+@onready var path_enemy_scene = preload("res://scenes/Attack/path_enemy.tscn")
 @onready var spawn_positions = $SpawnLocations
 signal enemy_spawned(enemy_instance)
 signal path_enemy_spawned(path_enemy_instance)

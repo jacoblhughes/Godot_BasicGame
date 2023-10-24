@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcxdvv4qwwmqm"]
+
+[ext_resource type="Script" path="res://scripts/SimonsSays/simon_says.gd" id="1_mw2v8"]
+
+[node name="SimonSaysGame" type="Node2D"]
+script = ExtResource("1_mw2v8")
+
+[node name="PlaybackTimer" type="Timer" parent="."]
+wait_time = 1.25
+
+[connection signal="timeout" from="PlaybackTimer" to="." method="_on_playback_timer_timeout"]

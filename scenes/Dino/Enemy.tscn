@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bq80x8xgeg676"]
 
-[ext_resource type="Script" path="res://scripts/Dino/Enemy.gd" id="1_dqh6j"]
-[ext_resource type="Texture2D" uid="uid://dfq4yj1mjwrr" path="res://art/Dino/Enemy Body.png" id="1_nvt51"]
-[ext_resource type="Texture2D" uid="uid://s6a44mou7cgt" path="res://art/Dino/Enemy Top Red.png" id="2_4nndy"]
+[ext_resource type="Script" path="res://scripts/Dino/enemy.gd" id="1_fcfla"]
+[ext_resource type="Texture2D" uid="uid://dfq4yj1mjwrr" path="res://art/Dino/Enemy Body.png" id="2_1omgl"]
+[ext_resource type="Texture2D" uid="uid://s6a44mou7cgt" path="res://art/Dino/Enemy Top Red.png" id="3_0ylnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20oip"]
 size = Vector2(20, 56)
@@ -11,16 +11,16 @@ size = Vector2(20, 56)
 position = Vector2(680, 648)
 collision_layer = 2
 collision_mask = 11
-script = ExtResource("1_dqh6j")
+script = ExtResource("1_fcfla")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_nvt51")
+texture = ExtResource("2_1omgl")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(-0.187012, -23.9999)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_4nndy")
+texture = ExtResource("3_0ylnj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -11.9999)

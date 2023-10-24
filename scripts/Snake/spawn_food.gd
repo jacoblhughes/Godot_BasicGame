@@ -14,7 +14,7 @@ signal PlayerWin
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameManager.set_new_score(0)
-	my_food_instance = preload("res://scenes/Snake/Food.tscn").instantiate()
+	my_food_instance = preload("res://scenes/Snake/food.tscn").instantiate()
 	spawn_food()
 
 	my_food_instance.SnakeFoodReady.connect(_on_food_initialized)

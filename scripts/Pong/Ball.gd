@@ -10,7 +10,7 @@ var original_position = Vector2(0,0)
 func _ready():
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 	GameManager.resetButtonPressed.connect(_on_reset_button_reset_button_pressed)
-	GameManager.position_reset.connect(_on_position_reset)
+	PONGSIGNALS.position_reset.connect(_on_position_reset)
 	original_position = position
 	reset_round = true
 	pass # Replace with function body.

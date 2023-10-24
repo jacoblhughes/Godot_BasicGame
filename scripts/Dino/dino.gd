@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var enemy_scene  = preload("res://scenes/Dino/Enemy.tscn")
+@onready var enemy_scene  = preload("res://scenes/Dino/enemy.tscn")
 
 var enemy_counter = 1
 

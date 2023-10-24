@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgbjvdct5rvuk"]
 
-[ext_resource type="Script" path="res://scripts/Flappy/EnemyWall.gd" id="1_fnefr"]
+[ext_resource type="Script" path="res://scripts/Flappy/enemy_wall.gd" id="1_fnefr"]
 [ext_resource type="Texture2D" uid="uid://dqjn21los1i7a" path="res://art/Flappy/SpikeFlappy.png" id="2_g40k1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6yt0"]

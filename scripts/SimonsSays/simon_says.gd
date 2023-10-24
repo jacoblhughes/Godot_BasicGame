@@ -34,10 +34,10 @@ var high_scores_names
 var high_scores
 var section_name = "SimonSays"
 var signalEmitted = false
-@onready var redButtonScene = preload("res://scenes/SimonSays/RedButton.tscn")
-@onready var blueButtonScene = preload("res://scenes/SimonSays/BlueButton.tscn")
-@onready var greenButtonScene = preload("res://scenes/SimonSays/GreenButton.tscn")
-@onready var yellowButtonScene = preload("res://scenes/SimonSays/YellowButton.tscn")
+@onready var redButtonScene = preload("res://scenes/SimonSays/red_button.tscn")
+@onready var blueButtonScene = preload("res://scenes/SimonSays/blue_button.tscn")
+@onready var greenButtonScene = preload("res://scenes/SimonSays/green_button.tscn")
+@onready var yellowButtonScene = preload("res://scenes/SimonSays/yellow_button.tscn")
 
 @onready var err = config.load("res://data/ConfigFile.cfg")
 @onready var currentInitials = GameManager.get_initials_from_HUD()
@@ -48,8 +48,8 @@ var signalEmitted = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_initialize_buttons()
-	_game_initialize()
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")#
+	_game_initialize()
 	update_score(gameScore)
 	high_scores_names = config.get_value(section_name, "names", [])
 	high_scores = config.get_value(section_name, "scores", [])

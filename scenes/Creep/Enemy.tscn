@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://5w3s3bekcgvy"]
 
 [ext_resource type="Texture2D" uid="uid://dusslmfou63es" path="res://art/Creep/EF 1.png" id="1_2teu8"]
-[ext_resource type="Script" path="res://scripts/Creep/Mob.gd" id="1_p258r"]
+[ext_resource type="Script" path="res://scripts/Creep/enemy.gd" id="1_i8q87"]
 [ext_resource type="Texture2D" uid="uid://dovjchdqona27" path="res://art/Creep/EF 2.png" id="2_lnxwd"]
 [ext_resource type="Texture2D" uid="uid://dybokq1gx52kw" path="res://art/Creep/ES 1.png" id="3_rpcc4"]
 [ext_resource type="Texture2D" uid="uid://b7btho0bs2dfa" path="res://art/Creep/ES 2.png" id="4_6usmp"]
@@ -51,7 +51,7 @@ radius = 64.0
 collision_layer = 2
 gravity_scale = 0.0
 contact_monitor = true
-script = ExtResource("1_p258r")
+script = ExtResource("1_i8q87")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0e2qo")

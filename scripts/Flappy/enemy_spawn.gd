@@ -1,14 +1,14 @@
 extends Node2D
 
-@onready var EnemyWall = preload("res://scenes/Flappy/EnemyWall.tscn")
-@onready var EnemyWall2 = preload("res://scenes/Flappy/EnemyWall2.tscn")
-@onready var EnemyWall3  = preload("res://scenes/Flappy/EnemyWall3.tscn")
+@onready var enemy_wall = preload("res://scenes/Flappy/enemy_wall.tscn")
+@onready var enemy_wall_2 = preload("res://scenes/Flappy/enemy_wall_2.tscn")
+@onready var enemy_wall_3  = preload("res://scenes/Flappy/enemy_wall_3.tscn")
 var scenes
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	scenes = [EnemyWall, EnemyWall2, EnemyWall3]
+	scenes = [enemy_wall, enemy_wall_2, enemy_wall_3]
 
 	# Choose a scene randomly
 

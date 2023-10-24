@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckpqmqx1najki"]
 
 [ext_resource type="Script" path="res://scripts/Main/main.gd" id="1_jwx6u"]
-[ext_resource type="PackedScene" uid="uid://cyl28swe7b43k" path="res://scenes/Main/hud.tscn" id="2_v0m1m"]
+[ext_resource type="PackedScene" uid="uid://cyl28swe7b43k" path="res://scenes/Main/HUD.tscn" id="2_v0m1m"]
 [ext_resource type="PackedScene" uid="uid://d4cpf87cb1bs0" path="res://scenes/Main/buttons.tscn" id="3_5wtcr"]
 
 [node name="Main" type="Control"]

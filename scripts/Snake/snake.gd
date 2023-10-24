@@ -24,7 +24,7 @@ func _ready():
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
 	SPAWNSIGNALS.PlayerWin.connect(_on_player_win)
-	head  = preload("res://scenes/Snake/Player.tscn").instantiate()
+	head  = preload("res://scenes/Snake/player.tscn").instantiate()
 	get_parent().add_child.call_deferred(head)
 	head.size = SnakeVariables.snakecellsize
 #	head.color = SnakeVariables.DARKBLUE
@@ -136,7 +136,7 @@ func grow() -> void:
 #	minisnake.color = SnakeVariables.BLUE
 #	minisnake.size = SnakeVariables.snakecellsize
 #	minisnakes.push_back(minisnake)
-	var new_head = preload("res://scenes/Snake/Segment.tscn").instantiate()
+	var new_head = preload("res://scenes/Snake/segment.tscn").instantiate()
 	var last_head :=minisnakes.back() as SnakeBoy
 	new_head.curr_position = last_head.curr_position
 #	new_head.color = SnakeVariables.BLUE

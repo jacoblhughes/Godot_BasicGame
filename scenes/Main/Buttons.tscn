@@ -1,17 +1,17 @@
 [gd_scene load_steps=13 format=3 uid="uid://d4cpf87cb1bs0"]
 
-[ext_resource type="Script" path="res://scripts/Main/Buttons.gd" id="1_d3apa"]
-[ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://scenes/SimonSays/SimonSays.tscn" id="2_vqi0v"]
-[ext_resource type="PackedScene" uid="uid://c1ov306httsie" path="res://scenes/Snake/Snake.tscn" id="3_kj1q5"]
-[ext_resource type="PackedScene" uid="uid://c1n3bt7ntc5gf" path="res://scenes/Pong/Pong.tscn" id="4_uxid6"]
-[ext_resource type="PackedScene" uid="uid://cgu5dun6rgtic" path="res://scenes/Dino/Dino.tscn" id="5_c04dh"]
-[ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/Main/button.tres" id="5_o7461"]
-[ext_resource type="Theme" uid="uid://cc5frax1el0v6" path="res://themes/Main/line_edit.tres" id="6_qwswx"]
-[ext_resource type="PackedScene" uid="uid://bjw6sh7j2lsq3" path="res://scenes/Creep/Creep.tscn" id="6_xbjbf"]
-[ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/Main/label.tres" id="7_7s5q7"]
-[ext_resource type="PackedScene" uid="uid://cj0i3bqn4ap1r" path="res://scenes/Flappy/Flappy.tscn" id="7_8y6xu"]
-[ext_resource type="PackedScene" uid="uid://cf4xkqs74ytur" path="res://scenes/Saucer/Saucer.tscn" id="8_8ftby"]
-[ext_resource type="PackedScene" uid="uid://dx4hwtnr40m1r" path="res://scenes/Attack/Attack.tscn" id="9_2365c"]
+[ext_resource type="Script" path="res://scripts/Main/buttons.gd" id="1_li1cs"]
+[ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://scenes/SimonSays/simon_says.tscn" id="2_gs4av"]
+[ext_resource type="PackedScene" uid="uid://c1ov306httsie" path="res://scenes/Snake/snake.tscn" id="3_4qy33"]
+[ext_resource type="PackedScene" uid="uid://c1n3bt7ntc5gf" path="res://scenes/Pong/pong.tscn" id="4_yuk4h"]
+[ext_resource type="PackedScene" uid="uid://cgu5dun6rgtic" path="res://scenes/Dino/dino.tscn" id="5_hhg1c"]
+[ext_resource type="PackedScene" uid="uid://bjw6sh7j2lsq3" path="res://scenes/Creep/creep.tscn" id="6_yn8lt"]
+[ext_resource type="PackedScene" uid="uid://cj0i3bqn4ap1r" path="res://scenes/Flappy/flappy.tscn" id="7_nnd0q"]
+[ext_resource type="PackedScene" uid="uid://cf4xkqs74ytur" path="res://scenes/Saucer/saucer.tscn" id="8_6gkse"]
+[ext_resource type="PackedScene" uid="uid://dx4hwtnr40m1r" path="res://scenes/Attack/attack.tscn" id="9_3orma"]
+[ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/Main/button.tres" id="10_ajy0e"]
+[ext_resource type="Theme" uid="uid://cc5frax1el0v6" path="res://themes/Main/line_edit.tres" id="11_8ot7g"]
+[ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/Main/label.tres" id="12_8esa3"]
 
 [node name="Buttons" type="Control"]
 layout_mode = 3
@@ -20,15 +20,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_d3apa")
-simon_says = ExtResource("2_vqi0v")
-snake = ExtResource("3_kj1q5")
-pong = ExtResource("4_uxid6")
-dino = ExtResource("5_c04dh")
-creep = ExtResource("6_xbjbf")
-flappy = ExtResource("7_8y6xu")
-saucer = ExtResource("8_8ftby")
-attack = ExtResource("9_2365c")
+script = ExtResource("1_li1cs")
+simon_says = ExtResource("2_gs4av")
+snake = ExtResource("3_4qy33")
+pong = ExtResource("4_yuk4h")
+dino = ExtResource("5_hhg1c")
+creep = ExtResource("6_yn8lt")
+flappy = ExtResource("7_nnd0q")
+saucer = ExtResource("8_6gkse")
+attack = ExtResource("9_3orma")
 
 [node name="SimonSays" type="Button" parent="."]
 layout_mode = 0
@@ -36,7 +36,7 @@ offset_left = 48.0
 offset_top = 256.0
 offset_right = 240.0
 offset_bottom = 384.0
-theme = ExtResource("5_o7461")
+theme = ExtResource("10_ajy0e")
 text = "Simon Says Game"
 
 [node name="Snake" type="Button" parent="."]
@@ -45,7 +45,7 @@ offset_left = 264.0
 offset_top = 256.0
 offset_right = 456.0
 offset_bottom = 384.0
-theme = ExtResource("5_o7461")
+theme = ExtResource("10_ajy0e")
 text = "Snake"
 
 [node name="Perry" type="Button" parent="."]
@@ -54,7 +54,7 @@ offset_left = 480.0
 offset_top = 256.0
 offset_right = 672.0
 offset_bottom = 384.0
-theme = ExtResource("5_o7461")
+theme = ExtResource("10_ajy0e")
 text = "Perry
 "
 
@@ -64,7 +64,7 @@ offset_left = 48.0
 offset_top = 408.0
 offset_right = 240.0
 offset_bottom = 536.0
-theme = ExtResource("5_o7461")
+theme = ExtResource("10_ajy0e")
 text = "Dino"
 
 [node name="Creep" type="Button" parent="."]
@@ -73,7 +73,7 @@ offset_left = 264.0
 offset_top = 408.0
 offset_right = 456.0
 offset_bottom = 536.0
-theme = ExtResource("5_o7461")
+theme = ExtResource("10_ajy0e")
 text = "Avoid the Creep"
 
 [node name="Flappy" type="Button" parent="."]
@@ -82,7 +82,7 @@ offset_left = 480.0
 offset_top = 408.0
 offset_right = 672.0
 offset_bottom = 536.0
-theme = ExtResource("5_o7461")
+theme = ExtResource("10_ajy0e")
 text = "Flappy"
 
 [node name="Saucer" type="Button" parent="."]
@@ -91,7 +91,7 @@ offset_left = 48.0
 offset_top = 560.0
 offset_right = 240.0
 offset_bottom = 688.0
-theme = ExtResource("5_o7461")
+theme = ExtResource("10_ajy0e")
 text = "Saucer"
 
 [node name="Attack" type="Button" parent="."]
@@ -100,7 +100,7 @@ offset_left = 264.0
 offset_top = 560.0
 offset_right = 456.0
 offset_bottom = 688.0
-theme = ExtResource("5_o7461")
+theme = ExtResource("10_ajy0e")
 text = "Alien Attack"
 
 [node name="TBD2" type="Button" parent="."]
@@ -109,7 +109,7 @@ offset_left = 480.0
 offset_top = 560.0
 offset_right = 672.0
 offset_bottom = 688.0
-theme = ExtResource("5_o7461")
+theme = ExtResource("10_ajy0e")
 
 [node name="Initials" type="LineEdit" parent="."]
 layout_mode = 0
@@ -117,7 +117,7 @@ offset_left = 264.0
 offset_top = 168.0
 offset_right = 456.0
 offset_bottom = 232.0
-theme = ExtResource("6_qwswx")
+theme = ExtResource("11_8ot7g")
 alignment = 1
 max_length = 3
 
@@ -127,7 +127,7 @@ offset_left = 48.0
 offset_top = 168.0
 offset_right = 240.0
 offset_bottom = 232.0
-theme = ExtResource("7_7s5q7")
+theme = ExtResource("12_8esa3")
 text = "Input Initials:"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://cj0i3bqn4ap1r"]
 
-[ext_resource type="Script" path="res://scripts/Flappy/Player.gd" id="1_drtwh"]
-[ext_resource type="Script" path="res://scripts/Flappy/Flappy.gd" id="1_q2sg6"]
-[ext_resource type="Texture2D" uid="uid://cybepxl1f4kxx" path="res://art/Flappy/RoddyFlappy.png" id="4_gg5du"]
-[ext_resource type="Script" path="res://scripts/Flappy/enemy_spawn.gd" id="5_2rn4w"]
+[ext_resource type="Script" path="res://scripts/Flappy/flappy.gd" id="1_8kbac"]
+[ext_resource type="Script" path="res://scripts/Flappy/enemy_spawn.gd" id="2_wrg0s"]
+[ext_resource type="Script" path="res://scripts/Flappy/player.gd" id="3_58kv2"]
+[ext_resource type="Texture2D" uid="uid://cybepxl1f4kxx" path="res://art/Flappy/RoddyFlappy.png" id="4_07krg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0dfi4"]
 radius = 31.0278
@@ -32,19 +32,19 @@ color_ramp = SubResource("GradientTexture1D_yn8so")
 [node name="Flappy" type="Node2D"]
 
 [node name="flappy" type="Node2D" parent="."]
-script = ExtResource("1_q2sg6")
+script = ExtResource("1_8kbac")
 
 [node name="enemy_spawn" type="Node2D" parent="."]
-script = ExtResource("5_2rn4w")
+script = ExtResource("2_wrg0s")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(299.411, 470.509)
-script = ExtResource("1_drtwh")
+script = ExtResource("3_58kv2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(4.58899, 1.491)
 scale = Vector2(0.746667, 0.746667)
-texture = ExtResource("4_gg5du")
+texture = ExtResource("4_07krg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_0dfi4")
