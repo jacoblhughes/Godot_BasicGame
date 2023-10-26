@@ -1,6 +1,6 @@
 extends Control
 var config = ConfigFile.new()
-var section_name = "Main"
+var section_name = "main"
 var section_key = "initials"
 @onready var err = config.load("res://data/ConfigFile.cfg")
 @onready var new_initials = config.get_value(section_name, section_key)
@@ -23,11 +23,42 @@ var flappy_scene
 var saucer_scene
 @export var attack: PackedScene
 var attack_scene
+@onready var HighscorePopup : Window
+@onready var HighscorePopupList : ItemList
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
 	InitialsInput = $Initials
 	InitialsInput.text = new_initials
+	
+	HighscorePopup = $HighScorePopup
+	HighscorePopupList = $HighScorePopup/ItemList
+	
+
+#	GameStartPanel = $Control/GameStartPanel
+
+	
+	# Get data for SimonSays
+	var simon_names = config.get_value("simon_says", "names", [])
+	var simon_scores = config.get_value("simon_says", "scores", [])
+
+	# Get data for Snake
+	var snake_names = config.get_value("snake", "names", [])
+	var snake_scores = config.get_value("snake", "scores", [])
+	
+	
+
+# Add a header for clarity
+	HighscorePopupList.add_item("--- SimonSays Scores ---")
+	for i in range(simon_names.size()):
+		HighscorePopupList.add_item(simon_names[i] + ": " + str(simon_scores[i]))
+
+	# Another header for Snake scores
+	HighscorePopupList.add_item("--- Snake Scores ---")
+	for i in range(snake_names.size()):
+		HighscorePopupList.add_item(snake_names[i] + ": " + str(snake_scores[i]))
+		
 	pass # Replace with function body.
 
 
@@ -49,6 +80,7 @@ func _on_simon_says_pressed():
 	GameManager.set_directions("Press the buttons in the same order that the computer provides!")
 	simon_says_scene = simon_says.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(simon_says_scene)
+	GameManager.set_current_game_scene(simon_says)
 	pass # Replace with function body.
 	
 func _on_snake_pressed():
@@ -63,10 +95,11 @@ func _on_snake_pressed():
 func _on_pong_pressed():
 	self.visible = false
 	GameManager.set_gamestartpanel(true)
-	GameManager.set_title('Simon Says')
-	GameManager.set_directions("Press the buttons in the same order that the computer provides!")
+	GameManager.set_title('Pong')
+	GameManager.set_directions("Get to 11 to go to the next level. If the computer scores, you lose a point! After hitting play, click to start the balls motion.")
 	pong_scene = pong.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(pong_scene)
+	GameManager.set_current_game_scene(pong)
 	pass # Replace with function body.
 
 func _on_dino_pressed():
@@ -117,3 +150,4 @@ func _on_attack_pressed():
 	attack_scene = attack.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(attack_scene)
 	pass # Replace with function body.
+

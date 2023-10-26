@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var new_position
+
 signal took_damage
 @onready var RocketShootSound : AudioStreamPlayer = $RocketShootSound
 # Get the gravity from the project settings to be synced with RigidBody nodes.

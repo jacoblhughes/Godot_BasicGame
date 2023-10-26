@@ -10,16 +10,14 @@ Snake - start and stop
 	maybe - make the scenes in the body do someting
 		make the food do something
 		improve collision logic
-
 	
 
 Pong
-	To start the game properly, have a splash screen
 	Keep high score?
-	
-	When one or the other reaches 11, the game is over.
-		Make gameover when this happens
-			Then a reset
+	Right now there is no gameover, only progression when you hit 11
+	Improve collision mechanics
+	Make the enemy paddle reset too
+	Make finding positions of things like the initial bass position happen in code to adjust for heights
 
 Dino
 	Make touch screen responsive
@@ -57,6 +55,10 @@ Alien Attack
 
 Background music
 
+
+Panels are overrides right now, how do I set a theme
+
+What to do about reassiging groups
 
 Make directions for each game
 

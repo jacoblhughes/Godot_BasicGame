@@ -91,6 +91,9 @@ color = Color(0.882353, 0.666667, 0.12549, 1)
 [node name="Dino" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
 
+[node name="dino" type="Node2D" parent="."]
+script = ExtResource("2_a0qqc")
+
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -100,9 +103,6 @@ offset_top = 144.0
 offset_right = 696.0
 offset_bottom = 816.0
 texture = ExtResource("1_r83wa")
-
-[node name="dino" type="Node2D" parent="."]
-script = ExtResource("2_a0qqc")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(24, 664)

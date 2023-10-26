@@ -32,8 +32,11 @@ var yellowButton
 var high_scores_for_popup
 var high_scores_names
 var high_scores
+
 var section_name = "SimonSays"
+
 var signalEmitted = false
+
 @onready var redButtonScene = preload("res://scenes/SimonSays/red_button.tscn")
 @onready var blueButtonScene = preload("res://scenes/SimonSays/blue_button.tscn")
 @onready var greenButtonScene = preload("res://scenes/SimonSays/green_button.tscn")
@@ -47,93 +50,49 @@ var signalEmitted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print('her')
 	_initialize_buttons()
-	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")#
 	_game_initialize()
-	update_score(gameScore)
-	high_scores_names = config.get_value(section_name, "names", [])
-	high_scores = config.get_value(section_name, "scores", [])
-#	var item_list = $HighScorePopup/ColorRect/ItemList
-	if high_scores_names.size() != high_scores.size():
-		print("Error: Names and scores arrays have different sizes.")
-		return
-#	for i in range(high_scores_names.size()):
-#		var name = high_scores_names[i]
-#		var score = high_scores[i]
-#		var displayText = name + ": " + str(score)  # Format as needed
-#
-#		item_list.add_item(displayText)
 
-	pass # Replace with function body.
 	
 func _game_initialize():
-	
+	GameManager.reset_score()
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
-	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
+	GameManager.resetButtonPressed.connect(_on_reset_button_reset_button_pressed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	
 	if(playerTurn):
-
 		if(len(arrayOfPlayerResponse)>0):
 			if(arrayOfButtonsToFollow[playerPopulate] == arrayOfPlayerResponse[playerPopulate]):
 				if(len(arrayOfButtonsToFollow) == len(arrayOfPlayerResponse)):
-					_change_game_disabled(true)
+					_set_game_disabled(true)
 					_player_turn_end()
 					_computer_turn_start()
 			else:
 				_game_lose()
-			
-	pass
 
 func _game_lose():
-	_check_highscore_and_rank()
-	_change_game_disabled(true)
-	gameScore = 0
-	update_score(gameScore)
+	GameManager.set_gameover_panel(true)
+	GameManager.check_highscore_and_rank("simon_says")
+	_set_game_disabled(true)
+	GameManager.reset_score()
 	gameInitialized = false
 	gameRunning = false
 	computerPopulate = 0
 	arrayOfButtonsToFollow = []
-
-	_player_turn_end()
-
-
-func _check_highscore_and_rank():
-	var added = false
-
-	for i in range(high_scores.size()):
-		if gameScore > high_scores[i]:
-			high_scores.insert(i, gameScore)
-			high_scores_names.insert(i, currentInitials)
-			added = true
-			break
-
-	if not added and high_scores.size() < 10:
-		high_scores.append(gameScore)
-		high_scores_names.append(currentInitials)
-
-	while high_scores.size() > 10:
-		high_scores.remove_at(high_scores.size() - 1)
-		high_scores_names.remove_at(high_scores_names.size() - 1)
-
-
-
-	config.save("res://data/ConfigFile.cfg")
 	_stop_game_button_sounds()
 	_stop_game_button_animations_and_timer()
-	$PlaybackTimer.stop()
-	if(added):
-		GameManager.play_applause()
-	else:
-		GameManager.play_game_over()
+	_player_turn_end()
 
 func _initialize_buttons():
 	var buttonScenes = [
 		redButtonScene,blueButtonScene,greenButtonScene,yellowButtonScene
 	]
-
+	
+	for node in get_tree().get_nodes_in_group("simonSaysGameButtons"):
+		node.remove_from_group("simonSaysGameButtons")
+		
 	for i in range(buttonScenes.size()):
 		var button = buttonScenes[i].instantiate()
 		button.position = Vector2(originalGameButtonX + (i % 2) * gameButtonDim, originalGameButtonY + (i / 2) * gameButtonDim)
@@ -143,78 +102,64 @@ func _initialize_buttons():
 		add_child(button)
 		buttonObject[button.name] = button
 		button.disabled = true
-
+		
+	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")#
 func _computer_turn_start():
-	
-
-	_change_game_disabled(true)
+	_set_game_disabled(true)
 	_add_next_value()
 	if(gameRunning == true):
 		$PlaybackTimer.start()
 		
-func _change_game_disabled(setting):
-	
+func _set_game_disabled(setting):
 	gameDisabled = setting
+
 	for i in len(groupOfButtons):
 		groupOfButtons[i].disabled = gameDisabled
 
 func _stop_all_animations():
-	
 	for i in len(groupOfButtonAnimations):
 		groupOfButtonAnimations[i].pause()
 
 func _player_turn_end():
-	
 	if(gameRunning==true):
-		
-		update_score(1)
+		GameManager.update_score(1)
 	playerTurn = false
 	arrayOfPlayerResponse = []
 	playerPopulate = -1
 
 func _get_next_value():
-	
 	buttonToAdd = floor(rng.randf_range(0, 4))
 	return buttonToAdd
 	
 func _add_next_value():
-	
 	arrayOfButtonsToFollow.append(_get_next_value())
-
 	pass # Replace with function body.
-
-func update_score(numbah):
 	
-	GameManager.set_new_score(numbah)
-
 func _on_play_button_pressed():
 	if(gameInitialized == false and gameRunning == false):
 		gameInitialized = true
 		gameRunning = true
 		_computer_turn_start()
-	print('wow')
+
 	pass # Replace with function body.
 	
 func _on_playback_timer_timeout():
-
 	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]]._pressed()
 	computerPopulate+=1
 	if(computerPopulate == len(arrayOfButtonsToFollow)):
 		playerTurn = true
 
 		computerPopulate = 0
-		_change_game_disabled(false)
+		_set_game_disabled(false)
 		$PlaybackTimer.stop()
 		
 	pass # Replace with function body.
 
 func _stop_game_button_sounds():
-	
 	for button in groupOfButtons:
 		button.sound.stop()
 
 func _stop_game_button_animations_and_timer():
-	
 	for button in groupOfButtons:
 		button.faceAnimation.stop()
 	for button in groupOfButtons:
@@ -223,28 +168,24 @@ func _stop_game_button_animations_and_timer():
 		button.animation.play('dark')
 	for button in groupOfButtons:
 		button.animationTimer.stop()
-
-func on_reset_button_reset_button_pressed():
+	$PlaybackTimer.stop()
 	
-	_stop_game_button_sounds()
-	_stop_game_button_animations_and_timer()
-	$PlaybackTimer.stop()	
-	_change_game_disabled(true)
-	gameScore = 0
-	gameInitialized = false
-	gameRunning = false
-	computerPopulate = 0
-	arrayOfButtonsToFollow = []
-	update_score(gameScore)
-	_player_turn_end()
+func _on_reset_button_reset_button_pressed():
 
-	
-	pass # Replace with function body.
+	pass
+#	_stop_game_button_sounds()
+#	_stop_game_button_animations_and_timer()
+#
+#	_set_game_disabled(true)
+#	GameManager.reset_score()
+#	gameInitialized = false
+#	gameRunning = false
+#	computerPopulate = 0
+#	arrayOfButtonsToFollow = []
+#	GameManager.reset_score()
+#	_player_turn_end()
 
 func _on_game_button_pressed(which):
-	
 	if(playerTurn):
 		arrayOfPlayerResponse.append(which.buttonNumber)
 		playerPopulate += 1
-		
-	pass

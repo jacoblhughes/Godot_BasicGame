@@ -7,6 +7,9 @@
 
 [node name="Snake" type="Node2D"]
 
+[node name="snake" type="Node2D" parent="."]
+script = ExtResource("2_s75xr")
+
 [node name="body" type="Node2D" parent="."]
 
 [node name="grid" type="Node2D" parent="."]
@@ -14,9 +17,6 @@ script = ExtResource("1_txks8")
 
 [node name="Snake_Move_Timer" type="Timer" parent="."]
 wait_time = 0.75
-
-[node name="snake" type="Node2D" parent="."]
-script = ExtResource("2_s75xr")
 
 [node name="spawner_food" type="Node2D" parent="."]
 script = ExtResource("3_geab8")

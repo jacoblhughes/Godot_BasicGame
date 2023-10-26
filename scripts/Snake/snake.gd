@@ -147,6 +147,7 @@ func grow() -> void:
 	get_parent().get_node("body").add_child.call_deferred(new_head)
 	new_head.scale.x = SnakeVariables.snakecellsize.x/png_size
 	new_head.scale.y = SnakeVariables.snakecellsize.y/png_size
+	
 func _on_hit(mini:Minisnake) -> void:
 
 	

@@ -8,8 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://csg3bmyrqi0d7" path="res://sounds/Main/House In a Forest Loop.ogg" id="6_i11y2"]
 [ext_resource type="StyleBox" uid="uid://bi1h1qrx1ms0j" path="res://themes/Main/panel.tres" id="7_2w0u3"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_d2i8v"]
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="Theme" id="Theme_342le"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0fsyn"]
 font_size = 22
@@ -27,10 +26,10 @@ mouse_filter = 2
 
 [node name="Initials_Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 152.0
-offset_bottom = 88.0
+offset_left = 432.0
+offset_top = 64.0
+offset_right = 552.0
+offset_bottom = 120.0
 theme = ExtResource("2_calir")
 text = "Initials:"
 horizontal_alignment = 1
@@ -38,10 +37,10 @@ vertical_alignment = 1
 
 [node name="Initials" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 24.0
-offset_right = 304.0
-offset_bottom = 88.0
+offset_left = 576.0
+offset_top = 64.0
+offset_right = 696.0
+offset_bottom = 120.0
 theme = ExtResource("2_calir")
 text = "JLH"
 horizontal_alignment = 1
@@ -49,19 +48,19 @@ vertical_alignment = 1
 
 [node name="Home_Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 328.0
-offset_top = 1192.0
+offset_left = 432.0
+offset_top = 1160.0
 offset_right = 696.0
-offset_bottom = 1256.0
+offset_bottom = 1216.0
 theme = ExtResource("3_e6l0l")
 text = "Home"
 
 [node name="Score_Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 1032.0
-offset_right = 296.0
-offset_bottom = 1088.0
+offset_left = 24.0
+offset_top = 64.0
+offset_right = 144.0
+offset_bottom = 120.0
 theme = ExtResource("2_calir")
 text = "Game Score:
 "
@@ -70,10 +69,10 @@ vertical_alignment = 1
 
 [node name="Score" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 1032.0
-offset_right = 440.0
-offset_bottom = 1088.0
+offset_left = 168.0
+offset_top = 64.0
+offset_right = 288.0
+offset_bottom = 120.0
 theme = ExtResource("2_calir")
 text = "0"
 horizontal_alignment = 1
@@ -88,58 +87,6 @@ stream = ExtResource("5_koihj")
 [node name="BackGroundMusic" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("6_i11y2")
 
-[node name="Reset_Button" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 1112.0
-offset_right = 152.0
-offset_bottom = 1168.0
-theme = ExtResource("3_e6l0l")
-text = "Reset"
-
-[node name="Highscore_Button" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 464.0
-offset_top = 1032.0
-offset_right = 696.0
-offset_bottom = 1168.0
-theme = ExtResource("3_e6l0l")
-text = "Highschore?"
-
-[node name="HighScorePopup" type="Window" parent="Control"]
-title = "Highscores"
-position = Vector2i(40, 272)
-size = Vector2i(640, 512)
-visible = false
-borderless = true
-always_on_top = true
-
-[node name="HighScoreTitle" type="Label" parent="Control/HighScorePopup"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 636.0
-offset_bottom = 508.0
-text = "High Scores:"
-label_settings = SubResource("LabelSettings_d2i8v")
-autowrap_mode = 1
-
-[node name="ColorRect" type="ColorRect" parent="Control/HighScorePopup"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 636.0
-offset_bottom = 508.0
-color = Color(0.4, 0.6, 0.607843, 1)
-
-[node name="ItemList" type="ItemList" parent="Control/HighScorePopup"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 636.0
-offset_bottom = 508.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-select_mode = 1
-max_text_lines = 20
-same_column_width = true
-
 [node name="GameStartPanel" type="CanvasLayer" parent="Control"]
 layer = 3
 visible = false
@@ -147,6 +94,7 @@ visible = false
 [node name="Panel" type="Panel" parent="Control/GameStartPanel"]
 offset_right = 720.0
 offset_bottom = 1280.0
+theme = SubResource("Theme_342le")
 theme_override_styles/panel = ExtResource("7_2w0u3")
 
 [node name="Play_Button" type="Button" parent="Control/GameStartPanel/Panel"]
@@ -188,3 +136,40 @@ text = "Directions"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="GameOverPanel" type="CanvasLayer" parent="Control"]
+layer = 3
+visible = false
+
+[node name="GameOverPanel" type="Panel" parent="Control/GameOverPanel"]
+offset_right = 720.0
+offset_bottom = 1280.0
+theme_override_styles/panel = ExtResource("7_2w0u3")
+
+[node name="ResetButton" type="Button" parent="Control/GameOverPanel/GameOverPanel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 656.0
+offset_right = 656.0
+offset_bottom = 808.0
+theme = ExtResource("3_e6l0l")
+text = "Reset"
+
+[node name="GameOverLabel" type="Label" parent="Control/GameOverPanel/GameOverPanel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 656.0
+offset_bottom = 256.0
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HomeButtonOnGameover" type="Button" parent="Control/GameOverPanel/GameOverPanel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 832.0
+offset_right = 656.0
+offset_bottom = 984.0
+theme = ExtResource("3_e6l0l")
+text = "Home"

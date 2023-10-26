@@ -34,7 +34,7 @@ func _process(delta):
 	if my_food_instance.get_rect().intersects(snake.head.get_rect()):
 		
 		GameManager.set_new_score(1)
-		if(int(GameManager.get_current_score()) == (SnakeVariables.snakecells * SnakeVariables.snakecells)):
+		if(GameManager.get_score() == (SnakeVariables.snakecells * SnakeVariables.snakecells)):
 			print("WIN")
 			PlayerWin.emit()
 			
