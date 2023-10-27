@@ -4,7 +4,8 @@ extends Node2D
 
 
 #var head := Minisnake.new()
-var head
+@onready var head
+@onready var head_scene = preload("res://scenes/Snake/player.tscn")
 var minisnakes := [] as Array[Minisnake]
 
 var next_direction = Vector2.ZERO
@@ -24,7 +25,7 @@ func _ready():
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
 	SPAWNSIGNALS.PlayerWin.connect(_on_player_win)
-	head  = preload("res://scenes/Snake/player.tscn").instantiate()
+	head  = head_scene.instantiate()
 	get_parent().add_child.call_deferred(head)
 	head.size = SnakeVariables.snakecellsize
 #	head.color = SnakeVariables.DARKBLUE
@@ -35,12 +36,13 @@ func _ready():
 	minisnakes.push_front(head)
 
 	hit.connect(_on_hit)
-	print(head.get_children())
+
 #	tween_move = create_tween().set_loops()
 #	tween_move.tween_callback(move).set_delay(2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+
 	if head:
 		head.position = head.curr_position + SnakeVariables.get_snake_cell_size()/2
 
@@ -88,25 +90,6 @@ func _input(event):
 				next_direction = Vector2.DOWN
 				head.my_sprite.flip_v = true
 
-#	if Input.is_action_pressed("move_right"):
-#		head.my_sprite.rotation = 0
-#		next_direction = Vector2.RIGHT
-#		head.my_sprite.rotation = 90
-#		head.my_sprite.flip_v = false
-#	if Input.is_action_pressed("move_left"):
-#		head.my_sprite.rotation = 0
-#		next_direction = Vector2.LEFT
-#		head.my_sprite.rotation = -90
-#		head.my_sprite.flip_v = false
-#	if Input.is_action_pressed("move_down"):
-#		head.my_sprite.rotation = 0
-#		next_direction = Vector2.DOWN
-#		head.my_sprite.flip_v = true
-#	if Input.is_action_pressed("move_up"):
-#		head.my_sprite.rotation = 0
-#		next_direction = Vector2.UP
-#		head.my_sprite.rotation = 0
-#		head.my_sprite.flip_v = false
 func move() -> void:
 
 	curr_direction = next_direction

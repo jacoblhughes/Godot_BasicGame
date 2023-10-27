@@ -8,6 +8,7 @@ func _ready():
 	if has_node("Sprite"):
 		my_sprite = $Sprite
 		SnakePartReady.emit()
+		print("hererere")
 	# Do something with my_sprite here
 	pass # Replace with function body.
 
