@@ -11,6 +11,9 @@ extends CanvasLayer
 
 @onready var GameStartPanel : CanvasLayer
 
+signal hud_ready
+
 # Called when the node enters the scene tree for the first time.
-func _ready():	
+func _ready():
+	hud_ready.emit()
 	pass

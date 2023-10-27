@@ -37,7 +37,7 @@ signal highscoreButtonpressed
 signal initialsUpdated
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(new_initials)
+
 
 	HighscorePopup = get_tree().get_root().get_node("Main").get_node("Buttons").get_node("HighScorePopup")
 	HighscorePopupList = get_tree().get_root().get_node("Main").get_node("Buttons").get_node("HighScorePopup").get_node("ItemList")
@@ -70,8 +70,6 @@ func _ready():
 	HomeButton.pressed.connect(_on_home_button_pressed)
 	reset_button_from_gameover.pressed.connect(_on_reset_button_pressed)
 	home_button_from_gameover.pressed.connect(_on_home_button_pressed)
-	
-	set_initials(new_initials)
 	
 func set_new_score(new_score):
 			score = new_score
@@ -149,6 +147,9 @@ func _on_highscore_pressed():
 	highscoreButtonpressed.emit()
 	HighscorePopup.visible = !HighscorePopup.visible
 	pass # Replace with function body.
+
+func load_initials():
+	InitialsInput.text = new_initials
 
 func set_initials(initials):
 	new_initials = initials

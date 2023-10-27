@@ -58,11 +58,10 @@ Background music
 
 Panels are overrides right now, how do I set a theme
 
-What to do about reassiging groups
+What to do about reassiging groups on quue free
 
 Make directions for each game
 
-
-
+Timing loading for each element - noticably android and labels and such
 
 

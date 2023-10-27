@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dpoog2l453my6" path="res://art/Saucer/purple.png" id="1_dthc4"]
 [ext_resource type="Script" path="res://scripts/Saucer/saucer.gd" id="1_kgi7c"]
-[ext_resource type="Script" path="res://scripts/Saucer/Player.gd" id="2_cccpi"]
 [ext_resource type="Texture2D" uid="uid://dce0ranae3u3u" path="res://art/Saucer/saucer.png" id="2_qlfj8"]
+[ext_resource type="Script" path="res://scripts/Saucer/player.gd" id="3_slia5"]
 [ext_resource type="Texture2D" uid="uid://ckcs1ydpbl1rx" path="res://art/Saucer/darkPurple.png" id="4_wautr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fe6q2"]
@@ -30,7 +30,7 @@ script = ExtResource("1_kgi7c")
 z_index = 2
 position = Vector2(148.297, 244.54)
 gravity_scale = 0.0
-script = ExtResource("2_cccpi")
+script = ExtResource("3_slia5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 scale = Vector2(0.5, 0.5)

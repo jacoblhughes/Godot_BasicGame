@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://dx4hwtnr40m1r"]
 
 [ext_resource type="Texture2D" uid="uid://brcwr8l3xwf74" path="res://art/Attack/backgroud.png" id="1_kbw5f"]
-[ext_resource type="Script" path="res://scripts/Attack/attack.gd" id="1_nqnkn"]
+[ext_resource type="Script" path="res://scripts/Attack/attack_new.gd" id="1_yw0yd"]
 [ext_resource type="Texture2D" uid="uid://c8ogjg8lneof4" path="res://art/Attack/player_ship.png" id="2_lfvhg"]
-[ext_resource type="Script" path="res://scripts/Attack/player.gd" id="3_1h1to"]
+[ext_resource type="Script" path="res://scripts/Attack/player2.gd" id="3_60l8u"]
 [ext_resource type="AudioStream" uid="uid://cj4pmpm87vc1e" path="res://sounds/Attack/laser.wav" id="5_dmn5x"]
 [ext_resource type="AudioStream" uid="uid://vb1ppmhh8en1" path="res://sounds/Attack/hit.wav" id="6_lysea"]
 [ext_resource type="Script" path="res://scripts/Attack/enemy_spawner.gd" id="6_rbrt6"]
@@ -49,7 +49,7 @@ size = Vector2(96, 672)
 [node name="Attack" type="Node2D"]
 
 [node name="attack" type="Node2D" parent="."]
-script = ExtResource("1_nqnkn")
+script = ExtResource("1_yw0yd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -65,7 +65,7 @@ stretch_mode = 1
 
 [node name="Player" type="CharacterBody2D" parent="."]
 collision_mask = 2
-script = ExtResource("3_1h1to")
+script = ExtResource("3_60l8u")
 
 [node name="FlameParticles" type="GPUParticles2D" parent="Player"]
 position = Vector2(-32, 0)

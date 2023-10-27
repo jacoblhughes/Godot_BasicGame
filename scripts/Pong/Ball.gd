@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var reset_round = false
 
-@onready var PONGSIGNALS = get_tree().get_root().get_node("Main").get_node("GameScene").get_node("Perry").get_node("pong")
+@onready var PONGSIGNALS = get_tree().get_root().get_node("Main").get_node("GameScene").get_node("Pong").get_node("pong")
 # Called when the node enters the scene tree for the first time.
 var position_reset = false
 var stored_position = Vector2(0,0)

@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://c1ov306httsie"]
 
 [ext_resource type="Script" path="res://scripts/Snake/grid.gd" id="1_txks8"]
-[ext_resource type="Script" path="res://scripts/Snake/snake.gd" id="2_s75xr"]
+[ext_resource type="Script" path="res://scripts/Snake/snake_new2.gd" id="1_wo8dq"]
 [ext_resource type="Script" path="res://scripts/Snake/spawn_food.gd" id="3_geab8"]
 [ext_resource type="Script" path="res://scripts/Snake/hit_spotter.gd" id="4_aknui"]
 
 [node name="Snake" type="Node2D"]
 
 [node name="snake" type="Node2D" parent="."]
-script = ExtResource("2_s75xr")
+script = ExtResource("1_wo8dq")
 
 [node name="body" type="Node2D" parent="."]
 

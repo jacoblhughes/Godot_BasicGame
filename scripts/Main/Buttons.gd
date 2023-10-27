@@ -28,7 +28,8 @@ var attack_scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	print(err)
+	print(new_initials)
 	InitialsInput = $Initials
 	InitialsInput.text = new_initials
 	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c1n3bt7ntc5gf"]
 
-[ext_resource type="Script" path="res://scripts/Pong/pong.gd" id="1_4el8e"]
+[ext_resource type="Script" path="res://scripts/Pong/pong_new.gd" id="1_4nkx4"]
 [ext_resource type="Script" path="res://scripts/Pong/ball.gd" id="2_ouerh"]
 [ext_resource type="Texture2D" uid="uid://dpetxgmxxyxnp" path="res://art/Main/Roddy.png" id="3_w6inn"]
 [ext_resource type="Script" path="res://scripts/Pong/player.gd" id="4_vctgl"]
@@ -34,12 +34,12 @@ size = Vector2(24, 992)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1g147"]
 size = Vector2(24, 992)
 
-[node name="Perry" type="Node2D"]
+[node name="Pong" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [544.0]
 metadata/_edit_vertical_guides_ = [592.0]
 
 [node name="pong" type="Node2D" parent="."]
-script = ExtResource("1_4el8e")
+script = ExtResource("1_4nkx4")
 
 [node name="Ball" type="CharacterBody2D" parent="."]
 position = Vector2(384, 480)
