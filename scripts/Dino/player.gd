@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -600.0
 var animation_player: AnimatedSprite2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -29,17 +29,17 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("left_mouse_click") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	if direction and direction == -1 :
-		velocity.x = direction * SPEED
-#		animation_player.play("walking")  # Start the "jumping" animation
-		animation_player.flip_h=true
-	elif direction and direction == 1 :
-		velocity.x = direction * SPEED
-#		animation_player.play("walking")  # Start the "jumping" animation
-		animation_player.flip_h=false
-
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+#	if direction and direction == -1 :
+#		velocity.x = direction * SPEED
+##		animation_player.play("walking")  # Start the "jumping" animation
+#		animation_player.flip_h=true
+#	elif direction and direction == 1 :
+#		velocity.x = direction * SPEED
+##		animation_player.play("walking")  # Start the "jumping" animation
+#		animation_player.flip_h=false
+#
+#	else:
+#		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 	for i in range(get_slide_collision_count()):

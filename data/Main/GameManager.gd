@@ -132,6 +132,7 @@ func set_directions(directions):
 	Directions.text = directions
 
 func _on_home_button_pressed():
+	GameManager.set_game_enabled(false)
 	set_gameover_panel(false)
 	child_node_to_delete = game_scene.get_children()
 	if child_node_to_delete:
@@ -237,5 +238,5 @@ func get_current_game_scene():
 func get_game_enabled():
 	return game_enabled
 
-func set_game_enabled():
-	game_enabled = !game_enabled
+func set_game_enabled(status):
+	game_enabled = status

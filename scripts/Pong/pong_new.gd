@@ -31,13 +31,13 @@ func _game_initialize():
 
 func _on_play_button_pressed():
 
-	GameManager.set_game_enabled()
+	GameManager.set_game_enabled(true)
 
 
 func on_reset_button_reset_button_pressed():
 	game_reset = true
 
-	GameManager.set_game_enabled()
+	GameManager.set_game_enabled(false)
 	GameManager.reset_score()
 	
 	pass # Replace with function body.

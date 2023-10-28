@@ -102,8 +102,8 @@ func _on_pong_pressed():
 func _on_dino_pressed():
 	self.visible = false
 	GameManager.set_gamestartpanel(true)
-	GameManager.set_title('Simon Says')
-	GameManager.set_directions("Press the buttons in the same order that the computer provides!")
+	GameManager.set_title('Dino')
+	GameManager.set_directions("Perry is an evil wizard casting spells against the friendly llama! Help the llama avoid the pain by jumping over the enemies!")
 	dino_scene = dino.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(dino_scene)
 	pass # Replace with function body.
