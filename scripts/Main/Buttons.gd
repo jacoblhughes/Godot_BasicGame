@@ -1,9 +1,5 @@
 extends Control
 var config = ConfigFile.new()
-var section_name = "main"
-var section_key = "initials"
-@onready var err = config.load("res://data/ConfigFile.cfg")
-@onready var new_initials = config.get_value(section_name, section_key)
 
 var InitialsInput : LineEdit
 
@@ -25,13 +21,13 @@ var saucer_scene
 var attack_scene
 @onready var HighscorePopup : Window
 @onready var HighscorePopupList : ItemList
+@onready var config_file_path = GameManager.get_config_path_file()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(err)
-	print(new_initials)
+
 	InitialsInput = $Initials
-	InitialsInput.text = new_initials
+	InitialsInput.text = GameManager.get_initials()
 	
 	HighscorePopup = $HighScorePopup
 	HighscorePopupList = $HighScorePopup/ItemList
@@ -39,21 +35,22 @@ func _ready():
 
 #	GameStartPanel = $Control/GameStartPanel
 
-	
+	GameManager.initiate_highscores_section('simon_says')
+	GameManager.initiate_highscores_section('snake')
 	# Get data for SimonSays
-	var simon_names = config.get_value("simon_says", "names", [])
-	var simon_scores = config.get_value("simon_says", "scores", [])
+	var simon_says_names = GameManager.get_highscore_names('simon_says')
+	var simon_says_scores = GameManager.get_highscore_scores('simon_says')
 
 	# Get data for Snake
-	var snake_names = config.get_value("snake", "names", [])
-	var snake_scores = config.get_value("snake", "scores", [])
-	
+	var snake_names = GameManager.get_highscore_names('snake')
+	var snake_scores = GameManager.get_highscore_scores('snake')
+	print(simon_says_names)
 	
 
 # Add a header for clarity
 	HighscorePopupList.add_item("--- SimonSays Scores ---")
-	for i in range(simon_names.size()):
-		HighscorePopupList.add_item(simon_names[i] + ": " + str(simon_scores[i]))
+	for i in range(simon_says_names.size()):
+		HighscorePopupList.add_item(simon_says_names[i] + ": " + str(simon_says_scores[i]))
 
 	# Another header for Snake scores
 	HighscorePopupList.add_item("--- Snake Scores ---")
@@ -69,8 +66,7 @@ func _process(_delta):
 
 
 func _on_initials_text_changed(new_text):
-	config.set_value(section_name, section_key, new_text)
-	config.save("res://data/ConfigFile.cfg")
+
 	GameManager.set_initials(new_text)
 	pass # Replace with function body.
 

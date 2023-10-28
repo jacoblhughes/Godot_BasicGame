@@ -17,7 +17,6 @@ script = ExtResource("1_jwx6u")
 layer = -3
 
 [node name="Background" type="ColorRect" parent="BackgroundCanvas"]
-visible = false
 offset_right = 720.0
 offset_bottom = 1280.0
 color = Color(0.152941, 0.152941, 0.152941, 1)
@@ -26,7 +25,6 @@ color = Color(0.152941, 0.152941, 0.152941, 1)
 layer = -2
 
 [node name="PlayArea" type="ColorRect" parent="PlayAreaCanvas"]
-visible = false
 offset_left = 24.0
 offset_top = 144.0
 offset_right = 696.0

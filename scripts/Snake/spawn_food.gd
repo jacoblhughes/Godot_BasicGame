@@ -13,7 +13,7 @@ var png_size = 150
 signal PlayerWin
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GameManager.set_new_score(0)
+	GameManager.reset_score()
 	my_food_instance = preload("res://scenes/Snake/food.tscn").instantiate()
 	spawn_food()
 
