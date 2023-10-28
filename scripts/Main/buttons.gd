@@ -44,7 +44,7 @@ func _ready():
 	# Get data for Snake
 	var snake_names = GameManager.get_highscore_names('snake')
 	var snake_scores = GameManager.get_highscore_scores('snake')
-	print(simon_says_names)
+
 	
 
 # Add a header for clarity

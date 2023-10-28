@@ -17,6 +17,7 @@ Pong
 	Right now there is no gameover, only progression when you hit 11
 	Improve collision mechanics
 	Make the enemy paddle reset too
+	Make the enemy paddle worse and get better as the levels progress
 	Make finding positions of things like the initial bass position happen in code to adjust for heights
 
 Dino
@@ -56,7 +57,7 @@ Alien Attack
 Background music
 
 
-Panels are overrides right now, how do I set a theme
+Popup panels like gameover and start are overrides right now, how do I set a theme
 
 What to do about reassiging groups on quue free
 

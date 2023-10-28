@@ -50,7 +50,7 @@ var signalEmitted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print('her')
+
 	_initialize_buttons()
 	_game_initialize()
 

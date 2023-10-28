@@ -21,10 +21,6 @@ func _process(delta):
 
 func _on_spawn_timer_timeout():
 	var chosen = randi() % scenes.size()
-	print(chosen)
-	# Load and switch to the chosen scene
-	print(scenes[chosen])
 	var chosen_scene = scenes[chosen] 
-	print(chosen_scene)
 	get_parent().add_child(chosen_scene.instantiate())
 	pass # Replace with function body.
