@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwicawex72pjw"]
+
+[ext_resource type="Texture2D" uid="uid://w4xhvyad4hd2" path="res://art/Attack/enemy_ship.png" id="1_c0pbr"]
+[ext_resource type="Script" path="res://scripts/Attack/enemy.gd" id="1_krp5k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g0732"]
+radius = 32.0
+height = 96.0
+
+[node name="Enemy" type="Area2D"]
+collision_layer = 2
+collision_mask = 25
+script = ExtResource("1_krp5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_c0pbr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_g0732")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

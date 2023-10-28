@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpcavmwe55upr"]
+
+[ext_resource type="Script" path="res://scripts/Flappy/enemy_wall.gd" id="1_5x4xj"]
+[ext_resource type="Texture2D" uid="uid://dqjn21los1i7a" path="res://art/Flappy/SpikeFlappy.png" id="2_bxksx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_154in"]
+size = Vector2(40, 280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7s7qi"]
+size = Vector2(40, 200)
+
+[node name="EnemyWall3" type="CharacterBody2D"]
+position = Vector2(656, 144)
+script = ExtResource("1_5x4xj")
+
+[node name="BottomWall" type="Sprite2D" parent="."]
+position = Vector2(20, 572)
+scale = Vector2(0.133333, 0.666667)
+texture = ExtResource("2_bxksx")
+
+[node name="TopWall" type="Sprite2D" parent="."]
+position = Vector2(20, 140)
+rotation = 3.14159
+scale = Vector2(0.133333, 0.933333)
+texture = ExtResource("2_bxksx")
+
+[node name="TopCollision" type="CollisionShape2D" parent="."]
+position = Vector2(20, 140)
+shape = SubResource("RectangleShape2D_154in")
+
+[node name="BottomCollision" type="CollisionShape2D" parent="."]
+position = Vector2(20, 572)
+shape = SubResource("RectangleShape2D_7s7qi")

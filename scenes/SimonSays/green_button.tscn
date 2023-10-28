@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://c1ayr833axh17"]
+
+[ext_resource type="Theme" uid="uid://c3vsilsjx2s6p" path="res://themes/SimonSays/button_first.tres" id="1_56kd5"]
+[ext_resource type="Script" path="res://scripts/SimonsSays/game_button.gd" id="2_fg0y0"]
+[ext_resource type="AudioStream" uid="uid://dnmvsy3dhnw3j" path="res://sounds/SimonSays/d_sharp.wav" id="3_v6844"]
+[ext_resource type="Texture2D" uid="uid://coi7emcq47mv7" path="res://art/SimonSays/GreenDark.png" id="4_0fbb5"]
+[ext_resource type="Texture2D" uid="uid://bjpv62byonue1" path="res://art/SimonSays/GreenLight.png" id="5_4872x"]
+[ext_resource type="Texture2D" uid="uid://d27t0vjdu81c5" path="res://art/Main/Roddy Open Mouth Tilted Left.png" id="6_6j7cb"]
+[ext_resource type="Texture2D" uid="uid://bilyrox678nfu" path="res://art/Main/Roddy Open Mouth Tilted Right.png" id="7_bp8xh"]
+[ext_resource type="Texture2D" uid="uid://dpetxgmxxyxnp" path="res://art/Main/Roddy.png" id="8_ota1b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0megc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0fbb5")
+}],
+"loop": false,
+"name": &"dark",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4872x")
+}],
+"loop": false,
+"name": &"light",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vprhw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6j7cb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bp8xh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ota1b")
+}],
+"loop": true,
+"name": &"resting",
+"speed": 5.0
+}]
+
+[node name="GreenButton" type="Button" groups=["simonSaysGameButtons"]]
+offset_right = 192.0
+offset_bottom = 192.0
+theme = ExtResource("1_56kd5")
+action_mode = 0
+keep_pressed_outside = true
+script = ExtResource("2_fg0y0")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_v6844")
+
+[node name="animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(96, 96)
+scale = Vector2(1.28, 1.28)
+sprite_frames = SubResource("SpriteFrames_0megc")
+animation = &"dark"
+
+[node name="faceAnimation" type="AnimatedSprite2D" parent="." groups=["SimonSaysGameButtonAnimations"]]
+position = Vector2(96, 96)
+scale = Vector2(1.28, 1.28)
+sprite_frames = SubResource("SpriteFrames_vprhw")
+animation = &"resting"
+
+[node name="animationTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="animationTimer" to="." method="_on_animation_timer_timeout"]

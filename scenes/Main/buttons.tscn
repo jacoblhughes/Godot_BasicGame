@@ -1,0 +1,190 @@
+[gd_scene load_steps=14 format=3 uid="uid://d4cpf87cb1bs0"]
+
+[ext_resource type="Script" path="res://scripts/Main/buttons.gd" id="1_li1cs"]
+[ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://scenes/SimonSays/simon_says.tscn" id="2_gs4av"]
+[ext_resource type="PackedScene" uid="uid://c1ov306httsie" path="res://scenes/Snake/snake.tscn" id="3_4qy33"]
+[ext_resource type="PackedScene" uid="uid://c1n3bt7ntc5gf" path="res://scenes/Pong/pong.tscn" id="4_yuk4h"]
+[ext_resource type="PackedScene" uid="uid://cgu5dun6rgtic" path="res://scenes/Dino/dino.tscn" id="5_hhg1c"]
+[ext_resource type="PackedScene" uid="uid://bjw6sh7j2lsq3" path="res://scenes/Creep/creep.tscn" id="6_yn8lt"]
+[ext_resource type="PackedScene" uid="uid://cj0i3bqn4ap1r" path="res://scenes/Flappy/flappy.tscn" id="7_nnd0q"]
+[ext_resource type="PackedScene" uid="uid://cf4xkqs74ytur" path="res://scenes/Saucer/saucer.tscn" id="8_6gkse"]
+[ext_resource type="PackedScene" uid="uid://dx4hwtnr40m1r" path="res://scenes/Attack/attack.tscn" id="9_3orma"]
+[ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/Main/button.tres" id="10_ajy0e"]
+[ext_resource type="Theme" uid="uid://cc5frax1el0v6" path="res://themes/Main/line_edit.tres" id="11_8ot7g"]
+[ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/Main/label.tres" id="12_8esa3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v6btp"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Buttons" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_li1cs")
+simon_says = ExtResource("2_gs4av")
+snake = ExtResource("3_4qy33")
+pong = ExtResource("4_yuk4h")
+dino = ExtResource("5_hhg1c")
+creep = ExtResource("6_yn8lt")
+flappy = ExtResource("7_nnd0q")
+saucer = ExtResource("8_6gkse")
+attack = ExtResource("9_3orma")
+
+[node name="SimonSays" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 256.0
+offset_right = 240.0
+offset_bottom = 384.0
+theme = ExtResource("10_ajy0e")
+text = "Simon Says Game"
+
+[node name="Snake" type="Button" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 256.0
+offset_right = 456.0
+offset_bottom = 384.0
+theme = ExtResource("10_ajy0e")
+text = "Snake"
+
+[node name="Perry" type="Button" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 256.0
+offset_right = 672.0
+offset_bottom = 384.0
+theme = ExtResource("10_ajy0e")
+text = "Pong
+"
+
+[node name="Dino" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 408.0
+offset_right = 240.0
+offset_bottom = 536.0
+theme = ExtResource("10_ajy0e")
+text = "Dino"
+
+[node name="Creep" type="Button" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 408.0
+offset_right = 456.0
+offset_bottom = 536.0
+theme = ExtResource("10_ajy0e")
+text = "Avoid the Creep"
+
+[node name="Flappy" type="Button" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 408.0
+offset_right = 672.0
+offset_bottom = 536.0
+theme = ExtResource("10_ajy0e")
+text = "Flappy"
+
+[node name="Saucer" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 560.0
+offset_right = 240.0
+offset_bottom = 688.0
+theme = ExtResource("10_ajy0e")
+text = "Saucer"
+
+[node name="Attack" type="Button" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 560.0
+offset_right = 456.0
+offset_bottom = 688.0
+theme = ExtResource("10_ajy0e")
+text = "Alien Attack"
+
+[node name="Rodican" type="Button" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 560.0
+offset_right = 672.0
+offset_bottom = 688.0
+theme = ExtResource("10_ajy0e")
+text = "Rodican"
+
+[node name="Initials" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 168.0
+offset_right = 456.0
+offset_bottom = 232.0
+theme = ExtResource("11_8ot7g")
+alignment = 1
+max_length = 3
+
+[node name="InitialsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 168.0
+offset_right = 240.0
+offset_bottom = 232.0
+theme = ExtResource("12_8esa3")
+text = "Input Initials:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highscore_Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 479.0
+offset_top = 168.0
+offset_right = 672.0
+offset_bottom = 232.0
+theme = ExtResource("10_ajy0e")
+text = "Highscore"
+
+[node name="HighScorePopup" type="Window" parent="."]
+title = "Highscores"
+position = Vector2i(40, 272)
+size = Vector2i(640, 512)
+visible = false
+borderless = true
+always_on_top = true
+
+[node name="HighScoreTitle" type="Label" parent="HighScorePopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 636.0
+offset_bottom = 508.0
+text = "High Scores:"
+label_settings = SubResource("LabelSettings_v6btp")
+autowrap_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="HighScorePopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 636.0
+offset_bottom = 508.0
+color = Color(0.4, 0.6, 0.607843, 1)
+
+[node name="ItemList" type="ItemList" parent="HighScorePopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 636.0
+offset_bottom = 508.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+select_mode = 1
+max_text_lines = 20
+same_column_width = true
+
+[connection signal="pressed" from="SimonSays" to="." method="_on_simon_says_pressed"]
+[connection signal="pressed" from="Snake" to="." method="_on_snake_pressed"]
+[connection signal="pressed" from="Perry" to="." method="_on_pong_pressed"]
+[connection signal="pressed" from="Dino" to="." method="_on_dino_pressed"]
+[connection signal="pressed" from="Creep" to="." method="_on_creep_pressed"]
+[connection signal="pressed" from="Flappy" to="." method="_on_flappy_pressed"]
+[connection signal="pressed" from="Saucer" to="." method="_on_saucer_pressed"]
+[connection signal="pressed" from="Attack" to="." method="_on_attack_pressed"]
+[connection signal="text_changed" from="Initials" to="." method="_on_initials_text_changed"]
