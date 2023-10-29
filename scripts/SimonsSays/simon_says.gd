@@ -91,8 +91,7 @@ func _initialize_buttons():
 	
 	for node in get_tree().get_nodes_in_group("simonSaysGameButtons"):
 		node.remove_from_group("simonSaysGameButtons")
-	print(GameManager.get_play_area_position_from_HUD())
-	print(GameManager.get_play_area_size_from_HUD())
+
 	for i in range(buttonScenes.size()):
 		var button = buttonScenes[i].instantiate()
 		button.position = Vector2(original_game_button_x + (i % 2) * game_button_dim_x, original_game_button_y + (i / 2) * game_button_dim_y)
@@ -102,7 +101,11 @@ func _initialize_buttons():
 		add_child(button)
 		buttonObject[button.name] = button
 		button.disabled = true
-		print(button.position)
+		var x_scale = game_button_dim_x/button.size.x
+		var y_scale = game_button_dim_y/button.size.y
+		button.scale.x = x_scale
+		button.scale.y = y_scale
+
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")
 	
 func _computer_turn_start():

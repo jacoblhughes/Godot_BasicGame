@@ -13,8 +13,8 @@ var config = ConfigFile.new()
 @onready var GameStartPanel : CanvasLayer
 @onready var Title : Label
 @onready var Directions : Label
-@onready var HighscorePopup : Window
-@onready var HighscorePopupList : ItemList
+@onready var high_score_popup : Window
+@onready var high_score_popup_list : ItemList
 @onready var PlayButton : Button
 @onready var ResetButton : Button
 @onready var HighscoreButton : Button
@@ -51,8 +51,8 @@ func _ready():
 	config_file_path = config.load("user://perry_arcade.cfg")
 	new_initials = config.get_value("main", "initials")
 
-	HighscorePopup = get_tree().get_root().get_node("Main").get_node("Buttons").get_node("HighScorePopup")
-	HighscorePopupList = get_tree().get_root().get_node("Main").get_node("Buttons").get_node("HighScorePopup").get_node("ItemList")
+	high_score_popup = get_tree().get_root().get_node("Main").get_node("Buttons").get_node("HighScorePopup")
+	high_score_popup_list = get_tree().get_root().get_node("Main").get_node("Buttons").get_node("HighScorePopup").get_node("ItemList")
 
 	InitialsInput = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("Initials")
 	ScoreLabel = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("Score")
@@ -82,7 +82,18 @@ func _ready():
 	HomeButton.pressed.connect(_on_home_button_pressed)
 	reset_button_from_gameover.pressed.connect(_on_reset_button_pressed)
 	home_button_from_gameover.pressed.connect(_on_home_button_pressed)
-
+#	["pong","dino","creep","flappy","saucer","attack",]
+	for game in ["simon_says","snake"]:
+		initiate_highscores_section(game)
+		
+	for game in ["simon_says","snake"]:
+		var game_first_line = "--- " + game +" Scores ---"
+		var names = get_highscore_names(game)
+		var scores = get_highscore_scores(game)
+		high_score_popup_list.add_item(game_first_line)
+		for i in range(names.size()):
+			high_score_popup_list.add_item(names[i] + ": " + str(scores[i]))
+			
 func get_config_path_file():
 	return config_file_path
 	
@@ -164,7 +175,7 @@ func set_game_again():
 
 func _on_highscore_pressed():
 	highscoreButtonpressed.emit()
-	HighscorePopup.visible = !HighscorePopup.visible
+	high_score_popup.visible = !high_score_popup.visible
 	pass # Replace with function body.
 
 func load_initials():
@@ -174,44 +185,45 @@ func set_initials(initials):
 	new_initials = initials
 	InitialsInput.text = new_initials
 	config.get_value("main", "initials",initials)
-	config.save("user://perry_arcade.cfg")
+	config.save(perry_arcade_path)
 	
-#func check_highscore_and_rank(section_name):
-#
-#	var high_scores_names = config.get_value(section_name, "names", [])
-#	var high_scores = config.get_value(section_name, "scores", [])
-##	var item_list = $HighScorePopup/ColorRect/ItemList
-#	if high_scores_names.size() != high_scores.size():
-#		print("Error: Names and scores arrays have different sizes.")
-#		return
-#
-#	var added = false 
-#
-#	for i in range(high_scores.size()):
-#		if score > high_scores[i]:
-#			print(i)
-#			print(high_scores[i])
-#			high_scores.insert(i, score)
-#			high_scores_names.insert(i, new_initials)
-#			added = true
-#			break
-#
-#	if not added and high_scores.size() < 10:
-#		high_scores.append(score)
-#		high_scores_names.append(new_initials)
-#
-#	while high_scores.size() > 10:
-#		high_scores.remove_at(high_scores.size() - 1)
-#		high_scores_names.remove_at(high_scores_names.size() - 1)
-#
-#	config.save("res://data/ConfigFile.cfg")
-#	print(high_scores)
-#	print(high_scores_names)
-#
-#	if(added):
-#		GameManager.play_applause()
-#	else:
-#		GameManager.play_game_over()
+func check_highscore_and_rank(section_name):
+
+	var high_scores_names = config.get_value(section_name, "names", [])
+	var high_scores = config.get_value(section_name, "scores", [])
+#	var item_list = $HighScorePopup/ColorRect/ItemList
+	if high_scores_names.size() != high_scores.size():
+		print("Error: Names and scores arrays have different sizes.")
+		return
+
+	var added = false 
+
+	for i in range(high_scores.size()):
+		if score > high_scores[i]:
+			print(i)
+			print(high_scores[i])
+			high_scores.insert(i, score)
+			high_scores_names.insert(i, new_initials)
+			added = true
+			break
+
+	if not added and high_scores.size() < 10:
+		high_scores.append(score)
+		high_scores_names.append(new_initials)
+
+	while high_scores.size() > 10:
+		high_scores.remove_at(high_scores.size() - 1)
+		high_scores_names.remove_at(high_scores_names.size() - 1)
+
+	config.save(perry_arcade_path)
+	print(high_scores)
+	print(high_scores_names)
+
+	if(added):
+		GameManager.play_applause()
+	else:
+		GameManager.play_game_over()
+
 func initiate_highscores_section(game):
 	if not config.has_section(game):
 		config.set_value(game,"scores",[0, 0, 0, 0, 0, 0, 0, 0, 0, 0])

@@ -22,6 +22,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_pjy3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_reb8w")
 }],
 "loop": false,
 "name": &"default",
@@ -33,14 +36,6 @@ animations = [{
 }],
 "loop": false,
 "name": &"jumping",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_reb8w")
-}],
-"loop": false,
-"name": &"walking",
 "speed": 5.0
 }]
 
@@ -120,7 +115,7 @@ position = Vector2(336, 20)
 shape = SubResource("RectangleShape2D_nchlr")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(112, 619)
+position = Vector2(152, 619)
 collision_layer = 8
 collision_mask = 14
 script = ExtResource("4_k47uy")
@@ -134,7 +129,6 @@ shape = SubResource("RectangleShape2D_t8xow")
 
 [node name="Enemy_Spawn_Timer" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [node name="Despawn" type="Area2D" parent="."]
 position = Vector2(32, 584)

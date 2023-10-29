@@ -28,34 +28,6 @@ func _ready():
 
 	InitialsInput = $Initials
 	InitialsInput.text = GameManager.get_initials()
-	
-	HighscorePopup = $HighScorePopup
-	HighscorePopupList = $HighScorePopup/ItemList
-	
-
-#	GameStartPanel = $Control/GameStartPanel
-
-	GameManager.initiate_highscores_section('simon_says')
-	GameManager.initiate_highscores_section('snake')
-	# Get data for SimonSays
-	var simon_says_names = GameManager.get_highscore_names('simon_says')
-	var simon_says_scores = GameManager.get_highscore_scores('simon_says')
-
-	# Get data for Snake
-	var snake_names = GameManager.get_highscore_names('snake')
-	var snake_scores = GameManager.get_highscore_scores('snake')
-
-	
-
-# Add a header for clarity
-	HighscorePopupList.add_item("--- SimonSays Scores ---")
-	for i in range(simon_says_names.size()):
-		HighscorePopupList.add_item(simon_says_names[i] + ": " + str(simon_says_scores[i]))
-
-	# Another header for Snake scores
-	HighscorePopupList.add_item("--- Snake Scores ---")
-	for i in range(snake_names.size()):
-		HighscorePopupList.add_item(snake_names[i] + ": " + str(snake_scores[i]))
 		
 	pass # Replace with function body.
 
