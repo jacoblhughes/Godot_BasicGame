@@ -5,6 +5,7 @@ extends Node2D
 var my_food_instance
 var tween_rotate: Tween
 var score = 0
+var score_value = 1
 var radius = 10  # Radius of the circular path
 var speed = 90   # Angular speed (degrees per second)
 var angle = 0     # Current angle in degrees
@@ -33,7 +34,7 @@ func _process(delta):
 	
 	if my_food_instance.get_rect().intersects(snake.head.get_rect()):
 		
-		GameManager.set_new_score(1)
+		GameManager.update_score(score_value)
 		if(GameManager.get_score() == (SnakeVariables.snakecells * SnakeVariables.snakecells)):
 			print("WIN")
 			PlayerWin.emit()

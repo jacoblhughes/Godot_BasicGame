@@ -16,7 +16,7 @@ motion_mode = 1
 script = ExtResource("1_yt86i")
 
 [node name="BottomWall" type="Sprite2D" parent="."]
-position = Vector2(20, 552)
+position = Vector2(16, 872)
 scale = Vector2(0.133333, 0.8)
 texture = ExtResource("2_76hy4")
 
@@ -31,5 +31,5 @@ position = Vector2(20, 120)
 shape = SubResource("RectangleShape2D_mjiyy")
 
 [node name="BottomCollision" type="CollisionShape2D" parent="."]
-position = Vector2(20, 552)
+position = Vector2(16, 872)
 shape = SubResource("RectangleShape2D_2tlwy")

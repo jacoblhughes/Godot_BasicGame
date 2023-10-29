@@ -14,7 +14,7 @@ position = Vector2(656, 144)
 script = ExtResource("1_5x4xj")
 
 [node name="BottomWall" type="Sprite2D" parent="."]
-position = Vector2(20, 572)
+position = Vector2(12, 892)
 scale = Vector2(0.133333, 0.666667)
 texture = ExtResource("2_bxksx")
 
@@ -29,5 +29,5 @@ position = Vector2(20, 140)
 shape = SubResource("RectangleShape2D_154in")
 
 [node name="BottomCollision" type="CollisionShape2D" parent="."]
-position = Vector2(20, 572)
+position = Vector2(11.9999, 892)
 shape = SubResource("RectangleShape2D_7s7qi")

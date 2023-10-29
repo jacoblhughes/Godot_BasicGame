@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var mob_scene: PackedScene
-var score
+var score_value = 1
 
 @onready var ScoreTimer : Timer
 @onready var MobTimer : Timer
@@ -18,41 +18,29 @@ func _ready():
 	StartPosition = get_parent().get_node("StartPosition")
 	Player = get_parent().get_node("Player")
 	Player.hit.connect(_on_player_hit)
-	new_game()
+	
+	_game_initialize()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
 	pass
-
-
+	
+func _game_initialize():
+	GameManager.reset_score()
+	GameManager.startButtonPressed.connect(_on_play_button_pressed)	
 
 func game_over():
 	ScoreTimer.stop()
 	MobTimer.stop()
 
-
-func new_game():
-#	get_tree().call_group("mobs", "queue_free")
-
-	score = 0
-	Player.start(StartPosition.position)
-	StartTimer.start()
-
-#	$HUD.update_score(score)
-#	$HUD.show_message("Get Ready")
-
-	
 func _on_score_timer_timeout():
-	GameManager.set_new_score(1)
+	GameManager.update_score(score_value)
 #	$HUD.update_score(score)
 
 func _on_start_timer_timeout():
 	MobTimer.start()
 	ScoreTimer.start()
 	StartTimer.stop()
-	
-
-
 
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
@@ -80,5 +68,14 @@ func _on_mob_timer_timeout():
 	get_parent().add_child(mob)
 
 func _on_player_hit():
-#	GameManager.set_new_status("Game Over")
+	GameManager.set_game_enabled(false)
+	GameManager.game_over_panel.visible = true
+	MobTimer.stop()
+	ScoreTimer.stop()
+	GameManager.check_highscore_and_rank("creep")
+	pass
+
+func _on_play_button_pressed():
+	GameManager.set_game_enabled(true)
+	StartTimer.start()
 	pass

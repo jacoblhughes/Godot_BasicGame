@@ -82,7 +82,9 @@ func _game_lose():
 	arrayOfButtonsToFollow = []
 	_stop_game_button_sounds()
 	_stop_game_button_animations_and_timer()
-	_player_turn_end()
+	playerTurn = false
+	arrayOfPlayerResponse = []
+	playerPopulate = -1
 
 func _initialize_buttons():
 	var buttonScenes = [

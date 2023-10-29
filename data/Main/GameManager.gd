@@ -82,11 +82,18 @@ func _ready():
 	HomeButton.pressed.connect(_on_home_button_pressed)
 	reset_button_from_gameover.pressed.connect(_on_reset_button_pressed)
 	home_button_from_gameover.pressed.connect(_on_home_button_pressed)
-#	["pong","dino","creep","flappy","saucer","attack",]
-	for game in ["simon_says","snake"]:
+	_start_highscore_list()
+	_replace_highscore_list()
+	_load_initials()
+	
+func _start_highscore_list():
+#	["pong","flappy","saucer","attack",]
+	for game in ["simon_says","dino","creep"]:
 		initiate_highscores_section(game)
-		
-	for game in ["simon_says","snake"]:
+
+func _replace_highscore_list():
+	high_score_popup_list.clear()
+	for game in ["simon_says","dino","creep"]:
 		var game_first_line = "--- " + game +" Scores ---"
 		var names = get_highscore_names(game)
 		var scores = get_highscore_scores(game)
@@ -121,8 +128,8 @@ func play_game_over():
 func play_applause():
 	ApplauseSound.play()
 	
-func get_initials_from_HUD() -> String:
-	return InitialsInput.text
+#func get_initials_from_HUD() -> String:
+#	return InitialsInput.text
 
 func get_play_area_size_from_HUD():
 	return PlayArea.size
@@ -143,6 +150,7 @@ func set_directions(directions):
 	Directions.text = directions
 
 func _on_home_button_pressed():
+	reset_score()
 	GameManager.set_game_enabled(false)
 	set_gameover_panel(false)
 	child_node_to_delete = game_scene.get_children()
@@ -178,13 +186,13 @@ func _on_highscore_pressed():
 	high_score_popup.visible = !high_score_popup.visible
 	pass # Replace with function body.
 
-func load_initials():
+func _load_initials():
 	InitialsInput.text = new_initials
 
 func set_initials(initials):
 	new_initials = initials
 	InitialsInput.text = new_initials
-	config.get_value("main", "initials",initials)
+	config.set_value("main", "initials",initials)
 	config.save(perry_arcade_path)
 	
 func check_highscore_and_rank(section_name):
@@ -216,14 +224,14 @@ func check_highscore_and_rank(section_name):
 		high_scores_names.remove_at(high_scores_names.size() - 1)
 
 	config.save(perry_arcade_path)
-	print(high_scores)
-	print(high_scores_names)
+
 
 	if(added):
 		GameManager.play_applause()
 	else:
 		GameManager.play_game_over()
-
+	_replace_highscore_list()
+	
 func initiate_highscores_section(game):
 	if not config.has_section(game):
 		config.set_value(game,"scores",[0, 0, 0, 0, 0, 0, 0, 0, 0, 0])

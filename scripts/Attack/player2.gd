@@ -10,6 +10,7 @@ signal took_damage
 var screen_size = GameManager.get_play_area_size_from_HUD()
 var screen_position = GameManager.get_play_area_position_from_HUD()
 
+
 @onready var rocket_scene = preload("res://scenes/Attack/rocket.tscn")
 
 var rocketspawn_node
@@ -25,8 +26,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("hit_space"):
 		shoot()
 
-func _physics_process(delta):
+
 	
+func _physics_process(delta):
+
 	velocity=Vector2(0,0)
 	# Add the gravity.
 	if Input.is_action_pressed("move_right"):

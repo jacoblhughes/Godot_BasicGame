@@ -176,12 +176,12 @@ func on_reset_button_reset_button_pressed():
 	_change_game_disabled(true)
 	
 	# Reset the score displayed in HUD
-	GameManager.set_new_score(0)
+	GameManager.reset_score()
 	isFirst = true
 	isFirstminiSnake = true
 func game_over():
 	SnakeTimer.stop()
-	GameManager.set_new_score(0)
+	GameManager.reset_score()
 	minisnakes = []
 	pass
 

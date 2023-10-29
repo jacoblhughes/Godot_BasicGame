@@ -14,43 +14,39 @@ Snake
 Pong
 	Keep high score?
 	Right now there is no gameover, only progression when you hit 11
-	Improve collision mechanics
+	Improve collision mechanics like when the ball gets fast
 	Make the enemy paddle reset too
 	Make the enemy paddle worse and get better as the levels progress
 	Make finding positions of things like the initial bass position happen in code to adjust for heights
-
+	Highscores
+	
 Dino
 	Make differente enemy scenes
-	Game over and such
+	--When game over, and reset, sometimes the llama moves?
 
 Creep
-	Make touch screen responsive
-	Make splashscreen to start
-	Reset screen
-	Game over and such
+	make the path programmatic
 
 Flappy
 	Needs different scenes
 	Way to count score
 	Reset
 	Game Over
-
+	Highscores
+	
 Saucer
 	Design a few levels
 	Make game mission
-
+	Highscores
+	
 Alien Attack
 	Improve
 	Rest
 	Game Over
-
-
-	
-
+	Highscores
 
 
 Background music
-
 
 Popup panels like gameover and start are theme overrides right now, how do I set a theme
 

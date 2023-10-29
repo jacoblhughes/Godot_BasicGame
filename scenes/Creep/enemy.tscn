@@ -50,6 +50,7 @@ radius = 64.0
 [node name="Mob" type="RigidBody2D"]
 collision_layer = 2
 gravity_scale = 0.0
+max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource("1_i8q87")
 

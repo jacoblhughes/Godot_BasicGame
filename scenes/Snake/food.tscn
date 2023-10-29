@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Snake/food.gd" id="1_5ty6m"]
 [ext_resource type="Texture2D" uid="uid://clt1eqrtj3vnv" path="res://art/Main/Cham.png" id="2_fv22w"]
 
-[node name="SnakeFood" type="Node2D"]
+[node name="Food" type="Node2D"]
 script = ExtResource("1_5ty6m")
 
 [node name="AppleSprite" type="Sprite2D" parent="."]

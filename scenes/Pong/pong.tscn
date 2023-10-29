@@ -122,10 +122,10 @@ position = Vector2(708, 640)
 shape = SubResource("RectangleShape2D_1g147")
 
 [node name="LevelLabel" type="Label" parent="."]
-offset_left = 256.0
+offset_left = 296.0
 offset_top = 144.0
-offset_right = 384.0
-offset_bottom = 167.0
+offset_right = 424.0
+offset_bottom = 170.0
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
