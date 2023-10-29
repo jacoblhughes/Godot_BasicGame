@@ -10,18 +10,19 @@ var jump_force = -400
 #var gravity = 1000
 var is_jumping = false
 var gameRun = false
+signal flappy_hit
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-		flappy.startgame.connect(_on_start_game)
+	pass
 
 func _input(event):
 		if event.is_action_pressed("left_mouse_click"):
 			velocity.y = jump_force
 
 func _physics_process(delta):
-	if(gameRun):
+	if(GameManager.get_game_enabled()):
 	# Apply gravity
 		velocity.y += gravity * delta
 
@@ -30,8 +31,16 @@ func _physics_process(delta):
 
 		# Move the character
 		move_and_slide()
-	
-func _on_start_game():
-	gameRun = true
+		for i in range(get_slide_collision_count()):
+			var collision = get_slide_collision(i)
+
+			if("Enemy" in collision.get_collider().name):
+				self.collision_mask = 0  # This will disable the player's ability to detect enemies (or anything else, for that matter).
+#				collision.get_collider().queue_free()
+				print('game_over')
+				flappy_hit.emit()
+
+	else:
+		velocity.y = 0
 
 

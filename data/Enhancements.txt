@@ -6,11 +6,12 @@ Simon
 
 Snake
 	start and stop
-	maybe - make the scenes in the body do someting
-		make the food do something
-		improve collision logic
-	broken starting face
-
+	--make the scenes in the body do someting
+	--make the food do something
+	improve collision logic
+	need to fix the head size logic
+	no win condition or level change condition
+	
 Pong
 	Keep high score?
 	Right now there is no gameover, only progression when you hit 11
@@ -28,10 +29,7 @@ Creep
 	make the path programmatic
 
 Flappy
-	Needs different scenes
-	Way to count score
-	Reset
-	Game Over
+	Needs different and improved scenes
 	Highscores
 	
 Saucer

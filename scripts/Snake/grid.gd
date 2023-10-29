@@ -6,6 +6,8 @@ var sizewidth
 var sizeheight
 var originalx
 var originaly
+@onready var player : Area2D
+signal grid_ready
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,7 +22,7 @@ func _ready():
 	height = SnakeVariables.GRID_SIZE.y
 	originalx = SnakeVariables.GRID_POSITION.x
 	originaly = SnakeVariables.GRID_POSITION.y
-
+	grid_ready.emit()
 	pass
 	
 func _draw():

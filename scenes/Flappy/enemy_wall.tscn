@@ -12,6 +12,7 @@ size = Vector2(40, 240)
 [node name="EnemyWall" type="CharacterBody2D"]
 position = Vector2(656, 144)
 collision_layer = 2
+collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_yt86i")
 
@@ -33,3 +34,5 @@ shape = SubResource("RectangleShape2D_mjiyy")
 [node name="BottomCollision" type="CollisionShape2D" parent="."]
 position = Vector2(16, 872)
 shape = SubResource("RectangleShape2D_2tlwy")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

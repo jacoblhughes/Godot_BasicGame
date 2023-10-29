@@ -10,7 +10,7 @@ var minisnakes := [] as Array[Minisnake]
 
 var next_direction = Vector2.ZERO
 var curr_direction = Vector2.ZERO
-var png_size = 150
+var png_size
 var game_disabled = true
 var snake_length = 0
 var play_area_min = GameManager.get_play_area_position_from_HUD()
@@ -18,30 +18,34 @@ signal hit(minisnake_hit: Minisnake)
 var SnakeTimer
 var isFirst = true
 var isFirstminiSnake = true
-
+@onready var grid : Node2D
 @onready var SPAWNSIGNALS = get_parent().get_node("spawner_food")
+
+var head_original_x
+var head_original_y
+
 func _ready():
+	grid = get_parent().get_node("grid")
+	grid.grid_ready.connect(_on_grid_ready)
+
 	SnakeTimer = get_parent().get_node("Snake_Move_Timer")
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
+
 	SPAWNSIGNALS.PlayerWin.connect(_on_player_win)
 	head  = head_scene.instantiate()
-	get_parent().add_child.call_deferred(head)
-	head.size = SnakeVariables.snakecellsize
-#	head.color = SnakeVariables.DARKBLUE
-	head.curr_position = play_area_min + Vector2(SnakeVariables.GRID_SIZE.x/2,SnakeVariables.GRID_SIZE.y/2)
-	
-	head.scale.x = SnakeVariables.snakecellsize.x/png_size
-	head.scale.y = SnakeVariables.snakecellsize.y/png_size
-	minisnakes.push_front(head)
 
-	hit.connect(_on_hit)
+	get_parent().add_child.call_deferred(head)
+
+
+	
 
 #	tween_move = create_tween().set_loops()
 #	tween_move.tween_callback(move).set_delay(2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+
 
 	if head:
 		head.position = head.curr_position + SnakeVariables.get_snake_cell_size()/2
@@ -54,6 +58,7 @@ func _process(_delta):
 	queue_redraw()
 	
 func _draw():
+	
 	pass
 #	for minisnake in minisnakes:
 #
@@ -128,21 +133,18 @@ func grow() -> void:
 	minisnakes.push_back(new_head)
 
 	get_parent().get_node("body").add_child.call_deferred(new_head)
-	new_head.scale.x = SnakeVariables.snakecellsize.x/png_size
-	new_head.scale.y = SnakeVariables.snakecellsize.y/png_size
+	new_head.scale.x = SnakeVariables.snakecellsize.x/150
+	new_head.scale.y = SnakeVariables.snakecellsize.y/150
 	
 func _on_hit(mini:Minisnake) -> void:
-
-	
 	await get_tree().process_frame
-	
 	for minisnake in minisnakes:
 		minisnake.go_to_previous_position()
 	game_over()
+	
 func _on_play_button_pressed():
 		SnakeTimer.start()
 		game_disabled = false
-
 
 func on_reset_button_reset_button_pressed():
 	SnakeTimer.stop()
@@ -190,3 +192,15 @@ func _change_game_disabled(status):
 
 func _on_player_win():
 	pass
+
+func _on_grid_ready():
+
+
+	head.size = SnakeVariables.snakecellsize
+	head.curr_position = play_area_min + Vector2(SnakeVariables.GRID_SIZE.x/2,SnakeVariables.GRID_SIZE.y/2)
+#	head.SnakePartReady.connect(_on_head_ready)
+	hit.connect(_on_hit)
+	head.scale.x = SnakeVariables.snakecellsize.x/150
+	head.scale.y = SnakeVariables.snakecellsize.y/150
+	minisnakes.push_front(head)
+

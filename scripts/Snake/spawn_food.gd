@@ -77,7 +77,5 @@ func _on_food_initialized():
 
 	pass
 func _on_tween_completed():
-	pass# Multiply by 2.0 to adjust the speed
-	
-	# Restart the circular motion
 	_on_food_initialized()
+	pass

@@ -89,6 +89,7 @@ func _on_creep_pressed():
 	GameManager.set_directions("AVOID RODDY!")
 	creep_scene = creep.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(creep_scene)
+	GameManager.set_current_game_scene(creep)
 	pass # Replace with function body.
 
 
@@ -99,6 +100,7 @@ func _on_flappy_pressed():
 	GameManager.set_directions("Roddy is trying to stop the bird from getting home. Help flappy!")
 	flappy_scene = flappy.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(flappy_scene)
+	GameManager.set_current_game_scene(flappy)
 	pass # Replace with function body.
 
 
