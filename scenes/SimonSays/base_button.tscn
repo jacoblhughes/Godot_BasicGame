@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1fbo7ny22w3x"]
+
+[ext_resource type="Texture2D" uid="uid://d27t0vjdu81c5" path="res://art/Main/Roddy Open Mouth Tilted Left.png" id="1_asena"]
+[ext_resource type="Texture2D" uid="uid://bilyrox678nfu" path="res://art/Main/Roddy Open Mouth Tilted Right.png" id="2_tgvkn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_di2yt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_asena")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tgvkn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="base_button" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer"]
+position = Vector2(46.5, 14.5)
+scale = Vector2(0.766667, 0.766667)
+sprite_frames = SubResource("SpriteFrames_di2yt")
+
+[node name="Button" type="Button" parent="CenterContainer"]
+layout_mode = 2

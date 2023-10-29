@@ -1,6 +1,6 @@
 extends Node2D
 
-var config = ConfigFile.new()
+
 var arrayOfPlayerResponse = []
 var arrayOfButtonsToFollow = []
 var objectOfButtonsForMapping = {}
@@ -10,7 +10,7 @@ var rng = RandomNumberGenerator.new()
 var groupOfButtons
 var groupOfButtonAnimations
 var disabledColor
-var gameScore = 0
+var score_value = 1
 
 
 var playerTurn = false
@@ -18,11 +18,11 @@ var computerPopulate = 0
 var playerPopulate = -1
 var button_pressed
 var buttonObject = {}
-var simonButtons = 4
-var gameButtonDim = 96*2
 
-var originalGameButtonX = 168
-var originalGameButtonY = 288
+var game_button_dim_x = GameManager.get_play_area_size_from_HUD().x/4
+var game_button_dim_y = GameManager.get_play_area_size_from_HUD().y/4
+var original_game_button_x = GameManager.get_play_area_position_from_HUD().x + game_button_dim_x
+var original_game_button_y = GameManager.get_play_area_position_from_HUD().y + game_button_dim_y
 
 var redButton
 var blueButton
@@ -42,8 +42,8 @@ var signalEmitted = false
 @onready var greenButtonScene = preload("res://scenes/SimonSays/green_button.tscn")
 @onready var yellowButtonScene = preload("res://scenes/SimonSays/yellow_button.tscn")
 
-@onready var err = config.load("res://data/ConfigFile.cfg")
-@onready var currentInitials = GameManager.get_initials_from_HUD()
+
+
 
 
 
@@ -91,17 +91,18 @@ func _initialize_buttons():
 	
 	for node in get_tree().get_nodes_in_group("simonSaysGameButtons"):
 		node.remove_from_group("simonSaysGameButtons")
-		
+	print(GameManager.get_play_area_position_from_HUD())
+	print(GameManager.get_play_area_size_from_HUD())
 	for i in range(buttonScenes.size()):
 		var button = buttonScenes[i].instantiate()
-		button.position = Vector2(originalGameButtonX + (i % 2) * gameButtonDim, originalGameButtonY + (i / 2) * gameButtonDim)
+		button.position = Vector2(original_game_button_x + (i % 2) * game_button_dim_x, original_game_button_y + (i / 2) * game_button_dim_y)
 		button.buttonNumber = i
 		button.game_button_pressed.connect(_on_game_button_pressed)
 		button.add_to_group("simonSaysGameButtons")
 		add_child(button)
 		buttonObject[button.name] = button
 		button.disabled = true
-		
+		print(button.position)
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")
 	
 func _computer_turn_start():
@@ -119,7 +120,7 @@ func _stop_all_animations():
 		groupOfButtonAnimations[i].pause()
 
 func _player_turn_end():
-	GameManager.update_score(1)
+	GameManager.update_score(score_value)
 	playerTurn = false
 	arrayOfPlayerResponse = []
 	playerPopulate = -1
