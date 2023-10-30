@@ -1,7 +1,7 @@
 Perry Arcade
 
 Simon
-	Make buttons better animations
+	A-Make buttons better animations
 	Make buttons a class so I can call the pressed method
 
 Snake
@@ -22,17 +22,17 @@ Pong
 	Highscores
 	
 Dino
-	Make differente enemy scenes
+	A-Make differente enemy scenes
 	--When game over, and reset, sometimes the llama moves?
 
 Creep
 	make the path programmatic
 
 Flappy
-	Needs different and improved scenes
-	Highscores
+	A-Needs different and improved scenes
 	
 Saucer
+	Touchscreen responsive
 	Design a few levels
 	Make game mission
 	Highscores
