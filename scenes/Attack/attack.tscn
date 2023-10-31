@@ -93,10 +93,8 @@ position = Vector2(158.513, 520.525)
 script = ExtResource("6_rbrt6")
 
 [node name="PathEnemyTimer" type="Timer" parent="EnemySpawner"]
-autostart = true
 
 [node name="EnemyTimer" type="Timer" parent="EnemySpawner"]
-autostart = true
 
 [node name="SpawnLocations" type="Node2D" parent="EnemySpawner"]
 

@@ -3,10 +3,18 @@ extends CharacterBody2D
 
 const SPEED = 200.0
 signal player_collision
-
+var book_texture = preload("res://art/Dino/bookcase.png")
+var carrot_texture = preload("res://art/Dino/carrot.png")
+var red_flower_texture = preload("res://art/Dino/Enemy Top Red.png")
+var blue_flower_textyre = preload("res://art/Dino/Enemy Top Blue.png")
+var yelllow_flower_texture = preload("res://art/Dino/Enemy Top Yellow.png")
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var all_textures = [book_texture, carrot_texture,red_flower_texture,blue_flower_textyre,yelllow_flower_texture] # ... add other textures
 
+func _ready():
+	var chosen_texture = all_textures[randi() % all_textures.size()]
+	$Sprite2D.texture = chosen_texture
 
 func _physics_process(delta):
 	# Add the gravity.

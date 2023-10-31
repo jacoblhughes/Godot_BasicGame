@@ -22,12 +22,14 @@ Pong
 	Highscores
 	
 Dino
-	A-Make differente enemy scenes
+	--A-Enhance enemy scenes
 	--When game over, and reset, sometimes the llama moves?
 
 Creep
 	make the path programmatic
-
+	A-draw roddies
+	A-draw hero
+	
 Flappy
 	A-Needs different and improved scenes
 	
