@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyl28swe7b43k"]
+[gd_scene load_steps=11 format=3 uid="uid://cyl28swe7b43k"]
 
 [ext_resource type="Script" path="res://scripts/Main/hud.gd" id="1_bor3t"]
 [ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/Main/label.tres" id="2_calir"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://sounds/Main/gameover.wav" id="5_koihj"]
 [ext_resource type="AudioStream" uid="uid://csg3bmyrqi0d7" path="res://sounds/Main/House In a Forest Loop.ogg" id="6_i11y2"]
 [ext_resource type="StyleBox" uid="uid://bi1h1qrx1ms0j" path="res://themes/Main/panel.tres" id="7_2w0u3"]
+[ext_resource type="Texture2D" uid="uid://b0asbgnrxr6u5" path="res://art/Main/lives.png" id="8_whkqm"]
 
 [sub_resource type="Theme" id="Theme_342le"]
 
@@ -173,3 +174,28 @@ offset_right = 656.0
 offset_bottom = 984.0
 theme = ExtResource("3_e6l0l")
 text = "Home"
+
+[node name="LivesSprite" type="Sprite2D" parent="Control"]
+position = Vector2(56, 1184)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_whkqm")
+
+[node name="LivesX" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 1168.0
+offset_right = 144.0
+offset_bottom = 1200.0
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LivesLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 1168.0
+offset_right = 200.0
+offset_bottom = 1199.0
+text = "INF"
+horizontal_alignment = 1
+vertical_alignment = 1

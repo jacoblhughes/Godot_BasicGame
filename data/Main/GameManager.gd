@@ -27,7 +27,7 @@ var child_node_to_delete
 @onready var reset_button_from_gameover : Button
 @onready var home_button_from_gameover : Button
 @onready var game_scene : Node
-
+@onready var lives_label : Label
 var perry_arcade_path = "user://perry_arcade.cfg"
 var lives = 3
 var score = 0
@@ -75,6 +75,7 @@ func _ready():
 	HomeButton = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("Home_Button")
 	
 	game_scene = get_tree().get_root().get_node("Main").get_node("GameScene")
+	lives_label = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("LivesLabel")
 	
 	PlayButton.pressed.connect(_on_play_button_pressed)
 
@@ -128,10 +129,15 @@ func get_lives():
 	
 func update_lives(change):
 	lives += change
+	lives_label.text = str(lives)
 
-func reset_lives(default_lives: int = 3):
-	lives = default_lives
-
+func set_or_reset_lives(default_lives = 3):
+	if typeof(default_lives) == TYPE_INT:
+		lives = default_lives
+		lives_label.text = str(default_lives)
+	else:
+		lives_label.text = "INF"
+		
 func play_game_over():
 	GameOverSound.play()
 

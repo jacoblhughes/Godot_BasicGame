@@ -8,12 +8,14 @@ signal position_reset
 
 var score_value = 1
 var game_level = 1
+var initial_lives = 3
+var lives_lost = 1
 
 
 var game_reset = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	print('ready')
 	player = get_parent().get_node("Paddle - Player")
 	computer = get_parent().get_node("Paddle - Computer")
 	ball = get_parent().get_node("Ball")
@@ -25,7 +27,7 @@ func _ready():
 func _game_initialize():
 	GameManager.reset_score()
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
-
+	GameManager.set_or_reset_lives(initial_lives)
 
 
 
@@ -46,16 +48,22 @@ func on_reset_button_reset_button_pressed():
 func _on_win_body_entered(body):
 	#first to 11
 
-	if body.name == "Ball":
+	if "Ball" in body.name:
 		position_reset.emit()
 		GameManager.update_score(score_value)
 	if GameManager.get_score() >= 11:
 		_next_level_reached()
 	
 func _on_lose_body_entered(body):
-	if body.name == "Ball":
+	print(GameManager.get_lives())
+	print(body.name)
+	if "Ball" in body.name:
+		print('here')
 		position_reset.emit()
-		GameManager.update_score(-score_value)
+		GameManager.update_lives(-lives_lost)
+		if(GameManager.get_lives()<=0):
+			GameManager.set_game_enabled(false)
+			GameManager.game_over_panel.visible=true
 	pass # Replace with function body.
 
 func _next_level_reached():
