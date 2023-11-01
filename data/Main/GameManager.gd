@@ -29,7 +29,7 @@ var child_node_to_delete
 @onready var game_scene : Node
 
 var perry_arcade_path = "user://perry_arcade.cfg"
-
+var lives = 3
 var score = 0
 var game_enabled = false
 var current_game_scene : PackedScene
@@ -122,6 +122,15 @@ func reset_score():
 	ScoreLabel.text = str(score)
 #func set_new_status(status):
 #		StatusLabel.text = status
+
+func get_lives():
+	return lives
+	
+func update_lives(change):
+	lives += change
+
+func reset_lives(default_lives: int = 3):
+	lives = default_lives
 
 func play_game_over():
 	GameOverSound.play()

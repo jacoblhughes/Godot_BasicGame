@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 @onready var enemy_timer : Timer
 @onready var path_enemy_timer : Timer

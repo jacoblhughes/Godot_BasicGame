@@ -5,7 +5,6 @@ Simon
 	Make buttons a class so I can call the pressed method
 
 Snake
-	start and stop
 	--make the scenes in the body do someting
 	--make the food do something
 	improve collision logic
