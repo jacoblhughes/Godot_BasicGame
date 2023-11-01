@@ -88,13 +88,13 @@ func _ready():
 	_load_initials()
 	
 func _start_highscore_list():
-#	["pong","saucer","attack",]
-	for game in ["simon_says","dino","creep","flappy"]:
+#	["","saucer","attack",]
+	for game in ["simon_says","dino","creep","flappy","pong"]:
 		initiate_highscores_section(game)
 
 func _replace_highscore_list():
 	high_score_popup_list.clear()
-	for game in ["simon_says","dino","creep","flappy"]:
+	for game in ["simon_says","dino","creep","flappy","pong"]:
 		var game_first_line = "--- " + game +" Scores ---"
 		var names = get_highscore_names(game)
 		var scores = get_highscore_scores(game)
@@ -131,12 +131,13 @@ func update_lives(change):
 	lives += change
 	lives_label.text = str(lives)
 
-func set_or_reset_lives(default_lives = 3):
+func set_or_reset_lives(default_lives = "INF"):
 	if typeof(default_lives) == TYPE_INT:
 		lives = default_lives
 		lives_label.text = str(default_lives)
 	else:
-		lives_label.text = "INF"
+		lives=3
+		lives_label.text = default_lives
 		
 func play_game_over():
 	GameOverSound.play()
@@ -167,6 +168,7 @@ func set_directions(directions):
 
 func _on_home_button_pressed():
 	reset_score()
+	set_or_reset_lives()
 	GameManager.set_game_enabled(false)
 	set_gameover_panel(false)
 	child_node_to_delete = game_scene.get_children()

@@ -148,6 +148,7 @@ offset_bottom = 1280.0
 theme_override_styles/panel = ExtResource("7_2w0u3")
 
 [node name="ResetButton" type="Button" parent="Control/GameOverPanel/GameOverPanel"]
+visible = false
 layout_mode = 0
 offset_left = 64.0
 offset_top = 656.0

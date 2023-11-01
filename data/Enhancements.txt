@@ -12,13 +12,10 @@ Snake
 	no win condition or level change condition
 	
 Pong
-	Keep high score?
-	Right now there is no gameover, only progression when you hit 11
 	Improve collision mechanics like when the ball gets fast
 	Make the enemy paddle reset too
 	Make the enemy paddle worse and get better as the levels progress
 	Make finding positions of things like the initial bass position happen in code to adjust for heights
-	Highscores
 	
 Dino
 	--A-Enhance enemy scenes
@@ -55,4 +52,6 @@ Make directions for each game
 
 Timing loading for each element - noticably android and labels and such
 
+Double check all high scores
 
+Maybe make a way to reset

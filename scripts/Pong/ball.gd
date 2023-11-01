@@ -6,7 +6,7 @@ var reset_round = false
 var position_reset = false
 var stored_position = Vector2(0,0)
 @export var speed_increase = 1.05
-@export var original_velocity = Vector2(-150,-50)
+@export var original_velocity = Vector2(-150,50)
 var collision_cooldown: float = 1.0
 const COLLISION_COOLDOWN_DURATION: float = 0.2
 

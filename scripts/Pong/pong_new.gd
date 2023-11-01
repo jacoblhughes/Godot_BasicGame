@@ -46,24 +46,18 @@ func on_reset_button_reset_button_pressed():
 
 
 func _on_win_body_entered(body):
-	#first to 11
-
-	if "Ball" in body.name:
+	if body.name == "Ball":
 		position_reset.emit()
 		GameManager.update_score(score_value)
-	if GameManager.get_score() >= 11:
+	if GameManager.get_score() > 0 and GameManager.get_score() % 5 == 0:
 		_next_level_reached()
 	
 func _on_lose_body_entered(body):
-	print(GameManager.get_lives())
-	print(body.name)
-	if "Ball" in body.name:
-		print('here')
+	if body.name == "Ball":
 		position_reset.emit()
 		GameManager.update_lives(-lives_lost)
 		if(GameManager.get_lives()<=0):
-			GameManager.set_game_enabled(false)
-			GameManager.game_over_panel.visible=true
+			_game_over()
 	pass # Replace with function body.
 
 func _next_level_reached():
@@ -74,3 +68,8 @@ func _next_level_reached():
 	game_level += 1
 	level_label.text = str(game_level)
 	pass
+
+func _game_over():
+	GameManager.set_game_enabled(false)
+	GameManager.game_over_panel.visible=true
+	GameManager.check_highscore_and_rank("pong")

@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var sizeOfPaddle : Vector2
 var lag_timer = 0.0
 var lag_duration = 0.5  # Adjust this value to control the lag duration
-var speed = 1
+var speed = .5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	my_sprite = $ColorRect
