@@ -111,6 +111,7 @@ func _on_saucer_pressed():
 	GameManager.set_directions("Get to the end of the maze as fast as you can!")
 	saucer_scene = saucer.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(saucer_scene)
+	GameManager.set_current_game_scene(saucer)
 	pass # Replace with function body.
 
 
@@ -121,5 +122,6 @@ func _on_attack_pressed():
 	GameManager.set_directions("Shoot the Roddies to survive!")
 	attack_scene = attack.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(attack_scene)
+	GameManager.set_current_game_scene(attack)
 	pass # Replace with function body.
 

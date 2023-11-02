@@ -39,13 +39,13 @@ Alien Attack
 	Make spawn points programmatic
 
 
-Sounds all around
+Sounds all around are rough
 
 Background music
 
 Popup panels like gameover and start are theme overrides right now, how do I set a theme
 
-What to do about reassiging groups on quue free
+What to do about reassiging groups on queue free
 
 Make directions for each game
 
