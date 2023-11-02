@@ -32,8 +32,8 @@ func _spawn_enemy():
 
 func _on_path_enemy_timer_timeout():
 
-	var path_enemy_instance = path_enemy_scene.instantiate()
-	add_child(path_enemy_instance,true)
-	emit_signal("path_enemy_spawned",path_enemy_instance)
+#	var path_enemy_instance = path_enemy_scene.instantiate()
+#	add_child(path_enemy_instance,true)
+#	emit_signal("path_enemy_spawned",path_enemy_instance)
 
 	pass # Replace with function body.

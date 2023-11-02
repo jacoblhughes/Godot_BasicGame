@@ -1,14 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjw6sh7j2lsq3"]
+[gd_scene load_steps=6 format=3 uid="uid://bjw6sh7j2lsq3"]
 
 [ext_resource type="Script" path="res://scripts/Creep/creep_new.gd" id="1_h2ck3"]
 [ext_resource type="PackedScene" uid="uid://5w3s3bekcgvy" path="res://scenes/Creep/enemy.tscn" id="2_n5qho"]
+[ext_resource type="Script" path="res://scripts/Creep/mob_path.gd" id="3_e7b0d"]
 [ext_resource type="PackedScene" uid="uid://0dmkhtys2fv3" path="res://scenes/Creep/player.tscn" id="3_ewpja"]
 
 [sub_resource type="Curve2D" id="Curve2D_mulw1"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 24, 144, 0, 0, 0, 0, 696, 144, 0, 0, 0, 0, 696, 1136, 0, 0, 0, 0, 24, 1136, 0, 0, 0, 0, 24, 144)
-}
-point_count = 5
 
 [node name="Creep" type="Node2D"]
 
@@ -28,9 +25,11 @@ position = Vector2(332.893, 612.805)
 
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_mulw1")
+script = ExtResource("3_e7b0d")
 
 [node name="MobPathFollow" type="PathFollow2D" parent="MobPath"]
-position = Vector2(24, 144)
+position = Vector2(24, 1136)
+rotation = -1.5708
 
 [node name="Player" parent="." instance=ExtResource("3_ewpja")]
 

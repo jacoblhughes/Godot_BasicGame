@@ -10,6 +10,7 @@ Snake
 	improve collision logic
 	need to fix the head size logic
 	no win condition or level change condition
+	Class nonsense
 	
 Pong
 	Improve collision mechanics like when the ball gets fast
@@ -22,12 +23,11 @@ Dino
 	--When game over, and reset, sometimes the llama moves?
 
 Creep
-	make the path programmatic
 	A-draw roddies
 	A-draw hero
 	
 Flappy
-	A-Needs different and improved scenes
+	--A-Needs different and improved scenes
 	
 Saucer
 	Touchscreen responsive
@@ -37,6 +37,7 @@ Saucer
 	
 Alien Attack
 	Improve
+		make spawn points programmatic
 	Rest
 	Game Over
 	Highscores

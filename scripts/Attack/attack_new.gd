@@ -3,6 +3,7 @@ extends Node2D
 @onready var enemy_timer : Timer
 @onready var path_enemy_timer : Timer
 
+@onready var player : CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	enemy_timer = get_parent().get_node("EnemySpawner/EnemyTimer")
