@@ -13,5 +13,12 @@ func _process(delta):
 
 
 func _on_maze_body_exited(body):
-#	get_tree().reload_current_scene()
+	_out_of_bounds()
 	pass # Replace with function body.
+
+func _on_melt_zone_body_entered(body):
+	_out_of_bounds()
+	pass # Replace with function body.
+
+func _out_of_bounds():
+	print('CRASH')

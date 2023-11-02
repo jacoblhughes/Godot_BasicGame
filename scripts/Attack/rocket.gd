@@ -2,7 +2,7 @@ extends Area2D
 
 @export var SPEED = 300
 @onready var visible_notifier = $VisibleOnScreenNotifier2D
-
+var score_value = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible_notifier.connect("screen_exited",_on_screen_exited)
@@ -23,5 +23,6 @@ func _on_screen_exited():
 
 func _on_area_entered(area):
 	queue_free()
+	GameManager.update_score(score_value)
 	area.die()
 	pass # Replace with function body.

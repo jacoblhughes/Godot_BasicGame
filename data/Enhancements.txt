@@ -36,12 +36,10 @@ Saucer
 	Highscores
 	
 Alien Attack
-	Improve
-		make spawn points programmatic
-	Rest
-	Game Over
-	Highscores
+	Make spawn points programmatic
 
+
+Sounds all around
 
 Background music
 
@@ -56,3 +54,5 @@ Timing loading for each element - noticably android and labels and such
 Double check all high scores
 
 Maybe make a way to reset
+
+Global clamp player

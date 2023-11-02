@@ -27,6 +27,7 @@ func _spawn_enemy():
 	
 	enemy_instance.global_position = random_spawn_position.global_position
 	emit_signal("enemy_spawned",enemy_instance)
+	enemy_instance.add_to_group("enemies")
 	add_child(enemy_instance,true)
 
 
