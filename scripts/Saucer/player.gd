@@ -15,6 +15,7 @@ func _ready():
 	target_position = start_position.position
 	saucer = get_parent().get_node("saucer")
 	saucer.game_start.connect(_on_game_start)
+	saucer.out_of_bounds.connect(_on_out_of_bounds)
 	pass
 
 
@@ -59,3 +60,6 @@ func _physics_process(delta):
 
 func _on_game_start():
 	game_on = true
+
+func _on_out_of_bounds(reset_point):
+	target_position=reset_point

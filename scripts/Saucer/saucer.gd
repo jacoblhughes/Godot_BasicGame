@@ -8,18 +8,30 @@ var score_value = 1
 @onready var countdown_timer : Timer
 @onready var game_timer : Timer
 @onready var time_label : Label
+@onready var player : CharacterBody2D
+@onready var c_p_1_area : Area2D
+@onready var c_p_2_area : Area2D
+@onready var c_p_3_area : Area2D
+@onready var finish_area : Area2D
+var reset_point
 var game_on = false
 signal game_start
+signal out_of_bounds(new_target_position)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	c_p_1_area = get_parent().get_node("CP1")
+	c_p_2_area = get_parent().get_node("CP2")
+	c_p_3_area = get_parent().get_node("CP3")
+	finish_area = get_parent().get_node("Finish")
 	countdown_timer = get_parent().get_node("CountdownTimer")
 	game_timer = get_parent().get_node("GameTimer")
 	time_label = get_parent().get_node("CountdownTimerTime")
+	player = get_parent().get_node("Player")
 	_game_initialize()
+	reset_point = finish_area.position
 	pass # Replace with function body.
 
 func _game_initialize():
-	print('dfdfd')
 	GameManager.reset_score()
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,7 +40,6 @@ func _process(delta):
 	pass
 
 func _on_maze_body_exited(body):
-	print(body)
 	_out_of_bounds()
 	pass # Replace with function body.
 
@@ -37,22 +48,24 @@ func _on_melt_zone_body_entered(body):
 	pass # Replace with function body.
 
 func _out_of_bounds():
-	print('CRASH')
-
+	player.position = reset_point
+	out_of_bounds.emit(reset_point)
 
 func _on_cp_1_body_entered(body):
 	c_p_1 = true
-	print('cp')
+	reset_point = c_p_1_area.position
 	pass # Replace with function body.
 
 
 func _on_cp_2_body_entered(body):
 	c_p_2 = true
+	reset_point = c_p_2_area.position
 	pass # Replace with function body.
 
 
 func _on_cp_3_body_entered(body):
 	c_p_3 = true
+	reset_point = c_p_3_area.position
 	pass # Replace with function body.
 
 func _reset_checkpoints():
@@ -63,6 +76,7 @@ func _reset_checkpoints():
 
 func _on_finish_body_entered(body):
 	finish = true
+	reset_point = finish_area.position
 	if(c_p_1 and c_p_2 and c_p_3 and finish):
 		GameManager.update_score(score_value)
 		_reset_checkpoints()
