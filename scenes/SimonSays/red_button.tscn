@@ -5,9 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://brarlhu18wx0d" path="res://sounds/SimonSays/a_sharp.wav" id="3_ijknx"]
 [ext_resource type="Texture2D" uid="uid://dimscu3rie0v3" path="res://art/SimonSays/RedDark.png" id="4_eyny2"]
 [ext_resource type="Texture2D" uid="uid://bnm7ixck0e0g5" path="res://art/SimonSays/RedLight.png" id="5_r37gl"]
-[ext_resource type="Texture2D" uid="uid://d27t0vjdu81c5" path="res://art/Main/Roddy Open Mouth Tilted Left.png" id="6_pk18l"]
-[ext_resource type="Texture2D" uid="uid://bilyrox678nfu" path="res://art/Main/Roddy Open Mouth Tilted Right.png" id="7_qlrjw"]
-[ext_resource type="Texture2D" uid="uid://dpetxgmxxyxnp" path="res://art/Main/Roddy.png" id="8_758gl"]
+[ext_resource type="Texture2D" uid="uid://cuksh1427cgxl" path="res://art/SimonSays/perry_simon_buttons_256x256.png" id="6_56jop"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0megc"]
 animations = [{
@@ -28,14 +26,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdpa6"]
+atlas = ExtResource("6_56jop")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykld5"]
+atlas = ExtResource("6_56jop")
+region = Rect2(768, 0, 256, 256)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_vprhw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_pk18l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_qlrjw")
+"texture": SubResource("AtlasTexture_rdpa6")
 }],
 "loop": true,
 "name": &"default",
@@ -43,10 +46,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_758gl")
+"texture": SubResource("AtlasTexture_ykld5")
 }],
 "loop": true,
-"name": &"resting",
+"name": &"moving",
 "speed": 5.0
 }]
 
@@ -69,9 +72,8 @@ animation = &"dark"
 
 [node name="faceAnimation" type="AnimatedSprite2D" parent="." groups=["SimonSaysGameButtonAnimations"]]
 position = Vector2(96, 96)
-scale = Vector2(1.28, 1.28)
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_vprhw")
-animation = &"resting"
 
 [node name="animationTimer" type="Timer" parent="."]
 wait_time = 0.5

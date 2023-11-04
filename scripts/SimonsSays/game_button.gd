@@ -17,7 +17,7 @@ func _ready():
 	
 func _pressed():
 	sound.play()
-	faceAnimation.play("default")
+	faceAnimation.play("moving")
 	animation.play("light")
 	animationTimer.start()
 
@@ -34,7 +34,7 @@ func _on_animation_timer_timeout():
 	faceAnimation.stop()
 	animation.stop()
 	
-	faceAnimation.play('resting')
+	faceAnimation.play('default')
 	animation.play('dark')
 	
 	pass # Replace with function body.

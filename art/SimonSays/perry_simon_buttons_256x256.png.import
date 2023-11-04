@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0i3nb3jhnam6"
-path="res://.godot/imported/perry_circle-Sheet.png-d0e89dd2ac65928945e6c86cb50c36bc.ctex"
+uid="uid://cuksh1427cgxl"
+path="res://.godot/imported/perry_simon_buttons_256x256.png-5b8cbdfeab0db403cc29ff6191b9fa8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Pong/perry_circle-Sheet.png"
-dest_files=["res://.godot/imported/perry_circle-Sheet.png-d0e89dd2ac65928945e6c86cb50c36bc.ctex"]
+source_file="res://art/SimonSays/perry_simon_buttons_256x256.png"
+dest_files=["res://.godot/imported/perry_simon_buttons_256x256.png-5b8cbdfeab0db403cc29ff6191b9fa8c.ctex"]
 
 [params]
 
