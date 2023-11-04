@@ -25,8 +25,10 @@ func _game_initialize():
 
 
 func _physics_process(delta):
-
-
+	if(velocity != Vector2(0,0)):
+		$AnimatedSprite2D.play("moving")
+	else:
+		$AnimatedSprite2D.play("default")
 	if collision_cooldown > 0:
 		collision_cooldown -= delta
 		

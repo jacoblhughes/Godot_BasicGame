@@ -1,14 +1,86 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1n3bt7ntc5gf"]
+[gd_scene load_steps=24 format=3 uid="uid://c1n3bt7ntc5gf"]
 
 [ext_resource type="Script" path="res://scripts/Pong/pong_new.gd" id="1_4nkx4"]
 [ext_resource type="Script" path="res://scripts/Pong/ball.gd" id="2_ouerh"]
 [ext_resource type="Texture2D" uid="uid://dpetxgmxxyxnp" path="res://art/Main/Roddy.png" id="3_w6inn"]
+[ext_resource type="Texture2D" uid="uid://dgom6g5cto0tj" path="res://art/Pong/perry_circle-Sheet.png" id="4_1upja"]
 [ext_resource type="Script" path="res://scripts/Pong/player.gd" id="4_vctgl"]
 [ext_resource type="Script" path="res://scripts/Pong/enemy.gd" id="5_qhiic"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wq4sv"]
-radius = 32.0
-height = 96.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_17ruf"]
+atlas = ExtResource("4_1upja")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fw1p"]
+atlas = ExtResource("4_1upja")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd3jl"]
+atlas = ExtResource("4_1upja")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkj2v"]
+atlas = ExtResource("4_1upja")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6g6k"]
+atlas = ExtResource("4_1upja")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1m0t"]
+atlas = ExtResource("4_1upja")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmlwu"]
+atlas = ExtResource("4_1upja")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prs0g"]
+atlas = ExtResource("4_1upja")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1p6q2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17ruf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17ruf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fw1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd3jl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkj2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6g6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1m0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmlwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prs0g")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nrpdu"]
+radius = 46.0977
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwr1e"]
 size = Vector2(16, 128)
@@ -47,12 +119,17 @@ disable_mode = 2
 script = ExtResource("2_ouerh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
-position = Vector2(-1.74046e-05, 1.74046e-05)
+visible = false
+position = Vector2(-3.05176e-05, 3.05176e-05)
 scale = Vector2(0.64, 0.64)
 texture = ExtResource("3_w6inn")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ball"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1p6q2")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("CapsuleShape2D_wq4sv")
+shape = SubResource("CircleShape2D_nrpdu")
 
 [node name="Paddle - Player" type="CharacterBody2D" parent="."]
 position = Vector2(664, 416)
