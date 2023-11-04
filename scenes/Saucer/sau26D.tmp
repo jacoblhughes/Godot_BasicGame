@@ -37,10 +37,11 @@ stretch_mode = 1
 [node name="saucer" type="Node2D" parent="."]
 script = ExtResource("1_kgi7c")
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="RigidBody2D" parent="."]
 z_index = 2
 position = Vector2(82, 204)
-collision_mask = 96
+collision_mask = 64
+gravity_scale = 0.0
 script = ExtResource("3_slia5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
@@ -51,7 +52,6 @@ texture = ExtResource("2_qlfj8")
 shape = SubResource("CircleShape2D_fe6q2")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-visible = false
 enabled = false
 drag_horizontal_enabled = true
 
@@ -82,7 +82,6 @@ polygon = PackedVector2Array(112, 232, 624, 232, 616, 720, 120, 792)
 z_index = 1
 position = Vector2(648, 208)
 collision_layer = 32
-collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CP1"]
 z_index = 1
@@ -91,7 +90,6 @@ shape = SubResource("CircleShape2D_a0ung")
 [node name="CP2" type="Area2D" parent="."]
 z_index = 1
 position = Vector2(648, 736)
-collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CP2"]
 z_index = 1
@@ -100,7 +98,6 @@ shape = SubResource("CircleShape2D_kucvn")
 [node name="CP3" type="Area2D" parent="."]
 z_index = 1
 position = Vector2(93, 824)
-collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CP3"]
 z_index = 1
@@ -109,31 +106,9 @@ shape = SubResource("CircleShape2D_lt0dq")
 [node name="Finish" type="Area2D" parent="."]
 z_index = 1
 position = Vector2(88, 205)
-collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
 shape = SubResource("CircleShape2D_qhct2")
-
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(88.3761, 205.199)
-
-[node name="CountdownTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-
-[node name="GameTimer" type="Timer" parent="."]
-wait_time = 60.0
-one_shot = true
-
-[node name="CountdownTimerTime" type="Label" parent="."]
-z_index = 1
-offset_left = 304.0
-offset_top = 248.0
-offset_right = 408.0
-offset_bottom = 271.0
-text = "99:99"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="body_exited" from="RaceTrack" to="saucer" method="_on_maze_body_exited"]
 [connection signal="body_entered" from="MeltZone" to="saucer" method="_on_melt_zone_body_entered"]
@@ -141,4 +116,3 @@ vertical_alignment = 1
 [connection signal="body_entered" from="CP2" to="saucer" method="_on_cp_2_body_entered"]
 [connection signal="body_entered" from="CP3" to="saucer" method="_on_cp_3_body_entered"]
 [connection signal="body_entered" from="Finish" to="saucer" method="_on_finish_body_entered"]
-[connection signal="timeout" from="CountdownTimer" to="saucer" method="_on_countdown_timer_timeout"]
