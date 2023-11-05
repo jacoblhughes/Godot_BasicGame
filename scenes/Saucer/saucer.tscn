@@ -1,9 +1,32 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf4xkqs74ytur"]
+[gd_scene load_steps=14 format=3 uid="uid://cf4xkqs74ytur"]
 
 [ext_resource type="Texture2D" uid="uid://dpoog2l453my6" path="res://art/Saucer/purple.png" id="1_dthc4"]
 [ext_resource type="Script" path="res://scripts/Saucer/saucer.gd" id="1_kgi7c"]
 [ext_resource type="Texture2D" uid="uid://dce0ranae3u3u" path="res://art/Saucer/saucer.png" id="2_qlfj8"]
 [ext_resource type="Script" path="res://scripts/Saucer/player.gd" id="3_slia5"]
+[ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://art/Saucer/perry_run_256.png" id="4_6pqw3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7ioa"]
+atlas = ExtResource("4_6pqw3")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7adil"]
+atlas = ExtResource("4_6pqw3")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oy4wx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7ioa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7adil")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fe6q2"]
 radius = 12.2038
@@ -43,7 +66,13 @@ position = Vector2(82, 204)
 collision_mask = 96
 script = ExtResource("3_slia5")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_oy4wx")
+autoplay = "default"
+
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
+visible = false
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_qlfj8")
 
