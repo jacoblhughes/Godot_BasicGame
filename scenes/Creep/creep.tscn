@@ -33,16 +33,6 @@ rotation = -1.5708
 
 [node name="Player" parent="." instance=ExtResource("3_ewpja")]
 
-[node name="PlayAreaCanvas" type="CanvasLayer" parent="."]
-layer = -2
-
-[node name="PlayArea" type="ColorRect" parent="PlayAreaCanvas"]
-offset_left = 24.0
-offset_top = 144.0
-offset_right = 696.0
-offset_bottom = 1136.0
-color = Color(0.114935, 0.205596, 0.209237, 1)
-
 [connection signal="timeout" from="ScoreTimer" to="creep" method="_on_score_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="creep" method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="creep" method="_on_start_timer_timeout"]
