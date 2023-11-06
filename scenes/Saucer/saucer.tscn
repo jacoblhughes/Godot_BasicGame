@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cf4xkqs74ytur"]
+[gd_scene load_steps=17 format=3 uid="uid://cf4xkqs74ytur"]
 
 [ext_resource type="Texture2D" uid="uid://dpoog2l453my6" path="res://art/Saucer/purple.png" id="1_dthc4"]
 [ext_resource type="Script" path="res://scripts/Saucer/saucer.gd" id="1_kgi7c"]
 [ext_resource type="Texture2D" uid="uid://dce0ranae3u3u" path="res://art/Saucer/saucer.png" id="2_qlfj8"]
 [ext_resource type="Script" path="res://scripts/Saucer/player.gd" id="3_slia5"]
 [ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://art/Saucer/perry_run_256.png" id="4_6pqw3"]
+[ext_resource type="Texture2D" uid="uid://debugqkk57enh" path="res://art/Saucer/track_128.png" id="6_x8dm2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7ioa"]
 atlas = ExtResource("4_6pqw3")
@@ -42,6 +43,21 @@ radius = 67.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhct2"]
 radius = 64.0703
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5baex"]
+texture = ExtResource("6_x8dm2")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ykcpy"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_5baex")
 
 [node name="Saucer" type="Node2D"]
 
@@ -85,6 +101,7 @@ enabled = false
 drag_horizontal_enabled = true
 
 [node name="RaceTrack" type="Area2D" parent="."]
+visible = false
 z_index = 1
 collision_layer = 64
 
@@ -96,6 +113,7 @@ color = Color(1, 0.533333, 0, 1)
 polygon = PackedVector2Array(48, 168, 680, 176, 688, 776, 48, 872)
 
 [node name="MeltZone" type="Area2D" parent="."]
+visible = false
 z_index = 1
 collision_layer = 64
 
@@ -163,6 +181,12 @@ offset_bottom = 271.0
 text = "99:99"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(24, 144)
+tile_set = SubResource("TileSet_ykcpy")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 262144, 0, 1, 65536, 0, 2, 65536, 0, 4, 196608, 0, 3, 65536, 0, 65540, 131072, 0, 65539, 65536, 0, 65538, 65536, 0, 65537, 262144, 0, 131073, 327680, 0, 131074, 65536, 0, 131075, 196608, 0, 196611, 327680, 0, 131076, 393216, 0, 196612, 196608, 0, 262148, 0, 0, 327684, 131072, 0, 327683, 65536, 0, 327682, 327680, 0, 327681, 393216, 0, 327680, 393216, 0, 262144, 327680, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 196609, 393216, 0, 196610, 393216, 0, 262145, 65536, 0, 262146, 196608, 0, 262147, 393216, 0)
 
 [connection signal="body_exited" from="RaceTrack" to="saucer" method="_on_maze_body_exited"]
 [connection signal="body_entered" from="MeltZone" to="saucer" method="_on_melt_zone_body_entered"]
