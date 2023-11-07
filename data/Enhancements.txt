@@ -56,3 +56,4 @@ Double check all high scores
 Maybe make a way to reset
 
 Global clamp player
+
