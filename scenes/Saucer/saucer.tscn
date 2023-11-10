@@ -29,8 +29,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fe6q2"]
-radius = 12.2038
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flqbc"]
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a0ung"]
 radius = 56.0
@@ -81,7 +81,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_qlfj8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_fe6q2")
+shape = SubResource("CapsuleShape2D_flqbc")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 visible = false
@@ -154,6 +154,7 @@ layer_0/tile_data = PackedInt32Array(0, 262144, 0, 1, 65536, 0, 2, 65536, 0, 4, 
 
 [node name="RaceTrack" type="Area2D" parent="."]
 z_index = 1
+position = Vector2(14, 0)
 collision_layer = 64
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RaceTrack"]
@@ -165,8 +166,8 @@ color = Color(1, 0.533333, 0, 1)
 polygon = PackedVector2Array(48, 176, 56, 168, 624, 168, 640, 184, 640, 360, 624, 376, 272, 376, 256, 392, 256, 408, 272, 424, 496, 424, 512, 440, 512, 536, 528, 552, 624, 552, 640, 568, 640, 872, 624, 888, 320, 888, 304, 872, 304, 776, 288, 760, 64, 760, 48, 744)
 
 [node name="MeltZone" type="Area2D" parent="."]
-visible = false
 z_index = 1
+position = Vector2(16, 0)
 collision_layer = 64
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MeltZone"]
@@ -183,5 +184,6 @@ polygon = PackedVector2Array(128, 264, 144, 248, 544, 248, 560, 264, 560, 280, 5
 [connection signal="body_entered" from="CP3" to="saucer" method="_on_cp_3_body_entered"]
 [connection signal="body_entered" from="Finish" to="saucer" method="_on_finish_body_entered"]
 [connection signal="timeout" from="CountdownTimer" to="saucer" method="_on_countdown_timer_timeout"]
+[connection signal="timeout" from="GameTimer" to="saucer" method="_on_game_timer_timeout"]
 [connection signal="body_exited" from="RaceTrack" to="saucer" method="_on_maze_body_exited"]
 [connection signal="body_entered" from="MeltZone" to="saucer" method="_on_melt_zone_body_entered"]

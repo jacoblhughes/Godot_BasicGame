@@ -102,3 +102,12 @@ func _update_label():
 	elif game_on:
 		var time_left = game_timer.time_left
 		time_label.text = "%d:%02d" % [floor(time_left / 60), int(time_left) % 60]
+
+
+func _on_game_timer_timeout():
+	reset_point = finish_area.position
+	_out_of_bounds()
+	GameManager.set_game_enabled(false)
+	GameManager.set_gameover_panel(true)
+	GameManager.check_highscore_and_rank("saucer")
+	pass # Replace with function body.

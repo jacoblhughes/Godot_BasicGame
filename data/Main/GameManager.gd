@@ -88,13 +88,13 @@ func _ready():
 	_load_initials()
 	
 func _start_highscore_list():
-#	["","saucer","",]
-	for game in ["simon_says","dino","creep","flappy","pong","attack"]:
+
+	for game in ["simon_says","dino","creep","flappy","pong","attack","saucer"]:
 		initiate_highscores_section(game)
 
 func _replace_highscore_list():
 	high_score_popup_list.clear()
-	for game in ["simon_says","dino","creep","flappy","pong","attack"]:
+	for game in ["simon_says","dino","creep","flappy","pong","attack","saucer"]:
 		var game_first_line = "--- " + game +" Scores ---"
 		var names = get_highscore_names(game)
 		var scores = get_highscore_scores(game)
@@ -226,8 +226,8 @@ func check_highscore_and_rank(section_name):
 
 	for i in range(high_scores.size()):
 		if score > high_scores[i]:
-			print(i)
-			print(high_scores[i])
+
+
 			high_scores.insert(i, score)
 			high_scores_names.insert(i, new_initials)
 			added = true

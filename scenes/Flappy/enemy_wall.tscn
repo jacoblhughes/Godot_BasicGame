@@ -1,140 +1,40 @@
-[gd_scene load_steps=19 format=3 uid="uid://detjydrl8ec4n"]
+[gd_scene load_steps=5 format=3 uid="uid://detjydrl8ec4n"]
 
 [ext_resource type="Script" path="res://scripts/Flappy/enemy_wall.gd" id="1_yt86i"]
-[ext_resource type="Texture2D" uid="uid://dmncxb7m3dwvi" path="res://art/Flappy/bird_barrier_256_512.png" id="2_17qc0"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4uwj5"]
-atlas = ExtResource("2_17qc0")
-region = Rect2(0, 0, 256, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jxoty"]
-atlas = ExtResource("2_17qc0")
-region = Rect2(256, 0, 256, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4qbpo"]
-atlas = ExtResource("2_17qc0")
-region = Rect2(512, 0, 256, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a3t2n"]
-atlas = ExtResource("2_17qc0")
-region = Rect2(768, 0, 256, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nv2lu"]
-atlas = ExtResource("2_17qc0")
-region = Rect2(1024, 0, 256, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_25wc7"]
-atlas = ExtResource("2_17qc0")
-region = Rect2(1280, 0, 256, 512)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_eiuge"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4uwj5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jxoty")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4qbpo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a3t2n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nv2lu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_25wc7")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0uw42"]
-atlas = ExtResource("2_17qc0")
-region = Rect2(0, 0, 256, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_abrtd"]
-atlas = ExtResource("2_17qc0")
-region = Rect2(256, 0, 256, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ndi7"]
-atlas = ExtResource("2_17qc0")
-region = Rect2(512, 0, 256, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bs7te"]
-atlas = ExtResource("2_17qc0")
-region = Rect2(768, 0, 256, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xvqry"]
-atlas = ExtResource("2_17qc0")
-region = Rect2(1024, 0, 256, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m6tc6"]
-atlas = ExtResource("2_17qc0")
-region = Rect2(1280, 0, 256, 512)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_u0ap3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0uw42")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_abrtd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ndi7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bs7te")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xvqry")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m6tc6")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://bd2em2armt88p" path="res://sprite_frames/flappy/enemy_wall.tres" id="2_trg1i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjiyy"]
-size = Vector2(40, 168)
+size = Vector2(40, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tlwy"]
-size = Vector2(44, 240)
+size = Vector2(44, 384)
 
 [node name="EnemyWall" type="CharacterBody2D"]
-position = Vector2(656, 144)
+position = Vector2(656, 128)
 collision_layer = 2
 collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_yt86i")
 
 [node name="BottomWall" type="AnimatedSprite2D" parent="."]
-position = Vector2(17.8869, 856.543)
+position = Vector2(20, 832)
 rotation = 3.14159
-scale = Vector2(0.17242, 0.404944)
-sprite_frames = SubResource("SpriteFrames_eiuge")
+scale = Vector2(0.17242, 0.5)
+sprite_frames = ExtResource("2_trg1i")
 autoplay = "default"
 
 [node name="TopWall" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, 84)
-scale = Vector2(0.15625, 0.328125)
-sprite_frames = SubResource("SpriteFrames_u0ap3")
+position = Vector2(20, 192)
+scale = Vector2(0.15625, 0.5)
+sprite_frames = ExtResource("2_trg1i")
 autoplay = "default"
 
 [node name="TopCollision" type="CollisionShape2D" parent="."]
-position = Vector2(20, 84)
+position = Vector2(20, 192)
 shape = SubResource("RectangleShape2D_mjiyy")
 
 [node name="BottomCollision" type="CollisionShape2D" parent="."]
-position = Vector2(18, 872)
+position = Vector2(20, 832)
 shape = SubResource("RectangleShape2D_2tlwy")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

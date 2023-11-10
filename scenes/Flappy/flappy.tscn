@@ -1,15 +1,54 @@
-[gd_scene load_steps=10 format=3 uid="uid://cj0i3bqn4ap1r"]
+[gd_scene load_steps=14 format=3 uid="uid://cj0i3bqn4ap1r"]
 
 [ext_resource type="Script" path="res://scripts/Flappy/flappy_new.gd" id="1_47y50"]
 [ext_resource type="Script" path="res://scripts/Flappy/enemy_spawn.gd" id="2_wrg0s"]
 [ext_resource type="Script" path="res://scripts/Flappy/player.gd" id="3_58kv2"]
-[ext_resource type="Texture2D" uid="uid://cybepxl1f4kxx" path="res://art/Flappy/RoddyFlappy.png" id="4_07krg"]
+[ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://art/Flappy/bird_256.png" id="4_v42d0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q761"]
+atlas = ExtResource("4_v42d0")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynfd0"]
+atlas = ExtResource("4_v42d0")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aipp"]
+atlas = ExtResource("4_v42d0")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yp7ky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q761")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynfd0")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aipp")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0dfi4"]
-radius = 31.0278
+radius = 32.0624
 
 [sub_resource type="Gradient" id="Gradient_tgg07"]
-colors = PackedColorArray(1, 1, 0, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.717647, 0, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_yn8so"]
 gradient = SubResource("Gradient_tgg07")
@@ -45,12 +84,13 @@ position = Vector2(213.887, 584.66)
 collision_mask = 2
 script = ExtResource("3_58kv2")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(4.58899, 1.491)
-scale = Vector2(0.746667, 0.746667)
-texture = ExtResource("4_07krg")
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_yp7ky")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(10.113, 1.34003)
 shape = SubResource("CircleShape2D_0dfi4")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Player"]

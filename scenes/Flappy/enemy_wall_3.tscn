@@ -1,37 +1,39 @@
 [gd_scene load_steps=5 format=3 uid="uid://cpcavmwe55upr"]
 
 [ext_resource type="Script" path="res://scripts/Flappy/enemy_wall.gd" id="1_5x4xj"]
-[ext_resource type="Texture2D" uid="uid://dqjn21los1i7a" path="res://art/Flappy/SpikeFlappy.png" id="2_bxksx"]
+[ext_resource type="SpriteFrames" uid="uid://bd2em2armt88p" path="res://sprite_frames/flappy/enemy_wall.tres" id="2_vpd2n"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_154in"]
-size = Vector2(40, 280)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcrmu"]
+size = Vector2(40, 320)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7s7qi"]
-size = Vector2(40, 200)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ug55r"]
+size = Vector2(40, 448)
 
 [node name="EnemyWall3" type="CharacterBody2D"]
-position = Vector2(656, 144)
+position = Vector2(656, 128)
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_5x4xj")
 
-[node name="BottomWall" type="Sprite2D" parent="."]
-position = Vector2(12, 892)
-scale = Vector2(0.133333, 0.666667)
-texture = ExtResource("2_bxksx")
-
-[node name="TopWall" type="Sprite2D" parent="."]
-position = Vector2(20, 140)
+[node name="BottomWall" type="AnimatedSprite2D" parent="."]
+position = Vector2(20, 800)
 rotation = 3.14159
-scale = Vector2(0.133333, 0.933333)
-texture = ExtResource("2_bxksx")
+scale = Vector2(0.164335, 0.583333)
+sprite_frames = ExtResource("2_vpd2n")
+autoplay = "default"
+
+[node name="TopWall" type="AnimatedSprite2D" parent="."]
+position = Vector2(20, 160)
+scale = Vector2(0.15625, 0.416667)
+sprite_frames = ExtResource("2_vpd2n")
+autoplay = "default"
 
 [node name="TopCollision" type="CollisionShape2D" parent="."]
-position = Vector2(20, 140)
-shape = SubResource("RectangleShape2D_154in")
+position = Vector2(20, 160)
+shape = SubResource("RectangleShape2D_mcrmu")
 
 [node name="BottomCollision" type="CollisionShape2D" parent="."]
-position = Vector2(11.9999, 892)
-shape = SubResource("RectangleShape2D_7s7qi")
+position = Vector2(20, 800)
+shape = SubResource("RectangleShape2D_ug55r")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

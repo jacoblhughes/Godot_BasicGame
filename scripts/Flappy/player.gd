@@ -13,8 +13,9 @@ var gameRun = false
 signal flappy_hit
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var animated_sprite : AnimatedSprite2D
 func _ready():
+	animated_sprite = get_node("AnimatedSprite2D")
 	pass
 
 func _input(event):
@@ -25,7 +26,12 @@ func _physics_process(delta):
 	if(GameManager.get_game_enabled()):
 	# Apply gravity
 		velocity.y += gravity * delta
-
+		if(velocity.y>=-25 and velocity.y<5):
+			animated_sprite.play("default")
+		elif(velocity.y <-25):
+			animated_sprite.play("up")
+		else:
+			animated_sprite.play("down")
 		# Limit horizontal speed
 	#	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 
