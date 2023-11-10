@@ -2,7 +2,7 @@ Perry Arcade
 
 Simon
 	Make buttons better animations
-	Make buttons a class so I can call the pressed method
+	--Make buttons a class so I can call the pressed method
 
 Snake
 	start and stop
