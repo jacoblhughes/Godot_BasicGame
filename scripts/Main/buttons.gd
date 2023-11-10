@@ -75,7 +75,7 @@ func _on_dino_pressed():
 	self.visible = false
 	GameManager.set_gamestartpanel(true)
 	GameManager.set_title('Dino')
-	GameManager.set_directions("Perry is an evil wizard casting spells against the friendly llama! Help the llama avoid the pain by jumping over the enemies!")
+	GameManager.set_directions("Perry stole your headband. Jump over his garbage as you chase him down!")
 	dino_scene = dino.instantiate()
 	get_tree().get_root().get_node("Main").get_node("GameScene").add_child(dino_scene)
 	GameManager.set_current_game_scene(dino)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cgu5dun6rgtic"]
+[gd_scene load_steps=25 format=3 uid="uid://cgu5dun6rgtic"]
 
 [ext_resource type="Script" path="res://scripts/Dino/dino_new.gd" id="1_hu7jq"]
 [ext_resource type="Texture2D" uid="uid://cpabchmbtrroe" path="res://art/Dino/Background.png" id="1_r83wa"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/Dino/magic_roddy.gd" id="9_p3nqo"]
 [ext_resource type="Texture2D" uid="uid://bmrl73a4q1ijw" path="res://art/Dino/MagicRoddy 2.png" id="10_5oprx"]
 [ext_resource type="Texture2D" uid="uid://42wiycp2pxxq" path="res://art/Dino/MagicRoddy 1.png" id="11_77ltj"]
+[ext_resource type="Texture2D" uid="uid://ch8li2lgrut36" path="res://art/Dino/perry_run_256.png" id="12_6pact"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p4gh0"]
 
@@ -82,6 +83,28 @@ orbit_velocity_max = 0.0
 scale_min = 10.0
 scale_max = 10.0
 color = Color(0.882353, 0.666667, 0.12549, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g8ce"]
+atlas = ExtResource("12_6pact")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8hdt"]
+atlas = ExtResource("12_6pact")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_soobc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g8ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8hdt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Dino" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
@@ -163,18 +186,25 @@ position = Vector2(4.00006, -92)
 shape = SubResource("RectangleShape2D_yttxo")
 
 [node name="MagicRoddy" type="Node2D" parent="."]
-position = Vector2(616.747, 357.488)
+position = Vector2(627, 600)
 script = ExtResource("9_p3nqo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MagicRoddy"]
+visible = false
 sprite_frames = SubResource("SpriteFrames_4alin")
 animation = &"waving"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="MagicRoddy"]
+visible = false
 position = Vector2(-56.7469, -21.4879)
 emitting = false
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_2apcd")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="MagicRoddy"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_soobc")
+autoplay = "default"
 
 [connection signal="timeout" from="Enemy_Spawn_Timer" to="dino" method="_on_enemy_spawn_timer_timeout"]
 [connection signal="timeout" from="Enemy_Spawn_Timer" to="MagicRoddy" method="_on_enemy_spawn_timer_timeout"]

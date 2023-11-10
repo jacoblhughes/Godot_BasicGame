@@ -7,7 +7,7 @@
 size = Vector2(41, 41)
 
 [node name="Enemy" type="CharacterBody2D"]
-position = Vector2(680, 648)
+position = Vector2(550, 648)
 collision_layer = 2
 collision_mask = 11
 script = ExtResource("1_fcfla")
