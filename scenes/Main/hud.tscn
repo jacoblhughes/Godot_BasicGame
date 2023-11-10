@@ -27,9 +27,9 @@ mouse_filter = 2
 
 [node name="Initials_Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 432.0
+offset_left = 416.0
 offset_top = 64.0
-offset_right = 552.0
+offset_right = 536.0
 offset_bottom = 120.0
 theme = ExtResource("2_calir")
 text = "Initials:"
@@ -38,9 +38,9 @@ vertical_alignment = 1
 
 [node name="Initials" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 576.0
+offset_left = 560.0
 offset_top = 64.0
-offset_right = 696.0
+offset_right = 680.0
 offset_bottom = 120.0
 theme = ExtResource("2_calir")
 text = "JLH"
@@ -49,18 +49,18 @@ vertical_alignment = 1
 
 [node name="Home_Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 432.0
+offset_left = 416.0
 offset_top = 1160.0
-offset_right = 696.0
+offset_right = 680.0
 offset_bottom = 1216.0
 theme = ExtResource("3_e6l0l")
 text = "Home"
 
 [node name="Score_Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 24.0
+offset_left = 40.0
 offset_top = 64.0
-offset_right = 144.0
+offset_right = 160.0
 offset_bottom = 120.0
 theme = ExtResource("2_calir")
 text = "Game Score:
@@ -70,9 +70,9 @@ vertical_alignment = 1
 
 [node name="Score" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 168.0
+offset_left = 184.0
 offset_top = 64.0
-offset_right = 288.0
+offset_right = 304.0
 offset_bottom = 120.0
 theme = ExtResource("2_calir")
 text = "0"
@@ -177,15 +177,15 @@ theme = ExtResource("3_e6l0l")
 text = "Home"
 
 [node name="LivesSprite" type="Sprite2D" parent="Control"]
-position = Vector2(56, 1184)
+position = Vector2(72, 1184)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_whkqm")
 
 [node name="LivesX" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 104.0
+offset_left = 120.0
 offset_top = 1168.0
-offset_right = 144.0
+offset_right = 160.0
 offset_bottom = 1200.0
 text = "X"
 horizontal_alignment = 1
@@ -193,9 +193,9 @@ vertical_alignment = 1
 
 [node name="LivesLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 160.0
+offset_left = 176.0
 offset_top = 1168.0
-offset_right = 200.0
+offset_right = 216.0
 offset_bottom = 1199.0
 text = "INF"
 horizontal_alignment = 1

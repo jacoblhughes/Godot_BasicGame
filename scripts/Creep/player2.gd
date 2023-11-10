@@ -38,6 +38,21 @@ func _input(event):
 		elif event is InputEventScreenDrag and is_touching:
 			target_position = event.position
 
+		var to_target = target_position - position
+		var direction = to_target.normalized()
+
+		if(abs(direction.x)>abs(direction.y)):
+			$AnimatedSprite2D.play("walking")
+			if(direction.x>0):
+				$AnimatedSprite2D.flip_h = true
+			else:
+				$AnimatedSprite2D.flip_h = false
+		else:
+			$AnimatedSprite2D.play("up")
+			if(direction.y>0):
+				$AnimatedSprite2D.flip_v = true
+			else:
+				$AnimatedSprite2D.flip_v = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 
@@ -46,34 +61,7 @@ func _physics_process(_delta):
 	position = position.lerp(target_position, lerp_speed)
 	position.x = clamp(position.x, GameManager.PlayArea.global_position.x,GameManager.PlayArea.global_position.x+GameManager.PlayArea.size.x)
 	position.y = clamp(position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	var velocity = Vector2.ZERO # The player's movement vector.
-#	if Input.is_action_pressed("move_right"):
-#		velocity.x += 1
-#	if Input.is_action_pressed("move_left"):
-#		velocity.x -= 1
-#	if Input.is_action_pressed("move_down"):
-#		velocity.y += 1
-#	if Input.is_action_pressed("move_up"):
-#		velocity.y -= 1
-#
-#	if velocity.length() > 0:
-#		velocity = velocity.normalized() * speed
-#		$AnimatedSprite2D.play()
-#	else:
-#		$AnimatedSprite2D.stop()
-#
-#	position += velocity * delta
-#	position = position.clamp(screen_position, screen_position+screen_size)	
-#	if velocity.x != 0:
-#		$AnimatedSprite2D.animation = "walking"
-#		$AnimatedSprite2D.flip_v = false
-#		# See the note below about boolean assignment.
-#		$AnimatedSprite2D.flip_h = velocity.x < 0
-#	elif velocity.y != 0:
-#		$AnimatedSprite2D.animation = "up"
-#		$AnimatedSprite2D.flip_v = velocity.y > 0
+
 
 
 func _on_body_entered(body):

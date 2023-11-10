@@ -25,9 +25,9 @@ color = Color(0.152941, 0.152941, 0.152941, 1)
 layer = -2
 
 [node name="PlayArea" type="ColorRect" parent="PlayAreaCanvas"]
-offset_left = 24.0
+offset_left = 40.0
 offset_top = 144.0
-offset_right = 696.0
+offset_right = 680.0
 offset_bottom = 1136.0
 color = Color(0.114935, 0.205596, 0.209237, 1)
 
