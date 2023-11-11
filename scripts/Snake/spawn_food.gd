@@ -4,7 +4,6 @@ extends Node2D
 @onready var snake := get_parent().get_node("snake") as Snake
 var my_food_instance
 var tween_rotate: Tween
-var score = 0
 var score_value = 1
 var radius = 10  # Radius of the circular path
 var speed = 90   # Angular speed (degrees per second)

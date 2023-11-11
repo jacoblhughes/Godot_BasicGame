@@ -28,7 +28,7 @@ func _physics_process(delta):
 		
 		# Handle Jump.
 		if Input.is_action_just_pressed("left_mouse_click") and is_on_floor() and rng.randi_range(1,100) == 69:
-			velocity.y = JUMP_VELOCITY * 1000000000000
+			velocity.y = JUMP_VELOCITY * 10
 		elif Input.is_action_just_pressed("left_mouse_click") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 

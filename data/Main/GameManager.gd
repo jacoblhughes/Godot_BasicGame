@@ -214,7 +214,7 @@ func set_initials(initials):
 	config.save(perry_arcade_path)
 	
 func check_highscore_and_rank(section_name):
-
+	print(score)
 	var high_scores_names = config.get_value(section_name, "names", [])
 	var high_scores = config.get_value(section_name, "scores", [])
 #	var item_list = $HighScorePopup/ColorRect/ItemList

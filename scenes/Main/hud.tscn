@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://sounds/Main/gameover.wav" id="5_koihj"]
 [ext_resource type="AudioStream" uid="uid://csg3bmyrqi0d7" path="res://sounds/Main/House In a Forest Loop.ogg" id="6_i11y2"]
 [ext_resource type="StyleBox" uid="uid://bi1h1qrx1ms0j" path="res://themes/Main/panel.tres" id="7_2w0u3"]
-[ext_resource type="Texture2D" uid="uid://b0asbgnrxr6u5" path="res://art/Main/lives.png" id="8_whkqm"]
+[ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://art/Main/perry_original_256x256.png" id="8_uv2qu"]
 
 [sub_resource type="Theme" id="Theme_342le"]
 
@@ -178,8 +178,8 @@ text = "Home"
 
 [node name="LivesSprite" type="Sprite2D" parent="Control"]
 position = Vector2(72, 1216)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("8_whkqm")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_uv2qu")
 
 [node name="LivesX" type="Label" parent="Control"]
 layout_mode = 0
