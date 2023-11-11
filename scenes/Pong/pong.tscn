@@ -97,7 +97,7 @@ friction = 0.0
 bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7eiv"]
-size = Vector2(672, 16)
+size = Vector2(640, 16)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1uhjp"]
 friction = 0.0
@@ -117,9 +117,9 @@ metadata/_edit_vertical_guides_ = [592.0]
 layer = -1
 
 [node name="Background" type="TextureRect" parent="BackgroundCanvas"]
-offset_left = 24.0
+offset_left = 40.0
 offset_top = 144.0
-offset_right = 696.0
+offset_right = 680.0
 offset_bottom = 1168.0
 texture = ExtResource("1_d13kx")
 expand_mode = 1
@@ -189,9 +189,9 @@ shape = SubResource("RectangleShape2D_5bfcs")
 physics_material_override = SubResource("PhysicsMaterial_p42yw")
 
 [node name="ColorRect" type="ColorRect" parent="Top Wall"]
-offset_left = 24.0
+offset_left = 40.0
 offset_top = 128.0
-offset_right = 696.0
+offset_right = 680.0
 offset_bottom = 144.0
 color = Color(0.4, 0.6, 0.607843, 1)
 
@@ -203,9 +203,9 @@ shape = SubResource("RectangleShape2D_c7eiv")
 physics_material_override = SubResource("PhysicsMaterial_1uhjp")
 
 [node name="ColorRect2" type="ColorRect" parent="Bottom Wall"]
-offset_left = 24.0
+offset_left = 40.0
 offset_top = 1168.0
-offset_right = 696.0
+offset_right = 680.0
 offset_bottom = 1184.0
 color = Color(0.4, 0.6, 0.607843, 1)
 
@@ -216,13 +216,13 @@ shape = SubResource("RectangleShape2D_c7eiv")
 [node name="Win" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
-position = Vector2(12, 656)
+position = Vector2(28, 656)
 shape = SubResource("RectangleShape2D_ek0n5")
 
 [node name="Lose" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lose"]
-position = Vector2(708, 656)
+position = Vector2(692, 656)
 shape = SubResource("RectangleShape2D_1g147")
 
 [node name="LevelLabel" type="Label" parent="."]
