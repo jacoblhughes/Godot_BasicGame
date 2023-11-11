@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -400.0
 var start_position_marker : Marker2D
 signal took_damage
 @onready var RocketShootSound : AudioStreamPlayer = $RocketShootSound
+@onready var player_hit_sound : AudioStreamPlayer = $PlayerDamageSound
 @onready var rocket_timer : Timer
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -65,6 +66,7 @@ func shoot():
 	RocketShootSound.play()
 	
 func take_damage():
+	player_hit_sound.play()
 	took_damage.emit()
 
 

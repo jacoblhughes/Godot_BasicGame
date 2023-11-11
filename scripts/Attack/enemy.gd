@@ -2,6 +2,7 @@ extends Area2D
 
 @export var SPEED = 120
 @onready var visible_notifier = $VisibleOnScreenNotifier2D
+@onready var enemy_die_sound : AudioStreamPlayer = $EnemyHitSound
 signal died
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +16,11 @@ func _physics_process(delta):
 	pass
 
 func die():
+#	SPEED = 0
+#	$CollisionShape2D.disabled=true
+#	enemy_die_sound.play()
 	died.emit()
+#	await get_tree().create_timer(1).timeout
 	queue_free()
 
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwicawex72pjw"]
+[gd_scene load_steps=8 format=3 uid="uid://dwicawex72pjw"]
 
 [ext_resource type="Script" path="res://scripts/Attack/enemy.gd" id="1_krp5k"]
 [ext_resource type="Texture2D" uid="uid://buab01uyncmou" path="res://art/Attack/enemy_256.png" id="2_06oly"]
+[ext_resource type="AudioStream" uid="uid://byygwxpyf0h3k" path="res://sounds/Attack/enemy_die.wav" id="3_yu2rt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m1nbk"]
 atlas = ExtResource("2_06oly")
@@ -44,5 +45,8 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_g0732")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="EnemyHitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yu2rt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

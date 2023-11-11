@@ -1,13 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://dx4hwtnr40m1r"]
+[gd_scene load_steps=15 format=3 uid="uid://dx4hwtnr40m1r"]
 
 [ext_resource type="Script" path="res://scripts/Attack/attack_new.gd" id="1_yw0yd"]
 [ext_resource type="Texture2D" uid="uid://bym112t1vrsnm" path="res://art/Attack/attack_background_128.png" id="2_xmb1c"]
 [ext_resource type="Script" path="res://scripts/Attack/player2.gd" id="3_60l8u"]
 [ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://art/Attack/attack_256.png" id="4_v8cxa"]
-[ext_resource type="AudioStream" uid="uid://cj4pmpm87vc1e" path="res://sounds/Attack/laser.wav" id="5_dmn5x"]
-[ext_resource type="AudioStream" uid="uid://vb1ppmhh8en1" path="res://sounds/Attack/hit.wav" id="6_lysea"]
+[ext_resource type="AudioStream" uid="uid://dubvdpeowmlwb" path="res://sounds/Attack/rocket_shoot.wav" id="5_14tl0"]
 [ext_resource type="Script" path="res://scripts/Attack/enemy_spawner.gd" id="6_rbrt6"]
-[ext_resource type="AudioStream" uid="uid://crjkhotcldat0" path="res://sounds/Attack/explode.wav" id="8_xpq0a"]
+[ext_resource type="AudioStream" uid="uid://qr7a7tnqwl30" path="res://sounds/Attack/player_hit.wav" id="8_0j06b"]
 
 [sub_resource type="Gradient" id="Gradient_fecji"]
 colors = PackedColorArray(0.939454, 0.905903, 1.54018e-06, 1, 1, 0, 0, 1)
@@ -82,7 +81,10 @@ shape = SubResource("RectangleShape2D_gy4xc")
 [node name="RocketSpawn" type="Node" parent="Player"]
 
 [node name="RocketShootSound" type="AudioStreamPlayer" parent="Player"]
-stream = ExtResource("5_dmn5x")
+stream = ExtResource("5_14tl0")
+
+[node name="PlayerDamageSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("8_0j06b")
 
 [node name="RocketTimer" type="Timer" parent="Player"]
 
@@ -121,12 +123,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
 position = Vector2(-104, 496)
 shape = SubResource("RectangleShape2D_3f3jt")
-
-[node name="EnemyHitSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_lysea")
-
-[node name="PlayerDamageSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_xpq0a")
 
 [connection signal="timeout" from="Player/RocketTimer" to="Player" method="_on_rocket_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/PathEnemyTimer" to="EnemySpawner" method="_on_path_enemy_timer_timeout"]

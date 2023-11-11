@@ -43,6 +43,7 @@ func _on_deathzone_area_entered(area):
 
 func _on_player_hit():
 	GameManager.update_lives(-lives_lost)
+	
 	if(GameManager.get_lives()<=0):
 		_game_over()
 
