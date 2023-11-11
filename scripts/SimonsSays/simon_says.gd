@@ -164,7 +164,7 @@ func _stop_game_button_animations_and_timer():
 	for button in groupOfButtons:
 		button.faceAnimation.stop()
 	for button in groupOfButtons:
-		button.faceAnimation.play('resting')
+		button.faceAnimation.play('default')
 	for button in groupOfButtons:
 		button.animation.play('dark')
 	for button in groupOfButtons:
