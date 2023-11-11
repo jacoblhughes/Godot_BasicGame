@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq80x8xgeg676"]
 
 [ext_resource type="Script" path="res://scripts/Dino/enemy.gd" id="1_fcfla"]
-[ext_resource type="Texture2D" uid="uid://n56lmsyyuxms" path="res://art/Dino/carrot.png" id="2_1gnc4"]
+[ext_resource type="Texture2D" uid="uid://cof8ga6adr0sv" path="res://art/Dino/clock_256.png" id="2_48lyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20oip"]
-size = Vector2(41, 41)
+size = Vector2(29, 41)
 
 [node name="Enemy" type="CharacterBody2D"]
 position = Vector2(550, 648)
@@ -14,8 +14,8 @@ script = ExtResource("1_fcfla")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4.5, -4.5)
-scale = Vector2(0.640625, 0.640625)
-texture = ExtResource("2_1gnc4")
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_48lyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4.5, -4.5)

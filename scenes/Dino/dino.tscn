@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://cgu5dun6rgtic"]
+[gd_scene load_steps=26 format=3 uid="uid://cgu5dun6rgtic"]
 
 [ext_resource type="Script" path="res://scripts/Dino/dino_new.gd" id="1_hu7jq"]
 [ext_resource type="Texture2D" uid="uid://cpabchmbtrroe" path="res://art/Dino/Background.png" id="1_r83wa"]
 [ext_resource type="Texture2D" uid="uid://bo54ob6kkbcat" path="res://art/Dino/floor.png" id="3_2xs3o"]
+[ext_resource type="Texture2D" uid="uid://cvtbw481dyded" path="res://art/Dino/dino_background_144_256.png" id="3_532ym"]
 [ext_resource type="Script" path="res://scripts/Dino/player.gd" id="4_k47uy"]
 [ext_resource type="Texture2D" uid="uid://bfev0n88gh0b6" path="res://art/Dino/Llama Standing.png" id="5_pjy3y"]
 [ext_resource type="Texture2D" uid="uid://bwq6vhyamxakq" path="res://art/Dino/Llama Jumping.png" id="6_mkjvp"]
@@ -123,6 +124,14 @@ offset_bottom = 794.0
 texture = ExtResource("1_r83wa")
 expand_mode = 1
 
+[node name="Background2" type="TextureRect" parent="BackgroundCanvas"]
+offset_left = 40.0
+offset_top = 664.0
+offset_right = 680.0
+offset_bottom = 1170.0
+texture = ExtResource("3_532ym")
+expand_mode = 1
+
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(24, 664)
 collision_layer = 4
@@ -130,6 +139,7 @@ collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_p4gh0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor"]
+visible = false
 position = Vector2(335, 20)
 scale = Vector2(10.0313, 0.625)
 texture = ExtResource("3_2xs3o")
