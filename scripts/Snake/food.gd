@@ -3,7 +3,6 @@ extends Node2D
 
 var food_position := Vector2()
 var size := SnakeVariables.snakecellsize
-var color := SnakeVariables.YELLOW
 
 @onready var my_sprite: Sprite2D
 signal SnakeFoodReady

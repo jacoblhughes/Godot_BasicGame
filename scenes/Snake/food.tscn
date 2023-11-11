@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1lvj4sddaalt"]
 
 [ext_resource type="Script" path="res://scripts/Snake/food.gd" id="1_5ty6m"]
-[ext_resource type="Texture2D" uid="uid://clt1eqrtj3vnv" path="res://art/Main/Cham.png" id="2_fv22w"]
+[ext_resource type="Texture2D" uid="uid://bqd3t0ewnnfu" path="res://art/Main/cham_256.png" id="2_7yqg1"]
 
 [node name="Food" type="Node2D"]
 script = ExtResource("1_5ty6m")
 
 [node name="AppleSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_fv22w")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7yqg1")

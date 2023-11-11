@@ -181,10 +181,14 @@ func on_reset_button_reset_button_pressed():
 	GameManager.reset_score()
 	isFirst = true
 	isFirstminiSnake = true
+	
 func game_over():
+	
 	SnakeTimer.stop()
 	GameManager.reset_score()
 	minisnakes = []
+	GameManager.set_gameover_panel(true)
+	GameManager.check_highscore_and_rank("snake")
 	pass
 
 func _change_game_disabled(status):

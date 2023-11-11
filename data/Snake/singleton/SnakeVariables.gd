@@ -5,10 +5,8 @@ var snakecellsize := Vector2(0,0)
 var GRID_SIZE := Vector2(0,0)
 var GRID_POSITION := Vector2(0,0)
 
-const BLUE := Color('#66999b')
-const RED := Color('red')
-const DARKBLUE := Color('darkblue')
-const YELLOW := Color('yellow')
+const BLUE := Color('#306082')
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
