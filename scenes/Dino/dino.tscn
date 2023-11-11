@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bfev0n88gh0b6" path="res://art/Dino/Llama Standing.png" id="5_pjy3y"]
 [ext_resource type="Texture2D" uid="uid://bwq6vhyamxakq" path="res://art/Dino/Llama Jumping.png" id="6_mkjvp"]
 [ext_resource type="Texture2D" uid="uid://cii58wta6uq53" path="res://art/Dino/Llama Walking.png" id="7_reb8w"]
-[ext_resource type="Texture2D" uid="uid://dvnnkd6b2r0gv" path="res://art/Dino/fire.png" id="8_n8xmc"]
 [ext_resource type="Script" path="res://scripts/Dino/magic_roddy.gd" id="9_p3nqo"]
+[ext_resource type="Texture2D" uid="uid://b3ceohymx1b0e" path="res://art/Dino/lava_256.png" id="9_wujag"]
 [ext_resource type="Texture2D" uid="uid://bmrl73a4q1ijw" path="res://art/Dino/MagicRoddy 2.png" id="10_5oprx"]
 [ext_resource type="Texture2D" uid="uid://42wiycp2pxxq" path="res://art/Dino/MagicRoddy 1.png" id="11_77ltj"]
 [ext_resource type="Texture2D" uid="uid://ch8li2lgrut36" path="res://art/Dino/perry_run_256.png" id="12_6pact"]
@@ -170,9 +170,9 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Despawn"]
-position = Vector2(24, 60)
-scale = Vector2(0.00649614, 0.00666667)
-texture = ExtResource("8_n8xmc")
+position = Vector2(32, 56)
+scale = Vector2(0.1875, 0.1875)
+texture = ExtResource("9_wujag")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Despawn"]
 position = Vector2(16, 35)

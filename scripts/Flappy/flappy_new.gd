@@ -32,7 +32,7 @@ func _on_play_button_pressed():
 
 
 func _on_enemy_scoring_body_entered(body):
-	print(body.name)
+
 	GameManager.update_score(score_value)
 	pass # Replace with function body.
 
