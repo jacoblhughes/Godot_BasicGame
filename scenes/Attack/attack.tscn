@@ -38,9 +38,8 @@ scale_max = 10.0
 scale_curve = SubResource("CurveTexture_dut66")
 color_ramp = SubResource("GradientTexture1D_es2e6")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v28f3"]
-radius = 21.0
-height = 64.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy4xc"]
+size = Vector2(26, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3f3jt"]
 size = Vector2(96, 992)
@@ -54,6 +53,7 @@ script = ExtResource("1_yw0yd")
 layer = -1
 
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
+visible = false
 offset_left = 24.0
 offset_top = 144.0
 offset_right = 690.0
@@ -77,7 +77,8 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_v8cxa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CapsuleShape2D_v28f3")
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_gy4xc")
 
 [node name="RocketSpawn" type="Node" parent="Player"]
 

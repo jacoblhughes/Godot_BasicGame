@@ -2,7 +2,7 @@ Perry Arcade
 
 Simon
 	Make buttons better animations
-	--Make buttons a class so I can call the pressed method
+	--Make buttons a class so I can call the pressed method?
 
 Snake
 	start and stop
@@ -20,37 +20,25 @@ Pong
 	Make finding positions of things like the initial bass position happen in code to adjust for heights
 
 Dino
-	Make differente enemy scenes
-	Game over and such
+
 
 Creep
-	Make touch screen responsive
-	Make splashscreen to start
-	Reset screen
-	Game over and such
+
 
 Flappy
-	Needs different scenes
-	Way to count score
-	Reset
-	Game Over
+
 
 Saucer
-	Design a few levels
-	Make game mission
-
-Alien Attack
-	Improve
-	Rest
-	Game Over
 
 
-	
+Alien Attack	
 
 
 
 Background music
-
+Backgrounds!!!!!!
+Sounds!!!!
+Color Pallette
 
 Popup panels like gameover and start are theme overrides right now, how do I set a theme
 

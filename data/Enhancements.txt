@@ -28,7 +28,7 @@ Flappy
 
 	
 Saucer
-	Game over
+
 	
 Alien Attack
 	Make spawn points programmatic

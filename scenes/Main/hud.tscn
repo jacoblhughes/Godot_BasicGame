@@ -50,9 +50,9 @@ vertical_alignment = 1
 [node name="Home_Button" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 416.0
-offset_top = 1160.0
+offset_top = 1192.0
 offset_right = 680.0
-offset_bottom = 1216.0
+offset_bottom = 1248.0
 theme = ExtResource("3_e6l0l")
 text = "Home"
 
@@ -177,16 +177,16 @@ theme = ExtResource("3_e6l0l")
 text = "Home"
 
 [node name="LivesSprite" type="Sprite2D" parent="Control"]
-position = Vector2(72, 1184)
+position = Vector2(72, 1216)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_whkqm")
 
 [node name="LivesX" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 120.0
-offset_top = 1168.0
+offset_top = 1200.0
 offset_right = 160.0
-offset_bottom = 1200.0
+offset_bottom = 1232.0
 text = "X"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -194,9 +194,9 @@ vertical_alignment = 1
 [node name="LivesLabel" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 176.0
-offset_top = 1168.0
+offset_top = 1200.0
 offset_right = 216.0
-offset_bottom = 1199.0
+offset_bottom = 1231.0
 text = "INF"
 horizontal_alignment = 1
 vertical_alignment = 1
