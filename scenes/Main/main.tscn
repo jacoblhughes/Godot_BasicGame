@@ -37,7 +37,7 @@ offset_left = 40.0
 offset_top = 144.0
 offset_right = 680.0
 offset_bottom = 1168.0
-color = Color(0.85098, 0.341176, 0.388235, 1)
+color = Color(0.196078, 0.235294, 0.223529, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayAreaCanvas"]
 visible = false

@@ -1,17 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://cefj2lv5abrhk"]
+[gd_scene load_steps=12 format=3 uid="uid://cefj2lv5abrhk"]
 
 [ext_resource type="Theme" uid="uid://c3vsilsjx2s6p" path="res://themes/SimonSays/button_first.tres" id="1_jx052"]
 [ext_resource type="Script" path="res://scripts/SimonsSays/game_button.gd" id="2_t1xth"]
 [ext_resource type="AudioStream" uid="uid://05dbcdpo80hl" path="res://sounds/SimonSays/c_sharp.wav" id="3_b7fw6"]
-[ext_resource type="Texture2D" uid="uid://bpst11e7cd661" path="res://art/SimonSays/BlueDark.png" id="4_o2djb"]
-[ext_resource type="Texture2D" uid="uid://c34y2fdklm14p" path="res://art/SimonSays/BlueLight.png" id="5_ngmvg"]
+[ext_resource type="Texture2D" uid="uid://p0aiod4c07sk" path="res://art/SimonSays/blue_256.png" id="4_35lja"]
 [ext_resource type="Texture2D" uid="uid://cuksh1427cgxl" path="res://art/SimonSays/perry_simon_buttons_256x256.png" id="6_sp18u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa0nn"]
+atlas = ExtResource("4_35lja")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3spi"]
+atlas = ExtResource("4_35lja")
+region = Rect2(256, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0megc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_o2djb")
+"texture": SubResource("AtlasTexture_wa0nn")
 }],
 "loop": false,
 "name": &"dark",
@@ -19,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_ngmvg")
+"texture": SubResource("AtlasTexture_q3spi")
 }],
 "loop": false,
 "name": &"light",
@@ -64,7 +71,7 @@ stream = ExtResource("3_b7fw6")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(96, 96)
-scale = Vector2(1.28, 1.28)
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_0megc")
 animation = &"dark"
 
