@@ -3,14 +3,18 @@ extends CharacterBody2D
 @onready var ball : CharacterBody2D
 @onready var my_sprite : ColorRect
 @export var sizeOfPaddle : Vector2
+@onready var PONGSIGNALS = get_parent().get_node("pong")
 var lag_timer = 0.0
 var lag_duration = 0.5  # Adjust this value to control the lag duration
 var speed = .5
+var original_position
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	my_sprite = $ColorRect
 	ball = get_parent().get_node("Ball")
 	sizeOfPaddle = my_sprite.size
+	original_position = position
+	PONGSIGNALS.position_reset.connect(_on_position_reset)
 	pass # Replace with function body.
 
 
@@ -36,3 +40,6 @@ func _physics_process(_delta):
 	position.y = clamp(position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y - my_sprite.size.y)
 
 
+func _on_position_reset():
+	position = original_position
+	pass

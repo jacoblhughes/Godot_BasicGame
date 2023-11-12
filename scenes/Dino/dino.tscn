@@ -1,13 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://cgu5dun6rgtic"]
+[gd_scene load_steps=28 format=3 uid="uid://cgu5dun6rgtic"]
 
 [ext_resource type="Script" path="res://scripts/Dino/dino_new.gd" id="1_hu7jq"]
 [ext_resource type="Texture2D" uid="uid://cpabchmbtrroe" path="res://art/Dino/Background.png" id="1_r83wa"]
 [ext_resource type="Texture2D" uid="uid://bo54ob6kkbcat" path="res://art/Dino/floor.png" id="3_2xs3o"]
-[ext_resource type="Texture2D" uid="uid://cvtbw481dyded" path="res://art/Dino/dino_background_144_256.png" id="3_532ym"]
+[ext_resource type="Texture2D" uid="uid://ce40noiu3u1wf" path="res://art/Dino/dino_background_256_512.png" id="3_mje4q"]
 [ext_resource type="Script" path="res://scripts/Dino/player.gd" id="4_k47uy"]
-[ext_resource type="Texture2D" uid="uid://bfev0n88gh0b6" path="res://art/Dino/Llama Standing.png" id="5_pjy3y"]
-[ext_resource type="Texture2D" uid="uid://bwq6vhyamxakq" path="res://art/Dino/Llama Jumping.png" id="6_mkjvp"]
-[ext_resource type="Texture2D" uid="uid://cii58wta6uq53" path="res://art/Dino/Llama Walking.png" id="7_reb8w"]
+[ext_resource type="Texture2D" uid="uid://3fw72qk2urij" path="res://art/Dino/llama_256.png" id="6_53idk"]
 [ext_resource type="Script" path="res://scripts/Dino/magic_roddy.gd" id="9_p3nqo"]
 [ext_resource type="Texture2D" uid="uid://b3ceohymx1b0e" path="res://art/Dino/lava_256.png" id="9_wujag"]
 [ext_resource type="Texture2D" uid="uid://bmrl73a4q1ijw" path="res://art/Dino/MagicRoddy 2.png" id="10_5oprx"]
@@ -19,14 +17,33 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nchlr"]
 size = Vector2(640, 40)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r340r"]
+atlas = ExtResource("6_53idk")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivc20"]
+atlas = ExtResource("6_53idk")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os657"]
+atlas = ExtResource("6_53idk")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc30w"]
+atlas = ExtResource("6_53idk")
+region = Rect2(768, 0, 256, 256)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_t46dg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_pjy3y")
+"texture": SubResource("AtlasTexture_r340r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_reb8w")
+"texture": SubResource("AtlasTexture_ivc20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os657")
 }],
 "loop": false,
 "name": &"default",
@@ -34,7 +51,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_mkjvp")
+"texture": SubResource("AtlasTexture_jc30w")
 }],
 "loop": false,
 "name": &"jumping",
@@ -42,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8xow"]
-size = Vector2(48, 77)
+size = Vector2(80, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pk4an"]
 size = Vector2(16, 90)
@@ -126,10 +143,10 @@ expand_mode = 1
 
 [node name="Background2" type="TextureRect" parent="BackgroundCanvas"]
 offset_left = 40.0
-offset_top = 664.0
+offset_top = 144.0
 offset_right = 680.0
 offset_bottom = 1170.0
-texture = ExtResource("3_532ym")
+texture = ExtResource("3_mje4q")
 expand_mode = 1
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -149,16 +166,16 @@ position = Vector2(336, 20)
 shape = SubResource("RectangleShape2D_nchlr")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(152, 619)
+position = Vector2(152, 616)
 collision_layer = 8
 collision_mask = 14
 script = ExtResource("4_k47uy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_t46dg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_t8xow")
 
 [node name="Enemy_Spawn_Timer" type="Timer" parent="."]

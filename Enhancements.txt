@@ -1,21 +1,14 @@
 Perry Arcade
 
 Simon
-	Make buttons better animations
-	--Make buttons a class so I can call the pressed method?
+
 
 Snake
-	start and stop
-	maybe - make the scenes in the body do someting
-		make the food do something
-		improve collision logic
-	broken starting face
+	Improve collision logic
 
 Pong
-	Keep high score?
-	Right now there is no gameover, only progression when you hit 11
 	Improve collision mechanics
-	Make the enemy paddle reset too
+	Enemy padd resets but alter the node position
 	Make the enemy paddle worse and get better as the levels progress
 	Make finding positions of things like the initial bass position happen in code to adjust for heights
 
@@ -31,7 +24,7 @@ Flappy
 Saucer
 
 
-Alien Attack	
+Attack
 
 
 
@@ -39,13 +32,15 @@ Background music
 Backgrounds!!!!!!
 Sounds!!!!
 Color Pallette
+Clamp things
+Things only can be seen in game area - z axis?
+Home button does not trigget a jump
 
 Popup panels like gameover and start are theme overrides right now, how do I set a theme
-
-What to do about reassiging groups on quue free
 
 Make directions for each game
 
 Timing loading for each element - noticably android and labels and such
 
-
+Simon
+	Make buttons a class so I can call the pressed method?
