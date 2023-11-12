@@ -15,39 +15,48 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jwx6u")
 
-[node name="BackgroundCanvas" type="CanvasLayer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BackgroundCanvas" type="CanvasLayer" parent="MarginContainer"]
 layer = -3
 
-[node name="Background" type="ColorRect" parent="BackgroundCanvas"]
+[node name="Background" type="ColorRect" parent="MarginContainer/BackgroundCanvas"]
 offset_right = 720.0
 offset_bottom = 1280.0
 color = Color(0.85098, 0.627451, 0.4, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundCanvas"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/BackgroundCanvas"]
 visible = false
 position = Vector2(360, 640)
 scale = Vector2(22.5, 40)
 texture = ExtResource("2_d1nmr")
 
-[node name="PlayAreaCanvas" type="CanvasLayer" parent="."]
+[node name="PlayAreaCanvas" type="CanvasLayer" parent="MarginContainer"]
 layer = -2
 
-[node name="PlayArea" type="ColorRect" parent="PlayAreaCanvas"]
+[node name="PlayArea" type="ColorRect" parent="MarginContainer/PlayAreaCanvas"]
 offset_left = 40.0
 offset_top = 144.0
 offset_right = 680.0
 offset_bottom = 1168.0
 color = Color(0.196078, 0.235294, 0.223529, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayAreaCanvas"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/PlayAreaCanvas"]
 visible = false
 position = Vector2(360, 640)
 scale = Vector2(20, 31)
 texture = ExtResource("3_cgisd")
 
-[node name="HUD" parent="." instance=ExtResource("2_v0m1m")]
+[node name="HUD" parent="MarginContainer" instance=ExtResource("2_v0m1m")]
 
-[node name="Buttons" parent="." instance=ExtResource("3_5wtcr")]
-layout_mode = 1
+[node name="Buttons" parent="MarginContainer" instance=ExtResource("3_5wtcr")]
+layout_mode = 2
 
-[node name="GameScene" type="Node" parent="."]
+[node name="GameScene" type="Node" parent="MarginContainer"]
