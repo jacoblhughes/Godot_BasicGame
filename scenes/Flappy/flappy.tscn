@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cj0i3bqn4ap1r"]
+[gd_scene load_steps=15 format=3 uid="uid://cj0i3bqn4ap1r"]
 
 [ext_resource type="Script" path="res://scripts/Flappy/flappy_new.gd" id="1_47y50"]
 [ext_resource type="Script" path="res://scripts/Flappy/enemy_spawn.gd" id="2_wrg0s"]
 [ext_resource type="Script" path="res://scripts/Flappy/player.gd" id="3_58kv2"]
 [ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://art/Flappy/bird_256.png" id="4_v42d0"]
+[ext_resource type="Texture2D" uid="uid://bhpscq4tct72d" path="res://art/Flappy/flappy_background_144_256.png" id="5_2qb0j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6q761"]
 atlas = ExtResource("4_v42d0")
@@ -110,6 +111,17 @@ shape = SubResource("RectangleShape2D_221hg")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(202, 666)
+
+[node name="BackgroundCanvas" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="BackgroundCanvas"]
+offset_left = 40.0
+offset_top = 144.0
+offset_right = 680.0
+offset_bottom = 1168.0
+texture = ExtResource("5_2qb0j")
+expand_mode = 1
 
 [connection signal="timeout" from="SpawnTimer" to="enemy_spawn" method="_on_spawn_timer_timeout"]
 [connection signal="body_entered" from="EnemyScoring" to="flappy" method="_on_enemy_scoring_body_entered"]
