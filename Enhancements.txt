@@ -5,6 +5,7 @@ Simon
 
 Snake
 	Improve collision logic
+	Rename Sprites and such back
 
 Pong
 	Improve collision mechanics

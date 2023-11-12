@@ -9,6 +9,7 @@ var stored_position = Vector2(0,0)
 @export var original_velocity = Vector2(-150,50)
 var collision_cooldown: float = 1.0
 const COLLISION_COOLDOWN_DURATION: float = 0.2
+var max_speed = 800
 
 func _ready():
 
@@ -25,13 +26,16 @@ func _game_initialize():
 
 
 func _physics_process(delta):
+
+	if(velocity.length() > max_speed):
+		velocity = velocity.normalized() * max_speed
 	if(velocity != Vector2(0,0)):
 		$AnimatedSprite2D.play("moving")
 	else:
 		$AnimatedSprite2D.play("default")
 	if collision_cooldown > 0:
 		collision_cooldown -= delta
-		
+	
 	if collision_cooldown<=0:
 		var collision = move_and_collide(velocity * delta)
 		if collision:
@@ -58,11 +62,15 @@ func _physics_process(delta):
 					# Reflect the velocity along the new direction
 					var reflect_direction = collision.get_remainder().bounce((collision.get_normal()*bounce_direction).normalized())
 					velocity = velocity.bounce((collision.get_normal()*bounce_direction).normalized())*speed_increase
+					if(velocity.length() > max_speed):
+						velocity = velocity.normalized() * max_speed
 					move_and_collide(reflect_direction)
 
 				elif(third == 2):
 					var reflect_direction = collision.get_remainder().bounce(collision.get_normal())
 					velocity = velocity.bounce(collision.get_normal())*speed_increase
+					if(velocity.length() > max_speed):
+						velocity = velocity.normalized() * max_speed
 					move_and_collide(reflect_direction)
 				else:
 					if (normal_direction >0):
@@ -71,11 +79,15 @@ func _physics_process(delta):
 						bounce_direction = Vector2(-1, 1).normalized()
 					var reflect_direction = collision.get_remainder().bounce((collision.get_normal()*bounce_direction).normalized())
 					velocity = velocity.bounce((collision.get_normal()*bounce_direction).normalized())*speed_increase
+					if(velocity.length() > max_speed):
+						velocity = velocity.normalized() * max_speed
 					move_and_collide(reflect_direction)
 
 			else:
 				var reflect_direction = collision.get_remainder().bounce(collision.get_normal())
 				velocity = velocity.bounce(collision.get_normal())
+				if(velocity.length() > max_speed):
+					velocity = velocity.normalized() * max_speed
 				move_and_collide(reflect_direction)
 
 

@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var PONGSIGNALS = get_parent().get_node("pong")
 var lag_timer = 0.0
 var lag_duration = 0.5  # Adjust this value to control the lag duration
-var speed = .5
+var speed = 1
 var original_position
 # Called when the node enters the scene tree for the first time.
 func _ready():
