@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://blbkhwggjbpq0"]
+[gd_scene load_steps=15 format=3 uid="uid://bnxicq2u0flrx"]
 
 [ext_resource type="Script" path="res://scripts/Main/buttons.gd" id="1_x5h1j"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://scenes/SimonSays/simon_says.tscn" id="2_f7dlu"]
