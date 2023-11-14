@@ -26,8 +26,7 @@ AudioManager="*res://data/Main/AudioManager.gd"
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
-window/stretch/mode="canvas_items"
-window/stretch/aspect="ignore"
+window/stretch/mode="viewport"
 window/handheld/orientation=1
 
 [input]

@@ -19,9 +19,12 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mxgc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="Buttons" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Buttons" type="GridContainer"]
+offset_right = 346.0
+offset_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
 script = ExtResource("1_x5h1j")
 simon_says = ExtResource("2_f7dlu")
 snake = ExtResource("3_srr2a")
@@ -32,82 +35,95 @@ flappy = ExtResource("7_eg55i")
 saucer = ExtResource("8_ni3d4")
 attack = ExtResource("9_trp7d")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 720.0
-offset_bottom = 1280.0
-
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_right = 720.0
-offset_bottom = 1280.0
-columns = 3
-
-[node name="SimonSays" type="Button" parent="GridContainer"]
+[node name="SimonSays" type="Button" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("10_85yih")
 text = "Simon Says Game"
 
-[node name="Snake" type="Button" parent="GridContainer"]
+[node name="Snake" type="Button" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("10_85yih")
 text = "Snake"
 
-[node name="Perry" type="Button" parent="GridContainer"]
+[node name="Perry" type="Button" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("10_85yih")
 text = "Pong
 "
 
-[node name="Dino" type="Button" parent="GridContainer"]
+[node name="Dino" type="Button" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("10_85yih")
 text = "Dino"
 
-[node name="Creep" type="Button" parent="GridContainer"]
+[node name="Creep" type="Button" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("10_85yih")
 text = "Avoid the Creep"
 
-[node name="Flappy" type="Button" parent="GridContainer"]
+[node name="Flappy" type="Button" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("10_85yih")
 text = "Flappy"
 
-[node name="Saucer" type="Button" parent="GridContainer"]
+[node name="Saucer" type="Button" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("10_85yih")
 text = "Saucer"
 
-[node name="Attack" type="Button" parent="GridContainer"]
+[node name="Attack" type="Button" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("10_85yih")
 text = "Alien Attack"
 
-[node name="Rodican" type="Button" parent="GridContainer"]
+[node name="Rodican" type="Button" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("10_85yih")
 text = "Rodican"
 
-[node name="Initials" type="LineEdit" parent="GridContainer"]
+[node name="Initials" type="LineEdit" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("11_h0sww")
 alignment = 1
 max_length = 3
 
-[node name="InitialsLabel" type="Label" parent="GridContainer"]
+[node name="InitialsLabel" type="Label" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("12_fypji")
 text = "Input Initials:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highscore_Button" type="Button" parent="GridContainer"]
+[node name="Highscore_Button" type="Button" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("10_85yih")
 text = "Highscore"
 
-[node name="HighScorePopup" type="Window" parent="GridContainer"]
+[node name="HighScorePopup" type="Window" parent="."]
 title = "Highscores"
 position = Vector2i(40, 250)
 size = Vector2i(640, 512)
@@ -115,14 +131,14 @@ visible = false
 borderless = true
 always_on_top = true
 
-[node name="ColorRect" type="ColorRect" parent="GridContainer/HighScorePopup"]
+[node name="ColorRect" type="ColorRect" parent="HighScorePopup"]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 644.0
 offset_bottom = 516.0
 color = Color(0.188235, 0.376471, 0.509804, 1)
 
-[node name="HighScoreTitle" type="Label" parent="GridContainer/HighScorePopup"]
+[node name="HighScoreTitle" type="Label" parent="HighScorePopup"]
 visible = false
 offset_left = 4.0
 offset_top = 4.0
@@ -132,7 +148,7 @@ text = "High Scores:"
 label_settings = SubResource("LabelSettings_v6btp")
 autowrap_mode = 1
 
-[node name="ItemList" type="ItemList" parent="GridContainer/HighScorePopup"]
+[node name="ItemList" type="ItemList" parent="HighScorePopup"]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 644.0
@@ -143,12 +159,12 @@ select_mode = 1
 max_text_lines = 20
 same_column_width = true
 
-[connection signal="pressed" from="GridContainer/SimonSays" to="." method="_on_simon_says_pressed"]
-[connection signal="pressed" from="GridContainer/Snake" to="." method="_on_snake_pressed"]
-[connection signal="pressed" from="GridContainer/Perry" to="." method="_on_pong_pressed"]
-[connection signal="pressed" from="GridContainer/Dino" to="." method="_on_dino_pressed"]
-[connection signal="pressed" from="GridContainer/Creep" to="." method="_on_creep_pressed"]
-[connection signal="pressed" from="GridContainer/Flappy" to="." method="_on_flappy_pressed"]
-[connection signal="pressed" from="GridContainer/Saucer" to="." method="_on_saucer_pressed"]
-[connection signal="pressed" from="GridContainer/Attack" to="." method="_on_attack_pressed"]
-[connection signal="text_changed" from="GridContainer/Initials" to="." method="_on_initials_text_changed"]
+[connection signal="pressed" from="SimonSays" to="." method="_on_simon_says_pressed"]
+[connection signal="pressed" from="Snake" to="." method="_on_snake_pressed"]
+[connection signal="pressed" from="Perry" to="." method="_on_pong_pressed"]
+[connection signal="pressed" from="Dino" to="." method="_on_dino_pressed"]
+[connection signal="pressed" from="Creep" to="." method="_on_creep_pressed"]
+[connection signal="pressed" from="Flappy" to="." method="_on_flappy_pressed"]
+[connection signal="pressed" from="Saucer" to="." method="_on_saucer_pressed"]
+[connection signal="pressed" from="Attack" to="." method="_on_attack_pressed"]
+[connection signal="text_changed" from="Initials" to="." method="_on_initials_text_changed"]
