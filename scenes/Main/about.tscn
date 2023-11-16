@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b8eyyvj5cesul"]
+
+[node name="about" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 40.0
+offset_top = 144.0
+offset_right = 680.0
+offset_bottom = 1168.0
+bbcode_enabled = true
+text = "[center][b]Thank you for using Perry Arcade![/b][/center]
+
+[b]Credit:[/b]
+[b]Director:[/b] Jacob Hughes
+[b]Lead Llama Artist:[/b] Christina Esquer
+[b]Assistant To The Intern:[/b] Roderick P Hughes 7
+
+[b]For information regarding privacy policies, please visit:[/b]
+[url=https://jacoblhughes.com/index.php?content=apps]https://jacoblhughes.com/index.php?content=apps[/url]
+"

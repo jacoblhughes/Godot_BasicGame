@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=14 format=3 uid="uid://d4cpf87cb1bs0"]
 
 [ext_resource type="Script" path="res://scripts/Main/buttons.gd" id="1_li1cs"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://scenes/SimonSays/simon_says.tscn" id="2_gs4av"]
@@ -9,9 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cj0i3bqn4ap1r" path="res://scenes/Flappy/flappy.tscn" id="7_nnd0q"]
 [ext_resource type="PackedScene" uid="uid://cf4xkqs74ytur" path="res://scenes/Saucer/saucer.tscn" id="8_6gkse"]
 [ext_resource type="PackedScene" uid="uid://dx4hwtnr40m1r" path="res://scenes/Attack/attack.tscn" id="9_3orma"]
-[ext_resource type="Theme" uid="uid://bj6ltbgw537xh" path="res://themes/Main/button.tres" id="10_ajy0e"]
-[ext_resource type="Theme" uid="uid://cc5frax1el0v6" path="res://themes/Main/line_edit.tres" id="11_8ot7g"]
-[ext_resource type="Theme" uid="uid://0knrve0pfa03" path="res://themes/Main/label.tres" id="12_8esa3"]
+[ext_resource type="PackedScene" uid="uid://b8eyyvj5cesul" path="res://scenes/Main/about.tscn" id="10_cr0a2"]
+[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/Main/main.tres" id="10_rldi5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v6btp"]
 font_color = Color(0, 0, 0, 1)
@@ -35,6 +34,16 @@ creep = ExtResource("6_yn8lt")
 flappy = ExtResource("7_nnd0q")
 saucer = ExtResource("8_6gkse")
 attack = ExtResource("9_3orma")
+about = ExtResource("10_cr0a2")
+
+[node name="PlayArea" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 144.0
+offset_right = 680.0
+offset_bottom = 1168.0
+size_flags_horizontal = 0
+color = Color(0.196078, 0.235294, 0.223529, 1)
 
 [node name="SimonSays" type="Button" parent="."]
 layout_mode = 0
@@ -42,7 +51,7 @@ offset_left = 48.0
 offset_top = 256.0
 offset_right = 240.0
 offset_bottom = 384.0
-theme = ExtResource("10_ajy0e")
+theme = ExtResource("10_rldi5")
 text = "Simon Says Game"
 
 [node name="Snake" type="Button" parent="."]
@@ -51,7 +60,8 @@ offset_left = 264.0
 offset_top = 256.0
 offset_right = 456.0
 offset_bottom = 384.0
-theme = ExtResource("10_ajy0e")
+rotation = -0.00516278
+theme = ExtResource("10_rldi5")
 text = "Snake"
 
 [node name="Perry" type="Button" parent="."]
@@ -60,7 +70,7 @@ offset_left = 480.0
 offset_top = 256.0
 offset_right = 672.0
 offset_bottom = 384.0
-theme = ExtResource("10_ajy0e")
+theme = ExtResource("10_rldi5")
 text = "Pong
 "
 
@@ -70,7 +80,7 @@ offset_left = 48.0
 offset_top = 408.0
 offset_right = 240.0
 offset_bottom = 536.0
-theme = ExtResource("10_ajy0e")
+theme = ExtResource("10_rldi5")
 text = "Dino"
 
 [node name="Creep" type="Button" parent="."]
@@ -79,7 +89,7 @@ offset_left = 264.0
 offset_top = 408.0
 offset_right = 456.0
 offset_bottom = 536.0
-theme = ExtResource("10_ajy0e")
+theme = ExtResource("10_rldi5")
 text = "Avoid the Creep"
 
 [node name="Flappy" type="Button" parent="."]
@@ -88,7 +98,7 @@ offset_left = 480.0
 offset_top = 408.0
 offset_right = 672.0
 offset_bottom = 536.0
-theme = ExtResource("10_ajy0e")
+theme = ExtResource("10_rldi5")
 text = "Flappy"
 
 [node name="Saucer" type="Button" parent="."]
@@ -97,7 +107,7 @@ offset_left = 48.0
 offset_top = 560.0
 offset_right = 240.0
 offset_bottom = 688.0
-theme = ExtResource("10_ajy0e")
+theme = ExtResource("10_rldi5")
 text = "Saucer"
 
 [node name="Attack" type="Button" parent="."]
@@ -106,7 +116,7 @@ offset_left = 264.0
 offset_top = 560.0
 offset_right = 456.0
 offset_bottom = 688.0
-theme = ExtResource("10_ajy0e")
+theme = ExtResource("10_rldi5")
 text = "Alien Attack"
 
 [node name="Rodican" type="Button" parent="."]
@@ -115,8 +125,17 @@ offset_left = 480.0
 offset_top = 560.0
 offset_right = 672.0
 offset_bottom = 688.0
-theme = ExtResource("10_ajy0e")
+theme = ExtResource("10_rldi5")
 text = "COMING SOON"
+
+[node name="About" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 1120.0
+offset_right = 672.0
+offset_bottom = 1160.0
+theme = ExtResource("10_rldi5")
+text = "About"
 
 [node name="Initials" type="LineEdit" parent="."]
 layout_mode = 0
@@ -124,7 +143,7 @@ offset_left = 264.0
 offset_top = 168.0
 offset_right = 456.0
 offset_bottom = 232.0
-theme = ExtResource("11_8ot7g")
+theme = ExtResource("10_rldi5")
 alignment = 1
 max_length = 3
 
@@ -134,7 +153,7 @@ offset_left = 48.0
 offset_top = 168.0
 offset_right = 240.0
 offset_bottom = 232.0
-theme = ExtResource("12_8esa3")
+theme = ExtResource("10_rldi5")
 text = "Input Initials:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -145,7 +164,7 @@ offset_left = 479.0
 offset_top = 168.0
 offset_right = 672.0
 offset_bottom = 232.0
-theme = ExtResource("10_ajy0e")
+theme = ExtResource("10_rldi5")
 text = "Highscore"
 
 [node name="HighScorePopup" type="Window" parent="."]
@@ -192,4 +211,5 @@ same_column_width = true
 [connection signal="pressed" from="Flappy" to="." method="_on_flappy_pressed"]
 [connection signal="pressed" from="Saucer" to="." method="_on_saucer_pressed"]
 [connection signal="pressed" from="Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="About" to="." method="_on_about_pressed"]
 [connection signal="text_changed" from="Initials" to="." method="_on_initials_text_changed"]

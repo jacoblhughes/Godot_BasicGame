@@ -19,6 +19,9 @@ var flappy_scene
 var saucer_scene
 @export var attack: PackedScene
 var attack_scene
+
+@export var about: PackedScene
+var about_scene
 @onready var HighscorePopup : Window
 @onready var HighscorePopupList : ItemList
 @onready var config_file_path = GameManager.get_config_path_file()
@@ -125,3 +128,12 @@ func _on_attack_pressed():
 	GameManager.set_current_game_scene(attack)
 	pass # Replace with function body.
 
+
+
+func _on_about_pressed():
+	self.visible = false
+
+	about_scene = about.instantiate()
+	game_scene.add_child(about_scene)
+	GameManager.set_current_game_scene(about)
+	pass # Replace with function body.
