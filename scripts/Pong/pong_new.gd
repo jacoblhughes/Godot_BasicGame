@@ -15,7 +15,7 @@ var lives_lost = 1
 var game_reset = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print('ready')
+
 	player = get_parent().get_node("Paddle - Player")
 	computer = get_parent().get_node("Paddle - Computer")
 	ball = get_parent().get_node("Ball")

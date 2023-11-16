@@ -43,8 +43,14 @@ func _physics_process(delta):
 			if("Enemy" in collision.get_collider().name):
 				self.collision_mask = 0  # This will disable the player's ability to detect enemies (or anything else, for that matter).
 #				collision.get_collider().queue_free()
-				print('game_over')
+
 				flappy_hit.emit()
+
+#		global_position = global_position.lerp(target_position, lerp_speed)
+		global_position.x = clamp(global_position.x, GameManager.PlayArea.global_position.x,GameManager.PlayArea.global_position.x+GameManager.PlayArea.size.x)
+		global_position.y = clamp(global_position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y)
+
+
 
 	else:
 		velocity.y = 0

@@ -19,7 +19,7 @@ func _ready():
 	screen_size = GameManager.get_play_area_size_from_HUD()
 	screen_position = GameManager.get_play_area_position_from_HUD()
 	start_position = get_parent().get_node('StartPosition')
-	target_position = start_position.position
+	target_position = start_position.global_position
 	start(target_position) 
 #	hide()
 
@@ -38,7 +38,7 @@ func _input(event):
 		elif event is InputEventScreenDrag and is_touching:
 			target_position = event.position
 
-		var to_target = target_position - position
+		var to_target = target_position - global_position
 		var direction = to_target.normalized()
 
 		if(abs(direction.x)>abs(direction.y)):
@@ -58,16 +58,16 @@ func _physics_process(_delta):
 
 #	var mouse_pos = get_viewport().get_mouse_position()
 #	target_y = mouse_pos.y
-	position = position.lerp(target_position, lerp_speed)
-	position.x = clamp(position.x, GameManager.PlayArea.global_position.x,GameManager.PlayArea.global_position.x+GameManager.PlayArea.size.x)
-	position.y = clamp(position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y)
+	global_position = global_position.lerp(target_position, lerp_speed)
+	global_position.x = clamp(global_position.x, GameManager.PlayArea.global_position.x,GameManager.PlayArea.global_position.x+GameManager.PlayArea.size.x)
+	global_position.y = clamp(global_position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y)
 
 
 
 func _on_body_entered(body):
 
 	hit.emit()
-	print('hit')
+
 	# Must be deferred as we can't change physics properties on a physics callback.
 	$CollisionShape2D.set_deferred("disabled", true)
 	

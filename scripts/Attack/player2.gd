@@ -53,7 +53,7 @@ func _physics_process(_delta):
 
 #	var mouse_pos = get_viewport().get_mouse_position()
 #	target_y = mouse_pos.y
-	global_position = position.lerp(target_position, lerp_speed)
+	global_position = global_position.lerp(target_position, lerp_speed)
 	global_position.x = clamp(global_position.x, GameManager.PlayArea.global_position.x,GameManager.PlayArea.global_position.x+GameManager.PlayArea.size.x)
 	global_position.y = clamp(global_position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y)
 

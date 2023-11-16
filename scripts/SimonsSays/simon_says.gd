@@ -118,7 +118,7 @@ func _initialize_buttons():
 		var button = buttonScenes[i].instantiate()
 		var startX = centerPosX - button.size.x 
 		var startY = centerPosY - button.size.y
-		print(col,row)
+
 		button.position = Vector2(
 			startX + col * button.size.x,
 			startY + row * button.size.y

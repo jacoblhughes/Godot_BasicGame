@@ -139,10 +139,10 @@ func set_or_reset_lives(default_lives = "INF"):
 		lives_label.text = default_lives
 		
 func play_game_over():
-	GameOverSound.play()
+	AudioManager.GameOverSound.play()
 
 func play_applause():
-	ApplauseSound.play()
+	AudioManager.ApplauseSound.play()
 	
 #func get_initials_from_HUD() -> String:
 #	return InitialsInput.text
@@ -213,7 +213,6 @@ func set_initials(initials):
 	config.save(perry_arcade_path)
 	
 func check_highscore_and_rank(section_name):
-	print(score)
 	var high_scores_names = config.get_value(section_name, "names", [])
 	var high_scores = config.get_value(section_name, "scores", [])
 #	var item_list = $HighScorePopup/ColorRect/ItemList

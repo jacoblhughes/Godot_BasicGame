@@ -35,7 +35,7 @@ func _process(delta):
 		
 		GameManager.update_score(score_value)
 		if(GameManager.get_score() == (SnakeVariables.snakecells * SnakeVariables.snakecells)):
-			print("WIN")
+
 			PlayerWin.emit()
 			
 		else:
