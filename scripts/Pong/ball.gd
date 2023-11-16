@@ -35,6 +35,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("default")
 	if collision_cooldown > 0:
 		collision_cooldown -= delta
+		
 	
 	if collision_cooldown<=0:
 		var collision = move_and_collide(velocity * delta)
