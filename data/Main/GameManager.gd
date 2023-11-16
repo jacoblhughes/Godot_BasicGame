@@ -23,11 +23,14 @@ var child_node_to_delete
 @onready var config_file_path
 @onready var new_initials
 @onready var game_over_panel : CanvasLayer
-@onready var buttons_scene  = get_tree().get_root().get_node("Main").get_node("Buttons")
+@onready var buttons_scene  = get_tree().get_root().get_node("Main").get_node("AspectRatioContainer").get_node("MarginContainer").get_node("Buttons")
 @onready var reset_button_from_gameover : Button
 @onready var home_button_from_gameover : Button
 @onready var game_scene : Node
 @onready var lives_label : Label
+@onready var aspect_ratio_container :MarginContainer
+@onready var buttons : Control
+@onready var hud_control : Control
 var perry_arcade_path = "user://perry_arcade.cfg"
 var lives = 3
 var score = 0
@@ -50,32 +53,29 @@ func _ready():
 
 	config_file_path = config.load("user://perry_arcade.cfg")
 	new_initials = config.get_value("main", "initials")
-
-	high_score_popup = get_tree().get_root().get_node("Main").get_node("Buttons").get_node("HighScorePopup")
-	high_score_popup_list = get_tree().get_root().get_node("Main").get_node("Buttons").get_node("HighScorePopup").get_node("ItemList")
-
-	InitialsInput = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("Initials")
-	ScoreLabel = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("Score")
+	aspect_ratio_container = get_tree().get_root().get_node("Main").get_node("AspectRatioContainer").get_node("MarginContainer")
+	buttons = aspect_ratio_container.get_node("Buttons")
+	high_score_popup = buttons.get_node("HighScorePopup")
+	high_score_popup_list = high_score_popup.get_node("ItemList")
+	hud_control = aspect_ratio_container.get_node("HUD").get_node("HUDCanvas").get_node("HUDControl")
+	InitialsInput = hud_control.get_node("Initials")
+	ScoreLabel = hud_control.get_node("Score")
 #	StatusLabel = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("GameStatus")
 	
-	GameOverSound = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("GameOver")
-	ApplauseSound = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("Applause")
-	BackGroundMusic = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("BackGroundMusic")
-	
-	PlayArea = get_tree().get_root().get_node("Main").get_node("PlayAreaCanvas").get_node("PlayArea")
-	GameStartPanel = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("GameStartPanel")
-	Title = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("GameStartPanel").get_node("Panel").get_node("Title")
-	Directions = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("GameStartPanel").get_node("Panel").get_node("Directions")
-	PlayButton = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("GameStartPanel").get_node("Panel").get_node("Play_Button")
-	game_over_panel = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("GameOverPanel")
-	reset_button_from_gameover = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("GameOverPanel").get_node("GameOverPanel").get_node("ResetButton")
-	home_button_from_gameover = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("GameOverPanel").get_node("GameOverPanel").get_node("HomeButtonOnGameover")
+	PlayArea = aspect_ratio_container.get_node("PlayAreaControl").get_node("PlayAreaCanvas").get_node("PlayArea")
+	GameStartPanel = hud_control.get_node("GameStartPanel")
+	Title = hud_control.get_node("GameStartPanel").get_node("Panel").get_node("Title")
+	Directions = hud_control.get_node("GameStartPanel").get_node("Panel").get_node("Directions")
+	PlayButton = hud_control.get_node("GameStartPanel").get_node("Panel").get_node("Play_Button")
+	game_over_panel = hud_control.get_node("GameOverPanel")
+	reset_button_from_gameover = hud_control.get_node("GameOverPanel").get_node("GameOverPanel").get_node("ResetButton")
+	home_button_from_gameover = hud_control.get_node("GameOverPanel").get_node("GameOverPanel").get_node("HomeButtonOnGameover")
 
-	HighscoreButton = get_tree().get_root().get_node("Main").get_node("Buttons").get_node("Highscore_Button")
-	HomeButton = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("Home_Button")
+	HighscoreButton = buttons.get_node("Highscore_Button")
+	HomeButton = hud_control.get_node("Home_Button")
 	
-	game_scene = get_tree().get_root().get_node("Main").get_node("GameScene")
-	lives_label = get_tree().get_root().get_node("Main").get_node("HUD").get_node("Control").get_node("LivesLabel")
+	game_scene = aspect_ratio_container.get_node("GameScene")
+	lives_label = hud_control.get_node("LivesLabel")
 	
 	PlayButton.pressed.connect(_on_play_button_pressed)
 
