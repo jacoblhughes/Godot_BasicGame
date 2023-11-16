@@ -74,6 +74,14 @@ size = Vector2(96, 192)
 
 [node name="Flappy" type="Node2D"]
 
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 40.0
+offset_top = 144.0
+offset_right = 680.0
+offset_bottom = 1168.0
+texture = ExtResource("5_2qb0j")
+expand_mode = 1
+
 [node name="flappy" type="Node2D" parent="."]
 script = ExtResource("1_47y50")
 
@@ -111,17 +119,6 @@ shape = SubResource("RectangleShape2D_221hg")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(202, 666)
-
-[node name="BackgroundCanvas" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Background" type="TextureRect" parent="BackgroundCanvas"]
-offset_left = 40.0
-offset_top = 144.0
-offset_right = 680.0
-offset_bottom = 1168.0
-texture = ExtResource("5_2qb0j")
-expand_mode = 1
 
 [connection signal="timeout" from="SpawnTimer" to="enemy_spawn" method="_on_spawn_timer_timeout"]
 [connection signal="body_entered" from="EnemyScoring" to="flappy" method="_on_enemy_scoring_body_entered"]

@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 # Export the NodePath to the player_initials scene
 @onready var player_initials = GameManager.get_initials()

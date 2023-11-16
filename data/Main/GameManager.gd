@@ -10,7 +10,7 @@ var config = ConfigFile.new()
 @onready var ApplauseSound: AudioStreamPlayer
 @onready var BackGroundMusic: AudioStreamPlayer
 @onready var PlayArea: ColorRect
-@onready var GameStartPanel : CanvasLayer
+@onready var GameStartPanel : Panel
 @onready var Title : Label
 @onready var Directions : Label
 @onready var high_score_popup : Window
@@ -22,13 +22,12 @@ var config = ConfigFile.new()
 var child_node_to_delete
 @onready var config_file_path
 @onready var new_initials
-@onready var game_over_panel : CanvasLayer
-@onready var buttons_scene  = get_tree().get_root().get_node("Main").get_node("AspectRatioContainer").get_node("MarginContainer").get_node("Buttons")
+@onready var game_over_panel : Panel
 @onready var reset_button_from_gameover : Button
 @onready var home_button_from_gameover : Button
 @onready var game_scene : Node
 @onready var lives_label : Label
-@onready var aspect_ratio_container :MarginContainer
+@onready var aspect_ratio_container
 @onready var buttons : Control
 @onready var hud_control : Control
 var perry_arcade_path = "user://perry_arcade.cfg"
@@ -53,23 +52,23 @@ func _ready():
 
 	config_file_path = config.load("user://perry_arcade.cfg")
 	new_initials = config.get_value("main", "initials")
-	aspect_ratio_container = get_tree().get_root().get_node("Main").get_node("AspectRatioContainer").get_node("MarginContainer")
+	aspect_ratio_container = get_tree().get_root().get_node("Main").get_node("AspectRatioContainer").get_node("Control")
 	buttons = aspect_ratio_container.get_node("Buttons")
 	high_score_popup = buttons.get_node("HighScorePopup")
 	high_score_popup_list = high_score_popup.get_node("ItemList")
-	hud_control = aspect_ratio_container.get_node("HUD").get_node("HUDCanvas").get_node("HUDControl")
+	hud_control = aspect_ratio_container.get_node("HUD")
 	InitialsInput = hud_control.get_node("Initials")
 	ScoreLabel = hud_control.get_node("Score")
 #	StatusLabel = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("GameStatus")
 	
-	PlayArea = aspect_ratio_container.get_node("PlayAreaControl").get_node("PlayAreaCanvas").get_node("PlayArea")
+	PlayArea = aspect_ratio_container.get_node("PlayArea")
 	GameStartPanel = hud_control.get_node("GameStartPanel")
-	Title = hud_control.get_node("GameStartPanel").get_node("Panel").get_node("Title")
-	Directions = hud_control.get_node("GameStartPanel").get_node("Panel").get_node("Directions")
-	PlayButton = hud_control.get_node("GameStartPanel").get_node("Panel").get_node("Play_Button")
+	Title = hud_control.get_node("GameStartPanel").get_node("Title")
+	Directions = hud_control.get_node("GameStartPanel").get_node("Directions")
+	PlayButton = hud_control.get_node("GameStartPanel").get_node("Play_Button")
 	game_over_panel = hud_control.get_node("GameOverPanel")
-	reset_button_from_gameover = hud_control.get_node("GameOverPanel").get_node("GameOverPanel").get_node("ResetButton")
-	home_button_from_gameover = hud_control.get_node("GameOverPanel").get_node("GameOverPanel").get_node("HomeButtonOnGameover")
+	reset_button_from_gameover = hud_control.get_node("GameOverPanel").get_node("ResetButton")
+	home_button_from_gameover = hud_control.get_node("GameOverPanel").get_node("HomeButtonOnGameover")
 
 	HighscoreButton = buttons.get_node("Highscore_Button")
 	HomeButton = hud_control.get_node("Home_Button")
@@ -173,7 +172,7 @@ func _on_home_button_pressed():
 	set_gameover_panel(false)
 	child_node_to_delete = game_scene.get_children()
 	if child_node_to_delete:
-		buttons_scene.visible = true
+		buttons.visible = true
 		for child in child_node_to_delete:
 			child.queue_free()
 	pass # Replace with function body.

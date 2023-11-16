@@ -113,10 +113,7 @@ size = Vector2(24, 1024)
 metadata/_edit_horizontal_guides_ = [544.0]
 metadata/_edit_vertical_guides_ = [592.0]
 
-[node name="BackgroundCanvas" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Background" type="TextureRect" parent="BackgroundCanvas"]
+[node name="Background" type="TextureRect" parent="."]
 offset_left = 40.0
 offset_top = 144.0
 offset_right = 680.0

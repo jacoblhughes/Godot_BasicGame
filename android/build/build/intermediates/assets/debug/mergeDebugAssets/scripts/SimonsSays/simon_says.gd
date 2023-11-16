@@ -19,10 +19,12 @@ var playerPopulate = -1
 var button_pressed
 var buttonObject = {}
 
-var game_button_dim_x = GameManager.get_play_area_size_from_HUD().x/4
-var game_button_dim_y = GameManager.get_play_area_size_from_HUD().y/4
-var original_game_button_x = GameManager.get_play_area_position_from_HUD().x + game_button_dim_x
-var original_game_button_y = GameManager.get_play_area_position_from_HUD().y + game_button_dim_y
+#var play_area_width = GameManager.get_play_area_size_from_HUD().x
+#var play_area_height = GameManager.get_play_area_size_from_HUD().y
+#var testing_x = (play_area_height/2)-(play_area_width/2)
+#var original_game_button_x = GameManager.get_play_area_position_from_HUD().x + testing_x
+#var original_game_button_y = GameManager.get_play_area_position_from_HUD().y + testing_x
+
 
 var redButton
 var blueButton
@@ -85,28 +87,49 @@ func _game_lose():
 	playerTurn = false
 	arrayOfPlayerResponse = []
 	playerPopulate = -1
-
+	
 func _initialize_buttons():
 	var buttonScenes = [
-		redButtonScene,blueButtonScene,greenButtonScene,yellowButtonScene
+		redButtonScene, blueButtonScene, greenButtonScene, yellowButtonScene
 	]
-	
+
 	for node in get_tree().get_nodes_in_group("simonSaysGameButtons"):
 		node.remove_from_group("simonSaysGameButtons")
+	var playAreaPosition = GameManager.get_play_area_position_from_HUD()
+	var playAreaSize = GameManager.get_play_area_size_from_HUD()
+	var totalButtons = buttonScenes.size()
 
-	for i in range(buttonScenes.size()):
+	# Calculate the position to center the buttons
+	var centerPosX = (playAreaSize.x/2+playAreaPosition.x)
+	var centerPosY = (playAreaSize.y/2+playAreaPosition.y)
+
+	# Calculate the total width and height occupied by buttons
+	var totalWidth = playAreaSize.x/2
+	var totalHeight = playAreaSize.y/2
+
+	# Calculate the starting position for the first button
+
+
+	for i in range(totalButtons):
+
+		# Calculate the position with proper spacing
+		var col = i % 2
+		var row = i / 2
 		var button = buttonScenes[i].instantiate()
-		button.position = Vector2(original_game_button_x + (i % 2) * game_button_dim_x, original_game_button_y + (i / 2) * game_button_dim_y)
+		var startX = centerPosX - button.size.x 
+		var startY = centerPosY - button.size.y
+		print(col,row)
+		button.position = Vector2(
+			startX + col * button.size.x,
+			startY + row * button.size.y
+		)
 		button.buttonNumber = i
 		button.game_button_pressed.connect(_on_game_button_pressed)
 		button.add_to_group("simonSaysGameButtons")
 		add_child(button)
 		buttonObject[button.name] = button
 		button.disabled = true
-		var x_scale = game_button_dim_x/button.size.x
-		var y_scale = game_button_dim_y/button.size.y
-		button.scale.x = x_scale
-		button.scale.y = y_scale
+
 
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")
 	

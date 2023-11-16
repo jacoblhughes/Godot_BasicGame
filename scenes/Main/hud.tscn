@@ -21,20 +21,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_bor3t")
 
-[node name="HUDCanvas" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="HUDControl" type="Control" parent="HUDCanvas"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Initials_Label" type="Label" parent="HUDCanvas/HUDControl"]
+[node name="Initials_Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 416.0
 offset_top = 64.0
@@ -45,7 +36,7 @@ text = "Initials:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Initials" type="Label" parent="HUDCanvas/HUDControl"]
+[node name="Initials" type="Label" parent="."]
 layout_mode = 0
 offset_left = 560.0
 offset_top = 64.0
@@ -56,7 +47,7 @@ text = "JLH"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Home_Button" type="Button" parent="HUDCanvas/HUDControl"]
+[node name="Home_Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 416.0
 offset_top = 1192.0
@@ -65,7 +56,7 @@ offset_bottom = 1248.0
 theme = ExtResource("3_e6l0l")
 text = "Home"
 
-[node name="Score_Label" type="Label" parent="HUDCanvas/HUDControl"]
+[node name="Score_Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 64.0
@@ -77,7 +68,7 @@ text = "Game Score:
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score" type="Label" parent="HUDCanvas/HUDControl"]
+[node name="Score" type="Label" parent="."]
 layout_mode = 0
 offset_left = 184.0
 offset_top = 64.0
@@ -88,26 +79,24 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Applause" type="AudioStreamPlayer" parent="HUDCanvas/HUDControl"]
+[node name="Applause" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ty8yg")
 
-[node name="GameOver" type="AudioStreamPlayer" parent="HUDCanvas/HUDControl"]
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_koihj")
 
-[node name="BackGroundMusic" type="AudioStreamPlayer" parent="HUDCanvas/HUDControl"]
+[node name="BackGroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_i11y2")
 
-[node name="GameStartPanel" type="CanvasLayer" parent="HUDCanvas/HUDControl"]
-layer = 3
+[node name="GameStartPanel" type="Panel" parent="."]
 visible = false
-
-[node name="Panel" type="Panel" parent="HUDCanvas/HUDControl/GameStartPanel"]
+layout_mode = 0
 offset_right = 720.0
 offset_bottom = 1280.0
 theme = SubResource("Theme_342le")
 theme_override_styles/panel = ExtResource("7_2w0u3")
 
-[node name="Play_Button" type="Button" parent="HUDCanvas/HUDControl/GameStartPanel/Panel"]
+[node name="Play_Button" type="Button" parent="GameStartPanel"]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 656.0
@@ -116,7 +105,7 @@ offset_bottom = 808.0
 theme = ExtResource("3_e6l0l")
 text = "Play"
 
-[node name="Title" type="Label" parent="HUDCanvas/HUDControl/GameStartPanel/Panel"]
+[node name="Title" type="Label" parent="GameStartPanel"]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 192.0
@@ -128,7 +117,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Directions_Note" type="Label" parent="HUDCanvas/HUDControl/GameStartPanel/Panel"]
+[node name="Directions_Note" type="Label" parent="GameStartPanel"]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 256.0
@@ -136,7 +125,7 @@ offset_right = 148.0
 offset_bottom = 282.0
 text = "Directions:"
 
-[node name="Directions" type="Label" parent="HUDCanvas/HUDControl/GameStartPanel/Panel"]
+[node name="Directions" type="Label" parent="GameStartPanel"]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 282.0
@@ -147,16 +136,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="GameOverPanel" type="CanvasLayer" parent="HUDCanvas/HUDControl"]
-layer = 3
+[node name="GameOverPanel" type="Panel" parent="."]
 visible = false
-
-[node name="GameOverPanel" type="Panel" parent="HUDCanvas/HUDControl/GameOverPanel"]
+layout_mode = 0
 offset_right = 720.0
 offset_bottom = 1280.0
 theme_override_styles/panel = ExtResource("7_2w0u3")
 
-[node name="ResetButton" type="Button" parent="HUDCanvas/HUDControl/GameOverPanel/GameOverPanel"]
+[node name="ResetButton" type="Button" parent="GameOverPanel"]
 visible = false
 layout_mode = 0
 offset_left = 64.0
@@ -166,7 +153,7 @@ offset_bottom = 808.0
 theme = ExtResource("3_e6l0l")
 text = "Reset"
 
-[node name="GameOverLabel" type="Label" parent="HUDCanvas/HUDControl/GameOverPanel/GameOverPanel"]
+[node name="GameOverLabel" type="Label" parent="GameOverPanel"]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 192.0
@@ -176,7 +163,7 @@ text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HomeButtonOnGameover" type="Button" parent="HUDCanvas/HUDControl/GameOverPanel/GameOverPanel"]
+[node name="HomeButtonOnGameover" type="Button" parent="GameOverPanel"]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 832.0
@@ -185,12 +172,12 @@ offset_bottom = 984.0
 theme = ExtResource("3_e6l0l")
 text = "Home"
 
-[node name="LivesSprite" type="Sprite2D" parent="HUDCanvas/HUDControl"]
+[node name="LivesSprite" type="Sprite2D" parent="."]
 position = Vector2(72, 1216)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("8_uv2qu")
 
-[node name="LivesX" type="Label" parent="HUDCanvas/HUDControl"]
+[node name="LivesX" type="Label" parent="."]
 layout_mode = 0
 offset_left = 120.0
 offset_top = 1200.0
@@ -200,7 +187,7 @@ text = "X"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LivesLabel" type="Label" parent="HUDCanvas/HUDControl"]
+[node name="LivesLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 1200.0

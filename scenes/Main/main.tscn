@@ -37,28 +37,34 @@ offset_bottom = -1280.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer"]
+[node name="Control" type="Control" parent="AspectRatioContainer"]
 layout_mode = 2
 
-[node name="HUD" parent="AspectRatioContainer/MarginContainer" instance=ExtResource("2_v0m1m")]
-layout_mode = 2
-
-[node name="Buttons" parent="AspectRatioContainer/MarginContainer" instance=ExtResource("3_5wtcr")]
-layout_mode = 2
-
-[node name="GameScene" type="Control" parent="AspectRatioContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="PlayAreaControl" type="Control" parent="AspectRatioContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="PlayAreaCanvas" type="CanvasLayer" parent="AspectRatioContainer/MarginContainer/PlayAreaControl"]
-layer = -2
-
-[node name="PlayArea" type="ColorRect" parent="AspectRatioContainer/MarginContainer/PlayAreaControl/PlayAreaCanvas"]
+[node name="PlayArea" type="ColorRect" parent="AspectRatioContainer/Control"]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 144.0
 offset_right = 680.0
 offset_bottom = 1168.0
+size_flags_horizontal = 0
 color = Color(0.196078, 0.235294, 0.223529, 1)
-metadata/_edit_use_anchors_ = true
+
+[node name="Buttons" parent="AspectRatioContainer/Control" instance=ExtResource("3_5wtcr")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GameScene" type="Control" parent="AspectRatioContainer/Control"]
+layout_mode = 2
+anchors_preset = 0
+
+[node name="HUD" parent="AspectRatioContainer/Control" instance=ExtResource("2_v0m1m")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1

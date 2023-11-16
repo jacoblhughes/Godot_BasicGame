@@ -127,27 +127,26 @@ animations = [{
 [node name="Dino" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
 
-[node name="dino" type="Node2D" parent="."]
-script = ExtResource("1_hu7jq")
-
-[node name="BackgroundCanvas" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Background" type="TextureRect" parent="BackgroundCanvas"]
+[node name="Background" type="TextureRect" parent="."]
 offset_left = 40.0
 offset_top = 144.0
 offset_right = 680.0
 offset_bottom = 794.0
 texture = ExtResource("1_r83wa")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Background2" type="TextureRect" parent="BackgroundCanvas"]
+[node name="Background2" type="TextureRect" parent="."]
 offset_left = 40.0
 offset_top = 144.0
 offset_right = 680.0
 offset_bottom = 1170.0
 texture = ExtResource("3_mje4q")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="dino" type="Node2D" parent="."]
+script = ExtResource("1_hu7jq")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(24, 664)

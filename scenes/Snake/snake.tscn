@@ -1,11 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1ov306httsie"]
+[gd_scene load_steps=6 format=3 uid="uid://c1ov306httsie"]
 
+[ext_resource type="Texture2D" uid="uid://b6o8i6d3x1cqy" path="res://art/Snake/snake_background_144_256.png" id="1_m1yj6"]
 [ext_resource type="Script" path="res://scripts/Snake/grid.gd" id="1_txks8"]
 [ext_resource type="Script" path="res://scripts/Snake/snake_new2.gd" id="1_wo8dq"]
 [ext_resource type="Script" path="res://scripts/Snake/spawn_food.gd" id="3_geab8"]
 [ext_resource type="Script" path="res://scripts/Snake/hit_spotter.gd" id="4_aknui"]
 
 [node name="Snake" type="Node2D"]
+
+[node name="Background2" type="TextureRect" parent="."]
+offset_left = 40.0
+offset_top = 144.0
+offset_right = 680.0
+offset_bottom = 1170.0
+texture = ExtResource("1_m1yj6")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="snake" type="Node2D" parent="."]
 script = ExtResource("1_wo8dq")

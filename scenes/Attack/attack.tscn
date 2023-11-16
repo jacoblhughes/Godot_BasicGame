@@ -45,13 +45,7 @@ size = Vector2(96, 992)
 
 [node name="Attack" type="Node2D"]
 
-[node name="attack" type="Node2D" parent="."]
-script = ExtResource("1_yw0yd")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Background" type="TextureRect" parent="CanvasLayer"]
+[node name="Background" type="TextureRect" parent="."]
 offset_left = 40.0
 offset_top = 144.0
 offset_right = 674.0
@@ -59,6 +53,9 @@ offset_bottom = 1071.0
 scale = Vector2(1.00947, 1.10502)
 texture = ExtResource("2_xmb1c")
 stretch_mode = 1
+
+[node name="attack" type="Node2D" parent="."]
+script = ExtResource("1_yw0yd")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 collision_mask = 2

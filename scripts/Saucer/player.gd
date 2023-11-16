@@ -31,7 +31,7 @@ func _input(event):
 func _physics_process(delta):
 
 	if(GameManager.get_game_enabled() and game_on == true):
-		var to_target = target_position - position
+		var to_target = target_position - global_position
 		var direction = to_target.normalized()
 
 		if(abs(direction.x)>abs(direction.y)):
