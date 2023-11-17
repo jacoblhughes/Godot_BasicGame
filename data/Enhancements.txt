@@ -1,12 +1,15 @@
 Perry Arcade
 
+Highscore scrolling via touch!
+Highscore stylings and text
+
+
 Simon
-	A-Make buttons better animations
-	--Make buttons a class so I can call the pressed method
+
 
 Snake
-	--make the scenes in the body do someting
-	--make the food do something
+
+	Global Positions
 	improve collision logic
 	need to fix the head size logic
 	no win condition or level change condition
@@ -16,7 +19,6 @@ Pong
 	Improve collision mechanics like when the ball gets fast
 	Make the enemy paddle reset too
 	Make the enemy paddle worse and get better as the levels progress
-	Make finding positions of things like the initial bass position happen in code to adjust for heights
 	
 Dino
 	--A-Enhance enemy scenes
@@ -25,7 +27,7 @@ Creep
 
 	
 Flappy
-
+	Collisions/sprites
 	
 Saucer
 
@@ -38,8 +40,6 @@ Sounds all around are rough
 
 Background music
 
-Popup panels like gameover and start are theme overrides right now, how do I set a theme
-
 What to do about reassiging groups on queue free
 
 Make directions for each game
@@ -50,5 +50,8 @@ Double check all high scores
 
 Maybe make a way to reset
 
-Global clamp player
 
+
+V2:
+Simon
+	Make buttons a class so I can call the pressed method
