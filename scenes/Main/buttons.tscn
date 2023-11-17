@@ -125,11 +125,19 @@ text = "COMING SOON"
 [node name="About" type="Button" parent="."]
 layout_mode = 0
 offset_left = 48.0
+offset_top = 1072.0
+offset_right = 672.0
+offset_bottom = 1112.0
+theme = ExtResource("10_rldi5")
+text = "About"
+
+[node name="Options" type="Button" parent="."]
+offset_left = 48.0
 offset_top = 1120.0
 offset_right = 672.0
 offset_bottom = 1160.0
 theme = ExtResource("10_rldi5")
-text = "About"
+text = "Options"
 
 [node name="Initials" type="LineEdit" parent="."]
 layout_mode = 0
@@ -260,4 +268,5 @@ dfdfdfd"
 [connection signal="pressed" from="Saucer" to="." method="_on_saucer_pressed"]
 [connection signal="pressed" from="Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_about_pressed"]
 [connection signal="text_changed" from="Initials" to="." method="_on_initials_text_changed"]
