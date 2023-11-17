@@ -13,8 +13,8 @@ var config = ConfigFile.new()
 @onready var GameStartPanel : Panel
 @onready var Title : Label
 @onready var Directions : Label
-@onready var high_score_popup : Window
-@onready var high_score_popup_list : ItemList
+@onready var high_score_popup : Panel
+@onready var high_score_popup_list : RichTextLabel
 @onready var PlayButton : Button
 @onready var ResetButton : Button
 @onready var HighscoreButton : Button
@@ -55,7 +55,7 @@ func _ready():
 	aspect_ratio_container = get_tree().get_root().get_node("Main").get_node("AspectRatioContainer").get_node("Control")
 	buttons = aspect_ratio_container.get_node("Buttons")
 	high_score_popup = buttons.get_node("HighScorePopup")
-	high_score_popup_list = high_score_popup.get_node("ItemList")
+	high_score_popup_list = high_score_popup.get_node("RichTextLabel")
 	hud_control = aspect_ratio_container.get_node("HUD")
 	InitialsInput = hud_control.get_node("Initials")
 	ScoreLabel = hud_control.get_node("Score")
@@ -91,16 +91,46 @@ func _start_highscore_list():
 	for game in ["simon_says","dino","creep","flappy","pong","attack","saucer","snake"]:
 		initiate_highscores_section(game)
 
+#func _replace_highscore_list():
+#	high_score_popup_list.clear()
+#	for game in ["simon_says","dino","creep","flappy","pong","attack","saucer","snake"]:
+#		var game_first_line = "--- " + game +" Scores ---"
+#		var names = get_highscore_names(game)
+#		var scores = get_highscore_scores(game)
+#		high_score_popup_list.add_item(game_first_line)
+#		for i in range(names.size()):
+#			high_score_popup_list.add_item(names[i] + ": " + str(scores[i]))
+			
 func _replace_highscore_list():
 	high_score_popup_list.clear()
-	for game in ["simon_says","dino","creep","flappy","pong","attack","saucer","snake"]:
-		var game_first_line = "--- " + game +" Scores ---"
-		var names = get_highscore_names(game)
-		var scores = get_highscore_scores(game)
-		high_score_popup_list.add_item(game_first_line)
+	var highscore_first_line = "[center][b]--- " + "HIGHSCORES" + "  ---[/b][/center]\n\n"
+	high_score_popup_list.append_text(highscore_first_line)
+	var highScoreGames : Array = [
+	{"name": "simon_says", "title": "Simon Says"},
+	{"name": "dino", "title": "Dino"},
+	{"name": "creep", "title": "Creep"},
+	{"name": "flappy", "title": "Flappy"},
+	{"name": "pong", "title": "Pong"},
+	{"name": "attack", "title": "Attack"},
+	{"name": "saucer", "title": "Saucer"},
+	{"name": "snake", "title": "Snake"}
+]
+	for game in highScoreGames:
+		var game_first_line = "[b]" + game['title'] + " Scores[/b]\n"
+		high_score_popup_list.append_text(game_first_line)
+
+		var names = get_highscore_names(game['name'] )
+		var scores = get_highscore_scores(game['name'] )
+
 		for i in range(names.size()):
-			high_score_popup_list.add_item(names[i] + ": " + str(scores[i]))
-			
+			var score_entry = "[indent]" + names[i] + ": " + str(scores[i]) + "\n[/indent]"
+			high_score_popup_list.append_text(score_entry)
+
+		high_score_popup_list.append_text("\n")  # Add an extra newline for separation
+
+	high_score_popup_list.scroll_to_line(0)  # Scroll to the top of the list
+	
+	
 func get_config_path_file():
 	return config_file_path
 	

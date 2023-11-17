@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=12 format=3 uid="uid://d4cpf87cb1bs0"]
 
 [ext_resource type="Script" path="res://scripts/Main/buttons.gd" id="1_li1cs"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://scenes/SimonSays/simon_says.tscn" id="2_gs4av"]
@@ -11,12 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dx4hwtnr40m1r" path="res://scenes/Attack/attack.tscn" id="9_3orma"]
 [ext_resource type="PackedScene" uid="uid://b8eyyvj5cesul" path="res://scenes/Main/about.tscn" id="10_cr0a2"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/Main/main.tres" id="10_rldi5"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_v6btp"]
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mxgc"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Buttons" type="Control"]
 layout_mode = 3
@@ -167,41 +161,95 @@ offset_bottom = 232.0
 theme = ExtResource("10_rldi5")
 text = "Highscore"
 
-[node name="HighScorePopup" type="Window" parent="."]
-title = "Highscores"
-position = Vector2i(40, 250)
-size = Vector2i(640, 512)
+[node name="HighScorePopup" type="Panel" parent="."]
 visible = false
-borderless = true
-always_on_top = true
+layout_mode = 0
+offset_left = 40.0
+offset_top = 248.0
+offset_right = 680.0
+offset_bottom = 760.0
+mouse_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="HighScorePopup"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 644.0
-offset_bottom = 516.0
+layout_mode = 1
+offset_right = 640.0
+offset_bottom = 512.0
 color = Color(0.188235, 0.376471, 0.509804, 1)
 
-[node name="HighScoreTitle" type="Label" parent="HighScorePopup"]
-visible = false
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 644.0
-offset_bottom = 516.0
-text = "High Scores:"
-label_settings = SubResource("LabelSettings_v6btp")
-autowrap_mode = 1
+[node name="RichTextLabel" type="RichTextLabel" parent="HighScorePopup"]
+layout_mode = 2
+offset_right = 640.0
+offset_bottom = 512.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
 
-[node name="ItemList" type="ItemList" parent="HighScorePopup"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 644.0
-offset_bottom = 516.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/panel = SubResource("StyleBoxFlat_4mxgc")
-select_mode = 1
-max_text_lines = 20
-same_column_width = true
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfddfdf
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd
+dfdfdfd"
 
 [connection signal="pressed" from="SimonSays" to="." method="_on_simon_says_pressed"]
 [connection signal="pressed" from="Snake" to="." method="_on_snake_pressed"]

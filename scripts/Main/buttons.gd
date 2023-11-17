@@ -20,10 +20,12 @@ var saucer_scene
 @export var attack: PackedScene
 var attack_scene
 
+
 @export var about: PackedScene
 var about_scene
-@onready var HighscorePopup : Window
-@onready var HighscorePopupList : ItemList
+
+
+
 @onready var config_file_path = GameManager.get_config_path_file()
 @onready var game_scene : Control
 # Called when the node enters the scene tree for the first time.
@@ -49,7 +51,7 @@ func _on_simon_says_pressed():
 	self.visible = false
 	GameManager.set_gamestartpanel(true)
 	GameManager.set_title('Simon Says')
-	GameManager.set_directions("Smash Roddy in the right order to get the high score!")
+	GameManager.set_directions("Smash Perry in the right order to get the high score!")
 	simon_says_scene = simon_says.instantiate()
 	game_scene.add_child(simon_says_scene)
 	GameManager.set_current_game_scene(simon_says)
@@ -59,7 +61,7 @@ func _on_snake_pressed():
 	self.visible = false
 	GameManager.set_gamestartpanel(true)
 	GameManager.set_title('Snake')
-	GameManager.set_directions("EAT RODDY!")
+	GameManager.set_directions("Make Perry eat the unfunny clown!")
 	snake_scene = snake.instantiate()
 	game_scene.add_child(snake_scene)
 	pass # Replace with function body.
@@ -68,7 +70,7 @@ func _on_pong_pressed():
 	self.visible = false
 	GameManager.set_gamestartpanel(true)
 	GameManager.set_title('Pong')
-	GameManager.set_directions("Bounce Roddy around to get the highscore!.")
+	GameManager.set_directions("Bounce Perry around to get the highscore!")
 	pong_scene = pong.instantiate()
 	game_scene.add_child(pong_scene)
 	GameManager.set_current_game_scene(pong)
@@ -89,7 +91,7 @@ func _on_creep_pressed():
 	self.visible = false
 	GameManager.set_gamestartpanel(true)
 	GameManager.set_title('Creep')
-	GameManager.set_directions("AVOID RODDY!")
+	GameManager.set_directions("Help Perry avoid the zoo animals!")
 	creep_scene = creep.instantiate()
 	game_scene.add_child(creep_scene)
 	GameManager.set_current_game_scene(creep)
@@ -100,7 +102,7 @@ func _on_flappy_pressed():
 	self.visible = false
 	GameManager.set_gamestartpanel(true)
 	GameManager.set_title('Flappy')
-	GameManager.set_directions("Roddy is trying to stop the bird from getting home. Help flappy!")
+	GameManager.set_directions("Perry is trying to stop the bird from getting home. Help flappy!")
 	flappy_scene = flappy.instantiate()
 	game_scene.add_child(flappy_scene)
 	GameManager.set_current_game_scene(flappy)
@@ -111,7 +113,7 @@ func _on_saucer_pressed():
 	self.visible = false
 	GameManager.set_gamestartpanel(true)
 	GameManager.set_title('Saucer')
-	GameManager.set_directions("Get to the end of the maze as fast as you can!")
+	GameManager.set_directions("Get to the end of the maze as fast as you can and as many times as you can!")
 	saucer_scene = saucer.instantiate()
 	game_scene.add_child(saucer_scene)
 	GameManager.set_current_game_scene(saucer)
@@ -122,7 +124,7 @@ func _on_attack_pressed():
 	self.visible = false
 	GameManager.set_gamestartpanel(true)
 	GameManager.set_title('Attack')
-	GameManager.set_directions("Shoot the Roddies to survive!")
+	GameManager.set_directions("Help Perry shoot the Vegaliens. He hates them!")
 	attack_scene = attack.instantiate()
 	game_scene.add_child(attack_scene)
 	GameManager.set_current_game_scene(attack)

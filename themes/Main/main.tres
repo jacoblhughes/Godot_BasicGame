@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://s0srltpmhp6g"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://s0srltpmhp6g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfs50"]
 bg_color = Color(0.188235, 0.376471, 0.509804, 1)
@@ -14,6 +14,20 @@ bg_color = Color(0.188235, 0.376471, 0.509804, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub2f4"]
 bg_color = Color(0.188235, 0.376471, 0.509804, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orp2f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yi1hl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_do0kr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i87s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxoap"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sr2u7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4rcvc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxtok"]
 bg_color = Color(0.215686, 0.580392, 0.431373, 1)
@@ -34,6 +48,13 @@ Button/styles/focus = SubResource("StyleBoxFlat_f5cs7")
 Button/styles/hover = SubResource("StyleBoxFlat_r75i3")
 Button/styles/normal = SubResource("StyleBoxFlat_hl18o")
 Button/styles/pressed = SubResource("StyleBoxFlat_ub2f4")
+ItemList/styles/cursor = SubResource("StyleBoxEmpty_orp2f")
+ItemList/styles/cursor_unfocused = SubResource("StyleBoxEmpty_yi1hl")
+ItemList/styles/focus = SubResource("StyleBoxEmpty_do0kr")
+ItemList/styles/hovered = SubResource("StyleBoxEmpty_5i87s")
+ItemList/styles/panel = SubResource("StyleBoxEmpty_rxoap")
+ItemList/styles/selected = SubResource("StyleBoxEmpty_sr2u7")
+ItemList/styles/selected_focus = SubResource("StyleBoxEmpty_4rcvc")
 Label/styles/normal = SubResource("StyleBoxFlat_sxtok")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_tst5f")
 Main_2/base_type = &"Label"

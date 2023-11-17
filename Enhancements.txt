@@ -37,8 +37,6 @@ Clamp things
 Things only can be seen in game area - z axis?
 Home button does not trigget a jump
 
-Popup panels like gameover and start are theme overrides right now, how do I set a theme
-
 Make directions for each game
 
 Timing loading for each element - noticably android and labels and such
