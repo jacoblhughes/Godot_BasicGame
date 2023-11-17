@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/Main/main.tres" id="3_pif24"]
 [ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/Main/applause.wav" id="4_ty8yg"]
 [ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://sounds/Main/gameover.wav" id="5_koihj"]
-[ext_resource type="AudioStream" uid="uid://csg3bmyrqi0d7" path="res://sounds/Main/House In a Forest Loop.ogg" id="6_i11y2"]
+[ext_resource type="AudioStream" uid="uid://buulegk5q7el8" path="res://sounds/Main/background_music.wav" id="5_ncln7"]
 [ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://art/Main/perry_original_256x256.png" id="8_uv2qu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0fsyn"]
@@ -77,12 +77,15 @@ vertical_alignment = 1
 
 [node name="Applause" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ty8yg")
+bus = &"Game"
 
 [node name="GameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_koihj")
+bus = &"Game"
 
 [node name="BackGroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_i11y2")
+stream = ExtResource("5_ncln7")
+bus = &"Background"
 
 [node name="GameStartPanel" type="Panel" parent="."]
 visible = false

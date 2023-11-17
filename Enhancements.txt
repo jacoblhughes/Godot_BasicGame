@@ -4,6 +4,7 @@ Simon
 
 
 Snake
+	Global Positions
 	Improve collision logic
 	Rename Sprites and such back
 
@@ -41,5 +42,10 @@ Make directions for each game
 
 Timing loading for each element - noticably android and labels and such
 
+V2:
 Simon
-	Make buttons a class so I can call the pressed method?
+	Make buttons a class so I can call the pressed method
+
+
+
+

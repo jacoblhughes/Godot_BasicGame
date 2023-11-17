@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://s0srltpmhp6g"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://s0srltpmhp6g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfs50"]
 bg_color = Color(0.188235, 0.376471, 0.509804, 1)
@@ -14,6 +14,8 @@ bg_color = Color(0.188235, 0.376471, 0.509804, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub2f4"]
 bg_color = Color(0.188235, 0.376471, 0.509804, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfrc4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orp2f"]
 
@@ -48,6 +50,7 @@ Button/styles/focus = SubResource("StyleBoxFlat_f5cs7")
 Button/styles/hover = SubResource("StyleBoxFlat_r75i3")
 Button/styles/normal = SubResource("StyleBoxFlat_hl18o")
 Button/styles/pressed = SubResource("StyleBoxFlat_ub2f4")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_hfrc4")
 ItemList/styles/cursor = SubResource("StyleBoxEmpty_orp2f")
 ItemList/styles/cursor_unfocused = SubResource("StyleBoxEmpty_yi1hl")
 ItemList/styles/focus = SubResource("StyleBoxEmpty_do0kr")

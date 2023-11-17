@@ -23,7 +23,8 @@ var attack_scene
 
 @export var about: PackedScene
 var about_scene
-
+@export var options: PackedScene
+var options_scene
 
 
 @onready var config_file_path = GameManager.get_config_path_file()
@@ -138,4 +139,13 @@ func _on_about_pressed():
 	about_scene = about.instantiate()
 	game_scene.add_child(about_scene)
 	GameManager.set_current_game_scene(about)
+	pass # Replace with function body.
+
+
+func _on_options_pressed():
+	self.visible = false
+
+	options_scene = options.instantiate()
+	game_scene.add_child(options_scene)
+	GameManager.set_current_game_scene(options)
 	pass # Replace with function body.

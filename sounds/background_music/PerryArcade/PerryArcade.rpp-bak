@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.81/win64" 1700112404
+<REAPER_PROJECT 0.1 "6.81/win64" 1700228614
   <NOTES 0 2
   >
   UNDO_FTS 1700093360
@@ -17,8 +17,8 @@
   TIMEMODE 1 5 -1 30 0 0 -1
   VIDEO_CONFIG 0 0 256
   PANMODE 3
-  CURSOR 123
-  ZOOM 6.4905471518875 559 0
+  CURSOR 14.4
+  ZOOM 4.61122669093427 0 0
   VZOOMEX 5 0
   USE_REC_CFG 0
   RECMODE 1
@@ -32,10 +32,10 @@
   <APPLYFX_CFG
   >
   RENDER_FILE ""
-  RENDER_PATTERN ""
-  RENDER_FMT 0 2 0
+  RENDER_PATTERN PerryArcade
+  RENDER_FMT 0 2 44100
   RENDER_1X 0
-  RENDER_RANGE 1 0 0 18 1000
+  RENDER_RANGE 2 0 0 18 1000
   RENDER_RESAMPLE 3 0 1
   RENDER_ADDTOPROJ 0
   RENDER_STEMS 0
@@ -60,10 +60,10 @@
     MULT 1
   >
   GLOBAL_AUTO -1
-  TEMPO 120 4 4
+  TEMPO 100 4 4
   PLAYRATE 1 0 0.25 4
-  SELECTION 0 0
-  SELECTION2 0 0
+  SELECTION 14.4 225.6
+  SELECTION2 14.4 225.6
   MASTERAUTOMODE 0
   MASTERTRACKHEIGHT 0 0
   MASTERPEAKCOL 16576
@@ -93,6 +93,45 @@
   >
   <PROJBAY
   >
+  <TRACK {918BB11A-484D-4BD6-85F1-E96137BF6A70}
+    NAME ""
+    PEAKCOL 26088810
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 1 1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 1
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {918BB11A-484D-4BD6-85F1-E96137BF6A70}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 346 195 747 440
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <VST "VST: ReaComp (Cockos)" reacomp.dll 0 "" 1919247213<5653547265636D726561636F6D700000> ""
+        bWNlcu9e7f4EAAAAAQAAAAAAAAACAAAAAAAAAAQAAAAAAAAACAAAAAAAAAACAAAAAQAAAAAAAAACAAAAAAAAAFwAAAAAAAAAAAAQAA==
+        776t3g3wrd4AAIA/AAAAAKabxDsK16M8AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAnNEHMwAAgD8AAAAAzcxMPQAAAAAAAAAAAAAAAAAAgD4AAAAAAAAAAAAAAAA=
+        AAAQAAAA
+      >
+      FLOATPOS 0 0 0 0
+      FXID {05206D4E-9CA7-4009-BC07-9163E6E9CE8A}
+      WAK 0 0
+    >
+  >
   <TRACK {E7060D59-4592-4D5A-B631-88417FBDAD44}
     NAME ""
     PEAKCOL 30773640
@@ -105,7 +144,7 @@
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 1
+    SEL 0
     REC 0 5056 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -169,9 +208,9 @@
       WAK 0 0
     >
     <ITEM
-      POSITION 12
+      POSITION 14.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -213,9 +252,9 @@
       >
     >
     <ITEM
-      POSITION 14
+      POSITION 16.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -257,9 +296,9 @@
       >
     >
     <ITEM
-      POSITION 16
+      POSITION 19.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -301,9 +340,9 @@
       >
     >
     <ITEM
-      POSITION 18
+      POSITION 21.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -345,9 +384,9 @@
       >
     >
     <ITEM
-      POSITION 20
+      POSITION 24
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -389,9 +428,9 @@
       >
     >
     <ITEM
-      POSITION 22
+      POSITION 26.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -433,9 +472,9 @@
       >
     >
     <ITEM
-      POSITION 24
+      POSITION 28.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -477,9 +516,9 @@
       >
     >
     <ITEM
-      POSITION 26
+      POSITION 31.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -521,9 +560,9 @@
       >
     >
     <ITEM
-      POSITION 28
+      POSITION 33.6
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -573,9 +612,9 @@
       >
     >
     <ITEM
-      POSITION 32
+      POSITION 38.4
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -625,9 +664,9 @@
       >
     >
     <ITEM
-      POSITION 36
+      POSITION 43.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -677,9 +716,9 @@
       >
     >
     <ITEM
-      POSITION 40
+      POSITION 48
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -729,9 +768,9 @@
       >
     >
     <ITEM
-      POSITION 44
+      POSITION 52.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -773,9 +812,9 @@
       >
     >
     <ITEM
-      POSITION 46
+      POSITION 55.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -817,9 +856,9 @@
       >
     >
     <ITEM
-      POSITION 48
+      POSITION 57.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -861,9 +900,9 @@
       >
     >
     <ITEM
-      POSITION 50
+      POSITION 60
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -905,9 +944,9 @@
       >
     >
     <ITEM
-      POSITION 52
+      POSITION 62.4
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -957,9 +996,9 @@
       >
     >
     <ITEM
-      POSITION 56
+      POSITION 67.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1009,9 +1048,9 @@
       >
     >
     <ITEM
-      POSITION 60
+      POSITION 72
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1053,9 +1092,9 @@
       >
     >
     <ITEM
-      POSITION 62
+      POSITION 74.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1097,9 +1136,9 @@
       >
     >
     <ITEM
-      POSITION 64
+      POSITION 76.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1141,9 +1180,9 @@
       >
     >
     <ITEM
-      POSITION 66
+      POSITION 79.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1185,9 +1224,9 @@
       >
     >
     <ITEM
-      POSITION 68
+      POSITION 81.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1229,9 +1268,9 @@
       >
     >
     <ITEM
-      POSITION 70
+      POSITION 84
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1273,9 +1312,9 @@
       >
     >
     <ITEM
-      POSITION 72
+      POSITION 86.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1317,9 +1356,9 @@
       >
     >
     <ITEM
-      POSITION 74
+      POSITION 88.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1361,9 +1400,9 @@
       >
     >
     <ITEM
-      POSITION 76
+      POSITION 91.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1405,9 +1444,9 @@
       >
     >
     <ITEM
-      POSITION 78
+      POSITION 93.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1449,9 +1488,9 @@
       >
     >
     <ITEM
-      POSITION 80
+      POSITION 96
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1493,9 +1532,9 @@
       >
     >
     <ITEM
-      POSITION 82
+      POSITION 98.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1537,9 +1576,9 @@
       >
     >
     <ITEM
-      POSITION 84
+      POSITION 100.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1581,9 +1620,9 @@
       >
     >
     <ITEM
-      POSITION 86
+      POSITION 103.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1625,9 +1664,9 @@
       >
     >
     <ITEM
-      POSITION 88
+      POSITION 105.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1669,9 +1708,9 @@
       >
     >
     <ITEM
-      POSITION 90
+      POSITION 108
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1713,9 +1752,9 @@
       >
     >
     <ITEM
-      POSITION 92
+      POSITION 110.4
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1765,9 +1804,9 @@
       >
     >
     <ITEM
-      POSITION 96
+      POSITION 115.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1817,9 +1856,9 @@
       >
     >
     <ITEM
-      POSITION 100
+      POSITION 120
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1869,9 +1908,9 @@
       >
     >
     <ITEM
-      POSITION 104
+      POSITION 124.8
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1921,9 +1960,9 @@
       >
     >
     <ITEM
-      POSITION 108
+      POSITION 129.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -1965,9 +2004,9 @@
       >
     >
     <ITEM
-      POSITION 110
+      POSITION 132
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2009,9 +2048,9 @@
       >
     >
     <ITEM
-      POSITION 112
+      POSITION 134.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2053,9 +2092,9 @@
       >
     >
     <ITEM
-      POSITION 114
+      POSITION 136.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2097,9 +2136,9 @@
       >
     >
     <ITEM
-      POSITION 116
+      POSITION 139.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2149,9 +2188,9 @@
       >
     >
     <ITEM
-      POSITION 120
+      POSITION 144
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2201,9 +2240,9 @@
       >
     >
     <ITEM
-      POSITION 124
+      POSITION 148.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2245,9 +2284,9 @@
       >
     >
     <ITEM
-      POSITION 126
+      POSITION 151.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2289,9 +2328,9 @@
       >
     >
     <ITEM
-      POSITION 128
+      POSITION 153.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2333,9 +2372,9 @@
       >
     >
     <ITEM
-      POSITION 130
+      POSITION 156
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2377,9 +2416,9 @@
       >
     >
     <ITEM
-      POSITION 132
+      POSITION 158.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2421,9 +2460,9 @@
       >
     >
     <ITEM
-      POSITION 134
+      POSITION 160.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2465,9 +2504,9 @@
       >
     >
     <ITEM
-      POSITION 136
+      POSITION 163.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2509,9 +2548,9 @@
       >
     >
     <ITEM
-      POSITION 138
+      POSITION 165.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2553,9 +2592,9 @@
       >
     >
     <ITEM
-      POSITION 140
+      POSITION 168
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2597,9 +2636,9 @@
       >
     >
     <ITEM
-      POSITION 142
+      POSITION 170.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2641,9 +2680,9 @@
       >
     >
     <ITEM
-      POSITION 144
+      POSITION 172.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2685,9 +2724,9 @@
       >
     >
     <ITEM
-      POSITION 146
+      POSITION 175.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2729,9 +2768,9 @@
       >
     >
     <ITEM
-      POSITION 148
+      POSITION 177.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2773,9 +2812,9 @@
       >
     >
     <ITEM
-      POSITION 150
+      POSITION 180
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2817,9 +2856,9 @@
       >
     >
     <ITEM
-      POSITION 152
+      POSITION 182.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2861,9 +2900,9 @@
       >
     >
     <ITEM
-      POSITION 154
+      POSITION 184.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2905,9 +2944,9 @@
       >
     >
     <ITEM
-      POSITION 156
+      POSITION 187.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -2957,9 +2996,9 @@
       >
     >
     <ITEM
-      POSITION 160
+      POSITION 192
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3009,9 +3048,9 @@
       >
     >
     <ITEM
-      POSITION 164
+      POSITION 196.8
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3061,9 +3100,9 @@
       >
     >
     <ITEM
-      POSITION 168
+      POSITION 201.6
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3113,9 +3152,9 @@
       >
     >
     <ITEM
-      POSITION 172
+      POSITION 206.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3157,9 +3196,9 @@
       >
     >
     <ITEM
-      POSITION 174
+      POSITION 208.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3201,9 +3240,9 @@
       >
     >
     <ITEM
-      POSITION 176
+      POSITION 211.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3245,9 +3284,9 @@
       >
     >
     <ITEM
-      POSITION 178
+      POSITION 213.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3356,59 +3395,9 @@
       WAK 0 0
     >
     <ITEM
-      POSITION 8
+      POSITION 14.4
       SNAPOFFS 0
-      LENGTH 4
-      LOOP 1
-      ALLTAKES 0
-      FADEIN 1 0 0 1 0 0 0
-      FADEOUT 1 0 0 1 0 0 0
-      MUTE 0 0
-      SEL 0
-      IGUID {0E6B9292-FD72-4335-BB47-17B10825CD40}
-      IID 235
-      NAME "untitled MIDI item-glued"
-      VOLPAN 1 0 1 -1
-      SOFFS 0 0
-      PLAYRATE 1 1 0 -1 0 0.0025
-      CHANMODE 0
-      GUID {88D25CEB-47E9-4DFE-92FB-8D1F85D1E498}
-      <SOURCE MIDI
-        HASDATA 1 960 QN
-        CCINTERP 32
-        POOLEDEVTS {85EDDCEA-47AA-4A54-BFC7-4890261C87BF}
-        E 0 90 3c 7f
-        E 480 80 3c 00
-        E 0 90 37 7f
-        E 480 80 37 00
-        E 0 90 3c 7f
-        E 480 80 3c 00
-        e 0 90 37 7f
-        e 480 80 37 00
-        e 0 90 3c 7f
-        e 480 80 3c 00
-        E 1440 90 39 7f
-        E 1920 80 39 00
-        E 0 90 3c 7f
-        E 1919 80 3c 00
-        E 1 b0 7b 00
-        CCINTERP 32
-        CHASE_CC_TAKEOFFS 1
-        GUID {A47ADD7F-BA14-491A-820F-024819587839}
-        IGNTEMPO 0 120 4 4
-        SRCCOLOR 291
-        VELLANE 31 191 0
-        CFGEDITVIEW 92526.116155 0.147596 44 12 0 -1 0 0 0 0.5
-        KEYSNAP 0
-        TRACKSEL 252
-        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
-        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.25 3760 334 5052 1232 0 0 0 4 0 0 0 1 0 0.31 0 0 1 64
-      >
-    >
-    <ITEM
-      POSITION 12
-      SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3450,9 +3439,9 @@
       >
     >
     <ITEM
-      POSITION 14
+      POSITION 16.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3494,9 +3483,9 @@
       >
     >
     <ITEM
-      POSITION 16
+      POSITION 19.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3538,9 +3527,9 @@
       >
     >
     <ITEM
-      POSITION 18
+      POSITION 21.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3582,9 +3571,9 @@
       >
     >
     <ITEM
-      POSITION 20
+      POSITION 24
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3626,9 +3615,9 @@
       >
     >
     <ITEM
-      POSITION 22
+      POSITION 26.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3670,9 +3659,9 @@
       >
     >
     <ITEM
-      POSITION 24
+      POSITION 28.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3714,9 +3703,9 @@
       >
     >
     <ITEM
-      POSITION 26
+      POSITION 31.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3758,9 +3747,9 @@
       >
     >
     <ITEM
-      POSITION 28
+      POSITION 33.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3800,9 +3789,9 @@
       >
     >
     <ITEM
-      POSITION 30
+      POSITION 36
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3842,9 +3831,9 @@
       >
     >
     <ITEM
-      POSITION 32
+      POSITION 38.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3884,9 +3873,9 @@
       >
     >
     <ITEM
-      POSITION 34
+      POSITION 40.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3926,9 +3915,9 @@
       >
     >
     <ITEM
-      POSITION 36
+      POSITION 43.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -3968,9 +3957,9 @@
       >
     >
     <ITEM
-      POSITION 38
+      POSITION 45.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4010,9 +3999,9 @@
       >
     >
     <ITEM
-      POSITION 40
+      POSITION 48
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4052,9 +4041,9 @@
       >
     >
     <ITEM
-      POSITION 42
+      POSITION 50.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4094,9 +4083,9 @@
       >
     >
     <ITEM
-      POSITION 44
+      POSITION 52.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4136,9 +4125,9 @@
       >
     >
     <ITEM
-      POSITION 46
+      POSITION 55.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4178,9 +4167,9 @@
       >
     >
     <ITEM
-      POSITION 48
+      POSITION 57.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4220,9 +4209,9 @@
       >
     >
     <ITEM
-      POSITION 50
+      POSITION 60
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4262,9 +4251,9 @@
       >
     >
     <ITEM
-      POSITION 52
+      POSITION 62.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4304,9 +4293,9 @@
       >
     >
     <ITEM
-      POSITION 54
+      POSITION 64.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4346,9 +4335,9 @@
       >
     >
     <ITEM
-      POSITION 56
+      POSITION 67.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4388,9 +4377,9 @@
       >
     >
     <ITEM
-      POSITION 58
+      POSITION 69.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4430,9 +4419,9 @@
       >
     >
     <ITEM
-      POSITION 60
+      POSITION 72
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4474,9 +4463,9 @@
       >
     >
     <ITEM
-      POSITION 62
+      POSITION 74.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4518,9 +4507,9 @@
       >
     >
     <ITEM
-      POSITION 64
+      POSITION 76.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4562,9 +4551,9 @@
       >
     >
     <ITEM
-      POSITION 66
+      POSITION 79.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4606,9 +4595,9 @@
       >
     >
     <ITEM
-      POSITION 68
+      POSITION 81.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4650,9 +4639,9 @@
       >
     >
     <ITEM
-      POSITION 70
+      POSITION 84
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4694,9 +4683,9 @@
       >
     >
     <ITEM
-      POSITION 72
+      POSITION 86.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4738,9 +4727,9 @@
       >
     >
     <ITEM
-      POSITION 74
+      POSITION 88.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4782,9 +4771,9 @@
       >
     >
     <ITEM
-      POSITION 76
+      POSITION 91.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4826,9 +4815,9 @@
       >
     >
     <ITEM
-      POSITION 78
+      POSITION 93.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4870,9 +4859,9 @@
       >
     >
     <ITEM
-      POSITION 80
+      POSITION 96
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4914,9 +4903,9 @@
       >
     >
     <ITEM
-      POSITION 82
+      POSITION 98.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -4958,9 +4947,9 @@
       >
     >
     <ITEM
-      POSITION 84
+      POSITION 100.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5002,9 +4991,9 @@
       >
     >
     <ITEM
-      POSITION 86
+      POSITION 103.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5046,9 +5035,9 @@
       >
     >
     <ITEM
-      POSITION 88
+      POSITION 105.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5090,9 +5079,9 @@
       >
     >
     <ITEM
-      POSITION 90
+      POSITION 108
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5134,9 +5123,9 @@
       >
     >
     <ITEM
-      POSITION 92
+      POSITION 110.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5176,9 +5165,9 @@
       >
     >
     <ITEM
-      POSITION 94
+      POSITION 112.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5218,9 +5207,9 @@
       >
     >
     <ITEM
-      POSITION 96
+      POSITION 115.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5260,9 +5249,9 @@
       >
     >
     <ITEM
-      POSITION 98
+      POSITION 117.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5302,9 +5291,9 @@
       >
     >
     <ITEM
-      POSITION 100
+      POSITION 120
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5344,9 +5333,9 @@
       >
     >
     <ITEM
-      POSITION 102
+      POSITION 122.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5386,9 +5375,9 @@
       >
     >
     <ITEM
-      POSITION 104
+      POSITION 124.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5428,9 +5417,9 @@
       >
     >
     <ITEM
-      POSITION 106
+      POSITION 127.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5470,9 +5459,9 @@
       >
     >
     <ITEM
-      POSITION 108
+      POSITION 129.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5512,9 +5501,9 @@
       >
     >
     <ITEM
-      POSITION 110
+      POSITION 132
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5554,9 +5543,9 @@
       >
     >
     <ITEM
-      POSITION 112
+      POSITION 134.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5596,9 +5585,9 @@
       >
     >
     <ITEM
-      POSITION 114
+      POSITION 136.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5638,9 +5627,9 @@
       >
     >
     <ITEM
-      POSITION 116
+      POSITION 139.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5680,9 +5669,9 @@
       >
     >
     <ITEM
-      POSITION 118
+      POSITION 141.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5722,9 +5711,9 @@
       >
     >
     <ITEM
-      POSITION 120
+      POSITION 144
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5764,9 +5753,9 @@
       >
     >
     <ITEM
-      POSITION 122
+      POSITION 146.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5806,9 +5795,9 @@
       >
     >
     <ITEM
-      POSITION 124
+      POSITION 148.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5848,9 +5837,9 @@
       >
     >
     <ITEM
-      POSITION 126
+      POSITION 151.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5890,9 +5879,9 @@
       >
     >
     <ITEM
-      POSITION 128
+      POSITION 153.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5932,9 +5921,9 @@
       >
     >
     <ITEM
-      POSITION 130
+      POSITION 156
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -5974,9 +5963,9 @@
       >
     >
     <ITEM
-      POSITION 132
+      POSITION 158.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6016,9 +6005,9 @@
       >
     >
     <ITEM
-      POSITION 134
+      POSITION 160.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6058,9 +6047,9 @@
       >
     >
     <ITEM
-      POSITION 136
+      POSITION 163.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6100,9 +6089,9 @@
       >
     >
     <ITEM
-      POSITION 138
+      POSITION 165.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6142,9 +6131,9 @@
       >
     >
     <ITEM
-      POSITION 140
+      POSITION 168
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6184,9 +6173,9 @@
       >
     >
     <ITEM
-      POSITION 142
+      POSITION 170.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6226,9 +6215,9 @@
       >
     >
     <ITEM
-      POSITION 144
+      POSITION 172.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6268,9 +6257,9 @@
       >
     >
     <ITEM
-      POSITION 146
+      POSITION 175.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6310,9 +6299,9 @@
       >
     >
     <ITEM
-      POSITION 148
+      POSITION 177.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6352,9 +6341,9 @@
       >
     >
     <ITEM
-      POSITION 150
+      POSITION 180
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6394,9 +6383,9 @@
       >
     >
     <ITEM
-      POSITION 152
+      POSITION 182.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6436,9 +6425,9 @@
       >
     >
     <ITEM
-      POSITION 154
+      POSITION 184.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6478,9 +6467,9 @@
       >
     >
     <ITEM
-      POSITION 156
+      POSITION 187.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6520,9 +6509,9 @@
       >
     >
     <ITEM
-      POSITION 158
+      POSITION 189.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6562,9 +6551,9 @@
       >
     >
     <ITEM
-      POSITION 160
+      POSITION 192
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6604,9 +6593,9 @@
       >
     >
     <ITEM
-      POSITION 162
+      POSITION 194.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6646,9 +6635,9 @@
       >
     >
     <ITEM
-      POSITION 164
+      POSITION 196.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6688,9 +6677,9 @@
       >
     >
     <ITEM
-      POSITION 166
+      POSITION 199.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6730,9 +6719,9 @@
       >
     >
     <ITEM
-      POSITION 168
+      POSITION 201.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6772,9 +6761,9 @@
       >
     >
     <ITEM
-      POSITION 170
+      POSITION 204
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6814,9 +6803,9 @@
       >
     >
     <ITEM
-      POSITION 172
+      POSITION 206.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6856,9 +6845,9 @@
       >
     >
     <ITEM
-      POSITION 174
+      POSITION 208.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6898,9 +6887,9 @@
       >
     >
     <ITEM
-      POSITION 176
+      POSITION 211.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6940,9 +6929,9 @@
       >
     >
     <ITEM
-      POSITION 178
+      POSITION 213.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -6982,9 +6971,9 @@
       >
     >
     <ITEM
-      POSITION 180
+      POSITION 216
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -7024,9 +7013,9 @@
       >
     >
     <ITEM
-      POSITION 182
+      POSITION 218.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -7066,9 +7055,9 @@
       >
     >
     <ITEM
-      POSITION 184
+      POSITION 220.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -7108,9 +7097,9 @@
       >
     >
     <ITEM
-      POSITION 186
+      POSITION 223.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -7162,7 +7151,7 @@
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 1
+    SEL 0
     REC 0 5056 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -7346,9 +7335,9 @@
       WAK 0 0
     >
     <ITEM
-      POSITION 28
+      POSITION 33.6
       SNAPOFFS 0
-      LENGTH 8
+      LENGTH 9.6
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -7359,7 +7348,7 @@
       IID 76
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {E263D0B6-83CB-4D48-82E7-D8A8E984919C}
@@ -7446,9 +7435,9 @@
       >
     >
     <ITEM
-      POSITION 36
+      POSITION 43.2
       SNAPOFFS 0
-      LENGTH 8
+      LENGTH 9.6
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -7459,7 +7448,7 @@
       IID 79
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {9C5E59E2-533C-45AA-8FB3-6E3034DC2C9B}
@@ -7546,9 +7535,9 @@
       >
     >
     <ITEM
-      POSITION 44
+      POSITION 52.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -7559,7 +7548,7 @@
       IID 404
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {8352259A-3D96-46AD-A206-F22A866A4767}
@@ -7598,9 +7587,9 @@
       >
     >
     <ITEM
-      POSITION 46
+      POSITION 55.2
       SNAPOFFS 0
-      LENGTH 6
+      LENGTH 7.2
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -7682,9 +7671,9 @@
       >
     >
     <ITEM
-      POSITION 52
+      POSITION 62.4
       SNAPOFFS 0
-      LENGTH 8
+      LENGTH 9.6
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -7695,7 +7684,7 @@
       IID 405
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {FC98F57F-1E39-4B70-99C9-1CF00B552E64}
@@ -7782,9 +7771,9 @@
       >
     >
     <ITEM
-      POSITION 60
+      POSITION 72
       SNAPOFFS 0
-      LENGTH 8
+      LENGTH 9.6
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -7795,7 +7784,7 @@
       IID 80
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {75529BD5-2D42-4AF2-93E2-196D45A282B6}
@@ -7882,9 +7871,9 @@
       >
     >
     <ITEM
-      POSITION 68
+      POSITION 81.6
       SNAPOFFS 0
-      LENGTH 8
+      LENGTH 9.6
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -7895,7 +7884,7 @@
       IID 174
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {3904E507-DDC5-4002-A902-B32CFDDAB182}
@@ -7982,9 +7971,9 @@
       >
     >
     <ITEM
-      POSITION 76
+      POSITION 91.2
       SNAPOFFS 0
-      LENGTH 8
+      LENGTH 9.6
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -7995,7 +7984,7 @@
       IID 477
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {0668F6B0-8045-4F22-8138-CDCC55E259E5}
@@ -8082,9 +8071,9 @@
       >
     >
     <ITEM
-      POSITION 84
+      POSITION 100.8
       SNAPOFFS 0
-      LENGTH 8
+      LENGTH 9.6
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -8095,7 +8084,7 @@
       IID 478
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {02407760-D129-4AF5-A522-80FD72CA4F0F}
@@ -8182,9 +8171,9 @@
       >
     >
     <ITEM
-      POSITION 92
+      POSITION 110.4
       SNAPOFFS 0
-      LENGTH 8
+      LENGTH 9.6
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -8195,7 +8184,7 @@
       IID 509
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {880F8653-21BD-4CA5-95B4-960C53BBA7CA}
@@ -8282,9 +8271,9 @@
       >
     >
     <ITEM
-      POSITION 100
+      POSITION 120
       SNAPOFFS 0
-      LENGTH 8
+      LENGTH 9.6
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -8295,7 +8284,7 @@
       IID 510
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {1A75BBD8-16D1-499B-8044-B8DA59FB91FD}
@@ -8382,9 +8371,9 @@
       >
     >
     <ITEM
-      POSITION 108
+      POSITION 129.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -8395,7 +8384,7 @@
       IID 511
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {4F7CDCC9-8106-44C6-BFA2-0538CF7F6377}
@@ -8434,9 +8423,9 @@
       >
     >
     <ITEM
-      POSITION 110
+      POSITION 132
       SNAPOFFS 0
-      LENGTH 6
+      LENGTH 7.2
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -8518,9 +8507,9 @@
       >
     >
     <ITEM
-      POSITION 116
+      POSITION 139.2
       SNAPOFFS 0
-      LENGTH 8
+      LENGTH 9.6
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -8531,7 +8520,7 @@
       IID 513
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {4B19E996-864D-4953-8DEA-160691D70CAD}
@@ -8618,9 +8607,9 @@
       >
     >
     <ITEM
-      POSITION 124
+      POSITION 148.8
       SNAPOFFS 0
-      LENGTH 32
+      LENGTH 38.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -8686,9 +8675,9 @@
       >
     >
     <ITEM
-      POSITION 156
+      POSITION 187.2
       SNAPOFFS 0
-      LENGTH 8
+      LENGTH 9.6
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -8699,7 +8688,7 @@
       IID 698
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {0F2AAE39-127C-4813-A8A2-5EF0B646B3D9}
@@ -8786,9 +8775,9 @@
       >
     >
     <ITEM
-      POSITION 164
+      POSITION 196.8
       SNAPOFFS 0
-      LENGTH 8
+      LENGTH 9.6
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -8799,7 +8788,7 @@
       IID 699
       NAME 03-MIDI
       VOLPAN 1 0 1 -1
-      SOFFS 4 8
+      SOFFS 4.8 8
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
       GUID {E6FA1CFA-1E9E-4D8F-9D3B-3BBA67DDB674}
@@ -8953,9 +8942,9 @@
       WAK 0 0
     >
     <ITEM
-      POSITION 28
+      POSITION 33.6
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9001,9 +8990,9 @@
       >
     >
     <ITEM
-      POSITION 32
+      POSITION 38.4
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9049,9 +9038,9 @@
       >
     >
     <ITEM
-      POSITION 36
+      POSITION 43.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9097,9 +9086,9 @@
       >
     >
     <ITEM
-      POSITION 40
+      POSITION 48
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9145,9 +9134,9 @@
       >
     >
     <ITEM
-      POSITION 44
+      POSITION 52.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9189,9 +9178,9 @@
       >
     >
     <ITEM
-      POSITION 46
+      POSITION 55.2
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9229,9 +9218,9 @@
       >
     >
     <ITEM
-      POSITION 48
+      POSITION 57.6
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9277,9 +9266,9 @@
       >
     >
     <ITEM
-      POSITION 52
+      POSITION 62.4
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9325,9 +9314,9 @@
       >
     >
     <ITEM
-      POSITION 56
+      POSITION 67.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9373,9 +9362,9 @@
       >
     >
     <ITEM
-      POSITION 92
+      POSITION 110.4
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9421,9 +9410,9 @@
       >
     >
     <ITEM
-      POSITION 96
+      POSITION 115.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9469,9 +9458,9 @@
       >
     >
     <ITEM
-      POSITION 100
+      POSITION 120
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9517,9 +9506,9 @@
       >
     >
     <ITEM
-      POSITION 104
+      POSITION 124.8
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9565,9 +9554,9 @@
       >
     >
     <ITEM
-      POSITION 108
+      POSITION 129.6
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9609,9 +9598,9 @@
       >
     >
     <ITEM
-      POSITION 110
+      POSITION 132
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9649,9 +9638,9 @@
       >
     >
     <ITEM
-      POSITION 112
+      POSITION 134.4
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9697,9 +9686,9 @@
       >
     >
     <ITEM
-      POSITION 116
+      POSITION 139.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9745,9 +9734,9 @@
       >
     >
     <ITEM
-      POSITION 120
+      POSITION 144
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9793,9 +9782,9 @@
       >
     >
     <ITEM
-      POSITION 128
+      POSITION 153.6
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9841,9 +9830,9 @@
       >
     >
     <ITEM
-      POSITION 136
+      POSITION 163.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9889,9 +9878,9 @@
       >
     >
     <ITEM
-      POSITION 144
+      POSITION 172.8
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9937,9 +9926,9 @@
       >
     >
     <ITEM
-      POSITION 152
+      POSITION 182.4
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -9985,9 +9974,9 @@
       >
     >
     <ITEM
-      POSITION 156
+      POSITION 187.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10033,9 +10022,9 @@
       >
     >
     <ITEM
-      POSITION 160
+      POSITION 192
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10081,9 +10070,9 @@
       >
     >
     <ITEM
-      POSITION 164
+      POSITION 196.8
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10129,9 +10118,9 @@
       >
     >
     <ITEM
-      POSITION 168
+      POSITION 201.6
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10177,9 +10166,9 @@
       >
     >
     <ITEM
-      POSITION 172
+      POSITION 206.4
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10221,9 +10210,9 @@
       >
     >
     <ITEM
-      POSITION 174
+      POSITION 208.8
       SNAPOFFS 0
-      LENGTH 2
+      LENGTH 2.4
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10261,9 +10250,9 @@
       >
     >
     <ITEM
-      POSITION 176
+      POSITION 211.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10309,9 +10298,9 @@
       >
     >
     <ITEM
-      POSITION 180
+      POSITION 216
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10357,9 +10346,9 @@
       >
     >
     <ITEM
-      POSITION 184
+      POSITION 220.8
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10414,7 +10403,7 @@
     MUTESOLO 0 0 0
     IPHASE 0
     PLAYOFFS 0 1
-    ISBUS 0 0
+    ISBUS 2 -1
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
     SEL 0
@@ -10472,9 +10461,9 @@
       WAK 0 0
     >
     <ITEM
-      POSITION 60
+      POSITION 72
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10524,9 +10513,9 @@
       >
     >
     <ITEM
-      POSITION 64
+      POSITION 76.8
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10576,9 +10565,9 @@
       >
     >
     <ITEM
-      POSITION 68
+      POSITION 81.6
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10628,9 +10617,9 @@
       >
     >
     <ITEM
-      POSITION 72
+      POSITION 86.4
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10680,9 +10669,9 @@
       >
     >
     <ITEM
-      POSITION 76
+      POSITION 91.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10732,9 +10721,9 @@
       >
     >
     <ITEM
-      POSITION 80
+      POSITION 96
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10784,9 +10773,9 @@
       >
     >
     <ITEM
-      POSITION 84
+      POSITION 100.8
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10836,9 +10825,9 @@
       >
     >
     <ITEM
-      POSITION 88
+      POSITION 105.6
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10888,9 +10877,9 @@
       >
     >
     <ITEM
-      POSITION 124
+      POSITION 148.8
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10940,9 +10929,9 @@
       >
     >
     <ITEM
-      POSITION 128
+      POSITION 153.6
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -10992,9 +10981,9 @@
       >
     >
     <ITEM
-      POSITION 132
+      POSITION 158.4
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -11044,9 +11033,9 @@
       >
     >
     <ITEM
-      POSITION 136
+      POSITION 163.2
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -11096,9 +11085,9 @@
       >
     >
     <ITEM
-      POSITION 140
+      POSITION 168
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -11148,9 +11137,9 @@
       >
     >
     <ITEM
-      POSITION 144
+      POSITION 172.8
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -11200,9 +11189,9 @@
       >
     >
     <ITEM
-      POSITION 148
+      POSITION 177.6
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -11252,9 +11241,9 @@
       >
     >
     <ITEM
-      POSITION 152
+      POSITION 182.4
       SNAPOFFS 0
-      LENGTH 4
+      LENGTH 4.8
       LOOP 1
       ALLTAKES 0
       FADEIN 1 0 0 1 0 0 0
@@ -11312,6 +11301,7 @@
       {74CCA731-3FB9-4299-9750-A030D0ECBE5C} 23856307 "" "" ""
       {9FA6FEAB-DA92-44E1-9C8D-A72784919C6B} 30773640 "" "" ""
       {672DDB5B-5B67-4C68-A272-20B878A44259} 31578405 "" "" ""
+      {918BB11A-484D-4BD6-85F1-E96137BF6A70} 26088810 "" "" ""
     >
   >
 >

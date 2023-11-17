@@ -79,9 +79,11 @@ shape = SubResource("RectangleShape2D_gy4xc")
 
 [node name="RocketShootSound" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("5_14tl0")
+bus = &"Game"
 
 [node name="PlayerDamageSound" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("8_0j06b")
+bus = &"Game"
 
 [node name="RocketTimer" type="Timer" parent="Player"]
 

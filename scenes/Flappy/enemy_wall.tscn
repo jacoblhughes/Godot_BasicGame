@@ -18,10 +18,10 @@ script = ExtResource("1_yt86i")
 
 [node name="BottomWall" type="AnimatedSprite2D" parent="."]
 position = Vector2(20, 832)
-rotation = 3.14159
-scale = Vector2(0.17242, 0.5)
+scale = Vector2(0.15625, 0.5)
 sprite_frames = ExtResource("2_trg1i")
 autoplay = "default"
+flip_v = true
 
 [node name="TopWall" type="AnimatedSprite2D" parent="."]
 position = Vector2(20, 192)
