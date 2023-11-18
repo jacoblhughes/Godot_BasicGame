@@ -20,7 +20,7 @@ var config = ConfigFile.new()
 @onready var HighscoreButton : Button
 @onready var HomeButton : Button
 var child_node_to_delete
-@onready var config_file_path
+
 @onready var new_initials
 @onready var game_over_panel : Panel
 @onready var reset_button_from_gameover : Button
@@ -36,7 +36,8 @@ var lives = 3
 var score = 0
 var game_enabled = false
 var current_game_scene : PackedScene
-const DEFAULT = -1
+const DEFAULT_FLOAT = -1.0
+const DEFAULT_TEXT = "-1"
 signal startButtonPressed
 signal resetButtonPressed
 signal highscoreButtonpressed
@@ -76,9 +77,10 @@ func _ready():
 	reset_button_from_gameover.pressed.connect(_on_reset_button_pressed)
 	home_button_from_gameover.pressed.connect(_on_home_button_pressed)
 	main_node.main_ready.connect(_on_main_ready)
-	config_file_path = config.load("user://perry_arcade.cfg")
+
 	var file_exists = FileAccess.file_exists(perry_arcade_path)
 	if(!file_exists):
+		print('tinatinatinatinat')
 		var file = FileAccess.open(perry_arcade_path, FileAccess.WRITE_READ)
 		file.store_string("[main]\n")
 		file.store_string("\n")
@@ -93,33 +95,38 @@ func _ready():
 		file.store_string("\n")
 		file.store_string("value=1\n")
 		file.store_string("playing=0\n")
+		file.close()
+		config.load(perry_arcade_path)
 	else:
-
-		if config.get_value("main", "initials") != null:
+		config.load(perry_arcade_path)
+		print(config.get_value("main", "initials",DEFAULT_TEXT))
+		print('hereerere')
+		print('okay')
+		if config.get_value("main", "initials",DEFAULT_TEXT) != DEFAULT_TEXT:
 			pass
 		else:
 			config.set_value("main", "initials","JLH")
 			config.save(perry_arcade_path)
 		
-		if config.get_value("background_music", "value", DEFAULT) != null:
+		if config.get_value("background_music", "value", DEFAULT_FLOAT) != DEFAULT_FLOAT:
 			pass
 		else:
 			config.set_value("background_music", "value",0.5)
 			config.save(perry_arcade_path)
 
-		if config.get_value("background_music", "playing", DEFAULT) != null:
+		if config.get_value("background_music", "playing", DEFAULT_FLOAT) != DEFAULT_FLOAT:
 			pass
 		else:
 			config.set_value("background_music", "playing",0)
 			config.save(perry_arcade_path)
 
-		if config.get_value("game_music", "value", DEFAULT) != null:
+		if config.get_value("game_music", "value", DEFAULT_FLOAT) != DEFAULT_FLOAT:
 			pass
 		else:
 			config.set_value("game_music", "value",0.5)
 			config.save(perry_arcade_path)
 
-		if config.get_value("game_music", "playing", DEFAULT) != null:
+		if config.get_value("game_music", "playing", DEFAULT_FLOAT) != DEFAULT_FLOAT:
 			pass
 		else:
 			config.set_value("game_music", "playing",0)
@@ -128,7 +135,7 @@ func _ready():
 
 
 
-
+	print('hedfdffdfreerere')
 	new_initials = config.get_value("main", "initials")
 	
 	_start_highscore_list()
@@ -171,7 +178,7 @@ func _replace_highscore_list():
 	
 	
 func get_config_path_file():
-	return config_file_path
+	return perry_arcade_path
 	
 func get_initials():
 	return new_initials
@@ -348,8 +355,8 @@ func set_game_enabled(status):
 
 func _on_main_ready():
 
-	AudioManager.update_background_music(config.get_value("background_music", "value", DEFAULT))
-	AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT))
-	AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT))
-	AudioManager.set_game_music_mute(config.get_value("game_music", "playing", DEFAULT))
+	AudioManager.update_background_music(config.get_value("background_music", "value", DEFAULT_FLOAT))
+	AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT_FLOAT))
+	AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT_FLOAT))
+	AudioManager.set_game_music_mute(config.get_value("game_music", "playing", DEFAULT_FLOAT))
 	AudioManager.game_file_ready()
