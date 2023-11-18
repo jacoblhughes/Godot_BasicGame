@@ -147,12 +147,6 @@ position = Vector2(664, 416)
 disable_mode = 2
 script = ExtResource("4_vctgl")
 
-[node name="ColorRect" type="ColorRect" parent="Paddle - Player"]
-visible = false
-offset_right = 16.0
-offset_bottom = 128.0
-metadata/_edit_use_anchors_ = true
-
 [node name="Sprite2D" type="Sprite2D" parent="Paddle - Player"]
 position = Vector2(8, 64)
 scale = Vector2(0.5, 0.5)
@@ -165,12 +159,6 @@ shape = SubResource("RectangleShape2D_fwr1e")
 [node name="Paddle - Computer" type="CharacterBody2D" parent="."]
 position = Vector2(40, 416)
 script = ExtResource("5_qhiic")
-
-[node name="ColorRect" type="ColorRect" parent="Paddle - Computer"]
-visible = false
-offset_right = 16.0
-offset_bottom = 128.0
-metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Paddle - Computer"]
 position = Vector2(8, 64)

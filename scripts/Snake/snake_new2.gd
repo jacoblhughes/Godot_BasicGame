@@ -73,25 +73,19 @@ func _input(event):
 		var distance = click_position - head_position
 
 		if abs(distance.x) > abs(distance.y):
+			head.my_sprite.rotation_degrees = 90
 			if(distance.x<0):
-				head.my_sprite.rotation = 0
 				next_direction = Vector2.LEFT
-				head.my_sprite.rotation = -90
-				head.my_sprite.flip_v = false
+				head.my_sprite.flip_v = true
 			else:
-				head.my_sprite.rotation = 0
 				next_direction = Vector2.RIGHT
-				head.my_sprite.rotation = 90
 				head.my_sprite.flip_v = false
-				
 		elif abs(distance.x) < abs(distance.y):
+			head.my_sprite.rotation_degrees = 0
 			if(distance.y<0):
-				head.my_sprite.rotation = 0
 				next_direction = Vector2.UP
-				head.my_sprite.rotation = 0
 				head.my_sprite.flip_v = false
 			else:
-				head.my_sprite.rotation = 0
 				next_direction = Vector2.DOWN
 				head.my_sprite.flip_v = true
 
@@ -133,8 +127,8 @@ func grow() -> void:
 	minisnakes.push_back(new_head)
 
 	get_parent().get_node("body").add_child.call_deferred(new_head)
-	new_head.scale.x = SnakeVariables.snakecellsize.x/150
-	new_head.scale.y = SnakeVariables.snakecellsize.y/150
+#	new_head.scale.x = SnakeVariables.snakecellsize.x/150
+#	new_head.scale.y = SnakeVariables.snakecellsize.y/150
 	
 func _on_hit(mini:Minisnake) -> void:
 	await get_tree().process_frame
@@ -203,7 +197,7 @@ func _on_grid_ready():
 	head.curr_position = play_area_min + Vector2(SnakeVariables.GRID_SIZE.x/2,SnakeVariables.GRID_SIZE.y/2)
 #	head.SnakePartReady.connect(_on_head_ready)
 	hit.connect(_on_hit)
-	head.scale.x = SnakeVariables.snakecellsize.x/150
-	head.scale.y = SnakeVariables.snakecellsize.y/150
+#	head.scale.x = SnakeVariables.snakecellsize.x/150
+#	head.scale.y = SnakeVariables.snakecellsize.y/150
 	minisnakes.push_front(head)
 

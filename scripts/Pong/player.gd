@@ -1,19 +1,20 @@
 extends CharacterBody2D
 
-@onready var my_sprite : ColorRect
+@onready var my_sprite : Sprite2D
 @onready var collision_object : CollisionShape2D
 @onready var ball : CharacterBody2D
 @export var sizeOfPaddle: Vector2
-var target_y = 0.0
+var target_y = GameManager.PlayArea.size.y/2
 var lerp_speed = 0.1
 var is_touching = false  # To keep track of whether the screen is currently being touched
+var sprite_half_y
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	my_sprite = $ColorRect
+	my_sprite = $Sprite2D
 	collision_object=$CollisionShape2D
 	ball = get_parent().get_node("Ball")
-	sizeOfPaddle = my_sprite.size
-
+	sizeOfPaddle = my_sprite.get_rect().size
+	sprite_half_y= sizeOfPaddle.y/2
 	pass # Replace with function body.
 func _input(event):
 	if(GameManager.get_game_enabled()):
@@ -34,4 +35,4 @@ func _physics_process(_delta):
 #	var mouse_pos = get_viewport().get_mouse_position()
 #	target_y = mouse_pos.y
 	position.y = lerp(position.y, target_y, lerp_speed)
-	position.y = clamp(position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y - my_sprite.size.y)
+	position.y = clamp(position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y - sprite_half_y)
