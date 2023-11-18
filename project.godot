@@ -13,7 +13,8 @@ config_version=5
 config/name="PerryArcade"
 run/main_scene="res://scenes/Main/main.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="res://art/App Icons/perry_original_512.png"
 config/icon="res://icon.svg"
 
 [autoload]
