@@ -30,6 +30,7 @@ var child_node_to_delete
 @onready var aspect_ratio_container
 @onready var buttons : Control
 @onready var hud_control : Control
+@onready var main_node : Control
 var perry_arcade_path = "user://perry_arcade.cfg"
 var lives = 3
 var score = 0
@@ -43,8 +44,8 @@ signal initialsUpdated
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-
-	aspect_ratio_container = get_tree().get_root().get_node("Main").get_node("AspectRatioContainer").get_node("Control")
+	main_node = get_tree().get_root().get_node("Main")
+	aspect_ratio_container = main_node.get_node("AspectRatioContainer").get_node("Control")
 	buttons = aspect_ratio_container.get_node("Buttons")
 	high_score_popup = buttons.get_node("HighScorePopup")
 	high_score_popup_list = high_score_popup.get_node("RichTextLabel")
@@ -74,7 +75,8 @@ func _ready():
 	HomeButton.pressed.connect(_on_home_button_pressed)
 	reset_button_from_gameover.pressed.connect(_on_reset_button_pressed)
 	home_button_from_gameover.pressed.connect(_on_home_button_pressed)
-	
+	main_node.main_ready.connect(_on_main_ready)
+	config_file_path = config.load("user://perry_arcade.cfg")
 	var file_exists = FileAccess.file_exists(perry_arcade_path)
 	if(!file_exists):
 		var file = FileAccess.open(perry_arcade_path, FileAccess.WRITE_READ)
@@ -92,39 +94,47 @@ func _ready():
 		file.store_string("value=1\n")
 		file.store_string("playing=0\n")
 	else:
-		if config.get_value("background_music", "value", DEFAULT) == DEFAULT:
-			config.set_value("background_music", "value",1)
 
-			AudioManager.update_background_music(config.get_value("background_music", "value"))
+		if config.get_value("main", "initials") != null:
+			pass
 		else:
-			AudioManager.update_background_music(config.get_value("background_music", "value", DEFAULT))
-		if config.get_value("background_music", "playing", DEFAULT) == DEFAULT:
+			config.set_value("main", "initials","JLH")
+			config.save(perry_arcade_path)
+		
+		if config.get_value("background_music", "value", DEFAULT) != null:
+			pass
+		else:
+			config.set_value("background_music", "value",0.5)
+			config.save(perry_arcade_path)
+
+		if config.get_value("background_music", "playing", DEFAULT) != null:
+			pass
+		else:
 			config.set_value("background_music", "playing",0)
+			config.save(perry_arcade_path)
 
-			AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT))
+		if config.get_value("game_music", "value", DEFAULT) != null:
+			pass
 		else:
-			AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT))
-		if config.get_value("game_music", "value", DEFAULT) == DEFAULT:
-			config.set_value("game_music", "value",1)
+			config.set_value("game_music", "value",0.5)
+			config.save(perry_arcade_path)
 
-			AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT))
+		if config.get_value("game_music", "playing", DEFAULT) != null:
+			pass
 		else:
-			AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT))
-		if config.get_value("game_music", "playing", DEFAULT) == DEFAULT:
 			config.set_value("game_music", "playing",0)
+			config.save(perry_arcade_path)
 
-			AudioManager.set_game_music_mute(config.get_value("game_music", "playing", DEFAULT))
-		else:
-			AudioManager.set_game_music_mute(config.get_value("game_music", "playing", DEFAULT))
-			
 
-	config_file_path = config.load("user://perry_arcade.cfg")
+
+
+
 	new_initials = config.get_value("main", "initials")
 	
-	await _start_highscore_list()
-	await _replace_highscore_list()
-	await _load_initials()
-	AudioManager.game_file_ready()
+	_start_highscore_list()
+	_replace_highscore_list()
+	_load_initials()
+
 func _start_highscore_list():
 
 	for game in ["simon_says","dino","creep","flappy","pong","attack","saucer","snake"]:
@@ -132,7 +142,7 @@ func _start_highscore_list():
 			
 func _replace_highscore_list():
 	high_score_popup_list.clear()
-	var highscore_first_line = "[center][b]--- " + "HIGHSCORES" + "  ---[/b][/center]\n\n"
+	var highscore_first_line = "\n[center][b]--- " + "HIGHSCORES" + "  ---[/b][/center]\n\n"
 	high_score_popup_list.append_text(highscore_first_line)
 	var highScoreGames : Array = [
 	{"name": "simon_says", "title": "Simon Says"},
@@ -335,3 +345,11 @@ func get_game_enabled():
 
 func set_game_enabled(status):
 	game_enabled = status
+
+func _on_main_ready():
+
+	AudioManager.update_background_music(config.get_value("background_music", "value", DEFAULT))
+	AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT))
+	AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT))
+	AudioManager.set_game_music_mute(config.get_value("game_music", "playing", DEFAULT))
+	AudioManager.game_file_ready()

@@ -29,23 +29,25 @@ Saucer
 Attack
 
 
-
-Background music
-Backgrounds!!!!!!
-Sounds!!!!
-Color Pallette
 Clamp things
 Things only can be seen in game area - z axis?
 Home button does not trigget a jump
-
 Make directions for each game
 
-Timing loading for each element - noticably android and labels and such
 
 V2:
+	
 Simon
 	Make buttons a class so I can call the pressed method
 
+All:
+	Improved backgrounds
+	Improved sounds
+	Improved background music
+	
+Color Pallete:
+	Aesprite
 
-
-
+Notes:
+	Timing loading for each element - noticably android and labels and such
+		Do I still have this?
