@@ -80,7 +80,7 @@ func _ready():
 
 	var file_exists = FileAccess.file_exists(perry_arcade_path)
 	if(!file_exists):
-		print('tinatinatinatinat')
+
 		var file = FileAccess.open(perry_arcade_path, FileAccess.WRITE_READ)
 		file.store_string("[main]\n")
 		file.store_string("\n")
@@ -99,9 +99,6 @@ func _ready():
 		config.load(perry_arcade_path)
 	else:
 		config.load(perry_arcade_path)
-		print(config.get_value("main", "initials",DEFAULT_TEXT))
-		print('hereerere')
-		print('okay')
 		if config.get_value("main", "initials",DEFAULT_TEXT) != DEFAULT_TEXT:
 			pass
 		else:
@@ -132,10 +129,6 @@ func _ready():
 			config.set_value("game_music", "playing",0)
 			config.save(perry_arcade_path)
 
-
-
-
-	print('hedfdffdfreerere')
 	new_initials = config.get_value("main", "initials")
 	
 	_start_highscore_list()
