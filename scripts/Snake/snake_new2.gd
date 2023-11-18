@@ -13,7 +13,7 @@ var curr_direction = Vector2.ZERO
 var png_size
 var game_disabled = true
 var snake_length = 0
-var play_area_min = GameManager.get_play_area_position_from_HUD()
+var play_area_min 
 signal hit(minisnake_hit: Minisnake)
 var SnakeTimer
 var isFirst = true
@@ -25,9 +25,12 @@ var head_original_x
 var head_original_y
 
 func _ready():
+	var new_area = Vector2(GameManager.get_play_area_size_from_HUD().x,GameManager.get_play_area_size_from_HUD().x)
+	var left_over = (GameManager.get_play_area_size_from_HUD().y/2) - (GameManager.get_play_area_size_from_HUD().x/2)
+	var new_position = Vector2(GameManager.get_play_area_position_from_HUD().x,GameManager.get_play_area_position_from_HUD().y+left_over)
 	grid = get_parent().get_node("grid")
 	grid.grid_ready.connect(_on_grid_ready)
-
+	play_area_min = new_position
 	SnakeTimer = get_parent().get_node("Snake_Move_Timer")
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)

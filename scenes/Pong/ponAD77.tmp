@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://c1n3bt7ntc5gf"]
+[gd_scene load_steps=27 format=3 uid="uid://c1n3bt7ntc5gf"]
 
 [ext_resource type="Script" path="res://scripts/Pong/pong_new.gd" id="1_4nkx4"]
 [ext_resource type="Texture2D" uid="uid://c4rylxpixdbli" path="res://art/Pong/pong_pool_144_256.png" id="1_ss4wu"]
 [ext_resource type="Script" path="res://scripts/Pong/ball.gd" id="2_ouerh"]
+[ext_resource type="Texture2D" uid="uid://dpetxgmxxyxnp" path="res://art/Main/Roddy.png" id="3_w6inn"]
 [ext_resource type="Texture2D" uid="uid://0i3nb3jhnam6" path="res://art/Pong/perry_circle-Sheet.png" id="4_1upja"]
 [ext_resource type="Script" path="res://scripts/Pong/player.gd" id="4_vctgl"]
 [ext_resource type="Script" path="res://scripts/Pong/enemy.gd" id="5_qhiic"]
@@ -82,7 +83,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nrpdu"]
-radius = 32.0
+radius = 46.0977
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwr1e"]
 size = Vector2(32, 128)
@@ -124,12 +125,18 @@ expand_mode = 1
 script = ExtResource("1_4nkx4")
 
 [node name="Ball" type="CharacterBody2D" parent="."]
-position = Vector2(384, 584)
+position = Vector2(384, 480)
 disable_mode = 2
 script = ExtResource("2_ouerh")
 
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+visible = false
+position = Vector2(-3.05176e-05, 3.05176e-05)
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("3_w6inn")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ball"]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_1p6q2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
@@ -148,13 +155,9 @@ texture = ExtResource("6_3jrvd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle - Player"]
 position = Vector2(8, 64)
 shape = SubResource("RectangleShape2D_fwr1e")
-disabled = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paddle - Player"]
-polygon = PackedVector2Array(-8, 64, -8, 56, 0, 8, 8, 0, 24, 0, 24, 128, 8, 128, 0, 120, -8, 72)
 
 [node name="Paddle - Computer" type="CharacterBody2D" parent="."]
-position = Vector2(40, 480)
+position = Vector2(40, 416)
 script = ExtResource("5_qhiic")
 
 [node name="Sprite2D" type="Sprite2D" parent="Paddle - Computer"]
@@ -166,9 +169,6 @@ texture = ExtResource("8_4yy65")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle - Computer"]
 position = Vector2(8, 64)
 shape = SubResource("RectangleShape2D_5bfcs")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paddle - Computer"]
-polygon = PackedVector2Array(-8, 0, -8, 128, 8, 128, 16, 120, 24, 72, 24, 64, 24, 56, 16, 8, 8, 0)
 
 [node name="Top Wall" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_p42yw")

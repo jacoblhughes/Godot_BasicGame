@@ -11,10 +11,13 @@ signal grid_ready
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	SnakeVariables._set_play_area_size(GameManager.get_play_area_size_from_HUD())
-	SnakeVariables._set_play_area_position(GameManager.get_play_area_position_from_HUD())
-	var cellX = GameManager.get_play_area_size_from_HUD().x/SnakeVariables.snakecells
-	var cellY = GameManager.get_play_area_size_from_HUD().y/SnakeVariables.snakecells
+	var new_area = Vector2(GameManager.get_play_area_size_from_HUD().x,GameManager.get_play_area_size_from_HUD().x)
+	var left_over = (GameManager.get_play_area_size_from_HUD().y/2) - (GameManager.get_play_area_size_from_HUD().x/2)
+	var new_position = Vector2(GameManager.get_play_area_position_from_HUD().x,GameManager.get_play_area_position_from_HUD().y+left_over)
+	SnakeVariables._set_play_area_size(new_area)
+	SnakeVariables._set_play_area_position(new_position)
+	var cellX = new_area.x/SnakeVariables.snakecells
+	var cellY = new_area.y/SnakeVariables.snakecells
 	SnakeVariables.set_snake_cell_size(Vector2(cellX,cellY))
 	sizewidth = SnakeVariables.GRID_SIZE.x/SnakeVariables.snakecells
 	sizeheight = SnakeVariables.GRID_SIZE.y/SnakeVariables.snakecells

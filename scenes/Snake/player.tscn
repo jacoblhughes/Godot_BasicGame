@@ -9,8 +9,8 @@ size = Vector2(64, 64)
 [node name="Player" type="Area2D"]
 script = ExtResource("1_oe4ju")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_uwy7j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

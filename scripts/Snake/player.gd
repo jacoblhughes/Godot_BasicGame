@@ -6,8 +6,8 @@ extends Minisnake
 signal SnakePartReady
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if has_node("Sprite"):
-		my_sprite = $Sprite
+	if has_node("Sprite2D"):
+		my_sprite = $Sprite2D
 #		my_sprite_size = my_sprite.texture.get_size()
 
 #		SnakePartReady.emit()
