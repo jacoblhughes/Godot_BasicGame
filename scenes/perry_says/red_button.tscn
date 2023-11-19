@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgvuoh3l0yd1h"]
+[gd_scene load_steps=12 format=3 uid="uid://bgvuoh3l0yd1h"]
 
+[ext_resource type="Theme" uid="uid://c41xvw7iagmuc" path="res://themes/perry_says/perry_says_buttons.tres" id="1_qurfw"]
 [ext_resource type="Script" path="res://scripts/perry_says/game_button.gd" id="2_t0bso"]
 [ext_resource type="AudioStream" uid="uid://brarlhu18wx0d" path="res://sounds/perry_says/a_sharp.wav" id="3_ijknx"]
 [ext_resource type="Texture2D" uid="uid://b0v3ipc26j5mr" path="res://art/perry_says/red_256.png" id="5_5knfb"]
@@ -62,6 +63,7 @@ animations = [{
 [node name="RedButton" type="Button" groups=["simonSaysGameButtons"]]
 offset_right = 192.0
 offset_bottom = 192.0
+theme = ExtResource("1_qurfw")
 action_mode = 0
 keep_pressed_outside = true
 script = ExtResource("2_t0bso")
