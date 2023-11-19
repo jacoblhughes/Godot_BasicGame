@@ -7,7 +7,7 @@ Snake
 	
 
 Pong
-	Improve collision mechanics
+
 
 Dino
 
@@ -26,7 +26,6 @@ Attack
 	Rockets global position??
 
 Clamp things
-Things only can be seen in game area - z axis?
 Home button does not trigget a jump
 Make directions for each game
 
