@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckpqmqx1najki"]
+[gd_scene load_steps=5 format=3 uid="uid://ckpqmqx1najki"]
 
 [ext_resource type="Script" path="res://scripts/main/main.gd" id="1_jwx6u"]
 [ext_resource type="PackedScene" uid="uid://cyl28swe7b43k" path="res://scenes/main/hud.tscn" id="2_v0m1m"]
+[ext_resource type="Script" path="res://scripts/main/background.gd" id="2_vd3fv"]
 [ext_resource type="PackedScene" uid="uid://d4cpf87cb1bs0" path="res://scenes/main/buttons.tscn" id="3_5wtcr"]
 
 [node name="Main" type="Control"]
@@ -25,6 +26,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.85098, 0.627451, 0.4, 1)
+script = ExtResource("2_vd3fv")
 metadata/_edit_use_anchors_ = true
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]

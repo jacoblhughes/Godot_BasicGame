@@ -29,9 +29,7 @@ func _ready():
 	
 	pass
 	
-func _process(delta):
-	if Input.is_action_just_pressed("hit_space"):
-		shoot()
+
 
 func _input(event):
 	if(GameManager.get_game_enabled()):
