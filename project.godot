@@ -11,17 +11,17 @@ config_version=5
 [application]
 
 config/name="PerryArcade"
-run/main_scene="res://scenes/Main/main.tscn"
+run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 boot_splash/bg_color=Color(1, 1, 1, 1)
-boot_splash/image="res://art/App Icons/perry_original_512.png"
+boot_splash/image="res://art/app_art/perry_original_512.png"
 config/icon="res://icon.svg"
 
 [autoload]
 
-SnakeVariables="*res://data/Snake/singleton/SnakeVariables.gd"
-GameManager="*res://data/Main/GameManager.gd"
-AudioManager="*res://data/Main/AudioManager.gd"
+SnakeVariables="*res://data/perry_python/singleton/SnakeVariables.gd"
+GameManager="*res://data/main/GameManager.gd"
+AudioManager="*res://data/main/AudioManager.gd"
 
 [display]
 

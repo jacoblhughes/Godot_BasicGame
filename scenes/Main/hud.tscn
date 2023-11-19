@@ -1,14 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyl28swe7b43k"]
+[gd_scene load_steps=12 format=3 uid="uid://cyl28swe7b43k"]
 
-[ext_resource type="Script" path="res://scripts/Main/hud.gd" id="1_bor3t"]
-[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/Main/main.tres" id="3_pif24"]
-[ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/Main/applause.wav" id="4_ty8yg"]
-[ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://sounds/Main/gameover.wav" id="5_koihj"]
-[ext_resource type="AudioStream" uid="uid://buulegk5q7el8" path="res://sounds/Main/background_music.wav" id="5_ncln7"]
-[ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://art/Main/perry_original_256x256.png" id="8_uv2qu"]
+[ext_resource type="Script" path="res://scripts/main/hud.gd" id="1_0q0fm"]
+[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="2_rixfx"]
+[ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/main/applause.wav" id="3_307aq"]
+[ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://sounds/main/gameover.wav" id="4_10bby"]
+[ext_resource type="AudioStream" uid="uid://buulegk5q7el8" path="res://sounds/main/background_music.wav" id="5_vunom"]
+[ext_resource type="Texture2D" uid="uid://u4h60uf3ggrk" path="res://art/main/perry_run_happy_ani_512_768.png" id="6_rls67"]
+[ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://art/main/perry_original_256x256.png" id="6_xpw07"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0fsyn"]
 font_size = 22
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fr5w"]
+atlas = ExtResource("6_rls67")
+region = Rect2(0, 0, 512, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afqhh"]
+atlas = ExtResource("6_rls67")
+region = Rect2(512, 0, 512, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olde7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fr5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afqhh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -19,7 +42,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_bor3t")
+script = ExtResource("1_0q0fm")
+metadata/_edit_horizontal_guides_ = [224.0]
+metadata/_edit_vertical_guides_ = [240.0, 720.0, 480.0]
 
 [node name="Initials_Label" type="Label" parent="."]
 layout_mode = 0
@@ -27,7 +52,7 @@ offset_left = 416.0
 offset_top = 64.0
 offset_right = 536.0
 offset_bottom = 120.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 text = "Initials:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -38,7 +63,7 @@ offset_left = 560.0
 offset_top = 64.0
 offset_right = 680.0
 offset_bottom = 120.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 text = "JLH"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -49,7 +74,7 @@ offset_left = 416.0
 offset_top = 1192.0
 offset_right = 680.0
 offset_bottom = 1248.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 text = "Home"
 
 [node name="Score_Label" type="Label" parent="."]
@@ -58,7 +83,7 @@ offset_left = 40.0
 offset_top = 64.0
 offset_right = 160.0
 offset_bottom = 120.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 text = "Game Score:
 "
 horizontal_alignment = 1
@@ -70,21 +95,21 @@ offset_left = 184.0
 offset_top = 64.0
 offset_right = 304.0
 offset_bottom = 120.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Applause" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ty8yg")
+stream = ExtResource("3_307aq")
 bus = &"Game"
 
 [node name="GameOver" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_koihj")
+stream = ExtResource("4_10bby")
 bus = &"Game"
 
 [node name="BackGroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_ncln7")
+stream = ExtResource("5_vunom")
 bus = &"Background"
 
 [node name="GameStartPanel" type="Panel" parent="."]
@@ -92,7 +117,7 @@ visible = false
 layout_mode = 0
 offset_right = 720.0
 offset_bottom = 1280.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 
 [node name="Play_Button" type="Button" parent="GameStartPanel"]
 layout_mode = 0
@@ -100,7 +125,7 @@ offset_left = 64.0
 offset_top = 656.0
 offset_right = 656.0
 offset_bottom = 808.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 text = "Play"
 
 [node name="Title" type="Label" parent="GameStartPanel"]
@@ -109,7 +134,7 @@ offset_left = 64.0
 offset_top = 192.0
 offset_right = 656.0
 offset_bottom = 256.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 theme_type_variation = &"Main_2"
 text = "TITLE"
 label_settings = SubResource("LabelSettings_0fsyn")
@@ -123,7 +148,7 @@ offset_left = 64.0
 offset_top = 256.0
 offset_right = 148.0
 offset_bottom = 282.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 theme_type_variation = &"Main_2"
 text = "Directions:"
 
@@ -133,7 +158,7 @@ offset_left = 64.0
 offset_top = 282.0
 offset_right = 656.0
 offset_bottom = 520.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 theme_type_variation = &"Main_2"
 text = "Directions"
 horizontal_alignment = 1
@@ -145,7 +170,7 @@ visible = false
 layout_mode = 0
 offset_right = 720.0
 offset_bottom = 1280.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 
 [node name="ResetButton" type="Button" parent="GameOverPanel"]
 visible = false
@@ -154,7 +179,7 @@ offset_left = 64.0
 offset_top = 656.0
 offset_right = 656.0
 offset_bottom = 808.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 text = "Reset"
 
 [node name="GameOverLabel" type="Label" parent="GameOverPanel"]
@@ -163,7 +188,7 @@ offset_left = 64.0
 offset_top = 192.0
 offset_right = 656.0
 offset_bottom = 256.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 theme_type_variation = &"Main_2"
 text = "GAME OVER"
 horizontal_alignment = 1
@@ -175,13 +200,20 @@ offset_left = 64.0
 offset_top = 832.0
 offset_right = 656.0
 offset_bottom = 984.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 text = "Home"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GameOverPanel"]
+visible = false
+position = Vector2(360, 520)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_olde7")
+frame_progress = 0.0114847
 
 [node name="LivesSprite" type="Sprite2D" parent="."]
 position = Vector2(72, 1216)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("8_uv2qu")
+texture = ExtResource("6_xpw07")
 
 [node name="LivesX" type="Label" parent="."]
 layout_mode = 0
@@ -189,7 +221,7 @@ offset_left = 120.0
 offset_top = 1200.0
 offset_right = 160.0
 offset_bottom = 1232.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 theme_type_variation = &"Main_2"
 text = "X"
 horizontal_alignment = 1
@@ -201,7 +233,7 @@ offset_left = 176.0
 offset_top = 1200.0
 offset_right = 216.0
 offset_bottom = 1231.0
-theme = ExtResource("3_pif24")
+theme = ExtResource("2_rixfx")
 theme_type_variation = &"Main_2"
 text = "INF"
 horizontal_alignment = 1

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://denmx5k15fgj5"
-path="res://.godot/imported/perry_original_256x256.png-bb66e7cbc02346fd27f9cbece1a174b6.ctex"
+path="res://.godot/imported/perry_original_256x256.png-7e918eee8cea5dec470f5f641eb132b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Main/perry_original_256x256.png"
-dest_files=["res://.godot/imported/perry_original_256x256.png-bb66e7cbc02346fd27f9cbece1a174b6.ctex"]
+source_file="res://art/main/perry_original_256x256.png"
+dest_files=["res://.godot/imported/perry_original_256x256.png-7e918eee8cea5dec470f5f641eb132b3.ctex"]
 
 [params]
 

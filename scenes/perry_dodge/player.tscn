@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://0dmkhtys2fv3"]
+
+[ext_resource type="Script" path="res://scripts/perry_dodge/player.gd" id="1_qtk1b"]
+[ext_resource type="Texture2D" uid="uid://by61raaxondhx" path="res://art/perry_dodge/perry_creep_256_256.png" id="2_dnwvf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po0k8"]
+atlas = ExtResource("2_dnwvf")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2j42"]
+atlas = ExtResource("2_dnwvf")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql62o"]
+atlas = ExtResource("2_dnwvf")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7v7t"]
+atlas = ExtResource("2_dnwvf")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjyop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po0k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2j42")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql62o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7v7t")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jme0u"]
+radius = 16.0
+height = 64.0
+
+[node name="Player" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_qtk1b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_yjyop")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jme0u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

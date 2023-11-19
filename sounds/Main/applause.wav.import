@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://x3n1q7m1tucn"
-path="res://.godot/imported/applause.wav-0e6873aff6e72889340c8d2198d0f2f0.sample"
+path="res://.godot/imported/applause.wav-25e1409802c4830dc50b469a67f15c1b.sample"
 
 [deps]
 
-source_file="res://sounds/Main/applause.wav"
-dest_files=["res://.godot/imported/applause.wav-0e6873aff6e72889340c8d2198d0f2f0.sample"]
+source_file="res://sounds/main/applause.wav"
+dest_files=["res://.godot/imported/applause.wav-25e1409802c4830dc50b469a67f15c1b.sample"]
 
 [params]
 

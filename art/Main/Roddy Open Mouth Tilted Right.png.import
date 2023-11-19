@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bilyrox678nfu"
-path="res://.godot/imported/Roddy Open Mouth Tilted Right.png-0448bc12e93af5df59c25c6af12ebfe5.ctex"
+path="res://.godot/imported/Roddy Open Mouth Tilted Right.png-8a65a17cc6684109580bb2178312e59b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Main/Roddy Open Mouth Tilted Right.png"
-dest_files=["res://.godot/imported/Roddy Open Mouth Tilted Right.png-0448bc12e93af5df59c25c6af12ebfe5.ctex"]
+source_file="res://art/main/Roddy Open Mouth Tilted Right.png"
+dest_files=["res://.godot/imported/Roddy Open Mouth Tilted Right.png-8a65a17cc6684109580bb2178312e59b.ctex"]
 
 [params]
 

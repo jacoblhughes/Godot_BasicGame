@@ -6,15 +6,15 @@ var config = ConfigFile.new()
 @onready var InitialsInput : Label
 @onready var ScoreLabel : Label
 @onready var StatusLabel : Label
-@onready var GameOverSound: AudioStreamPlayer
-@onready var ApplauseSound: AudioStreamPlayer
+
+
 @onready var BackGroundMusic: AudioStreamPlayer
 @onready var PlayArea: ColorRect
 @onready var GameStartPanel : Panel
 @onready var Title : Label
 @onready var Directions : Label
-@onready var high_score_popup : Panel
-@onready var high_score_popup_list : RichTextLabel
+
+
 @onready var PlayButton : Button
 @onready var ResetButton : Button
 @onready var HighscoreButton : Button
@@ -31,6 +31,7 @@ var child_node_to_delete
 @onready var buttons : Control
 @onready var hud_control : Control
 @onready var main_node : Control
+@onready var game_over_panel_congrats : AnimatedSprite2D
 var perry_arcade_path = "user://perry_arcade.cfg"
 var lives = 3
 var score = 0
@@ -42,18 +43,30 @@ signal startButtonPressed
 signal resetButtonPressed
 signal highscoreButtonpressed
 signal initialsUpdated
+var game_key = "JLH"
+var games_list : Dictionary = {
+"1":{"title":"Perry Says","short_name":"perry_says","directions":"Smash Perry in the right order to get the high score!"}
+,"2":{"title":"Python Perry","short_name":"perry_python","directions":"Make Perry eat the unfunny clown!"}
+,"3":{"title":"Perry Water Polo","short_name":"perry_polo","directions":"Bounce Perry around to get the highscore!"}
+,"4":{"title":"Perry's Llama Leap","short_name":"perry_llama","directions":"Perry stole your headband. Jump over his garbage as you chase him down!"}
+,"5":{"title":"Perry Dodge","short_name":"perry_dodge","directions":"Help Perry avoid the zoo animals!"}
+,"6":{"title":"Perry Flap","short_name":"perry_flap","directions":"Perry is trying to stop the bird from getting home. Help flappy!"}
+,"7":{"title":"Perry Run","short_name":"perry_run","directions":"Get to the end of the maze as fast as you can and as many times as you can!"}
+,"8":{"title":"Perry Space Attack","short_name":"perry_space","directions":"Roddy needs help avoiding the Vegaliens"}
+
+}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	main_node = get_tree().get_root().get_node("Main")
 	aspect_ratio_container = main_node.get_node("AspectRatioContainer").get_node("Control")
 	buttons = aspect_ratio_container.get_node("Buttons")
-	high_score_popup = buttons.get_node("HighScorePopup")
-	high_score_popup_list = high_score_popup.get_node("RichTextLabel")
+
+
 	hud_control = aspect_ratio_container.get_node("HUD")
 	InitialsInput = hud_control.get_node("Initials")
 	ScoreLabel = hud_control.get_node("Score")
-#	StatusLabel = get_tree().get_root().get_node("Main").get_node("HUD_SCENE").get_node("Control").get_node("GameStatus")
+
 	
 	PlayArea = aspect_ratio_container.get_node("PlayArea")
 	GameStartPanel = hud_control.get_node("GameStartPanel")
@@ -61,10 +74,11 @@ func _ready():
 	Directions = hud_control.get_node("GameStartPanel").get_node("Directions")
 	PlayButton = hud_control.get_node("GameStartPanel").get_node("Play_Button")
 	game_over_panel = hud_control.get_node("GameOverPanel")
+	game_over_panel_congrats = game_over_panel.get_node("AnimatedSprite2D")
 	reset_button_from_gameover = hud_control.get_node("GameOverPanel").get_node("ResetButton")
 	home_button_from_gameover = hud_control.get_node("GameOverPanel").get_node("HomeButtonOnGameover")
 
-	HighscoreButton = buttons.get_node("Highscore_Button")
+
 	HomeButton = hud_control.get_node("Home_Button")
 	
 	game_scene = aspect_ratio_container.get_node("GameScene")
@@ -72,7 +86,7 @@ func _ready():
 	
 	PlayButton.pressed.connect(_on_play_button_pressed)
 
-	HighscoreButton.pressed.connect(_on_highscore_pressed)
+
 	HomeButton.pressed.connect(_on_home_button_pressed)
 	reset_button_from_gameover.pressed.connect(_on_reset_button_pressed)
 	home_button_from_gameover.pressed.connect(_on_home_button_pressed)
@@ -131,44 +145,14 @@ func _ready():
 
 	new_initials = config.get_value("main", "initials")
 	
-	_start_highscore_list()
-	_replace_highscore_list()
-	_load_initials()
-
-func _start_highscore_list():
-
-	for game in ["simon_says","dino","creep","flappy","pong","attack","saucer","snake"]:
-		initiate_highscores_section(game)
+	initiate_highscores_section()
+	_load_initials()	
+		
 			
-func _replace_highscore_list():
-	high_score_popup_list.clear()
-	var highscore_first_line = "\n[center][b]--- " + "HIGHSCORES" + "  ---[/b][/center]\n\n"
-	high_score_popup_list.append_text(highscore_first_line)
-	var highScoreGames : Array = [
-	{"name": "simon_says", "title": "Simon Says"},
-	{"name": "dino", "title": "Dino"},
-	{"name": "creep", "title": "Creep"},
-	{"name": "flappy", "title": "Flappy"},
-	{"name": "pong", "title": "Pong"},
-	{"name": "attack", "title": "Attack"},
-	{"name": "saucer", "title": "Saucer"},
-	{"name": "snake", "title": "Snake"}
-]
-	for game in highScoreGames:
-		var game_first_line = "[b]" + game['title'] + " Scores[/b]\n"
-		high_score_popup_list.append_text(game_first_line)
 
-		var names = get_highscore_names(game['name'] )
-		var scores = get_highscore_scores(game['name'] )
-
-		for i in range(names.size()):
-			var score_entry = "[indent]" + names[i] + ": " + str(scores[i]) + "\n[/indent]"
-			high_score_popup_list.append_text(score_entry)
-
-		high_score_popup_list.append_text("\n")  # Add an extra newline for separation
-
-	high_score_popup_list.scroll_to_line(0)  # Scroll to the top of the list
 	
+func get_games_list():
+	return games_list
 	
 func get_config_path_file():
 	return perry_arcade_path
@@ -206,15 +190,6 @@ func set_or_reset_lives(default_lives = "INF"):
 	else:
 		lives=3
 		lives_label.text = default_lives
-		
-func play_game_over():
-	AudioManager.GameOverSound.play()
-
-func play_applause():
-	AudioManager.ApplauseSound.play()
-	
-#func get_initials_from_HUD() -> String:
-#	return InitialsInput.text
 
 func get_play_area_size_from_HUD():
 	return PlayArea.size
@@ -239,6 +214,7 @@ func _on_home_button_pressed():
 	set_or_reset_lives()
 	GameManager.set_game_enabled(false)
 	set_gameover_panel(false)
+	set_gameover_panel_congrats(false)
 	child_node_to_delete = game_scene.get_children()
 	if child_node_to_delete:
 		buttons.visible = true
@@ -254,6 +230,14 @@ func _on_play_button_pressed():
 func set_gameover_panel(vis):
 	game_over_panel.visible = vis
 
+func set_gameover_panel_congrats(vis):
+	game_over_panel_congrats.visible = vis
+	if(vis):
+		game_over_panel_congrats.play()
+	else:
+		game_over_panel_congrats.stop()
+	
+
 func _on_reset_button_pressed():
 	set_gameover_panel(false)
 	resetButtonPressed.emit()
@@ -267,11 +251,6 @@ func set_game_again():
 	game_scene.add_child(current_game_scene.instantiate(),true)
 	GameManager.set_gamestartpanel(true)
 
-func _on_highscore_pressed():
-	highscoreButtonpressed.emit()
-	high_score_popup.visible = !high_score_popup.visible
-	pass # Replace with function body.
-
 func _load_initials():
 	InitialsInput.text = new_initials
 
@@ -281,9 +260,9 @@ func set_initials(initials):
 	config.set_value("main", "initials",initials)
 	config.save(perry_arcade_path)
 	
-func check_highscore_and_rank(section_name):
-	var high_scores_names = config.get_value(section_name, "names", [])
-	var high_scores = config.get_value(section_name, "scores", [])
+func check_highscore_and_rank():
+	var high_scores_names = config.get_value(game_key, "names", [])
+	var high_scores = config.get_value(game_key, "scores", [])
 #	var item_list = $HighScorePopup/ColorRect/ItemList
 	if high_scores_names.size() != high_scores.size():
 		print("Error: Names and scores arrays have different sizes.")
@@ -312,26 +291,25 @@ func check_highscore_and_rank(section_name):
 
 
 	if(added):
-		GameManager.play_applause()
-	else:
-		GameManager.play_game_over()
-	_replace_highscore_list()
+		GameManager.set_gameover_panel_congrats(true)
+#	_replace_highscore_list()
 	
-func initiate_highscores_section(game):
-	if not config.has_section(game):
-		config.set_value(game,"scores",[0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-		config.set_value(game,"names",["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
-		config.save(perry_arcade_path)
+func initiate_highscores_section():
+	for key in games_list.keys():
+		if not config.has_section(game_key):
+			config.set_value(game_key,"scores",[0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+			config.set_value(game_key,"names",["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
+			config.save(perry_arcade_path)
 		
-func get_highscore_scores(game):
+func get_highscore_scores(key):
 
-	var scores = config.get_value(game,"scores", [])
+	var scores = config.get_value(key,"scores", [])
 	
 	return scores
 	
-func get_highscore_names(game):
+func get_highscore_names(key):
 
-	var names = config.get_value(game,"names", [])
+	var names = config.get_value(key,"names", [])
 	return names
 	
 func set_current_game_scene(scene):
@@ -340,11 +318,17 @@ func set_current_game_scene(scene):
 func get_current_game_scene():
 	return current_game_scene
 
+func get_game_list_values(key):
+	return games_list[key]
+
 func get_game_enabled():
 	return game_enabled
 
 func set_game_enabled(status):
 	game_enabled = status
+
+func set_game_key(key):
+	game_key = key
 
 func _on_main_ready():
 

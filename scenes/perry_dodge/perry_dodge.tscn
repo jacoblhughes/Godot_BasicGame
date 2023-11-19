@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjw6sh7j2lsq3"]
+
+[ext_resource type="Script" path="res://scripts/perry_dodge/perry_dodge.gd" id="1_h2ck3"]
+[ext_resource type="PackedScene" uid="uid://5w3s3bekcgvy" path="res://scenes/perry_dodge/enemy.tscn" id="2_n5qho"]
+[ext_resource type="Script" path="res://scripts/perry_dodge/mob_path.gd" id="3_e7b0d"]
+[ext_resource type="PackedScene" uid="uid://0dmkhtys2fv3" path="res://scenes/perry_dodge/player.tscn" id="3_ewpja"]
+[ext_resource type="Texture2D" uid="uid://dmi16l057ro3v" path="res://art/perry_dodge/creep_background_128.png" id="6_i1r6f"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajf4l"]
+texture = ExtResource("6_i1r6f")
+texture_region_size = Vector2i(128, 128)
+2:0/0 = 0
+3:0/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rfxxs"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_ajf4l")
+
+[sub_resource type="Curve2D" id="Curve2D_mulw1"]
+
+[node name="PerryDodge" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(40, 144)
+tile_set = SubResource("TileSet_rfxxs")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 196608, 0, 2, 131072, 0, 4, 196608, 0, 3, 0, 0, 65540, 0, 0, 65539, 65536, 0, 65538, 0, 0, 65537, 65536, 0, 131073, 0, 0, 131074, 131072, 0, 131075, 131072, 0, 196611, 196608, 0, 131076, 196608, 0, 196612, 0, 0, 262148, 65536, 0, 327684, 131072, 0, 327683, 0, 0, 327682, 65536, 0, 327681, 196608, 0, 327680, 0, 0, 262144, 65536, 0, 196608, 131072, 0, 131072, 196608, 0, 65536, 65536, 0, 196609, 131072, 0, 196610, 65536, 0, 262145, 0, 0, 262146, 131072, 0, 262147, 0, 0, 393219, 196608, 0, 393220, 131072, 0, 458756, 65536, 0, 458755, 0, 0, 458754, 0, 0, 458753, 65536, 0, 393217, 0, 0, 393216, 196608, 0, 393218, 131072, 0, 458752, 131072, 0)
+
+[node name="PerryDodge" type="Node2D" parent="."]
+script = ExtResource("1_h2ck3")
+mob_scene = ExtResource("2_n5qho")
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(332.893, 612.805)
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_mulw1")
+script = ExtResource("3_e7b0d")
+
+[node name="MobPathFollow" type="PathFollow2D" parent="MobPath"]
+position = Vector2(24, 1136)
+rotation = -1.5708
+
+[node name="Player" parent="." instance=ExtResource("3_ewpja")]
+
+[connection signal="timeout" from="ScoreTimer" to="PerryDodge" method="_on_score_timer_timeout"]
+[connection signal="timeout" from="MobTimer" to="PerryDodge" method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="PerryDodge" method="_on_start_timer_timeout"]
