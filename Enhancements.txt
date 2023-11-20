@@ -24,6 +24,7 @@ Saucer
 Attack
 	Check on the spawning of the enemies
 	Rockets global position??
+		Seems like iphone only
 
 Clamp things
 Home button does not trigget a jump
