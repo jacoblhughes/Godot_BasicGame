@@ -15,7 +15,6 @@ func _ready():
 	ball = get_parent().get_node("Ball")
 	sizeOfPaddle = my_sprite.get_rect().size
 	sprite_half_y= sizeOfPaddle.y/2
-	print(position)
 	original_position_y = position.y+sprite_half_y
 	PONGSIGNALS.position_reset.connect(_on_position_reset)
 	pass # Replace with function body.

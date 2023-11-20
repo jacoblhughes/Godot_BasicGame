@@ -75,7 +75,7 @@ func _input(_event):
 
 # Rotate the original velocity by the swing angle
 			velocity = original_velocity.rotated(deg_to_rad(swing_angle))
-			print(velocity)
+
 #			velocity = original_velocity
 			reset_round = false
 

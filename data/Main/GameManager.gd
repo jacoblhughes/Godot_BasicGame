@@ -296,9 +296,9 @@ func check_highscore_and_rank():
 	
 func initiate_highscores_section():
 	for key in games_list.keys():
-		if not config.has_section(game_key):
-			config.set_value(game_key,"scores",[0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-			config.set_value(game_key,"names",["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
+		if not config.has_section(key):
+			config.set_value(key,"scores",[0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+			config.set_value(key,"names",["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
 			config.save(perry_arcade_path)
 		
 func get_highscore_scores(key):
