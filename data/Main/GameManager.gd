@@ -32,8 +32,7 @@ var child_node_to_delete
 @onready var hud_control : Control
 @onready var main_node : Control
 @onready var game_over_panel_congrats : AnimatedSprite2D
-@onready var play_area_collision : CollisionShape2D
-@onready var play_area_collision_area : Area2D
+
 var perry_arcade_path = "user://perry_arcade.cfg"
 var lives = 3
 var score = 0
@@ -70,9 +69,9 @@ func _ready():
 	ScoreLabel = hud_control.get_node("Score")
 
 	
-	PlayArea = aspect_ratio_container.get_node("Area2D").get_node("PlayArea")
-	play_area_collision_area = aspect_ratio_container.get_node("Area2D")
-	play_area_collision = aspect_ratio_container.get_node("Area2D").get_node("CollisionShape2D")
+	PlayArea = aspect_ratio_container.get_node("PlayArea")
+
+
 	GameStartPanel = hud_control.get_node("GameStartPanel")
 	Title = hud_control.get_node("GameStartPanel").get_node("Title")
 	Directions = hud_control.get_node("GameStartPanel").get_node("Directions")

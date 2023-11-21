@@ -45,3 +45,8 @@ func _on_dino_hit():
 	GameManager.set_game_enabled(false)
 	GameManager.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
+
+
+func _on_floor_input_event(viewport, event, shape_idx):
+	print(event)
+	pass # Replace with function body.

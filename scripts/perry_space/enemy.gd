@@ -1,12 +1,12 @@
 extends Area2D
 
 @export var SPEED = 120
-@onready var visible_notifier = $VisibleOnScreenNotifier2D
+
 @onready var enemy_die_sound : AudioStreamPlayer = $EnemyHitSound
 signal died
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	visible_notifier.connect("screen_exited",_on_screen_exited)
+
 	pass # Replace with function body.
 
 

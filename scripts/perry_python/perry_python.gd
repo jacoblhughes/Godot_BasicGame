@@ -34,6 +34,7 @@ func _ready():
 	SnakeTimer = get_parent().get_node("Snake_Move_Timer")
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
+	
 
 	SPAWNSIGNALS.PlayerWin.connect(_on_player_win)
 	head  = head_scene.instantiate()

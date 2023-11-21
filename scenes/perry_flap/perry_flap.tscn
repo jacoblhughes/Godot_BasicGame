@@ -1,10 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://cj0i3bqn4ap1r"]
+[gd_scene load_steps=17 format=3 uid="uid://cj0i3bqn4ap1r"]
 
 [ext_resource type="Script" path="res://scripts/perry_flap/perry_flap.gd" id="1_47y50"]
 [ext_resource type="Script" path="res://scripts/perry_flap/enemy_spawn.gd" id="2_wrg0s"]
 [ext_resource type="Script" path="res://scripts/perry_flap/player.gd" id="3_58kv2"]
 [ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://art/perry_flap/bird_256.png" id="4_v42d0"]
 [ext_resource type="Texture2D" uid="uid://bhpscq4tct72d" path="res://art/perry_flap/flappy_background_144_256.png" id="5_2qb0j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20w47"]
+size = Vector2(56, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6q761"]
 atlas = ExtResource("4_v42d0")
@@ -88,8 +91,14 @@ expand_mode = 1
 [node name="PerryFlap" type="Node2D" parent="."]
 script = ExtResource("1_47y50")
 
-[node name="EnemySpawn" type="Node2D" parent="."]
+[node name="EnemySpawn" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("2_wrg0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawn"]
+position = Vector2(28, 656)
+shape = SubResource("RectangleShape2D_20w47")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(199.887, 666.66)
@@ -129,6 +138,9 @@ position = Vector2(202, 666)
 position = Vector2(360, 624)
 shape = SubResource("RectangleShape2D_gpshr")
 
+[connection signal="body_entered" from="EnemySpawn" to="EnemySpawn" method="_on_body_entered"]
+[connection signal="body_exited" from="EnemySpawn" to="EnemySpawn" method="_on_body_exited"]
+[connection signal="body_shape_exited" from="EnemySpawn" to="EnemySpawn" method="_on_body_shape_exited"]
 [connection signal="timeout" from="SpawnTimer" to="EnemySpawn" method="_on_spawn_timer_timeout"]
 [connection signal="body_entered" from="EnemyScoring" to="PerryFlap" method="_on_enemy_scoring_body_entered"]
 [connection signal="body_exited" from="Area2D" to="PerryFlap" method="_on_area_2d_body_exited"]

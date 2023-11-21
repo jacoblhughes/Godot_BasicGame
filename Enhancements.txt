@@ -1,5 +1,6 @@
 Perry Arcade
 
+
 Simon
 
 
@@ -28,6 +29,7 @@ Attack
 
 Clamp things
 Home button does not trigget a jump
+	Collision area?
 Make directions for each game
 
 

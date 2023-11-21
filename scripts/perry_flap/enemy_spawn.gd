@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 @onready var enemy_wall = preload("res://scenes/perry_flap/enemy_wall.tscn")
 @onready var enemy_wall_2 = preload("res://scenes/perry_flap/enemy_wall_2.tscn")
@@ -25,4 +25,19 @@ func _on_spawn_timer_timeout():
 
 	get_parent().add_child(chosen_scene,true)
 	chosen_scene.add_to_group("enemy")
+	pass # Replace with function body.
+
+
+func _on_body_exited(body):
+
+	pass # Replace with function body.
+
+
+func _on_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+
+	pass # Replace with function body.
+
+
+func _on_body_entered(body):
+	body.queue_free()
 	pass # Replace with function body.

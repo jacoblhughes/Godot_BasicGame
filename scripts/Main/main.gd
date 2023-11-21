@@ -11,10 +11,10 @@ func _ready():
 			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+
 	pass
 
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
-	if event.is_action("left_mouse_click"):
-		print(event)
+	print(event)
 	pass # Replace with function body.

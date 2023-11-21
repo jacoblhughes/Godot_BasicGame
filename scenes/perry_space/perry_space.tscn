@@ -120,7 +120,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
-position = Vector2(-104, 496)
+position = Vector2(-16, 496)
 shape = SubResource("RectangleShape2D_3f3jt")
 
 [connection signal="timeout" from="Player/RocketTimer" to="Player" method="_on_rocket_timer_timeout"]

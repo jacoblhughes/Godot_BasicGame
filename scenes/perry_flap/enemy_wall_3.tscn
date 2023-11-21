@@ -35,5 +35,3 @@ shape = SubResource("RectangleShape2D_mcrmu")
 [node name="BottomCollision" type="CollisionShape2D" parent="."]
 position = Vector2(20, 800)
 shape = SubResource("RectangleShape2D_ug55r")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
