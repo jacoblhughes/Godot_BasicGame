@@ -102,17 +102,37 @@ script = ExtResource("6_rbrt6")
 [node name="Marker2D" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
 position = Vector2(695, 250)
 
+[node name="ColorRect" type="ColorRect" parent="EnemySpawner/SpawnLocations/Marker2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Marker2D2" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
 position = Vector2(695, 450)
+
+[node name="ColorRect" type="ColorRect" parent="EnemySpawner/SpawnLocations/Marker2D2"]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Marker2D3" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
 position = Vector2(695, 1050)
 
+[node name="ColorRect" type="ColorRect" parent="EnemySpawner/SpawnLocations/Marker2D3"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Marker2D4" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
 position = Vector2(695, 650)
 
+[node name="ColorRect" type="ColorRect" parent="EnemySpawner/SpawnLocations/Marker2D4"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Marker2D5" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
 position = Vector2(695, 850)
+
+[node name="ColorRect" type="ColorRect" parent="EnemySpawner/SpawnLocations/Marker2D5"]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Deathzone" type="Area2D" parent="."]
 position = Vector2(24, 144)

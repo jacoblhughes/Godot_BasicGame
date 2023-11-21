@@ -34,5 +34,5 @@ func _input(event):
 func _physics_process(_delta):
 #	var mouse_pos = get_viewport().get_mouse_position()
 #	target_y = mouse_pos.y
-	position.y = lerp(position.y, target_y, lerp_speed)
-	position.y = clamp(position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y - sprite_half_y)
+	global_position.y = lerp(global_position.y, target_y, lerp_speed)
+	global_position.y = clamp(global_position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y - sprite_half_y)
