@@ -3,6 +3,7 @@
 # /android
 # .android/
 project/.godot/
+project/android/*
+!project/android/.gitkeep
 export/*
 !export/.gitkeep
-project/android/*

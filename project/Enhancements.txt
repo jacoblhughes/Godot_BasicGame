@@ -1,31 +1,29 @@
 Perry Arcade
 
 
-Simon
+perry_says
 
 
-Snake
+perry_python
 	
 
-Pong
+perry_polo
 
 
-Dino
+perry_llama
 
 
-Creep
+perry_dodge
 
 
-Flappy
+perry_flap
 
 
-Saucer
+perry_run
 
 
-Attack
-	Check on the spawning of the enemies
-	Rockets global position??
-		Seems like iphone only
+perry_space
+
 
 Clamp things
 Home button does not trigget a jump
@@ -35,8 +33,11 @@ Make directions for each game
 
 V2:
 	
-Simon
+perry_says
 	Make buttons a class so I can call the pressed method
+
+perry_space
+	Rockets global position??
 
 All:
 	Improved backgrounds
