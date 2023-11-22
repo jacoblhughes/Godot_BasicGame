@@ -1,4 +1,8 @@
 # Godot 4+ specific ignores
-.godot/
-/android
-.android/
+# .godot/
+# /android
+# .android/
+project/.godot/
+export/*
+!export/.gitkeep
+project/android/*
