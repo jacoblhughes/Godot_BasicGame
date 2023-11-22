@@ -147,6 +147,8 @@ func _stop_all_animations():
 
 func _player_turn_end():
 	GameManager.update_score(score_value)
+	if(GameManager.get_score()% 5 == 0):
+		print('level up')
 	playerTurn = false
 	arrayOfPlayerResponse = []
 	playerPopulate = -1
