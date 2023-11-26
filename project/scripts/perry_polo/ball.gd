@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var reset_round = false
 
-@onready var PONGSIGNALS = get_parent().get_node("PerryPolo")
+@onready var game = get_parent().get_node("PerryPolo")
 # Called when the node enters the scene tree for the first time.
 var position_reset = false
 var stored_position = Vector2(0,0)
@@ -10,9 +10,9 @@ var stored_position = Vector2(0,0)
 var collision_cooldown: float = 1.0
 const COLLISION_COOLDOWN_DURATION: float = 0.2
 var max_speed = 800
-
+@onready var background : TextureRect
 func _ready():
-
+	background = get_parent().get_node("Background")
 	_game_initialize()
 
 	stored_position = position
@@ -20,8 +20,8 @@ func _ready():
 	pass # Replace with function body.
 	
 func _game_initialize():
-	PONGSIGNALS.position_reset.connect(_on_position_reset)
-
+	game.position_reset.connect(_on_position_reset)
+	game.in_background.connect(_on_in_background)
 	GameManager.resetButtonPressed.connect(_on_reset_button_reset_button_pressed)
 
 
@@ -66,18 +66,22 @@ func _on_position_reset():
 
 	_reset_ball()
 
-func _input(_event):
-
+func _on_in_background(event):
+	
 	if(GameManager.get_game_enabled()):
-		
-		if Input.is_action_pressed("left_mouse_click") and reset_round:
-			var swing_angle = randi_range (-45, 45)
+			
+			if Input.is_action_pressed("left_mouse_click") and reset_round:
+				var swing_angle = randi_range (-45, 45)
 
-# Rotate the original velocity by the swing angle
-			velocity = original_velocity.rotated(deg_to_rad(swing_angle))
+	# Rotate the original velocity by the swing angle
+				velocity = original_velocity.rotated(deg_to_rad(swing_angle))
 
-#			velocity = original_velocity
-			reset_round = false
+	#			velocity = original_velocity
+				reset_round = false
+
+func _input(event):
+	pass
+	
 
 func _reset_ball():
 	position_reset = true

@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var ball : CharacterBody2D
 @onready var my_sprite : Sprite2D
 @export var sizeOfPaddle : Vector2
-@onready var PONGSIGNALS = get_parent().get_node("PerryPolo")
+@onready var game = get_parent().get_node("PerryPolo")
 var lag_timer = 0.0
 var lag_duration = 0.5  # Adjust this value to control the lag duration
 var speed = 1
@@ -16,7 +16,7 @@ func _ready():
 	sizeOfPaddle = my_sprite.get_rect().size
 	sprite_half_y= sizeOfPaddle.y/2
 	original_position_y = position.y+sprite_half_y
-	PONGSIGNALS.position_reset.connect(_on_position_reset)
+	game.position_reset.connect(_on_position_reset)
 	pass # Replace with function body.
 
 

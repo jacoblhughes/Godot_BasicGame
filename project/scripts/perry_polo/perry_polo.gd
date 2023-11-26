@@ -5,6 +5,7 @@ signal position_reset
 @onready var ball : CharacterBody2D
 @onready var player : CharacterBody2D
 @onready var computer : CharacterBody2D
+@onready var background : TextureRect
 
 var score_value = 1
 var game_level = 1
@@ -13,9 +14,12 @@ var lives_lost = 1
 
 
 var game_reset = false
+
+signal in_background(event)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	background = get_parent().get_node("Background")
 	player = get_parent().get_node("Paddle - Player")
 	computer = get_parent().get_node("Paddle - Computer")
 	ball = get_parent().get_node("Ball")
@@ -23,7 +27,25 @@ func _ready():
 	_game_initialize()
 
 	pass # Replace with function body.
+func _input(event):
 
+	if Input.is_action_just_pressed("left_mouse_click"):
+		if (
+			event.position.x > background.global_position.x
+			and event.position.y > background.global_position.y
+			and event.position.x < (background.global_position.x + background.size.x)
+			and event.position.y < (background.global_position.y + background.size.y)
+		):
+			in_background.emit(event)
+		else:
+			pass
+
+
+
+func _process(_delta):
+#	print(background.global_position," and ",background.size)
+	pass
+	
 func _game_initialize():
 	GameManager.reset_score()
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
