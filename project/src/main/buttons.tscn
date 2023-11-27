@@ -1,0 +1,178 @@
+[gd_scene load_steps=14 format=3 uid="uid://d4cpf87cb1bs0"]
+
+[ext_resource type="Script" path="res://src/main/buttons.gd" id="1_k6wi8"]
+[ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://src/perry_says/perry_says.tscn" id="2_3oovu"]
+[ext_resource type="PackedScene" uid="uid://c1ov306httsie" path="res://src/perry_python/perry_python.tscn" id="3_1nv2h"]
+[ext_resource type="PackedScene" uid="uid://c1n3bt7ntc5gf" path="res://src/perry_polo/perry_polo.tscn" id="4_klo8e"]
+[ext_resource type="PackedScene" uid="uid://cgu5dun6rgtic" path="res://src/perry_llama/perry_llama.tscn" id="5_jqoam"]
+[ext_resource type="PackedScene" uid="uid://bjw6sh7j2lsq3" path="res://src/perry_dodge/perry_dodge.tscn" id="6_pnl84"]
+[ext_resource type="PackedScene" uid="uid://cj0i3bqn4ap1r" path="res://src/perry_flap/perry_flap.tscn" id="7_yyueu"]
+[ext_resource type="PackedScene" uid="uid://cf4xkqs74ytur" path="res://src/perry_run/perry_run.tscn" id="8_a8ycj"]
+[ext_resource type="PackedScene" uid="uid://dx4hwtnr40m1r" path="res://src/perry_space/perry_space.tscn" id="9_ijagp"]
+[ext_resource type="PackedScene" uid="uid://b8eyyvj5cesul" path="res://src/main/about.tscn" id="10_5l57r"]
+[ext_resource type="PackedScene" uid="uid://cs18y0ygm8p13" path="res://src/main/options.tscn" id="11_j1twr"]
+[ext_resource type="PackedScene" uid="uid://2opj6l2yf0hy" path="res://src/main/highscore.tscn" id="12_sn3ek"]
+[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="13_nonr2"]
+
+[node name="Buttons" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k6wi8")
+perry_says = ExtResource("2_3oovu")
+perry_python = ExtResource("3_1nv2h")
+perry_polo = ExtResource("4_klo8e")
+perry_llama = ExtResource("5_jqoam")
+perry_dodge = ExtResource("6_pnl84")
+perry_flap = ExtResource("7_yyueu")
+perry_run = ExtResource("8_a8ycj")
+perry_space = ExtResource("9_ijagp")
+about = ExtResource("10_5l57r")
+options = ExtResource("11_j1twr")
+highscore = ExtResource("12_sn3ek")
+
+[node name="SimonSays" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 256.0
+offset_right = 240.0
+offset_bottom = 384.0
+theme = ExtResource("13_nonr2")
+text = "Perry Says"
+
+[node name="Snake" type="Button" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 256.0
+offset_right = 456.0
+offset_bottom = 384.0
+rotation = -0.00516278
+theme = ExtResource("13_nonr2")
+text = "Python Perry"
+
+[node name="Perry" type="Button" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 256.0
+offset_right = 672.0
+offset_bottom = 384.0
+theme = ExtResource("13_nonr2")
+text = "Perry Water Polo"
+
+[node name="Dino" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 408.0
+offset_right = 240.0
+offset_bottom = 536.0
+theme = ExtResource("13_nonr2")
+text = "Perry's Llama Leap"
+
+[node name="Creep" type="Button" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 408.0
+offset_right = 456.0
+offset_bottom = 536.0
+theme = ExtResource("13_nonr2")
+text = "Perry Dodge"
+
+[node name="Flappy" type="Button" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 408.0
+offset_right = 672.0
+offset_bottom = 536.0
+theme = ExtResource("13_nonr2")
+text = "Perry Flap"
+
+[node name="Saucer" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 560.0
+offset_right = 240.0
+offset_bottom = 688.0
+theme = ExtResource("13_nonr2")
+text = "Perry Run"
+
+[node name="Attack" type="Button" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 560.0
+offset_right = 456.0
+offset_bottom = 688.0
+theme = ExtResource("13_nonr2")
+text = "Perry Space Attack"
+
+[node name="Rodican" type="Button" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 560.0
+offset_right = 672.0
+offset_bottom = 688.0
+theme = ExtResource("13_nonr2")
+text = "COMING SOON"
+
+[node name="About" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 1072.0
+offset_right = 672.0
+offset_bottom = 1112.0
+theme = ExtResource("13_nonr2")
+text = "About"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 1120.0
+offset_right = 672.0
+offset_bottom = 1160.0
+theme = ExtResource("13_nonr2")
+text = "Options"
+
+[node name="Highscores" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 1024.0
+offset_right = 672.0
+offset_bottom = 1064.0
+theme = ExtResource("13_nonr2")
+text = "Highscores"
+
+[node name="Initials" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 168.0
+offset_right = 456.0
+offset_bottom = 232.0
+theme = ExtResource("13_nonr2")
+alignment = 1
+max_length = 3
+
+[node name="InitialsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 168.0
+offset_right = 240.0
+offset_bottom = 232.0
+theme = ExtResource("13_nonr2")
+text = "Input Initials:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="SimonSays" to="." method="_on_simon_says_pressed"]
+[connection signal="pressed" from="Snake" to="." method="_on_snake_pressed"]
+[connection signal="pressed" from="Perry" to="." method="_on_pong_pressed"]
+[connection signal="pressed" from="Dino" to="." method="_on_dino_pressed"]
+[connection signal="pressed" from="Creep" to="." method="_on_creep_pressed"]
+[connection signal="pressed" from="Flappy" to="." method="_on_flappy_pressed"]
+[connection signal="pressed" from="Saucer" to="." method="_on_saucer_pressed"]
+[connection signal="pressed" from="Attack" to="." method="_on_perry_space_pressed"]
+[connection signal="pressed" from="About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Highscores" to="." method="_on_highscore_pressed"]
+[connection signal="text_changed" from="Initials" to="." method="_on_initials_text_changed"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1lvj4sddaalt"]
+
+[ext_resource type="Script" path="res://src/perry_python/food.gd" id="1_t5e3i"]
+[ext_resource type="Texture2D" uid="uid://bqd3t0ewnnfu" path="res://art/main/cham_256.png" id="2_7tvap"]
+
+[node name="Food" type="Node2D"]
+script = ExtResource("1_t5e3i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_7tvap")

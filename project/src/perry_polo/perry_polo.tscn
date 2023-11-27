@@ -1,0 +1,223 @@
+[gd_scene load_steps=26 format=3 uid="uid://c1n3bt7ntc5gf"]
+
+[ext_resource type="Script" path="res://src/perry_polo/perry_polo.gd" id="1_ry11p"]
+[ext_resource type="Texture2D" uid="uid://c4rylxpixdbli" path="res://art/perry_polo/pong_pool_144_256.png" id="2_q4x8g"]
+[ext_resource type="Script" path="res://src/perry_polo/ball.gd" id="3_36q7r"]
+[ext_resource type="Texture2D" uid="uid://0i3nb3jhnam6" path="res://art/perry_polo/perry_circle-Sheet.png" id="4_4607d"]
+[ext_resource type="Script" path="res://src/perry_polo/player.gd" id="5_axl7g"]
+[ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://art/perry_polo/pong_paddle1.png" id="6_n78a6"]
+[ext_resource type="Script" path="res://src/perry_polo/enemy.gd" id="7_rtox0"]
+[ext_resource type="Texture2D" uid="uid://chwov2ai7nyuk" path="res://art/perry_polo/pong_paddle2.png" id="8_3ym20"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0nxu"]
+atlas = ExtResource("4_4607d")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hvcy"]
+atlas = ExtResource("4_4607d")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a88ue"]
+atlas = ExtResource("4_4607d")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7du2s"]
+atlas = ExtResource("4_4607d")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwnqy"]
+atlas = ExtResource("4_4607d")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03c8h"]
+atlas = ExtResource("4_4607d")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjokc"]
+atlas = ExtResource("4_4607d")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kf3w"]
+atlas = ExtResource("4_4607d")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1p6q2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0nxu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0nxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hvcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a88ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7du2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwnqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03c8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjokc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kf3w")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nrpdu"]
+radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwr1e"]
+size = Vector2(32, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bfcs"]
+size = Vector2(32, 128)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p42yw"]
+resource_name = "TEST"
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7eiv"]
+size = Vector2(640, 16)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1uhjp"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek0n5"]
+size = Vector2(24, 1024)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g147"]
+size = Vector2(24, 1024)
+
+[node name="PerryPolo" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [544.0]
+metadata/_edit_vertical_guides_ = [592.0]
+
+[node name="PerryPolo" type="Node2D" parent="."]
+script = ExtResource("1_ry11p")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 40.0
+offset_top = 144.0
+offset_right = 680.0
+offset_bottom = 1168.0
+texture = ExtResource("2_q4x8g")
+expand_mode = 1
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+position = Vector2(384, 584)
+disable_mode = 2
+script = ExtResource("3_36q7r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ball"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_1p6q2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_nrpdu")
+
+[node name="Paddle - Player" type="CharacterBody2D" parent="."]
+position = Vector2(664, 416)
+disable_mode = 2
+script = ExtResource("5_axl7g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paddle - Player"]
+position = Vector2(8, 64)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_n78a6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle - Player"]
+position = Vector2(8, 64)
+shape = SubResource("RectangleShape2D_fwr1e")
+disabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paddle - Player"]
+polygon = PackedVector2Array(-8, 64, -8, 56, 0, 8, 8, 0, 24, 0, 24, 128, 8, 128, 0, 120, -8, 72)
+
+[node name="Paddle - Computer" type="CharacterBody2D" parent="."]
+position = Vector2(40, 480)
+script = ExtResource("7_rtox0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paddle - Computer"]
+position = Vector2(8, 64)
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_3ym20")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle - Computer"]
+position = Vector2(8, 64)
+shape = SubResource("RectangleShape2D_5bfcs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paddle - Computer"]
+polygon = PackedVector2Array(-8, 0, -8, 128, 8, 128, 16, 120, 24, 72, 24, 64, 24, 56, 16, 8, 8, 0)
+
+[node name="Top Wall" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_p42yw")
+
+[node name="ColorRect" type="ColorRect" parent="Top Wall"]
+offset_left = 40.0
+offset_top = 128.0
+offset_right = 680.0
+offset_bottom = 144.0
+color = Color(0.188235, 0.376471, 0.509804, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top Wall"]
+position = Vector2(360, 136)
+shape = SubResource("RectangleShape2D_c7eiv")
+
+[node name="Bottom Wall" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_1uhjp")
+
+[node name="ColorRect2" type="ColorRect" parent="Bottom Wall"]
+offset_left = 40.0
+offset_top = 1168.0
+offset_right = 680.0
+offset_bottom = 1184.0
+color = Color(0.188235, 0.376471, 0.509804, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom Wall"]
+position = Vector2(360, 1176)
+shape = SubResource("RectangleShape2D_c7eiv")
+
+[node name="Win" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
+position = Vector2(28, 656)
+shape = SubResource("RectangleShape2D_ek0n5")
+
+[node name="Lose" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lose"]
+position = Vector2(692, 656)
+shape = SubResource("RectangleShape2D_1g147")
+
+[node name="LevelLabel" type="Label" parent="."]
+offset_left = 296.0
+offset_top = 144.0
+offset_right = 424.0
+offset_bottom = 170.0
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Win" to="PerryPolo" method="_on_win_body_entered"]
+[connection signal="body_entered" from="Lose" to="PerryPolo" method="_on_lose_body_entered"]

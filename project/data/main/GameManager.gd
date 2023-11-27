@@ -156,7 +156,7 @@ func _ready():
 		
 			
 func _input(event):
-	print(event)
+
 	if(event is InputEventMouseButton or event is InputEventScreenDrag or event is InputEventScreenTouch):
 		if (
 		event.position.x > PlayArea.global_position.x
