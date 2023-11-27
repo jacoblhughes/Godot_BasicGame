@@ -51,17 +51,22 @@ var signalEmitted = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	playback_timer = get_parent().get_node("PlaybackTimer")
-	_initialize_buttons()
+	await _initialize_buttons()
+
 	_game_initialize()
 
 	
 func _game_initialize():
 	GameManager.reset_score()
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+#	print("Checking buttons in group:")
+#	var buttonsInGroup = get_tree().get_nodes_in_group("simonSaysGameButtons")
+#	for button in buttonsInGroup:
+#		print(button)
 	if(playerTurn):
 		if(len(arrayOfPlayerResponse)>0):
 			if(arrayOfButtonsToFollow[playerPopulate] == arrayOfPlayerResponse[playerPopulate]):
@@ -107,7 +112,6 @@ func _initialize_buttons():
 
 	# Calculate the starting position for the first button
 
-
 	for i in range(totalButtons):
 
 		# Calculate the position with proper spacing
@@ -116,21 +120,27 @@ func _initialize_buttons():
 		var button = buttonScenes[i].instantiate()
 		var startX = centerPosX - button.size.x 
 		var startY = centerPosY - button.size.y
-		print(button)
+
 		button.position = Vector2(
 			startX + col * button.size.x,
 			startY + row * button.size.y
 		)
 		button.buttonNumber = i
+
 		button.game_button_pressed.connect(_on_game_button_pressed)
-		button.add_to_group("simonSaysGameButtons")
 		get_parent().add_child.call_deferred(button)
+#		button.add_to_group("simonSaysGameButtons")
+
+
+
 		buttonObject[button.name] = button
 		button.disabled = true
-
-
+	
+	await get_tree().create_timer(.1).timeout
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")
-	print(groupOfButtons)
+
+
+
 func _computer_turn_start():
 	_set_buttons_disabled(true)
 	_add_next_value()
@@ -168,7 +178,6 @@ func _on_play_button_pressed():
 	pass # Replace with function body.
 	
 func _on_playback_timer_timeout():
-	print(groupOfButtons)
 	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]]._pressed()
 	computerPopulate+=1
 	if(computerPopulate == len(arrayOfButtonsToFollow)):

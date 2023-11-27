@@ -37,12 +37,10 @@ func _physics_process(delta):
 	if(GameManager.get_game_enabled() and game_on == true):
 		var to_target = target_position - global_position
 		var direction = to_target.normalized()
-
-		if(abs(direction.x)>abs(direction.y)):
-			if(direction.x<0):
-				$AnimatedSprite2D.flip_h = true
+		if(direction.x<0):
+			$AnimatedSprite2D.flip_h = true
 		else:
-				$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.flip_h = false
 		var distance_to_target = to_target.length()
 		if is_touching:
 			# Calculate the direction to the target position
