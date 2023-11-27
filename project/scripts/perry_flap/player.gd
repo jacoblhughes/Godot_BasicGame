@@ -16,11 +16,15 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animated_sprite : AnimatedSprite2D
 func _ready():
 	animated_sprite = get_node("AnimatedSprite2D")
+	GameManager.in_play_area.connect(_on_in_play_area)
 	pass
 
 func _input(event):
-		if event.is_action_pressed("left_mouse_click"):
-			velocity.y = jump_force
+	pass
+	
+func _on_in_play_area(event):
+	if event.is_action_pressed("left_mouse_click"):
+		velocity.y = jump_force
 
 func _physics_process(delta):
 	if(GameManager.get_game_enabled()):

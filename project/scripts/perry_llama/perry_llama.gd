@@ -48,5 +48,5 @@ func _on_dino_hit():
 
 
 func _on_floor_input_event(viewport, event, shape_idx):
-	print(event)
+
 	pass # Replace with function body.

@@ -127,6 +127,9 @@ animations = [{
 [node name="PerryLLama" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
 
+[node name="PerryLlama" type="Node2D" parent="."]
+script = ExtResource("3_5uc5x")
+
 [node name="Background" type="TextureRect" parent="."]
 offset_left = 40.0
 offset_top = 144.0
@@ -144,9 +147,6 @@ offset_bottom = 1170.0
 texture = ExtResource("2_qh6df")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="PerryLlama" type="Node2D" parent="."]
-script = ExtResource("3_5uc5x")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(24, 664)

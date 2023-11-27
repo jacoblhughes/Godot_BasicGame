@@ -11,29 +11,28 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal dino_hit
 func _ready():
 	animation_player = $AnimatedSprite2D
-	
+	GameManager.in_play_area.connect(_on_in_play_area)
 #func _input(event):
 #		if event.is_action_pressed("left_mouse_click"):
 #			velocity.y = JUMP_VELOCITY
 
-func _physics_process(delta):
+func _on_in_play_area(event):
 	if(GameManager.get_game_enabled()):
-		
-
-		if not is_on_floor():
-			animation_player.play("jumping")
-			velocity.y += gravity * delta
-			
-		if is_on_floor():
-			animation_player.play("default")  # Start the "jumping" animation
-			double_jump_counter = false
-
-		
 		if Input.is_action_just_pressed("left_mouse_click") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		elif Input.is_action_just_pressed("left_mouse_click") and not is_on_floor() and double_jump_counter  == false:
 			velocity.y = JUMP_VELOCITY
 			double_jump_counter = true
+	pass
+
+func _physics_process(delta):
+	if not is_on_floor():
+		animation_player.play("jumping")
+		velocity.y += gravity * delta
+		
+	if is_on_floor():
+		animation_player.play("default")  # Start the "jumping" animation
+		double_jump_counter = false
 
 	move_and_slide()
 	for i in range(get_slide_collision_count()):

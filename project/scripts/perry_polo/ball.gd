@@ -21,7 +21,7 @@ func _ready():
 	
 func _game_initialize():
 	game.position_reset.connect(_on_position_reset)
-	game.in_background.connect(_on_in_background)
+	GameManager.in_play_area.connect(_on_in_play_area)
 	GameManager.resetButtonPressed.connect(_on_reset_button_reset_button_pressed)
 
 
@@ -66,7 +66,7 @@ func _on_position_reset():
 
 	_reset_ball()
 
-func _on_in_background(event):
+func _on_in_play_area(event):
 	
 	if(GameManager.get_game_enabled()):
 			

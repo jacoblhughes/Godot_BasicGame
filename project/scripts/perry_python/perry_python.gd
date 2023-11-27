@@ -34,7 +34,7 @@ func _ready():
 	SnakeTimer = get_parent().get_node("Snake_Move_Timer")
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
-	
+	GameManager.in_play_area.connect(_on_in_play_area)
 
 	SPAWNSIGNALS.PlayerWin.connect(_on_player_win)
 	head  = head_scene.instantiate()
@@ -70,7 +70,9 @@ func _draw():
 
 
 func _input(event):
-	
+	pass
+
+func _on_in_play_area(event):
 	if event is InputEventScreenTouch and event.pressed == true:
 		var click_position = event.position
 		var head_position = head.position

@@ -32,7 +32,7 @@ var child_node_to_delete
 @onready var hud_control : Control
 @onready var main_node : Control
 @onready var game_over_panel_congrats : AnimatedSprite2D
-
+@onready var collision_area_for_detection : Area2D
 var perry_arcade_path = "user://perry_arcade.cfg"
 var lives = 3
 var score = 0
@@ -44,6 +44,7 @@ signal startButtonPressed
 signal resetButtonPressed
 signal highscoreButtonpressed
 signal initialsUpdated
+signal in_play_area(event)
 var game_key = "JLH"
 var games_list : Dictionary = {
 "1":{"title":"Perry Says","short_name":"perry_says","directions":"Smash Perry in the right order to get the high score!"}
@@ -67,7 +68,7 @@ func _ready():
 	hud_control = aspect_ratio_container.get_node("HUD")
 	InitialsInput = hud_control.get_node("Initials")
 	ScoreLabel = hud_control.get_node("Score")
-
+	
 	
 	PlayArea = aspect_ratio_container.get_node("PlayArea")
 
@@ -80,6 +81,8 @@ func _ready():
 	game_over_panel_congrats = game_over_panel.get_node("AnimatedSprite2D")
 	reset_button_from_gameover = hud_control.get_node("GameOverPanel").get_node("ResetButton")
 	home_button_from_gameover = hud_control.get_node("GameOverPanel").get_node("HomeButtonOnGameover")
+
+
 
 
 	HomeButton = hud_control.get_node("Home_Button")
@@ -152,6 +155,15 @@ func _ready():
 	_load_initials()	
 		
 			
+func _input(event):
+	if(event is InputEventMouseButton or event is InputEventScreenDrag or event is InputEventScreenTouch):
+		if (
+		event.position.x > PlayArea.global_position.x
+		and event.position.y > PlayArea.global_position.y
+		and event.position.x < (PlayArea.global_position.x + PlayArea.size.x)
+		and event.position.y < (PlayArea.global_position.y + PlayArea.size.y)
+	):
+			in_play_area.emit(event)
 
 	
 func get_games_list():

@@ -20,10 +20,14 @@ func _ready():
 	screen_position = GameManager.get_play_area_position_from_HUD()
 	start_position = get_parent().get_node('StartPosition')
 	target_position = start_position.global_position
+	GameManager.in_play_area.connect(_on_in_play_area)
 	start(target_position) 
 #	hide()
 
 func _input(event):
+	pass
+	
+func _on_in_play_area(event):
 	if(GameManager.get_game_enabled()):
 	# Check for touch events
 

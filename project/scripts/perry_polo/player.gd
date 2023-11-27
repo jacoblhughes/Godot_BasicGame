@@ -17,12 +17,11 @@ func _ready():
 	ball = get_parent().get_node("Ball")
 	sizeOfPaddle = my_sprite.get_rect().size
 	sprite_half_y= sizeOfPaddle.y/2
-	game.in_background.connect(_on_in_background)
+	GameManager.in_play_area.connect(_on_in_play_area)
 	pass # Replace with function body.
 	
-func _on_in_background(event):
-	print('hererer')
-	print(event)
+func _on_in_play_area(event):
+
 	if(GameManager.get_game_enabled()):
 # Check for touch events
 		if event is InputEventScreenTouch:

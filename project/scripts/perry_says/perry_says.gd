@@ -36,7 +36,7 @@ var high_scores_names
 var high_scores
 
 var signalEmitted = false
-
+@onready var playback_timer : Timer
 @onready var redButtonScene = preload("res://scenes/perry_says/red_button.tscn")
 @onready var blueButtonScene = preload("res://scenes/perry_says/blue_button.tscn")
 @onready var greenButtonScene = preload("res://scenes/perry_says/green_button.tscn")
@@ -50,7 +50,7 @@ var signalEmitted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	playback_timer = get_parent().get_node("PlaybackTimer")
 	_initialize_buttons()
 	_game_initialize()
 
@@ -116,7 +116,7 @@ func _initialize_buttons():
 		var button = buttonScenes[i].instantiate()
 		var startX = centerPosX - button.size.x 
 		var startY = centerPosY - button.size.y
-
+		print(button)
 		button.position = Vector2(
 			startX + col * button.size.x,
 			startY + row * button.size.y
@@ -124,17 +124,17 @@ func _initialize_buttons():
 		button.buttonNumber = i
 		button.game_button_pressed.connect(_on_game_button_pressed)
 		button.add_to_group("simonSaysGameButtons")
-		add_child(button)
+		get_parent().add_child.call_deferred(button)
 		buttonObject[button.name] = button
 		button.disabled = true
 
 
 	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")
-	
+	print(groupOfButtons)
 func _computer_turn_start():
 	_set_buttons_disabled(true)
 	_add_next_value()
-	$PlaybackTimer.start()
+	playback_timer.start()
 		
 func _set_buttons_disabled(setting):
 
@@ -168,6 +168,7 @@ func _on_play_button_pressed():
 	pass # Replace with function body.
 	
 func _on_playback_timer_timeout():
+	print(groupOfButtons)
 	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]]._pressed()
 	computerPopulate+=1
 	if(computerPopulate == len(arrayOfButtonsToFollow)):
@@ -175,7 +176,7 @@ func _on_playback_timer_timeout():
 
 		computerPopulate = 0
 		_set_buttons_disabled(false)
-		$PlaybackTimer.stop()
+		playback_timer.stop()
 		
 	pass # Replace with function body.
 
@@ -192,7 +193,7 @@ func _stop_game_button_animations_and_timer():
 		button.animation.play('dark')
 	for button in groupOfButtons:
 		button.animationTimer.stop()
-	$PlaybackTimer.stop()
+	playback_timer.stop()
 	
 
 

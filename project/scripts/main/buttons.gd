@@ -43,13 +43,6 @@ func _ready():
 func _process(_delta):
 	pass
 
-#func _input(event):
-#	var clickable_area = GameManager.get_play_area_size_from_HUD() + GameManager.get_play_area_position_from_HUD()
-#	if event.is_action_pressed("left_mouse_click") and clickable_area.intersects(event.position):
-#		print('good')
-#	elif event.is_action_pressed("left_mouse_click"):
-#		print('no good')
-
 func _on_initials_text_changed(new_text):
 
 	GameManager.set_initials(new_text)
