@@ -2,13 +2,13 @@ Perry Arcade
 
 
 perry_says
-	make timer for inactivity of player
+
 
 perry_python
 	not sure how to do levels here
 
 perry_polo
-
+	
 
 perry_llama
 
@@ -33,10 +33,18 @@ V2:
 	
 perry_says
 	Make buttons a class so I can call the pressed method
+	Make timer for inactivity of player
 
 perry_space
 	Rockets global position??
 
+perry_polo
+	make icons that give powerups or other things
+	
+perry_llama
+	Make scenes different sizes (ht and width)
+	
+	
 All:
 	Improved backgrounds
 	Improved sounds

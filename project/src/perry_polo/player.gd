@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var game = get_parent().get_node("PerryPolo")
 @onready var my_sprite : Sprite2D
-@onready var collision_object : CollisionShape2D
+@onready var collision_object : CollisionPolygon2D
 @onready var ball : CharacterBody2D
 @export var sizeOfPaddle: Vector2
 var target_y = GameManager.PlayArea.size.y/2
@@ -13,7 +13,7 @@ var sprite_half_y
 func _ready():
 	background = get_parent().get_node("Background")
 	my_sprite = $Sprite2D
-	collision_object=$CollisionShape2D
+	collision_object=$CollisionPolygon2D
 	ball = get_parent().get_node("Ball")
 	sizeOfPaddle = my_sprite.get_rect().size
 	sprite_half_y= sizeOfPaddle.y/2
@@ -27,13 +27,13 @@ func _on_in_play_area(event):
 		if event is InputEventScreenTouch:
 			if event.pressed:
 				is_touching = true
-				target_y = event.position.y
+				target_y = event.position.y - sprite_half_y/2
 			else:
 				is_touching = false
 
 		# Check for touch drag events
 		elif event is InputEventScreenDrag and is_touching:
-			target_y = event.position.y
+			target_y = event.position.y - sprite_half_y/2
 
 func _input(event):
 	pass

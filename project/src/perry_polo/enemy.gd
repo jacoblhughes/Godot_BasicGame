@@ -4,18 +4,20 @@ extends CharacterBody2D
 @onready var my_sprite : Sprite2D
 @export var sizeOfPaddle : Vector2
 @onready var game = get_parent().get_node("PerryPolo")
-var lag_timer = 0.0
-var lag_duration = 0.5  # Adjust this value to control the lag duration
-var speed = 1
+var original_speed = .6
+var speed
 var original_position_y
 var sprite_half_y
+var original_position_x
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	speed = original_speed
 	my_sprite = $Sprite2D
 	ball = get_parent().get_node("Ball")
 	sizeOfPaddle = my_sprite.get_rect().size
 	sprite_half_y= sizeOfPaddle.y/2
-	original_position_y = position.y+sprite_half_y
+	original_position_y = global_position.y+sprite_half_y
+	original_position_x = global_position.x
 	game.position_reset.connect(_on_position_reset)
 	pass # Replace with function body.
 
@@ -23,6 +25,7 @@ func _ready():
 
 func _physics_process(_delta):
 
+	global_position.x = original_position_x
 	# Get the current position of the ball
 	var ball_position = ball.global_position
 
@@ -37,9 +40,8 @@ func _physics_process(_delta):
 	var paddle_velocity = Vector2(0, direction * speed)
 	var collision = move_and_collide(paddle_velocity)
 	if collision:
-		# A collision occurred, set velocity to zero to prevent movement
 		velocity = Vector2(0, 0)
-	position.y = clamp(position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y - sprite_half_y)
+	global_position.y = clamp(global_position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y - sprite_half_y)
 
 
 func _on_position_reset():

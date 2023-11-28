@@ -5,10 +5,11 @@ var reset_round = false
 # Called when the node enters the scene tree for the first time.
 var position_reset = false
 var stored_position = Vector2(0,0)
-@export var speed_increase = 1.05
-@export var original_velocity = Vector2(-100,0)
+var original_speed_increase = 1.05
+var speed_increase = 1.05
+var original_velocity = Vector2(-100,0)
+var increased_velocity = Vector2(-100,0) 
 var collision_cooldown: float = 1.0
-const COLLISION_COOLDOWN_DURATION: float = 0.2
 var max_speed = 800
 @onready var background : TextureRect
 func _ready():
@@ -26,7 +27,6 @@ func _game_initialize():
 
 
 func _physics_process(delta):
-
 	if(velocity.length() > max_speed):
 		velocity = velocity.normalized() * max_speed
 	if(velocity != Vector2(0,0)):
@@ -74,7 +74,7 @@ func _on_in_play_area(event):
 				var swing_angle = randi_range (-45, 45)
 
 	# Rotate the original velocity by the swing angle
-				velocity = original_velocity.rotated(deg_to_rad(swing_angle))
+				velocity = increased_velocity.rotated(deg_to_rad(swing_angle))
 
 	#			velocity = original_velocity
 				reset_round = false

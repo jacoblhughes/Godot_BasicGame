@@ -39,7 +39,7 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 
 		if("Enemy" in collision.get_collider().name):
-			self.collision_mask = 0  # This will disable the player's ability to detect enemies (or anything else, for that matter).
+
 			collision.get_collider().queue_free()
 
 			dino_hit.emit()

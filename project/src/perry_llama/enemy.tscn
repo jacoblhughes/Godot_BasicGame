@@ -4,19 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://cof8ga6adr0sv" path="res://art/perry_llama/clock_256.png" id="2_nerr3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20oip"]
-size = Vector2(47, 41)
+size = Vector2(47, 48)
 
 [node name="Enemy" type="CharacterBody2D"]
-position = Vector2(550, 648)
 collision_layer = 2
 collision_mask = 11
 script = ExtResource("1_f2imx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4.5, -4.5)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_nerr3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4.5, -4.5)
 shape = SubResource("RectangleShape2D_20oip")

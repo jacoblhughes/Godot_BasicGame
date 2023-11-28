@@ -115,6 +115,56 @@ bus = &"Game"
 stream = ExtResource("5_cmhgq")
 bus = &"Background"
 
+[node name="LivesSprite" type="Sprite2D" parent="."]
+position = Vector2(72, 1216)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_7xymx")
+
+[node name="LivesX" type="Label" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 1200.0
+offset_right = 160.0
+offset_bottom = 1232.0
+theme = ExtResource("2_msidh")
+theme_type_variation = &"Main_2"
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LivesLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 1200.0
+offset_right = 216.0
+offset_bottom = 1231.0
+theme = ExtResource("2_msidh")
+theme_type_variation = &"Main_2"
+text = "INF"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="."]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 64.0
+offset_right = 416.0
+offset_bottom = 120.0
+theme = ExtResource("2_msidh")
+text = "LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 64.0
+offset_right = 480.0
+offset_bottom = 120.0
+theme = ExtResource("2_msidh")
+text = "INF"
+vertical_alignment = 1
+
 [node name="GameStartPanel" type="Panel" parent="."]
 visible = false
 layout_mode = 0
@@ -212,64 +262,3 @@ position = Vector2(360, 520)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_olde7")
 frame_progress = 0.0114847
-
-[node name="LivesSprite" type="Sprite2D" parent="."]
-position = Vector2(72, 1216)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("7_7xymx")
-
-[node name="LivesX" type="Label" parent="."]
-layout_mode = 0
-offset_left = 120.0
-offset_top = 1200.0
-offset_right = 160.0
-offset_bottom = 1232.0
-theme = ExtResource("2_msidh")
-theme_type_variation = &"Main_2"
-text = "X"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LivesLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 176.0
-offset_top = 1200.0
-offset_right = 216.0
-offset_bottom = 1231.0
-theme = ExtResource("2_msidh")
-theme_type_variation = &"Main_2"
-text = "INF"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PlayArea" type="ColorRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 40.0
-offset_top = 144.0
-offset_right = 680.0
-offset_bottom = 1168.0
-size_flags_horizontal = 0
-mouse_filter = 1
-color = Color(0.196078, 0.235294, 0.223529, 1)
-
-[node name="Level" type="Label" parent="."]
-layout_mode = 0
-offset_left = 240.0
-offset_top = 64.0
-offset_right = 416.0
-offset_bottom = 120.0
-theme = ExtResource("2_msidh")
-text = "LEVEL"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LevelLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 416.0
-offset_top = 64.0
-offset_right = 480.0
-offset_bottom = 120.0
-theme = ExtResource("2_msidh")
-text = "INF"
-vertical_alignment = 1

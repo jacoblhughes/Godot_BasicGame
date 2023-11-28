@@ -11,7 +11,8 @@ var score_value = 1
 var game_level = 1
 var initial_lives = 3
 var lives_lost = 1
-
+var level_value = 1
+var level_advance_value = 10
 
 var game_reset = false
 
@@ -34,7 +35,7 @@ func _game_initialize():
 	GameManager.reset_score()
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 	GameManager.set_or_reset_lives(initial_lives)
-
+	GameManager.set_or_reset_level(level_value)
 
 
 func _on_play_button_pressed():
@@ -52,11 +53,11 @@ func on_reset_button_reset_button_pressed():
 
 
 func _on_win_body_entered(body):
-	if body.name == "Ball":
-		position_reset.emit()
-		GameManager.update_score(score_value)
-	if GameManager.get_score() > 0 and GameManager.get_score() % 5 == 0:
-		_next_level_reached()
+	if(GameManager.get_game_enabled()):
+		if body.name == "Ball":
+			position_reset.emit()
+			GameManager.update_score(score_value)
+			_check_advance_level()
 	
 func _on_lose_body_entered(body):
 	if body.name == "Ball":
@@ -66,14 +67,14 @@ func _on_lose_body_entered(body):
 			_game_over()
 	pass # Replace with function body.
 
-func _next_level_reached():
+func _check_advance_level():
+	if GameManager.get_score() % level_advance_value == 0:
+		GameManager.update_game_level(level_value)
+		computer.speed = computer.original_speed * pow(1.05,GameManager.get_game_level())
+		ball.speed_increase=ball.original_speed_increase * pow(1.05,GameManager.get_game_level())
+		ball.increased_velocity = ball.original_velocity * pow(1.05,GameManager.get_game_level())
 
-	ball.speed_increase=ball.speed_increase + .1
-	ball.original_velocity = ball.original_velocity * 1.1
-	var level_label = get_parent().get_node("LevelLabel")
-	game_level += 1
-	level_label.text = str(game_level)
-	pass
+		pass
 
 func _game_over():
 	GameManager.set_game_enabled(false)
