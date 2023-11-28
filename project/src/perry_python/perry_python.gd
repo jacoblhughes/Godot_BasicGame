@@ -20,7 +20,7 @@ var isFirst = true
 var isFirstminiSnake = true
 @onready var grid : Node2D
 @onready var SPAWNSIGNALS = get_parent().get_node("spawner_food")
-
+var level_value = 1
 var head_original_x
 var head_original_y
 
@@ -35,7 +35,7 @@ func _ready():
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
 	GameManager.in_play_area.connect(_on_in_play_area)
-
+	GameManager.set_or_reset_level(level_value)
 	SPAWNSIGNALS.PlayerWin.connect(_on_player_win)
 	head  = head_scene.instantiate()
 

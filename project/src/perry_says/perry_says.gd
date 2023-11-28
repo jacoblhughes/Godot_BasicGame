@@ -12,24 +12,12 @@ var groupOfButtons
 var disabledColor
 var score_value = 1
 var level_value = 1
-
+var level_advance_value = 10
 var playerTurn = false
 var computerPopulate = 0
 var playerPopulate = -1
 var button_pressed
 var buttonObject = {}
-
-#var play_area_width = GameManager.get_play_area_size_from_HUD().x
-#var play_area_height = GameManager.get_play_area_size_from_HUD().y
-#var testing_x = (play_area_height/2)-(play_area_width/2)
-#var original_game_button_x = GameManager.get_play_area_position_from_HUD().x + testing_x
-#var original_game_button_y = GameManager.get_play_area_position_from_HUD().y + testing_x
-
-
-var redButton
-var blueButton
-var greenButton
-var yellowButton
 
 var high_scores_for_popup
 var high_scores_names
@@ -54,7 +42,7 @@ func _ready():
 func _game_initialize():
 	GameManager.reset_score()
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
-	GameManager.set_or_reset_level(1)
+	GameManager.set_or_reset_level(level_value)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -144,11 +132,16 @@ func _set_buttons_disabled(setting):
 
 func _player_turn_end():
 	GameManager.update_score(score_value)
-	if(GameManager.get_score()% 2 == 0):
-		GameManager.update_game_level(level_value)
+	_check_advance_level()
 	playerTurn = false
 	arrayOfPlayerResponse = []
 	playerPopulate = -1
+
+func _check_advance_level():
+	if(GameManager.get_score() % level_advance_value == 0):
+		GameManager.update_game_level(level_value)
+		for button in groupOfButtons:
+			button.animationTimer.wait_time = button.original_time * pow(.95,GameManager.get_game_level())
 
 func _get_next_value():
 	buttonToAdd = floor(rng.randf_range(0, 4))
@@ -161,7 +154,6 @@ func _add_next_value():
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
 	_computer_turn_start()
-
 	pass # Replace with function body.
 	
 func _on_playback_timer_timeout():

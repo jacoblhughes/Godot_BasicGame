@@ -2,10 +2,10 @@ Perry Arcade
 
 
 perry_says
-
+	make timer for inactivity of player
 
 perry_python
-	
+	not sure how to do levels here
 
 perry_polo
 
@@ -41,6 +41,11 @@ All:
 	Improved backgrounds
 	Improved sounds
 	Improved background music
+	
+	game initializations
+		standardize
+		put in buttons?
+		make the button functions object?
 	
 Color Pallete:
 	Aesprite
