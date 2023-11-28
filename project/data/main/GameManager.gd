@@ -6,7 +6,7 @@ var config = ConfigFile.new()
 @onready var InitialsInput : Label
 @onready var ScoreLabel : Label
 @onready var StatusLabel : Label
-
+@onready var level_label : Label
 
 @onready var BackGroundMusic: AudioStreamPlayer
 @onready var PlayArea: ColorRect
@@ -40,6 +40,9 @@ var game_enabled = false
 var current_game_scene : PackedScene
 const DEFAULT_FLOAT = -1.0
 const DEFAULT_TEXT = "-1"
+
+var game_level = 1
+
 signal startButtonPressed
 signal resetButtonPressed
 signal highscoreButtonpressed
@@ -89,7 +92,7 @@ func _ready():
 	
 	game_scene = aspect_ratio_container.get_node("GameScene")
 	lives_label = hud_control.get_node("LivesLabel")
-	
+	level_label = hud_control.get_node("LevelLabel")
 	PlayButton.pressed.connect(_on_play_button_pressed)
 
 
@@ -175,6 +178,21 @@ func get_config_path_file():
 	
 func get_initials():
 	return new_initials
+
+func set_game_level(new_level):
+			game_level = new_level
+			var this_level = str(game_level)
+			level_label.text = this_level
+			
+func update_game_level(new_level):
+			game_level += new_level
+			var this_level = str(game_level)
+			level_label.text = this_level
+		
+func reset_level():
+	game_level=1
+	level_label.text = str(game_level)
+
 
 func set_new_score(new_score):
 			score = new_score
@@ -345,6 +363,12 @@ func set_game_enabled(status):
 
 func set_game_key(key):
 	game_key = key
+	
+func get_game_level():
+	return game_level
+	
+
+	
 
 func _on_main_ready():
 

@@ -26,8 +26,6 @@ perry_space
 
 
 Clamp things
-Home button does not trigget a jump
-	Collision area?
 Make directions for each game
 
 

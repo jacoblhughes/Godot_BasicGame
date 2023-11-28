@@ -8,10 +8,10 @@ var buttonToAdd = 0
 var rng = RandomNumberGenerator.new()
 
 var groupOfButtons
-var groupOfButtonAnimations
+
 var disabledColor
 var score_value = 1
-
+var level_value = 1
 
 var playerTurn = false
 var computerPopulate = 0
@@ -43,11 +43,6 @@ var signalEmitted = false
 @onready var yellowButtonScene = preload("res://src/perry_says/yellow_button.tscn")
 
 
-
-
-
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	playback_timer = get_parent().get_node("PlaybackTimer")
@@ -63,10 +58,6 @@ func _game_initialize():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-#	print("Checking buttons in group:")
-#	var buttonsInGroup = get_tree().get_nodes_in_group("simonSaysGameButtons")
-#	for button in buttonsInGroup:
-#		print(button)
 	if(playerTurn):
 		if(len(arrayOfPlayerResponse)>0):
 			if(arrayOfButtonsToFollow[playerPopulate] == arrayOfPlayerResponse[playerPopulate]):
@@ -129,7 +120,7 @@ func _initialize_buttons():
 
 		button.game_button_pressed.connect(_on_game_button_pressed)
 		get_parent().add_child.call_deferred(button)
-#		button.add_to_group("simonSaysGameButtons")
+		button.add_to_group("simon_says_buttons")
 
 
 
@@ -137,7 +128,7 @@ func _initialize_buttons():
 		button.disabled = true
 	
 	await get_tree().create_timer(.1).timeout
-	groupOfButtons = get_tree().get_nodes_in_group("simonSaysGameButtons")
+	groupOfButtons = get_tree().get_nodes_in_group("simon_says_buttons")
 
 
 
@@ -145,20 +136,16 @@ func _computer_turn_start():
 	_set_buttons_disabled(true)
 	_add_next_value()
 	playback_timer.start()
-		
+	
 func _set_buttons_disabled(setting):
 
 	for i in len(groupOfButtons):
 		groupOfButtons[i].disabled = setting
 
-func _stop_all_animations():
-	for i in len(groupOfButtonAnimations):
-		groupOfButtonAnimations[i].pause()
-
 func _player_turn_end():
 	GameManager.update_score(score_value)
-	if(GameManager.get_score()% 3 == 0):
-		print('level up')
+	if(GameManager.get_score()% 2 == 0):
+		GameManager.update_game_level(level_value)
 	playerTurn = false
 	arrayOfPlayerResponse = []
 	playerPopulate = -1
@@ -178,9 +165,10 @@ func _on_play_button_pressed():
 	pass # Replace with function body.
 	
 func _on_playback_timer_timeout():
-	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]]._pressed()
+	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]]._on_pressed()
 	computerPopulate+=1
 	if(computerPopulate == len(arrayOfButtonsToFollow)):
+
 		playerTurn = true
 
 		computerPopulate = 0
@@ -195,11 +183,8 @@ func _stop_game_button_sounds():
 
 func _stop_game_button_animations_and_timer():
 	for button in groupOfButtons:
-		button.faceAnimation.stop()
-	for button in groupOfButtons:
-		button.faceAnimation.play('default')
-	for button in groupOfButtons:
-		button.animation.play('dark')
+		button.animation.stop()
+		button.animation.play('default')
 	for button in groupOfButtons:
 		button.animationTimer.stop()
 	playback_timer.stop()

@@ -47,6 +47,7 @@ metadata/_edit_horizontal_guides_ = [224.0]
 metadata/_edit_vertical_guides_ = [240.0, 720.0, 480.0]
 
 [node name="Initials_Label" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 416.0
 offset_top = 64.0
@@ -57,11 +58,24 @@ text = "Initials:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Score_Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 64.0
+offset_right = 160.0
+offset_bottom = 120.0
+theme = ExtResource("2_msidh")
+text = "Game Score:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Initials" type="Label" parent="."]
 layout_mode = 0
-offset_left = 560.0
+offset_left = 40.0
 offset_top = 64.0
-offset_right = 680.0
+offset_right = 160.0
 offset_bottom = 120.0
 theme = ExtResource("2_msidh")
 text = "JLH"
@@ -77,28 +91,17 @@ offset_bottom = 1248.0
 theme = ExtResource("2_msidh")
 text = "Home"
 
-[node name="Score_Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 64.0
-offset_right = 160.0
-offset_bottom = 120.0
-theme = ExtResource("2_msidh")
-text = "Game Score:
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
-offset_left = 184.0
+offset_left = 560.0
 offset_top = 64.0
-offset_right = 304.0
+offset_right = 680.0
 offset_bottom = 120.0
 theme = ExtResource("2_msidh")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+clip_text = true
 
 [node name="Applause" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_pefxi")
@@ -237,4 +240,35 @@ theme = ExtResource("2_msidh")
 theme_type_variation = &"Main_2"
 text = "INF"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayArea" type="ColorRect" parent="."]
+visible = false
+offset_left = 40.0
+offset_top = 144.0
+offset_right = 680.0
+offset_bottom = 1168.0
+size_flags_horizontal = 0
+mouse_filter = 1
+color = Color(0.196078, 0.235294, 0.223529, 1)
+
+[node name="Level" type="Label" parent="."]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 64.0
+offset_right = 416.0
+offset_bottom = 120.0
+theme = ExtResource("2_msidh")
+text = "LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 64.0
+offset_right = 480.0
+offset_bottom = 120.0
+theme = ExtResource("2_msidh")
+text = "1"
 vertical_alignment = 1

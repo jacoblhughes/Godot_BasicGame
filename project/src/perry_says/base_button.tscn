@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6hclufi4ik3c"]
+[gd_scene load_steps=10 format=3 uid="uid://cox50q2k388yo"]
 
 [ext_resource type="Script" path="res://src/perry_says/game_button.gd" id="1_yu070"]
 [ext_resource type="AudioStream" uid="uid://brarlhu18wx0d" path="res://sounds/perry_says/a_sharp.wav" id="2_slpmc"]

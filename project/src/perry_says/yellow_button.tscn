@@ -1,66 +1,31 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkdc5uatc431l"]
+[gd_scene load_steps=7 format=3 uid="uid://bkdc5uatc431l"]
 
 [ext_resource type="Theme" uid="uid://c41xvw7iagmuc" path="res://themes/perry_says/perry_says_buttons.tres" id="1_lf8qy"]
+[ext_resource type="Texture2D" uid="uid://881nnfj5l3fl" path="res://art/perry_says/perry_says_yellow.png" id="2_b3rxx"]
 [ext_resource type="Script" path="res://src/perry_says/game_button.gd" id="2_v0bmh"]
 [ext_resource type="AudioStream" uid="uid://c57a64j7t5ah8" path="res://sounds/perry_says/f_sharp.wav" id="3_j4swf"]
-[ext_resource type="Texture2D" uid="uid://dmiyfbmo4230s" path="res://art/perry_says/yellow_256.png" id="4_jsofv"]
-[ext_resource type="Texture2D" uid="uid://cuksh1427cgxl" path="res://art/perry_says/perry_simon_buttons_256x256.png" id="5_5vaco"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dclqh"]
-atlas = ExtResource("4_jsofv")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1hyy"]
-atlas = ExtResource("4_jsofv")
-region = Rect2(256, 0, 256, 256)
+[ext_resource type="Texture2D" uid="uid://cxior4kivp4pj" path="res://art/perry_says/perry_says_yellow_1.png" id="3_uuyeh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0megc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dclqh")
+"texture": ExtResource("2_b3rxx")
 }],
 "loop": false,
-"name": &"dark",
+"name": &"default",
 "speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f1hyy")
+"texture": ExtResource("3_uuyeh")
 }],
 "loop": false,
-"name": &"light",
+"name": &"pressed",
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kmib3"]
-atlas = ExtResource("5_5vaco")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0qx6r"]
-atlas = ExtResource("5_5vaco")
-region = Rect2(1024, 0, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vprhw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kmib3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0qx6r")
-}],
-"loop": true,
-"name": &"moving",
-"speed": 5.0
-}]
-
-[node name="YellowButton" type="Button" groups=["simonSaysGameButtons"]]
+[node name="YellowButton" type="Button"]
 offset_right = 192.0
 offset_bottom = 192.0
 theme = ExtResource("1_lf8qy")
@@ -68,22 +33,16 @@ action_mode = 0
 keep_pressed_outside = true
 script = ExtResource("2_v0bmh")
 
-[node name="Sound" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_j4swf")
 bus = &"Game"
 
-[node name="animation" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(96, 96)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_0megc")
-animation = &"dark"
 
-[node name="faceAnimation" type="AnimatedSprite2D" parent="." groups=["SimonSaysGameButtonAnimations"]]
-position = Vector2(96, 96)
-scale = Vector2(0.75, 0.75)
-sprite_frames = SubResource("SpriteFrames_vprhw")
-
-[node name="animationTimer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
-[connection signal="timeout" from="animationTimer" to="." method="_on_animation_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_animation_timer_timeout"]
