@@ -179,20 +179,17 @@ func get_config_path_file():
 func get_initials():
 	return new_initials
 
-func set_game_level(new_level):
-			game_level = new_level
-			var this_level = str(game_level)
-			level_label.text = this_level
+func set_or_reset_level(default_level = "INF"):
+	if typeof(default_level) == TYPE_INT:
+		game_level = default_level
+		level_label.text = str(default_level)
+	else:
+		level_label.text = default_level
 			
 func update_game_level(new_level):
 			game_level += new_level
 			var this_level = str(game_level)
 			level_label.text = this_level
-		
-func reset_level():
-	game_level=1
-	level_label.text = str(game_level)
-
 
 func set_new_score(new_score):
 			score = new_score

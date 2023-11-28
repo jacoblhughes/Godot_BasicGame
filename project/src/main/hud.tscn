@@ -244,6 +244,7 @@ vertical_alignment = 1
 
 [node name="PlayArea" type="ColorRect" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 40.0
 offset_top = 144.0
 offset_right = 680.0
@@ -270,5 +271,5 @@ offset_top = 64.0
 offset_right = 480.0
 offset_bottom = 120.0
 theme = ExtResource("2_msidh")
-text = "1"
+text = "INF"
 vertical_alignment = 1
