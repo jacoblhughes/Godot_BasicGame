@@ -152,7 +152,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RaceTrack" type="Area2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(14, 0)
 collision_layer = 64

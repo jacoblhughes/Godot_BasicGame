@@ -1,6 +1,9 @@
 Perry Arcade
 
 
+make sure all get harder with level progressions
+
+
 perry_says
 
 
@@ -42,7 +45,13 @@ perry_polo
 	make icons that give powerups or other things
 	
 perry_llama
-	Make scenes different sizes (ht and width)
+	Make scenes different sizes (ht and width)0
+
+perry_dodge
+	powerups
+	
+perry_space
+	rockets should emit signal back to game to handle game scoring and such
 	
 	
 All:

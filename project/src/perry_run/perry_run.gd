@@ -13,6 +13,8 @@ var score_value = 1
 @onready var c_p_2_area : Area2D
 @onready var c_p_3_area : Area2D
 @onready var finish_area : Area2D
+var level_advance_value = 4
+var level_value = 1
 var reset_point
 var game_on = false
 signal game_start
@@ -34,6 +36,7 @@ func _ready():
 func _game_initialize():
 	GameManager.reset_score()
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
+	GameManager.set_or_reset_level(1)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_update_label()
@@ -52,34 +55,39 @@ func _out_of_bounds():
 	out_of_bounds.emit(reset_point)
 
 func _on_cp_1_body_entered(body):
-	c_p_1 = true
+	if c_p_1 == false:
+		GameManager.update_score(score_value)
+	c_p_1=true
 	reset_point = c_p_1_area.position
 	pass # Replace with function body.
 
 
 func _on_cp_2_body_entered(body):
-	c_p_2 = true
+	if c_p_2 == false:
+		GameManager.update_score(score_value)
+	c_p_2=true
 	reset_point = c_p_2_area.position
 	pass # Replace with function body.
 
 
 func _on_cp_3_body_entered(body):
-	c_p_3 = true
+	if c_p_3 == false:
+		GameManager.update_score(score_value)
+	c_p_3=true
 	reset_point = c_p_3_area.position
 	pass # Replace with function body.
 
-func _reset_checkpoints():
-	c_p_1 = false
-	c_p_2 = false
-	c_p_3 = false
-	finish = false
-
 func _on_finish_body_entered(body):
-	finish = true
-	reset_point = finish_area.position
-	if(c_p_1 and c_p_2 and c_p_3 and finish):
-		GameManager.update_score(score_value)
-		_reset_checkpoints()
+
+	if GameManager.get_game_enabled():
+		
+		reset_point = finish_area.position
+		if finish == false:
+			GameManager.update_score(score_value)
+			_check_advance_level()
+		finish=true
+	
+	_reset_checkpoints()
 	pass # Replace with function body.
 
 func _on_play_button_pressed():
@@ -87,12 +95,23 @@ func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
 	countdown_timer.start()
 
+func _reset_checkpoints():
+	c_p_1 = false
+	c_p_2 = false
+	c_p_3 = false
+	finish = false
 
 func _on_countdown_timer_timeout():
+
 	game_timer.start()
 	game_start.emit()
 	game_on = true
+
 	pass # Replace with function body.
+
+func _check_advance_level():
+	if(GameManager.get_score() % level_advance_value == 0 and GameManager.get_score()>1):
+		GameManager.update_game_level(level_value)
 
 func _update_label():
 	if not game_on:
@@ -110,4 +129,5 @@ func _on_game_timer_timeout():
 	GameManager.set_game_enabled(false)
 	GameManager.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
+
 	pass # Replace with function body.

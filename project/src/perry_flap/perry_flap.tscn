@@ -76,7 +76,7 @@ color_ramp = SubResource("GradientTexture1D_yn8so")
 size = Vector2(96, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpshr"]
-size = Vector2(560, 960)
+size = Vector2(560, 992)
 
 [node name="PerryFlap" type="Node2D"]
 
@@ -132,10 +132,10 @@ shape = SubResource("RectangleShape2D_221hg")
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(202, 666)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="FlyZone" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(360, 624)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlyZone"]
+position = Vector2(360, 640)
 shape = SubResource("RectangleShape2D_gpshr")
 
 [connection signal="body_entered" from="EnemySpawn" to="EnemySpawn" method="_on_body_entered"]
@@ -143,4 +143,4 @@ shape = SubResource("RectangleShape2D_gpshr")
 [connection signal="body_shape_exited" from="EnemySpawn" to="EnemySpawn" method="_on_body_shape_exited"]
 [connection signal="timeout" from="SpawnTimer" to="EnemySpawn" method="_on_spawn_timer_timeout"]
 [connection signal="body_entered" from="EnemyScoring" to="PerryFlap" method="_on_enemy_scoring_body_entered"]
-[connection signal="body_exited" from="Area2D" to="PerryFlap" method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="FlyZone" to="PerryFlap" method="_on_area_2d_body_exited"]

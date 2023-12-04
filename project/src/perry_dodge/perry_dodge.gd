@@ -8,13 +8,16 @@ var score_value = 1
 @onready var StartTimer : Timer
 @onready var StartPosition: Marker2D
 @onready var Player : Area2D
-
+var original_mob_time = 1
+var level_advance_value = 10
+var level_value = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
 	StartTimer = get_parent().get_node("StartTimer")
 	ScoreTimer = get_parent().get_node("ScoreTimer")
 	MobTimer = get_parent().get_node("MobTimer")
+	MobTimer.wait_time = original_mob_time
 	StartPosition = get_parent().get_node("StartPosition")
 	Player = get_parent().get_node("Player")
 	Player.hit.connect(_on_player_hit)
@@ -29,13 +32,16 @@ func _game_initialize():
 	GameManager.reset_score()
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)	
 
-func game_over():
-	ScoreTimer.stop()
-	MobTimer.stop()
 
 func _on_score_timer_timeout():
 	GameManager.update_score(score_value)
-#	$HUD.update_score(score)
+	_check_advance_level()
+	pass # Replace with function body.
+	
+func _check_advance_level():
+	if(GameManager.get_score() % level_advance_value == 0):
+		GameManager.update_game_level(level_value)
+		MobTimer.wait_time = original_mob_time * pow(.95,GameManager.get_game_level())
 
 func _on_start_timer_timeout():
 	MobTimer.start()

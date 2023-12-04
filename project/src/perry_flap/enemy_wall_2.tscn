@@ -4,10 +4,10 @@
 [ext_resource type="SpriteFrames" uid="uid://bd2em2armt88p" path="res://sprite_frames/flappy/enemy_wall.tres" id="2_crqqh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mosl6"]
-size = Vector2(40, 448)
+size = Vector2(40, 456)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijnv7"]
-size = Vector2(40, 320)
+size = Vector2(40, 328)
 
 [node name="EnemyWall2" type="CharacterBody2D"]
 position = Vector2(656, 144)
@@ -16,22 +16,22 @@ collision_mask = 9
 script = ExtResource("1_mlwx1")
 
 [node name="BottomWall" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, 864)
-scale = Vector2(0.15625, 0.416667)
+position = Vector2(20, 860)
+scale = Vector2(0.15625, 0.427084)
 sprite_frames = ExtResource("2_crqqh")
 autoplay = "default"
 flip_v = true
 
 [node name="TopWall" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, 224)
-scale = Vector2(0.15625, 0.583333)
+position = Vector2(20, 228)
+scale = Vector2(0.15625, 0.59375)
 sprite_frames = ExtResource("2_crqqh")
 autoplay = "default"
 
 [node name="TopCollision" type="CollisionShape2D" parent="."]
-position = Vector2(20, 224)
+position = Vector2(20, 228)
 shape = SubResource("RectangleShape2D_mosl6")
 
 [node name="BottomCollision" type="CollisionShape2D" parent="."]
-position = Vector2(20, 864)
+position = Vector2(20, 860)
 shape = SubResource("RectangleShape2D_ijnv7")

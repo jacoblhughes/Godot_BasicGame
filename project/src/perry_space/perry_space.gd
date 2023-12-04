@@ -24,7 +24,7 @@ func _game_initialize():
 	GameManager.reset_score()
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 	GameManager.set_or_reset_lives(3)
-
+	GameManager.set_or_reset_level(1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
