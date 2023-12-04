@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1ov306httsie"]
 
 [ext_resource type="Script" path="res://src/perry_python/perry_python.gd" id="1_5btnr"]
-[ext_resource type="Texture2D" uid="uid://b6o8i6d3x1cqy" path="res://art/perry_python/snake_background_144_256.png" id="2_hp12s"]
+[ext_resource type="Texture2D" uid="uid://b6o8i6d3x1cqy" path="res://textures/perry_python/snake_background_144_256.png" id="2_hp12s"]
 [ext_resource type="Script" path="res://src/perry_python/grid.gd" id="3_t14ja"]
 [ext_resource type="Script" path="res://src/perry_python/spawn_food.gd" id="4_llfef"]
 [ext_resource type="Script" path="res://src/perry_python/hit_spotter.gd" id="5_skcxu"]

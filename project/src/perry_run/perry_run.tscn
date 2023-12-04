@@ -1,14 +1,14 @@
 [gd_scene load_steps=17 format=3 uid="uid://cf4xkqs74ytur"]
 
-[ext_resource type="Texture2D" uid="uid://dpoog2l453my6" path="res://art/perry_run/purple.png" id="1_dthc4"]
 [ext_resource type="Script" path="res://src/perry_run/perry_run.gd" id="2_1lkn6"]
-[ext_resource type="Texture2D" uid="uid://dce0ranae3u3u" path="res://art/perry_run/saucer.png" id="2_qlfj8"]
+[ext_resource type="Texture2D" uid="uid://debugqkk57enh" path="res://textures/perry_run/track_128.png" id="2_5ay17"]
 [ext_resource type="Script" path="res://src/perry_run/player.gd" id="3_slia5"]
-[ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://art/perry_run/perry_run_256.png" id="4_6pqw3"]
-[ext_resource type="Texture2D" uid="uid://debugqkk57enh" path="res://art/perry_run/track_128.png" id="6_x8dm2"]
+[ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://textures/perry_run/perry_run_256.png" id="4_axe6o"]
+[ext_resource type="Texture2D" uid="uid://dce0ranae3u3u" path="res://textures/perry_run/saucer.png" id="5_serl1"]
+[ext_resource type="Texture2D" uid="uid://dpoog2l453my6" path="res://textures/perry_run/purple.png" id="6_3abn6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28e28"]
-texture = ExtResource("6_x8dm2")
+texture = ExtResource("2_5ay17")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 1:0/0 = 0
@@ -23,11 +23,11 @@ tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_28e28")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7ioa"]
-atlas = ExtResource("4_6pqw3")
+atlas = ExtResource("4_axe6o")
 region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7adil"]
-atlas = ExtResource("4_6pqw3")
+atlas = ExtResource("4_axe6o")
 region = Rect2(256, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oy4wx"]
@@ -84,7 +84,7 @@ autoplay = "default"
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 visible = false
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_qlfj8")
+texture = ExtResource("5_serl1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CapsuleShape2D_flqbc")
@@ -175,7 +175,7 @@ polygon = PackedVector2Array(128, 264, 144, 248, 544, 248, 560, 264, 560, 280, 5
 [node name="Polygon2D" type="Polygon2D" parent="MeltZone"]
 visible = false
 texture_repeat = 2
-texture = ExtResource("1_dthc4")
+texture = ExtResource("6_3abn6")
 polygon = PackedVector2Array(128, 264, 144, 248, 544, 248, 560, 264, 560, 280, 544, 296, 184, 296, 176, 304, 176, 496, 184, 504, 416, 504, 432, 520, 432, 616, 448, 632, 544, 632, 560, 648, 560, 792, 544, 808, 448, 808, 432, 824, 432, 1000, 448, 1016, 544, 1016, 560, 1032, 560, 1048, 544, 1064, 272, 1064, 256, 1048, 256, 952, 240, 936, 144, 936, 128, 920, 128, 904, 144, 888, 240, 888, 256, 872, 256, 696, 240, 680, 192, 680, 144, 680, 128, 664)
 
 [connection signal="body_entered" from="CP1" to="PerryRun" method="_on_cp_1_body_entered"]

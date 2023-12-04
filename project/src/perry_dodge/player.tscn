@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://0dmkhtys2fv3"]
 
 [ext_resource type="Script" path="res://src/perry_dodge/player.gd" id="1_2428t"]
-[ext_resource type="Texture2D" uid="uid://by61raaxondhx" path="res://art/perry_dodge/perry_creep_256_256.png" id="2_7hqnq"]
+[ext_resource type="Texture2D" uid="uid://by61raaxondhx" path="res://textures/perry_dodge/perry_creep_256_256.png" id="2_7hqnq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_po0k8"]
 atlas = ExtResource("2_7hqnq")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcxdvv4qwwmqm"]
 
 [ext_resource type="Script" path="res://src/perry_says/perry_says.gd" id="1_fdqsf"]
-[ext_resource type="Texture2D" uid="uid://c67eolerebque" path="res://art/perry_says/simonsays_background_128.png" id="2_8tja7"]
+[ext_resource type="Texture2D" uid="uid://c67eolerebque" path="res://textures/perry_says/simonsays_background_128.png" id="2_8tja7"]
 
 [node name="PerrySays" type="Node2D"]
 

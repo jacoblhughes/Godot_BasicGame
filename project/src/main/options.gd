@@ -34,3 +34,8 @@ func _on_h_slider_value_changed(value):
 func _on_h_slider_2_value_changed(value):
 	AudioManager.update_game_music(value)
 	pass # Replace with function body.
+
+
+func _on_reset_high_scores_pressed():
+	GameManager.reset_high_scores()
+	pass # Replace with function body.

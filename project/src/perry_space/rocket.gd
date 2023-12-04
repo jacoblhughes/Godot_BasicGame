@@ -5,8 +5,11 @@ extends Area2D
 var level_advance_value = 10
 var level_value = 1
 var score_value = 1
+@onready var perry_space : Node2D
+signal enemy_hit
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	perry_space = get_parent().get_parent().get_parent().get_node("PerrySpace")
 	visible_notifier.connect("screen_exited",_on_screen_exited)
 
 	pass # Replace with function body.
@@ -24,13 +27,10 @@ func _on_screen_exited():
 
 
 func _on_area_entered(area):
-	area.die()
-	GameManager.update_score(score_value)
-	_check_advance_level()
-	
-func _check_advance_level():
-	if(GameManager.get_score() % level_advance_value == 0):
-		GameManager.update_game_level(level_value)
+	if area is Enemy:
+		area.die()
+		enemy_hit.emit()
+		queue_free()
 
-	queue_free()
+
 	pass # Replace with function body.

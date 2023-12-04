@@ -19,11 +19,13 @@ var SnakeTimer
 var isFirst = true
 var isFirstminiSnake = true
 @onready var grid : Node2D
-@onready var SPAWNSIGNALS = get_parent().get_node("spawner_food")
+@onready var food_spawner :Node2D 
 var level_value = 1
 var head_original_x
 var head_original_y
-
+var score_value = 1
+var level_advance_value = 10
+var original_snake_time = .75
 func _ready():
 	var new_area = Vector2(GameManager.get_play_area_size_from_HUD().x,GameManager.get_play_area_size_from_HUD().x)
 	var left_over = (GameManager.get_play_area_size_from_HUD().y/2) - (GameManager.get_play_area_size_from_HUD().x/2)
@@ -36,11 +38,11 @@ func _ready():
 	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
 	GameManager.in_play_area.connect(_on_in_play_area)
 	GameManager.set_or_reset_level(level_value)
-	SPAWNSIGNALS.PlayerWin.connect(_on_player_win)
+	food_spawner = get_parent().get_node("spawner_food")
 	head  = head_scene.instantiate()
-
+	food_spawner.food_eaten.connect(_on_food_eaten)
 	get_parent().add_child.call_deferred(head)
-
+	SnakeTimer.wait_time = original_snake_time
 
 	
 
@@ -207,3 +209,11 @@ func _on_grid_ready():
 #	head.scale.y = SnakeVariables.snakecellsize.y/150
 	minisnakes.push_front(head)
 
+func _on_food_eaten():
+	GameManager.update_score(score_value)
+	_check_advance_level()
+	
+func _check_advance_level():
+	if(GameManager.get_score() % level_advance_value == 0):
+		GameManager.update_game_level(level_value)
+		SnakeTimer.wait_time = original_snake_time * pow(.95,GameManager.get_game_level())

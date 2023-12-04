@@ -4,13 +4,13 @@ extends Node2D
 @onready var snake := get_parent().get_node("PerryPython") as Snake
 var my_food_instance
 var tween_rotate: Tween
-var score_value = 1
+
 var radius = 10  # Radius of the circular path
 var speed = 90   # Angular speed (degrees per second)
 var angle = 0     # Current angle in degrees
 var png_size = 150
 
-signal PlayerWin
+signal food_eaten
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameManager.reset_score()
@@ -33,10 +33,10 @@ func _process(delta):
 	
 	if my_food_instance.get_rect().intersects(snake.head.get_rect()):
 		
-		GameManager.update_score(score_value)
-		if(GameManager.get_score() == (SnakeVariables.snakecells * SnakeVariables.snakecells)):
+		food_eaten.emit()
+		if(GameManager.get_score() > (SnakeVariables.snakecells *2)):
 
-			PlayerWin.emit()
+			spawn_food()
 			
 		else:
 			snake.grow()

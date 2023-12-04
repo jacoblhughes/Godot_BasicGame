@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dfnx72qlyx548"]
 
 [ext_resource type="Script" path="res://src/perry_python/player.gd" id="1_dlbap"]
-[ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://art/main/perry_original_256x256.png" id="2_leso3"]
+[ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://textures/main/perry_original_256x256.png" id="2_leso3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_121gs"]
 size = Vector2(64, 64)

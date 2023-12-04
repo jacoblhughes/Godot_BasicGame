@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwicawex72pjw"]
+[gd_scene load_steps=8 format=3 uid="uid://byr54mhj3utn8"]
 
 [ext_resource type="Script" path="res://src/perry_space/enemy.gd" id="1_upvbl"]
-[ext_resource type="Texture2D" uid="uid://buab01uyncmou" path="res://art/perry_space/enemy_256.png" id="2_45imq"]
+[ext_resource type="Texture2D" uid="uid://buab01uyncmou" path="res://textures/perry_space/enemy_256.png" id="2_45imq"]
 [ext_resource type="AudioStream" uid="uid://byygwxpyf0h3k" path="res://sounds/perry_space/enemy_die.wav" id="3_e35dg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m1nbk"]

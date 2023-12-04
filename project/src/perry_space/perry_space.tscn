@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://dx4hwtnr40m1r"]
 
-[ext_resource type="Texture2D" uid="uid://bym112t1vrsnm" path="res://art/perry_space/attack_background_128.png" id="1_78ch0"]
+[ext_resource type="Texture2D" uid="uid://bym112t1vrsnm" path="res://textures/perry_space/attack_background_128.png" id="1_75l3d"]
 [ext_resource type="Script" path="res://src/perry_space/perry_space.gd" id="1_yw0yd"]
 [ext_resource type="Script" path="res://src/perry_space/player.gd" id="3_60l8u"]
-[ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://art/perry_space/attack_256.png" id="4_76258"]
+[ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://textures/perry_space/attack_256.png" id="4_jqsem"]
 [ext_resource type="AudioStream" uid="uid://dubvdpeowmlwb" path="res://sounds/perry_space/rocket_shoot.wav" id="5_r6tm6"]
 [ext_resource type="AudioStream" uid="uid://qr7a7tnqwl30" path="res://sounds/perry_space/player_hit.wav" id="6_huksw"]
 [ext_resource type="Script" path="res://src/perry_space/enemy_spawner.gd" id="6_rbrt6"]
@@ -51,7 +51,7 @@ offset_top = 144.0
 offset_right = 674.0
 offset_bottom = 1071.0
 scale = Vector2(1.00947, 1.10502)
-texture = ExtResource("1_78ch0")
+texture = ExtResource("1_75l3d")
 stretch_mode = 1
 
 [node name="PerrySpace" type="Node2D" parent="."]
@@ -69,7 +69,7 @@ lifetime = 0.3
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_76258")
+texture = ExtResource("4_jqsem")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(8, 0)
@@ -86,6 +86,7 @@ stream = ExtResource("6_huksw")
 bus = &"Game"
 
 [node name="RocketTimer" type="Timer" parent="Player"]
+wait_time = 0.9
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(128, 664)
@@ -96,6 +97,7 @@ script = ExtResource("6_rbrt6")
 [node name="PathEnemyTimer" type="Timer" parent="EnemySpawner"]
 
 [node name="EnemyTimer" type="Timer" parent="EnemySpawner"]
+wait_time = 2.0
 
 [node name="SpawnLocations" type="Node2D" parent="EnemySpawner"]
 

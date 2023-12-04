@@ -43,7 +43,16 @@ step = 0.05
 value = 1.0
 tick_count = 10
 
+[node name="ResetHighScores" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 488.0
+offset_right = 320.0
+offset_bottom = 552.0
+theme = ExtResource("2_e7rg0")
+text = "Reset High Scores"
+
 [connection signal="pressed" from="CheckButton" to="." method="_on_check_button_pressed"]
 [connection signal="pressed" from="CheckButton2" to="." method="_on_check_button_2_pressed"]
 [connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="HSlider2" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="pressed" from="ResetHighScores" to="." method="_on_reset_high_scores_pressed"]

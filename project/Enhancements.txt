@@ -8,7 +8,7 @@ perry_says
 
 
 perry_python
-	not sure how to do levels here
+	need to compare to snake length on when to spanw, not the score
 
 perry_polo
 	

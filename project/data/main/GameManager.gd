@@ -231,8 +231,9 @@ func get_play_area_position_from_HUD():
 func get_score():
 	return score
 
-func set_gamestartpanel(vis):
-	GameStartPanel.visible = vis
+func set_gamestartpanel(flag):
+
+	GameStartPanel.visible = flag
 	
 func set_title(title):
 	Title.text=title
@@ -251,6 +252,7 @@ func _on_home_button_pressed():
 		buttons.visible = true
 		for child in child_node_to_delete:
 			child.queue_free()
+	set_or_reset_level()
 	pass # Replace with function body.
 	
 func _on_play_button_pressed():
@@ -258,8 +260,9 @@ func _on_play_button_pressed():
 	startButtonPressed.emit()
 	pass # Replace with function body.
 
-func set_gameover_panel(vis):
-	game_over_panel.visible = vis
+func set_gameover_panel(flag):
+
+	game_over_panel.visible = flag
 
 func set_gameover_panel_congrats(vis):
 	game_over_panel_congrats.visible = vis
@@ -364,11 +367,14 @@ func set_game_key(key):
 func get_game_level():
 	return game_level
 	
-
-	
+func reset_high_scores():
+	for key in games_list.keys():
+		config.set_value(key, "scores", [0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+		config.set_value(key, "names", ["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
+		config.save(perry_arcade_path)
+		set_initials("JLH")
 
 func _on_main_ready():
-
 	AudioManager.update_background_music(config.get_value("background_music", "value", DEFAULT_FLOAT))
 	AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT_FLOAT))
 	AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT_FLOAT))

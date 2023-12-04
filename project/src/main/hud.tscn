@@ -5,28 +5,28 @@
 [ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/main/applause.wav" id="3_pefxi"]
 [ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://sounds/main/gameover.wav" id="4_6krwv"]
 [ext_resource type="AudioStream" uid="uid://buulegk5q7el8" path="res://sounds/main/background_music.wav" id="5_cmhgq"]
-[ext_resource type="Texture2D" uid="uid://u4h60uf3ggrk" path="res://art/main/perry_run_happy_ani_512_768.png" id="6_7bmyl"]
-[ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://art/main/perry_original_256x256.png" id="7_7xymx"]
+[ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://textures/main/perry_original_256x256.png" id="6_ibs46"]
+[ext_resource type="Texture2D" uid="uid://u4h60uf3ggrk" path="res://textures/main/perry_run_happy_ani_512_768.png" id="7_euxj7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0fsyn"]
 font_size = 22
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1fr5w"]
-atlas = ExtResource("6_7bmyl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmfq5"]
+atlas = ExtResource("7_euxj7")
 region = Rect2(0, 0, 512, 768)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_afqhh"]
-atlas = ExtResource("6_7bmyl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl5nj"]
+atlas = ExtResource("7_euxj7")
 region = Rect2(512, 0, 512, 768)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_olde7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1fr5w")
+"texture": SubResource("AtlasTexture_kmfq5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_afqhh")
+"texture": SubResource("AtlasTexture_dl5nj")
 }],
 "loop": true,
 "name": &"default",
@@ -118,7 +118,7 @@ bus = &"Background"
 [node name="LivesSprite" type="Sprite2D" parent="."]
 position = Vector2(72, 1216)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("7_7xymx")
+texture = ExtResource("6_ibs46")
 
 [node name="LivesX" type="Label" parent="."]
 layout_mode = 0

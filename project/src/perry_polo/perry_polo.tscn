@@ -1,13 +1,13 @@
 [gd_scene load_steps=24 format=3 uid="uid://c1n3bt7ntc5gf"]
 
 [ext_resource type="Script" path="res://src/perry_polo/perry_polo.gd" id="1_ry11p"]
-[ext_resource type="Texture2D" uid="uid://c4rylxpixdbli" path="res://art/perry_polo/pong_pool_144_256.png" id="2_q4x8g"]
+[ext_resource type="Texture2D" uid="uid://c4rylxpixdbli" path="res://textures/perry_polo/pong_pool_144_256.png" id="2_q4x8g"]
 [ext_resource type="Script" path="res://src/perry_polo/ball.gd" id="3_36q7r"]
-[ext_resource type="Texture2D" uid="uid://0i3nb3jhnam6" path="res://art/perry_polo/perry_circle-Sheet.png" id="4_4607d"]
+[ext_resource type="Texture2D" uid="uid://0i3nb3jhnam6" path="res://textures/perry_polo/perry_circle-Sheet.png" id="4_4607d"]
 [ext_resource type="Script" path="res://src/perry_polo/player.gd" id="5_axl7g"]
-[ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://art/perry_polo/pong_paddle1.png" id="6_n78a6"]
+[ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://textures/perry_polo/pong_paddle1.png" id="6_n78a6"]
 [ext_resource type="Script" path="res://src/perry_polo/enemy.gd" id="7_rtox0"]
-[ext_resource type="Texture2D" uid="uid://chwov2ai7nyuk" path="res://art/perry_polo/pong_paddle2.png" id="8_3ym20"]
+[ext_resource type="Texture2D" uid="uid://chwov2ai7nyuk" path="res://textures/perry_polo/pong_paddle2.png" id="8_3ym20"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s0nxu"]
 atlas = ExtResource("4_4607d")
