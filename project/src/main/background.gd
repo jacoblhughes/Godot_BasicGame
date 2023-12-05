@@ -1,7 +1,7 @@
 extends ColorRect
-#var counter = 0
-#var x_view = 1080
-#var y_view = 1920
+var counter = 0
+var x_view = 2048
+var y_view = 2732
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	DisplayServer.window_set_size(Vector2i(x_view,y_view))
