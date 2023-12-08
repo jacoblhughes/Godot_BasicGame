@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcxdvv4qwwmqm"]
+[gd_scene load_steps=7 format=3 uid="uid://bcxdvv4qwwmqm"]
 
 [ext_resource type="Script" path="res://src/perry_says/perry_says.gd" id="1_fdqsf"]
 [ext_resource type="Texture2D" uid="uid://c67eolerebque" path="res://textures/perry_says/simonsays_background_128.png" id="2_8tja7"]
+[ext_resource type="PackedScene" uid="uid://bgvuoh3l0yd1h" path="res://src/perry_says/red_button.tscn" id="3_svc77"]
+[ext_resource type="PackedScene" uid="uid://cefj2lv5abrhk" path="res://src/perry_says/blue_button.tscn" id="3_yonn6"]
+[ext_resource type="PackedScene" uid="uid://c1ayr833axh17" path="res://src/perry_says/green_button.tscn" id="5_x888s"]
+[ext_resource type="PackedScene" uid="uid://bkdc5uatc431l" path="res://src/perry_says/yellow_button.tscn" id="6_hiaqa"]
 
 [node name="PerrySays" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [96.0, 144.0, 144.0, 1168.0, 144.0, 656.0]
+metadata/_edit_vertical_guides_ = [40.0, 680.0, 360.0]
 
 [node name="PerrySays" type="Node2D" parent="."]
 script = ExtResource("1_fdqsf")
@@ -19,5 +25,31 @@ stretch_mode = 1
 
 [node name="PlaybackTimer" type="Timer" parent="."]
 wait_time = 1.25
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="RedButton" parent="Buttons" instance=ExtResource("3_svc77")]
+offset_left = 168.0
+offset_top = 464.0
+offset_right = 360.0
+offset_bottom = 656.0
+
+[node name="BlueButton" parent="Buttons" instance=ExtResource("3_yonn6")]
+offset_left = 360.0
+offset_top = 464.0
+offset_right = 552.0
+offset_bottom = 656.0
+
+[node name="GreenButton" parent="Buttons" instance=ExtResource("5_x888s")]
+offset_left = 168.0
+offset_top = 656.0
+offset_right = 360.0
+offset_bottom = 848.0
+
+[node name="YellowButton" parent="Buttons" instance=ExtResource("6_hiaqa")]
+offset_left = 360.0
+offset_top = 656.0
+offset_right = 552.0
+offset_bottom = 848.0
 
 [connection signal="timeout" from="PlaybackTimer" to="PerrySays" method="_on_playback_timer_timeout"]
