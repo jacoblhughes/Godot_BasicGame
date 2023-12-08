@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://cefj2lv5abrhk"]
 
 [ext_resource type="Theme" uid="uid://c41xvw7iagmuc" path="res://themes/perry_says/perry_says_buttons.tres" id="1_bdlie"]
-[ext_resource type="Texture2D" uid="uid://rcfne4fvr4uc" path="res://art/perry_says/perry_says_blue.png" id="2_5lckq"]
+[ext_resource type="Texture2D" uid="uid://rcfne4fvr4uc" path="res://textures/perry_says/perry_says_blue.png" id="2_5lckq"]
 [ext_resource type="Script" path="res://src/perry_says/game_button.gd" id="2_s8ps1"]
 [ext_resource type="AudioStream" uid="uid://05dbcdpo80hl" path="res://sounds/perry_says/c_sharp.wav" id="3_bjvb2"]
-[ext_resource type="Texture2D" uid="uid://c56ub5e3o3vj2" path="res://art/perry_says/perry_says_blue_1.png" id="3_keqbh"]
+[ext_resource type="Texture2D" uid="uid://c56ub5e3o3vj2" path="res://textures/perry_says/perry_says_blue_1.png" id="3_keqbh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0megc"]
 animations = [{

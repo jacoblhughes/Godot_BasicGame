@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2enwj4xxpx4q"]
+
+[ext_resource type="SpriteFrames" uid="uid://cx8vgb8jgfrmr" path="res://textures/perry_says/perry_says_frames.tres" id="1_gcveo"]
+
+[node name="Button" type="Node2D"]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureButton"]
+sprite_frames = ExtResource("1_gcveo")
