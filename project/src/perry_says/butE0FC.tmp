@@ -10,5 +10,3 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureButton"]
-
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
