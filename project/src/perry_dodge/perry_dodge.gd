@@ -23,10 +23,6 @@ func _ready():
 	Player.hit.connect(_on_player_hit)
 	
 	_game_initialize()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	
-	pass
 	
 func _game_initialize():
 	GameManager.reset_score()

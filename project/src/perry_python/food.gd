@@ -17,7 +17,3 @@ func _ready():
 func get_rect() -> Rect2:
 	return Rect2(food_position,size)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-
-	pass

@@ -10,12 +10,6 @@ func _ready():
 	$HSlider2.value = AudioManager.get_game_music_level()
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_check_button_pressed():
 	AudioManager.set_background_music_mute($CheckButton.button_pressed)
 	pass # Replace with function body.

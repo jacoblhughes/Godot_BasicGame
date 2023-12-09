@@ -7,8 +7,3 @@ func _ready():
 	consolidated_time = original_time
 	wait_time = consolidated_time
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

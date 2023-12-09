@@ -10,7 +10,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 #	if Input.is_action_just_pressed("hit_space"):
 #		var x = (x_view - get_viewport().get_texture().get_size().x) / 2
 #		var y = (y_view - get_viewport().get_texture().get_size().y) / 2

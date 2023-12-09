@@ -16,6 +16,6 @@ func _ready():
 	var chosen_texture = all_textures[randi() % all_textures.size()]
 	$Sprite2D.texture = chosen_texture
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity.x = -1 * SPEED
 	move_and_slide()

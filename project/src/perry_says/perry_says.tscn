@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/perry_says/perry_says.gd" id="1_fdqsf"]
 [ext_resource type="Texture2D" uid="uid://c67eolerebque" path="res://textures/perry_says/simonsays_background_128.png" id="2_8tja7"]
-[ext_resource type="PackedScene" uid="uid://d2enwj4xxpx4q" path="res://src/perry_says/button.tscn" id="3_o348s"]
+[ext_resource type="PackedScene" uid="uid://d2enwj4xxpx4q" path="res://src/perry_says/perry_button.tscn" id="3_o4idv"]
 
 [node name="PerrySays" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [96.0, 144.0, 144.0, 1168.0, 144.0, 656.0]
@@ -25,7 +25,29 @@ wait_time = 1.25
 
 [node name="Buttons" type="Node2D" parent="."]
 
-[node name="Button" parent="Buttons" instance=ExtResource("3_o348s")]
-position = Vector2(109, 238)
+[node name="PerryButton" parent="Buttons" instance=ExtResource("3_o4idv")]
+position = Vector2(232, 528)
+
+[node name="PerryButton2" parent="Buttons" instance=ExtResource("3_o4idv")]
+position = Vector2(488, 528)
+
+[node name="PerryButton3" parent="Buttons" instance=ExtResource("3_o4idv")]
+position = Vector2(232, 784)
+
+[node name="PerryButton4" parent="Buttons" instance=ExtResource("3_o4idv")]
+position = Vector2(488, 784)
+
+[node name="PerryButton5" parent="Buttons" instance=ExtResource("3_o4idv")]
+position = Vector2(168, 272)
+
+[node name="PerryButton6" parent="Buttons" instance=ExtResource("3_o4idv")]
+position = Vector2(552, 272)
+
+[node name="PerryButton7" parent="Buttons" instance=ExtResource("3_o4idv")]
+position = Vector2(168, 1040)
+
+[node name="PerryButton8" parent="Buttons" instance=ExtResource("3_o4idv")]
+position = Vector2(552, 1040)
 
 [connection signal="timeout" from="PlaybackTimer" to="PerrySays" method="_on_playback_timer_timeout"]
+[connection signal="ready" from="Buttons" to="PerrySays" method="_on_buttons_ready"]

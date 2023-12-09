@@ -94,8 +94,6 @@ position = Vector2(128, 664)
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("6_rbrt6")
 
-[node name="PathEnemyTimer" type="Timer" parent="EnemySpawner"]
-
 [node name="EnemyTimer" type="Timer" parent="EnemySpawner"]
 wait_time = 2.0
 
@@ -126,6 +124,5 @@ position = Vector2(-16, 496)
 shape = SubResource("RectangleShape2D_3f3jt")
 
 [connection signal="timeout" from="Player/RocketTimer" to="Player" method="_on_rocket_timer_timeout"]
-[connection signal="timeout" from="EnemySpawner/PathEnemyTimer" to="EnemySpawner" method="_on_path_enemy_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/EnemyTimer" to="EnemySpawner" method="_on_enemy_timer_timeout"]
 [connection signal="area_entered" from="Deathzone" to="PerrySpace" method="_on_deathzone_area_entered"]

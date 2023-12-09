@@ -21,11 +21,7 @@ func _ready():
 	start_position = get_parent().get_node('StartPosition')
 	target_position = start_position.global_position
 	GameManager.in_play_area.connect(_on_in_play_area)
-	start(target_position) 
-#	hide()
-
-func _input(event):
-	pass
+	start(target_position)
 	
 func _on_in_play_area(event):
 	if(GameManager.get_game_enabled()):
@@ -69,10 +65,7 @@ func _physics_process(_delta):
 
 
 func _on_body_entered(body):
-
 	hit.emit()
-
-	# Must be deferred as we can't change physics properties on a physics callback.
 	$CollisionShape2D.set_deferred("disabled", true)
 	
 func start(pos):

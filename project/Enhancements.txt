@@ -1,71 +1,53 @@
 Perry Arcade
 
-
-make sure all get harder with level progressions
-
-
-perry_says
-
-
-perry_python
-	need to compare to snake length on when to spanw, not the score
-
-perry_polo
-	
-
-perry_llama
-
-
-perry_dodge
-
-
-perry_flap
-
-
-perry_run
-
-
-perry_space
-
-
-Clamp things
-Make directions for each game
-
-
 V2:
-	
+
+Introduce at least 1 then 2 new game elements to make it fun
+If not too much of a detriment, add a loss element
+
 perry_says
-	Make buttons a class so I can call the pressed method
+	Make Smaller?
+	Make the buttons move or something
 	Make timer for inactivity of player
 
-perry_space
-	Rockets global position??
+perry_python
+	need to compare to snake length on when to spawn, not the score
 
 perry_polo
 	make icons that give powerups or other things
-	
+
 perry_llama
 	Make scenes different sizes (ht and width)0
 
 perry_dodge
 	powerups
-	
+
+perry_flap
+	make the walls not fall
+	make sure the highscore can't be called twice
+
+perry_run
+
+
 perry_space
+	Rockets global position??
 	rockets should emit signal back to game to handle game scoring and such
 	
-	
+Clamp things
+Make directions for each game
+
+
 All:
+	
+	Make classes for things, like perry dodge enemies
 	Improved backgrounds
 	Improved sounds
 	Improved background music
-	
+	Make the buttons a separate scene
 	game initializations
 		standardize
 		put in buttons?
-		make the button functions object?
-	
-Color Pallete:
-	Aesprite
+		make the button to create game a single function?
 
 Notes:
 	Timing loading for each element - noticably android and labels and such

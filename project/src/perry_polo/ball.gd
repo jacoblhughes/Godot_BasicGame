@@ -66,7 +66,7 @@ func _on_position_reset():
 
 	_reset_ball()
 
-func _on_in_play_area(event):
+func _on_in_play_area(_event):
 	
 	if(GameManager.get_game_enabled()):
 			
@@ -77,11 +77,7 @@ func _on_in_play_area(event):
 				velocity = increased_velocity.rotated(deg_to_rad(swing_angle))
 
 	#			velocity = original_velocity
-				reset_round = false
-
-func _input(event):
-	pass
-	
+				reset_round = false	
 
 func _reset_ball():
 	position_reset = true

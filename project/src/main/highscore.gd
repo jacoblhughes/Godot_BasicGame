@@ -22,8 +22,3 @@ func _ready():
 			high_score_popup_list.append_text("\n")  # Add an extra newline for separation
 
 	high_score_popup_list.scroll_to_line(0)  # Scroll to the top of the list
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

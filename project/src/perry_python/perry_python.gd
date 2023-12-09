@@ -27,7 +27,7 @@ var score_value = 1
 var level_advance_value = 10
 var original_snake_time = .75
 func _ready():
-	var new_area = Vector2(GameManager.get_play_area_size_from_HUD().x,GameManager.get_play_area_size_from_HUD().x)
+
 	var left_over = (GameManager.get_play_area_size_from_HUD().y/2) - (GameManager.get_play_area_size_from_HUD().x/2)
 	var new_position = Vector2(GameManager.get_play_area_position_from_HUD().x,GameManager.get_play_area_position_from_HUD().y+left_over)
 	grid = get_parent().get_node("grid")
@@ -62,17 +62,6 @@ func _process(_delta):
 			child.position = child.curr_position + SnakeVariables.get_snake_cell_size()/2
 		
 	queue_redraw()
-	
-func _draw():
-	
-	pass
-#	for minisnake in minisnakes:
-#
-#		draw_rect(minisnake.get_rect(),minisnake.color)
-
-
-func _input(event):
-	pass
 
 func _on_in_play_area(event):
 	if event is InputEventScreenTouch and event.pressed == true:

@@ -35,10 +35,6 @@ func _on_in_play_area(event):
 		elif event is InputEventScreenDrag and is_touching:
 			target_y = event.position.y - sprite_half_y/2
 
-func _input(event):
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 #	var mouse_pos = get_viewport().get_mouse_position()
 #	target_y = mouse_pos.y

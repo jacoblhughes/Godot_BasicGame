@@ -14,6 +14,3 @@ func _ready():
 	curve.add_point(play_area_position)     # Start point
 	# Assign the curve to the Path2D's curve property
 	self.curve = curve
-
-func _process(delta):
-	pass

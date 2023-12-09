@@ -26,11 +26,6 @@ func _game_initialize():
 	GameManager.reset_score()
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 	GameManager.set_or_reset_level(1)
-
-
-func _physics_process(delta):
-
-	pass
 	
 func _on_enemy_spawn_timer_timeout():
 	var enemy = enemy_scene.instantiate()
