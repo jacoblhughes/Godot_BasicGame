@@ -1,29 +1,21 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1n3bt7ntc5gf"]
+[gd_scene load_steps=14 format=3 uid="uid://c1n3bt7ntc5gf"]
 
 [ext_resource type="Script" path="res://src/perry_polo/perry_polo.gd" id="1_ry11p"]
 [ext_resource type="Texture2D" uid="uid://c4rylxpixdbli" path="res://textures/perry_polo/pong_pool_144_256.png" id="2_q4x8g"]
 [ext_resource type="PackedScene" uid="uid://bf4jsvnkmhkg4" path="res://src/perry_polo/ball.tscn" id="3_n2q35"]
-[ext_resource type="Texture2D" uid="uid://0i3nb3jhnam6" path="res://textures/perry_polo/perry_circle-Sheet.png" id="4_4607d"]
 [ext_resource type="Script" path="res://src/perry_polo/player.gd" id="5_axl7g"]
 [ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://textures/perry_polo/pong_paddle1.png" id="6_n78a6"]
 [ext_resource type="Script" path="res://src/perry_polo/enemy.gd" id="7_rtox0"]
 [ext_resource type="Texture2D" uid="uid://chwov2ai7nyuk" path="res://textures/perry_polo/pong_paddle2.png" id="8_3ym20"]
+[ext_resource type="PackedScene" uid="uid://bxl4jcd30qnrr" path="res://src/perry_polo/wall.tscn" id="8_kt575"]
 [ext_resource type="PackedScene" uid="uid://b2gewckxrwhda" path="res://src/perry_polo/whirlpool.tscn" id="9_yq0ta"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bkgsb"]
-radius = 112.285
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p42yw"]
-resource_name = "TEST"
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1uhjp"]
 friction = 0.0
 bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7eiv"]
 size = Vector2(640, 8)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1uhjp"]
-friction = 0.0
-bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ek0n5"]
 size = Vector2(32, 1024)
@@ -47,21 +39,6 @@ texture = ExtResource("2_q4x8g")
 expand_mode = 1
 
 [node name="Ball" parent="." instance=ExtResource("3_n2q35")]
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(309, 392)
-collision_layer = 16
-collision_mask = 4
-gravity_scale = 0.0
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-scale = Vector2(0.9375, 0.9375)
-texture = ExtResource("4_4607d")
-region_enabled = true
-region_rect = Rect2(0, 0, 256, 256)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("CircleShape2D_bkgsb")
 
 [node name="Paddle - Player" type="CharacterBody2D" parent="."]
 position = Vector2(664, 416)
@@ -94,21 +71,7 @@ texture = ExtResource("8_3ym20")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paddle - Computer"]
 polygon = PackedVector2Array(-8, 0, -8, 128, 8, 128, 24, 72, 24, 64, 24, 56, 8, 0)
 
-[node name="Top Wall" type="StaticBody2D" parent="."]
-collision_layer = 4
-collision_mask = 128
-physics_material_override = SubResource("PhysicsMaterial_p42yw")
-
-[node name="ColorRect" type="ColorRect" parent="Top Wall"]
-offset_left = 40.0
-offset_top = 136.0
-offset_right = 680.0
-offset_bottom = 144.0
-color = Color(0.188235, 0.376471, 0.509804, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top Wall"]
-position = Vector2(360, 140)
-shape = SubResource("RectangleShape2D_c7eiv")
+[node name="Wall" parent="." instance=ExtResource("8_kt575")]
 
 [node name="Bottom Wall" type="StaticBody2D" parent="."]
 collision_layer = 4

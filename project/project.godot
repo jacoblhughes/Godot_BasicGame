@@ -79,6 +79,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_7="player_despawn"
 2d_physics/layer_8="goal_object"
 2d_physics/layer_9="goal_zone"
+2d_physics/layer_10="world"
 
 [rendering]
 

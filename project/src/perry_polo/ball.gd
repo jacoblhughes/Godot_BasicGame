@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name PerryBall
+
 var reset_round = false
 
 @onready var game = get_parent().get_node("PerryPolo")
