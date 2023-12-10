@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvxj73pvwioxn"]
+
+[ext_resource type="Script" path="res://src/perry_llama/enemy.gd" id="1_8cuah"]
+[ext_resource type="Texture2D" uid="uid://c0dwpfbi20wam" path="res://textures/perry_llama/enemy_wide_512_256.png" id="1_72any"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20oip"]
+size = Vector2(128, 64)
+
+[node name="EnemyWide" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 11
+gravity_scale = 0.0
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_8cuah")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, -32.016)
+scale = Vector2(0.25, 0.249875)
+texture = ExtResource("1_72any")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, -32)
+shape = SubResource("RectangleShape2D_20oip")

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+
 var double_jump_counter = false
 const JUMP_VELOCITY = -600.0
 var rng = RandomNumberGenerator.new()

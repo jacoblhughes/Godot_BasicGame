@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var enemy_scene  = preload("res://src/perry_llama/enemy.tscn")
+@onready var enemy_scenes  = [preload("res://src/perry_llama/enemy.tscn"),preload("res://src/perry_llama/enemy_width.tscn"),preload("res://src/perry_llama/enemy_height.tscn"),preload("res://src/perry_llama/enemy_large.tscn")]
 @onready var player : CharacterBody2D
 @onready var enemy_spawn_timer : Timer
 var score_value = 1
@@ -31,7 +31,8 @@ func _game_initialize():
 	GameManager.set_or_reset_level(1)
 	
 func _on_enemy_spawn_timer_timeout():
-	var enemy = enemy_scene.instantiate()
+	var enemy_choice = floor(randf_range(0, 4))
+	var enemy = enemy_scenes[enemy_choice].instantiate()
 	enemy_spawner.add_child.call_deferred(enemy,true)
 	pass # Replace with function body.
 
