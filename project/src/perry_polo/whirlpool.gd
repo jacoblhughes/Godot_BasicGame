@@ -1,5 +1,5 @@
 extends Node2D
-@export var whirlpoolStrength : float = 15.0
+@export var whirlpoolStrength : float = 20.0
 var in_whirlpool
 @onready var whirlpool_area : Area2D = $Area2D
 # Called when the node enters the scene tree for the first time.
@@ -26,8 +26,9 @@ func applyWhirlpoolForce(body):
 		var distance_to_center = direction_to_center.length()
 
 		if distance_to_center > 0.001:
-			var force = (direction_to_center / distance_to_center).normalized() * whirlpoolStrength
-
+			var tangent = Vector2(-direction_to_center.y, direction_to_center.x).normalized()
+			var force = tangent * whirlpoolStrength
+			
 			body.velocity += force
 			await get_tree().create_timer(.25).timeout
 

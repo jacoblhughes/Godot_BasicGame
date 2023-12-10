@@ -28,16 +28,16 @@ expand_mode = 1
 [node name="Whirpools" type="Node2D" parent="."]
 
 [node name="Whirlpool" parent="Whirpools" instance=ExtResource("9_yq0ta")]
-position = Vector2(520, 528)
+position = Vector2(520, 464)
 
 [node name="Whirlpool2" parent="Whirpools" instance=ExtResource("9_yq0ta")]
-position = Vector2(520, 1040)
+position = Vector2(520, 976)
 
 [node name="Whirlpool3" parent="Whirpools" instance=ExtResource("9_yq0ta")]
-position = Vector2(200, 272)
+position = Vector2(200, 336)
 
 [node name="Whirlpool4" parent="Whirpools" instance=ExtResource("9_yq0ta")]
-position = Vector2(200, 784)
+position = Vector2(200, 848)
 
 [node name="Ball" parent="." instance=ExtResource("3_n2q35")]
 position = Vector2(360, 656)
