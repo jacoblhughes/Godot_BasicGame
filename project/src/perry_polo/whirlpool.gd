@@ -1,10 +1,13 @@
 extends Node2D
 @export var whirlpoolStrength : float = 20.0
 var in_whirlpool
+@onready var whirlpool_area : Area2D = $Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+#	whirlpool_area = $Area2D
+	print('whirlpool')
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

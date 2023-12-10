@@ -15,18 +15,23 @@ var level_value = 1
 var level_advance_value = 10
 
 var game_reset = false
-
+var whirlpools
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	background = get_parent().get_node("Background")
 	player = get_parent().get_node("Player")
 	computer = get_parent().get_node("Computer")
 	ball = get_parent().get_node("Ball")
+	whirlpools = get_tree().get_nodes_in_group("perry_polo_whirlpool")
 
 	_game_initialize()
-
-	pass # Replace with function body.
+	set_whirlpools(false)
 	
+func set_whirlpools(flag):
+	for whirl in whirlpools:
+		whirl.visible = flag
+		whirl.get_node("Area2D").monitoring = flag
+		
 func _game_initialize():
 	GameManager.reset_score()
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)

@@ -5,6 +5,8 @@ V2:
 Introduce at least 1 then 2 new game elements to make it fun
 If not too much of a detriment, add a loss element
 
+Make things their own scene and arrange - get rid of /2's and such where possible
+
 perry_says
 	Make Smaller?
 	Make the buttons move or something

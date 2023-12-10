@@ -34,10 +34,10 @@ expand_mode = 1
 [node name="Whirpools" type="Node2D" parent="."]
 
 [node name="Whirlpool" parent="Whirpools" instance=ExtResource("9_yq0ta")]
-position = Vector2(272, 360)
+position = Vector2(488, 552)
 
 [node name="Whirlpool2" parent="Whirpools" instance=ExtResource("9_yq0ta")]
-position = Vector2(456, 928)
+position = Vector2(220, 771)
 
 [node name="Ball" parent="." instance=ExtResource("3_n2q35")]
 
