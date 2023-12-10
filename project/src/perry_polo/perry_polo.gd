@@ -19,17 +19,13 @@ var game_reset = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	background = get_parent().get_node("Background")
-	player = get_parent().get_node("Paddle - Player")
-	computer = get_parent().get_node("Paddle - Computer")
+	player = get_parent().get_node("Player")
+	computer = get_parent().get_node("Computer")
 	ball = get_parent().get_node("Ball")
 
 	_game_initialize()
 
 	pass # Replace with function body.
-
-func _process(_delta):
-#	print(background.global_position," and ",background.size)
-	pass
 	
 func _game_initialize():
 	GameManager.reset_score()
@@ -54,13 +50,13 @@ func on_reset_button_reset_button_pressed():
 
 func _on_win_body_entered(body):
 	if(GameManager.get_game_enabled()):
-		if body.name == "Ball":
+		if body is PerryBall:
 			position_reset.emit()
 			GameManager.update_score(score_value)
 			_check_advance_level()
 	
 func _on_lose_body_entered(body):
-	if body.name == "Ball":
+	if body is PerryBall:
 		position_reset.emit()
 		GameManager.update_lives(-lives_lost)
 		if(GameManager.get_lives()<=0):

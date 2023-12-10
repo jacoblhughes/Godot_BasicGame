@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1n3bt7ntc5gf"]
+[gd_scene load_steps=12 format=3 uid="uid://c1n3bt7ntc5gf"]
 
 [ext_resource type="Script" path="res://src/perry_polo/perry_polo.gd" id="1_ry11p"]
 [ext_resource type="Texture2D" uid="uid://c4rylxpixdbli" path="res://textures/perry_polo/pong_pool_144_256.png" id="2_q4x8g"]
@@ -9,13 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://chwov2ai7nyuk" path="res://textures/perry_polo/pong_paddle2.png" id="8_3ym20"]
 [ext_resource type="PackedScene" uid="uid://bxl4jcd30qnrr" path="res://src/perry_polo/wall.tscn" id="8_kt575"]
 [ext_resource type="PackedScene" uid="uid://b2gewckxrwhda" path="res://src/perry_polo/whirlpool.tscn" id="9_yq0ta"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1uhjp"]
-friction = 0.0
-bounce = 1.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7eiv"]
-size = Vector2(640, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ek0n5"]
 size = Vector2(32, 1024)
@@ -38,56 +31,53 @@ offset_bottom = 1168.0
 texture = ExtResource("2_q4x8g")
 expand_mode = 1
 
+[node name="Whirpools" type="Node2D" parent="."]
+
+[node name="Whirlpool" parent="Whirpools" instance=ExtResource("9_yq0ta")]
+position = Vector2(272, 360)
+
+[node name="Whirlpool2" parent="Whirpools" instance=ExtResource("9_yq0ta")]
+position = Vector2(456, 928)
+
 [node name="Ball" parent="." instance=ExtResource("3_n2q35")]
 
-[node name="Paddle - Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(664, 416)
 disable_mode = 2
 collision_mask = 128
 safe_margin = 8.0
 script = ExtResource("5_axl7g")
+sizeOfPaddle = null
 
-[node name="Sprite2D" type="Sprite2D" parent="Paddle - Player"]
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(8, 64)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_n78a6")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paddle - Player"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
 polygon = PackedVector2Array(-8, 64, -8, 56, 8, 0, 24, 0, 24, 128, 8, 128, -8, 72)
 
-[node name="Paddle - Computer" type="CharacterBody2D" parent="."]
+[node name="Computer" type="CharacterBody2D" parent="."]
 position = Vector2(40, 480)
 collision_layer = 2
 collision_mask = 128
 safe_margin = 8.0
 script = ExtResource("7_rtox0")
 
-[node name="Sprite2D" type="Sprite2D" parent="Paddle - Computer"]
+[node name="Sprite2D" type="Sprite2D" parent="Computer"]
 position = Vector2(8, 64)
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_3ym20")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paddle - Computer"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Computer"]
 polygon = PackedVector2Array(-8, 0, -8, 128, 8, 128, 24, 72, 24, 64, 24, 56, 8, 0)
 
 [node name="Wall" parent="." instance=ExtResource("8_kt575")]
+position = Vector2(360, 160)
 
-[node name="Bottom Wall" type="StaticBody2D" parent="."]
-collision_layer = 4
-collision_mask = 128
-physics_material_override = SubResource("PhysicsMaterial_1uhjp")
-
-[node name="ColorRect2" type="ColorRect" parent="Bottom Wall"]
-offset_left = 40.0
-offset_top = 1168.0
-offset_right = 680.0
-offset_bottom = 1176.0
-color = Color(0.188235, 0.376471, 0.509804, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom Wall"]
-position = Vector2(360, 1172)
-shape = SubResource("RectangleShape2D_c7eiv")
+[node name="Wall2" parent="." instance=ExtResource("8_kt575")]
+position = Vector2(360, 1168)
 
 [node name="Win" type="Area2D" parent="."]
 collision_layer = 256
@@ -104,9 +94,6 @@ collision_mask = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lose"]
 position = Vector2(704, 656)
 shape = SubResource("RectangleShape2D_1g147")
-
-[node name="Whirlpool" parent="." instance=ExtResource("9_yq0ta")]
-position = Vector2(224, 544)
 
 [connection signal="body_entered" from="Win" to="PerryPolo" method="_on_win_body_entered"]
 [connection signal="body_entered" from="Lose" to="PerryPolo" method="_on_lose_body_entered"]

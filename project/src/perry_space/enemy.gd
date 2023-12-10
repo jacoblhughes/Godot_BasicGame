@@ -1,5 +1,6 @@
 extends Area2D
 class_name Enemy
+
 @export var SPEED = 120
 
 @onready var enemy_die_sound : AudioStreamPlayer = $EnemyHitSound

@@ -1,4 +1,5 @@
-extends CharacterBody2D
+extends Paddle
+
 @onready var game = get_parent().get_node("PerryPolo")
 @onready var my_sprite : Sprite2D
 @onready var collision_object : CollisionPolygon2D

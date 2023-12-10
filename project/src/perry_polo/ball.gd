@@ -42,7 +42,7 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity * delta)
 		if collision:
 			var this_collision = collision.get_collider()
-			if "Paddle" in this_collision.name:	
+			if this_collision is Paddle:
 				var reflect_direction = collision.get_remainder().bounce((collision.get_normal()).normalized())
 				velocity = velocity.bounce((collision.get_normal()).normalized())*speed_increase
 				if(velocity.length() > max_speed):
