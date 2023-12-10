@@ -1,19 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq80x8xgeg676"]
 
 [ext_resource type="Script" path="res://src/perry_llama/enemy.gd" id="1_f2imx"]
-[ext_resource type="Texture2D" uid="uid://cof8ga6adr0sv" path="res://textures/perry_llama/clock_256.png" id="2_nerr3"]
+[ext_resource type="Texture2D" uid="uid://c2dddpxrrvard" path="res://textures/perry_llama/height_compressed_texture_2d.tres" id="3_kefw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20oip"]
-size = Vector2(47, 48)
+size = Vector2(48, 48)
 
-[node name="Enemy" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 11
+[node name="Enemy" type="Node2D"]
 script = ExtResource("1_f2imx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_nerr3")
+position = Vector2(0, -24)
+scale = Vector2(0.187, 0.187)
+texture = ExtResource("3_kefw5")
+hframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(1, 2)
+collision_layer = 2
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_20oip")

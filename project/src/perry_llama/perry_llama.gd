@@ -9,6 +9,7 @@ var level_value = 1
 @onready var enemy_spawner : Node2D
 @onready var start_position : Vector2
 @onready var enemy_position : Vector2
+@onready var despawn : Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start_position = get_parent().get_node("StartPosition").global_position
@@ -18,6 +19,8 @@ func _ready():
 	enemy_position = enemy_spawner.get_node("EnemyPosition").global_position
 	_game_initialize()
 	player.dino_hit.connect(_on_dino_hit)
+	despawn = get_parent().get_node("Despawn")
+	despawn.body_entered.connect(_on_despawn_body_entered)
 	pass # Replace with function body.
 
 func _game_initialize():
@@ -29,7 +32,6 @@ func _game_initialize():
 	
 func _on_enemy_spawn_timer_timeout():
 	var enemy = enemy_scene.instantiate()
-	enemy.global_position = enemy_position
 	enemy_spawner.add_child.call_deferred(enemy,true)
 	pass # Replace with function body.
 

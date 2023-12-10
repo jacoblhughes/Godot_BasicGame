@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmnxppb5dpdr6"]
+
+[ext_resource type="Script" path="res://src/perry_llama/player.gd" id="1_gkvo8"]
+[ext_resource type="Texture2D" uid="uid://3fw72qk2urij" path="res://textures/perry_llama/llama_256.png" id="2_q3c1q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r340r"]
+atlas = ExtResource("2_q3c1q")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivc20"]
+atlas = ExtResource("2_q3c1q")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os657"]
+atlas = ExtResource("2_q3c1q")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc30w"]
+atlas = ExtResource("2_q3c1q")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t46dg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r340r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivc20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os657")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc30w")
+}],
+"loop": false,
+"name": &"jumping",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8xow"]
+size = Vector2(80, 96)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_gkvo8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.6, -48)
+scale = Vector2(0.3875, 0.375)
+sprite_frames = SubResource("SpriteFrames_t46dg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_t8xow")

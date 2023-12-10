@@ -1,100 +1,25 @@
-[gd_scene load_steps=23 format=3 uid="uid://cgu5dun6rgtic"]
+[gd_scene load_steps=10 format=3 uid="uid://cgu5dun6rgtic"]
 
 [ext_resource type="Script" path="res://src/perry_llama/perry_llama.gd" id="1_m1610"]
 [ext_resource type="Texture2D" uid="uid://cpabchmbtrroe" path="res://textures/perry_llama/Background.png" id="2_crx1h"]
 [ext_resource type="Texture2D" uid="uid://ce40noiu3u1wf" path="res://textures/perry_llama/dino_background_256_512.png" id="3_ob2ji"]
-[ext_resource type="Texture2D" uid="uid://bo54ob6kkbcat" path="res://textures/perry_llama/floor.png" id="4_x4fvl"]
-[ext_resource type="Script" path="res://src/perry_llama/player.gd" id="5_vh2am"]
-[ext_resource type="Texture2D" uid="uid://3fw72qk2urij" path="res://textures/perry_llama/llama_256.png" id="6_dmyil"]
+[ext_resource type="PackedScene" uid="uid://cmnxppb5dpdr6" path="res://src/perry_llama/player.tscn" id="5_xhyv5"]
+[ext_resource type="PackedScene" uid="uid://bhvh5e4jf5b7o" path="res://src/perry_llama/despawn.tscn" id="6_lg8u8"]
+[ext_resource type="PackedScene" uid="uid://m2beoi334dvw" path="res://src/perry_llama/perry_run.tscn" id="7_mxegh"]
 [ext_resource type="Script" path="res://src/perry_llama/emeny_spawn_timer.gd" id="7_ppvet"]
-[ext_resource type="Texture2D" uid="uid://b3ceohymx1b0e" path="res://textures/perry_llama/lava_256.png" id="8_bri58"]
-[ext_resource type="Texture2D" uid="uid://ch8li2lgrut36" path="res://textures/perry_llama/perry_run_256.png" id="9_3jfk7"]
+[ext_resource type="PackedScene" uid="uid://xxmabh5cuit2" path="res://src/perry_llama/enemy_spawner.tscn" id="9_4s8se"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nchlr"]
 size = Vector2(640, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r340r"]
-atlas = ExtResource("6_dmyil")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ivc20"]
-atlas = ExtResource("6_dmyil")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_os657"]
-atlas = ExtResource("6_dmyil")
-region = Rect2(512, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jc30w"]
-atlas = ExtResource("6_dmyil")
-region = Rect2(768, 0, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_t46dg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r340r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ivc20")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_os657")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jc30w")
-}],
-"loop": false,
-"name": &"jumping",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8xow"]
-size = Vector2(80, 96)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk4an"]
-size = Vector2(16, 90)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lif4d"]
-size = Vector2(24, 216)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yttxo"]
-size = Vector2(24, 216)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qh5at"]
-atlas = ExtResource("9_3jfk7")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0m8jn"]
-atlas = ExtResource("9_3jfk7")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sn32d"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qh5at")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0m8jn")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="PerryLLama" type="Node2D"]
+[node name="PerryLlama" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
 
 [node name="PerryLlama" type="Node2D" parent="."]
 script = ExtResource("1_m1610")
 
 [node name="Background" type="TextureRect" parent="."]
+visible = false
 offset_left = 40.0
 offset_top = 144.0
 offset_right = 680.0
@@ -116,79 +41,26 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(24, 664)
 collision_layer = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor"]
-visible = false
-position = Vector2(335, 20)
-scale = Vector2(10.0313, 0.625)
-texture = ExtResource("4_x4fvl")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(336, 20)
 shape = SubResource("RectangleShape2D_nchlr")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(152, 616)
-collision_mask = 6
-script = ExtResource("5_vh2am")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-scale = Vector2(0.4, 0.4)
-sprite_frames = SubResource("SpriteFrames_t46dg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_t8xow")
+[node name="Player" parent="." instance=ExtResource("5_xhyv5")]
+position = Vector2(144, 664)
 
 [node name="Enemy_Spawn_Timer" type="Timer" parent="."]
 wait_time = 3.0
 script = ExtResource("7_ppvet")
 
-[node name="Despawn" type="Area2D" parent="."]
-position = Vector2(32, 584)
-collision_layer = 8
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Despawn"]
-position = Vector2(32, 56)
-scale = Vector2(0.1875, 0.1875)
-texture = ExtResource("8_bri58")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawn"]
-position = Vector2(16, 35)
-shape = SubResource("RectangleShape2D_pk4an")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(80, 656)
-collision_layer = 4
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-4, -100)
-shape = SubResource("RectangleShape2D_lif4d")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(560, 648)
-collision_layer = 4
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(4.00006, -92)
-shape = SubResource("RectangleShape2D_yttxo")
+[node name="Despawn" parent="." instance=ExtResource("6_lg8u8")]
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(152, 616)
+position = Vector2(152, 664)
 
-[node name="PerryRun" type="Node2D" parent="."]
+[node name="PerryRun" parent="." instance=ExtResource("7_mxegh")]
+position = Vector2(632, 592)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PerryRun"]
-position = Vector2(624, 600)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_sn32d")
-autoplay = "default"
-
-[node name="EnemySpawner" type="Node2D" parent="."]
-
-[node name="EnemyPosition" type="Marker2D" parent="EnemySpawner"]
-position = Vector2(544, 640)
+[node name="EnemySpawner" parent="." instance=ExtResource("9_4s8se")]
+position = Vector2(544, 664)
 
 [connection signal="timeout" from="Enemy_Spawn_Timer" to="PerryLlama" method="_on_enemy_spawn_timer_timeout"]
-[connection signal="body_entered" from="Despawn" to="PerryLlama" method="_on_despawn_body_entered"]
