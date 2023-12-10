@@ -4,7 +4,7 @@ signal position_reset
 
 @onready var ball : CharacterBody2D
 @onready var player : CharacterBody2D
-@onready var computer : CharacterBody2D
+@onready var enemy : CharacterBody2D
 @onready var background : TextureRect
 
 var score_value = 1
@@ -13,24 +13,24 @@ var initial_lives = 3
 var lives_lost = 1
 var level_value = 1
 var level_advance_value = 10
-
+var win_area
+var lose_area
 var game_reset = false
 var whirlpools
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	background = get_parent().get_node("Background")
 	player = get_parent().get_node("Player")
-	computer = get_parent().get_node("Computer")
+	enemy = get_parent().get_node("Enemy")
 	ball = get_parent().get_node("Ball")
 	whirlpools = get_tree().get_nodes_in_group("perry_polo_whirlpool")
-
+	win_area = get_parent().get_node("Win")
+	win_area.body_entered.connect(_on_win_body_entered)
+	lose_area = get_parent().get_node("Lose")
+	lose_area.body_entered.connect(_on_lose_body_entered)
 	_game_initialize()
-	set_whirlpools(false)
 	
-func set_whirlpools(flag):
-	for whirl in whirlpools:
-		whirl.visible = flag
-		whirl.get_node("Area2D").monitoring = flag
+
 		
 func _game_initialize():
 	GameManager.reset_score()
@@ -71,7 +71,7 @@ func _on_lose_body_entered(body):
 func _check_advance_level():
 	if GameManager.get_score() % level_advance_value == 0:
 		GameManager.update_game_level(level_value)
-		computer.speed = computer.original_speed * pow(1.05,GameManager.get_game_level())
+		enemy.speed = enemy.original_speed * pow(1.05,GameManager.get_game_level())
 		ball.speed_increase=ball.original_speed_increase * pow(1.05,GameManager.get_game_level())
 		ball.increased_velocity = ball.original_velocity * pow(1.05,GameManager.get_game_level())
 

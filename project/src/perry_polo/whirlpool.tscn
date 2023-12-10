@@ -74,6 +74,7 @@ animations = [{
 script = ExtResource("1_uxs1l")
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
 collision_layer = 256
 collision_mask = 128
 gravity = 100.0

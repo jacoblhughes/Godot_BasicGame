@@ -9,15 +9,15 @@ var position_reset = false
 var stored_position = Vector2(0,0)
 var original_speed_increase = 1.05
 var speed_increase = 1.05
-var original_velocity = Vector2(-100,0)
-var increased_velocity = Vector2(-100,0) 
+@export var original_velocity = Vector2(-125,0)
+var increased_velocity : Vector2
 var collision_cooldown: float = 1.0
 var max_speed = 800
 @onready var background : TextureRect
 func _ready():
 	background = get_parent().get_node("Background")
 	_game_initialize()
-
+	increased_velocity = original_velocity
 	stored_position = position
 	reset_round = true
 	pass # Replace with function body.

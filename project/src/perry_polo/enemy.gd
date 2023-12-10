@@ -15,8 +15,8 @@ func _ready():
 	my_sprite = $Sprite2D
 	ball = get_parent().get_node("Ball")
 	sizeOfPaddle = my_sprite.get_rect().size
-	sprite_half_y= sizeOfPaddle.y/2
-	original_position_y = global_position.y+sprite_half_y
+	sprite_half_y= sizeOfPaddle.y/4
+	original_position_y = global_position.y
 	original_position_x = global_position.x
 	game.position_reset.connect(_on_position_reset)
 	pass # Replace with function body.
@@ -31,9 +31,9 @@ func _physics_process(_delta):
 
 	# Calculate the direction to move the paddle based on the ball's position
 	var direction = 0
-	if ball_position.y - sprite_half_y/2 < global_position.y:
+	if ball_position.y < global_position.y:
 		direction = -1  # Move up
-	elif ball_position.y - sprite_half_y/2 > global_position.y:
+	elif ball_position.y > global_position.y:
 		direction = 1   # Move down
 
 	# Move the paddle
@@ -41,9 +41,9 @@ func _physics_process(_delta):
 	var collision = move_and_collide(paddle_velocity)
 	if collision:
 		velocity = Vector2(0, 0)
-	global_position.y = clamp(global_position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y - sprite_half_y)
+	global_position.y = clamp(global_position.y, GameManager.PlayArea.global_position.y - sprite_half_y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y + sprite_half_y)
 
 
 func _on_position_reset():
-	global_position.y = original_position_y - sprite_half_y
+	global_position.y = original_position_y
 	pass

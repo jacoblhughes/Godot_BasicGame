@@ -16,6 +16,8 @@ perry_python
 	need to compare to snake length on when to spawn, not the score
 
 perry_polo
+	make hte whirlpools fling instead of pull in
+	make the player move in relation to event target not at event target
 	make icons that give powerups or other things
 
 perry_llama
@@ -41,6 +43,8 @@ Make directions for each game
 
 All:
 	
+	Make level checking unified in Game Manager
+	Make timer for use in all
 	Make classes for things, like perry dodge enemies
 	Improved backgrounds
 	Improved sounds

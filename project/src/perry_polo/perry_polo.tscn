@@ -1,24 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1n3bt7ntc5gf"]
+[gd_scene load_steps=10 format=3 uid="uid://c1n3bt7ntc5gf"]
 
 [ext_resource type="Script" path="res://src/perry_polo/perry_polo.gd" id="1_ry11p"]
 [ext_resource type="Texture2D" uid="uid://c4rylxpixdbli" path="res://textures/perry_polo/pong_pool_144_256.png" id="2_q4x8g"]
 [ext_resource type="PackedScene" uid="uid://bf4jsvnkmhkg4" path="res://src/perry_polo/ball.tscn" id="3_n2q35"]
-[ext_resource type="Script" path="res://src/perry_polo/player.gd" id="5_axl7g"]
-[ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://textures/perry_polo/pong_paddle1.png" id="6_n78a6"]
-[ext_resource type="Script" path="res://src/perry_polo/enemy.gd" id="7_rtox0"]
-[ext_resource type="Texture2D" uid="uid://chwov2ai7nyuk" path="res://textures/perry_polo/pong_paddle2.png" id="8_3ym20"]
+[ext_resource type="PackedScene" uid="uid://bv8nj3y80s60n" path="res://src/perry_polo/player.tscn" id="5_wx7nr"]
+[ext_resource type="PackedScene" uid="uid://dmw42ydm8bea3" path="res://src/perry_polo/enemy.tscn" id="6_47f6h"]
+[ext_resource type="PackedScene" uid="uid://0e3y4x5benx4" path="res://src/perry_polo/win.tscn" id="8_joiva"]
 [ext_resource type="PackedScene" uid="uid://bxl4jcd30qnrr" path="res://src/perry_polo/wall.tscn" id="8_kt575"]
+[ext_resource type="PackedScene" uid="uid://drgg04a68e4rr" path="res://src/perry_polo/lose.tscn" id="9_k3tc4"]
 [ext_resource type="PackedScene" uid="uid://b2gewckxrwhda" path="res://src/perry_polo/whirlpool.tscn" id="9_yq0ta"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek0n5"]
-size = Vector2(32, 1024)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g147"]
-size = Vector2(32, 1024)
-
 [node name="PerryPolo" type="Node2D"]
-metadata/_edit_horizontal_guides_ = [544.0]
-metadata/_edit_vertical_guides_ = [592.0]
+metadata/_edit_horizontal_guides_ = [1168.0, 1168.0, 144.0, 656.0, 528.0, 784.0, 400.0, 272.0, 912.0, 1040.0]
+metadata/_edit_vertical_guides_ = [680.0, 360.0, 40.0, 360.0, 200.0, 360.0, 520.0, 280.0, 440.0, 120.0, 600.0]
 
 [node name="PerryPolo" type="Node2D" parent="."]
 script = ExtResource("1_ry11p")
@@ -34,66 +28,32 @@ expand_mode = 1
 [node name="Whirpools" type="Node2D" parent="."]
 
 [node name="Whirlpool" parent="Whirpools" instance=ExtResource("9_yq0ta")]
-position = Vector2(488, 552)
+position = Vector2(520, 528)
 
 [node name="Whirlpool2" parent="Whirpools" instance=ExtResource("9_yq0ta")]
-position = Vector2(220, 771)
+position = Vector2(520, 1040)
+
+[node name="Whirlpool3" parent="Whirpools" instance=ExtResource("9_yq0ta")]
+position = Vector2(200, 272)
+
+[node name="Whirlpool4" parent="Whirpools" instance=ExtResource("9_yq0ta")]
+position = Vector2(200, 784)
 
 [node name="Ball" parent="." instance=ExtResource("3_n2q35")]
+position = Vector2(360, 656)
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(664, 416)
-disable_mode = 2
-collision_mask = 128
-safe_margin = 8.0
-script = ExtResource("5_axl7g")
-sizeOfPaddle = null
+[node name="Player" parent="." instance=ExtResource("5_wx7nr")]
+position = Vector2(656, 656)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(8, 64)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_n78a6")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
-polygon = PackedVector2Array(-8, 64, -8, 56, 8, 0, 24, 0, 24, 128, 8, 128, -8, 72)
-
-[node name="Computer" type="CharacterBody2D" parent="."]
-position = Vector2(40, 480)
-collision_layer = 2
-collision_mask = 128
-safe_margin = 8.0
-script = ExtResource("7_rtox0")
-
-[node name="Sprite2D" type="Sprite2D" parent="Computer"]
-position = Vector2(8, 64)
-rotation = 3.14159
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_3ym20")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Computer"]
-polygon = PackedVector2Array(-8, 0, -8, 128, 8, 128, 24, 72, 24, 64, 24, 56, 8, 0)
+[node name="Enemy" parent="." instance=ExtResource("6_47f6h")]
+position = Vector2(64, 656)
 
 [node name="Wall" parent="." instance=ExtResource("8_kt575")]
-position = Vector2(360, 160)
+position = Vector2(360, 144)
 
 [node name="Wall2" parent="." instance=ExtResource("8_kt575")]
-position = Vector2(360, 1168)
+position = Vector2(360, 1184)
 
-[node name="Win" type="Area2D" parent="."]
-collision_layer = 256
-collision_mask = 128
+[node name="Win" parent="." instance=ExtResource("8_joiva")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
-position = Vector2(16, 656)
-shape = SubResource("RectangleShape2D_ek0n5")
-
-[node name="Lose" type="Area2D" parent="."]
-collision_layer = 256
-collision_mask = 128
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lose"]
-position = Vector2(704, 656)
-shape = SubResource("RectangleShape2D_1g147")
-
-[connection signal="body_entered" from="Win" to="PerryPolo" method="_on_win_body_entered"]
-[connection signal="body_entered" from="Lose" to="PerryPolo" method="_on_lose_body_entered"]
+[node name="Lose" parent="." instance=ExtResource("9_k3tc4")]
