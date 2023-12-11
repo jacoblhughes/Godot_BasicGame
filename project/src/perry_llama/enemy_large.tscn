@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ms4317mbra45"]
 
 [ext_resource type="Script" path="res://src/perry_llama/enemy.gd" id="1_6qonq"]
-[ext_resource type="Texture2D" uid="uid://b6lcbnbmqbqim" path="res://textures/perry_llama/enemy_normal_256.png" id="2_4d3k5"]
+[ext_resource type="Texture2D" uid="uid://l7mxkl4hb7ua" path="res://textures/perry_llama/enemy_large_512.png" id="2_7ef02"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20oip"]
 size = Vector2(128, 128)
@@ -16,8 +16,8 @@ script = ExtResource("1_6qonq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(64.032, -64.032)
-scale = Vector2(0.49975, 0.49975)
-texture = ExtResource("2_4d3k5")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_7ef02")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
