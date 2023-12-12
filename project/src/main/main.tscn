@@ -15,7 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_7uc3t")
 
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
-layer = -3
+layer = 0
 
 [node name="Background" type="ColorRect" parent="BackgroundCanvas"]
 anchors_preset = 15

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgu5dun6rgtic"]
+[gd_scene load_steps=11 format=3 uid="uid://cgu5dun6rgtic"]
 
 [ext_resource type="Script" path="res://src/perry_llama/perry_llama.gd" id="1_m1610"]
 [ext_resource type="Texture2D" uid="uid://cpabchmbtrroe" path="res://textures/perry_llama/Background.png" id="2_crx1h"]
 [ext_resource type="Texture2D" uid="uid://ce40noiu3u1wf" path="res://textures/perry_llama/dino_background_256_512.png" id="3_ob2ji"]
+[ext_resource type="PackedScene" uid="uid://dtkr0v8bhef4k" path="res://src/main/parallax_background.tscn" id="4_iv6gh"]
 [ext_resource type="PackedScene" uid="uid://cmnxppb5dpdr6" path="res://src/perry_llama/player.tscn" id="5_xhyv5"]
 [ext_resource type="PackedScene" uid="uid://bhvh5e4jf5b7o" path="res://src/perry_llama/despawn.tscn" id="6_lg8u8"]
 [ext_resource type="PackedScene" uid="uid://m2beoi334dvw" path="res://src/perry_llama/perry_llama_chase.tscn" id="7_mxegh"]
@@ -19,7 +20,6 @@ metadata/_edit_horizontal_guides_ = []
 script = ExtResource("1_m1610")
 
 [node name="Background" type="TextureRect" parent="."]
-visible = false
 offset_left = 40.0
 offset_top = 144.0
 offset_right = 680.0
@@ -36,6 +36,9 @@ offset_bottom = 1170.0
 texture = ExtResource("3_ob2ji")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_iv6gh")]
+visible = false
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(24, 664)

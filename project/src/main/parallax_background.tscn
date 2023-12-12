@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtkr0v8bhef4k"]
+
+[ext_resource type="Script" path="res://src/main/parallax_background.gd" id="1_asf31"]
+[ext_resource type="Texture2D" uid="uid://ce40noiu3u1wf" path="res://textures/perry_llama/dino_background_256_512.png" id="1_gtabm"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = -1
+script = ExtResource("1_asf31")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(360, 656)
+scale = Vector2(2.5, 2)
+texture = ExtResource("1_gtabm")
