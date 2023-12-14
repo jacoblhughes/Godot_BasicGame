@@ -15,9 +15,10 @@ grow_vertical = 2
 script = ExtResource("1_7uc3t")
 
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
-layer = 0
+layer = -1
 
 [node name="Background" type="ColorRect" parent="BackgroundCanvas"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,6 +29,22 @@ size_flags_vertical = 3
 color = Color(0.85098, 0.627451, 0.4, 1)
 script = ExtResource("2_4mxmw")
 metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="BackgroundCanvas"]
+layout_mode = 3
+anchor_right = 0.444
+anchor_bottom = 1.0
+offset_right = -279.68
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundCanvas/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -44,6 +61,7 @@ layout_mode = 2
 mouse_filter = 1
 
 [node name="PlayArea" type="ColorRect" parent="AspectRatioContainer/Control"]
+visible = false
 layout_mode = 0
 offset_left = 40.0
 offset_top = 144.0

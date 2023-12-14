@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/main/applause.wav" id="3_pefxi"]
 [ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://sounds/main/gameover.wav" id="4_6krwv"]
 [ext_resource type="AudioStream" uid="uid://buulegk5q7el8" path="res://sounds/main/background_music.wav" id="5_cmhgq"]
-[ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://textures/main/perry_original_256x256.png" id="6_ibs46"]
+[ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://textures/main/perry_original_256.png" id="6_ibs46"]
 [ext_resource type="Texture2D" uid="uid://u4h60uf3ggrk" path="res://textures/main/perry_run_happy_ani_512_768.png" id="7_euxj7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0fsyn"]

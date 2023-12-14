@@ -20,6 +20,7 @@ metadata/_edit_horizontal_guides_ = []
 script = ExtResource("1_m1610")
 
 [node name="Background" type="TextureRect" parent="."]
+visible = false
 offset_left = 40.0
 offset_top = 144.0
 offset_right = 680.0
@@ -29,6 +30,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Background2" type="TextureRect" parent="."]
+visible = false
 offset_left = 40.0
 offset_top = 144.0
 offset_right = 680.0
@@ -38,7 +40,6 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_iv6gh")]
-visible = false
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(24, 664)
