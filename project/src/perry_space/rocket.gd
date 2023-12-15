@@ -1,4 +1,5 @@
 extends Area2D
+class_name SpaceRocket
 
 @export var SPEED = 300
 @onready var visible_notifier = $VisibleOnScreenNotifier2D
@@ -27,7 +28,7 @@ func _on_screen_exited():
 
 
 func _on_area_entered(area):
-	if area is Enemy:
+	if area is SpaceEnemy:
 		area.die()
 		enemy_hit.emit()
 		queue_free()

@@ -31,7 +31,7 @@ height = 48.0
 
 [node name="rocket" type="Area2D"]
 collision_layer = 16
-collision_mask = 2
+collision_mask = 2050
 script = ExtResource("1_00whi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

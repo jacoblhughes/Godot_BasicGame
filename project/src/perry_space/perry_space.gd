@@ -37,10 +37,19 @@ func _on_play_button_pressed():
 
 	rocket_timer.start()
 
-func _on_deathzone_area_entered(area):
-	_on_player_hit()
-	player.player_hit_sound.play()
-	area.queue_free()
+func _on_enemy_deathzone_area_entered(area):
+	print(area)
+	if area is SpaceEnemy:
+		_on_player_hit()
+		player.player_hit_sound.play()
+		area.queue_free()
+	
+	pass # Replace with function body.
+	
+func _on_rocket_deathzone_area_entered(area):
+	print(area)
+	if area is SpaceRocket:
+		area.queue_free()
 	
 	pass # Replace with function body.
 

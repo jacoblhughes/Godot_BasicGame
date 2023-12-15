@@ -55,8 +55,9 @@ func _game_over():
 	GameManager.check_highscore_and_rank()
 
 func _on_area_2d_body_exited(body):
-	if(GameManager.get_game_enabled()):
-		_game_over()
+	if body is PlayerFlappy:
+		if(GameManager.get_game_enabled()):
+			_game_over()
 	pass # Replace with function body.
 
 func _check_advance_level():
