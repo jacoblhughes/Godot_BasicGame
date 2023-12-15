@@ -54,7 +54,10 @@ All:
 		standardize
 		put in buttons?
 		make the button to create game a single function?
-
+	Fix the way the background is created and is displayed
+	Get rid of the need for the play area
+	Consolidate the sounds
+	
 Notes:
 	Timing loading for each element - noticably android and labels and such
 		Do I still have this?

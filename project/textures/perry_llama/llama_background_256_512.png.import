@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce40noiu3u1wf"
-path="res://.godot/imported/dino_background_256_512.png-09bd1396426427fa370f022c5dd79057.ctex"
+uid="uid://bp26itcmp7en1"
+path="res://.godot/imported/llama_background_256_512.png-4a8ab1e5fc5deb8327c9e7b00f865dbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_llama/dino_background_256_512.png"
-dest_files=["res://.godot/imported/dino_background_256_512.png-09bd1396426427fa370f022c5dd79057.ctex"]
+source_file="res://textures/perry_llama/llama_background_256_512.png"
+dest_files=["res://.godot/imported/llama_background_256_512.png-4a8ab1e5fc5deb8327c9e7b00f865dbd.ctex"]
 
 [params]
 

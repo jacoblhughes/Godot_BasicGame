@@ -39,6 +39,7 @@ func _on_play_button_pressed():
 
 func _on_deathzone_area_entered(area):
 	_on_player_hit()
+	player.player_hit_sound.play()
 	area.queue_free()
 	
 	pass # Replace with function body.

@@ -34,6 +34,14 @@ about = ExtResource("10_5l57r")
 options = ExtResource("11_j1twr")
 highscore = ExtResource("12_sn3ek")
 
+[node name="PlayArea" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 144.0
+offset_right = 680.0
+offset_bottom = 1168.0
+color = Color(0.137255, 0.313726, 0.215686, 1)
+
 [node name="SimonSays" type="Button" parent="."]
 layout_mode = 0
 offset_left = 48.0

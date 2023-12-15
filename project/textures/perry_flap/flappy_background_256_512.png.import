@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvtbw481dyded"
-path="res://.godot/imported/dino_background_144_256.png-483850054330111a00885768ba685204.ctex"
+uid="uid://bx5cma57kljk6"
+path="res://.godot/imported/flappy_background_256_512.png-a6b493b8744fcc518e6f134554051676.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_llama/dino_background_144_256.png"
-dest_files=["res://.godot/imported/dino_background_144_256.png-483850054330111a00885768ba685204.ctex"]
+source_file="res://textures/perry_flap/flappy_background_256_512.png"
+dest_files=["res://.godot/imported/flappy_background_256_512.png-a6b493b8744fcc518e6f134554051676.ctex"]
 
 [params]
 

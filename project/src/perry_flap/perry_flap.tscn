@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cj0i3bqn4ap1r"]
+[gd_scene load_steps=18 format=3 uid="uid://cj0i3bqn4ap1r"]
 
 [ext_resource type="Script" path="res://src/perry_flap/perry_flap.gd" id="1_ym0sw"]
-[ext_resource type="Texture2D" uid="uid://bhpscq4tct72d" path="res://textures/perry_flap/flappy_background_144_256.png" id="2_jwswx"]
 [ext_resource type="Script" path="res://src/perry_flap/enemy_spawn.gd" id="3_1mfvs"]
+[ext_resource type="PackedScene" uid="uid://dtkr0v8bhef4k" path="res://src/main/parallax_background.tscn" id="3_3tepf"]
 [ext_resource type="Script" path="res://src/perry_flap/player.gd" id="4_3dfte"]
+[ext_resource type="Texture2D" uid="uid://bx5cma57kljk6" path="res://textures/perry_flap/flappy_background_256_512.png" id="4_abbuh"]
 [ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://textures/perry_flap/bird_256.png" id="5_cotky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20w47"]
@@ -83,13 +84,8 @@ size = Vector2(560, 992)
 [node name="PerryFlap" type="Node2D" parent="."]
 script = ExtResource("1_ym0sw")
 
-[node name="Background" type="TextureRect" parent="."]
-offset_left = 40.0
-offset_top = 144.0
-offset_right = 680.0
-offset_bottom = 1168.0
-texture = ExtResource("2_jwswx")
-expand_mode = 1
+[node name="ParallaxBackground" parent="." instance=ExtResource("3_3tepf")]
+texture = ExtResource("4_abbuh")
 
 [node name="EnemySpawn" type="Area2D" parent="."]
 collision_layer = 8

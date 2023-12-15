@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd4hvusrvkdje"
-path="res://.godot/imported/dino_background_18_32.png-78ecaeb703f2447ab151ea8456b27028.ctex"
+uid="uid://betwbe8urunx7"
+path="res://.godot/imported/space_background_256_512.png-af55e4e6130daeaef198b6cc0b4243b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_llama/dino_background_18_32.png"
-dest_files=["res://.godot/imported/dino_background_18_32.png-78ecaeb703f2447ab151ea8456b27028.ctex"]
+source_file="res://textures/perry_space/space_background_256_512.png"
+dest_files=["res://.godot/imported/space_background_256_512.png-af55e4e6130daeaef198b6cc0b4243b0.ctex"]
 
 [params]
 
