@@ -47,7 +47,7 @@ All:
 	Make timer for use in all
 	Make classes for things, like perry dodge enemies
 	Improved backgrounds
-	Improved sounds
+	Improved sounds (like from one place mainly)
 	Improved background music
 	Make the buttons a separate scene
 	game initializations
