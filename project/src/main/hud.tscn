@@ -168,25 +168,40 @@ vertical_alignment = 1
 [node name="GameStartPanel" type="Panel" parent="."]
 visible = false
 layout_mode = 0
-offset_right = 720.0
+offset_left = -368.0
+offset_right = 1088.0
 offset_bottom = 1280.0
 theme = ExtResource("2_msidh")
 
 [node name="Play_Button" type="Button" parent="GameStartPanel"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 560.0
-offset_right = 656.0
-offset_bottom = 720.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -80.0
+offset_right = 296.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_msidh")
 text = "Play"
 
 [node name="Title" type="Label" parent="GameStartPanel"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 192.0
-offset_right = 656.0
-offset_bottom = 256.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -448.0
+offset_right = 296.0
+offset_bottom = -384.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_msidh")
 theme_type_variation = &"Main_2"
 text = "TITLE"
@@ -196,21 +211,35 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Directions_Note" type="Label" parent="GameStartPanel"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 256.0
-offset_right = 148.0
-offset_bottom = 282.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -352.0
+offset_right = 36.0
+offset_bottom = -326.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_msidh")
 theme_type_variation = &"Main_2"
 text = "Directions:"
 
 [node name="Directions" type="Label" parent="GameStartPanel"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 282.0
-offset_right = 656.0
-offset_bottom = 520.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -320.0
+offset_right = 296.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_msidh")
 theme_type_variation = &"Main_2"
 text = "Directions"
@@ -221,7 +250,8 @@ autowrap_mode = 3
 [node name="GameOverPanel" type="Panel" parent="."]
 visible = false
 layout_mode = 0
-offset_right = 720.0
+offset_left = -368.0
+offset_right = 1088.0
 offset_bottom = 1280.0
 theme = ExtResource("2_msidh")
 
@@ -237,10 +267,10 @@ text = "Reset"
 
 [node name="GameOverLabel" type="Label" parent="GameOverPanel"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 192.0
-offset_right = 656.0
-offset_bottom = 256.0
+offset_left = 432.0
+offset_top = 144.0
+offset_right = 1024.0
+offset_bottom = 208.0
 theme = ExtResource("2_msidh")
 theme_type_variation = &"Main_2"
 text = "GAME OVER"
@@ -248,17 +278,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HomeButtonOnGameover" type="Button" parent="GameOverPanel"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 832.0
-offset_right = 656.0
-offset_bottom = 984.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -76.0
+offset_right = 296.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_msidh")
 text = "Home"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GameOverPanel"]
-visible = false
-position = Vector2(360, 520)
+position = Vector2(720, 360)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_olde7")
 frame_progress = 0.0114847
