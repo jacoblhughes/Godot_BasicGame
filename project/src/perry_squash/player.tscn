@@ -34,4 +34,7 @@ shape = SubResource("BoxShape3D_y7f25")
 
 [node name="AnimationPlayer" parent="." instance=ExtResource("3_h73cl")]
 
+[node name="RayCast3D" type="RayCast3D" parent="."]
+collision_mask = 2
+
 [connection signal="body_entered" from="MobDetector" to="." method="_on_mob_detector_body_entered"]

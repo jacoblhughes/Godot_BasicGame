@@ -7,8 +7,13 @@ extends CharacterBody3D
 @export var jump_impulse = 30
 var target_velocity = Vector3.ZERO
 @export var bounce_impulse = 16
+@onready var ray_cast : RayCast3D = get_node("RayCast3D")
 signal hit
 func _physics_process(delta):
+	var ray_cast_collision = ray_cast.get_collider()
+	if ray_cast_collision:
+		print(ray_cast.get_collision_point())
+	
 	var direction = Vector3.ZERO
 
 	if Input.is_action_pressed("move_right"):
