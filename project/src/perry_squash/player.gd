@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
 # How fast the player moves in meters per second.
-@export var speed = 14
+@export var speed = 15
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
-@export var jump_impulse = 20
+@export var jump_impulse = 30
 var target_velocity = Vector3.ZERO
 @export var bounce_impulse = 16
 signal hit
@@ -48,6 +48,7 @@ func _physics_process(delta):
 
 		# If the collider is with a mob
 		if collision.get_collider().is_in_group("enemy"):
+
 			var mob = collision.get_collider()
 			# we check that we are hitting it from above.
 			if Vector3.UP.dot(collision.get_normal()) > 0.1:
