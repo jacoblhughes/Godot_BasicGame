@@ -19,6 +19,9 @@ var perry_flap_scene
 var perry_run_scene
 @export var perry_space: PackedScene
 var perry_space_scene
+@export var perry_squash: PackedScene
+var perry_squash_scene
+
 
 
 @export var about: PackedScene
@@ -190,4 +193,19 @@ func _on_highscore_pressed():
 	highscore_scene = highscore.instantiate()
 	game_scene.add_child(highscore_scene)
 	GameManager.set_current_game_scene(highscore)
+	pass # Replace with function body.
+
+
+func _on_perry_squash_pressed():
+	self.visible = false
+	game_key = "9"
+	var title = GameManager.get_game_list_values(game_key)["title"]
+	var directions = GameManager.get_game_list_values(game_key)["directions"]
+	GameManager.set_gamestartpanel(true)
+	GameManager.set_title(title)
+	GameManager.set_directions(directions)
+	GameManager.set_game_key(game_key)
+	perry_squash_scene = perry_squash.instantiate()
+	game_scene.add_child(perry_squash_scene)
+	GameManager.set_current_game_scene(perry_squash)
 	pass # Replace with function body.
