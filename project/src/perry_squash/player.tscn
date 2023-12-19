@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://d3bvgtngrqef7" path="res://textures/perry_squash/perry_squash.glb" id="2_v55tu"]
 [ext_resource type="PackedScene" uid="uid://y21bk50q8eci" path="res://src/perry_squash/animation_player.tscn" id="3_h73cl"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_bnfxw"]
-radius = 1.039
+[sub_resource type="BoxShape3D" id="BoxShape3D_kum2m"]
+size = Vector3(1.57085, 0.627784, 2.72993)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_02a14"]
-height = 0.25
-radius = 1.25
+[sub_resource type="BoxShape3D" id="BoxShape3D_y7f25"]
+size = Vector3(1.30436, 0.167342, 2.22295)
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 6
 script = ExtResource("1_h0vmg")
 
 [node name="Pivot" type="Node3D" parent="."]
@@ -20,17 +20,17 @@ script = ExtResource("1_h0vmg")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_bnfxw")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.129169, 0.244469, 0)
+shape = SubResource("BoxShape3D_kum2m")
 
 [node name="MobDetector" type="Area3D" parent="."]
-visible = false
 collision_layer = 0
-collision_mask = 2
+collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MobDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("CylinderShape3D_02a14")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118699, 0.592856, 0)
+shape = SubResource("BoxShape3D_y7f25")
 
 [node name="AnimationPlayer" parent="." instance=ExtResource("3_h73cl")]
 

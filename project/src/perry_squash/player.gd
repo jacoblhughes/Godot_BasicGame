@@ -47,7 +47,7 @@ func _physics_process(delta):
 			continue
 
 		# If the collider is with a mob
-		if collision.get_collider().is_in_group("mob"):
+		if collision.get_collider().is_in_group("enemy"):
 			var mob = collision.get_collider()
 			# we check that we are hitting it from above.
 			if Vector3.UP.dot(collision.get_normal()) > 0.1:
@@ -63,6 +63,7 @@ func _physics_process(delta):
 	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
 
 func _on_mob_detector_body_entered(body):
+	print(body)
 	die()
 # And this function at the bottom.
 func die():

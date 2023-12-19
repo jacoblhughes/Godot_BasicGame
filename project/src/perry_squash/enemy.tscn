@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://co3afwdf18sx8"]
+
+[ext_resource type="Script" path="res://src/perry_squash/enemy.gd" id="1_mosu4"]
+[ext_resource type="PackedScene" uid="uid://cnd0632k0rfoc" path="res://textures/perry_squash/enemy.glb" id="2_ve2s4"]
+[ext_resource type="PackedScene" uid="uid://y21bk50q8eci" path="res://src/perry_squash/animation_player.tscn" id="3_p3jfo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1dtii"]
+size = Vector3(1.54144, 0.575413, 1.66225)
+
+[node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_mosu4")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Character" parent="Pivot" instance=ExtResource("2_ve2s4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.271673, 0.1)
+shape = SubResource("BoxShape3D_1dtii")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.237699, 0)
+aabb = AABB(-1, -0.307081, -1, 2, 0.614163, 2)
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("3_p3jfo")]
