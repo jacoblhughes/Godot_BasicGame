@@ -1,12 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnlirpbudccmv"]
 
 [ext_resource type="Script" path="res://src/perry_squash/player.gd" id="1_h0vmg"]
-<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://d3bvgtngrqef7" path="res://textures/perry_squash/perry_squash.glb" id="2_v55tu"]
-=======
-[ext_resource type="PackedScene" uid="uid://cbh0xxmg2ht6g" path="res://textures/perry_squash/perry_32.glb" id="2_fb6yd"]
->>>>>>> c7a049b9ff29979fcb946bae3e23ba3bc70247f0
-[ext_resource type="PackedScene" path="res://animation_player.tscn" id="3_vwlqs"]
+[ext_resource type="PackedScene" uid="uid://y21bk50q8eci" path="res://src/perry_squash/animation_player.tscn" id="3_h73cl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bnfxw"]
 radius = 1.039
@@ -20,13 +16,8 @@ script = ExtResource("1_h0vmg")
 
 [node name="Pivot" type="Node3D" parent="."]
 
-<<<<<<< HEAD
 [node name="Character" parent="Pivot" instance=ExtResource("2_v55tu")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.30393, 0, -0.284797)
-=======
-[node name="Character" parent="Pivot" instance=ExtResource("2_fb6yd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.434159, 0, -0.239178)
->>>>>>> c7a049b9ff29979fcb946bae3e23ba3bc70247f0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_bnfxw")
@@ -41,6 +32,6 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_02a14")
 
-[node name="AnimationPlayer" parent="." instance=ExtResource("3_vwlqs")]
+[node name="AnimationPlayer" parent="." instance=ExtResource("3_h73cl")]
 
 [connection signal="body_entered" from="MobDetector" to="." method="_on_mob_detector_body_entered"]
