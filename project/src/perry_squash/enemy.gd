@@ -12,6 +12,7 @@ func _physics_process(_delta):
 func initialize(start_position, player_position):
 	# We position the mob by placing it at start_position
 	# and rotate it towards player_position, so it looks at the player.
+	player_position = Vector3(player_position.x,start_position.y,player_position.z)
 	look_at_from_position(start_position, player_position, Vector3.UP)
 	# Rotate this mob randomly within range of -90 and +90 degrees,
 	# so that it doesn't move directly towards the player.

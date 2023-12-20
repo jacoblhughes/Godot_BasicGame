@@ -37,12 +37,16 @@ perry_space
 	Rockets global position??
 	rockets should emit signal back to game to handle game scoring and such
 	
+perry_squash
+	Make the thing not move until after I click the button via timer or something else
+
 Clamp things
 Make directions for each game
 
 
 All:
 	
+	Make all touch
 	Make level checking unified in Game Manager
 	Make timer for use in all
 	Make classes for things, like perry dodge enemies

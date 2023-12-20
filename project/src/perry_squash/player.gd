@@ -34,9 +34,9 @@ func _on_in_play_area(event):
 #	if reset_round:
 #		reset_round = false
 #	pass
-	print(event)
+
 	if GameManager.get_game_enabled():
-		print(event)
+
 		if event is InputEventScreenTouch:
 			if event.pressed:
 				start_swipe_pos = event.position
