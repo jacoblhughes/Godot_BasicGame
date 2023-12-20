@@ -14,7 +14,7 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_dcwns"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15, 0.5, -29, 0, 0, 0, 0, 0, 0, 15, 0.5, -29, 0, 0, 0, 0, 0, 0, 15, 0.5, 29, 0, 0, 0, 0, 0, 0, -15, 0.5, 29, 0, 0, 0, 0, 0, 0, -15, 0, -29),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15, 0.7, -29, 0, 0, 0, 0, 0, 0, 15, 0.7, -29, 0, 0, 0, 0, 0, 0, 15, 0.7, 29, 0, 0, 0, 0, 0, 0, -15, 0.7, 29, 0, 0, 0, 0, 0, 0, -15, 0.7, -29),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
