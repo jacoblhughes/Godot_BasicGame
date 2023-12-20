@@ -3,6 +3,7 @@ extends Node
 @export var mob_scene: PackedScene
 @onready var player : CharacterBody3D = get_parent().get_node("Player")
 @onready var mob_timer : Timer = get_parent().get_node("EnemyTimer")
+@onready var spotlight : MeshInstance3D = get_parent().get_node("Spotlight")
 var enemies
 var score_value = 1
 func _ready():
@@ -19,8 +20,11 @@ func _game_initialize():
 	GameManager.startButtonPressed.connect(_on_play_button_pressed)
 	GameManager.set_or_reset_level(1)
 
+func _physics_process(delta):
+	if GameManager.get_game_enabled():
+		spotlight.position.x  = player.position.x
+		spotlight.position.z = player.position.z
 func _on_mob_timer_timeout():
-
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 

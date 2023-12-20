@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://pnum4ath488j"]
+[gd_scene load_steps=9 format=3 uid="uid://pnum4ath488j"]
 
 [ext_resource type="Script" path="res://src/perry_squash/perry_squash.gd" id="1_6oioj"]
 [ext_resource type="PackedScene" uid="uid://cnlirpbudccmv" path="res://src/perry_squash/player.tscn" id="1_271ir"]
@@ -19,6 +19,10 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_iqcbo"]
+top_radius = 0.75
+height = 0.5
+
 [node name="PerrySquash" type="Node"]
 
 [node name="PerrySquash" type="Node" parent="."]
@@ -26,14 +30,11 @@ script = ExtResource("1_6oioj")
 mob_scene = ExtResource("2_y2efm")
 
 [node name="Player" parent="." instance=ExtResource("1_271ir")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0984545, 0)
 
 [node name="Marker3D2" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Marker3D2"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 30, 0)
-shadow_enabled = true
 sky_mode = 1
 
 [node name="Ground" parent="." instance=ExtResource("2_gtkpu")]
@@ -77,3 +78,7 @@ curve = SubResource("Curve3D_dcwns")
 
 [node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 0.5, -29)
+
+[node name="Spotlight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+mesh = SubResource("CylinderMesh_iqcbo")
