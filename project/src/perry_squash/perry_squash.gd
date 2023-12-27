@@ -24,6 +24,7 @@ func _physics_process(delta):
 	if GameManager.get_game_enabled():
 		spotlight.position.x  = player.position.x
 		spotlight.position.z = player.position.z
+		
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
