@@ -46,7 +46,13 @@ size = Vector2(96, 992)
 
 [node name="PerrySpace" type="Node2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(360, 656)
+scale = Vector2(2.5, 2)
+texture = ExtResource("3_bvgf7")
+
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_s2aow")]
+visible = false
 texture = ExtResource("3_bvgf7")
 
 [node name="PerrySpace" type="Node2D" parent="."]

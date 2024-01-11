@@ -51,6 +51,7 @@ anchors_preset = 0
 mouse_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="AspectRatioContainer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -66,6 +67,7 @@ size_flags_vertical = 3
 color = Color(1, 0.74902, 0.505882, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="AspectRatioContainer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -81,6 +83,7 @@ size_flags_vertical = 3
 color = Color(1, 0.74902, 0.505882, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="AspectRatioContainer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -96,6 +99,7 @@ size_flags_vertical = 3
 color = Color(1, 0.74902, 0.505882, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="AspectRatioContainer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
