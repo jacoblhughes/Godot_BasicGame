@@ -114,15 +114,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(1, 0.74902, 0.505882, 1)
 
-[node name="PlayArea" type="ColorRect" parent="AspectRatioContainer/Control"]
-visible = false
-layout_mode = 0
-offset_left = 40.0
-offset_top = 144.0
-offset_right = 680.0
-offset_bottom = 1168.0
-color = Color(0.192157, 0.192157, 0.192157, 1)
-
 [node name="Background" type="TextureRect" parent="AspectRatioContainer/Control"]
 visible = false
 layout_mode = 0
@@ -132,6 +123,15 @@ offset_right = 680.0
 offset_bottom = 1168.0
 texture = ExtResource("3_h1c1b")
 expand_mode = 1
+
+[node name="PlayArea" type="ColorRect" parent="AspectRatioContainer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 144.0
+offset_right = 680.0
+offset_bottom = 1168.0
+color = Color(0.192157, 0.192157, 0.192157, 1)
 
 [node name="Buttons" parent="AspectRatioContainer/Control" instance=ExtResource("3_5wtcr")]
 layout_mode = 0

@@ -1,16 +1,23 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtkr0v8bhef4k"]
 
 [ext_resource type="Script" path="res://src/main/parallax_background.gd" id="1_asf31"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l1m4n"]
+[ext_resource type="Texture2D" uid="uid://betwbe8urunx7" path="res://textures/perry_space/space_background_256_512.png" id="2_acjhj"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource("1_asf31")
+texture = ExtResource("2_acjhj")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(640, 0)
+motion_mirroring = Vector2(256, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(360, 656)
+position = Vector2(40, 144)
 scale = Vector2(2.5, 2)
-texture = SubResource("CompressedTexture2D_l1m4n")
+texture = ExtResource("2_acjhj")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 40.0
+offset_top = 144.0
+offset_right = 80.0
+offset_bottom = 184.0
