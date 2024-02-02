@@ -18,7 +18,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 #	parallax.motion_offset.x -= speed * delta
-	print(sprite.global_position)
+
 #	scroll = speed * delta
 #	parallax.set_motion_offset(Vector2(scroll,0))
 

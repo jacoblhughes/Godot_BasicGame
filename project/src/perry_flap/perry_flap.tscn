@@ -81,10 +81,16 @@ size = Vector2(560, 992)
 
 [node name="PerryFlap" type="Node2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(360, 656)
+scale = Vector2(2.5, 2)
+texture = ExtResource("4_abbuh")
+
 [node name="PerryFlap" type="Node2D" parent="."]
 script = ExtResource("1_ym0sw")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_3tepf")]
+visible = false
 texture = ExtResource("4_abbuh")
 
 [node name="EnemyDespawn" type="Area2D" parent="."]
