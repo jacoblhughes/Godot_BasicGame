@@ -23,9 +23,9 @@ point_count = 5
 top_radius = 0.75
 height = 0.5
 
-[node name="PerrySquash" type="Node"]
+[node name="PerrySquash" type="Node3D"]
 
-[node name="PerrySquash" type="Node" parent="."]
+[node name="PerrySquash" type="Node3D" parent="."]
 script = ExtResource("1_6oioj")
 mob_scene = ExtResource("2_y2efm")
 

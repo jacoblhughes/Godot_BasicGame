@@ -64,7 +64,7 @@ var games_list : Dictionary = {
 func _ready():
 	
 	main_node = get_tree().get_root().get_node("Main")
-	aspect_ratio_container = main_node.get_node("AspectRatioContainer").get_node("Control")
+	aspect_ratio_container = main_node.get_node("CenterContainer").get_node("AspectRatioContainer")
 	buttons = aspect_ratio_container.get_node("Buttons")
 
 

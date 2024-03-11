@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 @export var mob_scene: PackedScene
 @onready var player : CharacterBody3D = get_parent().get_node("Player")

@@ -38,7 +38,7 @@ func _ready():
 
 	InitialsInput = $Initials
 	InitialsInput.text = GameManager.get_initials()
-	game_scene = get_tree().get_root().get_node("Main").get_node("AspectRatioContainer").get_node("Control").get_node("GameScene")
+	game_scene = get_tree().get_root().get_node("Main").get_node("CenterContainer").get_node("AspectRatioContainer").get_node("GameScene")
 	pass # Replace with function body.
 
 
