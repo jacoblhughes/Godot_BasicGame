@@ -7,53 +7,53 @@
 
 [node name="Main" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_7uc3t")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Background" type="ColorRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-use_top_left = true
-
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CenterContainer"]
-layout_direction = 1
-layout_mode = 2
-alignment_vertical = 0
-
-[node name="Background" type="ColorRect" parent="CenterContainer/AspectRatioContainer"]
-unique_name_in_owner = true
-layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.85098, 0.627451, 0.4, 1)
 script = ExtResource("2_4mxmw")
 
-[node name="GameScene" type="Control" parent="CenterContainer/AspectRatioContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+unique_name_in_owner = true
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment_vertical = 0
+
+[node name="GameScene" type="Control" parent="AspectRatioContainer"]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="PlayArea" type="ColorRect" parent="CenterContainer/AspectRatioContainer"]
+[node name="PlayArea" type="ColorRect" parent="AspectRatioContainer"]
 visible = false
 layout_mode = 2
 color = Color(0.192157, 0.192157, 0.192157, 1)
 
-[node name="Buttons" parent="CenterContainer/AspectRatioContainer" instance=ExtResource("3_5wtcr")]
+[node name="Buttons" parent="AspectRatioContainer" instance=ExtResource("3_5wtcr")]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="HUD" parent="CenterContainer/AspectRatioContainer" instance=ExtResource("2_v0m1m")]
+[node name="HUD" parent="AspectRatioContainer" instance=ExtResource("2_v0m1m")]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Control" type="Control" parent="CenterContainer/AspectRatioContainer"]
+[node name="Control" type="Control" parent="AspectRatioContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 1
