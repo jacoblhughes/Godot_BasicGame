@@ -41,7 +41,6 @@ func _ready():
 	game_scene = get_tree().get_root().get_node("Main").get_node("AspectRatioContainer").get_node("GameScene")
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
