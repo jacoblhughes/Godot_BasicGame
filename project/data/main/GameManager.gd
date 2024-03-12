@@ -90,7 +90,7 @@ func _ready():
 
 	HomeButton = hud_control.get_node("Home_Button")
 	
-	game_scene = main_node.get_node("MarginContainer").get_node("GameScene")
+	game_scene = main_node.get_node("GameScene")
 	lives_label = hud_control.get_node("LivesLabel")
 	level_label = hud_control.get_node("LevelLabel")
 	PlayButton.pressed.connect(_on_play_button_pressed)
