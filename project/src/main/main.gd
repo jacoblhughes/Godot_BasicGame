@@ -2,12 +2,12 @@ extends Control
 
 signal main_ready
 @onready var background : ColorRect = %Background
-@onready var aspect_ratio_container = %AspectRatioContainer
+
 @onready var buttons = %Buttons
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	main_ready.emit()
-
+	print(%MarginContainer.get_rect())
 	pass # Replace with function body.
 
 			

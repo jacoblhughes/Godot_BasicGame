@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckpqmqx1najki"]
+
+[ext_resource type="Script" path="res://src/main/main.gd" id="1_7uc3t"]
+[ext_resource type="Script" path="res://src/main/background.gd" id="2_4mxmw"]
+[ext_resource type="PackedScene" uid="uid://cyl28swe7b43k" path="res://src/main/hud.tscn" id="2_v0m1m"]
+[ext_resource type="PackedScene" uid="uid://d4cpf87cb1bs0" path="res://src/main/buttons.tscn" id="3_5wtcr"]
+[ext_resource type="Texture2D" uid="uid://cnm0lgsnq82ub" path="res://textures/main/background_32.png" id="5_c4tpk"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_7uc3t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.85098, 0.627451, 0.4, 1)
+script = ExtResource("2_4mxmw")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+grow_vertical = 2
+alignment_vertical = 0
+
+[node name="GameScene" type="Control" parent="AspectRatioContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="PlayArea" type="ColorRect" parent="AspectRatioContainer"]
+visible = false
+layout_mode = 2
+color = Color(0.192157, 0.192157, 0.192157, 1)
+
+[node name="Buttons" parent="AspectRatioContainer" instance=ExtResource("3_5wtcr")]
+unique_name_in_owner = true
+layout_direction = 1
+layout_mode = 2
+size_flags_stretch_ratio = 7.46
+mouse_filter = 1
+
+[node name="HUD" parent="AspectRatioContainer" instance=ExtResource("2_v0m1m")]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Control" type="Control" parent="AspectRatioContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = -362.0
+offset_top = -667.0
+offset_right = -362.0
+offset_bottom = -667.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="CanvasLayer2/Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("5_c4tpk")

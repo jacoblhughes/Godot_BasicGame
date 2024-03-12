@@ -19,7 +19,7 @@ var config_file_path
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	aspect_ratio_container = get_tree().get_root().get_node("Main").get_node("AspectRatioContainer")
+	aspect_ratio_container = get_tree().get_root().get_node("Main")
 	hud_control = aspect_ratio_container.get_node("HUD")
 
 

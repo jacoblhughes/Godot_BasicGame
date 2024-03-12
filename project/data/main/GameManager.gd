@@ -64,16 +64,16 @@ var games_list : Dictionary = {
 func _ready():
 	
 	main_node = get_tree().get_root().get_node("Main")
-	aspect_ratio_container = main_node.get_node("AspectRatioContainer")
-	buttons = aspect_ratio_container.get_node("Buttons")
+#	aspect_ratio_container = main_node.get_node("AspectRatioContainer")
+	buttons = main_node.get_node("MarginContainer").get_node("Buttons")
 
 
-	hud_control = aspect_ratio_container.get_node("HUD")
+	hud_control = main_node.get_node("HUD")
 	InitialsInput = hud_control.get_node("Initials")
 	ScoreLabel = hud_control.get_node("Score")
 	
 	
-	PlayArea = aspect_ratio_container.get_node("PlayArea")
+#	PlayArea = aspect_ratio_container.get_node("PlayArea")
 
 
 	GameStartPanel = hud_control.get_node("GameStartPanel")
@@ -90,7 +90,7 @@ func _ready():
 
 	HomeButton = hud_control.get_node("Home_Button")
 	
-	game_scene = aspect_ratio_container.get_node("GameScene")
+	game_scene = main_node.get_node("MarginContainer").get_node("GameScene")
 	lives_label = hud_control.get_node("LivesLabel")
 	level_label = hud_control.get_node("LevelLabel")
 	PlayButton.pressed.connect(_on_play_button_pressed)
@@ -159,15 +159,15 @@ func _ready():
 		
 			
 func _input(event):
-
-	if(event is InputEventMouseButton or event is InputEventScreenDrag or event is InputEventScreenTouch):
-		if (
-		event.position.x > PlayArea.global_position.x
-		and event.position.y > PlayArea.global_position.y
-		and event.position.x < (PlayArea.global_position.x + PlayArea.size.x)
-		and event.position.y < (PlayArea.global_position.y + PlayArea.size.y)
-	):
-			in_play_area.emit(event)
+	pass
+#	if(event is InputEventMouseButton or event is InputEventScreenDrag or event is InputEventScreenTouch):
+#		if (
+#		event.position.x > PlayArea.global_position.x
+#		and event.position.y > PlayArea.global_position.y
+#		and event.position.x < (PlayArea.global_position.x + PlayArea.size.x)
+#		and event.position.y < (PlayArea.global_position.y + PlayArea.size.y)
+#	):
+#			in_play_area.emit(event)
 
 	
 func get_games_list():

@@ -1,7 +1,7 @@
 extends Control
 var config = ConfigFile.new()
 
-var InitialsInput : LineEdit
+@onready var InitialsInput : LineEdit = %Initials
 var game_key
 @export var perry_says: PackedScene
 var perry_says_scene
@@ -36,9 +36,9 @@ var highscore_scene
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	InitialsInput = $Initials
+#	InitialsInput = $Initials
 	InitialsInput.text = GameManager.get_initials()
-	game_scene = get_tree().get_root().get_node("Main").get_node("AspectRatioContainer").get_node("GameScene")
+	game_scene = get_tree().get_root().get_node("Main").get_node("MarginContainer").get_node("GameScene")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,6 +51,7 @@ func _on_initials_text_changed(new_text):
 	pass # Replace with function body.
 
 func _on_simon_says_pressed():
+
 	self.visible = false
 	game_key = "1"
 	var title = GameManager.get_game_list_values(game_key)["title"]
