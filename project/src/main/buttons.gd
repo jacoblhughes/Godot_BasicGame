@@ -32,13 +32,12 @@ var options_scene
 var highscore_scene
 
 @onready var config_file_path = GameManager.get_config_path_file()
-@onready var game_scene : Control
+@export var game_scene : Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
 #	InitialsInput = $Initials
 	InitialsInput.text = GameManager.get_initials()
-	game_scene = get_tree().get_root().get_node("Main").get_node("GameScene")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

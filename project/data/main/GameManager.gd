@@ -25,7 +25,7 @@ var child_node_to_delete
 @onready var game_over_panel : Panel
 @onready var reset_button_from_gameover : Button
 @onready var home_button_from_gameover : Button
-@onready var game_scene : Node
+@onready var game_scene : Control
 @onready var lives_label : Label
 @onready var aspect_ratio_container
 @onready var buttons : Control
@@ -65,7 +65,7 @@ func _ready():
 	
 	main_node = get_tree().get_root().get_node("Main")
 #	aspect_ratio_container = main_node.get_node("AspectRatioContainer")
-	buttons = main_node.get_node("MarginContainer").get_node("Buttons")
+	buttons = main_node.get_node("AspectRatioContainer").get_node("Buttons")
 
 
 	hud_control = main_node.get_node("HUD")
@@ -90,7 +90,7 @@ func _ready():
 
 	HomeButton = hud_control.get_node("Home_Button")
 	
-	game_scene = main_node.get_node("GameScene")
+	game_scene = main_node.get_node("AspectRatioContainer").get_node("GameScene")
 	lives_label = hud_control.get_node("LivesLabel")
 	level_label = hud_control.get_node("LevelLabel")
 	PlayButton.pressed.connect(_on_play_button_pressed)

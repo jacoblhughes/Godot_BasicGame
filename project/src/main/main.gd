@@ -7,7 +7,7 @@ signal main_ready
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	main_ready.emit()
-	print(%MarginContainer.get_rect())
+
 	pass # Replace with function body.
 
 			
@@ -15,6 +15,7 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed('pc_quit'):
 		pass
+
 
 	pass
 
