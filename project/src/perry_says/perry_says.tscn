@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://d2enwj4xxpx4q" path="res://src/perry_says/perry_button.tscn" id="3_o4idv"]
 
 [node name="PerrySays" type="Node2D"]
-metadata/_edit_horizontal_guides_ = [96.0, 144.0, 144.0, 1168.0, 144.0, 656.0]
-metadata/_edit_vertical_guides_ = [40.0, 680.0, 360.0]
+metadata/_edit_vertical_guides_ = [360.0]
+metadata/_edit_horizontal_guides_ = [-640.0]
 
 [node name="PerrySays" type="Node2D" parent="."]
 script = ExtResource("1_fdqsf")

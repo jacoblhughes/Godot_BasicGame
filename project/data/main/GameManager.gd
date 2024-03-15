@@ -63,7 +63,7 @@ var games_list : Dictionary = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	main_node = get_tree().get_root().get_node("Main")
+	main_node = get_tree().get_root().get_node("main2")
 #	aspect_ratio_container = main_node.get_node("AspectRatioContainer")
 	buttons = main_node.get_node("AspectRatioContainer").get_node("Buttons")
 

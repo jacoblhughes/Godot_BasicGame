@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckpqmqx1najki"]
+[gd_scene load_steps=5 format=3 uid="uid://c6mfm27obiirf"]
 
 [ext_resource type="Script" path="res://src/main/main.gd" id="1_7uc3t"]
 [ext_resource type="Script" path="res://src/main/background.gd" id="2_4mxmw"]
 [ext_resource type="PackedScene" uid="uid://cyl28swe7b43k" path="res://src/main/hud.tscn" id="2_v0m1m"]
 [ext_resource type="PackedScene" uid="uid://d4cpf87cb1bs0" path="res://src/main/buttons.tscn" id="3_5wtcr"]
 
-[node name="Main" type="Control"]
+[node name="main2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,14 +17,6 @@ mouse_filter = 1
 script = ExtResource("1_7uc3t")
 metadata/_edit_horizontal_guides_ = [1279.0]
 metadata/_edit_vertical_guides_ = [844.0]
-
-[node name="GameScene" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -2
@@ -63,11 +55,14 @@ grow_vertical = 2
 alignment_horizontal = 0
 alignment_vertical = 0
 
+[node name="GameScene" type="Control" parent="AspectRatioContainer"]
+layout_mode = 2
+
 [node name="Buttons" parent="AspectRatioContainer" node_paths=PackedStringArray("game_scene") instance=ExtResource("3_5wtcr")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 1
-game_scene = NodePath("../../GameScene")
+game_scene = NodePath("../GameScene")
 
 [node name="HUD" parent="." instance=ExtResource("2_v0m1m")]
 unique_name_in_owner = true
