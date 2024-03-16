@@ -3,40 +3,16 @@ extends Node
 # Export the NodePath to the player_initials scene
 var config = ConfigFile.new()
 
-@onready var InitialsInput : Label
-@onready var ScoreLabel : Label
-@onready var StatusLabel : Label
-@onready var level_label : Label
-
-@onready var BackGroundMusic: AudioStreamPlayer
 @onready var PlayArea: ColorRect = %PlayArea
-@onready var GameStartPanel : Panel
-@onready var Title : Label
-@onready var Directions : Label
 
-
-@onready var PlayButton : Button
-@onready var ResetButton : Button
-@onready var HighscoreButton : Button
-@onready var HomeButton : Button
 var child_node_to_delete
 
-@onready var new_initials
-@onready var game_over_panel : Panel
-@onready var reset_button_from_gameover : Button
-@onready var home_button_from_gameover : Button
-@onready var lives_label : Label
-@onready var aspect_ratio_container
-@onready var buttons : CanvasLayer
-@onready var hud_control : CanvasLayer
 @onready var main_node : Node
-@onready var game_over_panel_congrats : AnimatedSprite2D
-@onready var collision_area_for_detection : Area2D
+
 var perry_arcade_path = "user://perry_arcade.cfg"
-var lives = 3
-var score = 0
 var game_enabled = false
 var current_game_scene : PackedScene
+
 const DEFAULT_FLOAT = -1.0
 const DEFAULT_TEXT = "-1"
 
@@ -46,7 +22,9 @@ var game_level = 1
 signal highscoreButtonpressed
 signal initialsUpdated
 signal in_play_area(event)
+
 var game_key = "JLH"
+
 var games_list : Dictionary = {
 "1":{"title":"Perry Says","short_name":"perry_says","directions":"Smash Perry in the right order to get the high score!"}
 ,"2":{"title":"Python Perry","short_name":"perry_python","directions":"Make Perry eat the unfunny clown!"}
@@ -58,7 +36,6 @@ var games_list : Dictionary = {
 ,"8":{"title":"Perry Space Attack","short_name":"perry_space","directions":"Roddy needs help avoiding the Vegaliens"}
 ,"9":{"title":"Perry Squash","short_name":"perry_squash","directions":"Help Perry squash"}
 }
-# Called when the node enters the scene tree for the first time.
 
 var background_canvas_layer_instance
 
@@ -66,8 +43,6 @@ var background_canvas_layer_instance
 
 func _ready():
 	background_canvas_layer_instance = background_canvas_layer.instantiate()
-
-	
 	get_tree().get_root().add_child.call_deferred(background_canvas_layer_instance)
 
 	var file_exists = FileAccess.file_exists(perry_arcade_path)
@@ -121,7 +96,7 @@ func _ready():
 			config.set_value("game_music", "playing",0)
 			config.save(perry_arcade_path)
 
-	new_initials = config.get_value("main", "initials")
+	var new_initials = config.get_value("main", "initials")
 	
 	initiate_highscores_section()
 	HUD.update_initials(new_initials)
@@ -135,7 +110,7 @@ func _input(event):
 		and event.position.y > PlayArea.global_position.y
 		and event.position.x < (PlayArea.global_position.x + PlayArea.size.x)
 		and event.position.y < (PlayArea.global_position.y + PlayArea.size.y)
-	):
+		):
 			in_play_area.emit(event)
 
 	
@@ -144,30 +119,23 @@ func get_games_list():
 	
 func get_config_path_file():
 	return perry_arcade_path
-	
-
-
-
-#func set_new_status(status):
-#		StatusLabel.text = status
-
-
 
 func get_play_area_size_from_HUD():
 	return PlayArea.size
 	
 func get_play_area_position_from_HUD():
 	return PlayArea.position
-
-func set_initials(initials):
-	new_initials = initials
-	HUD.update_initials(new_initials)
+	
+func save_initials(initials):
+	var new_initials = initials
 	config.set_value("main", "initials",initials)
 	config.save(perry_arcade_path)
 	
 func check_highscore_and_rank():
 	var high_scores_names = config.get_value(game_key, "names", [])
 	var high_scores = config.get_value(game_key, "scores", [])
+	var score = HUD.get_score()
+	var new_initials = HUD.get_initials()
 #	var item_list = $HighScorePopup/ColorRect/ItemList
 	if high_scores_names.size() != high_scores.size():
 		print("Error: Names and scores arrays have different sizes.")
@@ -177,8 +145,6 @@ func check_highscore_and_rank():
 
 	for i in range(high_scores.size()):
 		if score > high_scores[i]:
-
-
 			high_scores.insert(i, score)
 			high_scores_names.insert(i, new_initials)
 			added = true
@@ -196,7 +162,7 @@ func check_highscore_and_rank():
 
 
 	if(added):
-		GameManager.set_gameover_panel_congrats(true)
+		HUD.set_gameover_panel_congrats(true)
 #	_replace_highscore_list()
 	
 func initiate_highscores_section():
@@ -235,19 +201,18 @@ func set_game_enabled(status):
 func set_game_key(key):
 	game_key = key
 	
-func get_game_level():
-	return game_level
+
 	
 func reset_high_scores():
 	for key in games_list.keys():
 		config.set_value(key, "scores", [0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 		config.set_value(key, "names", ["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
 		config.save(perry_arcade_path)
-		set_initials("JLH")
+		save_initials("JLH")
 #
-#func _on_main_ready():
-#	AudioManager.update_background_music(config.get_value("background_music", "value", DEFAULT_FLOAT))
-#	AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT_FLOAT))
-#	AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT_FLOAT))
-#	AudioManager.set_game_music_mute(config.get_value("game_music", "playing", DEFAULT_FLOAT))
-#	AudioManager.game_file_ready()
+func _on_main_ready():
+	AudioManager.update_background_music(config.get_value("background_music", "value", DEFAULT_FLOAT))
+	AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT_FLOAT))
+	AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT_FLOAT))
+	AudioManager.set_game_music_mute(config.get_value("game_music", "playing", DEFAULT_FLOAT))
+	AudioManager.game_file_ready()

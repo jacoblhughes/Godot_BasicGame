@@ -9,10 +9,7 @@ script = ExtResource("1_asf31")
 texture = ExtResource("2_acjhj")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(256, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(40, 144)
-scale = Vector2(2.5, 2)
+scale = Vector2(2.65625, 2.46875)
 texture = ExtResource("2_acjhj")
-centered = false

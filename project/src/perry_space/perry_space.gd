@@ -72,10 +72,9 @@ func _game_over():
 
 func _on_enemy_hit():
 	HUD.update_score(score_value)
-	_check_advance_level()
+	if HUD.check_advance_level(level_advance_value,level_value):
+		advance_level()
 	
-func _check_advance_level():
-	if(HUD.get_score() % level_advance_value == 0):
-		HUD.update_game_level(level_value)
-#		rocket_timer.wait_time = player.original_rocket_time * pow(.95,GameManager.get_game_level())
-		enemy_timer.wait_time = enemy_spawner.original_enemy_time * pow(.95,GameManager.get_game_level())
+func advance_level():
+	#rocket_timer.wait_time = player.original_rocket_time * pow(.95,GameManager.get_game_level())
+	enemy_timer.wait_time = enemy_spawner.original_enemy_time * pow(.95,GameManager.get_game_level())

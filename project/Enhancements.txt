@@ -1,5 +1,8 @@
 Perry Arcade
 
+AUDIO
+POSITION OF CLICK EVENT
+
 V2:
 
 Introduce at least 1 then 2 new game elements to make it fun

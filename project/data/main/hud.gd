@@ -1,14 +1,12 @@
 extends CanvasLayer
 var score = 0
 var lives  = 0
+var game_level = 0
 var child_node_to_delete
 # Export the NodePath to the player_initials scene
-@onready var initials_label = %Initials
-@onready var score_label = %Score
 
 @onready var game_scene : Node = get_tree().get_root().get_node("Main")
 
-var game_level = 0
 signal hud_ready
 signal startButtonPressed
 signal resetButtonPressed
@@ -18,24 +16,24 @@ func _ready():
 	pass
 
 func update_initials(value):
-	initials_label.text = value
+	%Initials.text = value
 	
 func get_initials():
-	return(initials_label.text)
+	return(%Initials.text)
 	
 func set_new_score(new_score):
 	score = new_score
 	var this_score = str(score)
-	score_label.text = this_score
+	%Score.text = this_score
 			
 func update_score(new_score):
 	score += new_score
 	var this_score = str(score)
-	score_label.text = this_score
+	%Score.text = this_score
 		
 func reset_score():
 	score=0
-	score_label.text = str(score)
+	%Score.text = str(score)
 
 func get_score():
 	return score
@@ -53,9 +51,9 @@ func set_or_reset_level(default_level = "INF"):
 		%LevelLabel.text = default_level
 			
 func update_game_level(new_level):
-			game_level += new_level
-			var this_level = str(game_level)
-			%LevelLabel.text = this_level
+	game_level += new_level
+	var this_level = str(game_level)
+	%LevelLabel.text = this_level
 
 func _on_home_button_pressed():
 	reset_score()
@@ -120,3 +118,15 @@ func update_lives(change):
 	lives += change
 	%LivesLabel.text = str(lives)
 
+func check_advance_level(advance_value,level_value):
+		if(get_score() % advance_value == 0):
+			update_game_level(level_value)
+			return true
+			
+func get_game_level():
+	return game_level
+
+func set_initials(initials):
+	var new_initials = initials
+	update_initials(new_initials)
+	GameManager.save_initials(new_initials)

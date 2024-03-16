@@ -42,13 +42,12 @@ func _on_despawn_body_entered(body):
 	if("Enemy" in body.name):
 		body.queue_free()
 		HUD.update_score(score_value)
-		_check_advance_level()
+	if HUD.check_advance_level(level_advance_value,level_value):
+		advance_level()
 	pass # Replace with function body.
 	
-func _check_advance_level():
-	if(HUD.get_score() % level_advance_value == 0):
-		HUD.update_game_level(level_value)
-		enemy_spawn_timer.wait_time = enemy_spawn_timer.original_time * pow(.95,GameManager.get_game_level())
+func advance_level():
+	enemy_spawn_timer.wait_time = enemy_spawn_timer.original_time * pow(.95,GameManager.get_game_level())
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)

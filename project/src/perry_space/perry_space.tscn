@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://dx4hwtnr40m1r"]
+[gd_scene load_steps=15 format=3 uid="uid://dx4hwtnr40m1r"]
 
 [ext_resource type="Script" path="res://src/perry_space/perry_space.gd" id="1_yw0yd"]
-[ext_resource type="PackedScene" uid="uid://dtkr0v8bhef4k" path="res://src/main/parallax_background.tscn" id="2_s2aow"]
 [ext_resource type="Script" path="res://src/perry_space/player.gd" id="3_60l8u"]
 [ext_resource type="Texture2D" uid="uid://betwbe8urunx7" path="res://textures/perry_space/space_background_256_512.png" id="3_bvgf7"]
 [ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://textures/perry_space/attack_256.png" id="4_jqsem"]
@@ -56,9 +55,6 @@ position = Vector2(360, 640)
 position = Vector2(360, 656)
 scale = Vector2(2.5, 2)
 texture = ExtResource("3_bvgf7")
-
-[node name="ParallaxBackground" parent="." instance=ExtResource("2_s2aow")]
-visible = false
 
 [node name="Player" type="CharacterBody2D" parent="."]
 collision_mask = 2

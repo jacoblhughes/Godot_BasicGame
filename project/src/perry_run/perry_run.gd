@@ -56,7 +56,7 @@ func _out_of_bounds():
 
 func _on_cp_1_body_entered(body):
 	if c_p_1 == false:
-		GameManager.update_score(score_value)
+		HUD.update_score(score_value)
 	c_p_1=true
 	reset_point = c_p_1_area.position
 	pass # Replace with function body.
@@ -64,7 +64,7 @@ func _on_cp_1_body_entered(body):
 
 func _on_cp_2_body_entered(body):
 	if c_p_2 == false:
-		GameManager.update_score(score_value)
+		HUD.update_score(score_value)
 	c_p_2=true
 	reset_point = c_p_2_area.position
 	pass # Replace with function body.
@@ -72,7 +72,7 @@ func _on_cp_2_body_entered(body):
 
 func _on_cp_3_body_entered(body):
 	if c_p_3 == false:
-		GameManager.update_score(score_value)
+		HUD.update_score(score_value)
 	c_p_3=true
 	reset_point = c_p_3_area.position
 	pass # Replace with function body.
@@ -83,8 +83,9 @@ func _on_finish_body_entered(body):
 		
 		reset_point = finish_area.position
 		if finish == false:
-			GameManager.update_score(score_value)
-			_check_advance_level()
+			HUD.update_score(score_value)
+			if HUD.check_advance_level(level_advance_value,level_value):
+				advance_level()
 		finish=true
 	
 	_reset_checkpoints()
@@ -109,9 +110,8 @@ func _on_countdown_timer_timeout():
 
 	pass # Replace with function body.
 
-func _check_advance_level():
-	if(GameManager.get_score() % level_advance_value == 0 and GameManager.get_score()>1):
-		GameManager.update_game_level(level_value)
+func advance_level():
+	pass
 
 func _update_label():
 	if not game_on:
@@ -127,7 +127,7 @@ func _on_game_timer_timeout():
 	reset_point = finish_area.position
 	_out_of_bounds()
 	GameManager.set_game_enabled(false)
-	GameManager.set_gameover_panel(true)
+	HUD.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
 
 	pass # Replace with function body.

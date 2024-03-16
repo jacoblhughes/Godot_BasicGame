@@ -36,7 +36,8 @@ func _on_play_button_pressed():
 func _on_enemy_scoring_body_entered(body):
 
 	HUD.update_score(score_value)
-	_check_advance_level()
+	if HUD.check_advance_level(level_advance_value,level_value):
+		advance_level()
 	pass # Replace with function body.
 
 func _on_flappy_hit():
@@ -60,7 +61,5 @@ func _on_area_2d_body_exited(body):
 			_game_over()
 	pass # Replace with function body.
 
-func _check_advance_level():
-	if(HUD.get_score() % level_advance_value == 0):
-		HUD.update_game_level(level_value)
-		spawn_timer.wait_time = original_spawn_timer * pow(.95,GameManager.get_game_level())
+func advance_level():
+	spawn_timer.wait_time = original_spawn_timer * pow(.95,HUD.get_game_level())

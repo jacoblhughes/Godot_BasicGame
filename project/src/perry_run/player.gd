@@ -30,7 +30,7 @@ func _on_in_play_area(event):
 func _physics_process(delta):
 
 	if(GameManager.get_game_enabled() and game_on == true):
-		var to_target = target_position - global_position
+		var to_target = target_position - position
 		var direction = to_target.normalized()
 		if(direction.x<0):
 			$AnimatedSprite2D.flip_h = true
@@ -44,7 +44,7 @@ func _physics_process(delta):
 #			# Calculate the velocity
 #			velocity = direction * move_speed
 			if distance_to_target > stop_threshold:
-				velocity = to_target.normalized() * move_speed
+				velocity = direction * move_speed
 			else:
 				velocity = Vector2.ZERO  # Stop moving if within threshold
 				is_touching = false  # Optionally reset touching to require new input to move again

@@ -9,14 +9,15 @@ extends ParallaxBackground
 var scroll = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	sprite.texture = texture
+	sprite.texture = texture
 #	sprite.global_position = GameManager.get_play_area_position_from_HUD()
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-#	parallax.motion_offset.x -= speed * delta
+	print(GameManager.get_play_area_size_from_HUD())
+	parallax.motion_offset.x -= speed * delta
 
 #	scroll = speed * delta
 #	parallax.set_motion_offset(Vector2(scroll,0))

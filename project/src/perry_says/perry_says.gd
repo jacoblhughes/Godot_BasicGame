@@ -12,22 +12,17 @@ var groupOfButtons
 var disabledColor
 var score_value = 1
 var level_value = 1
-var level_advance_value = 10
+var level_advance_value = 2
 var playerTurn = false
 var computerPopulate = 0
 var playerPopulate = -1
 var button_pressed
 var buttonObject = {}
 
-var high_scores_for_popup
-var high_scores_names
-var high_scores
-
-@onready var playback_timer : Timer
+@onready var playback_timer = %PlaybackTimer
 var sounds = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	playback_timer = get_parent().get_node("PlaybackTimer")
 	sounds = [preload("res://sounds/perry_says/c_low.wav"),preload("res://sounds/perry_says/d.wav")
 	,preload("res://sounds/perry_says/e.wav"),preload("res://sounds/perry_says/f.wav")
 	,preload("res://sounds/perry_says/g.wav"),preload("res://sounds/perry_says/a.wav")
@@ -97,16 +92,16 @@ func _set_buttons_disabled(setting):
 
 func _player_turn_end():
 	HUD.update_score(score_value)
-	_check_advance_level()
+	if HUD.check_advance_level(level_advance_value,level_value):
+		advance_level()
 	playerTurn = false
 	arrayOfPlayerResponse = []
 	playerPopulate = -1
 
-func _check_advance_level():
-	if(HUD.get_score() % level_advance_value == 0):
-		HUD.update_game_level(level_value)
-		for button in groupOfButtons:
-			button.play_time = button.original_time * pow(.95,GameManager.get_game_level())
+func advance_level():
+	for button in groupOfButtons:
+		button.play_time = button.original_time * pow(.95,HUD.get_game_level())
+	playback_timer.wait_time = playback_timer.original_time * pow(.95,HUD.get_game_level())
 
 func _get_next_value():
 	buttonToAdd = floor(rng.randf_range(0, 8))

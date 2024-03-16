@@ -24,7 +24,7 @@ var level_value = 1
 var head_original_x
 var head_original_y
 var score_value = 1
-var level_advance_value = 10
+var level_advance_value = 2
 var original_snake_time = .75
 func _ready():
 
@@ -177,7 +177,7 @@ func game_over():
 	
 	SnakeTimer.stop()
 	minisnakes = []
-	GameManager.set_gameover_panel(true)
+	HUD.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
 	pass
 
@@ -200,9 +200,8 @@ func _on_grid_ready():
 
 func _on_food_eaten():
 	HUD.update_score(score_value)
-	_check_advance_level()
+	if HUD.check_advance_level(level_advance_value,level_value):
+		advance_level()
 	
-func _check_advance_level():
-	if(GameManager.get_score() % level_advance_value == 0):
-		GameManager.update_game_level(level_value)
-		SnakeTimer.wait_time = original_snake_time * pow(.95,GameManager.get_game_level())
+func advance_level():
+	SnakeTimer.wait_time = original_snake_time * pow(.95,HUD.get_game_level())

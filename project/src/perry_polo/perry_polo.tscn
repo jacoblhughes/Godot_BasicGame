@@ -58,5 +58,7 @@ position = Vector2(360, 144)
 position = Vector2(360, 1184)
 
 [node name="Win" parent="." instance=ExtResource("8_joiva")]
+unique_name_in_owner = true
 
 [node name="Lose" parent="." instance=ExtResource("9_k3tc4")]
+unique_name_in_owner = true

@@ -24,10 +24,10 @@ func _ready():
 	enemy = get_parent().get_node("Enemy")
 	ball = get_parent().get_node("Ball")
 	whirlpools = get_tree().get_nodes_in_group("perry_polo_whirlpool")
-	win_area = get_parent().get_node("Win")
-	win_area.body_entered.connect(_on_win_body_entered)
-	lose_area = get_parent().get_node("Lose")
-	lose_area.body_entered.connect(_on_lose_body_entered)
+
+	%Win.body_entered.connect(_on_win_body_entered)
+
+	%Lose.body_entered.connect(_on_lose_body_entered)
 	_game_initialize()
 	
 
@@ -48,7 +48,7 @@ func on_reset_button_reset_button_pressed():
 	game_reset = true
 
 	GameManager.set_game_enabled(false)
-	GameManager.reset_score()
+	HUD.reset_score()
 	
 	pass # Replace with function body.
 
@@ -58,7 +58,8 @@ func _on_win_body_entered(body):
 		if body is PerryBall:
 			position_reset.emit()
 			HUD.update_score(score_value)
-			_check_advance_level()
+			if HUD.check_advance_level(level_advance_value,level_value):
+				advance_level()
 	
 func _on_lose_body_entered(body):
 	if body is PerryBall:
@@ -68,16 +69,13 @@ func _on_lose_body_entered(body):
 			_game_over()
 	pass # Replace with function body.
 
-func _check_advance_level():
-	if HUD.get_score() % level_advance_value == 0:
-		HUD.update_game_level(level_value)
-		enemy.speed = enemy.original_speed * pow(1.05,GameManager.get_game_level())
-		ball.speed_increase=ball.original_speed_increase * pow(1.05,GameManager.get_game_level())
-		ball.increased_velocity = ball.original_velocity * pow(1.05,GameManager.get_game_level())
-
-		pass
+func advance_level():
+	enemy.speed = enemy.original_speed * pow(1.05,GameManager.get_game_level())
+	ball.speed_increase=ball.original_speed_increase * pow(1.05,GameManager.get_game_level())
+	ball.increased_velocity = ball.original_velocity * pow(1.05,GameManager.get_game_level())
+	pass
 
 func _game_over():
 	GameManager.set_game_enabled(false)
-	GameManager.set_gameover_panel(true)
+	HUD.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
