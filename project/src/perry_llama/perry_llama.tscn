@@ -18,6 +18,9 @@ metadata/_edit_horizontal_guides_ = []
 [node name="PerryLlama" type="Node2D" parent="."]
 script = ExtResource("1_m1610")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 640)
+
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_iv6gh")]
 texture = ExtResource("3_0uvvx")
 

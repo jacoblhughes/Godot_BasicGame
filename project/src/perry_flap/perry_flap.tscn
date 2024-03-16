@@ -89,6 +89,9 @@ texture = ExtResource("4_abbuh")
 [node name="PerryFlap" type="Node2D" parent="."]
 script = ExtResource("1_ym0sw")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 640)
+
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_3tepf")]
 visible = false
 texture = ExtResource("4_abbuh")

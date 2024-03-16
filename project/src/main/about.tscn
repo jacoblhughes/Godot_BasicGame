@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b8eyyvj5cesul"]
 
-[node name="about" type="Node2D"]
+[node name="About" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 640)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 40.0

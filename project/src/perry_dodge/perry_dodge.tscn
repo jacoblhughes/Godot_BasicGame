@@ -26,6 +26,9 @@ sources/0 = SubResource("TileSetAtlasSource_ajf4l")
 script = ExtResource("1_mjawl")
 mob_scene = ExtResource("2_ndgye")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 640)
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(40, 144)
 tile_set = SubResource("TileSet_rfxxs")

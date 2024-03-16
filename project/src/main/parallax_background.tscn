@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://betwbe8urunx7" path="res://textures/perry_space/space_background_256_512.png" id="2_acjhj"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
+layer = -1
 script = ExtResource("1_asf31")
 texture = ExtResource("2_acjhj")
 

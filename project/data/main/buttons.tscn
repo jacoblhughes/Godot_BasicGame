@@ -16,7 +16,7 @@
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="14_ihqmu"]
 
 [node name="Buttons" type="CanvasLayer"]
-layer = 2
+layer = 3
 script = ExtResource("1_bni1w")
 perry_says = ExtResource("2_p72e3")
 perry_python = ExtResource("3_e04k2")
@@ -185,13 +185,13 @@ text = "Highscores"
 [connection signal="text_changed" from="AspectRatioContainer/Control/GridContainer/Initials" to="AspectRatioContainer/Control" method="_on_initials_text_changed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/SimonSays" to="." method="_on_simon_says_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Snake" to="." method="_on_snake_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Perry" to="AspectRatioContainer/Control" method="_on_pong_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Dino" to="AspectRatioContainer/Control" method="_on_dino_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Creep" to="AspectRatioContainer/Control" method="_on_creep_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Flappy" to="AspectRatioContainer/Control" method="_on_flappy_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Saucer" to="AspectRatioContainer/Control" method="_on_saucer_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Attack" to="AspectRatioContainer/Control" method="_on_perry_space_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Perry Squash" to="AspectRatioContainer/Control" method="_on_perry_squash_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/About" to="AspectRatioContainer/Control" method="_on_about_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Options" to="AspectRatioContainer/Control" method="_on_options_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Highscores" to="AspectRatioContainer/Control" method="_on_highscore_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Perry" to="." method="_on_pong_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Dino" to="." method="_on_dino_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Creep" to="." method="_on_creep_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Flappy" to="." method="_on_flappy_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Saucer" to="." method="_on_saucer_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Attack" to="." method="_on_perry_space_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Perry Squash" to="." method="_on_perry_squash_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Highscores" to="." method="_on_highscore_pressed"]

@@ -53,7 +53,7 @@ func _process(_delta):
 				_game_lose()
 
 func _game_lose():
-	GameManager.set_gameover_panel(true)
+	HUD.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
 	_set_buttons_disabled(true)
 	HUD.reset_score()

@@ -9,7 +9,7 @@ var config = ConfigFile.new()
 @onready var level_label : Label
 
 @onready var BackGroundMusic: AudioStreamPlayer
-@onready var PlayArea: ColorRect
+@onready var PlayArea: ColorRect = %PlayArea
 @onready var GameStartPanel : Panel
 @onready var Title : Label
 @onready var Directions : Label
@@ -70,15 +70,6 @@ func _ready():
 	
 	get_tree().get_root().add_child.call_deferred(background_canvas_layer_instance)
 
-
-
-	
-#	PlayButton.pressed.connect(_on_play_button_pressed)
-#	HomeButton.pressed.connect(_on_home_button_pressed)
-#	reset_button_from_gameover.pressed.connect(_on_reset_button_pressed)
-#	home_button_from_gameover.pressed.connect(_on_home_button_pressed)
-#	main_node.main_ready.connect(_on_main_ready)
-
 	var file_exists = FileAccess.file_exists(perry_arcade_path)
 	if(!file_exists):
 
@@ -137,15 +128,15 @@ func _ready():
 		
 			
 func _input(event):
-	pass
-#	if(event is InputEventMouseButton or event is InputEventScreenDrag or event is InputEventScreenTouch):
-#		if (
-#		event.position.x > PlayArea.global_position.x
-#		and event.position.y > PlayArea.global_position.y
-#		and event.position.x < (PlayArea.global_position.x + PlayArea.size.x)
-#		and event.position.y < (PlayArea.global_position.y + PlayArea.size.y)
-#	):
-#			in_play_area.emit(event)
+
+	if(event is InputEventMouseButton or event is InputEventScreenDrag or event is InputEventScreenTouch):
+		if (
+		event.position.x > PlayArea.global_position.x
+		and event.position.y > PlayArea.global_position.y
+		and event.position.x < (PlayArea.global_position.x + PlayArea.size.x)
+		and event.position.y < (PlayArea.global_position.y + PlayArea.size.y)
+	):
+			in_play_area.emit(event)
 
 	
 func get_games_list():
@@ -160,13 +151,6 @@ func get_config_path_file():
 #func set_new_status(status):
 #		StatusLabel.text = status
 
-func get_lives():
-	return lives
-	
-func update_lives(change):
-	lives += change
-	lives_label.text = str(lives)
-
 
 
 func get_play_area_size_from_HUD():
@@ -175,13 +159,9 @@ func get_play_area_size_from_HUD():
 func get_play_area_position_from_HUD():
 	return PlayArea.position
 
-
-
-
-
 func set_initials(initials):
 	new_initials = initials
-	InitialsInput.text = new_initials
+	HUD.update_initials(new_initials)
 	config.set_value("main", "initials",initials)
 	config.save(perry_arcade_path)
 	
@@ -264,10 +244,10 @@ func reset_high_scores():
 		config.set_value(key, "names", ["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
 		config.save(perry_arcade_path)
 		set_initials("JLH")
-
-func _on_main_ready():
-	AudioManager.update_background_music(config.get_value("background_music", "value", DEFAULT_FLOAT))
-	AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT_FLOAT))
-	AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT_FLOAT))
-	AudioManager.set_game_music_mute(config.get_value("game_music", "playing", DEFAULT_FLOAT))
-	AudioManager.game_file_ready()
+#
+#func _on_main_ready():
+#	AudioManager.update_background_music(config.get_value("background_music", "value", DEFAULT_FLOAT))
+#	AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT_FLOAT))
+#	AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT_FLOAT))
+#	AudioManager.set_game_music_mute(config.get_value("game_music", "playing", DEFAULT_FLOAT))
+#	AudioManager.game_file_ready()

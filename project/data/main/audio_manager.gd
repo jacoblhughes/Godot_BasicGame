@@ -3,10 +3,10 @@ extends Node
 # Export the NodePath to the player_initials scene
 var config = ConfigFile.new()
 
-var background_playing : bool
-var background_level : float
-var game_playing : bool
-var game_level : float
+var background_playing : bool = false
+var background_level : float = 0.0
+var game_playing : bool = false
+var game_level : float = 0.0
 var perry_arcade_path = "user://perry_arcade.cfg"
 var config_file_path
 
@@ -14,7 +14,16 @@ var config_file_path
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	config_file_path = config.load("user://perry_arcade.cfg")
+	set_background_music_mute(false)
+	retrieve_background_music()
+	set_game_music_mute(false)
+	update_background_music(0.0)
+	update_game_music(0.0)
 	pass
+	
+func retrieve_background_music():
+	print(config.get_value("background_music","playing"))
+	return 
 
 func set_background_music_mute(true_or_false):
 	background_playing = true_or_false

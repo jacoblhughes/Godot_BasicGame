@@ -41,13 +41,13 @@ func _on_despawn_body_entered(body):
 
 	if("Enemy" in body.name):
 		body.queue_free()
-		GameManager.update_score(score_value)
+		HUD.update_score(score_value)
 		_check_advance_level()
 	pass # Replace with function body.
 	
 func _check_advance_level():
-	if(GameManager.get_score() % level_advance_value == 0):
-		GameManager.update_game_level(level_value)
+	if(HUD.get_score() % level_advance_value == 0):
+		HUD.update_game_level(level_value)
 		enemy_spawn_timer.wait_time = enemy_spawn_timer.original_time * pow(.95,GameManager.get_game_level())
 
 func _on_play_button_pressed():
@@ -57,7 +57,7 @@ func _on_play_button_pressed():
 func _on_dino_hit():
 	enemy_spawn_timer.stop()
 	GameManager.set_game_enabled(false)
-	GameManager.set_gameover_panel(true)
+	HUD.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
 	player.global_position = start_position
 	var enemies = get_tree().get_nodes_in_group("enemy")

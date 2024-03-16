@@ -54,13 +54,13 @@ func _on_rocket_deathzone_area_entered(area):
 	pass # Replace with function body.
 
 func _on_player_hit():
-	GameManager.update_lives(-lives_lost)
+	HUD.update_lives(-lives_lost)
 	
-	if(GameManager.get_lives()<=0):
+	if(HUD.get_lives()<=0):
 		_game_over()
 
 func _game_over():
-	GameManager.set_gameover_panel(true)
+	HUD.set_gameover_panel(true)
 	GameManager.set_game_enabled(false)
 	enemy_timer.stop()
 
@@ -71,11 +71,11 @@ func _game_over():
 	GameManager.check_highscore_and_rank()
 
 func _on_enemy_hit():
-	GameManager.update_score(score_value)
+	HUD.update_score(score_value)
 	_check_advance_level()
 	
 func _check_advance_level():
-	if(GameManager.get_score() % level_advance_value == 0):
-		GameManager.update_game_level(level_value)
+	if(HUD.get_score() % level_advance_value == 0):
+		HUD.update_game_level(level_value)
 #		rocket_timer.wait_time = player.original_rocket_time * pow(.95,GameManager.get_game_level())
 		enemy_timer.wait_time = enemy_spawner.original_enemy_time * pow(.95,GameManager.get_game_level())

@@ -112,3 +112,11 @@ func set_or_reset_lives(default_lives = "INF"):
 func set_game_again():
 	game_scene.add_child(GameManager.current_game_scene.instantiate(),true)
 	set_gamestart_panel(true)
+
+func get_lives():
+	return lives
+	
+func update_lives(change):
+	lives += change
+	%LivesLabel.text = str(lives)
+

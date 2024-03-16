@@ -11,6 +11,9 @@
 [node name="PerryPython" type="Node2D" parent="."]
 script = ExtResource("1_5btnr")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 640)
+
 [node name="Background" type="TextureRect" parent="."]
 offset_left = 40.0
 offset_top = 144.0

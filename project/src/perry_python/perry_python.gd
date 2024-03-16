@@ -199,7 +199,7 @@ func _on_grid_ready():
 	minisnakes.push_front(head)
 
 func _on_food_eaten():
-	GameManager.update_score(score_value)
+	HUD.update_score(score_value)
 	_check_advance_level()
 	
 func _check_advance_level():

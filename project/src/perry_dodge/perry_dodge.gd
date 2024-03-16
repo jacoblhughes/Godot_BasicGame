@@ -30,13 +30,13 @@ func _game_initialize():
 
 
 func _on_score_timer_timeout():
-	GameManager.update_score(score_value)
+	HUD.update_score(score_value)
 	_check_advance_level()
 	pass # Replace with function body.
 	
 func _check_advance_level():
-	if(GameManager.get_score() % level_advance_value == 0):
-		GameManager.update_game_level(level_value)
+	if(HUD.get_score() % level_advance_value == 0):
+		HUD.update_game_level(level_value)
 		MobTimer.wait_time = original_mob_time * pow(.95,GameManager.get_game_level())
 
 func _on_start_timer_timeout():
@@ -72,7 +72,7 @@ func _on_mob_timer_timeout():
 
 func _on_player_hit():
 	GameManager.set_game_enabled(false)
-	GameManager.set_gameover_panel(true)
+	HUD.set_gameover_panel(true)
 	MobTimer.stop()
 	ScoreTimer.stop()
 	GameManager.check_highscore_and_rank()

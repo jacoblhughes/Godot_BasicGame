@@ -13,7 +13,7 @@ var png_size = 150
 signal food_eaten
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GameManager.reset_score()
+	HUD.reset_score()
 	my_food_instance = preload("res://src/perry_python/food.tscn").instantiate()
 	spawn_food()
 

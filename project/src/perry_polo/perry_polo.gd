@@ -57,20 +57,20 @@ func _on_win_body_entered(body):
 	if(GameManager.get_game_enabled()):
 		if body is PerryBall:
 			position_reset.emit()
-			GameManager.update_score(score_value)
+			HUD.update_score(score_value)
 			_check_advance_level()
 	
 func _on_lose_body_entered(body):
 	if body is PerryBall:
 		position_reset.emit()
-		GameManager.update_lives(-lives_lost)
-		if(GameManager.get_lives()<=0):
+		HUD.update_lives(-lives_lost)
+		if(HUD.get_lives()<=0):
 			_game_over()
 	pass # Replace with function body.
 
 func _check_advance_level():
-	if GameManager.get_score() % level_advance_value == 0:
-		GameManager.update_game_level(level_value)
+	if HUD.get_score() % level_advance_value == 0:
+		HUD.update_game_level(level_value)
 		enemy.speed = enemy.original_speed * pow(1.05,GameManager.get_game_level())
 		ball.speed_increase=ball.original_speed_increase * pow(1.05,GameManager.get_game_level())
 		ball.increased_velocity = ball.original_velocity * pow(1.05,GameManager.get_game_level())
