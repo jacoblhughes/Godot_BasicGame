@@ -1,12 +1,12 @@
-extends Control
+extends Node
 
 signal main_ready
-@onready var background : ColorRect = %Background
 
-@onready var buttons = %Buttons
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	main_ready.emit()
+
 
 	pass # Replace with function body.
 

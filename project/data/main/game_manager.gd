@@ -1,5 +1,6 @@
 extends Node
-
+@export var background_canvas_layer = preload("res://src/main/background.tscn")
+@export var buttons_canvas_layer = preload("res://src/main/buttons.tscn")
 # Export the NodePath to the player_initials scene
 var config = ConfigFile.new()
 
@@ -25,12 +26,11 @@ var child_node_to_delete
 @onready var game_over_panel : Panel
 @onready var reset_button_from_gameover : Button
 @onready var home_button_from_gameover : Button
-@onready var game_scene : Control
 @onready var lives_label : Label
 @onready var aspect_ratio_container
-@onready var buttons : Control
-@onready var hud_control : Control
-@onready var main_node : Control
+@onready var buttons : CanvasLayer
+@onready var hud_control : CanvasLayer
+@onready var main_node : Node
 @onready var game_over_panel_congrats : AnimatedSprite2D
 @onready var collision_area_for_detection : Area2D
 var perry_arcade_path = "user://perry_arcade.cfg"
@@ -61,45 +61,27 @@ var games_list : Dictionary = {
 ,"9":{"title":"Perry Squash","short_name":"perry_squash","directions":"Help Perry squash"}
 }
 # Called when the node enters the scene tree for the first time.
+
+var background_canvas_layer_instance
+var buttons_canvas_layer_instance
+var hud_canvas_layer_instance
+
+@onready var game_scene : Node = get_tree().get_root().get_node("Main")
+
 func _ready():
+	background_canvas_layer_instance = background_canvas_layer.instantiate()
+	buttons_canvas_layer_instance = buttons_canvas_layer.instantiate()
 	
-	main_node = get_tree().get_root().get_node("main2")
-#	aspect_ratio_container = main_node.get_node("AspectRatioContainer")
-	buttons = main_node.get_node("AspectRatioContainer").get_node("Buttons")
+	get_tree().get_root().add_child.call_deferred(background_canvas_layer_instance)
+	get_tree().get_root().add_child.call_deferred(buttons_canvas_layer_instance)
 
-
-	hud_control = main_node.get_node("HUD")
-	InitialsInput = hud_control.get_node("Initials")
-	ScoreLabel = hud_control.get_node("Score")
+	buttons = buttons_canvas_layer_instance
 	
-	
-#	PlayArea = aspect_ratio_container.get_node("PlayArea")
-
-
-	GameStartPanel = hud_control.get_node("GameStartPanel")
-	Title = hud_control.get_node("GameStartPanel").get_node("Title")
-	Directions = hud_control.get_node("GameStartPanel").get_node("Directions")
-	PlayButton = hud_control.get_node("GameStartPanel").get_node("Play_Button")
-	game_over_panel = hud_control.get_node("GameOverPanel")
-	game_over_panel_congrats = game_over_panel.get_node("AnimatedSprite2D")
-	reset_button_from_gameover = hud_control.get_node("GameOverPanel").get_node("ResetButton")
-	home_button_from_gameover = hud_control.get_node("GameOverPanel").get_node("HomeButtonOnGameover")
-
-
-
-
-	HomeButton = hud_control.get_node("Home_Button")
-	
-	game_scene = main_node.get_node("AspectRatioContainer").get_node("GameScene")
-	lives_label = hud_control.get_node("LivesLabel")
-	level_label = hud_control.get_node("LevelLabel")
-	PlayButton.pressed.connect(_on_play_button_pressed)
-
-
-	HomeButton.pressed.connect(_on_home_button_pressed)
-	reset_button_from_gameover.pressed.connect(_on_reset_button_pressed)
-	home_button_from_gameover.pressed.connect(_on_home_button_pressed)
-	main_node.main_ready.connect(_on_main_ready)
+#	PlayButton.pressed.connect(_on_play_button_pressed)
+#	HomeButton.pressed.connect(_on_home_button_pressed)
+#	reset_button_from_gameover.pressed.connect(_on_reset_button_pressed)
+#	home_button_from_gameover.pressed.connect(_on_home_button_pressed)
+#	main_node.main_ready.connect(_on_main_ready)
 
 	var file_exists = FileAccess.file_exists(perry_arcade_path)
 	if(!file_exists):
@@ -155,7 +137,7 @@ func _ready():
 	new_initials = config.get_value("main", "initials")
 	
 	initiate_highscores_section()
-	_load_initials()	
+	HUD.update_initials(new_initials)
 		
 			
 func _input(event):
@@ -191,19 +173,7 @@ func update_game_level(new_level):
 			var this_level = str(game_level)
 			level_label.text = this_level
 
-func set_new_score(new_score):
-			score = new_score
-			var this_score = str(score)
-			ScoreLabel.text = this_score
-			
-func update_score(new_score):
-			score += new_score
-			var this_score = str(score)
-			ScoreLabel.text = this_score
-		
-func reset_score():
-	score=0
-	ScoreLabel.text = str(score)
+
 #func set_new_status(status):
 #		StatusLabel.text = status
 
@@ -242,7 +212,7 @@ func set_directions(directions):
 	Directions.text = directions
 
 func _on_home_button_pressed():
-	reset_score()
+	hud_canvas_layer_instance.reset_score()
 	set_or_reset_lives()
 	GameManager.set_game_enabled(false)
 	set_gameover_panel(false)
@@ -285,8 +255,7 @@ func set_game_again():
 	game_scene.add_child(current_game_scene.instantiate(),true)
 	GameManager.set_gamestartpanel(true)
 
-func _load_initials():
-	InitialsInput.text = new_initials
+
 
 func set_initials(initials):
 	new_initials = initials

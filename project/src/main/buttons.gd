@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 var config = ConfigFile.new()
 
 @onready var InitialsInput : LineEdit = %Initials
@@ -22,7 +22,7 @@ var perry_space_scene
 @export var perry_squash: PackedScene
 var perry_squash_scene
 
-
+var game_scene : Control
 
 @export var about: PackedScene
 var about_scene
@@ -32,7 +32,6 @@ var options_scene
 var highscore_scene
 
 @onready var config_file_path = GameManager.get_config_path_file()
-@export var game_scene : Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -55,13 +54,13 @@ func _on_simon_says_pressed():
 	game_key = "1"
 	var title = GameManager.get_game_list_values(game_key)["title"]
 	var directions = GameManager.get_game_list_values(game_key)["directions"]
-	GameManager.set_gamestartpanel(true)
-	GameManager.set_title(title)
-	GameManager.set_directions(directions)
-	GameManager.set_game_key(game_key)
+	HUD.set_gamestartpanel(true)
+	HUD.set_title(title)
+	HUD.set_directions(directions)
+	HUD.set_game_key(game_key)
 	perry_says_scene = perry_says.instantiate()
 	game_scene.add_child(perry_says_scene)
-	GameManager.set_current_game_scene(perry_says)
+	HUD.set_current_game_scene(perry_says)
 	pass # Replace with function body.
 	
 func _on_snake_pressed():

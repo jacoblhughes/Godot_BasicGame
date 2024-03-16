@@ -3,12 +3,6 @@ extends Node
 # Export the NodePath to the player_initials scene
 var config = ConfigFile.new()
 
-
-
-@onready var BackGroundMusic: AudioStreamPlayer
-@onready var hud_control : Control
-@onready var aspect_ratio_container :Control
-
 var background_playing : bool
 var background_level : float
 var game_playing : bool
@@ -19,11 +13,6 @@ var config_file_path
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	aspect_ratio_container = get_tree().get_root().get_node("main2")
-	hud_control = aspect_ratio_container.get_node("HUD")
-
-
-	BackGroundMusic = hud_control.get_node("BackGroundMusic")
 	config_file_path = config.load("user://perry_arcade.cfg")
 	pass
 
@@ -31,18 +20,18 @@ func set_background_music_mute(true_or_false):
 	background_playing = true_or_false
 	var _this_bus_index = AudioServer.get_bus_index("Background")
 	if(background_playing):
-		BackGroundMusic.play()
+		%BackGroundMusic.play()
 		AudioServer.set_bus_mute(_this_bus_index,false)
 		config.set_value("background_music","playing",1)
 		config.save(perry_arcade_path)
 		return
-	if(!background_playing and AudioManager.BackGroundMusic.playing):
-		BackGroundMusic.stop()
+	if(!background_playing and %BackGroundMusic.playing):
+		%BackGroundMusic.stop()
 		AudioServer.set_bus_mute(_this_bus_index,true)
 		config.set_value("background_music","playing",0)
 		config.save(perry_arcade_path)
 		return
-	elif(!background_playing and !AudioManager.BackGroundMusic.playing):
+	elif(!background_playing and !%BackGroundMusic.playing):
 		AudioServer.set_bus_mute(_this_bus_index,true)
 		config.set_value("background_music","playing",0)
 		config.save(perry_arcade_path)

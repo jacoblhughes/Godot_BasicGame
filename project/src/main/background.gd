@@ -1,4 +1,4 @@
-extends ColorRect
+extends CanvasLayer
 var counter = 0
 var x_view = 360
 var y_view = 640

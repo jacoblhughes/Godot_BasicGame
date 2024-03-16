@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckpqmqx1najki"]
+
+[ext_resource type="Script" path="res://src/main/main.gd" id="1_7uc3t"]
+[ext_resource type="PackedScene" uid="uid://cfye0cp6yjq1a" path="res://src/main/background.tscn" id="1_s2skx"]
+[ext_resource type="PackedScene" uid="uid://cyl28swe7b43k" path="res://src/main/hud.tscn" id="2_v0m1m"]
+[ext_resource type="PackedScene" uid="uid://d4cpf87cb1bs0" path="res://src/main/buttons.tscn" id="3_5wtcr"]
+
+[node name="Main" type="Node" node_paths=PackedStringArray("GameScene")]
+script = ExtResource("1_7uc3t")
+GameScene = NodePath("GameScene")
+
+[node name="Background" parent="." instance=ExtResource("1_s2skx")]
+unique_name_in_owner = true
+
+[node name="HUD" parent="." instance=ExtResource("2_v0m1m")]
+unique_name_in_owner = true
+layer = 2
+
+[node name="Buttons" parent="." instance=ExtResource("3_5wtcr")]
+unique_name_in_owner = true
+layer = 2
+
+[node name="GameScene" type="Node" parent="."]

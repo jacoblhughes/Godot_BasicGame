@@ -20,8 +20,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 SnakeVariables="*res://data/perry_python/singleton/SnakeVariables.gd"
-GameManager="*res://data/main/GameManager.gd"
-AudioManager="*res://data/main/AudioManager.gd"
+AudioManager="*res://data/main/audio_manager.tscn"
+HUD="*res://data/main/hud.tscn"
+GameManager="*res://data/main/game_manager.tscn"
 
 [display]
 
