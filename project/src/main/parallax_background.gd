@@ -16,7 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	print(GameManager.get_play_area_size_from_HUD())
+
 	parallax.motion_offset.x -= speed * delta
 
 #	scroll = speed * delta

@@ -45,7 +45,7 @@ func _process(_delta):
 
 func _on_initials_text_changed(new_text):
 
-	GameManager.set_initials(new_text)
+	HUD.set_initials(new_text)
 	pass # Replace with function body.
 
 func _on_simon_says_pressed():
@@ -163,7 +163,6 @@ func _on_perry_squash_pressed():
 
 func _on_about_pressed():
 	self.visible = false
-
 	about_scene = about.instantiate()
 	game_scene.add_child(about_scene)
 	GameManager.set_current_game_scene(about)

@@ -12,7 +12,7 @@ var game_on = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start_position = get_parent().get_node("StartPosition")
-	target_position = start_position.position
+	target_position = start_position.global_position
 	saucer = get_parent().get_node("PerryRun")
 	saucer.game_start.connect(_on_game_start)
 	saucer.out_of_bounds.connect(_on_out_of_bounds)
@@ -25,12 +25,13 @@ func _on_in_play_area(event):
 			if event.pressed:
 				is_touching = true
 				target_position = event.position
+				printerr(event.position)
 	pass
 
 func _physics_process(delta):
-
+	print(global_position,position)
 	if(GameManager.get_game_enabled() and game_on == true):
-		var to_target = target_position - position
+		var to_target = target_position - global_position
 		var direction = to_target.normalized()
 		if(direction.x<0):
 			$AnimatedSprite2D.flip_h = true
@@ -38,11 +39,6 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = false
 		var distance_to_target = to_target.length()
 		if is_touching:
-			# Calculate the direction to the target position
-#			var direction = (target_position - position).normalized()
-#
-#			# Calculate the velocity
-#			velocity = direction * move_speed
 			if distance_to_target > stop_threshold:
 				velocity = direction * move_speed
 			else:
@@ -55,13 +51,7 @@ func _physics_process(delta):
 			# Decelerate to a stop when not touching
 			velocity = velocity.move_toward(Vector2.ZERO, move_speed * delta)
 			move_and_slide()
-
-##	var mouse_pos = get_viewport().get_mouse_position()
-##	target_y = mouse_pos.y
-#	position = position.lerp(target_position, lerp_speed)
-#	position.x = clamp(position.x, GameManager.PlayArea.global_position.x,GameManager.PlayArea.global_position.x+GameManager.PlayArea.size.x)
-#	position.y = clamp(position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y)
-
+			
 func _on_game_start():
 	game_on = true
 

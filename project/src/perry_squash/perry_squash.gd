@@ -49,7 +49,7 @@ func _on_player_hit():
 			node.velocity= Vector3.ZERO
 		mob_timer.stop()
 		GameManager.set_game_enabled(false)
-		GameManager.set_gameover_panel(true)
+		HUD.set_gameover_panel(true)
 		GameManager.check_highscore_and_rank()
 #	$UserInterface/Retry.show()
 #
@@ -64,4 +64,4 @@ func _on_play_button_pressed():
 
 func _on_mob_squashed():
 
-	GameManager.update_score(score_value)
+	HUD.update_score(score_value)

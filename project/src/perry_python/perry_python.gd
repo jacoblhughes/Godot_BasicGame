@@ -28,8 +28,8 @@ var level_advance_value = 2
 var original_snake_time = .75
 func _ready():
 
-	var left_over = (GameManager.get_play_area_size_from_HUD().y/2) - (GameManager.get_play_area_size_from_HUD().x/2)
-	var new_position = Vector2(GameManager.get_play_area_position_from_HUD().x,GameManager.get_play_area_position_from_HUD().y+left_over)
+	var left_over = (PlayArea.get_play_area_size_from_HUD().y/2) - (PlayArea.get_play_area_size_from_HUD().x/2)
+	var new_position = Vector2(PlayArea.get_play_area_position_from_HUD().x,PlayArea.get_play_area_position_from_HUD().y+left_over)
 	grid = get_parent().get_node("grid")
 	grid.grid_ready.connect(_on_grid_ready)
 	play_area_min = new_position

@@ -67,6 +67,7 @@ func _on_home_button_pressed():
 		for child in child_node_to_delete:
 			child.queue_free()
 	HUD.set_or_reset_level()
+
 	pass # Replace with function body.
 	
 func _on_play_button_pressed():

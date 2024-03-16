@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgu5dun6rgtic"]
+[gd_scene load_steps=9 format=3 uid="uid://cgu5dun6rgtic"]
 
 [ext_resource type="Script" path="res://src/perry_llama/perry_llama.gd" id="1_m1610"]
 [ext_resource type="Texture2D" uid="uid://bp26itcmp7en1" path="res://textures/perry_llama/llama_background_256_512.png" id="3_0uvvx"]
-[ext_resource type="PackedScene" uid="uid://dtkr0v8bhef4k" path="res://src/main/parallax_background.tscn" id="4_iv6gh"]
 [ext_resource type="PackedScene" uid="uid://cmnxppb5dpdr6" path="res://src/perry_llama/player.tscn" id="5_xhyv5"]
 [ext_resource type="PackedScene" uid="uid://bhvh5e4jf5b7o" path="res://src/perry_llama/despawn.tscn" id="6_lg8u8"]
 [ext_resource type="PackedScene" uid="uid://m2beoi334dvw" path="res://src/perry_llama/perry_running.tscn" id="7_mxegh"]
@@ -18,11 +17,13 @@ metadata/_edit_horizontal_guides_ = []
 [node name="PerryLlama" type="Node2D" parent="."]
 script = ExtResource("1_m1610")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(360, 656)
+scale = Vector2(2.5, 2)
+texture = ExtResource("3_0uvvx")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
-
-[node name="ParallaxBackground" parent="." instance=ExtResource("4_iv6gh")]
-texture = ExtResource("3_0uvvx")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(24, 664)

@@ -1,15 +1,31 @@
-[gd_scene format=3 uid="uid://b8eyyvj5cesul"]
+[gd_scene load_steps=2 format=3 uid="uid://b8eyyvj5cesul"]
 
-[node name="About" type="Node2D"]
+[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="1_5bi5k"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(360, 640)
+[node name="AspectRatioContainer" type="AspectRatioContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 0.5625
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 40.0
-offset_top = 144.0
-offset_right = 680.0
-offset_bottom = 1168.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5bi5k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer"]
+layout_mode = 2
 bbcode_enabled = true
 text = "[center][b]Thank you for using Perry Arcade![/b][/center]
 

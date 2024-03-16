@@ -3,8 +3,6 @@ extends Node
 # Export the NodePath to the player_initials scene
 var config = ConfigFile.new()
 
-@onready var PlayArea: ColorRect = %PlayArea
-
 var child_node_to_delete
 
 @onready var main_node : Node
@@ -15,7 +13,7 @@ var current_game_scene : PackedScene
 
 const DEFAULT_FLOAT = -1.0
 const DEFAULT_TEXT = "-1"
-
+const DEFAULT_BOOL = null
 var game_level = 1
 
 
@@ -24,6 +22,8 @@ signal initialsUpdated
 signal in_play_area(event)
 
 var game_key = "JLH"
+var play_area_position
+var play_area_size
 
 var games_list : Dictionary = {
 "1":{"title":"Perry Says","short_name":"perry_says","directions":"Smash Perry in the right order to get the high score!"}
@@ -42,6 +42,7 @@ var background_canvas_layer_instance
 @onready var game_scene : Node = get_tree().get_root().get_node("Main")
 
 func _ready():
+
 	background_canvas_layer_instance = background_canvas_layer.instantiate()
 	get_tree().get_root().add_child.call_deferred(background_canvas_layer_instance)
 
@@ -78,7 +79,7 @@ func _ready():
 			config.set_value("background_music", "value",0.5)
 			config.save(perry_arcade_path)
 
-		if config.get_value("background_music", "playing", DEFAULT_FLOAT) != DEFAULT_FLOAT:
+		if config.get_value("background_music", "playing", DEFAULT_BOOL) != DEFAULT_BOOL:
 			pass
 		else:
 			config.set_value("background_music", "playing",0)
@@ -90,7 +91,7 @@ func _ready():
 			config.set_value("game_music", "value",0.5)
 			config.save(perry_arcade_path)
 
-		if config.get_value("game_music", "playing", DEFAULT_FLOAT) != DEFAULT_FLOAT:
+		if config.get_value("game_music", "playing", DEFAULT_BOOL) != DEFAULT_BOOL:
 			pass
 		else:
 			config.set_value("game_music", "playing",0)
@@ -100,31 +101,16 @@ func _ready():
 	
 	initiate_highscores_section()
 	HUD.update_initials(new_initials)
-		
-			
-func _input(event):
-
-	if(event is InputEventMouseButton or event is InputEventScreenDrag or event is InputEventScreenTouch):
-		if (
-		event.position.x > PlayArea.global_position.x
-		and event.position.y > PlayArea.global_position.y
-		and event.position.x < (PlayArea.global_position.x + PlayArea.size.x)
-		and event.position.y < (PlayArea.global_position.y + PlayArea.size.y)
-		):
-			in_play_area.emit(event)
-
+	AudioManager.update_background_music(config.get_value("background_music", "value", DEFAULT_FLOAT))
+	AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT_FLOAT))
+	AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT_FLOAT))
+	AudioManager.set_game_music_mute(config.get_value("game_music", "playing", DEFAULT_FLOAT))
 	
 func get_games_list():
 	return games_list
 	
 func get_config_path_file():
 	return perry_arcade_path
-
-func get_play_area_size_from_HUD():
-	return PlayArea.size
-	
-func get_play_area_position_from_HUD():
-	return PlayArea.position
 	
 func save_initials(initials):
 	var new_initials = initials
@@ -200,19 +186,26 @@ func set_game_enabled(status):
 
 func set_game_key(key):
 	game_key = key
-	
 
-	
 func reset_high_scores():
 	for key in games_list.keys():
 		config.set_value(key, "scores", [0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 		config.set_value(key, "names", ["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
 		config.save(perry_arcade_path)
 		save_initials("JLH")
-#
-func _on_main_ready():
-	AudioManager.update_background_music(config.get_value("background_music", "value", DEFAULT_FLOAT))
-	AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT_FLOAT))
-	AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT_FLOAT))
-	AudioManager.set_game_music_mute(config.get_value("game_music", "playing", DEFAULT_FLOAT))
-	AudioManager.game_file_ready()
+
+func save_background_music_choice(value):
+	config.set_value("background_music","playing",value)
+	config.save(perry_arcade_path)
+
+func save_game_effects_choice(game_effects_playing):
+	config.set_value("game_music","playing",game_effects_playing)
+	config.save(perry_arcade_path)
+	
+func save_background_music_value(value):
+	config.set_value("background_music","value",value)
+	config.save(perry_arcade_path)
+
+func save_game_effects_value(value):
+	config.set_value("game_music","value",value)
+	config.save(perry_arcade_path)
