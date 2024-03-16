@@ -35,9 +35,9 @@ func _ready():
 
 	
 func _game_initialize():
-	GameManager.reset_score()
-	GameManager.startButtonPressed.connect(_on_play_button_pressed)
-	GameManager.set_or_reset_level(level_value)
+	HUD.reset_score()
+	HUD.startButtonPressed.connect(_on_play_button_pressed)
+	HUD.set_or_reset_level(level_value)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -56,7 +56,7 @@ func _game_lose():
 	GameManager.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
 	_set_buttons_disabled(true)
-	GameManager.reset_score()
+	HUD.reset_score()
 	GameManager.set_game_enabled(false)
 	computerPopulate = 0
 	arrayOfButtonsToFollow = []
@@ -96,15 +96,15 @@ func _set_buttons_disabled(setting):
 		groupOfButtons[i].texture_button.disabled = setting
 
 func _player_turn_end():
-	GameManager.update_score(score_value)
+	HUD.update_score(score_value)
 	_check_advance_level()
 	playerTurn = false
 	arrayOfPlayerResponse = []
 	playerPopulate = -1
 
 func _check_advance_level():
-	if(GameManager.get_score() % level_advance_value == 0):
-		GameManager.update_game_level(level_value)
+	if(HUD.get_score() % level_advance_value == 0):
+		HUD.update_game_level(level_value)
 		for button in groupOfButtons:
 			button.play_time = button.original_time * pow(.95,GameManager.get_game_level())
 

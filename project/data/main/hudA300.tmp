@@ -21,7 +21,6 @@ ratio = 0.56
 
 [node name="Control" type="Control" parent="AspectRatioContainer"]
 layout_mode = 2
-mouse_filter = 1
 metadata/_edit_horizontal_guides_ = [224.0, 672.0, 640.0]
 metadata/_edit_vertical_guides_ = [240.0, 720.0, 480.0]
 
@@ -147,7 +146,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 theme = ExtResource("2_7580m")
 
 [node name="Play_Button" type="Button" parent="AspectRatioContainer/Control/GameStartPanel"]
@@ -235,7 +233,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 theme = ExtResource("2_7580m")
 
 [node name="ResetButton" type="Button" parent="AspectRatioContainer/Control/GameOverPanel"]
@@ -291,5 +288,3 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_bjiwu")
-
-[connection signal="pressed" from="AspectRatioContainer/Control/GameStartPanel/Play_Button" to="." method="_on_play_button_pressed"]

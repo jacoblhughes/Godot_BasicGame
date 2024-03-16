@@ -26,10 +26,10 @@ func _ready():
 #	player = get_parent().get_node("Player")
 
 func _game_initialize():
-	GameManager.reset_score()
-	GameManager.startButtonPressed.connect(_on_play_button_pressed)
-	GameManager.set_or_reset_lives(3)
-	GameManager.set_or_reset_level(1)
+	HUD.reset_score()
+	HUD.startButtonPressed.connect(_on_play_button_pressed)
+	HUD.set_or_reset_lives(3)
+	HUD.set_or_reset_level(1)
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)

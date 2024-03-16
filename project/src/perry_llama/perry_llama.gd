@@ -26,9 +26,9 @@ func _ready():
 func _game_initialize():
 	for node in get_tree().get_nodes_in_group("enemy"):
 		node.remove_from_group("enemy")
-	GameManager.reset_score()
-	GameManager.startButtonPressed.connect(_on_play_button_pressed)
-	GameManager.set_or_reset_level(1)
+	HUD.reset_score()
+	HUD.startButtonPressed.connect(_on_play_button_pressed)
+	HUD.set_or_reset_level(1)
 	
 func _on_enemy_spawn_timer_timeout():
 	var enemy_choice = floor(randf_range(0, 4))

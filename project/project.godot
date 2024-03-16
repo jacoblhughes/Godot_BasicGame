@@ -23,12 +23,13 @@ SnakeVariables="*res://data/perry_python/singleton/SnakeVariables.gd"
 AudioManager="*res://data/main/audio_manager.tscn"
 HUD="*res://data/main/hud.tscn"
 GameManager="*res://data/main/game_manager.tscn"
+Buttons="*res://data/main/buttons.tscn"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 

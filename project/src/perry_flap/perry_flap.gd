@@ -22,9 +22,9 @@ func _ready():
 	pass # Replace with function body.
 
 func _game_initialize():
-	GameManager.reset_score()
-	GameManager.startButtonPressed.connect(_on_play_button_pressed)
-	GameManager.set_or_reset_level(1)
+	HUD.reset_score()
+	HUD.startButtonPressed.connect(_on_play_button_pressed)
+	HUD.set_or_reset_level(1)
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)

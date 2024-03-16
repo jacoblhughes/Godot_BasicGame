@@ -25,8 +25,8 @@ func _ready():
 	_game_initialize()
 	
 func _game_initialize():
-	GameManager.reset_score()
-	GameManager.startButtonPressed.connect(_on_play_button_pressed)	
+	HUD.reset_score()
+	HUD.startButtonPressed.connect(_on_play_button_pressed)	
 
 
 func _on_score_timer_timeout():

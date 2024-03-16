@@ -34,10 +34,10 @@ func _ready():
 	grid.grid_ready.connect(_on_grid_ready)
 	play_area_min = new_position
 	SnakeTimer = get_parent().get_node("Snake_Move_Timer")
-	GameManager.startButtonPressed.connect(_on_play_button_pressed)
-	GameManager.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
+	HUD.startButtonPressed.connect(_on_play_button_pressed)
+	HUD.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
 	GameManager.in_play_area.connect(_on_in_play_area)
-	GameManager.set_or_reset_level(level_value)
+	HUD.set_or_reset_level(level_value)
 	food_spawner = get_parent().get_node("spawner_food")
 	head  = head_scene.instantiate()
 	food_spawner.food_eaten.connect(_on_food_eaten)

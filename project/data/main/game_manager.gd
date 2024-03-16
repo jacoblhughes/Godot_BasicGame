@@ -1,6 +1,5 @@
 extends Node
 @export var background_canvas_layer = preload("res://src/main/background.tscn")
-@export var buttons_canvas_layer = preload("res://src/main/buttons.tscn")
 # Export the NodePath to the player_initials scene
 var config = ConfigFile.new()
 
@@ -43,8 +42,7 @@ const DEFAULT_TEXT = "-1"
 
 var game_level = 1
 
-signal startButtonPressed
-signal resetButtonPressed
+
 signal highscoreButtonpressed
 signal initialsUpdated
 signal in_play_area(event)
@@ -63,19 +61,17 @@ var games_list : Dictionary = {
 # Called when the node enters the scene tree for the first time.
 
 var background_canvas_layer_instance
-var buttons_canvas_layer_instance
-var hud_canvas_layer_instance
 
 @onready var game_scene : Node = get_tree().get_root().get_node("Main")
 
 func _ready():
 	background_canvas_layer_instance = background_canvas_layer.instantiate()
-	buttons_canvas_layer_instance = buttons_canvas_layer.instantiate()
+
 	
 	get_tree().get_root().add_child.call_deferred(background_canvas_layer_instance)
-	get_tree().get_root().add_child.call_deferred(buttons_canvas_layer_instance)
 
-	buttons = buttons_canvas_layer_instance
+
+
 	
 #	PlayButton.pressed.connect(_on_play_button_pressed)
 #	HomeButton.pressed.connect(_on_home_button_pressed)
@@ -158,20 +154,7 @@ func get_games_list():
 func get_config_path_file():
 	return perry_arcade_path
 	
-func get_initials():
-	return new_initials
 
-func set_or_reset_level(default_level = "INF"):
-	if typeof(default_level) == TYPE_INT:
-		game_level = default_level
-		level_label.text = str(default_level)
-	else:
-		level_label.text = default_level
-			
-func update_game_level(new_level):
-			game_level += new_level
-			var this_level = str(game_level)
-			level_label.text = this_level
 
 
 #func set_new_status(status):
@@ -184,13 +167,7 @@ func update_lives(change):
 	lives += change
 	lives_label.text = str(lives)
 
-func set_or_reset_lives(default_lives = "INF"):
-	if typeof(default_lives) == TYPE_INT:
-		lives = default_lives
-		lives_label.text = str(default_lives)
-	else:
-		lives=3
-		lives_label.text = default_lives
+
 
 func get_play_area_size_from_HUD():
 	return PlayArea.size
@@ -198,62 +175,7 @@ func get_play_area_size_from_HUD():
 func get_play_area_position_from_HUD():
 	return PlayArea.position
 
-func get_score():
-	return score
 
-func set_gamestartpanel(flag):
-
-	GameStartPanel.visible = flag
-	
-func set_title(title):
-	Title.text=title
-
-func set_directions(directions):
-	Directions.text = directions
-
-func _on_home_button_pressed():
-	hud_canvas_layer_instance.reset_score()
-	set_or_reset_lives()
-	GameManager.set_game_enabled(false)
-	set_gameover_panel(false)
-	set_gameover_panel_congrats(false)
-	child_node_to_delete = game_scene.get_children()
-	if child_node_to_delete:
-		buttons.visible = true
-		for child in child_node_to_delete:
-			child.queue_free()
-	set_or_reset_level()
-	pass # Replace with function body.
-	
-func _on_play_button_pressed():
-	GameStartPanel.visible = false
-	startButtonPressed.emit()
-	pass # Replace with function body.
-
-func set_gameover_panel(flag):
-
-	game_over_panel.visible = flag
-
-func set_gameover_panel_congrats(vis):
-	game_over_panel_congrats.visible = vis
-	if(vis):
-		game_over_panel_congrats.play()
-	else:
-		game_over_panel_congrats.stop()
-	
-
-func _on_reset_button_pressed():
-	set_gameover_panel(false)
-	resetButtonPressed.emit()
-	child_node_to_delete = game_scene.get_children()
-	if child_node_to_delete:
-		for child in child_node_to_delete:
-			child.queue_free()
-	set_game_again()
-	pass # Replace with function body.
-func set_game_again():
-	game_scene.add_child(current_game_scene.instantiate(),true)
-	GameManager.set_gamestartpanel(true)
 
 
 
