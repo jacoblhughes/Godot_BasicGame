@@ -36,7 +36,7 @@ func _on_score_timer_timeout():
 	pass # Replace with function body.
 	
 func advance_level():
-	MobTimer.wait_time = original_mob_time * pow(.95,GameManager.get_game_level())
+	MobTimer.wait_time = original_mob_time * pow(.95,HUD.get_game_level())
 
 func _on_start_timer_timeout():
 	MobTimer.start()

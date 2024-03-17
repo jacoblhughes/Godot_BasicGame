@@ -4,8 +4,7 @@ signal hit
 var player_collision = true
 @onready var CollisionShape : CollisionShape2D
 @export var speed = 400 # How fast the player will move (pixels/sec).
-var screen_size # Size of the game window.
-var screen_position
+
 @onready var start_position : Marker2D
 
 var target_position
@@ -14,10 +13,6 @@ var is_touching = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-#	CollisionShape = $CollisionShape2D
-	screen_size = GameManager.get_play_area_size()
-	screen_position = GameManager.get_play_area_position()
 	start_position = get_parent().get_node('StartPosition')
 	target_position = start_position.global_position
 	PlayArea.in_play_area.connect(_on_in_play_area)
@@ -30,7 +25,7 @@ func _on_in_play_area(event):
 		if event is InputEventScreenTouch:
 			if event.pressed:
 				is_touching = true
-				target_position = event.position
+				target_position = get_global_mouse_position()
 			else:
 				is_touching = false
 
@@ -59,8 +54,8 @@ func _physics_process(_delta):
 #	var mouse_pos = get_viewport().get_mouse_position()
 #	target_y = mouse_pos.y
 	global_position = global_position.lerp(target_position, lerp_speed)
-	global_position.x = clamp(global_position.x, GameManager.PlayArea.global_position.x,GameManager.PlayArea.global_position.x+GameManager.PlayArea.size.x)
-	global_position.y = clamp(global_position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y)
+	global_position.x = clamp(global_position.x, PlayArea.get_play_area_position().x,PlayArea.get_play_area_position().x+PlayArea.get_play_area_size().x)
+	global_position.y = clamp(global_position.y, PlayArea.get_play_area_position().y,PlayArea.get_play_area_position().y+PlayArea.get_play_area_size().y)
 
 
 
