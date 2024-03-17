@@ -19,7 +19,6 @@ var game_level = 1
 
 signal highscoreButtonpressed
 signal initialsUpdated
-signal in_play_area(event)
 
 var game_key = "JLH"
 var play_area_position

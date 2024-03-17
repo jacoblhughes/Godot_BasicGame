@@ -11,8 +11,8 @@ signal took_damage
 signal enemy_hit
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
-var screen_size = GameManager.get_play_area_size_from_HUD()
-var screen_position = GameManager.get_play_area_position_from_HUD()
+var screen_size = GameManager.get_play_area_size()
+var screen_position = GameManager.get_play_area_position()
 
 
 @onready var rocket_scene = preload("res://src/perry_space/rocket.tscn")
@@ -29,7 +29,7 @@ func _ready():
 	rocketspawn_node = get_node("RocketSpawn")
 	start_position_marker = get_parent().get_node("StartPosition")
 	target_position = start_position_marker.position
-	GameManager.in_play_area.connect(_on_in_play_area)
+	PlayArea.in_play_area.connect(_on_in_play_area)
 	pass
 	
 func _on_in_play_area(event):

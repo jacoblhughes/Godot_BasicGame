@@ -1,7 +1,5 @@
 extends CanvasLayer
-	play_area_position = PlayArea.get_play_area_position_from_HUD()
-	play_area_size = PlayArea.get_play_area_size_from_HUD()
-
+signal in_play_area(event)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -11,19 +9,19 @@ func _ready():
 func _process(delta):
 	pass
 	
-func get_play_area_size_from_HUD():
+func get_play_area_size():
 	return %PlayArea.size
 	
-func get_play_area_position_from_HUD():
+func get_play_area_position():
 	return %PlayArea.global_position
 
 func _input(event):
 
 	if(event is InputEventMouseButton or event is InputEventScreenDrag or event is InputEventScreenTouch):
 		if (
-		event.position.x > play_area_position.x
-		and event.position.y > play_area_position.y
-		and event.position.x < (play_area_position.x + play_area_size.x)
-		and event.position.y < (play_area_position.y + play_area_size.y)
+		event.position.x > %PlayArea.global_position.x
+		and event.position.y > %PlayArea.global_position.y
+		and event.position.x < (%PlayArea.size.x + %PlayArea.size.x)
+		and event.position.y < (%PlayArea.size.y + %PlayArea.size.y)
 		):
 			in_play_area.emit(event)

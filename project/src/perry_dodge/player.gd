@@ -16,11 +16,11 @@ var is_touching = false
 func _ready():
 
 #	CollisionShape = $CollisionShape2D
-	screen_size = GameManager.get_play_area_size_from_HUD()
-	screen_position = GameManager.get_play_area_position_from_HUD()
+	screen_size = GameManager.get_play_area_size()
+	screen_position = GameManager.get_play_area_position()
 	start_position = get_parent().get_node('StartPosition')
 	target_position = start_position.global_position
-	GameManager.in_play_area.connect(_on_in_play_area)
+	PlayArea.in_play_area.connect(_on_in_play_area)
 	start(target_position)
 	
 func _on_in_play_area(event):

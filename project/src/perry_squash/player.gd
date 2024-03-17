@@ -27,7 +27,7 @@ var movement_direction = Vector3.ZERO  # Direction from swipes
 func _ready():
 	# Existing setup code...
 	Input.set_use_accumulated_input(true)
-	GameManager.in_play_area.connect(_on_in_play_area)
+	PlayArea.in_play_area.connect(_on_in_play_area)
 
 func _on_in_play_area(event):
 

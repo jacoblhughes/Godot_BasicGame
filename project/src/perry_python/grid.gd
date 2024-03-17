@@ -11,9 +11,9 @@ signal grid_ready
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var new_area = Vector2(PlayArea.get_play_area_size_from_HUD().x,PlayArea.get_play_area_size_from_HUD().x)
-	var left_over = (PlayArea.get_play_area_size_from_HUD().y/2) - (PlayArea.get_play_area_size_from_HUD().x/2)
-	var new_position = Vector2(PlayArea.get_play_area_position_from_HUD().x,PlayArea.get_play_area_position_from_HUD().y+left_over)
+	var new_area = Vector2(PlayArea.get_play_area_size().x,PlayArea.get_play_area_size().x)
+	var left_over = (PlayArea.get_play_area_size().y/2) - (PlayArea.get_play_area_size().x/2)
+	var new_position = Vector2(PlayArea.get_play_area_position().x,PlayArea.get_play_area_position().y+left_over)
 	SnakeVariables._set_play_area_size(new_area)
 	SnakeVariables._set_play_area_position(new_position)
 	var cellX = new_area.x/SnakeVariables.snakecells

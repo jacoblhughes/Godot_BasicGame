@@ -16,7 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animated_sprite : AnimatedSprite2D
 func _ready():
 	animated_sprite = get_node("AnimatedSprite2D")
-	GameManager.in_play_area.connect(_on_in_play_area)
+	PlayArea.in_play_area.connect(_on_in_play_area)
 	pass
 	
 func _on_in_play_area(event):
@@ -48,8 +48,8 @@ func _physics_process(delta):
 				flappy_hit.emit()
 
 #		global_position = global_position.lerp(target_position, lerp_speed)
-		global_position.x = clamp(global_position.x, GameManager.PlayArea.global_position.x,GameManager.PlayArea.global_position.x+GameManager.PlayArea.size.x)
-		global_position.y = clamp(global_position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y)
+		global_position.x = clamp(global_position.x, PlayArea.global_position.x,PlayArea.global_position.x+PlayArea.size.x)
+		global_position.y = clamp(global_position.y, PlayArea.global_position.y,PlayArea.global_position.y+PlayArea.size.y)
 
 
 

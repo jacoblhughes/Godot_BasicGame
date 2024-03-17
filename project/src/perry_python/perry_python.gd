@@ -28,15 +28,15 @@ var level_advance_value = 2
 var original_snake_time = .75
 func _ready():
 
-	var left_over = (PlayArea.get_play_area_size_from_HUD().y/2) - (PlayArea.get_play_area_size_from_HUD().x/2)
-	var new_position = Vector2(PlayArea.get_play_area_position_from_HUD().x,PlayArea.get_play_area_position_from_HUD().y+left_over)
+	var left_over = (PlayArea.get_play_area_size().y/2) - (PlayArea.get_play_area_size().x/2)
+	var new_position = Vector2(PlayArea.get_play_area_position().x,PlayArea.get_play_area_position().y+left_over)
 	grid = get_parent().get_node("grid")
 	grid.grid_ready.connect(_on_grid_ready)
 	play_area_min = new_position
 	SnakeTimer = get_parent().get_node("Snake_Move_Timer")
 	HUD.startButtonPressed.connect(_on_play_button_pressed)
 	HUD.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
-	GameManager.in_play_area.connect(_on_in_play_area)
+	PlayArea.in_play_area.connect(_on_in_play_area)
 	HUD.set_or_reset_level(level_value)
 	food_spawner = get_parent().get_node("spawner_food")
 	head  = head_scene.instantiate()

@@ -16,7 +16,7 @@ func _ready():
 	saucer = get_parent().get_node("PerryRun")
 	saucer.game_start.connect(_on_game_start)
 	saucer.out_of_bounds.connect(_on_out_of_bounds)
-	GameManager.in_play_area.connect(_on_in_play_area)
+	PlayArea.in_play_area.connect(_on_in_play_area)
 	pass
 
 func _on_in_play_area(event):

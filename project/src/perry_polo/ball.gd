@@ -24,7 +24,7 @@ func _ready():
 	
 func _game_initialize():
 	game.position_reset.connect(_on_position_reset)
-	GameManager.in_play_area.connect(_on_in_play_area)
+	PlayArea.in_play_area.connect(_on_in_play_area)
 	HUD.resetButtonPressed.connect(_on_reset_button_reset_button_pressed)
 
 
