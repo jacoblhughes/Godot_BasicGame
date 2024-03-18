@@ -41,7 +41,7 @@ func _physics_process(_delta):
 	var collision = move_and_collide(paddle_velocity)
 	if collision:
 		velocity = Vector2(0, 0)
-	global_position.y = clamp(global_position.y, PlayArea.get_play_area_position().y + sprite_half_y,PlayArea.get_play_area_position().y+ PlayArea.get_play_area_size().y - sprite_half_y)
+	global_position.y = clamp(global_position.y, %ClickableArea.get_play_area_position().y + sprite_half_y,%ClickableArea.get_play_area_position().y+ %ClickableArea.get_play_area_size().y - sprite_half_y)
 
 func _on_position_reset():
 	global_position.y = original_position_y

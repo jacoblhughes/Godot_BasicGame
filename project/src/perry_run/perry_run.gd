@@ -27,7 +27,7 @@ func _ready():
 	finish_area = get_parent().get_node("Finish")
 	countdown_timer = get_parent().get_node("CountdownTimer")
 	game_timer = get_parent().get_node("GameTimer")
-	time_label = get_parent().get_node("CountdownTimerTime")
+	time_label = %CountdownTimerTime
 	player = get_parent().get_node("Player")
 	_game_initialize()
 	reset_point = finish_area.position
@@ -51,6 +51,7 @@ func _on_melt_zone_body_entered(body):
 	pass # Replace with function body.
 
 func _out_of_bounds():
+	printerr('here')
 	player.position = reset_point
 	out_of_bounds.emit(reset_point)
 

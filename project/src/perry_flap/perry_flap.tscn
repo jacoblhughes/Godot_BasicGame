@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://cj0i3bqn4ap1r"]
+[gd_scene load_steps=19 format=3 uid="uid://cj0i3bqn4ap1r"]
 
 [ext_resource type="Script" path="res://src/perry_flap/perry_flap.gd" id="1_ym0sw"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_vrvjj"]
 [ext_resource type="Script" path="res://src/perry_flap/enemy_spawn.gd" id="3_1mfvs"]
 [ext_resource type="Script" path="res://src/perry_flap/player.gd" id="4_3dfte"]
 [ext_resource type="Texture2D" uid="uid://bx5cma57kljk6" path="res://textures/perry_flap/flappy_background_256_512.png" id="4_abbuh"]
+[ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="4_ldb5m"]
 [ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://textures/perry_flap/bird_256.png" id="5_cotky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20w47"]
@@ -86,10 +88,11 @@ script = ExtResource("1_ym0sw")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(360, 656)
-scale = Vector2(2.5, 2)
-texture = ExtResource("4_abbuh")
+[node name="GameBackground" parent="." instance=ExtResource("2_vrvjj")]
+game_background_texture = ExtResource("4_abbuh")
+
+[node name="ClickableArea" parent="." instance=ExtResource("4_ldb5m")]
+unique_name_in_owner = true
 
 [node name="EnemyDespawn" type="Area2D" parent="."]
 collision_layer = 8

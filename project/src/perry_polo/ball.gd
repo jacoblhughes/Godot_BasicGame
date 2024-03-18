@@ -15,7 +15,7 @@ var collision_cooldown: float = 1.0
 var max_speed = 800
 @onready var background : TextureRect
 func _ready():
-	background = get_parent().get_node("Background")
+
 	_game_initialize()
 	increased_velocity = original_velocity
 	stored_position = position
@@ -24,7 +24,7 @@ func _ready():
 	
 func _game_initialize():
 	game.position_reset.connect(_on_position_reset)
-	PlayArea.in_play_area.connect(_on_in_play_area)
+	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 	HUD.resetButtonPressed.connect(_on_reset_button_reset_button_pressed)
 
 
@@ -68,7 +68,7 @@ func _on_position_reset():
 
 	_reset_ball()
 
-func _on_in_play_area(_event):
+func _on_clickable_input_event(_input_position):
 	
 	if(GameManager.get_game_enabled()):
 			

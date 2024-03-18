@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bjw6sh7j2lsq3"]
 
-[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="1_73cuf"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="1_25uw0"]
 [ext_resource type="Script" path="res://src/perry_dodge/perry_dodge.gd" id="1_mjawl"]
 [ext_resource type="PackedScene" uid="uid://5w3s3bekcgvy" path="res://src/perry_dodge/enemy.tscn" id="2_ndgye"]
 [ext_resource type="Texture2D" uid="uid://dmi16l057ro3v" path="res://textures/perry_dodge/creep_background_128.png" id="3_lj6dr"]
@@ -24,24 +24,12 @@ sources/0 = SubResource("TileSetAtlasSource_ajf4l")
 
 [node name="PerryDodge" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_73cuf")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("3_lj6dr")
-
 [node name="PerryDodge" type="Node2D" parent="."]
 script = ExtResource("1_mjawl")
 mob_scene = ExtResource("2_ndgye")
+
+[node name="GameBackground" parent="." instance=ExtResource("1_25uw0")]
+game_background_texture = ExtResource("3_lj6dr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
@@ -55,7 +43,6 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 196608, 0, 2, 131072, 0, 4, 196
 
 [node name="ClickableArea" parent="." instance=ExtResource("5_i1t53")]
 unique_name_in_owner = true
-position = Vector2(360, 640)
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -65,7 +52,7 @@ position = Vector2(360, 640)
 wait_time = 2.0
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(332.893, 612.805)
+position = Vector2(360, 640)
 
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_mulw1")

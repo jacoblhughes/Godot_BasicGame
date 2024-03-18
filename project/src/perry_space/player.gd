@@ -10,11 +10,6 @@ signal took_damage
 @onready var perry_space : Node2D
 signal enemy_hit
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-
-var screen_size = GameManager.get_play_area_size()
-var screen_position = GameManager.get_play_area_position()
-
-
 @onready var rocket_scene = preload("res://src/perry_space/rocket.tscn")
 
 var rocketspawn_node
@@ -29,31 +24,21 @@ func _ready():
 	rocketspawn_node = get_node("RocketSpawn")
 	start_position_marker = get_parent().get_node("StartPosition")
 	target_position = start_position_marker.position
-	PlayArea.in_play_area.connect(_on_in_play_area)
+	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 	pass
 	
-func _on_in_play_area(event):
+func _on_clickable_input_event(input_position):
 	if(GameManager.get_game_enabled()):
-	# Check for touch events
-
-		if event is InputEventScreenTouch:
-			if event.pressed:
-				is_touching = true
-				target_position = event.position
-			else:
-				is_touching = false
-
-		# Check for touch drag events
-		elif event is InputEventScreenDrag and is_touching:
-			target_position = event.position
+		target_position = input_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 
+	if target_position !=null:
+		global_position = global_position.lerp(target_position, lerp_speed)
+	global_position.x = clamp(global_position.x, %ClickableArea.get_play_area_position().x,%ClickableArea.get_play_area_position().x+%ClickableArea.get_play_area_size().x)
+	global_position.y = clamp(global_position.y, %ClickableArea.get_play_area_position().y,%ClickableArea.get_play_area_position().y+%ClickableArea.get_play_area_size().y)
 
-	global_position = global_position.lerp(target_position, lerp_speed)
-	global_position.x = clamp(global_position.x, GameManager.PlayArea.global_position.x,GameManager.PlayArea.global_position.x+GameManager.PlayArea.size.x)
-	global_position.y = clamp(global_position.y, GameManager.PlayArea.global_position.y,GameManager.PlayArea.global_position.y+GameManager.PlayArea.size.y)
 
 
 func shoot():

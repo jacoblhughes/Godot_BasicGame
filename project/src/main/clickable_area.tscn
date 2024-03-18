@@ -12,6 +12,7 @@ size = Vector2(640, 1024)
 script = ExtResource("1_dhpgy")
 
 [node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(360, 640)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource("RectangleShape2D_27wfi")
@@ -19,10 +20,13 @@ disabled = true
 debug_color = Color(0.945098, 0.14902, 0.462745, 0.419608)
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 512
-collision_mask = 512
+unique_name_in_owner = true
+position = Vector2(360, 640)
+collision_layer = 2048
+collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_htvye")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

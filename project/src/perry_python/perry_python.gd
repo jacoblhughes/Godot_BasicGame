@@ -28,15 +28,15 @@ var level_advance_value = 2
 var original_snake_time = .75
 func _ready():
 
-	var left_over = (PlayArea.get_play_area_size().y/2) - (PlayArea.get_play_area_size().x/2)
-	var new_position = Vector2(PlayArea.get_play_area_position().x,PlayArea.get_play_area_position().y+left_over)
+	var left_over = (%ClickableArea.get_play_area_size().y/2) - (%ClickableArea.get_play_area_size().x/2)
+	var new_position = Vector2(%ClickableArea.get_play_area_position().x,%ClickableArea.get_play_area_position().y+left_over)
 	grid = get_parent().get_node("grid")
 	grid.grid_ready.connect(_on_grid_ready)
 	play_area_min = new_position
 	SnakeTimer = get_parent().get_node("Snake_Move_Timer")
 	HUD.startButtonPressed.connect(_on_play_button_pressed)
 	HUD.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
-	PlayArea.in_play_area.connect(_on_in_play_area)
+	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 	HUD.set_or_reset_level(level_value)
 	food_spawner = get_parent().get_node("spawner_food")
 	head  = head_scene.instantiate()
@@ -63,28 +63,28 @@ func _process(_delta):
 		
 	queue_redraw()
 
-func _on_in_play_area(event):
-	if event is InputEventScreenTouch and event.pressed == true:
-		var click_position = event.position
-		var head_position = head.position
-		var distance = click_position - head_position
+func _on_clickable_input_event(input_position):
 
-		if abs(distance.x) > abs(distance.y):
-			head.my_sprite.rotation_degrees = 90
-			if(distance.x<0):
-				next_direction = Vector2.LEFT
-				head.my_sprite.flip_v = true
-			else:
-				next_direction = Vector2.RIGHT
-				head.my_sprite.flip_v = false
-		elif abs(distance.x) < abs(distance.y):
-			head.my_sprite.rotation_degrees = 0
-			if(distance.y<0):
-				next_direction = Vector2.UP
-				head.my_sprite.flip_v = false
-			else:
-				next_direction = Vector2.DOWN
-				head.my_sprite.flip_v = true
+	var click_position = input_position
+	var head_position = head.position
+	var distance = click_position - head_position
+
+	if abs(distance.x) > abs(distance.y):
+		head.my_sprite.rotation_degrees = 90
+		if(distance.x<0):
+			next_direction = Vector2.LEFT
+			head.my_sprite.flip_v = true
+		else:
+			next_direction = Vector2.RIGHT
+			head.my_sprite.flip_v = false
+	elif abs(distance.x) < abs(distance.y):
+		head.my_sprite.rotation_degrees = 0
+		if(distance.y<0):
+			next_direction = Vector2.UP
+			head.my_sprite.flip_v = false
+		else:
+			next_direction = Vector2.DOWN
+			head.my_sprite.flip_v = true
 
 func move() -> void:
 

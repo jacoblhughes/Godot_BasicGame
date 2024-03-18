@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcxdvv4qwwmqm"]
+[gd_scene load_steps=6 format=3 uid="uid://bcxdvv4qwwmqm"]
 
 [ext_resource type="Script" path="res://src/perry_says/perry_says.gd" id="1_fdqsf"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_0t6vh"]
 [ext_resource type="Texture2D" uid="uid://c67eolerebque" path="res://textures/perry_says/simonsays_background_128.png" id="2_8tja7"]
 [ext_resource type="Script" path="res://src/perry_says/playback_timer.gd" id="3_nsfda"]
 [ext_resource type="PackedScene" uid="uid://d2enwj4xxpx4q" path="res://src/perry_says/perry_button.tscn" id="3_o4idv"]
@@ -12,17 +13,11 @@ metadata/_edit_horizontal_guides_ = [-640.0]
 [node name="PerrySays" type="Node2D" parent="."]
 script = ExtResource("1_fdqsf")
 
+[node name="GameBackground" parent="." instance=ExtResource("2_0t6vh")]
+game_background_texture = ExtResource("2_8tja7")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
-
-[node name="Background" type="TextureRect" parent="."]
-offset_left = 40.0
-offset_top = 144.0
-offset_right = 680.0
-offset_bottom = 1168.0
-texture = ExtResource("2_8tja7")
-expand_mode = 1
-stretch_mode = 1
 
 [node name="PlaybackTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -31,28 +26,28 @@ script = ExtResource("3_nsfda")
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="PerryButton" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(232, 528)
+position = Vector2(232, 512)
 
 [node name="PerryButton2" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(488, 528)
+position = Vector2(488, 512)
 
 [node name="PerryButton3" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(232, 784)
+position = Vector2(232, 768)
 
 [node name="PerryButton4" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(488, 784)
+position = Vector2(488, 768)
 
 [node name="PerryButton5" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(168, 272)
+position = Vector2(168, 256)
 
 [node name="PerryButton6" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(552, 272)
+position = Vector2(552, 256)
 
 [node name="PerryButton7" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(168, 1040)
+position = Vector2(168, 1024)
 
 [node name="PerryButton8" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(552, 1040)
+position = Vector2(552, 1024)
 
 [connection signal="timeout" from="PlaybackTimer" to="PerrySays" method="_on_playback_timer_timeout"]
 [connection signal="ready" from="Buttons" to="PerrySays" method="_on_buttons_ready"]

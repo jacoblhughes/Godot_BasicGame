@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1ov306httsie"]
+[gd_scene load_steps=7 format=3 uid="uid://c1ov306httsie"]
 
 [ext_resource type="Script" path="res://src/perry_python/perry_python.gd" id="1_5btnr"]
 [ext_resource type="Texture2D" uid="uid://b6o8i6d3x1cqy" path="res://textures/perry_python/snake_background_144_256.png" id="2_hp12s"]
-[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_qh02o"]
 [ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="2_wih68"]
 [ext_resource type="Script" path="res://src/perry_python/grid.gd" id="3_t14ja"]
 [ext_resource type="Script" path="res://src/perry_python/spawn_food.gd" id="4_llfef"]
@@ -13,14 +12,21 @@
 [node name="PerryPython" type="Node2D" parent="."]
 script = ExtResource("1_5btnr")
 
-[node name="GameBackground" parent="." instance=ExtResource("2_qh02o")]
-game_background_texture = ExtResource("2_hp12s")
-
 [node name="ClickableArea" parent="." instance=ExtResource("2_wih68")]
 unique_name_in_owner = true
+position = Vector2(360, 640)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 40.0
+offset_top = 144.0
+offset_right = 680.0
+offset_bottom = 1170.0
+texture = ExtResource("2_hp12s")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="body" type="Node2D" parent="."]
 

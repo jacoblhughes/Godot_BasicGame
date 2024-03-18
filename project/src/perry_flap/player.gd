@@ -16,11 +16,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animated_sprite : AnimatedSprite2D
 func _ready():
 	animated_sprite = get_node("AnimatedSprite2D")
-	PlayArea.in_play_area.connect(_on_in_play_area)
+	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 	pass
 	
-func _on_in_play_area(event):
-	if event.is_action_pressed("left_mouse_click"):
+func _on_clickable_input_event(input_position):
 		velocity.y = jump_force
 
 func _physics_process(delta):
@@ -48,8 +47,8 @@ func _physics_process(delta):
 				flappy_hit.emit()
 
 #		global_position = global_position.lerp(target_position, lerp_speed)
-		global_position.x = clamp(global_position.x, PlayArea.global_position.x,PlayArea.global_position.x+PlayArea.size.x)
-		global_position.y = clamp(global_position.y, PlayArea.global_position.y,PlayArea.global_position.y+PlayArea.size.y)
+		global_position.x = clamp(global_position.x, %ClickableArea.get_play_area_position().x,%ClickableArea.get_play_area_position().x+%ClickableArea.get_play_area_size().x)
+		global_position.y = clamp(global_position.y, %ClickableArea.get_play_area_position().y,%ClickableArea.get_play_area_position().y+%ClickableArea.get_play_area_size().y)
 
 
 

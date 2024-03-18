@@ -19,7 +19,6 @@ var game_reset = false
 var whirlpools
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	background = get_parent().get_node("Background")
 	player = get_parent().get_node("Player")
 	enemy = get_parent().get_node("Enemy")
 	ball = get_parent().get_node("Ball")

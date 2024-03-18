@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://src/perry_run/perry_run.gd" id="2_1lkn6"]
 [ext_resource type="Texture2D" uid="uid://debugqkk57enh" path="res://textures/perry_run/track_128.png" id="2_5ay17"]
+[ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="2_xnsfy"]
 [ext_resource type="Script" path="res://src/perry_run/player.gd" id="3_slia5"]
 [ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://textures/perry_run/perry_run_256.png" id="4_axe6o"]
-[ext_resource type="Texture2D" uid="uid://dce0ranae3u3u" path="res://textures/perry_run/saucer.png" id="5_serl1"]
 [ext_resource type="Texture2D" uid="uid://dpoog2l453my6" path="res://textures/perry_run/purple.png" id="6_3abn6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28e28"]
@@ -64,14 +64,30 @@ radius = 64.0703
 [node name="PerryRun" type="Node2D" parent="."]
 script = ExtResource("2_1lkn6")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CountdownTimerTime" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 240.0
+offset_bottom = 266.0
+grow_horizontal = 2
+text = "99:99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(40, 144)
+position = Vector2(40, 128)
 tile_set = SubResource("TileSet_ykcpy")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 262144, 0, 1, 65536, 0, 2, 65536, 0, 4, 196608, 0, 3, 65536, 0, 65540, 131072, 0, 65539, 65536, 0, 65538, 65536, 0, 65537, 262144, 0, 131073, 327680, 0, 131074, 65536, 0, 131075, 196608, 0, 196611, 327680, 0, 131076, 393216, 0, 196612, 196608, 0, 262148, 0, 0, 327684, 131072, 0, 327683, 262144, 0, 327682, 393216, 0, 327681, 131072, 0, 327680, 262144, 0, 262144, 327680, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 196609, 393216, 0, 196610, 393216, 0, 262145, 196608, 0, 262146, 393216, 0, 262147, 393216, 0, 393219, 327680, 0, 393220, 196608, 0, 458756, 131072, 0, 458755, 65536, 0, 458754, 65536, 0, 458753, 327680, 0, 393217, 196608, 0, 393216, 327680, 0, 393218, 393216, 0, 458752, 393216, 0)
+
+[node name="ClickableArea" parent="." instance=ExtResource("2_xnsfy")]
+unique_name_in_owner = true
 
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 2
@@ -84,22 +100,12 @@ scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_oy4wx")
 autoplay = "default"
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-visible = false
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_serl1")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CapsuleShape2D_flqbc")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-visible = false
-enabled = false
-drag_horizontal_enabled = true
-
 [node name="CP1" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(240, 456)
+position = Vector2(240, 440)
 collision_layer = 32
 collision_mask = 255
 
@@ -109,7 +115,7 @@ shape = SubResource("CircleShape2D_a0ung")
 
 [node name="CP2" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(496, 968)
+position = Vector2(496, 952)
 collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CP2"]
@@ -118,7 +124,7 @@ shape = SubResource("CircleShape2D_kucvn")
 
 [node name="CP3" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(111, 712)
+position = Vector2(112, 696)
 collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CP3"]
@@ -127,14 +133,14 @@ shape = SubResource("CircleShape2D_lt0dq")
 
 [node name="Finish" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(104, 205)
+position = Vector2(104, 191)
 collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
 shape = SubResource("CircleShape2D_qhct2")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(104.376, 205.199)
+position = Vector2(104, 193)
 
 [node name="CountdownTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -144,42 +150,30 @@ one_shot = true
 wait_time = 60.0
 one_shot = true
 
-[node name="CountdownTimerTime" type="Label" parent="."]
-z_index = 2
-offset_left = 320.0
-offset_top = 248.0
-offset_right = 424.0
-offset_bottom = 274.0
-text = "99:99"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="RaceTrack" type="Area2D" parent="."]
-z_index = 1
 collision_layer = 64
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RaceTrack"]
-position = Vector2(15, 0)
+position = Vector2(16, -16)
 polygon = PackedVector2Array(50, 184, 66, 168, 626, 168, 642, 184, 642, 360, 626, 376, 274, 376, 258, 392, 258, 408, 274, 424, 498, 424, 514, 440, 514, 536, 530, 552, 626, 552, 642, 568, 642, 872, 626, 888, 530, 888, 514, 904, 514, 920, 530, 936, 626, 936, 642, 952, 642, 1128, 626, 1144, 194, 1144, 178, 1128, 178, 1032, 162, 1016, 66, 1016, 50, 1000, 50, 824, 66, 808, 162, 808, 178, 792, 178, 776, 162, 760, 66, 760, 50, 744)
 
 [node name="Polygon2D" type="Polygon2D" parent="RaceTrack"]
 visible = false
-position = Vector2(15, 0)
+position = Vector2(16, -16)
 color = Color(1, 0.533333, 0, 1)
 polygon = PackedVector2Array(50, 184, 66, 168, 626, 168, 642, 184, 642, 360, 626, 376, 274, 376, 258, 392, 258, 408, 274, 424, 498, 424, 514, 440, 514, 536, 530, 552, 626, 552, 642, 568, 642, 872, 626, 888, 530, 888, 514, 904, 514, 920, 530, 936, 626, 936, 642, 952, 642, 1128, 626, 1144, 194, 1144, 178, 1128, 178, 1032, 162, 1016, 66, 1016, 50, 1000, 50, 824, 66, 808, 162, 808, 178, 792, 178, 776, 162, 760, 66, 760, 50, 744)
 
 [node name="MeltZone" type="Area2D" parent="."]
-z_index = 1
 collision_layer = 64
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MeltZone"]
-position = Vector2(14, 0)
+position = Vector2(16, -16)
 polygon = PackedVector2Array(128, 264, 144, 248, 544, 248, 560, 264, 560, 280, 544, 296, 184, 296, 176, 304, 176, 496, 184, 504, 416, 504, 432, 520, 432, 616, 448, 632, 544, 632, 560, 648, 560, 792, 544, 808, 448, 808, 432, 824, 432, 1000, 448, 1016, 544, 1016, 560, 1032, 560, 1048, 544, 1064, 272, 1064, 256, 1048, 256, 952, 240, 936, 144, 936, 128, 920, 128, 904, 144, 888, 240, 888, 256, 872, 256, 696, 240, 680, 192, 680, 144, 680, 128, 664)
 
 [node name="Polygon2D" type="Polygon2D" parent="MeltZone"]
 visible = false
 texture_repeat = 2
-position = Vector2(13, 0)
+position = Vector2(16, -13)
 texture = ExtResource("6_3abn6")
 polygon = PackedVector2Array(128, 264, 144, 248, 544, 248, 560, 264, 560, 280, 544, 296, 184, 296, 176, 304, 176, 496, 184, 504, 416, 504, 432, 520, 432, 616, 448, 632, 544, 632, 560, 648, 560, 792, 544, 808, 448, 808, 432, 824, 432, 1000, 448, 1016, 544, 1016, 560, 1032, 560, 1048, 544, 1064, 272, 1064, 256, 1048, 256, 952, 240, 936, 144, 936, 128, 920, 128, 904, 144, 888, 240, 888, 256, 872, 256, 696, 240, 680, 192, 680, 144, 680, 128, 664)
 

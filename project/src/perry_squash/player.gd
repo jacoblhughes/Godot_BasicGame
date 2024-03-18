@@ -27,31 +27,27 @@ var movement_direction = Vector3.ZERO  # Direction from swipes
 func _ready():
 	# Existing setup code...
 	Input.set_use_accumulated_input(true)
-	PlayArea.in_play_area.connect(_on_in_play_area)
+	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 
-func _on_in_play_area(event):
-
-#	if reset_round:
-#		reset_round = false
-#	pass
+func _on_clickable_input_event(input_position):
 
 	if GameManager.get_game_enabled():
-
-		if event is InputEventScreenTouch:
-			if event.pressed:
-				start_swipe_pos = event.position
-				touch_start_time = Time.get_ticks_msec() / 1000.0 # Get current time in seconds
-				is_swiping = true
-			else:
-				is_swiping = false
-				end_swipe_pos = event.position
-				var touch_duration = (Time.get_ticks_msec() / 1000.0) - touch_start_time
-				var touch_distance = end_swipe_pos.distance_to(start_swipe_pos)
-
-				if touch_duration < click_threshold and touch_distance < swipe_threshold:
-					handle_click()
-				else:
-					handle_swipe()
+		pass
+#		if event is InputEventScreenTouch:
+#			if event.pressed:
+#				start_swipe_pos = event.position
+#				touch_start_time = Time.get_ticks_msec() / 1000.0 # Get current time in seconds
+#				is_swiping = true
+#			else:
+#				is_swiping = false
+#				end_swipe_pos = event.position
+#				var touch_duration = (Time.get_ticks_msec() / 1000.0) - touch_start_time
+#				var touch_distance = end_swipe_pos.distance_to(start_swipe_pos)
+#
+#				if touch_duration < click_threshold and touch_distance < swipe_threshold:
+#					handle_click()
+#				else:
+#					handle_swipe()
 
 func handle_click():
 	if is_on_floor():

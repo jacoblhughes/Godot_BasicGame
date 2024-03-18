@@ -16,20 +16,19 @@ func _ready():
 	saucer = get_parent().get_node("PerryRun")
 	saucer.game_start.connect(_on_game_start)
 	saucer.out_of_bounds.connect(_on_out_of_bounds)
-	PlayArea.in_play_area.connect(_on_in_play_area)
+	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 	pass
 
-func _on_in_play_area(event):
+func _on_clickable_input_event(input_position):
+	print(input_position)
+	target_position = input_position
 	if(GameManager.get_game_enabled() and game_on == true):
-		if event is InputEventScreenTouch:
-			if event.pressed:
-				is_touching = true
-				target_position = event.position
-				printerr(event.position)
+
+		target_position = input_position
 	pass
 
 func _physics_process(delta):
-	print(global_position,position)
+
 	if(GameManager.get_game_enabled() and game_on == true):
 		var to_target = target_position - global_position
 		var direction = to_target.normalized()
@@ -56,4 +55,6 @@ func _on_game_start():
 	game_on = true
 
 func _on_out_of_bounds(reset_point):
+	printerr('ehhhh'
+	)
 	target_position=reset_point

@@ -1,6 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dx4hwtnr40m1r"]
+[gd_scene load_steps=17 format=3 uid="uid://dx4hwtnr40m1r"]
 
 [ext_resource type="Script" path="res://src/perry_space/perry_space.gd" id="1_yw0yd"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_esp7d"]
+[ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="2_g54w4"]
 [ext_resource type="Script" path="res://src/perry_space/player.gd" id="3_60l8u"]
 [ext_resource type="Texture2D" uid="uid://betwbe8urunx7" path="res://textures/perry_space/space_background_256_512.png" id="3_bvgf7"]
 [ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://textures/perry_space/attack_256.png" id="4_jqsem"]
@@ -51,10 +53,11 @@ script = ExtResource("1_yw0yd")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(360, 656)
-scale = Vector2(2.5, 2)
-texture = ExtResource("3_bvgf7")
+[node name="GameBackground" parent="." instance=ExtResource("2_esp7d")]
+game_background_texture = ExtResource("3_bvgf7")
+
+[node name="ClickableArea" parent="." instance=ExtResource("2_g54w4")]
+unique_name_in_owner = true
 
 [node name="Player" type="CharacterBody2D" parent="."]
 collision_mask = 2
