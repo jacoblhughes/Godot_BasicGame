@@ -19,7 +19,8 @@ func _ready():
 	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 	pass
 	
-func _on_clickable_input_event(input_position):
+func _on_clickable_input_event(event, input_position):
+	if event.pressed:
 		velocity.y = jump_force
 
 func _physics_process(delta):

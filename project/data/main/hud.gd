@@ -46,7 +46,7 @@ func set_game(flag,title,directions):
 func set_or_reset_level(default_level = "INF"):
 	if typeof(default_level) == TYPE_INT:
 		game_level = default_level
-		%LevelLabel.text = str(default_level)
+		%LevelLabel.text = str(game_level)
 	else:
 		%LevelLabel.text = default_level
 			
@@ -56,6 +56,8 @@ func update_game_level(new_level):
 	%LevelLabel.text = this_level
 
 func _on_home_button_pressed():
+	if !Background.visible:
+		Background.visible = true
 	reset_score()
 	set_or_reset_lives()
 	GameManager.set_game_enabled(false)

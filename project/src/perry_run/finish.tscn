@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyvmjt6kgjcpy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhct2"]
+radius = 64.0703
+
+[node name="Finish" type="Area2D"]
+position = Vector2(112, 200)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qhct2")

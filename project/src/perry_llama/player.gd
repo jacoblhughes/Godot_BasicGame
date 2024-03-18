@@ -16,13 +16,14 @@ func _ready():
 #		if event.is_action_pressed("left_mouse_click"):
 #			velocity.y = JUMP_VELOCITY
 
-func _on_clickable_input_event(input_position):
-	if(GameManager.get_game_enabled()):
-		if Input.is_action_just_pressed("left_mouse_click") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
-		elif Input.is_action_just_pressed("left_mouse_click") and not is_on_floor() and double_jump_counter  == false:
-			velocity.y = JUMP_VELOCITY
-			double_jump_counter = true
+func _on_clickable_input_event(event, input_position):
+	if event.pressed:
+		if(GameManager.get_game_enabled()):
+			if Input.is_action_just_pressed("left_mouse_click") and is_on_floor():
+				velocity.y = JUMP_VELOCITY
+			elif Input.is_action_just_pressed("left_mouse_click") and not is_on_floor() and double_jump_counter  == false:
+				velocity.y = JUMP_VELOCITY
+				double_jump_counter = true
 	pass
 
 func _physics_process(delta):

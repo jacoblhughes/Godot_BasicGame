@@ -27,9 +27,10 @@ func _ready():
 	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 	pass
 	
-func _on_clickable_input_event(input_position):
-	if(GameManager.get_game_enabled()):
-		target_position = input_position
+func _on_clickable_input_event(event, input_position):
+	if event.pressed:
+		if(GameManager.get_game_enabled()):
+			target_position = input_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):

@@ -1,5 +1,5 @@
 extends Node2D
-var is_touching = false
+
 var target_position
 signal clickable_input_event
 
@@ -14,15 +14,13 @@ func _process(delta):
 
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		print(event)
-		if event.pressed:
-			is_touching = true
+	print(event)
+	if event is InputEventMouseButton or event is InputEventScreenDrag:
+		if event is InputEventMouseButton:
 			target_position = get_global_mouse_position()
-			clickable_input_event.emit(target_position)
+			clickable_input_event.emit(event, target_position)
 		else:
-			is_touching = false
-
+			pass
 #		# Check for touch drag events
 #	elif event is InputEventScreenDrag and is_touching:
 #		target_position = get_global_mouse_position()
@@ -35,4 +33,3 @@ func get_play_area_size():
 	
 func get_play_area_position():
 	return %Area2D.global_position - Vector2(%CollisionShape2D.shape.size.x/2,%CollisionShape2D.shape.size.y/2)
-	

@@ -24,10 +24,10 @@ func _ready():
 	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 	pass # Replace with function body.
 	
-func _on_clickable_input_event(input_position):
-
-	if GameManager.get_game_enabled():
-		target_y = input_position.y
+func _on_clickable_input_event(event, input_position):
+	if event.pressed:
+		if GameManager.get_game_enabled():
+			target_y = input_position.y
 
 func _physics_process(_delta):
 #	var mouse_pos = get_viewport().get_mouse_position()

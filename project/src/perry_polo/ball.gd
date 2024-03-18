@@ -68,7 +68,7 @@ func _on_position_reset():
 
 	_reset_ball()
 
-func _on_clickable_input_event(_input_position):
+func _on_clickable_input_event(event, _input_position):
 	
 	if(GameManager.get_game_enabled()):
 			

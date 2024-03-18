@@ -23,33 +23,34 @@ var click_threshold = 1
 # Threshold in pixels to differentiate between click and swipe
 var swipe_threshold = 10
 var movement_direction = Vector3.ZERO  # Direction from swipes
-
+var can_move = false
 func _ready():
 	# Existing setup code...
+	Background.visible = false
 	Input.set_use_accumulated_input(true)
 	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 
-func _on_clickable_input_event(input_position):
+func _on_clickable_input_event(event, input_position):
 
-	if GameManager.get_game_enabled():
-		pass
-#		if event is InputEventScreenTouch:
-#			if event.pressed:
-#				start_swipe_pos = event.position
-#				touch_start_time = Time.get_ticks_msec() / 1000.0 # Get current time in seconds
-#				is_swiping = true
-#			else:
-#				is_swiping = false
-#				end_swipe_pos = event.position
-#				var touch_duration = (Time.get_ticks_msec() / 1000.0) - touch_start_time
-#				var touch_distance = end_swipe_pos.distance_to(start_swipe_pos)
-#
-#				if touch_duration < click_threshold and touch_distance < swipe_threshold:
-#					handle_click()
-#				else:
-#					handle_swipe()
+	if GameManager.get_game_enabled() and can_move:
+		if event is InputEventMouseButton:
+			if event.pressed:
+				start_swipe_pos = input_position
+				touch_start_time = Time.get_ticks_msec() / 1000.0 # Get current time in seconds
+				is_swiping = true
+			else:
+				is_swiping = false
+				end_swipe_pos = input_position
+				var touch_duration = (Time.get_ticks_msec() / 1000.0) - touch_start_time
+				var touch_distance = end_swipe_pos.distance_to(start_swipe_pos)
+
+				if touch_duration < click_threshold and touch_distance < swipe_threshold:
+					handle_click()
+				else:
+					handle_swipe()
 
 func handle_click():
+	print('should click')
 	if is_on_floor():
 		target_velocity.y = jump_impulse
 
@@ -152,5 +153,10 @@ func die():
 	hit.emit()
 	queue_free()
 
+func allow_move(flag):
+	can_move = flag
 
 
+func _on_visible_on_screen_notifier_3d_screen_exited():
+	die()
+	pass # Replace with function body.

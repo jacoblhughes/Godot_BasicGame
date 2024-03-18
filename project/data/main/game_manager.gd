@@ -1,5 +1,5 @@
 extends Node
-@export var background_canvas_layer = preload("res://src/main/background.tscn")
+
 # Export the NodePath to the player_initials scene
 var config = ConfigFile.new()
 
@@ -41,10 +41,6 @@ var background_canvas_layer_instance
 @onready var game_scene : Node = get_tree().get_root().get_node("Main")
 
 func _ready():
-
-	background_canvas_layer_instance = background_canvas_layer.instantiate()
-	get_tree().get_root().add_child.call_deferred(background_canvas_layer_instance)
-
 	var file_exists = FileAccess.file_exists(perry_arcade_path)
 	if(!file_exists):
 

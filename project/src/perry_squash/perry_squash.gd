@@ -20,6 +20,7 @@ func _game_initialize():
 	HUD.startButtonPressed.connect(_on_play_button_pressed)
 	HUD.set_or_reset_level(1)
 
+
 func _physics_process(delta):
 	if GameManager.get_game_enabled():
 		spotlight.position.x  = player.position.x
@@ -51,6 +52,7 @@ func _on_player_hit():
 		GameManager.set_game_enabled(false)
 		HUD.set_gameover_panel(true)
 		GameManager.check_highscore_and_rank()
+		%Player.allow_move(false)
 #	$UserInterface/Retry.show()
 #
 #func _unhandled_input(event):
@@ -60,8 +62,14 @@ func _on_player_hit():
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
-	mob_timer.start()
+	%StartTimer.start()
+	%StartTimer.timeout.connect(_on_start_timer_timeout)
+
 
 func _on_mob_squashed():
 
 	HUD.update_score(score_value)
+
+func _on_start_timer_timeout():
+	%Player.allow_move(true)
+	mob_timer.start()

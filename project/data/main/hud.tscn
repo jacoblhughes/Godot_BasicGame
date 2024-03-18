@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyl28swe7b43k"]
+[gd_scene load_steps=9 format=3 uid="uid://cyl28swe7b43k"]
 
 [ext_resource type="Script" path="res://data/main/hud.gd" id="1_wealh"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="2_7580m"]
 [ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://textures/main/perry_original_256.png" id="3_11r44"]
 [ext_resource type="Texture2D" uid="uid://u4h60uf3ggrk" path="res://textures/main/perry_run_happy_ani_512_768.png" id="4_7wlvq"]
-[ext_resource type="Texture2D" uid="uid://c67eolerebque" path="res://textures/perry_says/simonsays_background_128.png" id="5_v51eh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0fsyn"]
 font_size = 22
@@ -168,37 +167,22 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("2_7580m")
 
-[node name="Play_Button" type="Button" parent="AspectRatioContainer/Control/GameStartPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Control/GameStartPanel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -296.0
-offset_top = -80.0
-offset_right = 296.0
-offset_bottom = 80.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 theme = ExtResource("2_7580m")
-text = "Play"
 
-[node name="Title" type="Label" parent="AspectRatioContainer/Control/GameStartPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Control/GameStartPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -296.0
-offset_top = -448.0
-offset_right = 296.0
-offset_bottom = -384.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 1
 theme = ExtResource("2_7580m")
 theme_type_variation = &"Main_2"
@@ -208,37 +192,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Directions_Note" type="Label" parent="AspectRatioContainer/Control/GameStartPanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -352.0
-offset_right = 36.0
-offset_bottom = -326.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Directions_Note" type="Label" parent="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_7580m")
 theme_type_variation = &"Main_2"
 text = "Directions:"
 
-[node name="Directions" type="Label" parent="AspectRatioContainer/Control/GameStartPanel"]
+[node name="Directions" type="Label" parent="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -296.0
-offset_top = -320.0
-offset_right = 296.0
-offset_bottom = -82.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 1
 theme = ExtResource("2_7580m")
 theme_type_variation = &"Main_2"
@@ -246,6 +210,13 @@ text = "Directions"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Play_Button" type="Button" parent="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme = ExtResource("2_7580m")
+text = "Play"
 
 [node name="GameOverPanel" type="Panel" parent="AspectRatioContainer/Control"]
 unique_name_in_owner = true
@@ -259,76 +230,42 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("2_7580m")
 
-[node name="ResetButton" type="Button" parent="AspectRatioContainer/Control/GameOverPanel"]
-visible = false
-layout_mode = 0
-offset_left = 64.0
-offset_top = 656.0
-offset_right = 656.0
-offset_bottom = 808.0
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Control/GameOverPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_7580m")
-text = "Reset"
 
-[node name="GameOverLabel" type="Label" parent="AspectRatioContainer/Control/GameOverPanel"]
-layout_mode = 0
-offset_left = 62.4
-offset_top = 144.0
-offset_right = 654.4
-offset_bottom = 208.0
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Control/GameOverPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="GameOverLabel" type="Label" parent="AspectRatioContainer/Control/GameOverPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_7580m")
 theme_type_variation = &"Main_2"
 text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HomeButtonOnGameover" type="Button" parent="AspectRatioContainer/Control/GameOverPanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -296.4
-offset_top = -72.0
-offset_right = 295.6
-offset_bottom = 76.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HappyRect" type="TextureRect" parent="AspectRatioContainer/Control/GameOverPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("AnimatedTexture_5jtqj")
+expand_mode = 3
+
+[node name="HomeButtonOnGameover" type="Button" parent="AspectRatioContainer/Control/GameOverPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 1
 theme = ExtResource("2_7580m")
 text = "Home"
 
-[node name="HappyRect" type="TextureRect" parent="AspectRatioContainer/Control/GameOverPanel"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -104.4
-offset_top = -424.0
-offset_right = 111.6
-offset_bottom = -88.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AnimatedTexture_5jtqj")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="PlayArea" type="TextureRect" parent="AspectRatioContainer/Control"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_left = 40.0
-offset_top = 144.0
-offset_right = 680.0
-offset_bottom = 1168.0
-texture = ExtResource("5_v51eh")
-expand_mode = 1
-stretch_mode = 1
-
 [connection signal="pressed" from="AspectRatioContainer/Control/MarginContainer3/Home_Button" to="." method="_on_home_button_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GameStartPanel/Play_Button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GameOverPanel/HomeButtonOnGameover" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GameOverPanel/MarginContainer/VBoxContainer/HomeButtonOnGameover" to="." method="_on_home_button_pressed"]

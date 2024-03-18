@@ -19,8 +19,8 @@ func _ready():
 	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 	pass
 
-func _on_clickable_input_event(input_position):
-	print(input_position)
+func _on_clickable_input_event(event, input_position):
+
 	target_position = input_position
 	if(GameManager.get_game_enabled() and game_on == true):
 
@@ -55,6 +55,4 @@ func _on_game_start():
 	game_on = true
 
 func _on_out_of_bounds(reset_point):
-	printerr('ehhhh'
-	)
 	target_position=reset_point

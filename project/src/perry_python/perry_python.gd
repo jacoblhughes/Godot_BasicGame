@@ -63,28 +63,28 @@ func _process(_delta):
 		
 	queue_redraw()
 
-func _on_clickable_input_event(input_position):
+func _on_clickable_input_event(event, input_position):
+	if event.pressed:
+		var click_position = input_position
+		var head_position = head.position
+		var distance = click_position - head_position
 
-	var click_position = input_position
-	var head_position = head.position
-	var distance = click_position - head_position
-
-	if abs(distance.x) > abs(distance.y):
-		head.my_sprite.rotation_degrees = 90
-		if(distance.x<0):
-			next_direction = Vector2.LEFT
-			head.my_sprite.flip_v = true
-		else:
-			next_direction = Vector2.RIGHT
-			head.my_sprite.flip_v = false
-	elif abs(distance.x) < abs(distance.y):
-		head.my_sprite.rotation_degrees = 0
-		if(distance.y<0):
-			next_direction = Vector2.UP
-			head.my_sprite.flip_v = false
-		else:
-			next_direction = Vector2.DOWN
-			head.my_sprite.flip_v = true
+		if abs(distance.x) > abs(distance.y):
+			head.my_sprite.rotation_degrees = 90
+			if(distance.x<0):
+				next_direction = Vector2.LEFT
+				head.my_sprite.flip_v = true
+			else:
+				next_direction = Vector2.RIGHT
+				head.my_sprite.flip_v = false
+		elif abs(distance.x) < abs(distance.y):
+			head.my_sprite.rotation_degrees = 0
+			if(distance.y<0):
+				next_direction = Vector2.UP
+				head.my_sprite.flip_v = false
+			else:
+				next_direction = Vector2.DOWN
+				head.my_sprite.flip_v = true
 
 func move() -> void:
 

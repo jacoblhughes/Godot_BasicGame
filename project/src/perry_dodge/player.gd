@@ -20,27 +20,28 @@ func _ready():
 	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 	start(target_position)
 	
-func _on_clickable_input_event(input_position):
-	target_position = input_position
-	if(GameManager.get_game_enabled()):
-	# Check for touch events
+func _on_clickable_input_event(event,input_position):
+	if event.pressed:
+		target_position = input_position
+		if(GameManager.get_game_enabled()):
+		# Check for touch events
 
 
-		var to_target = target_position - global_position
-		var direction = to_target.normalized()
+			var to_target = target_position - global_position
+			var direction = to_target.normalized()
 
-		if(abs(direction.x)>abs(direction.y)):
-			$AnimatedSprite2D.play("walking")
-			if(direction.x>0):
-				$AnimatedSprite2D.flip_h = true
+			if(abs(direction.x)>abs(direction.y)):
+				$AnimatedSprite2D.play("walking")
+				if(direction.x>0):
+					$AnimatedSprite2D.flip_h = true
+				else:
+					$AnimatedSprite2D.flip_h = false
 			else:
-				$AnimatedSprite2D.flip_h = false
-		else:
-			$AnimatedSprite2D.play("up")
-			if(direction.y>0):
-				$AnimatedSprite2D.flip_v = true
-			else:
-				$AnimatedSprite2D.flip_v = false
+				$AnimatedSprite2D.play("up")
+				if(direction.y>0):
+					$AnimatedSprite2D.flip_v = true
+				else:
+					$AnimatedSprite2D.flip_v = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 

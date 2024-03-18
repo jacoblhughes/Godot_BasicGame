@@ -127,7 +127,9 @@ text = "Perry Flap"
 [node name="Saucer" type="Button" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2
 theme = ExtResource("14_ihqmu")
-text = "Perry Run"
+disabled = true
+text = "Perry Run
+(Coming Soon)"
 
 [node name="Attack" type="Button" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2

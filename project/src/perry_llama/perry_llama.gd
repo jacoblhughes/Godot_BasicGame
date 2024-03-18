@@ -50,6 +50,7 @@ func advance_level():
 	enemy_spawn_timer.wait_time = enemy_spawn_timer.original_time * pow(.95,GameManager.get_game_level())
 
 func _on_play_button_pressed():
+
 	GameManager.set_game_enabled(true)
 	enemy_spawn_timer.start()
 
