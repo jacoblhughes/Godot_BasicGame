@@ -4,6 +4,7 @@
 
 [node name="test" type="Node2D"]
 
-[node name="ClickableArea" parent="." instance=ExtResource("1_oby3y")]
-
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 640)
+
+[node name="ClickableArea" parent="." instance=ExtResource("1_oby3y")]

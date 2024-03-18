@@ -129,7 +129,7 @@ layout_mode = 2
 theme = ExtResource("14_ihqmu")
 disabled = true
 text = "Perry Run
-(Coming Soon)"
+(Coming Back Soon)"
 
 [node name="Attack" type="Button" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2
