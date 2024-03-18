@@ -13,5 +13,7 @@ func _process(delta):
 
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
-	event_here.emit(event)
+	if event is InputEventMouseButton:
+		print(event)
+		event_here.emit(event)
 	pass # Replace with function body.

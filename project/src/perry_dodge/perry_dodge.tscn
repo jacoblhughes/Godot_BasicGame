@@ -25,6 +25,7 @@ sources/0 = SubResource("TileSetAtlasSource_ajf4l")
 [node name="PerryDodge" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15

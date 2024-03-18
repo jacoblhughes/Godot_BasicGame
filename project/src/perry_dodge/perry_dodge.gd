@@ -21,6 +21,7 @@ func _ready():
 	StartPosition = get_parent().get_node("StartPosition")
 	Player = get_parent().get_node("Player")
 	Player.hit.connect(_on_player_hit)
+
 	
 	_game_initialize()
 	

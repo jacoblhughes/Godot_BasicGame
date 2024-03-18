@@ -15,10 +15,13 @@ var is_touching = false
 func _ready():
 	start_position = get_parent().get_node('StartPosition')
 	target_position = start_position.global_position
-	PlayArea.in_play_area.connect(_on_in_play_area)
+	
+#	PlayArea.in_play_area.connect(_on_in_play_area)
+	%ClickableArea.event_here.connect(_on_event_happened)
 	start(target_position)
 	
-func _on_in_play_area(event):
+func _on_event_happened(event):
+	print(event)
 	if(GameManager.get_game_enabled()):
 	# Check for touch events
 
