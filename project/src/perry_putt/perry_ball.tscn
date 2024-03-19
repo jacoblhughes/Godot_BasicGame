@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj57r36gu2ip7"]
+
+[ext_resource type="Script" path="res://src/perry_putt/perry_ball.gd" id="1_3qedb"]
+[ext_resource type="Texture2D" uid="uid://id04l63f5eii" path="res://textures/perry_golf/perry_ball.png" id="2_vkntv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kjkql"]
+friction = 0.3
+bounce = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahn4b"]
+radius = 24.0
+
+[node name="PerryBall" type="RigidBody2D"]
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_kjkql")
+gravity_scale = 0.0
+script = ExtResource("1_3qedb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ahn4b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vkntv")

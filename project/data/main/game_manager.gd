@@ -34,6 +34,8 @@ var games_list : Dictionary = {
 ,"7":{"title":"Perry Run","short_name":"perry_run","directions":"Get to the end of the maze as fast as you can and as many times as you can!"}
 ,"8":{"title":"Perry Space Attack","short_name":"perry_space","directions":"Roddy needs help avoiding the Vegaliens"}
 ,"9":{"title":"Perry Squash","short_name":"perry_squash","directions":"Help Perry squash"}
+,"10":{"title":"Perry Putt","short_name":"perry_putt","directions":"Help Perry putt"}
+
 }
 
 var background_canvas_layer_instance
