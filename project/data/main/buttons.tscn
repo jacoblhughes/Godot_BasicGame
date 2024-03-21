@@ -145,15 +145,15 @@ layout_mode = 2
 theme = ExtResource("14_ihqmu")
 text = "Perry Squash"
 
+[node name="Control3" type="Control" parent="AspectRatioContainer/Control/GridContainer"]
+layout_mode = 2
+
 [node name="Golf" type="Button" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("14_ihqmu")
 text = "Perry Putt"
-
-[node name="Control3" type="Control" parent="AspectRatioContainer/Control/GridContainer"]
-layout_mode = 2
 
 [node name="Control4" type="Control" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2

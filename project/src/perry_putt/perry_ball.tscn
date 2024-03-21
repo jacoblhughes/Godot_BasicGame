@@ -26,8 +26,10 @@ shape = SubResource("CircleShape2D_ahn4b")
 texture = ExtResource("2_kuc52")
 
 [node name="Aim" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Aim"]
 layout_mode = 0
@@ -35,4 +37,5 @@ offset_left = 32.0
 offset_top = -20.0
 offset_right = 96.0
 offset_bottom = 20.0
+mouse_filter = 2
 texture = ExtResource("3_jojly")
