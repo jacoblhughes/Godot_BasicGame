@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://id04l63f5eii"
-path="res://.godot/imported/perry_ball.png-355508fae32553f05f1e8932f88fddcf.ctex"
+uid="uid://dn668e6ckrbnr"
+path="res://.godot/imported/arrow.png-2f461a7107bf3cd8276f235fe7dfa4ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_golf/perry_ball.png"
-dest_files=["res://.godot/imported/perry_ball.png-355508fae32553f05f1e8932f88fddcf.ctex"]
+source_file="res://textures/perry_putt/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-2f461a7107bf3cd8276f235fe7dfa4ac.ctex"]
 
 [params]
 
