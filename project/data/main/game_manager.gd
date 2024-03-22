@@ -14,15 +14,13 @@ var current_game_scene : PackedScene
 const DEFAULT_FLOAT = -1.0
 const DEFAULT_TEXT = "-1"
 const DEFAULT_BOOL = null
-var game_level = 1
+
 
 
 signal highscoreButtonpressed
 signal initialsUpdated
 
 var game_key = "JLH"
-var play_area_position
-var play_area_size
 
 var games_list : Dictionary = {
 "1":{"title":"Perry Says","short_name":"perry_says","directions":"Smash Perry in the right order to get the high score!"}
