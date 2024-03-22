@@ -12,9 +12,10 @@ script = ExtResource("1_vjb86")
 
 [node name="Map" parent="." instance=ExtResource("3_f48k5")]
 
-[node name="PerryBall" parent="." instance=ExtResource("1_wpvdo")]
+[node name="PerryBall" parent="." node_paths=PackedStringArray("clickable_area") instance=ExtResource("1_wpvdo")]
 unique_name_in_owner = true
 position = Vector2(80, 240)
+clickable_area = NodePath("../ClickableArea")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)

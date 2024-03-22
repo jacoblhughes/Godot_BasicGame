@@ -12,8 +12,24 @@ signal startButtonPressed
 signal resetButtonPressed
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	get_all_children(self)
 	pass
+func get_all_children(node):
+	for N in node.get_children():
+		if N.mouse_filter !=2:
+			
+			print(N.name, "    " , N.mouse_filter)
+		if N.get_child_count() > 0:
+			get_all_children(N)
+#			nodes.append(N)
+#
+#			nodes.append_array(get_all_children(N))
+#
+#		else:
+#
+#			nodes.append(N)
+#
+#		return nodes
 
 func update_initials(value):
 	%Initials.text = value

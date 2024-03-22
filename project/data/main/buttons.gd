@@ -23,6 +23,10 @@ var perry_space_scene
 var perry_squash_scene
 @export var perry_putt: PackedScene
 var perry_putt_scene
+@export var perry_test: PackedScene
+var perry_test_scene
+
+
 var game_scene : Node
 
 @export var about: PackedScene
@@ -198,4 +202,17 @@ func _on_highscore_pressed():
 	highscore_scene = highscore.instantiate()
 	game_scene.add_child(highscore_scene)
 	GameManager.set_current_game_scene(highscore)
+	pass # Replace with function body.
+
+
+func _on_perry_test_pressed():
+	self.visible = false
+#	game_key = "10"
+#	var title = GameManager.get_game_list_values(game_key)["title"]
+#	var directions = GameManager.get_game_list_values(game_key)["directions"]
+	HUD.set_game(true,"test","directions")
+#	GameManager.set_game_key(game_key)
+	perry_test_scene = perry_test.instantiate()
+	game_scene.add_child(perry_test_scene)
+#	GameManager.set_current_game_scene(perry_putt)
 	pass # Replace with function body.

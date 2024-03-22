@@ -1,9 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://csika1k1sresr"]
+[gd_scene load_steps=3 format=3 uid="uid://csika1k1sresr"]
 
 [ext_resource type="Script" path="res://src/main/clickable_area.gd" id="1_dhpgy"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_27wfi"]
-size = Vector2(720, 1280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htvye"]
 size = Vector2(640, 1024)
@@ -11,15 +8,7 @@ size = Vector2(640, 1024)
 [node name="ClickableArea" type="Node2D"]
 script = ExtResource("1_dhpgy")
 
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(360, 640)
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-shape = SubResource("RectangleShape2D_27wfi")
-disabled = true
-debug_color = Color(0.945098, 0.14902, 0.462745, 0.419608)
+[node name="Marker2D" type="Marker2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true

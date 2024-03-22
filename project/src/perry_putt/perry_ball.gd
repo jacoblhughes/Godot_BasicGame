@@ -1,10 +1,11 @@
 extends RigidBody2D
 
-#@export var clikcable_area : Node2D
+@export var clickable_area : Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	%ClickableArea.clickable_input_event.connect(_on_clickable_input)
+
+	clickable_area.clickable_input_event.connect(_on_clickable_input)
 #	apply_impulse(Vector2(200,170)*5)
 	pass # Replace with function body.
 
