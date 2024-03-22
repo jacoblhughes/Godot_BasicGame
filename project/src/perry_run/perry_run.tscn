@@ -14,6 +14,9 @@
 
 [node name="PerryRun" type="Node2D"]
 
+[node name="PerryRun" type="Node2D" parent="."]
+script = ExtResource("2_1lkn6")
+
 [node name="TimerLayer" parent="." instance=ExtResource("1_0wypm")]
 unique_name_in_owner = true
 
@@ -27,9 +30,6 @@ one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
-
-[node name="PerryRun" type="Node2D" parent="."]
-script = ExtResource("2_1lkn6")
 
 [node name="TileMap" parent="." instance=ExtResource("3_axivd")]
 
