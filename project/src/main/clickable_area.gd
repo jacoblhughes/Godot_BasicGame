@@ -16,7 +16,7 @@ func _process(delta):
 
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
-	print(event)
+
 	if event is InputEventMouseButton or event is InputEventScreenDrag:
 		if event is InputEventMouseButton:
 			target_position = get_global_mouse_position()

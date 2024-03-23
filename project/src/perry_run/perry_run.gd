@@ -42,7 +42,7 @@ func _process(_delta):
 	_update_label()
 	pass
 
-func _on_maze_body_exited(body):
+func _on_race_track_body_exited(body):
 	_out_of_bounds()
 	pass # Replace with function body.
 

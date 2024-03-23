@@ -4,6 +4,7 @@ var direction = 1
 var speed = 2
 var meter_status = false
 
+signal send_value(progress_value)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -25,7 +26,15 @@ func start_meter():
 	
 func stop_meter():
 	meter_status = false
-
+	send_value.emit(%ProgressBar.value)
 		
-func return_meter():
-	return %ProgressBar.value
+func clear():
+	%ProgressBar.value = 0
+
+
+func _on_texture_button_pressed():
+	if !meter_status:
+		start_meter()
+	else:
+		stop_meter()
+	pass # Replace with function body.

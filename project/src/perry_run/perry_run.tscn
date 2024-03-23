@@ -33,8 +33,9 @@ position = Vector2(360, 640)
 
 [node name="TileMap" parent="." instance=ExtResource("3_axivd")]
 
-[node name="Player" parent="." instance=ExtResource("3_d1s5q")]
+[node name="Player" parent="." node_paths=PackedStringArray("clickable_area") instance=ExtResource("3_d1s5q")]
 position = Vector2(112, 200)
+clickable_area = NodePath("../ClickableArea")
 
 [node name="ClickableArea" parent="." instance=ExtResource("2_xnsfy")]
 unique_name_in_owner = true
@@ -56,3 +57,9 @@ position = Vector2(112, 200)
 
 [connection signal="timeout" from="CountdownTimer" to="PerryRun" method="_on_countdown_timer_timeout"]
 [connection signal="timeout" from="GameTimer" to="PerryRun" method="_on_game_timer_timeout"]
+[connection signal="body_entered" from="CP1" to="PerryRun" method="_on_cp_1_body_entered"]
+[connection signal="body_entered" from="CP2" to="PerryRun" method="_on_cp_2_body_entered"]
+[connection signal="body_entered" from="CP3" to="PerryRun" method="_on_cp_3_body_entered"]
+[connection signal="body_entered" from="Finish" to="PerryRun" method="_on_finish_body_entered"]
+[connection signal="body_entered" from="MeltZone" to="PerryRun" method="_on_melt_zone_body_entered"]
+[connection signal="body_exited" from="RaceTrack" to="PerryRun" method="_on_race_track_body_exited"]

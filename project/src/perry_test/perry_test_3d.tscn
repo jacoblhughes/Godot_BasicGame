@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcyr4ufmdy5w2"]
+
+[sub_resource type="Environment" id="Environment_nnyd5"]
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="World3D" id="World3D_5lt8m"]
+environment = SubResource("Environment_nnyd5")
+
+[node name="perry_test_3d" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+world_3d = SubResource("World3D_5lt8m")

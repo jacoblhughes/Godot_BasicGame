@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmuk80oxjv7v8"]
+
+[ext_resource type="Script" path="res://src/perry_flap/player.gd" id="1_j807i"]
+[ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://textures/perry_flap/bird_256.png" id="2_vjucp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q761"]
+atlas = ExtResource("2_vjucp")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynfd0"]
+atlas = ExtResource("2_vjucp")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aipp"]
+atlas = ExtResource("2_vjucp")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yp7ky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q761")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynfd0")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aipp")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dfi4"]
+radius = 32.0624
+
+[sub_resource type="Gradient" id="Gradient_tgg07"]
+colors = PackedColorArray(0.717647, 0, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yn8so"]
+gradient = SubResource("Gradient_tgg07")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8gvme"]
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_box_extents = Vector3(1, 10, 1)
+particle_flag_disable_z = true
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -300.0
+initial_velocity_max = -300.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 5.0
+scale_max = 5.0
+color_ramp = SubResource("GradientTexture1D_yn8so")
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_j807i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.58899, 1.491)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_yp7ky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10.113, 1.34003)
+shape = SubResource("CircleShape2D_0dfi4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-27.411, 1.491)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_8gvme")

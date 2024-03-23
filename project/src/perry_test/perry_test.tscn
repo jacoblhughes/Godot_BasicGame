@@ -1,13 +1,21 @@
 [gd_scene load_steps=3 format=3 uid="uid://eol8e22mmwv0"]
 
-[ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="1_cd3tr"]
 [ext_resource type="Script" path="res://src/perry_test/perry_test.gd" id="1_dfoa1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0uae"]
+size = Vector2(496, 960)
 
 [node name="PerryTest" type="Node2D"]
 script = ExtResource("1_dfoa1")
 
-[node name="ClickableArea" parent="." instance=ExtResource("1_cd3tr")]
-unique_name_in_owner = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
+
+[node name="WowZone" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WowZone"]
+position = Vector2(368, 648)
+shape = SubResource("RectangleShape2D_y0uae")
+
+[connection signal="input_event" from="WowZone" to="." method="_on_wow_zone_input_event"]
