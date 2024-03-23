@@ -16,6 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	%Aim.rotation = atan2(adjusted_direction.y, adjusted_direction.x) - rotation
 	impulse_direction = Vector2(cos(%Aim.rotation), sin(%Aim.rotation))
 	pass
 
@@ -29,7 +30,7 @@ func _on_clickable_input(event,input_position):
 	if GameManager.get_game_enabled():
 		if event is InputEventMouseButton:
 			adjusted_direction = (input_position - global_position).normalized()
-			%Aim.rotation = atan2(adjusted_direction.y, adjusted_direction.x) - rotation
+
 			print(adjusted_direction)
 
 func _on_hit_meter_value(progress_value):
