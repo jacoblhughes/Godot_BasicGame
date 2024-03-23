@@ -134,8 +134,7 @@ text = "Perry Flap"
 [node name="Saucer" type="Button" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2
 theme = ExtResource("14_ihqmu")
-text = "Perry Run
-(Coming Back Soon)"
+text = "Perry Run"
 
 [node name="Attack" type="Button" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2
@@ -149,18 +148,19 @@ layout_mode = 2
 theme = ExtResource("14_ihqmu")
 text = "Perry Squash"
 
-[node name="Control3" type="Control" parent="AspectRatioContainer/Control/GridContainer"]
-layout_mode = 2
-
-[node name="Golf" type="Button" parent="AspectRatioContainer/Control/GridContainer"]
+[node name="Putt" type="Button" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("14_ihqmu")
 text = "Perry Putt"
 
+[node name="Control3" type="Control" parent="AspectRatioContainer/Control/GridContainer"]
+layout_mode = 2
+
 [node name="PerryTest" type="Button" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2
+disabled = true
 
 [node name="About" type="Button" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2
@@ -189,7 +189,7 @@ text = "Highscores"
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Saucer" to="." method="_on_saucer_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Attack" to="." method="_on_perry_space_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Squash" to="." method="_on_perry_squash_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Golf" to="." method="_on_perry_putt_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Putt" to="." method="_on_perry_putt_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/PerryTest" to="." method="_on_perry_test_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/About" to="." method="_on_about_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Options" to="." method="_on_options_pressed"]

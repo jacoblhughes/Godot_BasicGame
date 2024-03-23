@@ -12,24 +12,7 @@ signal startButtonPressed
 signal resetButtonPressed
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_all_children(self)
 	pass
-func get_all_children(node):
-	for N in node.get_children():
-		if N.mouse_filter !=2:
-			
-			print(N.name, "    " , N.mouse_filter)
-		if N.get_child_count() > 0:
-			get_all_children(N)
-#			nodes.append(N)
-#
-#			nodes.append_array(get_all_children(N))
-#
-#		else:
-#
-#			nodes.append(N)
-#
-#		return nodes
 
 func update_initials(value):
 	%Initials.text = value
@@ -51,7 +34,7 @@ func reset_score():
 	score=0
 	%Score.text = str(score)
 
-func get_score():
+func return_score():
 	return score
 
 func set_game(flag,title,directions):
@@ -103,10 +86,10 @@ func set_gameover_panel_congrats(vis):
 	%GameOverPanel.visible = vis
 	if(vis):
 #		game_over_panel_congrats.play()
-		%HappyRect.visible = true
+		%HighscoreAchieved.visible = true
 	else:
 #		game_over_panel_congrats.stop()
-		%HappyRect.visible = false
+		%HighscoreAchieved.visible = false
 
 func _on_reset_button_pressed():
 	set_gameover_panel(false)
@@ -138,7 +121,7 @@ func update_lives(change):
 	%LivesLabel.text = str(lives)
 
 func check_advance_level(advance_value,level_value):
-		if(get_score() % advance_value == 0):
+		if(return_score() % advance_value == 0):
 			update_game_level(level_value)
 			return true
 			

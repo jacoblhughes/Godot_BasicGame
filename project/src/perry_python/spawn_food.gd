@@ -34,7 +34,7 @@ func _process(delta):
 	if my_food_instance.get_rect().intersects(snake.head.get_rect()):
 		
 		food_eaten.emit()
-		if(HUD.get_score() > (SnakeVariables.snakecells *2)):
+		if(HUD.return_score() > (SnakeVariables.snakecells *2)):
 
 			spawn_food()
 			

@@ -52,7 +52,7 @@ func _on_player_hit():
 		GameManager.set_game_enabled(false)
 		HUD.set_gameover_panel(true)
 		GameManager.check_highscore_and_rank()
-		%Player.allow_move(false)
+		player.allow_move(false)
 #	$UserInterface/Retry.show()
 #
 #func _unhandled_input(event):
@@ -71,5 +71,5 @@ func _on_mob_squashed():
 	HUD.update_score(score_value)
 
 func _on_start_timer_timeout():
-	%Player.allow_move(true)
+	player.allow_move(true)
 	mob_timer.start()

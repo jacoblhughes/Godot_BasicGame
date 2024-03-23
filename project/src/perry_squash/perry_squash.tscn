@@ -29,6 +29,9 @@ height = 0.5
 [node name="ClickableArea" parent="." instance=ExtResource("1_6m0cr")]
 unique_name_in_owner = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 640)
+
 [node name="PerrySquash" type="Node3D" parent="."]
 script = ExtResource("1_6oioj")
 mob_scene = ExtResource("2_y2efm")
@@ -51,6 +54,7 @@ wait_time = 0.5
 [node name="StartTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 2.0
+one_shot = true
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
