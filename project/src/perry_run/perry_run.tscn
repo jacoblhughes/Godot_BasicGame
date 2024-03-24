@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://cf4xkqs74ytur"]
+[gd_scene load_steps=11 format=3 uid="uid://cf4xkqs74ytur"]
 
-[ext_resource type="PackedScene" uid="uid://bco82c6lk15bh" path="res://src/perry_run/timer_layer.tscn" id="1_0wypm"]
 [ext_resource type="Script" path="res://src/perry_run/perry_run.gd" id="2_1lkn6"]
 [ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="2_xnsfy"]
 [ext_resource type="PackedScene" uid="uid://b7gr1u1puu88l" path="res://src/perry_run/tile_map.tscn" id="3_axivd"]
@@ -17,23 +16,13 @@
 [node name="PerryRun" type="Node2D" parent="."]
 script = ExtResource("2_1lkn6")
 
-[node name="TimerLayer" parent="." instance=ExtResource("1_0wypm")]
-unique_name_in_owner = true
-
-[node name="CountdownTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-
-[node name="GameTimer" type="Timer" parent="."]
-wait_time = 60.0
-one_shot = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
 
 [node name="TileMap" parent="." instance=ExtResource("3_axivd")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("clickable_area") instance=ExtResource("3_d1s5q")]
+unique_name_in_owner = true
 position = Vector2(112, 200)
 clickable_area = NodePath("../ClickableArea")
 
@@ -55,8 +44,6 @@ position = Vector2(112, 200)
 
 [node name="RaceTrack" parent="." instance=ExtResource("4_f80jr")]
 
-[connection signal="timeout" from="CountdownTimer" to="PerryRun" method="_on_countdown_timer_timeout"]
-[connection signal="timeout" from="GameTimer" to="PerryRun" method="_on_game_timer_timeout"]
 [connection signal="body_entered" from="CP1" to="PerryRun" method="_on_cp_1_body_entered"]
 [connection signal="body_entered" from="CP2" to="PerryRun" method="_on_cp_2_body_entered"]
 [connection signal="body_entered" from="CP3" to="PerryRun" method="_on_cp_3_body_entered"]

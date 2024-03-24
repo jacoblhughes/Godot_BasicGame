@@ -19,7 +19,7 @@ func _game_initialize():
 	HUD.reset_score()
 	HUD.startButtonPressed.connect(_on_play_button_pressed)
 	HUD.set_or_reset_level(1)
-
+	HUD.countdown_timer_timeout.connect(_on_countdown_timer_timeout)
 
 func _physics_process(delta):
 	if GameManager.get_game_enabled():
@@ -62,14 +62,12 @@ func _on_player_hit():
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
-	%StartTimer.start()
-	%StartTimer.timeout.connect(_on_start_timer_timeout)
+	HUD.countdown_timer_start_and_time_left()
 
-
-func _on_mob_squashed():
-
-	HUD.update_score(score_value)
-
-func _on_start_timer_timeout():
+func _on_countdown_timer_timeout():
 	player.allow_move(true)
 	mob_timer.start()
+
+func _on_mob_squashed():
+	HUD.update_score(score_value)
+

@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://data/main/hud.gd" id="1_wealh"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="2_7580m"]
-[ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://textures/main/perry_original_256.png" id="3_11r44"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqydw"]
+bg_color = Color(0.215686, 0.580392, 0.431373, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0fsyn"]
 font_size = 22
@@ -26,6 +28,14 @@ mouse_filter = 2
 metadata/_edit_horizontal_guides_ = [224.0, 672.0, 640.0]
 metadata/_edit_vertical_guides_ = [240.0, 720.0, 480.0]
 
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.002
+offset_right = -0.233704
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uqydw")
+
 [node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Control"]
 layout_mode = 1
 anchors_preset = 10
@@ -37,13 +47,27 @@ mouse_filter = 2
 theme = ExtResource("2_7580m")
 theme_type_variation = &"MarginContainerHUD"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Control/MarginContainer"]
 layout_mode = 2
+theme = ExtResource("2_7580m")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 2
 theme = ExtResource("2_7580m")
 alignment = 1
 
-[node name="Initials" type="Label" parent="AspectRatioContainer/Control/MarginContainer/HBoxContainer"]
+[node name="InitialsLabel" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+text = "Initials:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Initials" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -53,16 +77,16 @@ text = "JLH"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level" type="Label" parent="AspectRatioContainer/Control/MarginContainer/HBoxContainer"]
+[node name="LevelLabel" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("2_7580m")
-text = "LEVEL"
+text = "Level:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelLabel" type="Label" parent="AspectRatioContainer/Control/MarginContainer/HBoxContainer"]
+[node name="Level" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -72,7 +96,35 @@ text = "INF"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score" type="Label" parent="AspectRatioContainer/Control/MarginContainer/HBoxContainer"]
+[node name="LivesLabel" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+text = "Lives:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lives" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+text = "INF"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -81,50 +133,56 @@ theme = ExtResource("2_7580m")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-clip_text = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="AspectRatioContainer/Control"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -128.0
-offset_right = 360.0
-grow_vertical = 0
+[node name="HBoxContainer2" type="HBoxContainer" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 2
 theme = ExtResource("2_7580m")
-theme_type_variation = &"MarginContainerHUD"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Control/MarginContainer2"]
-layout_mode = 2
-mouse_filter = 2
-theme = ExtResource("2_7580m")
-theme_override_constants/separation = 35
-
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/Control/MarginContainer2/HBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("3_11r44")
-expand_mode = 3
-
-[node name="LivesX" type="Label" parent="AspectRatioContainer/Control/MarginContainer2/HBoxContainer"]
+[node name="TimeLeftLabel" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("2_7580m")
-text = "X"
+text = "Time Left:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LivesLabel" type="Label" parent="AspectRatioContainer/Control/MarginContainer2/HBoxContainer"]
+[node name="TimeLeft" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("2_7580m")
 text = "INF"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TimePassedLabel" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Time Passsed:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimePassed" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "INF"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartCountdownTimer" type="Timer" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[node name="GameLeftTimer" type="Timer" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+wait_time = 60.0
+one_shot = true
+
+[node name="GamePassedTimer" type="Timer" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+one_shot = true
 
 [node name="MarginContainer3" type="MarginContainer" parent="AspectRatioContainer/Control"]
 layout_mode = 1
@@ -263,6 +321,9 @@ mouse_filter = 1
 theme = ExtResource("2_7580m")
 text = "Home"
 
+[connection signal="timeout" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2/StartCountdownTimer" to="." method="_on_countdown_timer_timeout"]
+[connection signal="timeout" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2/GameLeftTimer" to="." method="_on_game_left_timer_timeout"]
+[connection signal="timeout" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2/GamePassedTimer" to="." method="_on_game_passed_timer_timeout"]
 [connection signal="pressed" from="AspectRatioContainer/Control/MarginContainer3/Home_Button" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GameOverPanel/MarginContainer/VBoxContainer/HomeButtonOnGameover" to="." method="_on_home_button_pressed"]

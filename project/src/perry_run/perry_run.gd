@@ -7,7 +7,7 @@ var finish = false
 var score_value = 1
 @onready var countdown_timer : Timer
 @onready var game_timer : Timer
-@onready var time_label : Label
+
 @onready var player : CharacterBody2D
 @onready var c_p_1_area : Area2D
 @onready var c_p_2_area : Area2D
@@ -25,21 +25,25 @@ func _ready():
 	c_p_2_area = get_parent().get_node("CP2")
 	c_p_3_area = get_parent().get_node("CP3")
 	finish_area = get_parent().get_node("Finish")
-	countdown_timer = get_parent().get_node("CountdownTimer")
-	game_timer = get_parent().get_node("GameTimer")
-	time_label = %TimerLayer.get_node("CountdownTimerTime")
-	player = get_parent().get_node("Player")
+
+
+	player = %Player
 	_game_initialize()
 	reset_point = finish_area.position
+	
+	
+	
 	pass # Replace with function body.
 
 func _game_initialize():
 	HUD.reset_score()
 	HUD.startButtonPressed.connect(_on_play_button_pressed)
 	HUD.set_or_reset_level(1)
+	HUD.countdown_timer_timeout.connect(_on_countdown_timer_timeout)
+	HUD.game_left_timer_timeout.connect(_on_game_left_timer_timeout)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	_update_label()
+
 	pass
 
 func _on_race_track_body_exited(body):
@@ -95,7 +99,7 @@ func _on_finish_body_entered(body):
 func _on_play_button_pressed():
 
 	GameManager.set_game_enabled(true)
-	countdown_timer.start()
+	HUD.countdown_timer_start_and_time_left()
 
 func _reset_checkpoints():
 	c_p_1 = false
@@ -105,7 +109,7 @@ func _reset_checkpoints():
 
 func _on_countdown_timer_timeout():
 
-	game_timer.start()
+	HUD.game_left_timer_start()
 	game_start.emit()
 	game_on = true
 
@@ -114,18 +118,9 @@ func _on_countdown_timer_timeout():
 func advance_level():
 	pass
 
-func _update_label():
-
-	if not game_on:
-	# Get the time left from the timer and format it as minutes:seconds
-		var time_left = countdown_timer.time_left
-		time_label.text = "%d:%02d" % [floor(time_left / 60), int(time_left) % 60]
-	elif game_on:
-		var time_left = game_timer.time_left
-		time_label.text = "%d:%02d" % [floor(time_left / 60), int(time_left) % 60]
 
 
-func _on_game_timer_timeout():
+func _on_game_left_timer_timeout():
 	reset_point = finish_area.position
 	_out_of_bounds()
 	GameManager.set_game_enabled(false)
