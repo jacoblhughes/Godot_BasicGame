@@ -17,15 +17,7 @@ func _game_initialize():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
-	if Input.is_action_just_pressed("hit_space") and !%HitMeter.meter_status:
-
-		%HitMeter.start_meter()
-		
-	elif Input.is_action_just_pressed("hit_space") and %HitMeter.meter_status:
-		%HitMeter.stop_meter()
-		%PerryBall.swing(%HitMeter.return_meter())
-
+	pass
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)

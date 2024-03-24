@@ -34,7 +34,7 @@ func _process(delta):
 	if my_food_instance.get_rect().intersects(snake.head.get_rect()):
 		
 		food_eaten.emit()
-		if(HUD.return_score() > (SnakeVariables.snakecells *2)):
+		if(HUD.return_score() > (%grid.return_snakecells() *2)):
 
 			spawn_food()
 			
@@ -54,8 +54,6 @@ func spawn_food():
 		random_position.x = randi_range(0, SnakeVariables.GRID_SIZE.x - SnakeVariables.snakecellsize.x)
 		random_position.y = randi_range(0, SnakeVariables.GRID_SIZE.y - SnakeVariables.snakecellsize.y)
 		my_food_instance.food_position = random_position.snapped(SnakeVariables.snakecellsize) + SnakeVariables.GRID_POSITION
-#		my_food_instance.scale.x = SnakeVariables.snakecellsize.x/png_size
-#		my_food_instance.scale.y = SnakeVariables.snakecellsize.y/png_size
 		for minisnake in snake.minisnakes:
 			if my_food_instance.get_rect().intersects(minisnake.get_rect()):
 				is_on_occupied_position = true

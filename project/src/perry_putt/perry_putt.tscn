@@ -23,7 +23,7 @@ position = Vector2(360, 640)
 
 [node name="Hole" parent="." instance=ExtResource("5_1gdhw")]
 unique_name_in_owner = true
-position = Vector2(576, 192)
+position = Vector2(448, 384)
 collision_layer = 256
 
 [node name="ClickableArea" parent="." instance=ExtResource("3_guk6n")]

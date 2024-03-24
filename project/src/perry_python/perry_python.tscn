@@ -25,6 +25,7 @@ position = Vector2(360, 640)
 [node name="body" type="Node2D" parent="."]
 
 [node name="grid" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("3_t14ja")
 
 [node name="Snake_Move_Timer" type="Timer" parent="."]

@@ -158,9 +158,8 @@ text = "Perry Putt"
 [node name="Control3" type="Control" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2
 
-[node name="PerryTest" type="Button" parent="AspectRatioContainer/Control/GridContainer"]
+[node name="Control2" type="Control" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2
-disabled = true
 
 [node name="About" type="Button" parent="AspectRatioContainer/Control/GridContainer"]
 layout_mode = 2
@@ -190,7 +189,6 @@ text = "Highscores"
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Attack" to="." method="_on_perry_space_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Squash" to="." method="_on_perry_squash_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Putt" to="." method="_on_perry_putt_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/PerryTest" to="." method="_on_perry_test_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/About" to="." method="_on_about_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Control/GridContainer/Highscores" to="." method="_on_highscore_pressed"]

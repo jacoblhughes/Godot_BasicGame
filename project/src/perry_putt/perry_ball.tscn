@@ -22,7 +22,8 @@ collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_kjkql")
 gravity_scale = 0.0
 contact_monitor = true
-linear_damp = 0.5
+linear_damp_mode = 1
+linear_damp = 0.6
 script = ExtResource("1_3qedb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

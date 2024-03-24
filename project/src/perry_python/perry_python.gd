@@ -27,9 +27,16 @@ var score_value = 1
 var level_advance_value = 2
 var original_snake_time = .75
 func _ready():
-
+	var new_area = Vector2(%ClickableArea.get_play_area_size().x,%ClickableArea.get_play_area_size().x)
 	var left_over = (%ClickableArea.get_play_area_size().y/2) - (%ClickableArea.get_play_area_size().x/2)
 	var new_position = Vector2(%ClickableArea.get_play_area_position().x,%ClickableArea.get_play_area_position().y+left_over)
+#	SnakeVariables._set_play_area_size(new_area)
+#	SnakeVariables._set_play_area_position(new_position)
+	var cellX = new_area.x/%grid.return_snakecells()
+	var cellY = new_area.y/%grid.return_snakecells()
+#	SnakeVariables.set_snake_cell_size(Vector2(cellX,cellY))
+
+
 	grid = get_parent().get_node("grid")
 	grid.grid_ready.connect(_on_grid_ready)
 	play_area_min = new_position
@@ -109,12 +116,7 @@ func _on_snake_move_timer_timeout():
 
 func grow() -> void:
 
-#	var minisnake := Minisnake.new()
-#	var last_minisnake := minisnakes.back() as Minisnake
-#	minisnake.curr_position = last_minisnake.curr_position
-#	minisnake.color = SnakeVariables.BLUE
-#	minisnake.size = SnakeVariables.snakecellsize
-#	minisnakes.push_back(minisnake)
+
 	var new_head = preload("res://src/perry_python/segment.tscn").instantiate()
 	var last_head :=minisnakes.back() as SnakeBoy
 	new_head.curr_position = last_head.curr_position
@@ -124,8 +126,7 @@ func grow() -> void:
 	minisnakes.push_back(new_head)
 
 	get_parent().get_node("body").add_child.call_deferred(new_head)
-#	new_head.scale.x = SnakeVariables.snakecellsize.x/150
-#	new_head.scale.y = SnakeVariables.snakecellsize.y/150
+
 	
 func _on_hit(mini:Minisnake) -> void:
 	await get_tree().process_frame
