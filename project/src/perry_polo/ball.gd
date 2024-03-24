@@ -69,17 +69,11 @@ func _on_position_reset():
 	_reset_ball()
 
 func _on_clickable_input_event(event, _input_position):
-	
 	if(GameManager.get_game_enabled()):
-			
-			if Input.is_action_pressed("left_mouse_click") and reset_round:
-				var swing_angle = randi_range (-45, 45)
-
-	# Rotate the original velocity by the swing angle
-				velocity = increased_velocity.rotated(deg_to_rad(swing_angle))
-
-	#			velocity = original_velocity
-				reset_round = false	
+		if reset_round:
+			var swing_angle = randi_range (-45, 45)
+			velocity = increased_velocity.rotated(deg_to_rad(swing_angle))
+			reset_round = false	
 
 func _reset_ball():
 	position_reset = true

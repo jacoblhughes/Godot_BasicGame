@@ -54,9 +54,10 @@ wait_time = 2.0
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(360, 640)
 
-[node name="MobPath" type="Path2D" parent="."]
+[node name="MobPath" type="Path2D" parent="." node_paths=PackedStringArray("clickable_area")]
 curve = SubResource("Curve2D_mulw1")
 script = ExtResource("4_27mf4")
+clickable_area = NodePath("../ClickableArea")
 
 [node name="MobPathFollow" type="PathFollow2D" parent="MobPath"]
 position = Vector2(24, 1136)
