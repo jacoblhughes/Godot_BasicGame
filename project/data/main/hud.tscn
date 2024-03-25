@@ -13,7 +13,165 @@ font_size = 22
 layer = 2
 script = ExtResource("1_wealh")
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 1.002
+anchor_bottom = 0.1
+offset_right = -1.44006
+offset_bottom = -128.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.002
+offset_right = -0.233765
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uqydw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_right = 361.2
+offset_bottom = 128.0
+grow_horizontal = 2
+mouse_filter = 2
+theme = ExtResource("2_7580m")
+theme_type_variation = &"MarginContainerHUD"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_7580m")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme = ExtResource("2_7580m")
+alignment = 1
+
+[node name="InitialsLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+text = "Initials:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Initials" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+text = "JLH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+text = "Level:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+text = "INF"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LivesLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+text = "Lives:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lives" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+text = "INF"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme = ExtResource("2_7580m")
+
+[node name="TimeLeftLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Time Left:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLeft" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "INF"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimePassedLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Time Passsed:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimePassed" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "INF"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartCountdownTimer" type="Timer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+wait_time = 3.0
+one_shot = true
+
+[node name="GameLeftTimer" type="Timer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+wait_time = 60.0
+one_shot = true
+
+[node name="GamePassedTimer" type="Timer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+one_shot = true
+
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -321,6 +479,9 @@ mouse_filter = 1
 theme = ExtResource("2_7580m")
 text = "Home"
 
+[connection signal="timeout" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/StartCountdownTimer" to="." method="_on_countdown_timer_timeout"]
+[connection signal="timeout" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/GameLeftTimer" to="." method="_on_game_left_timer_timeout"]
+[connection signal="timeout" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/GamePassedTimer" to="." method="_on_game_passed_timer_timeout"]
 [connection signal="timeout" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2/StartCountdownTimer" to="." method="_on_countdown_timer_timeout"]
 [connection signal="timeout" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2/GameLeftTimer" to="." method="_on_game_left_timer_timeout"]
 [connection signal="timeout" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/HBoxContainer2/GamePassedTimer" to="." method="_on_game_passed_timer_timeout"]
