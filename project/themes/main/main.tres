@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://s0srltpmhp6g"]
+[gd_resource type="Theme" load_steps=21 format=3 uid="uid://s0srltpmhp6g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfs50"]
 bg_color = Color(0.188235, 0.376471, 0.509804, 1)
@@ -15,7 +15,17 @@ bg_color = Color(0.188235, 0.376471, 0.509804, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub2f4"]
 bg_color = Color(0.188235, 0.376471, 0.509804, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfrc4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_weh8g"]
+bg_color = Color(0.215686, 0.580392, 0.431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qah5f"]
+bg_color = Color(0.215686, 0.580392, 0.431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exv3h"]
+bg_color = Color(0.215686, 0.580392, 0.431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enksp"]
+bg_color = Color(0.215686, 0.580392, 0.431373, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orp2f"]
 
@@ -38,7 +48,10 @@ bg_color = Color(0.215686, 0.580392, 0.431373, 1)
 bg_color = Color(0.356863, 0.431373, 0.882353, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcucr"]
-bg_color = Color(0.462745, 0.258824, 0.541176, 0.784314)
+bg_color = Color(0.290196, 0.14902, 0.345098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71cop"]
+bg_color = Color(0.215686, 0.580392, 0.431373, 1)
 
 [resource]
 Button/colors/font_color = Color(0.964706, 1, 0.972549, 1)
@@ -47,8 +60,11 @@ Button/styles/focus = SubResource("StyleBoxFlat_f5cs7")
 Button/styles/hover = SubResource("StyleBoxFlat_r75i3")
 Button/styles/normal = SubResource("StyleBoxFlat_hl18o")
 Button/styles/pressed = SubResource("StyleBoxFlat_ub2f4")
-CheckButton/styles/focus = SubResource("StyleBoxEmpty_hfrc4")
+CheckButton/styles/focus = SubResource("StyleBoxFlat_weh8g")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_qah5f")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_exv3h")
 HBoxContainer/constants/separation = 10
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_enksp")
 ItemList/styles/cursor = SubResource("StyleBoxEmpty_orp2f")
 ItemList/styles/cursor_unfocused = SubResource("StyleBoxEmpty_yi1hl")
 ItemList/styles/focus = SubResource("StyleBoxEmpty_do0kr")
@@ -72,4 +88,8 @@ MarginContainerHUD/constants/margin_left = 20
 MarginContainerHUD/constants/margin_right = 20
 MarginContainerHUD/constants/margin_top = 20
 Panel/styles/panel = SubResource("StyleBoxFlat_hcucr")
-VBoxContainer/constants/separation = 10
+PanelHUD/base_type = &"Panel"
+PanelHUD/styles/panel = SubResource("StyleBoxFlat_71cop")
+VBoxContainer/constants/separation = 30
+VBoxContainerOptions/base_type = &"VBoxContainer"
+VBoxContainerOptions/constants/separation = 25

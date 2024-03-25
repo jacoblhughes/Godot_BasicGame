@@ -1,7 +1,6 @@
 Perry Arcade
 
-AUDIO
-POSITION OF CLICK EVENT
+
 
 V2:
 
@@ -64,6 +63,9 @@ All:
 	Fix the way the background is created and is displayed
 	Get rid of the need for the play area
 	Consolidate the sounds
+	
+Options
+	Better way for placement
 	
 Notes:
 	Timing loading for each element - noticably android and labels and such
