@@ -1,7 +1,7 @@
 extends CanvasLayer
 var config = ConfigFile.new()
 
-@onready var InitialsInput : LineEdit = %Initials
+
 var game_key
 @export var perry_says: PackedScene
 var perry_says_scene
@@ -41,17 +41,14 @@ var highscore_scene
 func _ready():
 
 	game_scene = get_tree().get_root().get_node("Main")
-	InitialsInput.text = HUD.get_initials()
+
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
-func _on_initials_text_changed(new_text):
 
-	HUD.set_initials(new_text)
-	pass # Replace with function body.
 
 func _on_simon_says_pressed():
 

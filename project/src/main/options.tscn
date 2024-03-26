@@ -24,6 +24,7 @@ theme_type_variation = &"VBoxContainerOptions"
 [node name="Control3" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="BackgroundOnOff" type="CheckButton" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -60,13 +61,34 @@ step = 0.05
 value = 1.0
 tick_count = 10
 
+[node name="InitialsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
+theme = ExtResource("2_e7rg0")
+text = "Input initials below to change:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Initials" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_e7rg0")
+alignment = 1
+max_length = 3
+
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="ResetHighScores" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -77,9 +99,11 @@ text = "Reset High Scores"
 [node name="Control4" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackgroundOnOff" to="." method="_on_check_button_pressed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/BackgroundVolume" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GameEffectsOnOff" to="." method="_on_check_button_2_pressed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GameEffectsVolume" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/Initials" to="." method="_on_initials_text_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ResetHighScores" to="." method="_on_reset_high_scores_pressed"]

@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyl28swe7b43k"]
+[gd_scene load_steps=4 format=3 uid="uid://cyl28swe7b43k"]
 
 [ext_resource type="Script" path="res://data/main/hud.gd" id="1_wealh"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="2_7580m"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqydw"]
-bg_color = Color(0.215686, 0.580392, 0.431373, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0fsyn"]
 font_size = 22
@@ -20,6 +17,7 @@ anchor_bottom = 0.1
 offset_right = -1.44006
 offset_bottom = -128.0
 grow_horizontal = 2
+mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 1
@@ -187,6 +185,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="MarginContainer3" type="MarginContainer" parent="Control2"]
 layout_mode = 1
@@ -211,7 +210,6 @@ theme = ExtResource("2_7580m")
 text = "Home"
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -225,14 +223,6 @@ layout_mode = 2
 mouse_filter = 2
 metadata/_edit_horizontal_guides_ = [224.0, 672.0, 640.0]
 metadata/_edit_vertical_guides_ = [240.0, 720.0, 480.0]
-
-[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.002
-offset_right = -0.233704
-offset_bottom = 128.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_uqydw")
 
 [node name="GameStartPanel" type="Panel" parent="AspectRatioContainer/Control"]
 unique_name_in_owner = true
