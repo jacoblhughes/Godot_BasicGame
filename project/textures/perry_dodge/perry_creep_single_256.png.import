@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0yjhc8catg68"
-path="res://.godot/imported/Player Walk 1.png-3e66191eeb7e297ca2685b63e3c39fce.ctex"
+uid="uid://bpbsvxbbk4ce8"
+path="res://.godot/imported/perry_creep_single_256.png-92742defe274cf2112c2521da13064da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_dodge/Player Walk 1.png"
-dest_files=["res://.godot/imported/Player Walk 1.png-3e66191eeb7e297ca2685b63e3c39fce.ctex"]
+source_file="res://textures/perry_dodge/perry_creep_single_256.png"
+dest_files=["res://.godot/imported/perry_creep_single_256.png-92742defe274cf2112c2521da13064da.ctex"]
 
 [params]
 

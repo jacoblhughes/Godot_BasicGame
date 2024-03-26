@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpfarfnl1wtyv"
-path="res://.godot/imported/Player Walk 2.png-ca4c9b52a6dffc8e9c897315b645a22f.ctex"
+uid="uid://bds1772kdlg7f"
+path="res://.godot/imported/perry_says_buttons_logo_256.png-452af6f4b4404ecd64578d5d5e9586fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_dodge/Player Walk 2.png"
-dest_files=["res://.godot/imported/Player Walk 2.png-ca4c9b52a6dffc8e9c897315b645a22f.ctex"]
+source_file="res://textures/perry_says/perry_says_buttons_logo_256.png"
+dest_files=["res://.godot/imported/perry_says_buttons_logo_256.png-452af6f4b4404ecd64578d5d5e9586fe.ctex"]
 
 [params]
 

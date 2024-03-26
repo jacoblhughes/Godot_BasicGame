@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=28 format=3 uid="uid://d4cpf87cb1bs0"]
 
 [ext_resource type="Script" path="res://data/main/buttons.gd" id="1_bni1w"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://src/perry_says/perry_says.tscn" id="2_p72e3"]
@@ -16,11 +16,17 @@
 [ext_resource type="PackedScene" uid="uid://cs18y0ygm8p13" path="res://src/main/options.tscn" id="12_wiofo"]
 [ext_resource type="PackedScene" uid="uid://2opj6l2yf0hy" path="res://src/main/highscore.tscn" id="13_sdpee"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="14_ihqmu"]
-[ext_resource type="Texture2D" uid="uid://cqms1nk3tfsbx" path="res://textures/perry_says/perry_says_buttons_256.png" id="17_x1x2u"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2b0ck"]
-atlas = ExtResource("17_x1x2u")
-region = Rect2(768, 0, 256, 256)
+[ext_resource type="PackedScene" uid="uid://urp5eq32gjnv" path="res://src/main/game_button.tscn" id="17_10g4p"]
+[ext_resource type="Texture2D" uid="uid://bds1772kdlg7f" path="res://textures/perry_says/perry_says_buttons_logo_256.png" id="18_h2tu3"]
+[ext_resource type="Texture2D" uid="uid://bqd3t0ewnnfu" path="res://textures/main/cham_256.png" id="19_evpij"]
+[ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://textures/perry_polo/pong_paddle1.png" id="20_c8i4i"]
+[ext_resource type="Texture2D" uid="uid://b3ceohymx1b0e" path="res://textures/perry_llama/lava_256.png" id="21_fernw"]
+[ext_resource type="Texture2D" uid="uid://bpbsvxbbk4ce8" path="res://textures/perry_dodge/perry_creep_single_256.png" id="22_o05ny"]
+[ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://textures/perry_flap/bird_256.png" id="23_p1kel"]
+[ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://textures/perry_run/perry_run_256.png" id="24_gh28p"]
+[ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://textures/perry_space/attack_256.png" id="25_3shli"]
+[ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://textures/main/perry_original_256.png" id="26_ilcnv"]
+[ext_resource type="Texture2D" uid="uid://id04l63f5eii" path="res://textures/perry_putt/perry_ball.png" id="27_3ayht"]
 
 [node name="Buttons" type="CanvasLayer"]
 layer = 3
@@ -58,326 +64,98 @@ grow_vertical = 2
 mouse_filter = 2
 ratio = 0.5625
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer"]
+[node name="GameContainer" type="VBoxContainer" parent="AspectRatioContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="SimonSays" type="Button" parent="AspectRatioContainer/VBoxContainer"]
+[node name="PerrySays" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("14_ihqmu")
-text = "Perry Says"
+game_image_texture = ExtResource("18_h2tu3")
+game_scene_selection = ExtResource("2_p72e3")
+game_key_selection = "1"
+game_title = "Perry Says"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/SimonSays"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Control" type="Control" parent="AspectRatioContainer/VBoxContainer/SimonSays/HBoxContainer"]
+[node name="PerryPython" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
-mouse_filter = 2
+game_image_texture = ExtResource("19_evpij")
+game_scene_selection = ExtResource("3_e04k2")
+game_key_selection = "2"
+game_title = "Perry Python"
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/VBoxContainer/SimonSays/HBoxContainer"]
+[node name="PerryPolo" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+game_image_texture = ExtResource("20_c8i4i")
+game_scene_selection = ExtResource("4_2g5rt")
+game_key_selection = "3"
+game_title = "Perry Polo"
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/SimonSays/HBoxContainer/MarginContainer"]
+[node name="PerryLlama" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-texture = SubResource("AtlasTexture_2b0ck")
-expand_mode = 1
+game_image_texture = ExtResource("21_fernw")
+game_scene_selection = ExtResource("5_c3ay5")
+game_key_selection = "4"
+game_title = "Perry Llama Leap"
 
-[node name="Snake" type="Button" parent="AspectRatioContainer/VBoxContainer"]
+[node name="PerryDodge" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("14_ihqmu")
-text = "Python Perry"
+game_image_texture = ExtResource("22_o05ny")
+game_scene_selection = ExtResource("6_witco")
+game_key_selection = "5"
+game_title = "Perry Dodge"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/Snake"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Control" type="Control" parent="AspectRatioContainer/VBoxContainer/Snake/HBoxContainer"]
+[node name="PerryFlap" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
-mouse_filter = 2
+game_image_texture = ExtResource("23_p1kel")
+game_scene_selection = ExtResource("7_8m0e8")
+game_key_selection = "6"
+game_title = "Perry Flap"
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/Snake/HBoxContainer"]
+[node name="PerryRun" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-texture = SubResource("AtlasTexture_2b0ck")
-expand_mode = 1
+game_image_texture = ExtResource("24_gh28p")
+game_scene_selection = ExtResource("8_jcog7")
+game_key_selection = "7"
+game_title = "Perry Run"
 
-[node name="Perry" type="Button" parent="AspectRatioContainer/VBoxContainer"]
+[node name="PerrySpace" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("14_ihqmu")
-text = "Perry Water Polo"
+game_image_texture = ExtResource("25_3shli")
+game_scene_selection = ExtResource("9_f6anq")
+game_key_selection = "8"
+game_title = "Perry Space"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/Perry"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Control" type="Control" parent="AspectRatioContainer/VBoxContainer/Perry/HBoxContainer"]
+[node name="PerrrySquash" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
-mouse_filter = 2
+game_image_texture = ExtResource("26_ilcnv")
+game_scene_selection = ExtResource("10_j1rxk")
+game_key_selection = "9"
+game_title = "Perry Squash"
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/Perry/HBoxContainer"]
+[node name="PerryPutt" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-texture = SubResource("AtlasTexture_2b0ck")
-expand_mode = 1
+game_image_texture = ExtResource("27_3ayht")
+game_scene_selection = ExtResource("11_yj5m7")
+game_key_selection = "10"
+game_title = "Perry Putt"
 
-[node name="Dino" type="Button" parent="AspectRatioContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("14_ihqmu")
-text = "Perry's Llama Leap"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/Dino"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Control" type="Control" parent="AspectRatioContainer/VBoxContainer/Dino/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/Dino/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-texture = SubResource("AtlasTexture_2b0ck")
-expand_mode = 1
-
-[node name="Creep" type="Button" parent="AspectRatioContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("14_ihqmu")
-text = "Perry Dodge"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/Creep"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Control" type="Control" parent="AspectRatioContainer/VBoxContainer/Creep/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/Creep/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-texture = SubResource("AtlasTexture_2b0ck")
-expand_mode = 1
-
-[node name="Flappy" type="Button" parent="AspectRatioContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("14_ihqmu")
-text = "Perry Flap"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/Flappy"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Control" type="Control" parent="AspectRatioContainer/VBoxContainer/Flappy/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/Flappy/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-texture = SubResource("AtlasTexture_2b0ck")
-expand_mode = 1
-
-[node name="Saucer" type="Button" parent="AspectRatioContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("14_ihqmu")
-text = "Perry Run"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/Saucer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Control" type="Control" parent="AspectRatioContainer/VBoxContainer/Saucer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/Saucer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-texture = SubResource("AtlasTexture_2b0ck")
-expand_mode = 1
-
-[node name="Attack" type="Button" parent="AspectRatioContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("14_ihqmu")
-text = "Perry Space Attack"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/Attack"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Control" type="Control" parent="AspectRatioContainer/VBoxContainer/Attack/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/Attack/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-texture = SubResource("AtlasTexture_2b0ck")
-expand_mode = 1
-
-[node name="Squash" type="Button" parent="AspectRatioContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("14_ihqmu")
-text = "Perry Squash"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/Squash"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Control" type="Control" parent="AspectRatioContainer/VBoxContainer/Squash/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/Squash/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-texture = SubResource("AtlasTexture_2b0ck")
-expand_mode = 1
-
-[node name="Putt" type="Button" parent="AspectRatioContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("14_ihqmu")
-text = "Perry Putt"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/Putt"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Control" type="Control" parent="AspectRatioContainer/VBoxContainer/Putt/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/Putt/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-texture = SubResource("AtlasTexture_2b0ck")
-expand_mode = 1
-
-[node name="Highscores" type="Button" parent="AspectRatioContainer/VBoxContainer"]
+[node name="Highscores" type="Button" parent="AspectRatioContainer/GameContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("14_ihqmu")
 text = "Highscores"
 
-[node name="About" type="Button" parent="AspectRatioContainer/VBoxContainer"]
+[node name="About" type="Button" parent="AspectRatioContainer/GameContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("14_ihqmu")
 text = "About"
 
-[node name="Options" type="Button" parent="AspectRatioContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="AspectRatioContainer/GameContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("14_ihqmu")
 text = "Options"
 
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/SimonSays" to="." method="_on_simon_says_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Snake" to="." method="_on_snake_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Perry" to="." method="_on_pong_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Dino" to="." method="_on_dino_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Creep" to="." method="_on_creep_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Flappy" to="." method="_on_flappy_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Saucer" to="." method="_on_saucer_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Attack" to="." method="_on_perry_space_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Squash" to="." method="_on_perry_squash_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Putt" to="." method="_on_perry_putt_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Highscores" to="." method="_on_highscore_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/About" to="." method="_on_about_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/GameContainer/Highscores" to="." method="_on_highscore_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/GameContainer/About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/GameContainer/Options" to="." method="_on_options_pressed"]
