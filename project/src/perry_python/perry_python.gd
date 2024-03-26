@@ -24,7 +24,7 @@ var level_value = 1
 var head_original_x
 var head_original_y
 var score_value = 1
-var level_advance_value = 2
+var level_advance_value = 5
 var original_snake_time = .75
 func _ready():
 	var new_area = Vector2(%ClickableArea.get_play_area_size().x,%ClickableArea.get_play_area_size().x)

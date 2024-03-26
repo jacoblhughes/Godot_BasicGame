@@ -3,9 +3,6 @@ class_name SpaceRocket
 
 @export var SPEED = 300
 @onready var visible_notifier = $VisibleOnScreenNotifier2D
-var level_advance_value = 10
-var level_value = 1
-var score_value = 1
 @onready var perry_space : Node2D
 signal enemy_hit
 # Called when the node enters the scene tree for the first time.

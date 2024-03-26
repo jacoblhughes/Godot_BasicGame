@@ -12,7 +12,7 @@ var groupOfButtons
 var disabledColor
 var score_value = 1
 var level_value = 1
-var level_advance_value = 2
+var level_advance_value = 5
 var playerTurn = false
 var computerPopulate = 0
 var playerPopulate = -1
