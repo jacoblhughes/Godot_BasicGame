@@ -1,5 +1,7 @@
 extends Node2D
-
+@export var level_1 : PackedScene
+@export var level_2 : PackedScene
+@export var level_3 : PackedScene
 var initial_score = 100
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -7,6 +9,7 @@ func _ready():
 
 
 	_game_initialize()
+	apply_level(level_1)
 	pass
 
 func _game_initialize():
@@ -29,5 +32,19 @@ func _game_over():
 
 	%PerryBall.linear_velocity = Vector2.ZERO
 	GameManager.check_highscore_and_rank()
+	
+func apply_level(scene):
+	var scene_instance = scene.instantiate()
+	scene_instance.ball_sank.connect(_on_ball_sank)
+	scene_instance.game_over.connect(_on_game_over)
+	get_parent().add_child.call_deferred(scene_instance)
+	
+func _on_ball_sank():
+	
+	pass
+	
+func _on_game_over():
+	_game_over()
+	pass
 
 

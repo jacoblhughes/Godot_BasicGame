@@ -1,12 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuo4gv5dg3v"]
+[gd_scene load_steps=2 format=3 uid="uid://cuo4gv5dg3v"]
 
 [ext_resource type="Script" path="res://src/perry_putt/perry_putt.gd" id="1_vjb86"]
-[ext_resource type="PackedScene" uid="uid://dfhfwetbimd8s" path="res://src/perry_putt/level_1.tscn" id="2_pj6h1"]
 
 [node name="PerryPutt" type="Node2D"]
 script = ExtResource("1_vjb86")
-
-[node name="LevelChange" type="Node" parent="."]
-unique_name_in_owner = true
-
-[node name="Level1" parent="." instance=ExtResource("2_pj6h1")]
