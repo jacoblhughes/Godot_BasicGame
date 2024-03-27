@@ -16,7 +16,9 @@ func _process(delta):
 
 func _on_ball_sank():
 	if(GameManager.get_game_enabled()):
+		%PerryBall.linear_velocity = Vector2.ZERO
 		ball_sank.emit()
+		queue_free()
 		
 func _on_hit_meter_value(_progress_value):
 	HUD.update_score(score_value)

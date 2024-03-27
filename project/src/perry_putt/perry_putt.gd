@@ -37,8 +37,6 @@ func _on_play_button_pressed():
 func _game_over():
 	GameManager.set_game_enabled(false)
 	HUD.set_gameover_panel(true)
-
-	%PerryBall.linear_velocity = Vector2.ZERO
 	GameManager.check_highscore_and_rank()
 	
 func apply_level(scene):
@@ -46,15 +44,18 @@ func apply_level(scene):
 	var scene_instance = scene.instantiate()
 	scene_instance.ball_sank.connect(_on_ball_sank)
 	scene_instance.game_over.connect(_on_game_over)
-	get_parent().add_child.call_deferred(scene_instance)
+	add_child.call_deferred(scene_instance)
 	
 func _on_ball_sank():
 	if current_scene == level_1:
 		apply_level(level_2)
+		return
 	if current_scene == level_2:
 		apply_level(level_3)
+		return
 	if current_scene == level_3:
 		_game_over()
+		return
 	pass
 	
 func _on_game_over():

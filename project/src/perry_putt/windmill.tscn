@@ -1,0 +1,165 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtpn51vqswmex"]
+
+[ext_resource type="Texture2D" uid="uid://bqs0g4vjbre8e" path="res://textures/perry_putt/windmill.png" id="1_j80t8"]
+[ext_resource type="Script" path="res://src/perry_putt/windmill.gd" id="1_odl7w"]
+[ext_resource type="Texture2D" uid="uid://dbcm2sj4qv8ql" path="res://textures/perry_putt/fans.png" id="2_v18aq"]
+[ext_resource type="PackedScene" uid="uid://dsqumagonjfi0" path="res://src/perry_putt/fan.tscn" id="4_rmfhb"]
+
+[sub_resource type="Animation" id="Animation_5ucnc"]
+resource_name = "rotate"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rotation:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10, 15, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.785398, 0.785398, 2.35619, 3.92699, 5.49779]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rotation/FanCollisions/Fan")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 3.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"activate_collision"
+}, {
+"args": [],
+"method": &"deactivate_collision"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Rotation/FanCollisions/Fan2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6, 9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"activate_collision"
+}, {
+"args": [],
+"method": &"deactivate_collision"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rotation/FanCollisions/Fan3")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(11, 14),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"activate_collision"
+}, {
+"args": [],
+"method": &"deactivate_collision"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rotation/FanCollisions/Fan4")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(16, 19),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"activate_collision"
+}, {
+"args": [],
+"method": &"deactivate_collision"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_cxwq4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rotation:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.785398]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_olke4"]
+_data = {
+"RESET": SubResource("Animation_cxwq4"),
+"rotate": SubResource("Animation_5ucnc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggcv5"]
+size = Vector2(128, 64)
+
+[node name="Windmill" type="Node2D"]
+script = ExtResource("1_odl7w")
+
+[node name="Mill" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Mill"]
+position = Vector2(0, -128)
+texture = ExtResource("1_j80t8")
+
+[node name="Fans" type="Node2D" parent="."]
+position = Vector2(0, -256)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fans"]
+autoplay = "rotate"
+speed_scale = 1.5
+libraries = {
+"": SubResource("AnimationLibrary_olke4")
+}
+
+[node name="ActivationArea" type="Area2D" parent="Fans"]
+position = Vector2(0, 240)
+collision_layer = 4096
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/ActivationArea"]
+shape = SubResource("RectangleShape2D_ggcv5")
+
+[node name="Rotation" type="Node2D" parent="Fans"]
+rotation = -0.785398
+
+[node name="Sprite2D" type="Sprite2D" parent="Fans/Rotation"]
+texture = ExtResource("2_v18aq")
+
+[node name="FanCollisions" type="Node2D" parent="Fans/Rotation"]
+
+[node name="Fan" parent="Fans/Rotation/FanCollisions" instance=ExtResource("4_rmfhb")]
+position = Vector2(-0.904831, 255.574)
+
+[node name="Fan2" parent="Fans/Rotation/FanCollisions" instance=ExtResource("4_rmfhb")]
+position = Vector2(224, 32)
+
+[node name="Fan3" parent="Fans/Rotation/FanCollisions" instance=ExtResource("4_rmfhb")]
+position = Vector2(0, -192)
+
+[node name="Fan4" parent="Fans/Rotation/FanCollisions" instance=ExtResource("4_rmfhb")]
+position = Vector2(-224, 32)
+
+[connection signal="body_entered" from="Fans/ActivationArea" to="." method="_on_activation_area_body_entered"]
+[connection signal="body_exited" from="Fans/ActivationArea" to="." method="_on_activation_area_body_exited"]

@@ -98,6 +98,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_10="world"
 2d_physics/layer_11="projectile_deathzone"
 2d_physics/layer_12="mouse"
+2d_physics/layer_13="interaction"
 
 [rendering]
 
