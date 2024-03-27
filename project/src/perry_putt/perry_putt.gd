@@ -2,6 +2,8 @@ extends Node2D
 @export var level_1 : PackedScene
 @export var level_2 : PackedScene
 @export var level_3 : PackedScene
+@export var start_level_2 = false
+@export var start_level_3 = false
 var initial_score = 100
 var current_scene
 # Called when the node enters the scene tree for the first time.
@@ -10,7 +12,12 @@ func _ready():
 
 
 	_game_initialize()
-	apply_level(level_1)
+	if start_level_2:
+		apply_level(level_2)
+	elif start_level_3:
+		apply_level(level_3)
+	else:
+		apply_level(level_1)
 	pass
 
 func _game_initialize():

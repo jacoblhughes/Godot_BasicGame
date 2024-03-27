@@ -17,7 +17,6 @@ radius = 16.0
 
 [node name="PerryBall" type="RigidBody2D"]
 z_index = 1
-collision_layer = 0
 collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_kjkql")
 gravity_scale = 0.0
