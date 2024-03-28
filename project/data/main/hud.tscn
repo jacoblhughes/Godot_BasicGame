@@ -206,7 +206,27 @@ mouse_filter = 1
 theme = ExtResource("2_7580m")
 text = "Home"
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+[node name="GameStartPanel" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="GameStartPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7580m")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="GameStartPanel"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -215,39 +235,16 @@ grow_vertical = 2
 mouse_filter = 2
 ratio = 0.56
 
-[node name="Control" type="Control" parent="AspectRatioContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="GameStartPanel/AspectRatioContainer"]
 layout_mode = 2
-mouse_filter = 2
-metadata/_edit_horizontal_guides_ = [224.0, 672.0, 640.0]
-metadata/_edit_vertical_guides_ = [240.0, 720.0, 480.0]
-
-[node name="GameStartPanel" type="Panel" parent="AspectRatioContainer/Control"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2_7580m")
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Control/GameStartPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("2_7580m")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Control/GameStartPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameStartPanel/AspectRatioContainer/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Title" type="Label" parent="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="GameStartPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -257,11 +254,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Control" type="Control" parent="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="GameStartPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Directions_Note" type="Label" parent="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer"]
+[node name="Directions_Note" type="Label" parent="GameStartPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_7580m")
@@ -269,7 +266,7 @@ text = "Directions:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Directions" type="Label" parent="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer"]
+[node name="Directions" type="Label" parent="GameStartPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -279,20 +276,37 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Control2" type="Control" parent="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer"]
+[node name="Control2" type="Control" parent="GameStartPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Play_Button" type="Button" parent="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer"]
+[node name="Play_Button" type="Button" parent="GameStartPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 theme = ExtResource("2_7580m")
 text = "Play"
 
-[node name="GameOverPanel" type="Panel" parent="AspectRatioContainer/Control"]
+[node name="GameOverPanel" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7580m")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="GameOverPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -300,23 +314,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("2_7580m")
+ratio = 0.56
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Control/GameOverPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="GameOverPanel/AspectRatioContainer"]
+layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("2_7580m")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Control/GameOverPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverPanel/AspectRatioContainer/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="GameOverLabel" type="Label" parent="AspectRatioContainer/Control/GameOverPanel/MarginContainer/VBoxContainer"]
+[node name="GameOverLabel" type="Label" parent="GameOverPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_7580m")
@@ -325,7 +334,7 @@ text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HighscoreAchieved" type="Label" parent="AspectRatioContainer/Control/GameOverPanel/MarginContainer/VBoxContainer"]
+[node name="HighscoreAchieved" type="Label" parent="GameOverPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -336,7 +345,7 @@ text = "Highscore Achieved!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HomeButtonOnGameover" type="Button" parent="AspectRatioContainer/Control/GameOverPanel/MarginContainer/VBoxContainer"]
+[node name="HomeButtonOnGameover" type="Button" parent="GameOverPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
@@ -347,5 +356,5 @@ text = "Home"
 [connection signal="timeout" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/GameLeftTimer" to="." method="_on_game_left_timer_timeout"]
 [connection signal="timeout" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/GamePassedTimer" to="." method="_on_game_passed_timer_timeout"]
 [connection signal="pressed" from="Control2/MarginContainer3/Home_Button" to="." method="_on_home_button_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GameStartPanel/MarginContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/Control/GameOverPanel/MarginContainer/VBoxContainer/HomeButtonOnGameover" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="GameStartPanel/AspectRatioContainer/MarginContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="GameOverPanel/AspectRatioContainer/MarginContainer/VBoxContainer/HomeButtonOnGameover" to="." method="_on_home_button_pressed"]

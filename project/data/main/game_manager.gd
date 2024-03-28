@@ -15,7 +15,7 @@ const DEFAULT_FLOAT = -1.0
 const DEFAULT_TEXT = "-1"
 const DEFAULT_BOOL = null
 
-
+var current_initials
 
 signal highscoreButtonpressed
 signal initialsUpdated
@@ -93,7 +93,7 @@ func _ready():
 			config.save(perry_arcade_path)
 
 	var new_initials = config.get_value("main", "initials")
-	
+	current_initials = new_initials
 	initiate_highscores_section()
 	HUD.update_initials(new_initials)
 	AudioManager.update_background_music(config.get_value("background_music", "value", DEFAULT_FLOAT))
@@ -108,9 +108,13 @@ func get_config_path_file():
 	return perry_arcade_path
 	
 func save_initials(initials):
-	var new_initials = initials
-	config.set_value("main", "initials",initials)
+	HUD.update_initials(initials)
+	current_initials = initials
+	config.set_value("main", "initials",current_initials)
 	config.save(perry_arcade_path)
+	
+func return_initials():
+	return current_initials
 	
 func check_highscore_and_rank():
 	var high_scores_names = config.get_value(game_key, "names", [])
@@ -187,7 +191,6 @@ func reset_high_scores():
 		config.set_value(key, "scores", [0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 		config.set_value(key, "names", ["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
 		config.save(perry_arcade_path)
-		save_initials("JLH")
 
 func save_background_music_choice(value):
 	config.set_value("background_music","playing",value)

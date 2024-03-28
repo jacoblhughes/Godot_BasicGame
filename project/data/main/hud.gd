@@ -145,11 +145,6 @@ func check_advance_level(advance_value,level_value):
 func get_game_level():
 	return game_level
 
-func set_initials(initials):
-	var new_initials = initials
-	update_initials(new_initials)
-	GameManager.save_initials(new_initials)
-
 func countdown_timer_start_and_time_left():
 	timer_used = true
 	counting_down = true
