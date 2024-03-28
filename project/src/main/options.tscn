@@ -33,6 +33,7 @@ size_flags_vertical = 3
 theme = ExtResource("2_e7rg0")
 action_mode = 0
 text = "Background Music: "
+alignment = 1
 
 [node name="BackgroundVolume" type="HSlider" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -41,7 +42,6 @@ size_flags_vertical = 3
 theme = ExtResource("2_e7rg0")
 max_value = 1.0
 step = 0.05
-value = 1.0
 tick_count = 10
 
 [node name="GameEffectsOnOff" type="CheckButton" parent="MarginContainer/VBoxContainer"]
@@ -50,6 +50,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_e7rg0")
 text = "Game Audio:"
+alignment = 1
 
 [node name="GameEffectsVolume" type="HSlider" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -58,7 +59,6 @@ size_flags_vertical = 3
 theme = ExtResource("2_e7rg0")
 max_value = 1.0
 step = 0.05
-value = 1.0
 tick_count = 10
 
 [node name="InitialsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
