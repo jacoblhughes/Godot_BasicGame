@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcxdvv4qwwmqm"]
+[gd_scene load_steps=7 format=3 uid="uid://bcxdvv4qwwmqm"]
 
 [ext_resource type="Script" path="res://src/perry_says/perry_says.gd" id="1_fdqsf"]
+[ext_resource type="Texture2D" uid="uid://bachwuvglsehj" path="res://textures/perry_dodge/cat_256.png" id="1_hlgff"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_0t6vh"]
 [ext_resource type="Texture2D" uid="uid://c67eolerebque" path="res://textures/perry_says/simonsays_background_128.png" id="2_8tja7"]
 [ext_resource type="Script" path="res://src/perry_says/playback_timer.gd" id="3_nsfda"]
@@ -9,6 +10,10 @@
 [node name="PerrySays" type="Node2D"]
 metadata/_edit_vertical_guides_ = [360.0]
 metadata/_edit_horizontal_guides_ = [-640.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(352, 112)
+texture = ExtResource("1_hlgff")
 
 [node name="PerrySays" type="Node2D" parent="."]
 script = ExtResource("1_fdqsf")

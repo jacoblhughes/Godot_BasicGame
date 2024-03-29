@@ -10,9 +10,9 @@ script = ExtResource("1_wealh")
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchor_right = 1.002
-anchor_bottom = 0.1
+anchor_bottom = 0.131
 offset_right = -1.44006
-offset_bottom = -128.0
+offset_bottom = -167.68
 grow_horizontal = 2
 mouse_filter = 2
 
@@ -20,8 +20,8 @@ mouse_filter = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.002
-offset_right = -0.233765
-offset_bottom = 128.0
+offset_right = -0.439941
+offset_bottom = 168.0
 theme = ExtResource("2_7580m")
 theme_type_variation = &"PanelHUD"
 
@@ -31,8 +31,8 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -360.0
-offset_right = 361.2
-offset_bottom = 128.0
+offset_right = 361.0
+offset_bottom = 172.0
 grow_horizontal = 2
 mouse_filter = 2
 theme = ExtResource("2_7580m")

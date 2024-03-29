@@ -20,6 +20,8 @@ signal game_left_timer_timeout
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(DisplayServer.get_display_safe_area())
+	print(DisplayServer.screen_get_usable_rect())
 	pass
 func _process(delta):
 	if time_left:
