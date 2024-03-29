@@ -273,7 +273,7 @@ script = ExtResource("1_ajyyx")
 [node name="Map" type="Node2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Map"]
-position = Vector2(8, 0)
+position = Vector2(8, 48)
 tile_set = SubResource("TileSet_d73la")
 cell_quadrant_size = 32
 format = 2
@@ -281,7 +281,7 @@ layer_0/tile_data = PackedInt32Array(2031623, 65536, 1, 2097159, 65536, 1, 21626
 
 [node name="PerryBall" parent="." node_paths=PackedStringArray("clickable_area", "hit_meter") instance=ExtResource("3_3d3ev")]
 unique_name_in_owner = true
-position = Vector2(144, 1032)
+position = Vector2(144, 1088)
 collision_mask = 20
 clickable_area = NodePath("../ClickableArea")
 hit_meter = NodePath("../HitMeter")
@@ -291,7 +291,7 @@ position = Vector2(360, 640)
 
 [node name="Hole" parent="." instance=ExtResource("4_ewoly")]
 unique_name_in_owner = true
-position = Vector2(544, 384)
+position = Vector2(544, 432)
 collision_layer = 256
 
 [node name="ClickableArea" parent="." instance=ExtResource("5_cvtqq")]

@@ -10,4 +10,3 @@ script = ExtResource("1_vjb86")
 level_1 = ExtResource("2_bnggy")
 level_2 = ExtResource("3_d14ic")
 level_3 = ExtResource("4_yb766")
-start_level_3 = true

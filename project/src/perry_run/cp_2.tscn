@@ -4,7 +4,6 @@
 radius = 55.9999
 
 [node name="CP2" type="Area2D"]
-position = Vector2(496, 952)
 collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

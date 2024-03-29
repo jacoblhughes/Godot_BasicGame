@@ -264,7 +264,7 @@ sources/0 = SubResource("TileSetAtlasSource_8edir")
 [node name="Map" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(8, 0)
+position = Vector2(8, 16)
 tile_set = SubResource("TileSet_kr4gx")
 cell_quadrant_size = 32
 format = 2

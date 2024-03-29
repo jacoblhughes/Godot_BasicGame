@@ -20,25 +20,30 @@ script = ExtResource("2_1lkn6")
 position = Vector2(360, 640)
 
 [node name="TileMap" parent="." instance=ExtResource("3_axivd")]
+position = Vector2(40, 176)
 
 [node name="Player" parent="." node_paths=PackedStringArray("clickable_area") instance=ExtResource("3_d1s5q")]
 unique_name_in_owner = true
-position = Vector2(112, 200)
+position = Vector2(112, 240)
 clickable_area = NodePath("../ClickableArea")
 
 [node name="ClickableArea" parent="." instance=ExtResource("2_xnsfy")]
 unique_name_in_owner = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(112, 200)
+position = Vector2(112, 240)
 
 [node name="CP1" parent="." instance=ExtResource("4_8luf4")]
+position = Vector2(240, 488)
 
 [node name="CP2" parent="." instance=ExtResource("5_eslgb")]
+position = Vector2(496, 1000)
 
 [node name="CP3" parent="." instance=ExtResource("6_v4o0x")]
+position = Vector2(112, 744)
 
 [node name="Finish" parent="." instance=ExtResource("7_c2dpw")]
+position = Vector2(112, 248)
 
 [node name="MeltZone" parent="." instance=ExtResource("5_qlbnr")]
 
