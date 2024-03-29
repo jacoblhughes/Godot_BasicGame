@@ -53,16 +53,18 @@ starting_position_marker = NodePath("../PlayerStart")
 position = Vector2(64, 656)
 
 [node name="Wall" parent="." instance=ExtResource("8_kt575")]
-position = Vector2(360, 144)
+position = Vector2(360, 176)
 
 [node name="Wall2" parent="." instance=ExtResource("8_kt575")]
-position = Vector2(360, 1184)
+position = Vector2(360, 1216)
 
 [node name="Win" parent="." instance=ExtResource("8_joiva")]
 unique_name_in_owner = true
+position = Vector2(0, 32)
 
 [node name="Lose" parent="." instance=ExtResource("9_k3tc4")]
 unique_name_in_owner = true
+position = Vector2(0, 32)
 
 [node name="PlayerStart" type="Marker2D" parent="."]
 position = Vector2(656, 656)

@@ -36,7 +36,7 @@ collision_mask = 2
 script = ExtResource("3_1mfvs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDespawn"]
-position = Vector2(28, 656)
+position = Vector2(28, 688)
 shape = SubResource("RectangleShape2D_20w47")
 
 [node name="Player" parent="." instance=ExtResource("6_dekd4")]
@@ -57,7 +57,7 @@ position = Vector2(202, 666)
 [node name="FlyZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlyZone"]
-position = Vector2(360, 640)
+position = Vector2(360, 672)
 shape = SubResource("RectangleShape2D_gpshr")
 
 [connection signal="body_entered" from="EnemyDespawn" to="EnemyDespawn" method="_on_body_entered"]

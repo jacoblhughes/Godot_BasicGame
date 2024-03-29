@@ -29,28 +29,28 @@ script = ExtResource("3_nsfda")
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="PerryButton" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(232, 512)
+position = Vector2(232, 560)
 
 [node name="PerryButton2" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(488, 512)
+position = Vector2(488, 560)
 
 [node name="PerryButton3" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(232, 768)
+position = Vector2(232, 816)
 
 [node name="PerryButton4" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(488, 768)
+position = Vector2(488, 816)
 
 [node name="PerryButton5" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(168, 256)
+position = Vector2(168, 304)
 
 [node name="PerryButton6" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(552, 256)
+position = Vector2(552, 304)
 
 [node name="PerryButton7" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(168, 1024)
+position = Vector2(168, 1072)
 
 [node name="PerryButton8" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(552, 1024)
+position = Vector2(552, 1072)
 
 [connection signal="timeout" from="PlaybackTimer" to="PerrySays" method="_on_playback_timer_timeout"]
 [connection signal="ready" from="Buttons" to="PerrySays" method="_on_buttons_ready"]

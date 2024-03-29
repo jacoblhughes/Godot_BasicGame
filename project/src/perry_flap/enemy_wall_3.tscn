@@ -10,7 +10,7 @@ size = Vector2(40, 328)
 size = Vector2(40, 456)
 
 [node name="EnemyWall3" type="CharacterBody2D"]
-position = Vector2(656, 144)
+position = Vector2(656, 176)
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_78mhg")

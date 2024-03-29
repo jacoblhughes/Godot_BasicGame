@@ -60,7 +60,6 @@ script = ExtResource("4_27mf4")
 clickable_area = NodePath("../ClickableArea")
 
 [node name="MobPathFollow" type="PathFollow2D" parent="MobPath"]
-position = Vector2(24, 1136)
 rotation = -1.5708
 
 [node name="Player" parent="." instance=ExtResource("5_10pmt")]
