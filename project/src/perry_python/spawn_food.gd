@@ -51,8 +51,8 @@ func spawn_food():
 	var is_on_occupied_position = true
 	while is_on_occupied_position:
 		var random_position = Vector2()
-		random_position.x = randi_range(0, SnakeVariables.GRID_SIZE.x - SnakeVariables.snakecellsize.x)
-		random_position.y = randi_range(0, SnakeVariables.GRID_SIZE.y - SnakeVariables.snakecellsize.y)
+		random_position.x = randi_range(0, %PerryPython.GRID_SIZE.x - %PerryPython.snakecellsize.x)
+		random_position.y = randi_range(0, %PerryPython.GRID_SIZE.y - %PerryPython.snakecellsize.y)
 		my_food_instance.food_position = random_position.snapped(SnakeVariables.snakecellsize) + SnakeVariables.GRID_POSITION
 		for minisnake in snake.minisnakes:
 			if my_food_instance.get_rect().intersects(minisnake.get_rect()):

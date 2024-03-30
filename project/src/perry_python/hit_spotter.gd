@@ -1,6 +1,6 @@
 extends Node2D
 
-var hit_spot := Rect2(Vector2.ZERO, SnakeVariables.snakecellsize)
+var hit_spot := Rect2(Vector2.ZERO,  %PerryPython.snakecellsize)
 var hit_color := Color.TRANSPARENT
 @onready var snake := get_parent().get_node("PerryPython") as Snake
 
