@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcxdvv4qwwmqm"]
+[gd_scene load_steps=6 format=3 uid="uid://bcxdvv4qwwmqm"]
 
 [ext_resource type="Script" path="res://src/perry_says/perry_says.gd" id="1_fdqsf"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_0t6vh"]
 [ext_resource type="Texture2D" uid="uid://c67eolerebque" path="res://textures/perry_says/simonsays_background_128.png" id="2_8tja7"]
-[ext_resource type="PackedScene" uid="uid://cyl28swe7b43k" path="res://data/main/hud.tscn" id="2_cew71"]
 [ext_resource type="Script" path="res://src/perry_says/playback_timer.gd" id="3_nsfda"]
 [ext_resource type="PackedScene" uid="uid://d2enwj4xxpx4q" path="res://src/perry_says/perry_button.tscn" id="3_o4idv"]
 
@@ -13,8 +12,6 @@ metadata/_edit_horizontal_guides_ = [-640.0]
 
 [node name="PerrySays" type="Node2D" parent="."]
 script = ExtResource("1_fdqsf")
-
-[node name="HUD" parent="." instance=ExtResource("2_cew71")]
 
 [node name="GameBackground" parent="." instance=ExtResource("2_0t6vh")]
 game_background_texture = ExtResource("2_8tja7")

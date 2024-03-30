@@ -16,8 +16,18 @@ ratio = 0.5625
 layout_mode = 2
 theme = ExtResource("1_5bi5k")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
+color = Color(0.215686, 0.580392, 0.431373, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_5bi5k")
+theme_type_variation = &"MarginContainerAbout"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_5bi5k")
 bbcode_enabled = true
 text = "[center][b]Thank you for using Perry Arcade![/b][/center]
 

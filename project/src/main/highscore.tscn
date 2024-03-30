@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://2opj6l2yf0hy"]
+[gd_scene load_steps=4 format=3 uid="uid://2opj6l2yf0hy"]
 
 [ext_resource type="Script" path="res://src/main/highscore.gd" id="1_e5vce"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="2_73fkq"]
+[ext_resource type="PackedScene" uid="uid://davdgqbwd237w" path="res://src/main/highscore_container.tscn" id="3_83p6a"]
 
 [node name="Highscore" type="AspectRatioContainer"]
 anchors_preset = 15
@@ -11,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 ratio = 0.5625
 script = ExtResource("1_e5vce")
+highscores_container_scene = ExtResource("3_83p6a")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -18,12 +20,26 @@ theme = ExtResource("2_73fkq")
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
-color = Color(0.188235, 0.376471, 0.509804, 1)
+color = Color(0.215686, 0.580392, 0.431373, 1)
 
-[node name="Highscores" type="RichTextLabel" parent="MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_73fkq")
+theme_type_variation = &"MarginContainerAbout"
+
+[node name="HighscoresVBox" type="VBoxContainer" parent="MarginContainer/ScrollContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-bbcode_enabled = true
-text = "TEST"
+
+[node name="Highscores" type="Label" parent="MarginContainer/ScrollContainer/MarginContainer/HighscoresVBox"]
+layout_mode = 2
+text = "-- Highscores --"
+horizontal_alignment = 1

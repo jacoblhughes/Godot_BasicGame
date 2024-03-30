@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=27 format=3 uid="uid://s0srltpmhp6g"]
+[gd_resource type="Theme" load_steps=32 format=3 uid="uid://s0srltpmhp6g"]
 
 [ext_resource type="Texture2D" uid="uid://c7brus421yppd" path="res://textures/main/checkbutton.png" id="1_ac3hv"]
+[ext_resource type="Texture2D" uid="uid://cw6vvyabe8vgo" path="res://textures/main/hslider.png" id="2_w4lev"]
+[ext_resource type="Texture2D" uid="uid://5q2wio1wnhsm" path="res://textures/main/tick.png" id="3_iopkv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfs50"]
 bg_color = Color(0.188235, 0.376471, 0.509804, 1)
@@ -43,8 +45,22 @@ bg_color = Color(0.215686, 0.580392, 0.431373, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exv3h"]
 bg_color = Color(0.215686, 0.580392, 0.431373, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enksp"]
-bg_color = Color(0.215686, 0.580392, 0.431373, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3utcs"]
+atlas = ExtResource("2_w4lev")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7blxu"]
+atlas = ExtResource("2_w4lev")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t77ge"]
+atlas = ExtResource("2_w4lev")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dki8k"]
+bg_color = Color(0.290196, 0.14902, 0.345098, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orp2f"]
 
@@ -88,7 +104,11 @@ CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_sj5sg")
 CheckButton/styles/normal = SubResource("StyleBoxFlat_qah5f")
 CheckButton/styles/pressed = SubResource("StyleBoxFlat_exv3h")
 HBoxContainer/constants/separation = 10
-HSlider/styles/grabber_area = SubResource("StyleBoxFlat_enksp")
+HSlider/icons/grabber = SubResource("AtlasTexture_3utcs")
+HSlider/icons/grabber_disabled = SubResource("AtlasTexture_7blxu")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_t77ge")
+HSlider/icons/tick = ExtResource("3_iopkv")
+HSlider/styles/slider = SubResource("StyleBoxFlat_dki8k")
 ItemList/styles/cursor = SubResource("StyleBoxEmpty_orp2f")
 ItemList/styles/cursor_unfocused = SubResource("StyleBoxEmpty_yi1hl")
 ItemList/styles/focus = SubResource("StyleBoxEmpty_do0kr")
@@ -106,6 +126,11 @@ MarginContainer/constants/margin_bottom = 80
 MarginContainer/constants/margin_left = 40
 MarginContainer/constants/margin_right = 40
 MarginContainer/constants/margin_top = 176
+MarginContainerAbout/base_type = &"MarginContainer"
+MarginContainerAbout/constants/margin_bottom = 20
+MarginContainerAbout/constants/margin_left = 20
+MarginContainerAbout/constants/margin_right = 20
+MarginContainerAbout/constants/margin_top = 20
 MarginContainerGames/base_type = &"MarginContainer"
 MarginContainerGames/constants/margin_bottom = 8
 MarginContainerGames/constants/margin_left = 8
@@ -119,6 +144,9 @@ MarginContainerHUD/constants/margin_top = 60
 Panel/styles/panel = SubResource("StyleBoxFlat_hcucr")
 PanelHUD/base_type = &"Panel"
 PanelHUD/styles/panel = SubResource("StyleBoxFlat_71cop")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 4
 VBoxContainer/constants/separation = 30
 VBoxContainerOptions/base_type = &"VBoxContainer"
 VBoxContainerOptions/constants/separation = 25

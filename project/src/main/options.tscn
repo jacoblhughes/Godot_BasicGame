@@ -42,7 +42,8 @@ size_flags_vertical = 3
 theme = ExtResource("2_e7rg0")
 max_value = 1.0
 step = 0.05
-tick_count = 10
+tick_count = 21
+ticks_on_borders = true
 
 [node name="GameEffectsOnOff" type="CheckButton" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -59,7 +60,8 @@ size_flags_vertical = 3
 theme = ExtResource("2_e7rg0")
 max_value = 1.0
 step = 0.05
-tick_count = 10
+tick_count = 21
+ticks_on_borders = true
 
 [node name="InitialsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
