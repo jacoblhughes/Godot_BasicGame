@@ -26,7 +26,7 @@ var movement_direction = Vector3.ZERO  # Direction from swipes
 var can_move = false
 func _ready():
 	# Existing setup code...
-	Background.visible = false
+
 	Input.set_use_accumulated_input(true)
 	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 

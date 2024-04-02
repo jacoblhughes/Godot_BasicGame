@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0f2kixg3jth7"]
+
+[ext_resource type="Script" path="res://src/perry_skeeball/perry_skeeball.gd" id="1_gi8s2"]
+[ext_resource type="PackedScene" uid="uid://cejd8k77mpr23" path="res://src/perry_skeeball/skeeball_body.tscn" id="1_gvaph"]
+[ext_resource type="Texture2D" uid="uid://btwlo8i6jxjs8" path="res://textures/app_art/perry_original_icon_256.png" id="2_ldgl3"]
+[ext_resource type="PackedScene" uid="uid://dq8ik2koklhly" path="res://src/perry_skeeball/skeeball.tscn" id="3_o8b2q"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f0rha"]
+size = Vector2(15, 15)
+
+[node name="PerrySkeeball" type="Node3D"]
+script = ExtResource("1_gi8s2")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 4, -10)
+texture = ExtResource("2_ldgl3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 7.5, -10)
+visible = false
+mesh = SubResource("PlaneMesh_f0rha")
+
+[node name="SkeeballBody" parent="." instance=ExtResource("1_gvaph")]
+
+[node name="LightNode" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="LightNode"]
+
+[node name="CameraNode" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+current = true
+
+[node name="Skeeball" parent="." instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0135, 2.08769, 2.31536)

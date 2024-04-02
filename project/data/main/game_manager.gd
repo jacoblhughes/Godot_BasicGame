@@ -33,7 +33,7 @@ var games_list : Dictionary = {
 ,"8":{"title":"Perry Space Attack","short_name":"perry_space","directions":"Roddy needs help avoiding the Vegaliens"}
 ,"9":{"title":"Perry Squash","short_name":"perry_squash","directions":"Help Perry squash"}
 ,"10":{"title":"Perry Putt","short_name":"perry_putt","directions":"Help Perry putt"}
-
+,"11":{"title":"Perry Skeeball","short_name":"perry_skeeball","directions":"Skeeball"}
 }
 
 var background_canvas_layer_instance

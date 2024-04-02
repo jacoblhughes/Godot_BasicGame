@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=30 format=3 uid="uid://d4cpf87cb1bs0"]
 
 [ext_resource type="Script" path="res://data/main/buttons.gd" id="1_bni1w"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://src/perry_says/perry_says.tscn" id="2_p72e3"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cs18y0ygm8p13" path="res://src/main/options.tscn" id="12_wiofo"]
 [ext_resource type="PackedScene" uid="uid://2opj6l2yf0hy" path="res://src/main/highscore.tscn" id="13_sdpee"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="14_ihqmu"]
-[ext_resource type="PackedScene" uid="uid://urp5eq32gjnv" path="res://src/main/game_button.tscn" id="17_10g4p"]
+[ext_resource type="PackedScene" uid="uid://urp5eq32gjnv" path="res://data/main/game_button.tscn" id="17_10g4p"]
 [ext_resource type="Texture2D" uid="uid://bds1772kdlg7f" path="res://textures/perry_says/perry_says_buttons_logo_256.png" id="18_h2tu3"]
 [ext_resource type="Texture2D" uid="uid://bqd3t0ewnnfu" path="res://textures/main/cham_256.png" id="19_evpij"]
 [ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://textures/perry_polo/pong_paddle1.png" id="20_c8i4i"]
@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://textures/perry_space/attack_256.png" id="25_3shli"]
 [ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://textures/main/perry_original_256.png" id="26_ilcnv"]
 [ext_resource type="Texture2D" uid="uid://id04l63f5eii" path="res://textures/perry_putt/perry_ball.png" id="27_3ayht"]
+[ext_resource type="Texture2D" uid="uid://vgrksd6w3kjc" path="res://textures/app_art/perry_original_icon_192.png" id="28_nr3es"]
+[ext_resource type="PackedScene" uid="uid://d0f2kixg3jth7" path="res://src/perry_skeeball/perry_skeeball.tscn" id="29_677qr"]
 
 [node name="Buttons" type="CanvasLayer"]
 layer = 3
@@ -137,6 +139,13 @@ game_image_texture = ExtResource("27_3ayht")
 game_scene_selection = ExtResource("11_yj5m7")
 game_key_selection = "10"
 game_title = "Perry Putt"
+
+[node name="PerrySkeeball" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
+layout_mode = 2
+game_image_texture = ExtResource("28_nr3es")
+game_scene_selection = ExtResource("29_677qr")
+game_key_selection = "11"
+game_title = "Perry Skeeball"
 
 [node name="Highscores" type="Button" parent="AspectRatioContainer/GameContainer"]
 layout_mode = 2

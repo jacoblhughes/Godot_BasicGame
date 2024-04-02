@@ -39,9 +39,9 @@ mob_scene = ExtResource("2_y2efm")
 [node name="Player" parent="." instance=ExtResource("1_271ir")]
 unique_name_in_owner = true
 
-[node name="Marker3D2" type="Marker3D" parent="."]
+[node name="LightNode" type="Node3D" parent="."]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Marker3D2"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="LightNode"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 30, 0)
 sky_mode = 1
 
@@ -51,10 +51,10 @@ collision_layer = 2
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="CameraNode" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+[node name="Camera3D" type="Camera3D" parent="CameraNode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
 projection = 1
 current = true

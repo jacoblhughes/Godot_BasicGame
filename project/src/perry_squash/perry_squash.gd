@@ -7,6 +7,7 @@ extends Node3D
 var enemies
 var score_value = 1
 func _ready():
+	Background.visible = false
 	player.hit.connect(_on_player_hit)
 	mob_timer.timeout.connect(_on_mob_timer_timeout)
 	_game_initialize()
