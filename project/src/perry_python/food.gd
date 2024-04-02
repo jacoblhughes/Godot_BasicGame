@@ -2,7 +2,7 @@
 extends Node2D
 
 var food_position := Vector2()
-
+var snake_cell_size := Vector2()
 
 @onready var my_sprite: Sprite2D
 signal SnakeFoodReady
@@ -16,6 +16,6 @@ func _ready():
 	pass # Replace with function body.
 
 func get_rect() -> Rect2:
-	var size =  %PerryPython.snakecellsize
+	var size =  snake_cell_size
 	return Rect2(food_position,size)
 

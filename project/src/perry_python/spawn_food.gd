@@ -19,6 +19,7 @@ func _ready():
 	spawn_food()
 
 	my_food_instance.SnakeFoodReady.connect(_on_food_initialized)
+	my_food_instance.snake_cell_size = %PerryPython.return_cell_size()
 	get_parent().add_child.call_deferred(my_food_instance)
 
 
@@ -35,7 +36,7 @@ func _process(delta):
 	if my_food_instance.get_rect().intersects(snake.head.get_rect()):
 		
 		food_eaten.emit()
-		if(HUD.return_score() > (%grid.return_snakecells() *2)):
+		if(HUD.return_score() > (%PerryPython.return_snakecells() *2)):
 
 			spawn_food()
 			
@@ -54,7 +55,7 @@ func spawn_food():
 		var random_position = Vector2()
 		random_position.x = randi_range(0, %PerryPython.GRID_SIZE.x - %PerryPython.snakecellsize.x)
 		random_position.y = randi_range(0, %PerryPython.GRID_SIZE.y - %PerryPython.snakecellsize.y)
-		print('ohoh')
+
 		my_food_instance.food_position = random_position.snapped(%PerryPython.snakecellsize) + %PerryPython.GRID_POSITION
 		for minisnake in snake.minisnakes:
 			if my_food_instance.get_rect().intersects(minisnake.get_rect()):

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cboakmuhry7np"]
+
+[ext_resource type="Script" path="res://src/perry_skeeball/starting_area.gd" id="1_tow4a"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_177ks"]
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0kfq"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vd527"]
+height = 0.2
+
+[node name="StartingArea" type="Node3D"]
+script = ExtResource("1_tow4a")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("CylinderMesh_177ks")
+surface_material_override/0 = SubResource("StandardMaterial3D_y0kfq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CylinderShape3D_vd527")

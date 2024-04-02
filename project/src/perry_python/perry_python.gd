@@ -33,6 +33,28 @@ var snakecellsize := Vector2(0,0)
 var GRID_SIZE := Vector2(0,0)
 var GRID_POSITION := Vector2(0,0)
 var cell_size
+var sizewidth 
+var sizeheight
+var originalx
+var originaly
+var width
+var height
+var BLUE  = Color.WHITE
+func _draw():
+
+	if sizewidth:
+
+		for i in snakecells+1:
+
+			var vectortest = Vector2(i*sizewidth+originalx,0+originaly)
+			var vectortest1 = Vector2(i*sizewidth+originalx,height+originaly)
+			draw_line(vectortest,vectortest1,BLUE)
+			
+		for i in snakecells+1:
+			var vectortest2 = Vector2(0+originalx,i*sizeheight+originaly)
+			var vectortest3 = Vector2(width+originalx,i*sizeheight+originaly)
+			draw_line(vectortest2,vectortest3,BLUE)
+
 
 func _ready():
 	var new_area = Vector2(%ClickableArea.get_play_area_size().x,%ClickableArea.get_play_area_size().x)
@@ -43,9 +65,13 @@ func _ready():
 	_set_play_area_size(new_area)
 	_set_play_area_position(new_position)
 	set_snake_cell_size(cell_size)
-	print('here')
-	%grid.grid_variables(new_position,new_area)
-	%grid.grid_ready.connect(_on_grid_ready)
+
+	sizewidth = new_area.x/snakecells
+	sizeheight = new_area.y/snakecells
+	width = new_area.x
+	height = new_area.y
+	originalx = new_position.x
+	originaly = new_position.y
 	play_area_min = new_position
 	SnakeTimer = get_parent().get_node("Snake_Move_Timer")
 	HUD.startButtonPressed.connect(_on_play_button_pressed)
@@ -57,10 +83,12 @@ func _ready():
 	food_spawner.food_eaten.connect(_on_food_eaten)
 	get_parent().add_child.call_deferred(head)
 	SnakeTimer.wait_time = original_snake_time
-
+	_on_grid_ready()
 func return_cell_size():
 		return cell_size
 
+func return_snakecells():
+	return snakecells
 #	tween_move = create_tween().set_loops()
 #	tween_move.tween_callback(move).set_delay(2)
 

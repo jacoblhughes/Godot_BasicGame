@@ -10,12 +10,12 @@
 
 [node name="PerryPython" type="Node2D"]
 
+[node name="GameBackground" parent="." instance=ExtResource("2_qh02o")]
+game_background_texture = ExtResource("2_hp12s")
+
 [node name="PerryPython" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_5btnr")
-
-[node name="GameBackground" parent="." instance=ExtResource("2_qh02o")]
-game_background_texture = ExtResource("2_hp12s")
 
 [node name="ClickableArea" parent="." instance=ExtResource("2_wih68")]
 unique_name_in_owner = true
