@@ -102,7 +102,7 @@ func _on_clickable_input_event(event, input_position):
 func move() -> void:
 
 	curr_direction = next_direction
-	var next_position = head.curr_position + (curr_direction * SnakeVariables.snakecellsize)
+	var next_position = head.curr_position + (curr_direction * snakecellsize)
 	next_position.x = play_area_min.x + fposmod(next_position.x - play_area_min.x,GRID_SIZE.x) 
 	next_position.y = play_area_min.y + fposmod(next_position.y - play_area_min.y,GRID_SIZE.y)
 	head.curr_position = next_position
