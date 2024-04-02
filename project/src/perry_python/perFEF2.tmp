@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1ov306httsie"]
+
+[ext_resource type="Script" path="res://src/perry_python/perry_python.gd" id="1_5btnr"]
+[ext_resource type="Texture2D" uid="uid://b6o8i6d3x1cqy" path="res://textures/perry_python/snake_background_144_256.png" id="2_hp12s"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_qh02o"]
+[ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="2_wih68"]
+[ext_resource type="Script" path="res://src/perry_python/grid.gd" id="3_t14ja"]
+[ext_resource type="Script" path="res://src/perry_python/spawn_food.gd" id="4_llfef"]
+[ext_resource type="Script" path="res://src/perry_python/hit_spotter.gd" id="5_skcxu"]
+
+[node name="PerryPython" type="Node2D"]
+
+[node name="PerryPython" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_5btnr")
+
+[node name="GameBackground" parent="." instance=ExtResource("2_qh02o")]
+game_background_texture = ExtResource("2_hp12s")
+
+[node name="ClickableArea" parent="." instance=ExtResource("2_wih68")]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 640)
+
+[node name="body" type="Node2D" parent="."]
+
+[node name="grid" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_t14ja")
+
+[node name="Snake_Move_Timer" type="Timer" parent="."]
+wait_time = 0.75
+
+[node name="spawner_food" type="Node2D" parent="."]
+script = ExtResource("4_llfef")
+
+[node name="hit_spotter" type="Node2D" parent="."]
+script = ExtResource("5_skcxu")
+
+[connection signal="timeout" from="Snake_Move_Timer" to="PerryPython" method="_on_snake_move_timer_timeout"]

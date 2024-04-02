@@ -13,6 +13,7 @@ var png_size = 150
 signal food_eaten
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	HUD.reset_score()
 	my_food_instance = preload("res://src/perry_python/food.tscn").instantiate()
 	spawn_food()
@@ -27,7 +28,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	my_food_instance.position = my_food_instance.food_position + SnakeVariables.get_snake_cell_size()/2
+	my_food_instance.position = my_food_instance.food_position + %PerryPython.return_cell_size()/2
 	
 	queue_redraw()
 	
@@ -53,7 +54,8 @@ func spawn_food():
 		var random_position = Vector2()
 		random_position.x = randi_range(0, %PerryPython.GRID_SIZE.x - %PerryPython.snakecellsize.x)
 		random_position.y = randi_range(0, %PerryPython.GRID_SIZE.y - %PerryPython.snakecellsize.y)
-		my_food_instance.food_position = random_position.snapped(SnakeVariables.snakecellsize) + SnakeVariables.GRID_POSITION
+		print('ohoh')
+		my_food_instance.food_position = random_position.snapped(%PerryPython.snakecellsize) + %PerryPython.GRID_POSITION
 		for minisnake in snake.minisnakes:
 			if my_food_instance.get_rect().intersects(minisnake.get_rect()):
 				is_on_occupied_position = true
