@@ -25,5 +25,4 @@ func set_up_new_ball():
 	if len(skeeballs)>0:
 		var next_ball = skeeballs[0]
 		next_ball.get_ready(%StartingPoint.global_position)
-		print(next_ball)
 	pass

@@ -8,21 +8,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+
 	pass
 
 func _integrate_forces(state):
-#	print(state)
-	
 	if manual_move:
-		print('here')
-		global_position = lerp(global_position,move_to_position, .1)
-	if global_position == move_to_position:
+		state.transform.origin =  move_to_position
 		manual_move = false
-		freeze = false
+		if state.transform.origin.distance_to(move_to_position) < .01:
+			print('should')
+#			freeze = true
+#			freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
+#		freeze = false
 
 func get_ready(input_position):
-	freeze = true
-	freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
-	move_to_position = input_position
 	manual_move = true
+
+	move_to_position = input_position
 	pass

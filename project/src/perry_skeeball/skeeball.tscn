@@ -18,8 +18,10 @@ can_sleep = false
 script = ExtResource("1_lb548")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("SphereShape3D_jtjbu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 mesh = SubResource("SphereMesh_rjmkd")
 surface_material_override/0 = SubResource("StandardMaterial3D_2fuwb")
