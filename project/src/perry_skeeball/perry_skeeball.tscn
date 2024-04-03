@@ -13,13 +13,15 @@ script = ExtResource("1_gi8s2")
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 4, -10)
 texture = ExtResource("2_ldgl3")
 
+[node name="StartingPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+
 [node name="SkeeballBody" parent="." instance=ExtResource("1_gvaph")]
 
 [node name="LightNode" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 10)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="LightNode"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 sky_mode = 1
 
 [node name="CameraNode" type="Node3D" parent="."]

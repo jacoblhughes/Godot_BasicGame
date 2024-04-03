@@ -1,6 +1,6 @@
 extends RigidBody3D
 var manual_move=false
-
+var move_to_position
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,12 +12,17 @@ func _process(delta):
 
 func _integrate_forces(state):
 #	print(state)
+	
+	if manual_move:
+		print('here')
+		global_position = lerp(global_position,move_to_position, .1)
+	if global_position == move_to_position:
+		manual_move = false
+		freeze = false
+
+func get_ready(input_position):
+	freeze = true
+	freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
+	move_to_position = input_position
+	manual_move = true
 	pass
-#	if manual_move:
-#		print('here')
-#		%Skeeball.global_position = lerp(%Skeeball.global_position,%StartingArea.return_start_position(), .1)
-
-
-func _on_mouse_entered():
-	print('mouse')
-	pass # Replace with function body.

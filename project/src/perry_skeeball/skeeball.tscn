@@ -12,7 +12,7 @@ height = 0.2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fuwb"]
 albedo_color = Color(0.388235, 0, 0, 1)
 
-[node name="Skeeball" type="RigidBody3D"]
+[node name="Skeeball" type="RigidBody3D" groups=["skeeballs"]]
 mass = 0.5
 can_sleep = false
 script = ExtResource("1_lb548")
@@ -23,5 +23,3 @@ shape = SubResource("SphereShape3D_jtjbu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_rjmkd")
 surface_material_override/0 = SubResource("StandardMaterial3D_2fuwb")
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
