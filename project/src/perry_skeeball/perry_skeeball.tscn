@@ -19,7 +19,8 @@ texture = ExtResource("2_ldgl3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 10)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="LightNode"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+sky_mode = 1
 
 [node name="CameraNode" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
@@ -28,10 +29,22 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
 current = true
 
-[node name="Skeeball" parent="." instance=ExtResource("3_o8b2q")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0135, 2.08769, 2.31536)
-freeze = true
+[node name="Skeeballs" type="Node3D" parent="."]
+
+[node name="Skeeball" parent="Skeeballs" instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.136415, 1.75265, 3.38097)
+
+[node name="Skeeball2" parent="Skeeballs" instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.209668, 1.77679, 3.59779)
+
+[node name="Skeeball3" parent="Skeeballs" instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11741, 1.78879, 3.39375)
+
+[node name="Skeeball4" parent="Skeeballs" instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0123044, 1.78879, 3.71109)
+
+[node name="Skeeball5" parent="Skeeballs" instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.187663, 1.78879, 3.62346)
 
 [node name="StartingArea" parent="." instance=ExtResource("5_15web")]
 unique_name_in_owner = true
