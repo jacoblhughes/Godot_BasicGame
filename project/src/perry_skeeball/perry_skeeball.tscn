@@ -15,7 +15,7 @@ texture = ExtResource("2_ldgl3")
 
 [node name="StartingPoint" type="Marker3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82792, 1.95656)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75646, 2.75737)
 
 [node name="SkeeballBody" parent="." instance=ExtResource("1_gvaph")]
 

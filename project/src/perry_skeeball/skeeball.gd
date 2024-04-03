@@ -16,13 +16,11 @@ func _integrate_forces(state):
 		state.transform.origin =  move_to_position
 		manual_move = false
 		if state.transform.origin.distance_to(move_to_position) < .01:
-			print('should')
-#			freeze = true
-#			freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
-#		freeze = false
+			freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
 
 func get_ready(input_position):
 	manual_move = true
-
+	freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
+#	freeze= true
 	move_to_position = input_position
 	pass
