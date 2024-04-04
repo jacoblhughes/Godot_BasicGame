@@ -43,8 +43,9 @@ fov = 83.7
 
 [node name="Skeeballs" type="Node3D" parent="."]
 
-[node name="Skeeball" parent="Skeeballs" instance=ExtResource("3_o8b2q")]
+[node name="Skeeball" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.136415, 1.91187, 3.38097)
+waiting_path = NodePath("../../WaitingPath")
 
 [node name="StartingArea" parent="." instance=ExtResource("5_15web")]
 unique_name_in_owner = true
@@ -57,4 +58,5 @@ script = ExtResource("6_a0q0j")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="WaitingPath"]
 unique_name_in_owner = true
-transform = Transform3D(-4.37113e-08, 0, -1, 0, 0.999998, 0, 0.999998, 0, -4.37114e-08, -0.625, 1.754, 2.827)
+transform = Transform3D(-4.37113e-08, 0, -1, 0, 0.999998, 0, 0.999998, 0, -4.37114e-08, 0.0226196, 1.754, 2.827)
+progress = 0.647607
