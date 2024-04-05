@@ -2,6 +2,7 @@ extends RigidBody3D
 var manual_move=false
 var move_to_position
 @export var waiting_path : Path3D
+var can_impulse = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,6 +15,7 @@ func _process(delta):
 
 func _integrate_forces(state):
 	if manual_move:
+		can_impulse = true
 		var target_position = waiting_path.return_progress_ratio_position()
 		var current_transform = state.get_transform()
 		current_transform.origin = target_position
@@ -33,3 +35,10 @@ func get_ready(input_position):
 #	freeze= true
 	move_to_position = input_position
 	pass
+
+
+func _on_input_event(camera, event, position, normal, shape_idx):
+	if manual_move and can_impulse and event is InputEventScreenTouch and event.pressed:
+		manual_move = false
+		apply_impulse(Vector3(0,0,-5))
+	pass # Replace with function body.

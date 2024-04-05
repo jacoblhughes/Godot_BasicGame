@@ -25,3 +25,5 @@ shape = SubResource("SphereShape3D_jtjbu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 mesh = SubResource("SphereMesh_rjmkd")
 surface_material_override/0 = SubResource("StandardMaterial3D_2fuwb")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
