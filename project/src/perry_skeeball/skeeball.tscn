@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq8ik2koklhly"]
+[gd_scene load_steps=6 format=3 uid="uid://dq8ik2koklhly"]
 
 [ext_resource type="Script" path="res://src/perry_skeeball/skeeball.gd" id="1_lb548"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n1ytm"]
+friction = 0.5
+bounce = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jtjbu"]
 radius = 0.1
@@ -14,6 +18,7 @@ albedo_color = Color(0.388235, 0, 0, 1)
 
 [node name="Skeeball" type="RigidBody3D" groups=["skeeballs"]]
 mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_n1ytm")
 can_sleep = false
 script = ExtResource("1_lb548")
 

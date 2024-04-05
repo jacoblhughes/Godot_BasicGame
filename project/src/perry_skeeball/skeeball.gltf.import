@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c255d3ej04kwb"
+uid="uid://bb57eqbln6nqu"
 path="res://.godot/imported/skeeball.gltf-b5ba5de459758492819b2cdabdee9480.scn"
 
 [deps]
@@ -23,7 +23,7 @@ meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
-animation/import=false
+animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
