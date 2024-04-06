@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://yx5dxjclj4xk"]
 
-[ext_resource type="PackedScene" uid="uid://dkngts0r7pwv7" path="res://src/perry_skeeball/ramp.gltf" id="1_jjc85"]
+[ext_resource type="PackedScene" uid="uid://bb57eqbln6nqu" path="res://src/perry_skeeball/skeeball.gltf" id="1_w3hdd"]
 
 [node name="Test" type="Node3D"]
 
-[node name="ramp" parent="." instance=ExtResource("1_jjc85")]
+[node name="skeeball" parent="." instance=ExtResource("1_w3hdd")]

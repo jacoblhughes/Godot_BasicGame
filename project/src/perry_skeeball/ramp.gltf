@@ -15,7 +15,12 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Ramp"
+			"name":"Ramp",
+			"translation":[
+				1.5002999305725098,
+				1.9233415126800537,
+				-0.9921876192092896
+			]
 		}
 	],
 	"meshes":[
@@ -37,67 +42,67 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":84,
+			"count":72,
 			"max":[
-				1.5097750425338745,
-				0.6894177794456482,
-				1.0000152587890625
+				0.023649096488952637,
+				0.24999594688415527,
+				2
 			],
 			"min":[
-				1.0109930038452148,
-				0.40514853596687317,
-				-0.9999847412109375
+				-0.5026005506515503,
+				-0.027405977249145508,
+				-1.1920928955078125e-07
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":84,
+			"count":72,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":84,
+			"count":72,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":156,
+			"count":132,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":1008,
+			"byteLength":864,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1008,
-			"byteOffset":1008,
+			"byteLength":864,
+			"byteOffset":864,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":672,
-			"byteOffset":2016,
+			"byteLength":576,
+			"byteOffset":1728,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":312,
-			"byteOffset":2688,
+			"byteLength":264,
+			"byteOffset":2304,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":3000,
+			"byteLength":2568,
 			"uri":"ramp.bin"
 		}
 	]
