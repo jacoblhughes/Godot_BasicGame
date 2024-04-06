@@ -13,7 +13,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
+	if Input.is_action_just_pressed("hit_space"):
+		if %Camera1.current==true:
+			%Camera1.current=false
+			%Camera2.current==true
+		else:
+			%Camera1.current=true
+			%Camera2.current=false
 	pass
 
 func _on_cover_input(event,input_position):

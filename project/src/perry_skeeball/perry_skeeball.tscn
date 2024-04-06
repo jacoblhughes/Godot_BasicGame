@@ -38,18 +38,20 @@ sky_mode = 1
 [node name="CameraNode" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.972341, 0.233564, 0, -0.233564, 0.972341, 0, 0, -1.27383)
 
-[node name="Camera3D" type="Camera3D" parent="CameraNode"]
+[node name="Camera1" type="Camera3D" parent="CameraNode"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
 current = true
 fov = 83.7
 
 [node name="CameraNode2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.972341, 0.233564, 0, -0.233564, 0.972341, 0, 0, -1.27383)
+transform = Transform3D(-4.37114e-08, 0.233445, -0.972369, 0, 0.972369, 0.233445, 1, 1.02042e-08, -4.25036e-08, 0, 1, -2.03497)
 
-[node name="Camera3D" type="Camera3D" parent="CameraNode2"]
+[node name="Camera2" type="Camera3D" parent="CameraNode2"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
 current = true
-fov = 83.7
+fov = 27.6
 
 [node name="Skeeballs" type="Node3D" parent="."]
 
