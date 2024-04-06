@@ -41,5 +41,5 @@ func _on_input_event(camera, event, position, normal, shape_idx):
 	if manual_move and can_impulse and event is InputEventScreenTouch and event.pressed:
 		set_use_custom_integrator(false)
 		manual_move = false
-		apply_central_impulse(Vector3(0,0,-2))
+		apply_central_impulse(Vector3(0,0,-4.5))
 	pass # Replace with function body.

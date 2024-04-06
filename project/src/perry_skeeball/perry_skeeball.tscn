@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0f2kixg3jth7"]
+[gd_scene load_steps=10 format=3 uid="uid://d0f2kixg3jth7"]
 
 [ext_resource type="Script" path="res://src/perry_skeeball/perry_skeeball.gd" id="1_gi8s2"]
 [ext_resource type="PackedScene" uid="uid://cejd8k77mpr23" path="res://src/perry_skeeball/skeeball_body.tscn" id="1_gvaph"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dq8ik2koklhly" path="res://src/perry_skeeball/skeeball.tscn" id="3_o8b2q"]
 [ext_resource type="PackedScene" uid="uid://cboakmuhry7np" path="res://src/perry_skeeball/starting_area.tscn" id="5_15web"]
 [ext_resource type="Script" path="res://src/perry_skeeball/waiting_path.gd" id="6_a0q0j"]
+[ext_resource type="PackedScene" uid="uid://cssmji8cf5bwr" path="res://src/perry_skeeball/slide.tscn" id="7_fn30s"]
+[ext_resource type="PackedScene" uid="uid://3kxq4wo7ihiy" path="res://src/perry_skeeball/score.tscn" id="8_6vq33"]
 
 [sub_resource type="Curve3D" id="Curve3D_yx88p"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.625, 1.754, 2.827, 0, 0, 0, 0, 0, 0, 0.649817, 1.754, 2.827),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.625, 1.665, 2.827, 0, 0, 0, 0, 0, 0, 0.65, 1.665, 2.827),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -58,5 +60,13 @@ script = ExtResource("6_a0q0j")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="WaitingPath"]
 unique_name_in_owner = true
-transform = Transform3D(-4.37113e-08, 0, -1, 0, 0.999998, 0, 0.999998, 0, -4.37114e-08, 0.0226196, 1.754, 2.827)
+transform = Transform3D(-4.37113e-08, 0, -1, 0, 0.999998, 0, 0.999998, 0, -4.37114e-08, 0.0226194, 1.665, 2.827)
 progress = 0.647607
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, -2)
+
+[node name="Slide" parent="Node3D" instance=ExtResource("7_fn30s")]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -0.3, 0, -0.5)
+
+[node name="Score" parent="Node3D" instance=ExtResource("8_6vq33")]

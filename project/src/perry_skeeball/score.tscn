@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://3kxq4wo7ihiy"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jt2hf"]
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.1
+
+[node name="Score" type="Area3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0999999, -0.5)
+mesh = SubResource("CylinderMesh_jt2hf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
