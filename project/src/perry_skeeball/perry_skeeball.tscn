@@ -43,6 +43,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
 current = true
 fov = 83.7
 
+[node name="CameraNode2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.972341, 0.233564, 0, -0.233564, 0.972341, 0, 0, -1.27383)
+
+[node name="Camera3D" type="Camera3D" parent="CameraNode2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+current = true
+fov = 83.7
+
 [node name="Skeeballs" type="Node3D" parent="."]
 
 [node name="Skeeball" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
