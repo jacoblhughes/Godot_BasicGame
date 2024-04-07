@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dkngts0r7pwv7"
-path="res://.godot/imported/ramp.gltf-4a2a07a626de2f108092aa67fb431e68.scn"
+uid="uid://bv3hgyfp8oxov"
+path="res://.godot/imported/ramp_mesh.gltf-5570406ac3b98ca2e69b5c782a3196c2.scn"
 
 [deps]
 
-source_file="res://src/perry_skeeball/ramp.gltf"
-dest_files=["res://.godot/imported/ramp.gltf-4a2a07a626de2f108092aa67fb431e68.scn"]
+source_file="res://src/perry_skeeball/ramp_mesh.gltf"
+dest_files=["res://.godot/imported/ramp_mesh.gltf-5570406ac3b98ca2e69b5c782a3196c2.scn"]
 
 [params]
 

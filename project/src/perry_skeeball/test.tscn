@@ -1,10 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://yx5dxjclj4xk"]
+[gd_scene load_steps=2 format=3 uid="uid://yx5dxjclj4xk"]
 
-[ext_resource type="PackedScene" uid="uid://bb57eqbln6nqu" path="res://src/perry_skeeball/skeeball_body.gltf" id="1_1vb8j"]
-[ext_resource type="PackedScene" uid="uid://bojajh0fwl6qi" path="res://src/perry_skeeball/skeeball_ramp_combined.gltf" id="2_74xhp"]
+[ext_resource type="PackedScene" uid="uid://bv3hgyfp8oxov" path="res://src/perry_skeeball/ramp_mesh.gltf" id="1_yig10"]
 
 [node name="Test" type="Node3D"]
 
-[node name="skeeball_body" parent="." instance=ExtResource("1_1vb8j")]
-
-[node name="skeeball_ramp_combined" parent="." instance=ExtResource("2_74xhp")]
+[node name="ramp_mesh" parent="." instance=ExtResource("1_yig10")]
