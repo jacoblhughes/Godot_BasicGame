@@ -1,20 +1,32 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0f2kixg3jth7"]
+[gd_scene load_steps=13 format=3 uid="uid://d0f2kixg3jth7"]
 
 [ext_resource type="Script" path="res://src/perry_skeeball/perry_skeeball.gd" id="1_gi8s2"]
 [ext_resource type="PackedScene" uid="uid://cejd8k77mpr23" path="res://src/perry_skeeball/skeeball_body.tscn" id="1_gvaph"]
 [ext_resource type="Texture2D" uid="uid://btwlo8i6jxjs8" path="res://textures/app_art/perry_original_icon_256.png" id="2_ldgl3"]
 [ext_resource type="PackedScene" uid="uid://dq8ik2koklhly" path="res://src/perry_skeeball/skeeball.tscn" id="3_o8b2q"]
-[ext_resource type="PackedScene" uid="uid://cboakmuhry7np" path="res://src/perry_skeeball/starting_area.tscn" id="5_15web"]
 [ext_resource type="Script" path="res://src/perry_skeeball/waiting_path.gd" id="6_a0q0j"]
-[ext_resource type="PackedScene" uid="uid://cssmji8cf5bwr" path="res://src/perry_skeeball/slide.tscn" id="7_fn30s"]
-[ext_resource type="PackedScene" uid="uid://3kxq4wo7ihiy" path="res://src/perry_skeeball/score.tscn" id="8_6vq33"]
+[ext_resource type="PackedScene" uid="uid://dga2c2366g7ac" path="res://src/perry_skeeball/score_target.tscn" id="6_afse7"]
+[ext_resource type="PackedScene" uid="uid://de8rrcg5mlf4m" path="res://src/perry_skeeball/shelf.tscn" id="9_db1qr"]
 
 [sub_resource type="Curve3D" id="Curve3D_yx88p"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.625, 1.665, 2.827, 0, 0, 0, 0, 0, 0, 0.65, 1.665, 2.827),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.8, 1.25, 3, 0, 0, 0, 0, 0, 0, 0.8, 1.25, 3),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6w0m0"]
+size = Vector3(2, 0.25, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tn5e7"]
+size = Vector3(2, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wmqdq"]
+size = Vector3(2, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1gyi8"]
+transparency = 1
+albedo_color = Color(1, 0.501961, 1, 0.129412)
 
 [node name="PerrySkeeball" type="Node3D"]
 script = ExtResource("1_gi8s2")
@@ -28,6 +40,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75646, 2.75737)
 
 [node name="SkeeballBody" parent="." instance=ExtResource("1_gvaph")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, -3)
 
 [node name="LightNode" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 10)
@@ -36,13 +49,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 10)
 sky_mode = 1
 
 [node name="CameraNode" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.972341, 0.233564, 0, -0.233564, 0.972341, 0, 0, -1.27383)
+transform = Transform3D(1, 0, 0, 0, 0.965925, 0.258819, 0, -0.258819, 0.965925, 0, 0, 0)
 
 [node name="Camera1" type="Camera3D" parent="CameraNode"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
+v_offset = 1.0
+projection = 1
 current = true
-fov = 83.7
+fov = 95.2
+size = 5.0
 
 [node name="CameraNode2" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0.233445, -0.972369, 0, 0.972369, 0.233445, 1, 1.02042e-08, -4.25036e-08, 0, 1, -2.03497)
@@ -50,18 +66,42 @@ transform = Transform3D(-4.37114e-08, 0.233445, -0.972369, 0, 0.972369, 0.233445
 [node name="Camera2" type="Camera3D" parent="CameraNode2"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
-current = true
 fov = 27.6
 
 [node name="Skeeballs" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 1.8, 0.6)
 
 [node name="Skeeball" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.136415, 1.91187, 3.38097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.2, 0.5)
 waiting_path = NodePath("../../WaitingPath")
 
-[node name="StartingArea" parent="." instance=ExtResource("5_15web")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55197, 3.48458)
+[node name="Skeeball2" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.2, 0.3)
+waiting_path = NodePath("../../WaitingPath")
+
+[node name="Skeeball3" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.2, 0.1)
+waiting_path = NodePath("../../WaitingPath")
+
+[node name="Skeeball4" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -0.1)
+waiting_path = NodePath("../../WaitingPath")
+
+[node name="Skeeball5" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.7, 0.5)
+waiting_path = NodePath("../../WaitingPath")
+
+[node name="Skeeball6" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.7, 0.3)
+waiting_path = NodePath("../../WaitingPath")
+
+[node name="Skeeball7" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.7, 0.1)
+waiting_path = NodePath("../../WaitingPath")
+
+[node name="Skeeball8" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.7, -0.1)
+waiting_path = NodePath("../../WaitingPath")
 
 [node name="WaitingPath" type="Path3D" parent="."]
 unique_name_in_owner = true
@@ -70,13 +110,33 @@ script = ExtResource("6_a0q0j")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="WaitingPath"]
 unique_name_in_owner = true
-transform = Transform3D(-4.37113e-08, 0, -1, 0, 0.999998, 0, 0.999998, 0, -4.37114e-08, 0.0226194, 1.665, 2.827)
+transform = Transform3D(-4.37113e-08, 0, -1, 0, 0.999998, 0, 0.999998, 0, -4.37114e-08, -0.152444, 1.25, 3)
 progress = 0.647607
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, -2)
+[node name="ScoreTarget" parent="." instance=ExtResource("6_afse7")]
 
-[node name="Slide" parent="Node3D" instance=ExtResource("7_fn30s")]
-transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -0.3, 0, -0.5)
+[node name="BallDespawn" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.25, -2.25)
 
-[node name="Score" parent="Node3D" instance=ExtResource("8_6vq33")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BallDespawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.2, 0.3)
+shape = SubResource("BoxShape3D_6w0m0")
+
+[node name="Shelf" parent="." instance=ExtResource("9_db1qr")]
+unique_name_in_owner = true
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.9, 1.8, 0.6)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.25, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.3, -0.2)
+shape = SubResource("BoxShape3D_tn5e7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0999999, 0)
+mesh = SubResource("BoxMesh_wmqdq")
+surface_material_override/0 = SubResource("StandardMaterial3D_1gyi8")
+
+[connection signal="body_entered" from="BallDespawn" to="." method="_on_ball_despawn_body_entered"]
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

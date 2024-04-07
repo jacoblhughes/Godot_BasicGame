@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bb57eqbln6nqu"
-path="res://.godot/imported/skeeball.gltf-b5ba5de459758492819b2cdabdee9480.scn"
+path="res://.godot/imported/skeeball_body.gltf-44b3c7936a43f71d048743f8774d4215.scn"
 
 [deps]
 
-source_file="res://src/perry_skeeball/skeeball.gltf"
-dest_files=["res://.godot/imported/skeeball.gltf-b5ba5de459758492819b2cdabdee9480.scn"]
+source_file="res://src/perry_skeeball/skeeball_body.gltf"
+dest_files=["res://.godot/imported/skeeball_body.gltf-44b3c7936a43f71d048743f8774d4215.scn"]
 
 [params]
 

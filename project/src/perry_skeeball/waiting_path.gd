@@ -9,7 +9,7 @@ func _ready():
 
 func _process(delta):
 	var progress = $PathFollow3D.progress_ratio
-	progress += progress_direction * 0.1 * delta
+	progress += progress_direction * 0.25 * delta
 	
 	if progress >= 1.0 or progress <= 0.0:
 		progress_direction *= -1  # Reverse direction

@@ -23,6 +23,7 @@ can_sleep = false
 script = ExtResource("1_lb548")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("SphereShape3D_jtjbu")
 
@@ -31,4 +32,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 mesh = SubResource("SphereMesh_rjmkd")
 surface_material_override/0 = SubResource("StandardMaterial3D_2fuwb")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
