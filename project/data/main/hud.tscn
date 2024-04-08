@@ -6,176 +6,23 @@
 [node name="HUD" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_wealh")
+metadata/_edit_vertical_guides_ = [360.0]
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchor_right = 1.002
-anchor_bottom = 0.131
-offset_right = -1.44006
-offset_bottom = -167.68
-grow_horizontal = 2
-mouse_filter = 2
-
-[node name="Panel" type="Panel" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.002
-offset_right = -0.439941
-offset_bottom = 168.0
-theme = ExtResource("2_7580m")
-theme_type_variation = &"PanelHUD"
-
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -360.0
-offset_right = 361.0
-offset_bottom = 172.0
-grow_horizontal = 2
-mouse_filter = 2
-theme = ExtResource("2_7580m")
-theme_type_variation = &"MarginContainerHUD"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
-layout_mode = 2
-theme = ExtResource("2_7580m")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
-theme = ExtResource("2_7580m")
-alignment = 1
-
-[node name="InitialsLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("2_7580m")
-text = "Initials:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Initials" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("2_7580m")
-text = "JLH"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LevelLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("2_7580m")
-text = "Level:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Level" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("2_7580m")
-text = "INF"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LivesLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("2_7580m")
-text = "Lives:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Lives" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("2_7580m")
-text = "INF"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScoreLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("2_7580m")
-text = "Score:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Score" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("2_7580m")
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
-theme = ExtResource("2_7580m")
-
-[node name="TimeLeftLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Time Left:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TimeLeft" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "INF"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TimePassedLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Time Passsed:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TimePassed" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "INF"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="StartCountdownTimer" type="Timer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="StartCountdownTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
 
-[node name="GameLeftTimer" type="Timer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="GameLeftTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 60.0
 one_shot = true
 
-[node name="GamePassedTimer" type="Timer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="GamePassedTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
 
-[node name="Control2" type="Control" parent="."]
+[node name="Input" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -184,26 +31,183 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="Control2"]
+[node name="MarginContainer" type="MarginContainer" parent="Input"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -128.0
-offset_right = 360.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_7580m")
+theme_type_variation = &"MarginContainerInput"
+
+[node name="InputPanel" type="Panel" parent="Input/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_7580m")
+theme_type_variation = &"PanelInput"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+offset_right = 148.0
+offset_bottom = 139.0
 mouse_filter = 2
 theme = ExtResource("2_7580m")
 theme_type_variation = &"MarginContainerHUD"
 
-[node name="Home_Button" type="Button" parent="Control2/MarginContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_7580m")
+columns = 2
+
+[node name="InitialsLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+theme_type_variation = &"LabelHUD"
+text = "Player:"
+vertical_alignment = 1
+
+[node name="Initials" type="Label" parent="Control/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+theme_type_variation = &"LabelHUD"
+text = "JLH"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+theme_type_variation = &"LabelHUD"
+text = "Score:"
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Control/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+theme_type_variation = &"LabelHUD"
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer2" type="GridContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_7580m")
+
+[node name="Home_Button" type="Button" parent="Control/MarginContainer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 1
 theme = ExtResource("2_7580m")
 text = "Home"
+
+[node name="Control3" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control3"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -124.0
+offset_bottom = 137.0
+grow_horizontal = 0
+mouse_filter = 2
+theme = ExtResource("2_7580m")
+theme_type_variation = &"MarginContainerHUD"
+
+[node name="GridContainer" type="GridContainer" parent="Control3/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("2_7580m")
+columns = 2
+
+[node name="LevelLabel" type="Label" parent="Control3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+theme_type_variation = &"LabelHUD"
+text = "Level:"
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="Control3/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+theme_type_variation = &"LabelHUD"
+text = "INF"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LivesLabel" type="Label" parent="Control3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+theme_type_variation = &"LabelHUD"
+text = "Lives:"
+vertical_alignment = 1
+
+[node name="Lives" type="Label" parent="Control3/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_7580m")
+theme_type_variation = &"LabelHUD"
+text = "INF"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Control3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_7580m")
+theme_type_variation = &"LabelHUD"
+text = "Time:"
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="Control3/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_7580m")
+theme_type_variation = &"LabelHUD"
+text = "INF"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="GameStartPanel" type="Control" parent="."]
 unique_name_in_owner = true
@@ -223,6 +227,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_7580m")
+theme_type_variation = &"PanelHUD"
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="GameStartPanel"]
 layout_mode = 1
@@ -248,28 +253,18 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_7580m")
+theme_type_variation = &"LabelDirections"
 text = "TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
-
-[node name="Control" type="Control" parent="GameStartPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Directions_Note" type="Label" parent="GameStartPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("2_7580m")
-text = "Directions:"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Directions" type="Label" parent="GameStartPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_7580m")
+theme_type_variation = &"LabelDirections"
 text = "Directions"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -285,6 +280,10 @@ size_flags_vertical = 3
 mouse_filter = 1
 theme = ExtResource("2_7580m")
 text = "Play"
+
+[node name="Control" type="Control" parent="GameStartPanel/AspectRatioContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="GameOverPanel" type="Control" parent="."]
 unique_name_in_owner = true
@@ -304,6 +303,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_7580m")
+theme_type_variation = &"PanelHUD"
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="GameOverPanel"]
 layout_mode = 1
@@ -328,7 +328,7 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_7580m")
-theme_type_variation = &"Main_2"
+theme_type_variation = &"LabelDirections"
 text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -339,7 +339,7 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_7580m")
-theme_type_variation = &"Main_2"
+theme_type_variation = &"LabelDirections"
 text = "Highscore Achieved!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -351,9 +351,10 @@ mouse_filter = 1
 theme = ExtResource("2_7580m")
 text = "Home"
 
-[connection signal="timeout" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/StartCountdownTimer" to="." method="_on_countdown_timer_timeout"]
-[connection signal="timeout" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/GameLeftTimer" to="." method="_on_game_left_timer_timeout"]
-[connection signal="timeout" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/GamePassedTimer" to="." method="_on_game_passed_timer_timeout"]
-[connection signal="pressed" from="Control2/MarginContainer3/Home_Button" to="." method="_on_home_button_pressed"]
+[connection signal="timeout" from="StartCountdownTimer" to="." method="_on_countdown_timer_timeout"]
+[connection signal="timeout" from="GameLeftTimer" to="." method="_on_game_left_timer_timeout"]
+[connection signal="timeout" from="GamePassedTimer" to="." method="_on_game_passed_timer_timeout"]
+[connection signal="gui_input" from="Input/MarginContainer/InputPanel" to="." method="_on_panel_gui_input"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/GridContainer2/Home_Button" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="GameStartPanel/AspectRatioContainer/MarginContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="GameOverPanel/AspectRatioContainer/MarginContainer/VBoxContainer/HomeButtonOnGameover" to="." method="_on_home_button_pressed"]

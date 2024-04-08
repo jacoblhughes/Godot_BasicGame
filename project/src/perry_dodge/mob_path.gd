@@ -5,8 +5,8 @@ extends Path2D
 func _ready():
 	pass
 	var curve = Curve2D.new() # Create a new Curve2D resource
-	var play_area_position = clickable_area.get_play_area_position()
-	var play_area_size = clickable_area.get_play_area_size()
+	var play_area_position = HUD.get_play_area_position()
+	var play_area_size = HUD.get_play_area_size()
 
 	# Add points to the curve
 	curve.add_point(play_area_position)     # Start point

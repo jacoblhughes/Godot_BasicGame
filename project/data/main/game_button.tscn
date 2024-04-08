@@ -34,7 +34,7 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_assr7")
-theme_type_variation = &"MarginContainerGames"
+theme_type_variation = &"MarginContainerButtons"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
 unique_name_in_owner = true

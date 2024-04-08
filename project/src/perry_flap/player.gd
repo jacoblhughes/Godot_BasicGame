@@ -16,7 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animated_sprite : AnimatedSprite2D
 func _ready():
 	animated_sprite = get_node("AnimatedSprite2D")
-	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
+	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	pass
 	
 func _on_clickable_input_event(event, input_position):
@@ -48,8 +48,8 @@ func _physics_process(delta):
 				flappy_hit.emit()
 
 #		global_position = global_position.lerp(target_position, lerp_speed)
-		global_position.x = clamp(global_position.x, %ClickableArea.get_play_area_position().x,%ClickableArea.get_play_area_position().x+%ClickableArea.get_play_area_size().x)
-		global_position.y = clamp(global_position.y, %ClickableArea.get_play_area_position().y,%ClickableArea.get_play_area_position().y+%ClickableArea.get_play_area_size().y)
+		global_position.x = clamp(global_position.x, HUD.get_play_area_position().x,HUD.get_play_area_position().x+HUD.get_play_area_size().x)
+		global_position.y = clamp(global_position.y, HUD.get_play_area_position().y,HUD.get_play_area_position().y+HUD.get_play_area_size().y)
 
 
 

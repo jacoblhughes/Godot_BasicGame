@@ -1,14 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cj0i3bqn4ap1r"]
+[gd_scene load_steps=9 format=3 uid="uid://cj0i3bqn4ap1r"]
 
 [ext_resource type="Script" path="res://src/perry_flap/perry_flap.gd" id="1_ym0sw"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_vrvjj"]
 [ext_resource type="Script" path="res://src/perry_flap/enemy_spawn.gd" id="3_1mfvs"]
 [ext_resource type="Texture2D" uid="uid://bx5cma57kljk6" path="res://textures/perry_flap/flappy_background_256_512.png" id="4_abbuh"]
-[ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="4_ldb5m"]
 [ext_resource type="PackedScene" uid="uid://bmuk80oxjv7v8" path="res://src/perry_flap/player.tscn" id="6_dekd4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20w47"]
-size = Vector2(56, 1024)
+size = Vector2(56, 1280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_221hg"]
 size = Vector2(96, 192)
@@ -27,16 +26,13 @@ position = Vector2(360, 640)
 [node name="GameBackground" parent="." instance=ExtResource("2_vrvjj")]
 game_background_texture = ExtResource("4_abbuh")
 
-[node name="ClickableArea" parent="." instance=ExtResource("4_ldb5m")]
-unique_name_in_owner = true
-
 [node name="EnemyDespawn" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("3_1mfvs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDespawn"]
-position = Vector2(28, 688)
+position = Vector2(28, 640)
 shape = SubResource("RectangleShape2D_20w47")
 
 [node name="Player" parent="." instance=ExtResource("6_dekd4")]

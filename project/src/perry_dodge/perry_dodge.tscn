@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjw6sh7j2lsq3"]
+[gd_scene load_steps=10 format=3 uid="uid://bjw6sh7j2lsq3"]
 
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="1_25uw0"]
 [ext_resource type="Script" path="res://src/perry_dodge/perry_dodge.gd" id="1_mjawl"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dmi16l057ro3v" path="res://textures/perry_dodge/creep_background_128.png" id="3_lj6dr"]
 [ext_resource type="Script" path="res://src/perry_dodge/mob_path.gd" id="4_27mf4"]
 [ext_resource type="PackedScene" uid="uid://0dmkhtys2fv3" path="res://src/perry_dodge/player.tscn" id="5_10pmt"]
-[ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="5_i1t53"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajf4l"]
 texture = ExtResource("3_lj6dr")
@@ -41,9 +40,6 @@ tile_set = SubResource("TileSet_rfxxs")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 196608, 0, 2, 131072, 0, 4, 196608, 0, 3, 0, 0, 65540, 0, 0, 65539, 65536, 0, 65538, 0, 0, 65537, 65536, 0, 131073, 0, 0, 131074, 131072, 0, 131075, 131072, 0, 196611, 196608, 0, 131076, 196608, 0, 196612, 0, 0, 262148, 65536, 0, 327684, 131072, 0, 327683, 0, 0, 327682, 65536, 0, 327681, 196608, 0, 327680, 0, 0, 262144, 65536, 0, 196608, 131072, 0, 131072, 196608, 0, 65536, 65536, 0, 196609, 131072, 0, 196610, 65536, 0, 262145, 0, 0, 262146, 131072, 0, 262147, 0, 0, 393219, 196608, 0, 393220, 131072, 0, 458756, 65536, 0, 458755, 0, 0, 458754, 0, 0, 458753, 65536, 0, 393217, 0, 0, 393216, 196608, 0, 393218, 131072, 0, 458752, 131072, 0)
 
-[node name="ClickableArea" parent="." instance=ExtResource("5_i1t53")]
-unique_name_in_owner = true
-
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="MobTimer" type="Timer" parent="."]
@@ -54,10 +50,9 @@ wait_time = 2.0
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(360, 640)
 
-[node name="MobPath" type="Path2D" parent="." node_paths=PackedStringArray("clickable_area")]
+[node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_mulw1")
 script = ExtResource("4_27mf4")
-clickable_area = NodePath("../ClickableArea")
 
 [node name="MobPathFollow" type="PathFollow2D" parent="MobPath"]
 rotation = -1.5708

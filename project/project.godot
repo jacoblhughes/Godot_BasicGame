@@ -21,9 +21,9 @@ config/icon="res://icon.svg"
 
 AudioManager="*res://data/main/audio_manager.tscn"
 GameManager="*res://data/main/game_manager.tscn"
-HUD="*res://data/main/hud.tscn"
 Buttons="*res://data/main/buttons.tscn"
 Background="*res://data/main/background.tscn"
+HUD="*res://data/main/hud.tscn"
 
 [display]
 

@@ -17,7 +17,7 @@ func _ready():
 	target_position = start_position.global_position
 	
 #	PlayArea.in_play_area.connect(_on_in_play_area)
-	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
+	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	start(target_position)
 	
 func _on_clickable_input_event(event,input_position):
@@ -49,8 +49,10 @@ func _physics_process(_delta):
 #	target_y = mouse_pos.y
 	if target_position != null:
 		global_position = global_position.lerp(target_position, lerp_speed)
-	global_position.x = clamp(global_position.x, %ClickableArea.get_play_area_position().x,%ClickableArea.get_play_area_position().x+%ClickableArea.get_play_area_size().x)
-	global_position.y = clamp(global_position.y, %ClickableArea.get_play_area_position().y,%ClickableArea.get_play_area_position().y+%ClickableArea.get_play_area_size().y)
+	print(HUD.get_play_area_position())
+	print((HUD.get_play_area_size()))
+	global_position.x = clamp(global_position.x, HUD.get_play_area_position().x,HUD.get_play_area_position().x+HUD.get_play_area_size().x)
+	global_position.y = clamp(global_position.y, HUD.get_play_area_position().y,HUD.get_play_area_position().y+HUD.get_play_area_size().y)
 
 
 

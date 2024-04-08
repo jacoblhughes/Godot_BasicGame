@@ -17,7 +17,7 @@ signal startButtonPressed
 signal resetButtonPressed
 signal countdown_timer_timeout
 signal game_left_timer_timeout
-
+signal clickable_input_event
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print(DisplayServer.get_display_safe_area())
@@ -27,10 +27,10 @@ func _process(delta):
 	if time_left:
 		if timer_used and counting_down:
 			var countdown_timer_left = %StartCountdownTimer.time_left
-			%TimeLeft.text = "%d:%02d" % [floor(countdown_timer_left / 60), int(countdown_timer_left) % 60]
+			%Time.text = "%d:%02d" % [floor(countdown_timer_left / 60), int(countdown_timer_left) % 60]
 		if timer_used and game_left_timing:
 			var game_left_timer = %GameLeftTimer.time_left
-			%TimeLeft.text = "%d:%02d" % [floor(game_left_timer / 60), int(game_left_timer) % 60]
+			%Time.text = "%d:%02d" % [floor(game_left_timer / 60), int(game_left_timer) % 60]
 	pass
 func update_initials(value):
 	%Initials.text = value
@@ -168,8 +168,7 @@ func clear_hud():
 	game_left_timing = false
 	time_left = false
 	time_passed = false
-	%TimeLeft.text = "INF"
-	%TimePassed.text = "INF"
+	%Time.text = "INF"
 	%StartCountdownTimer.stop()
 	%StartCountdownTimer.wait_time = 3
 	%GameLeftTimer.stop()
@@ -184,3 +183,18 @@ func _on_game_left_timer_timeout():
 
 func _on_game_passed_timer_timeout():
 	pass # Replace with function body.
+
+
+func _on_panel_gui_input(event):
+	if event is InputEventScreenTouch and event.pressed:
+		print(event)
+
+		print(event.position)
+		clickable_input_event.emit(event,event.position)
+	pass # Replace with function body.
+
+func get_play_area_position():
+	return %InputPanel.position
+
+func get_play_area_size():
+	return %InputPanel.size
