@@ -49,8 +49,8 @@ func _physics_process(_delta):
 #	target_y = mouse_pos.y
 	if target_position != null:
 		global_position = global_position.lerp(target_position, lerp_speed)
-	print(HUD.get_play_area_position())
-	print((HUD.get_play_area_size()))
+
+
 	global_position.x = clamp(global_position.x, HUD.get_play_area_position().x,HUD.get_play_area_position().x+HUD.get_play_area_size().x)
 	global_position.y = clamp(global_position.y, HUD.get_play_area_position().y,HUD.get_play_area_position().y+HUD.get_play_area_size().y)
 

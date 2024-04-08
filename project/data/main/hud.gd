@@ -20,8 +20,8 @@ signal game_left_timer_timeout
 signal clickable_input_event
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(DisplayServer.get_display_safe_area())
-	print(DisplayServer.screen_get_usable_rect())
+#	print(DisplayServer.get_display_safe_area())
+#	print(DisplayServer.screen_get_usable_rect())
 	pass
 func _process(delta):
 	if time_left:
@@ -187,14 +187,11 @@ func _on_game_passed_timer_timeout():
 
 func _on_panel_gui_input(event):
 	if event is InputEventScreenTouch and event.pressed:
-		print(event)
-
-		print(event.position)
 		clickable_input_event.emit(event,event.position)
 	pass # Replace with function body.
 
 func get_play_area_position():
-	return %InputPanel.position
+	return %InputPanel.global_position
 
 func get_play_area_size():
 	return %InputPanel.size

@@ -32,6 +32,7 @@ game_background_texture = ExtResource("3_lj6dr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
+enabled = false
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
@@ -55,7 +56,8 @@ curve = SubResource("Curve2D_mulw1")
 script = ExtResource("4_27mf4")
 
 [node name="MobPathFollow" type="PathFollow2D" parent="MobPath"]
-rotation = -1.5708
+position = Vector2(712, 0)
+rotation = 1.56455
 
 [node name="Player" parent="." instance=ExtResource("5_10pmt")]
 

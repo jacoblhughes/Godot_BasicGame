@@ -21,6 +21,7 @@ size = Vector2(560, 992)
 script = ExtResource("1_ym0sw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(360, 640)
 
 [node name="GameBackground" parent="." instance=ExtResource("2_vrvjj")]

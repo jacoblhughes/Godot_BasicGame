@@ -82,7 +82,3 @@ func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
 	StartTimer.start()
 	pass
-
-
-func _on_area_2d_input_event(viewport, event, shape_idx):
-	pass # Replace with function body.
