@@ -11,14 +11,21 @@ var level_value = 1
 var original_spawn_timer = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("-----------------------------")
 	print(get_viewport_rect())
-	print(get_viewport_transform())
 	print(get_viewport_transform().get_scale())
-	%Camera2D.zoom = get_viewport_transform().get_scale()
+	var xwindow = get_window().get_size().x
+	var ywindow = get_window().get_size().y
+	print(xwindow," & ", ywindow)
+#	if ywindow >:
+		
+#	var xform = float(720.0/get_window().get_size().x)
+#	var yform = float(1280.0/get_window().get_size().y)
+#	%Camera2D.zoom = Vector2(yform,xform)
 	print(float(720.0/get_window().get_size().x))
 	print(float(1280.0/get_window().get_size().y))
-	print(float(720.0/get_window().get_size().x))
-	print(float(1280.0/get_window().get_size().y))
+#	print(float(720.0/get_window().get_size().x))
+#	print(float(1280.0/get_window().get_size().y))
 	player = get_parent().get_node("Player")
 	_game_initialize()
 	player.flappy_hit.connect(_on_flappy_hit)
