@@ -4,8 +4,15 @@ var score_value = 1
 var level_advance_value = 10
 var level_value = 1 
 var original_spawn_timer = 1
+var scenes
+@export var enemy_wall : PackedScene
+@export var enemy_wall_2 : PackedScene
+@export var enemy_wall_3 : PackedScene
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	scenes = [enemy_wall, enemy_wall_2, enemy_wall_3]
 	print("-----------------------------")
 	print(get_viewport_rect())
 	print(get_viewport_transform().get_scale())
@@ -23,7 +30,7 @@ func _ready():
 #	print(float(1280.0/get_window().get_size().y))
 	_game_initialize()
 	%Player.flappy_hit.connect(_on_flappy_hit)
-	%EnemySpawnPosition.position.x = xwindow
+	%EnemySpawnPosition.global_position.x = xwindow
 	%SpawnTimer.wait_time = original_spawn_timer
 	pass # Replace with function body.
 
@@ -61,11 +68,21 @@ func _game_over():
 	%Player.position = %StartPosition.position
 	GameManager.check_highscore_and_rank()
 
-func _on_area_2d_body_exited(body):
+
+func advance_level():
+	%SpawnTimer.wait_time = original_spawn_timer * pow(.95,HUD.get_game_level())
+
+func _on_spawn_timer_timeout():
+	var chosen_index = randi() % scenes.size()
+	var chosen_scene = scenes[chosen_index].instantiate()
+	chosen_scene.position = %EnemySpawnPosition.position
+	add_child(chosen_scene,true)
+
+	chosen_scene.add_to_group("enemy")
+	pass # Replace with function body.
+
+func _on_fly_zone_body_exited(body):
 	if body is PlayerFlappy:
 		if(GameManager.get_game_enabled()):
 			_game_over()
 	pass # Replace with function body.
-
-func advance_level():
-	%SpawnTimer.wait_time = original_spawn_timer * pow(.95,HUD.get_game_level())

@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cj0i3bqn4ap1r"]
+[gd_scene load_steps=12 format=3 uid="uid://cj0i3bqn4ap1r"]
 
 [ext_resource type="Script" path="res://src/perry_flap/perry_flap.gd" id="1_ym0sw"]
+[ext_resource type="PackedScene" uid="uid://cacfubsmhibrw" path="res://src/perry_flap/enemy_wall.tscn" id="2_3bg0i"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_vrvjj"]
-[ext_resource type="Script" path="res://src/perry_flap/enemy_spawn.gd" id="3_1mfvs"]
+[ext_resource type="PackedScene" uid="uid://dgbjvdct5rvuk" path="res://src/perry_flap/enemy_wall_2.tscn" id="3_eemtl"]
+[ext_resource type="Script" path="res://src/perry_flap/enemy_despawn.gd" id="4_7jpv8"]
 [ext_resource type="Texture2D" uid="uid://bx5cma57kljk6" path="res://textures/perry_flap/flappy_background_256_512.png" id="4_abbuh"]
+[ext_resource type="PackedScene" uid="uid://cpcavmwe55upr" path="res://src/perry_flap/enemy_wall_3.tscn" id="4_pqam4"]
 [ext_resource type="PackedScene" uid="uid://bmuk80oxjv7v8" path="res://src/perry_flap/player.tscn" id="6_dekd4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20w47"]
@@ -17,6 +20,9 @@ size = Vector2(560, 992)
 
 [node name="PerryFlap" type="Node2D"]
 script = ExtResource("1_ym0sw")
+enemy_wall = ExtResource("2_3bg0i")
+enemy_wall_2 = ExtResource("3_eemtl")
+enemy_wall_3 = ExtResource("4_pqam4")
 metadata/_edit_horizontal_guides_ = [640.0]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -34,7 +40,7 @@ game_background_texture = ExtResource("4_abbuh")
 [node name="EnemyDespawn" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 2
-script = ExtResource("3_1mfvs")
+script = ExtResource("4_7jpv8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDespawn"]
 position = Vector2(28, 640)
@@ -62,8 +68,10 @@ position = Vector2(202, 666)
 [node name="FlyZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlyZone"]
-position = Vector2(360, 672)
+position = Vector2(360, 640)
 shape = SubResource("RectangleShape2D_gpshr")
 
 [connection signal="body_entered" from="EnemyDespawn" to="EnemyDespawn" method="_on_body_entered"]
-[connection signal="timeout" from="SpawnTimer" to="EnemyDespawn" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="body_entered" from="EnemyScoring" to="." method="_on_enemy_scoring_body_entered"]
+[connection signal="body_exited" from="FlyZone" to="." method="_on_fly_zone_body_exited"]

@@ -11,5 +11,5 @@ func _ready():
 	pass
 
 func _physics_process(_delta):
-	velocity.x = -1 * SPEED
+	velocity.x = -.75 * SPEED
 	move_and_slide()
