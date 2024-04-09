@@ -16,13 +16,17 @@ size = Vector2(96, 192)
 size = Vector2(560, 992)
 
 [node name="PerryFlap" type="Node2D"]
-
-[node name="PerryFlap" type="Node2D" parent="."]
 script = ExtResource("1_ym0sw")
+metadata/_edit_horizontal_guides_ = [640.0]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(360, 640)
+
+[node name="EnemySpawnPosition" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(720, 640)
+gizmo_extents = 343.5
 
 [node name="GameBackground" parent="." instance=ExtResource("2_vrvjj")]
 game_background_texture = ExtResource("4_abbuh")
@@ -37,8 +41,11 @@ position = Vector2(28, 640)
 shape = SubResource("RectangleShape2D_20w47")
 
 [node name="Player" parent="." instance=ExtResource("6_dekd4")]
+unique_name_in_owner = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
 
 [node name="EnemyScoring" type="Area2D" parent="."]
 collision_layer = 8
@@ -49,6 +56,7 @@ position = Vector2(144, 296)
 shape = SubResource("RectangleShape2D_221hg")
 
 [node name="StartPosition" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(202, 666)
 
 [node name="FlyZone" type="Area2D" parent="."]
@@ -59,5 +67,3 @@ shape = SubResource("RectangleShape2D_gpshr")
 
 [connection signal="body_entered" from="EnemyDespawn" to="EnemyDespawn" method="_on_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="EnemyDespawn" method="_on_spawn_timer_timeout"]
-[connection signal="body_entered" from="EnemyScoring" to="PerryFlap" method="_on_enemy_scoring_body_entered"]
-[connection signal="body_exited" from="FlyZone" to="PerryFlap" method="_on_area_2d_body_exited"]

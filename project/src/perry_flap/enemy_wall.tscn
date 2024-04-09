@@ -4,36 +4,35 @@
 [ext_resource type="SpriteFrames" uid="uid://bd2em2armt88p" path="res://textures/perry_flap/enemy_wall.tres" id="2_ettvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjiyy"]
-size = Vector2(40, 520)
+size = Vector2(80, 520)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tlwy"]
-size = Vector2(40, 520)
+size = Vector2(80, 520)
 
 [node name="EnemyWall" type="CharacterBody2D"]
-position = Vector2(656, 176)
 collision_layer = 2
 collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_yjc44")
-metadata/_edit_horizontal_guides_ = [640.0, 320.0, 800.0, 880.0, 720.0, 560.0, 480.0, 400.0, 960.0]
+metadata/_edit_horizontal_guides_ = [640.0, 320.0, 800.0, 880.0, 720.0, 560.0, 480.0, 400.0, 960.0, 640.0]
+
+[node name="TopWall" type="AnimatedSprite2D" parent="."]
+position = Vector2(-7.62939e-06, -380)
+scale = Vector2(0.3125, 0.677083)
+sprite_frames = ExtResource("2_ettvq")
+autoplay = "default"
 
 [node name="BottomWall" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, 844)
-scale = Vector2(0.15625, 0.677083)
+position = Vector2(-3.8147e-06, 380)
+scale = Vector2(0.3125, 0.677083)
 sprite_frames = ExtResource("2_ettvq")
 autoplay = "default"
 flip_v = true
 
-[node name="TopWall" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, 84)
-scale = Vector2(0.15625, 0.677083)
-sprite_frames = ExtResource("2_ettvq")
-autoplay = "default"
-
 [node name="TopCollision" type="CollisionShape2D" parent="."]
-position = Vector2(20, 84)
+position = Vector2(0, -380)
 shape = SubResource("RectangleShape2D_mjiyy")
 
 [node name="BottomCollision" type="CollisionShape2D" parent="."]
-position = Vector2(20, 844)
+position = Vector2(0, 380)
 shape = SubResource("RectangleShape2D_2tlwy")
