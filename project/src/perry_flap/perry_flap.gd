@@ -1,63 +1,57 @@
 extends Node2D
 
-var score_value = 1
-var level_advance_value = 10
-var level_value = 1 
-var original_spawn_timer = 1
-var scenes
+var initial_score_value = 0
+#var score_advance_value = 1
+var initial_lives_value = 1
+#var lives_advance_value = 1
+var initial_level_value = 1
+var level_advance_check_value = 10
+var level_advance_value = 1
+var start_button_callable
+
+var score_advance_value = 1
+
+var original_spawn_timer = 1.5
+
 @export var enemy_wall : PackedScene
 @export var enemy_wall_2 : PackedScene
 @export var enemy_wall_3 : PackedScene
-
+var scenes : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	scenes = [enemy_wall, enemy_wall_2, enemy_wall_3]
-	print("-----------------------------")
-	print(get_viewport_rect())
-	print(get_viewport_transform().get_scale())
-	var xwindow = get_window().get_size().x
-	var ywindow = get_window().get_size().y
+	var xwindow = get_viewport_rect().size.x
+	var ywindow = get_viewport_rect().size.y
 	print(xwindow," & ", ywindow)
-#	if ywindow >:
-		
-#	var xform = float(720.0/get_window().get_size().x)
-#	var yform = float(1280.0/get_window().get_size().y)
-#	%Camera2D.zoom = Vector2(yform,xform)
-	print(float(720.0/get_window().get_size().x))
-	print(float(1280.0/get_window().get_size().y))
-#	print(float(720.0/get_window().get_size().x))
-#	print(float(1280.0/get_window().get_size().y))
-	_game_initialize()
-	%Player.flappy_hit.connect(_on_flappy_hit)
-	%EnemySpawnPosition.global_position.x = xwindow
+	if ywindow > 1280:
+		%Camera2D.enabled = true
+		%Camera2D.zoom.y = ywindow/1280
+	var start_button_callable = Callable(self, "_on_play_button_pressed")
+	var game_over_callable = Callable(self,"_on_game_over")
+	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value, start_button_callable, game_over_callable)
+
+	%EnemySpawnPosition.position.x = xwindow
 	%SpawnTimer.wait_time = original_spawn_timer
+	%Player.position = %StartPosition.position
 	pass # Replace with function body.
 
-func _game_initialize():
-	HUD.reset_score()
-	HUD.startButtonPressed.connect(_on_play_button_pressed)
-	HUD.set_or_reset_level(1)
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
-	%Player.position = %StartPosition.position
 	%SpawnTimer.start()
 	pass
 
 
 func _on_enemy_scoring_body_entered(body):
 
-	HUD.update_score(score_value)
-	if HUD.check_advance_level(level_advance_value,level_value):
+	HUD.update_score(score_advance_value)
+	if HUD.check_advance_level():
 		advance_level()
 	pass # Replace with function body.
-
-func _on_flappy_hit():
-	if(GameManager.get_game_enabled()):
-		_game_over()
 		
-func _game_over():
+func _on_game_over():
+	print('game over')
 	for nodes in get_tree().get_nodes_in_group("enemy"):
 		nodes.remove_from_group("enemy")
 		nodes.queue_free()
@@ -82,7 +76,7 @@ func _on_spawn_timer_timeout():
 	pass # Replace with function body.
 
 func _on_fly_zone_body_exited(body):
-	if body is PlayerFlappy:
+	if body is PerryFlapPlayer:
 		if(GameManager.get_game_enabled()):
-			_game_over()
+			%Player.hit()
 	pass # Replace with function body.

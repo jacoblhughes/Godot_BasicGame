@@ -16,16 +16,14 @@ var max_speed = 800
 @onready var background : TextureRect
 func _ready():
 
-	_game_initialize()
+#	_game_initialize()
 	increased_velocity = original_velocity
 	stored_position = position
 	reset_round = true
-	pass # Replace with function body.
-	
-func _game_initialize():
 	game.position_reset.connect(_on_position_reset)
 	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
-	HUD.resetButtonPressed.connect(_on_reset_button_reset_button_pressed)
+	pass # Replace with function body.
+	
 
 
 func _physics_process(delta):

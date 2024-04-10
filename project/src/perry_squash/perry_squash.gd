@@ -10,16 +10,13 @@ func _ready():
 	Background.visible = false
 	player.hit.connect(_on_player_hit)
 	mob_timer.timeout.connect(_on_mob_timer_timeout)
-	_game_initialize()
-	pass
-
-func _game_initialize():
+#	_game_initialize()
 	for node in get_tree().get_nodes_in_group("enemy"):
 		node.remove_from_group("enemy")
-	HUD.reset_score()
-	HUD.startButtonPressed.connect(_on_play_button_pressed)
-	HUD.set_or_reset_level(1)
-	HUD.countdown_timer_timeout.connect(_on_countdown_timer_timeout)
+
+	pass
+
+
 
 func _physics_process(delta):
 	if GameManager.get_game_enabled():

@@ -1,5 +1,6 @@
 extends Area2D
-signal hit
+class_name PerryDodgePlayer
+
 
 var player_collision = true
 @onready var CollisionShape : CollisionShape2D
@@ -55,10 +56,10 @@ func _physics_process(_delta):
 	global_position.y = clamp(global_position.y, HUD.get_play_area_position().y,HUD.get_play_area_position().y+HUD.get_play_area_size().y)
 
 
+func hit():
+	if(GameManager.game_enabled):
+		HUD.update_lives(-1)
 
-func _on_body_entered(body):
-	hit.emit()
-	$CollisionShape2D.set_deferred("disabled", true)
 	
 func start(pos):
 	position = pos

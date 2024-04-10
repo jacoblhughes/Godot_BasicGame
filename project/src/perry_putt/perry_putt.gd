@@ -11,7 +11,7 @@ func _ready():
 #	%Hole.ball_sank.connect(_on_perry_ball_sank)
 
 
-	_game_initialize()
+#	_game_initialize()
 	if start_level_2:
 		apply_level(level_2)
 	elif start_level_3:
@@ -20,11 +20,6 @@ func _ready():
 		apply_level(level_1)
 	pass
 
-func _game_initialize():
-	HUD.reset_score()
-	HUD.update_score(initial_score)
-	HUD.startButtonPressed.connect(_on_play_button_pressed)
-	HUD.set_or_reset_level(1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

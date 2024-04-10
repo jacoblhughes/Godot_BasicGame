@@ -120,7 +120,7 @@ func check_highscore_and_rank():
 	var high_scores_names = config.get_value(game_key, "names", [])
 	var high_scores = config.get_value(game_key, "scores", [])
 	var score = HUD.return_score()
-	var new_initials = HUD.get_initials()
+	var new_initials = HUD.return_initials()
 #	var item_list = $HighScorePopup/ColorRect/ItemList
 	if high_scores_names.size() != high_scores.size():
 		print("Error: Names and scores arrays have different sizes.")

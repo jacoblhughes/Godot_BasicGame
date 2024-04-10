@@ -1,5 +1,6 @@
 extends CharacterBody2D
-class_name PlayerFlappy
+class_name PerryFlapPlayer
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 #var velocity = Vector2(0, 0)
@@ -21,6 +22,12 @@ func _ready():
 func _on_clickable_input_event(event, input_position):
 	if event.pressed:
 		velocity.y = jump_force
+		
+func hit():
+	print('hit')
+	if(GameManager.get_game_enabled()):
+		HUD.update_lives(-1)
+		print('shold')
 
 func _physics_process(delta):
 	if(GameManager.get_game_enabled()):

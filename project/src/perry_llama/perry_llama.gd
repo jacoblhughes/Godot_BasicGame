@@ -17,19 +17,15 @@ func _ready():
 	player = get_parent().get_node("Player")
 	enemy_spawner = get_parent().get_node("EnemySpawner")
 	enemy_position = enemy_spawner.get_node("EnemyPosition").global_position
-	_game_initialize()
+#	_game_initialize()
 	player.dino_hit.connect(_on_dino_hit)
 	despawn = get_parent().get_node("Despawn")
 	despawn.body_entered.connect(_on_despawn_body_entered)
-	pass # Replace with function body.
-
-func _game_initialize():
 	for node in get_tree().get_nodes_in_group("enemy"):
 		node.remove_from_group("enemy")
-	HUD.reset_score()
-	HUD.startButtonPressed.connect(_on_play_button_pressed)
-	HUD.set_or_reset_level(1)
-	
+	pass # Replace with function body.
+
+
 func _on_enemy_spawn_timer_timeout():
 	var enemy_choice = floor(randf_range(0, 4))
 	var enemy = enemy_scenes[enemy_choice].instantiate()

@@ -27,15 +27,10 @@ func _ready():
 	%Win.body_entered.connect(_on_win_body_entered)
 
 	%Lose.body_entered.connect(_on_lose_body_entered)
-	_game_initialize()
+#	_game_initialize()
 	
 
 		
-func _game_initialize():
-	HUD.reset_score()
-	HUD.startButtonPressed.connect(_on_play_button_pressed)
-	HUD.set_or_reset_lives(initial_lives)
-	HUD.set_or_reset_level(level_value)
 
 
 func _on_play_button_pressed():

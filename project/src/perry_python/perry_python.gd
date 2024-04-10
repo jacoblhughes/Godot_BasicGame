@@ -75,7 +75,7 @@ func _ready():
 	play_area_min = new_position
 	SnakeTimer = get_parent().get_node("Snake_Move_Timer")
 	HUD.startButtonPressed.connect(_on_play_button_pressed)
-	HUD.resetButtonPressed.connect(on_reset_button_reset_button_pressed)
+
 	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
 	HUD.set_or_reset_level(level_value)
 	food_spawner = get_parent().get_node("spawner_food")

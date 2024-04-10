@@ -1,55 +1,48 @@
 extends Node2D
 
+var initial_score_value = 0
+#var score_advance_value = 1
+var initial_lives_value = 1
+#var lives_advance_value = 1
+var initial_level_value = 1
+var level_advance_check_value = 10
+var level_advance_value = 1
+var start_button_callable
+
 @export var mob_scene: PackedScene
 var score_value = 1
 
-@onready var ScoreTimer : Timer
-@onready var MobTimer : Timer
-@onready var StartTimer : Timer
-@onready var StartPosition: Marker2D
-@onready var Player : Area2D
 var original_mob_time = 1
-var level_advance_value = 10
-var level_value = 1
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-	StartTimer = get_parent().get_node("StartTimer")
-	ScoreTimer = get_parent().get_node("ScoreTimer")
-	MobTimer = get_parent().get_node("MobTimer")
-	MobTimer.wait_time = original_mob_time
-	StartPosition = get_parent().get_node("StartPosition")
-	Player = get_parent().get_node("Player")
-	Player.hit.connect(_on_player_hit)
-
-	
-	_game_initialize()
-	
-func _game_initialize():
-	HUD.reset_score()
-	HUD.startButtonPressed.connect(_on_play_button_pressed)	
-
+	%MobTimer.wait_time = original_mob_time
+	var start_button_callable = Callable(self, "_on_play_button_pressed")
+	var game_over_callable = Callable(self,"_on_game_over")
+	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value, start_button_callable, game_over_callable)
 
 func _on_score_timer_timeout():
 	HUD.update_score(score_value)
-	if HUD.check_advance_level(level_advance_value,level_value):
+	if HUD.check_advance_level():
 		advance_level()
 	pass # Replace with function body.
 	
 func advance_level():
-	MobTimer.wait_time = original_mob_time * pow(.95,HUD.get_game_level())
+	%MobTimer.wait_time = original_mob_time * pow(.95,HUD.get_game_level())
 
 func _on_start_timer_timeout():
-	MobTimer.start()
-	ScoreTimer.start()
-	StartTimer.stop()
+	%MobTimer.start()
+	%ScoreTimer.start()
+	%StartTimer.stop()
 
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 
 	# Choose a random location on Path2D.
-	var mob_spawn_location = get_parent().get_node("MobPath/MobPathFollow")
+	var mob_spawn_location = %MobPathFollow
 	mob_spawn_location.progress_ratio = randf()
 
 	# Set the mob's direction perpendicular to the path direction.
@@ -70,15 +63,15 @@ func _on_mob_timer_timeout():
 	# Spawn the mob by adding it to the Main scene.
 	get_parent().add_child(mob)
 
-func _on_player_hit():
+func _on_game_over():
 	GameManager.set_game_enabled(false)
 	HUD.set_gameover_panel(true)
-	MobTimer.stop()
-	ScoreTimer.stop()
+	%MobTimer.stop()
+	%ScoreTimer.stop()
 	GameManager.check_highscore_and_rank()
-	pass
 
 func _on_play_button_pressed():
+	print('herererer')
 	GameManager.set_game_enabled(true)
-	StartTimer.start()
+	%StartTimer.start()
 	pass

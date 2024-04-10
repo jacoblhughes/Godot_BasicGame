@@ -29,10 +29,7 @@ func _ready():
 	,preload("res://sounds/perry_says/b.wav"),preload("res://sounds/perry_says/c.wav")]
 
 	
-func _game_initialize():
-	HUD.reset_score()
-	HUD.startButtonPressed.connect(_on_play_button_pressed)
-	HUD.set_or_reset_level(level_value)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -151,6 +148,5 @@ func _on_game_button_pressed(which):
 
 func _on_buttons_ready():
 	await _initialize_buttons()
-
-	_game_initialize()
+#	_game_initialize()
 	pass # Replace with function body.

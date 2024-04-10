@@ -20,16 +20,11 @@ func _ready():
 	player = get_parent().get_node("Player")
 	player.took_damage.connect(_on_player_hit)
 	player.enemy_hit.connect(_on_enemy_hit)
-	_game_initialize()
+#	_game_initialize()
 	pass # Replace with function body.
 #	enemy_spawn_timer = get_parent().get_node("Enemy_Spawn_Timer")
 #	player = get_parent().get_node("Player")
 
-func _game_initialize():
-	HUD.reset_score()
-	HUD.startButtonPressed.connect(_on_play_button_pressed)
-	HUD.set_or_reset_lives(3)
-	HUD.set_or_reset_level(1)
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)

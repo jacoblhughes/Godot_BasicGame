@@ -28,20 +28,14 @@ func _ready():
 
 
 	player = %Player
-	_game_initialize()
+#	_game_initialize()
 	reset_point = finish_area.position
 	
 	
 	
 	pass # Replace with function body.
 
-func _game_initialize():
-	HUD.reset_score()
-	HUD.startButtonPressed.connect(_on_play_button_pressed)
-	HUD.set_or_reset_level(1)
-	HUD.countdown_timer_timeout.connect(_on_countdown_timer_timeout)
-	HUD.game_left_timer_timeout.connect(_on_game_left_timer_timeout)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta):
 
 	pass

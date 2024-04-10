@@ -28,7 +28,6 @@ metadata/_edit_horizontal_guides_ = [640.0]
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(360, 640)
-enabled = false
 
 [node name="EnemySpawnPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true

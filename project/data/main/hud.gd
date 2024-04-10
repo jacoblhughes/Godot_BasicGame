@@ -1,20 +1,29 @@
 extends CanvasLayer
-var score = 0
-var lives  = 0
-var game_level = 0
+
 var child_node_to_delete
 var timer_used = false
 var counting_down = false
 var game_left_timing = false
 var time_left = false
 var time_passed = false
-# Export the NodePath to the player_initials scene
+
+var score = 0
+var lives  = 0
+var game_level = 0
+
+var initial_score_value : int
+var initial_lives_value : int
+var initial_level_value : int
+var level_advance_check_value : int
+var level_advance_value : int
 
 @onready var game_scene : Node = get_tree().get_root().get_node("Main")
 
 signal hud_ready
+
 signal startButtonPressed
-signal resetButtonPressed
+signal game_over
+
 signal countdown_timer_timeout
 signal game_left_timer_timeout
 signal clickable_input_event
@@ -32,25 +41,28 @@ func _process(delta):
 			var game_left_timer = %GameLeftTimer.time_left
 			%Time.text = "%d:%02d" % [floor(game_left_timer / 60), int(game_left_timer) % 60]
 	pass
+	
 func update_initials(value):
 	%Initials.text = value
 	
-func get_initials():
+func return_initials():
 	return(%Initials.text)
-	
-func set_new_score(new_score):
+
+func update_score(value):
+	var old_score = score
+	var new_score = old_score + value
 	score = new_score
-	var this_score = str(score)
-	%Score.text = this_score
-			
-func update_score(new_score):
-	score += new_score
-	var this_score = str(score)
-	%Score.text = this_score
-		
-func reset_score():
-	score=0
-	%Score.text = str(score)
+	var score_text = str(score)
+	%Score.text = score_text
+	
+func set_or_reset_score(value = 0):
+	var new_score
+	if value != 0:
+		new_score = value
+	else:
+		new_score = 0
+	%Score.text = str(new_score)
+
 
 func return_score():
 	return score
@@ -75,9 +87,9 @@ func update_game_level(new_level):
 func _on_home_button_pressed():
 	if !Background.visible:
 		Background.visible = true
-	reset_score()
+
 	clear_hud()
-	set_or_reset_lives()
+
 	GameManager.set_game_enabled(false)
 	set_gameover_panel(false)
 	set_gameover_panel_congrats(false)
@@ -109,17 +121,7 @@ func set_gameover_panel_congrats(vis):
 	else:
 #		game_over_panel_congrats.stop()
 		%HighscoreAchieved.visible = false
-
-func _on_reset_button_pressed():
-	set_gameover_panel(false)
-	resetButtonPressed.emit()
-	child_node_to_delete = game_scene.get_children()
-	if child_node_to_delete:
-		for child in child_node_to_delete:
-			child.queue_free()
-	set_game_again()
-	pass # Replace with function body.
-	
+		
 func set_or_reset_lives(default_lives = "INF"):
 	if typeof(default_lives) == TYPE_INT:
 		lives = default_lives
@@ -132,16 +134,23 @@ func set_game_again():
 	game_scene.add_child(GameManager.current_game_scene.instantiate(),true)
 	set_gamestart_panel(true)
 
-func get_lives():
+func return_lives():
 	return lives
 	
 func update_lives(change):
-	lives += change
-	%Lives.text = str(lives)
+	print(lives)
+	var old_lives = lives
+	var new_lives = old_lives + change
+	lives = new_lives
+	if lives <= 0:
+		game_over.emit()
+	else:
+		%Lives.text = str(lives)
+	
 
-func check_advance_level(advance_value,level_value):
-		if(return_score() % advance_value == 0):
-			update_game_level(level_value)
+func check_advance_level():
+		if(return_score() % level_advance_check_value == 0):
+			update_game_level(level_advance_value)
 			return true
 			
 func get_game_level():
@@ -163,6 +172,8 @@ func game_left_timer_start():
 	game_left_timing = true
 	
 func clear_hud():
+	set_or_reset_score()
+	set_or_reset_lives()
 	timer_used = false
 	counting_down = false
 	game_left_timing = false
@@ -195,3 +206,19 @@ func get_play_area_position():
 
 func get_play_area_size():
 	return %InputPanel.size
+
+func hud_initialize(this_initial_score_value, this_initial_lives_value, this_initial_level_value, this_level_advance_check_value, this_level_advance_value, this_start_button_callable, this_game_over_callable):
+	initial_score_value = this_initial_score_value
+	initial_lives_value = this_initial_lives_value
+	initial_level_value = this_initial_level_value
+	level_advance_check_value = this_level_advance_check_value
+	level_advance_value = this_level_advance_value
+	set_or_reset_score(initial_score_value)
+	set_or_reset_lives(initial_lives_value)
+	set_or_reset_level(initial_level_value)
+	startButtonPressed.connect(this_start_button_callable)
+	game_over.connect(this_game_over_callable)
+#	HUD.countdown_timer_timeout.connect(_on_countdown_timer_timeout)
+#	HUD.game_left_timer_timeout.connect(_on_game_left_timer_timeout)
+#	HUD.countdown_timer_timeout.connect(_on_countdown_timer_timeout)
+#	HUD.game_left_timer_timeout.connect(_on_game_left_timer_timeout)
