@@ -7,11 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://d2enwj4xxpx4q" path="res://src/perry_says/perry_button.tscn" id="3_o4idv"]
 
 [node name="PerrySays" type="Node2D"]
+script = ExtResource("1_fdqsf")
 metadata/_edit_vertical_guides_ = [360.0]
 metadata/_edit_horizontal_guides_ = [-640.0]
-
-[node name="PerrySays" type="Node2D" parent="."]
-script = ExtResource("1_fdqsf")
 
 [node name="GameBackground" parent="." instance=ExtResource("2_0t6vh")]
 game_background_texture = ExtResource("2_8tja7")
@@ -24,30 +22,31 @@ unique_name_in_owner = true
 script = ExtResource("3_nsfda")
 
 [node name="Buttons" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="PerryButton" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(232, 560)
+position = Vector2(104, 432)
 
 [node name="PerryButton2" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(488, 560)
+position = Vector2(360, 432)
 
 [node name="PerryButton3" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(232, 816)
+position = Vector2(104, 688)
 
 [node name="PerryButton4" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(488, 816)
+position = Vector2(360, 688)
 
 [node name="PerryButton5" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(168, 304)
+position = Vector2(40, 176)
 
 [node name="PerryButton6" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(552, 304)
+position = Vector2(424, 176)
 
 [node name="PerryButton7" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(168, 1072)
+position = Vector2(40, 944)
 
 [node name="PerryButton8" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(552, 1072)
+position = Vector2(424, 944)
 
-[connection signal="timeout" from="PlaybackTimer" to="PerrySays" method="_on_playback_timer_timeout"]
-[connection signal="ready" from="Buttons" to="PerrySays" method="_on_buttons_ready"]
+[connection signal="timeout" from="PlaybackTimer" to="." method="_on_playback_timer_timeout"]
+[connection signal="ready" from="Buttons" to="." method="_on_buttons_ready"]

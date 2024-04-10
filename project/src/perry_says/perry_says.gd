@@ -11,24 +11,37 @@ var groupOfButtons
 
 var disabledColor
 var score_value = 1
-var level_value = 1
-var level_advance_value = 5
+
+var initial_score_value = 0
+#var score_advance_value = 1
+var initial_lives_value = 1
+#var lives_advance_value = 1
+var initial_level_value = 1
+var level_advance_check_value = 10
+var level_advance_value = 1
+var start_button_callable
+
 var playerTurn = false
 var computerPopulate = 0
 var playerPopulate = -1
 var button_pressed
 var buttonObject = {}
 
-@onready var playback_timer = %PlaybackTimer
+
 var sounds = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	sounds = [preload("res://sounds/perry_says/c_low.wav"),preload("res://sounds/perry_says/d.wav")
 	,preload("res://sounds/perry_says/e.wav"),preload("res://sounds/perry_says/f.wav")
 	,preload("res://sounds/perry_says/g.wav"),preload("res://sounds/perry_says/a.wav")
 	,preload("res://sounds/perry_says/b.wav"),preload("res://sounds/perry_says/c.wav")]
-
 	
+	var start_button_callable = Callable(self, "_on_play_button_pressed")
+	var game_over_callable = Callable(self,"_on_game_over")
+	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value, start_button_callable, game_over_callable)
+
+	await _initialize_buttons()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,7 +55,7 @@ func _process(_delta):
 					_player_turn_end()
 					_computer_turn_start()
 			else:
-				_game_lose()
+				HUD.update_lives(-1)
 
 func _game_lose():
 	HUD.set_gameover_panel(true)
@@ -61,16 +74,15 @@ func _game_lose():
 func _initialize_buttons():
 	for node in get_tree().get_nodes_in_group("perry_says_buttons"):
 		node.remove_from_group("perry_says_buttons")
-	var button_node = get_parent().get_node("Buttons").get_children()
+	var button_node_children = %Buttons.get_children()
 	var i = 0
-	for node in button_node:
+	for node in button_node_children:
 		node.sprite_number = i * 2
 		node.add_to_group("perry_says_buttons")
 		node.perry_pressed.connect(_on_game_button_pressed)
 		node.button_number = i
-		node.texture_button.disabled = true
+#		node.texture_button.disabled = true
 		node.initiate_button()
-
 		var audio_stream_wav = AudioStream.new()
 		audio_stream_wav = sounds[i]
 		node.audio_stream_player.set_stream(audio_stream_wav)
@@ -80,13 +92,14 @@ func _initialize_buttons():
 func _computer_turn_start():
 	_set_buttons_disabled(true)
 	_add_next_value()
-	playback_timer.start()
+	print('heeeeeee')
+	%PlaybackTimer.start()
 	
 func _set_buttons_disabled(setting):
 
-	for i in len(groupOfButtons):
-		groupOfButtons[i].texture_button.disabled = setting
-
+#	for i in len(groupOfButtons):
+#		groupOfButtons[i].texture_button.disabled = setting
+	pass
 func _player_turn_end():
 	HUD.update_score(score_value)
 	if HUD.check_advance_level():
@@ -98,7 +111,7 @@ func _player_turn_end():
 func advance_level():
 	for button in groupOfButtons:
 		button.play_time = button.original_time * pow(.95,HUD.get_game_level())
-	playback_timer.wait_time = playback_timer.original_time * pow(.95,HUD.get_game_level())
+	%PlaybackTimer.wait_time = %PlaybackTimer.original_time * pow(.95,HUD.get_game_level())
 
 func _get_next_value():
 	buttonToAdd = floor(rng.randf_range(0, 8))
@@ -114,6 +127,7 @@ func _on_play_button_pressed():
 	pass # Replace with function body.
 	
 func _on_playback_timer_timeout():
+	print(computerPopulate)
 	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]].called_from_game()
 	computerPopulate+=1
 	if(computerPopulate == len(arrayOfButtonsToFollow)):
@@ -122,7 +136,7 @@ func _on_playback_timer_timeout():
 
 		computerPopulate = 0
 		_set_buttons_disabled(false)
-		playback_timer.stop()
+		%PlaybackTimer.stop()
 		
 	pass # Replace with function body.
 
@@ -135,10 +149,7 @@ func _stop_game_button_animations_and_timer():
 	for button in groupOfButtons:
 		button.animated_sprite.stop()
 		button.animated_sprite.play('default')
-	playback_timer.stop()
-	
-
-
+	%PlaybackTimer.stop()
 
 func _on_game_button_pressed(which):
 	if(playerTurn):
@@ -147,6 +158,5 @@ func _on_game_button_pressed(which):
 
 
 func _on_buttons_ready():
-	await _initialize_buttons()
-#	_game_initialize()
+
 	pass # Replace with function body.

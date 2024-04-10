@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh6luun52scov"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p42yw"]
+resource_name = "TEST"
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4g2yj"]
+size = Vector2(720, 16)
+
+[node name="WallBottom" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 128
+physics_material_override = SubResource("PhysicsMaterial_p42yw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_4g2yj")

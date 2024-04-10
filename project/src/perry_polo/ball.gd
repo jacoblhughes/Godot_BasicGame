@@ -3,7 +3,7 @@ class_name PerryBall
 
 var reset_round = false
 
-@onready var game = get_parent().get_node("PerryPolo")
+
 # Called when the node enters the scene tree for the first time.
 var position_reset = false
 var stored_position = Vector2(0,0)
@@ -20,8 +20,8 @@ func _ready():
 	increased_velocity = original_velocity
 	stored_position = position
 	reset_round = true
-	game.position_reset.connect(_on_position_reset)
-	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
+	get_parent().position_reset.connect(_on_position_reset)
+	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	pass # Replace with function body.
 	
 

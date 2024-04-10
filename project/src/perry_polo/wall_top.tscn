@@ -5,10 +5,10 @@ resource_name = "TEST"
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7eiv"]
-size = Vector2(640, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1btid"]
+size = Vector2(720, 16)
 
-[node name="Wall" type="StaticBody2D"]
+[node name="WallTop" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 128
 physics_material_override = SubResource("PhysicsMaterial_p42yw")
@@ -22,4 +22,4 @@ color = Color(0.188235, 0.376471, 0.509804, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_c7eiv")
+shape = SubResource("RectangleShape2D_1btid")

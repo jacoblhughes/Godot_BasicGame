@@ -2,50 +2,59 @@ extends Node2D
 
 signal position_reset
 
-@onready var ball : CharacterBody2D
-@onready var player : CharacterBody2D
-@onready var enemy : CharacterBody2D
 @onready var background : TextureRect
 
+var initial_score_value = 0
+#var score_advance_value = 1
+var initial_lives_value = 1
+#var lives_advance_value = 1
+var initial_level_value = 1
+var level_advance_check_value = 10
+var level_advance_value = 1
+var start_button_callable
+
+
 var score_value = 1
-var game_level = 1
-var initial_lives = 3
 var lives_lost = 1
-var level_value = 1
-var level_advance_value = 10
+
+
+
 var win_area
 var lose_area
 var game_reset = false
 var whirlpools
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player = get_parent().get_node("Player")
-	enemy = get_parent().get_node("Enemy")
-	ball = get_parent().get_node("Ball")
+	
+	var xform = get_viewport_rect().size.x
+	var yform = get_viewport_rect().size.y
+	print(get_viewport_rect())
+	print(get_viewport_transform())
+
+	if yform > 1280:
+		%Camera2D.enabled = true
+		%Camera2D.zoom.y = yform/1280
+
+	if xform > 720:
+		var xatio = xform/720
+		%Lose.position.x *= xatio
+#		%Lose.
+		%WallTop.position.x *= xatio
+		%WallBottom.position.x *= xatio
 	whirlpools = get_tree().get_nodes_in_group("perry_polo_whirlpool")
 
 	%Win.body_entered.connect(_on_win_body_entered)
 
 	%Lose.body_entered.connect(_on_lose_body_entered)
 #	_game_initialize()
-	
+	var start_button_callable = Callable(self, "_on_play_button_pressed")
+	var game_over_callable = Callable(self,"_on_game_over")
+	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value, start_button_callable, game_over_callable)
 
-		
 
 
 func _on_play_button_pressed():
-
 	GameManager.set_game_enabled(true)
-
-
-func on_reset_button_reset_button_pressed():
-	game_reset = true
-
-	GameManager.set_game_enabled(false)
-	HUD.reset_score()
-	
-	pass # Replace with function body.
-
 
 func _on_win_body_entered(body):
 	if(GameManager.get_game_enabled()):
@@ -64,9 +73,9 @@ func _on_lose_body_entered(body):
 	pass # Replace with function body.
 
 func advance_level():
-	enemy.speed = enemy.original_speed * pow(1.05,GameManager.get_game_level())
-	ball.speed_increase=ball.original_speed_increase * pow(1.05,GameManager.get_game_level())
-	ball.increased_velocity = ball.original_velocity * pow(1.05,GameManager.get_game_level())
+	%Enemy.speed = %Enemy.original_speed * pow(1.05,GameManager.get_game_level())
+	%Ball.speed_increase= %Ball.original_speed_increase * pow(1.05,GameManager.get_game_level())
+	%Ball.increased_velocity = %Ball.original_velocity * pow(1.05,GameManager.get_game_level())
 	pass
 
 func _game_over():

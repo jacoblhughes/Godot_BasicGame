@@ -2,28 +2,25 @@
 
 [ext_resource type="Script" path="res://src/perry_polo/perry_polo.gd" id="1_ry11p"]
 [ext_resource type="Texture2D" uid="uid://c4rylxpixdbli" path="res://textures/perry_polo/pong_pool_144_256.png" id="2_q4x8g"]
-[ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="2_vfxjo"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="3_7c1vq"]
 [ext_resource type="PackedScene" uid="uid://bf4jsvnkmhkg4" path="res://src/perry_polo/ball.tscn" id="3_n2q35"]
+[ext_resource type="PackedScene" uid="uid://bxl4jcd30qnrr" path="res://src/perry_polo/wall_top.tscn" id="5_jlh1t"]
 [ext_resource type="PackedScene" uid="uid://bv8nj3y80s60n" path="res://src/perry_polo/player.tscn" id="5_wx7nr"]
+[ext_resource type="PackedScene" uid="uid://bh6luun52scov" path="res://src/perry_polo/wall_bottom.tscn" id="6_8djno"]
 [ext_resource type="PackedScene" uid="uid://dmw42ydm8bea3" path="res://src/perry_polo/enemy.tscn" id="6_47f6h"]
 [ext_resource type="PackedScene" uid="uid://0e3y4x5benx4" path="res://src/perry_polo/win.tscn" id="8_joiva"]
-[ext_resource type="PackedScene" uid="uid://bxl4jcd30qnrr" path="res://src/perry_polo/wall.tscn" id="8_kt575"]
 [ext_resource type="PackedScene" uid="uid://drgg04a68e4rr" path="res://src/perry_polo/lose.tscn" id="9_k3tc4"]
 [ext_resource type="PackedScene" uid="uid://b2gewckxrwhda" path="res://src/perry_polo/whirlpool.tscn" id="9_yq0ta"]
 
 [node name="PerryPolo" type="Node2D"]
-metadata/_edit_horizontal_guides_ = [1168.0, 1168.0, 144.0, 656.0, 528.0, 784.0, 400.0, 272.0, 912.0, 1040.0]
+script = ExtResource("1_ry11p")
+metadata/_edit_horizontal_guides_ = [1200.0, 960.0, 240.0, 640.0, 480.0, 720.0, 400.0, 320.0, 800.0, 880.0, 560.0, 1040.0, 1120.0, 160.0]
 metadata/_edit_vertical_guides_ = [680.0, 360.0, 40.0, 360.0, 200.0, 360.0, 520.0, 280.0, 440.0, 120.0, 600.0]
 
-[node name="PerryPolo" type="Node2D" parent="."]
-script = ExtResource("1_ry11p")
-
-[node name="ClickableArea" parent="." instance=ExtResource("2_vfxjo")]
-unique_name_in_owner = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(360, 640)
+enabled = false
 
 [node name="GameBackground" parent="." instance=ExtResource("3_7c1vq")]
 game_background_texture = ExtResource("2_q4x8g")
@@ -42,29 +39,33 @@ position = Vector2(200, 336)
 [node name="Whirlpool4" parent="Whirpools" instance=ExtResource("9_yq0ta")]
 position = Vector2(200, 848)
 
+[node name="WallTop" parent="." instance=ExtResource("5_jlh1t")]
+unique_name_in_owner = true
+position = Vector2(360, 16)
+
+[node name="WallBottom" parent="." instance=ExtResource("6_8djno")]
+unique_name_in_owner = true
+position = Vector2(360, 1264)
+
 [node name="Ball" parent="." instance=ExtResource("3_n2q35")]
 position = Vector2(360, 656)
 
-[node name="Player" parent="." node_paths=PackedStringArray("starting_position_marker") instance=ExtResource("5_wx7nr")]
+[node name="Player" parent="." node_paths=PackedStringArray("ball", "starting_position_marker") instance=ExtResource("5_wx7nr")]
 position = Vector2(656, 656)
+ball = NodePath("../Ball")
 starting_position_marker = NodePath("../PlayerStart")
 
-[node name="Enemy" parent="." instance=ExtResource("6_47f6h")]
+[node name="Enemy" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("6_47f6h")]
 position = Vector2(64, 656)
-
-[node name="Wall" parent="." instance=ExtResource("8_kt575")]
-position = Vector2(360, 176)
-
-[node name="Wall2" parent="." instance=ExtResource("8_kt575")]
-position = Vector2(360, 1216)
+ball = NodePath("../Ball")
 
 [node name="Win" parent="." instance=ExtResource("8_joiva")]
 unique_name_in_owner = true
-position = Vector2(0, 32)
+position = Vector2(16, 640)
 
 [node name="Lose" parent="." instance=ExtResource("9_k3tc4")]
 unique_name_in_owner = true
-position = Vector2(0, 32)
+position = Vector2(704, 640)
 
 [node name="PlayerStart" type="Marker2D" parent="."]
 position = Vector2(656, 656)

@@ -1,9 +1,9 @@
 extends Paddle
 
-@onready var ball : CharacterBody2D
+@export var ball : CharacterBody2D
 @onready var my_sprite : Sprite2D
 @export var sizeOfPaddle : Vector2
-@onready var game = get_parent().get_node("PerryPolo")
+
 var original_speed = .6
 var speed
 var original_position_y
@@ -18,7 +18,7 @@ func _ready():
 	sprite_half_y= sizeOfPaddle.y/4
 	original_position_y = global_position.y
 	original_position_x = global_position.x
-	game.position_reset.connect(_on_position_reset)
+	get_parent().position_reset.connect(_on_position_reset)
 	pass # Replace with function body.
 
 
@@ -41,7 +41,7 @@ func _physics_process(_delta):
 	var collision = move_and_collide(paddle_velocity)
 	if collision:
 		velocity = Vector2(0, 0)
-	global_position.y = clamp(global_position.y, %ClickableArea.get_play_area_position().y + sprite_half_y,%ClickableArea.get_play_area_position().y+ %ClickableArea.get_play_area_size().y - sprite_half_y)
+	global_position.y = clamp(global_position.y, HUD.get_play_area_position().y + sprite_half_y,HUD.get_play_area_position().y+ HUD.get_play_area_size().y - sprite_half_y)
 
 func _on_position_reset():
 	global_position.y = original_position_y
