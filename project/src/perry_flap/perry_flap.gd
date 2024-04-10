@@ -21,6 +21,7 @@ var scenes : Array
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	scenes = [enemy_wall, enemy_wall_2, enemy_wall_3]
+	
 	var xwindow = get_viewport_rect().size.x
 	var ywindow = get_viewport_rect().size.y
 	print(xwindow," & ", ywindow)

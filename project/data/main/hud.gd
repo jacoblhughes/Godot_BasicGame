@@ -138,14 +138,13 @@ func return_lives():
 	return lives
 	
 func update_lives(change):
-	print(lives)
+
 	var old_lives = lives
 	var new_lives = old_lives + change
 	lives = new_lives
 	if lives <= 0:
 		game_over.emit()
-	else:
-		%Lives.text = str(lives)
+	%Lives.text = str(lives)
 	
 
 func check_advance_level():

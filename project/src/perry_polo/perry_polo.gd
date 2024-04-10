@@ -52,7 +52,7 @@ func _on_win_body_entered(body):
 		if body is PerryBall:
 			position_reset.emit()
 			HUD.update_score(score_value)
-			if HUD.check_advance_level(level_advance_value,level_value):
+			if HUD.check_advance_level():
 				advance_level()
 	
 func _on_lose_body_entered(body):

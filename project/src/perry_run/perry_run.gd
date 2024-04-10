@@ -83,7 +83,7 @@ func _on_finish_body_entered(body):
 		reset_point = finish_area.position
 		if finish == false:
 			HUD.update_score(score_value)
-			if HUD.check_advance_level(level_advance_value,level_value):
+			if HUD.check_advance_level():
 				advance_level()
 		finish=true
 	

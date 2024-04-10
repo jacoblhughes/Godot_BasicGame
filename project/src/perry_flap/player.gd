@@ -24,10 +24,8 @@ func _on_clickable_input_event(event, input_position):
 		velocity.y = jump_force
 		
 func hit():
-	print('hit')
 	if(GameManager.get_game_enabled()):
 		HUD.update_lives(-1)
-		print('shold')
 
 func _physics_process(delta):
 	if(GameManager.get_game_enabled()):

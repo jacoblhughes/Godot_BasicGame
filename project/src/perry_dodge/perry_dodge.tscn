@@ -27,6 +27,7 @@ mob_scene = ExtResource("2_ndgye")
 
 [node name="GameBackground" parent="." instance=ExtResource("1_25uw0")]
 game_background_texture = ExtResource("3_lj6dr")
+stretch_mode_tile = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)

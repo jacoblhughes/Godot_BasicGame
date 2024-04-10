@@ -235,7 +235,7 @@ func _on_grid_ready():
 
 func _on_food_eaten():
 	HUD.update_score(score_value)
-	if HUD.check_advance_level(level_advance_value,level_value):
+	if HUD.check_advance_level():
 		advance_level()
 	
 func advance_level():

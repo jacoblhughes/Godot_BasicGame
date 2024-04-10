@@ -57,7 +57,8 @@ func _physics_process(_delta):
 
 
 func hit():
-	if(GameManager.game_enabled):
+
+	if(GameManager.get_game_enabled()):
 		HUD.update_lives(-1)
 
 	
@@ -66,3 +67,9 @@ func start(pos):
 	$CollisionShape2D.set_deferred("disabled", false)
 
 
+
+
+func _on_body_entered(body):
+	if body is PerryDodgeEnemy:
+		hit()
+	pass # Replace with function body.

@@ -67,7 +67,7 @@ func _game_over():
 
 func _on_enemy_hit():
 	HUD.update_score(score_value)
-	if HUD.check_advance_level(level_advance_value,level_value):
+	if HUD.check_advance_level():
 		advance_level()
 	
 func advance_level():

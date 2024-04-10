@@ -89,7 +89,7 @@ func _set_buttons_disabled(setting):
 
 func _player_turn_end():
 	HUD.update_score(score_value)
-	if HUD.check_advance_level(level_advance_value,level_value):
+	if HUD.check_advance_level():
 		advance_level()
 	playerTurn = false
 	arrayOfPlayerResponse = []

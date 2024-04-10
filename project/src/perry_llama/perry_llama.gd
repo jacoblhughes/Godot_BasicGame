@@ -38,7 +38,7 @@ func _on_despawn_body_entered(body):
 	if("Enemy" in body.name):
 		body.queue_free()
 		HUD.update_score(score_value)
-	if HUD.check_advance_level(level_advance_value,level_value):
+	if HUD.check_advance_level():
 		advance_level()
 	pass # Replace with function body.
 	

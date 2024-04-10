@@ -13,5 +13,4 @@ func _physics_process(_delta):
 	var last_collision = get_last_slide_collision()
 
 	if last_collision and last_collision.get_collider() is PerryFlapPlayer:
-		print(last_collision.get_collider())
 		last_collision.get_collider().hit()

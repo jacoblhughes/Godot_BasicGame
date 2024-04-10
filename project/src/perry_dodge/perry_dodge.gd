@@ -71,7 +71,7 @@ func _on_game_over():
 	GameManager.check_highscore_and_rank()
 
 func _on_play_button_pressed():
-	print('herererer')
+
 	GameManager.set_game_enabled(true)
 	%StartTimer.start()
 	pass
