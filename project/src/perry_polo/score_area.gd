@@ -10,8 +10,4 @@ func _ready():
 func _process(delta):
 	pass
 	
-func increase_collision_shape(factor):
-	print('jhere')
-	print(%CollisionShape2D.get_shape().size.x)
-	%CollisionShape2D.get_shape().size.x *= factor
-	print(%CollisionShape2D.get_shape().size.x)
+

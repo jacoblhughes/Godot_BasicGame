@@ -1,8 +1,7 @@
 extends Paddle
 
 @export var ball : CharacterBody2D
-@onready var my_sprite : Sprite2D
-@export var sizeOfPaddle : Vector2
+
 
 var original_speed = .6
 var speed
@@ -12,10 +11,7 @@ var original_position_x
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	speed = original_speed
-	my_sprite = $Sprite2D
-	ball = get_parent().get_node("Ball")
-	sizeOfPaddle = my_sprite.get_rect().size
-	sprite_half_y= sizeOfPaddle.y/4
+	sprite_half_y= return_size().y/4
 	original_position_y = global_position.y
 	original_position_x = global_position.x
 	get_parent().position_reset.connect(_on_position_reset)
@@ -46,3 +42,6 @@ func _physics_process(_delta):
 func _on_position_reset():
 	global_position.y = original_position_y
 	pass
+
+func return_size():
+	return %Sprite2D.get_rect().size

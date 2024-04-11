@@ -10,10 +10,12 @@ safe_margin = 8.0
 script = ExtResource("1_a8nfe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(24.0002, 0)
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_5tfko")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-8, -64)
+position = Vector2(16.0002, -64)
 polygon = PackedVector2Array(-8, 0, -8, 128, 8, 128, 24, 72, 24, 64, 24, 56, 8, 0)

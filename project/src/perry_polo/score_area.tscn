@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://0e3y4x5benx4"]
 
-[ext_resource type="Script" path="res://src/perry_polo/score_area.gd" id="1_2orci"]
+[ext_resource type="Script" path="res://src/perry_polo/score_area.gd" id="1_v4vxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ek0n5"]
-size = Vector2(40, 1248)
+size = Vector2(40, 1200)
 
-[node name="Win" type="Area2D"]
+[node name="ScoreArea" type="Area2D"]
 collision_layer = 256
 collision_mask = 128
-script = ExtResource("1_2orci")
+script = ExtResource("1_v4vxf")
 metadata/_edit_horizontal_guides_ = [640.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

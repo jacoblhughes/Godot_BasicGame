@@ -1,4 +1,4 @@
-@tool
+
 extends Node2D
 
 signal position_reset
@@ -23,7 +23,7 @@ var lives_lost = 1
 var win_area
 var lose_area
 var game_reset = false
-var whirlpools
+@export var whirlpool : Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -31,18 +31,33 @@ func _ready():
 	var yform = get_viewport_rect().size.y
 	print(get_viewport_rect())
 	print(get_viewport_transform())
-
+	var whirlpools = whirlpool.get_children()
 	if yform > 1280:
 		%Camera2D.enabled = true
 		%Camera2D.zoom.y = yform/1280
 
 	if xform > 720:
 		var xatio = xform/720
-#		%Lose.position.x *= xatio
-		%Lose.increase_collision_shape(xatio)
+		%Lose.position.x *= xatio
+		%Win.position.x *= xatio
+		%Lose.scale *= xatio
+		%Win.scale *= xatio
 		%WallTop.position.x *= xatio
 		%WallBottom.position.x *= xatio
-	whirlpools = get_tree().get_nodes_in_group("perry_polo_whirlpool")
+		%WallTop.scale.x *= xatio
+		%WallBottom.scale.x *= xatio
+		%Enemy.position.x *= xatio
+		print(%Enemy.position)
+		print(%Enemy.return_size())
+		%Enemy.position.x += %Enemy.return_size().x
+		print(%Enemy.position)
+		%Ball.position.x *= xatio
+		%PlayerStart.position.x *= xatio
+		%Player.position.x *= xatio
+		
+		for node in whirlpools:
+			node.position.x *= xatio
+
 
 	%Win.body_entered.connect(_on_win_body_entered)
 
