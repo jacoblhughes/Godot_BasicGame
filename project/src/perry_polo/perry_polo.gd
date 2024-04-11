@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 
 signal position_reset
@@ -37,8 +38,8 @@ func _ready():
 
 	if xform > 720:
 		var xatio = xform/720
-		%Lose.position.x *= xatio
-#		%Lose.
+#		%Lose.position.x *= xatio
+		%Lose.increase_collision_shape(xatio)
 		%WallTop.position.x *= xatio
 		%WallBottom.position.x *= xatio
 	whirlpools = get_tree().get_nodes_in_group("perry_polo_whirlpool")
@@ -68,8 +69,6 @@ func _on_lose_body_entered(body):
 	if body is PerryBall:
 		position_reset.emit()
 		HUD.update_lives(-lives_lost)
-		if(HUD.get_lives()<=0):
-			_game_over()
 	pass # Replace with function body.
 
 func advance_level():
@@ -78,7 +77,7 @@ func advance_level():
 	%Ball.increased_velocity = %Ball.original_velocity * pow(1.05,GameManager.get_game_level())
 	pass
 
-func _game_over():
+func _on_game_over():
 	GameManager.set_game_enabled(false)
 	HUD.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
