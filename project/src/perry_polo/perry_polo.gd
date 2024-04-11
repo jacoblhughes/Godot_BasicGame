@@ -18,7 +18,8 @@ var start_button_callable
 var score_value = 1
 var lives_lost = 1
 
-
+var old_position = Vector2.ZERO
+var second_position = Vector2.ZERO
 
 var win_area
 var lose_area
@@ -46,8 +47,12 @@ func _ready():
 		%WallBottom.position.x *= xatio
 		%WallTop.scale.x *= xatio
 		%WallBottom.scale.x *= xatio
+		old_position = %Enemy.position
+		print(old_position)
 		%Enemy.position.x *= xatio
-		print(%Enemy.position)
+		second_position = %Enemy.position
+		print(second_position)
+
 		print(%Enemy.return_size())
 		%Enemy.position.x += %Enemy.return_size().x
 		print(%Enemy.position)
@@ -67,7 +72,9 @@ func _ready():
 	var game_over_callable = Callable(self,"_on_game_over")
 	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value, start_button_callable, game_over_callable)
 
-
+func _draw():
+	if second_position != Vector2.ZERO:
+			draw_line(old_position,second_position,Color.BLACK,25)
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
