@@ -30,7 +30,8 @@ func _ready():
 		%Camera2D.zoom.y = ywindow/1280
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
-	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value, start_button_callable, game_over_callable)
+	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")
+	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value, start_button_callable, game_over_callable,countdown_timer_callable)
 
 	%EnemySpawnPosition.position.x = xwindow
 	%SpawnTimer.wait_time = original_spawn_timer

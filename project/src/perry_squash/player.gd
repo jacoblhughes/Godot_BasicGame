@@ -31,14 +31,17 @@ func _ready():
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
 
 func _on_clickable_input_event(event, input_position):
-
+	print(can_move)
 	if GameManager.get_game_enabled() and can_move:
-		if event is InputEventMouseButton:
+		print('here', event.pressed)
+		if event is InputEventScreenTouch:
 			if event.pressed:
+				print('PRESSED')
 				start_swipe_pos = input_position
 				touch_start_time = Time.get_ticks_msec() / 1000.0 # Get current time in seconds
 				is_swiping = true
 			else:
+				print('something else')
 				is_swiping = false
 				end_swipe_pos = input_position
 				var touch_duration = (Time.get_ticks_msec() / 1000.0) - touch_start_time
@@ -54,57 +57,8 @@ func handle_click():
 	if is_on_floor():
 		target_velocity.y = jump_impulse
 
-#func handle_swipe():
-#	var swipe_direction = (end_swipe_pos - start_swipe_pos).normalized()
-#	# Convert 2D swipe direction to 3D movement
-#	var direction_3D = Vector3(swipe_direction.x, 0, swipe_direction.y)
-#	move_character(direction_3D)
-#
-#func move_character(direction: Vector3):
-#	if direction != Vector3.ZERO:
-#		$Pivot.look_at(position + direction, Vector3.UP)
-#		$AnimationPlayer.speed_scale = 4
-#		# Set the target velocity based on swipe direction
-#		target_velocity.x = direction.x * ground_speed
-#		target_velocity.z = direction.z * ground_speed
-#	else:
-#		$AnimationPlayer.speed_scale = 1
-#
-#
-#func _physics_process(delta):
-#	# Vertical Velocity
-#	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
-#
-#		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
-#	# Jumping.
-#
-#
-#	for index in range(get_slide_collision_count()):
-#		# We get one of the collisions with the player
-#		var collision = get_slide_collision(index)
-#
-#		# If the collision is with ground
-#		if collision.get_collider() == null:
-#			continue
-#
-#		# If the collider is with a mob
-#		if collision.get_collider().is_in_group("enemy"):
-#
-#			var mob = collision.get_collider()
-#			# we check that we are hitting it from above.
-#			if Vector3.UP.dot(collision.get_normal()) > 0.1:
-#				# If so, we squash it and bounce.
-#				mob.squash()
-#				target_velocity.y = bounce_impulse
-#				# Prevent further duplicate calls.
-#				break	
-#	# Moving the Character
-#	velocity = target_velocity
-#
-#	move_and_slide()
-#	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
-	
 func handle_swipe():
+	print('should swipe')
 	var swipe_direction = (end_swipe_pos - start_swipe_pos).normalized()
 	# Store the 3D movement direction based on swipe
 	movement_direction = Vector3(swipe_direction.x, 0, swipe_direction.y)
@@ -145,8 +99,8 @@ func _physics_process(delta):
 	if movement_direction != Vector3.ZERO:
 		$Pivot.look_at(global_transform.origin + movement_direction, Vector3.UP)
 	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
+	
 func _on_mob_detector_body_entered(body):
-
 	die()
 # And this function at the bottom.
 func die():

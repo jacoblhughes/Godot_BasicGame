@@ -206,7 +206,7 @@ func get_play_area_position():
 func get_play_area_size():
 	return %InputPanel.size
 
-func hud_initialize(this_initial_score_value, this_initial_lives_value, this_initial_level_value, this_level_advance_check_value, this_level_advance_value, this_start_button_callable, this_game_over_callable):
+func hud_initialize(this_initial_score_value, this_initial_lives_value, this_initial_level_value, this_level_advance_check_value, this_level_advance_value, this_start_button_callable, this_game_over_callable, this_countdown_timer_timeout):
 	initial_score_value = this_initial_score_value
 	initial_lives_value = this_initial_lives_value
 	initial_level_value = this_initial_level_value
@@ -217,6 +217,7 @@ func hud_initialize(this_initial_score_value, this_initial_lives_value, this_ini
 	set_or_reset_level(initial_level_value)
 	startButtonPressed.connect(this_start_button_callable)
 	game_over.connect(this_game_over_callable)
+	countdown_timer_timeout.connect(this_countdown_timer_timeout)
 #	HUD.countdown_timer_timeout.connect(_on_countdown_timer_timeout)
 #	HUD.game_left_timer_timeout.connect(_on_game_left_timer_timeout)
 #	HUD.countdown_timer_timeout.connect(_on_countdown_timer_timeout)
