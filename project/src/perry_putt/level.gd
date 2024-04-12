@@ -2,11 +2,14 @@ extends Node2D
 var score_value = -1
 signal ball_sank
 signal game_over
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	%Hole.ball_sank.connect(_on_ball_sank)
 	%HitMeter.send_value.connect(_on_hit_meter_value)
+
 	pass # Replace with function body.
 
 

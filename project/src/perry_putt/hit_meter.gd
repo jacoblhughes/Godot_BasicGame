@@ -33,6 +33,7 @@ func clear():
 
 
 func _on_texture_button_pressed():
+
 	if !meter_status:
 		start_meter()
 	else:

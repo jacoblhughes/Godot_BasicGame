@@ -61,7 +61,8 @@ func set_or_reset_score(value = 0):
 		new_score = value
 	else:
 		new_score = 0
-	%Score.text = str(new_score)
+	score = new_score
+	%Score.text = str(score)
 
 
 func return_score():
@@ -196,7 +197,7 @@ func _on_game_passed_timer_timeout():
 
 
 func _on_panel_gui_input(event):
-	if event is InputEventScreenTouch and event.pressed:
+	if event is InputEventScreenTouch:
 		clickable_input_event.emit(event,event.position)
 	pass # Replace with function body.
 
@@ -208,6 +209,7 @@ func get_play_area_size():
 
 func hud_initialize(this_initial_score_value, this_initial_lives_value, this_initial_level_value, this_level_advance_check_value, this_level_advance_value, this_start_button_callable, this_game_over_callable, this_countdown_timer_timeout):
 	initial_score_value = this_initial_score_value
+	print(initial_score_value)
 	initial_lives_value = this_initial_lives_value
 	initial_level_value = this_initial_level_value
 	level_advance_check_value = this_level_advance_check_value

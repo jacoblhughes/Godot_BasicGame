@@ -4,12 +4,27 @@ extends Node2D
 @export var level_3 : PackedScene
 @export var start_level_2 = false
 @export var start_level_3 = false
-var initial_score = 100
+
 var current_scene
+
+
+var initial_score_value = 100
+#var score_advance_value = 1
+var initial_lives_value = 1
+#var lives_advance_value = 1
+var initial_level_value = 1
+var level_advance_check_value = 10
+var level_advance_value = 1
+var start_button_callable
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	%Hole.ball_sank.connect(_on_perry_ball_sank)
 
+	var start_button_callable = Callable(self, "_on_play_button_pressed")
+	var game_over_callable = Callable(self,"_on_game_over")
+	var countdown_timer_callable = Callable(self,"on_countdown_timer_timeout")
+	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value, start_button_callable, game_over_callable,countdown_timer_callable)
 
 #	_game_initialize()
 	if start_level_2:
@@ -29,7 +44,7 @@ func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
 
 
-func _game_over():
+func _on_game_over():
 	GameManager.set_game_enabled(false)
 	HUD.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
@@ -49,12 +64,8 @@ func _on_ball_sank():
 		apply_level(level_3)
 		return
 	if current_scene == level_3:
-		_game_over()
+		HUD.update_lives(-1)
 		return
-	pass
-	
-func _on_game_over():
-	_game_over()
 	pass
 
 

@@ -17,16 +17,16 @@ func _ready():
 	saucer = get_parent().get_node("PerryRun")
 	saucer.game_start.connect(_on_game_start)
 	saucer.out_of_bounds.connect(_on_out_of_bounds)
-	clickable_area.clickable_input_event.connect(_on_clickable_input_event)
+	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	pass
 
 func _on_clickable_input_event(event, input_position):
-
-	target_position = input_position
-	if(GameManager.get_game_enabled() and game_on == true):
-		is_touching=true
+	if event.pressed:
 		target_position = input_position
-	pass
+		if(GameManager.get_game_enabled() and game_on == true):
+			is_touching=true
+			target_position = input_position
+		pass
 
 func _physics_process(delta):
 

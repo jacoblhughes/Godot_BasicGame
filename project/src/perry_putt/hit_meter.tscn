@@ -4,35 +4,33 @@
 [ext_resource type="Texture2D" uid="uid://vgrksd6w3kjc" path="res://textures/app_art/perry_original_icon_192.png" id="2_5ytor"]
 
 [node name="HitMeter" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_skhgp")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = -448.0
-offset_right = 280.0
-offset_bottom = -400.0
+offset_left = -128.0
+offset_top = 24.0
+offset_right = 128.0
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [node name="TextureButton" type="TextureButton" parent="."]
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 104.0
-offset_top = -384.0
-offset_right = 200.0
-offset_bottom = -288.0
+offset_left = -48.0
+offset_top = 80.0
+offset_right = 48.0
+offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 texture_normal = ExtResource("2_5ytor")
 texture_pressed = ExtResource("2_5ytor")
 ignore_texture_size = true

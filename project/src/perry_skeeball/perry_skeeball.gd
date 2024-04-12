@@ -74,6 +74,7 @@ func _on_game_over():
 	GameManager.check_highscore_and_rank()
 
 func _on_scored():
+	print('here')
 	HUD.update_score(1)
 
 func _on_dead_ball():

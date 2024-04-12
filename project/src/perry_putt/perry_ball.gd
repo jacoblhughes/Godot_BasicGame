@@ -49,7 +49,7 @@ var target_position : Vector2 = Vector2.ZERO # Holds the latest input position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	clickable_area.clickable_input_event.connect(_on_clickable_input)
+	HUD.clickable_input_event.connect(_on_clickable_input)
 	hit_meter.send_value.connect(_on_hit_meter_value)
 
 func hide_arrow():
@@ -64,7 +64,7 @@ func _process(delta):
 		$Aim.rotation = adjusted_direction.angle() - rotation
 
 func _on_clickable_input(event, input_position):
-	if event is InputEventMouseButton:
+	if event is InputEventScreenTouch:
 		target_position = input_position
 
 func _on_hit_meter_value(progress_value):

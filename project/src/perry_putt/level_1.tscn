@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfhfwetbimd8s"]
+[gd_scene load_steps=6 format=3 uid="uid://dfhfwetbimd8s"]
 
 [ext_resource type="Script" path="res://src/perry_putt/level.gd" id="1_mqwun"]
 [ext_resource type="PackedScene" uid="uid://ba58j2y72ke3i" path="res://src/perry_putt/map.tscn" id="1_o4toj"]
 [ext_resource type="PackedScene" uid="uid://dj57r36gu2ip7" path="res://src/perry_putt/perry_ball.tscn" id="2_0unr6"]
 [ext_resource type="PackedScene" uid="uid://c7b4h03ge6ecb" path="res://src/perry_putt/hole.tscn" id="3_k5m4i"]
-[ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="4_wbd6c"]
 [ext_resource type="PackedScene" uid="uid://3vxqafcjt47d" path="res://src/perry_putt/hit_meter.tscn" id="5_kwrmd"]
 
 [node name="Level1" type="Node2D"]
@@ -12,21 +11,19 @@ script = ExtResource("1_mqwun")
 
 [node name="Map" parent="." instance=ExtResource("1_o4toj")]
 
-[node name="PerryBall" parent="." node_paths=PackedStringArray("clickable_area", "hit_meter") instance=ExtResource("2_0unr6")]
+[node name="PerryBall" parent="." node_paths=PackedStringArray("hit_meter") instance=ExtResource("2_0unr6")]
 unique_name_in_owner = true
 position = Vector2(128, 320)
-clickable_area = NodePath("../ClickableArea")
 hit_meter = NodePath("../HitMeter")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
+zoom = Vector2(3, 1)
 
 [node name="Hole" parent="." instance=ExtResource("3_k5m4i")]
 unique_name_in_owner = true
 position = Vector2(480, 448)
 collision_layer = 256
-
-[node name="ClickableArea" parent="." instance=ExtResource("4_wbd6c")]
 
 [node name="HitMeter" parent="." instance=ExtResource("5_kwrmd")]
 unique_name_in_owner = true

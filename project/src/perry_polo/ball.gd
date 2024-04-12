@@ -68,7 +68,7 @@ func _on_position_reset():
 
 func _on_clickable_input_event(event, _input_position):
 	if(GameManager.get_game_enabled()):
-		if reset_round:
+		if event.pressed and reset_round:
 			var swing_angle = randi_range (-45, 45)
 			velocity = increased_velocity.rotated(deg_to_rad(swing_angle))
 			reset_round = false	
