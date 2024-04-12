@@ -4,6 +4,9 @@ var manual_move=false
 var move_to_position
 @export var waiting_path : Path3D
 var can_impulse = false
+
+signal remove_ball
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	disable_collision()
@@ -47,8 +50,9 @@ func shoot():
 
 
 func _on_visible_on_screen_notifier_3d_screen_exited():
-#	dead_ball()
+	dead_ball()
 	pass # Replace with function body.
 
 func dead_ball():
+	remove_ball.emit()
 	queue_free()

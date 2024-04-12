@@ -76,6 +76,7 @@ func _on_play_button_pressed():
 func _on_win_body_entered(body):
 	if(GameManager.get_game_enabled()):
 		if body is PerryBall:
+			print('here')
 			position_reset.emit()
 			HUD.update_score(score_value)
 			if HUD.check_advance_level():

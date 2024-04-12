@@ -6,8 +6,8 @@ extends Node2D
 var score_value = 1
 
 @onready var enemy_spawner : Node2D
-@onready var start_position : Vector2
-@onready var enemy_position : Vector2
+@onready var start_position : Marker2D
+
 @onready var despawn : Area2D
 
 var initial_score_value = 0
@@ -25,38 +25,36 @@ func _ready():
 	
 	
 	
-	start_position = %StartPosition.global_position
+	start_position = %StartPosition
 	enemy_spawn_timer = %EnemySpawnTimer
 	player = %Player
 	enemy_spawner = %EnemySpawner
-	enemy_position = %EnemySpawner.global_position
+
 #	_game_initialize()
 	player.dino_hit.connect(_on_dino_hit)
 	despawn = %Despawn
 	despawn.body_entered.connect(_on_despawn_body_entered)
+	
+	
 	var xform = get_viewport_rect().size.x
 	var yform = get_viewport_rect().size.y
+	var xatio = xform/720
+	var yatio = yform/1280
+	print(xform , " " , yform)
 	if yform > 1280:
 		%Camera2D.enabled = true
 		%Camera2D.zoom.y = yform/1280
 
-#	if xform > 720:
-#		var xatio = xform/720
-#		%Lose.position.x *= xatio
-#		%Win.position.x *= xatio
-#		%Lose.scale *= xatio
-#		%Win.scale *= xatio
-#		%WallTop.position.x *= xatio
-#		%WallBottom.position.x *= xatio
-#		%WallTop.scale.x *= xatio
-#		%WallBottom.scale.x *= xatio
-#		print(%Enemy.position)
-#		%Enemy.set_x_position(%Enemy.position.x * xatio)
-#		print(%Enemy.position)
-#		%Ball.position.x *= xatio
-#		%PlayerStart.position.x *= xatio
-#		%Player.position.x *= xatio
+	if xform > 720:
+		var nodes_to_move =[start_position,enemy_spawner,%PerryRun]
+		for node in nodes_to_move:
+			node.position.x *= xatio
+		var nodes_to_scale = []
 		
+	var start_button_callable = Callable(self, "_on_play_button_pressed")
+	var game_over_callable = Callable(self,"_on_game_over")
+	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value, start_button_callable, game_over_callable)
+
 	
 	
 	for node in get_tree().get_nodes_in_group("enemy"):
@@ -73,7 +71,7 @@ func _on_enemy_spawn_timer_timeout():
 
 func _on_despawn_body_entered(body):
 
-	if("Enemy" in body.name):
+	if body is PerryLlamaEnemy:
 		body.queue_free()
 		HUD.update_score(score_value)
 	if HUD.check_advance_level():
@@ -89,11 +87,15 @@ func _on_play_button_pressed():
 	enemy_spawn_timer.start()
 
 func _on_dino_hit():
+	if GameManager.get_game_enabled():
+		HUD.update_lives(-1)
+	
+func _on_game_over():
 	enemy_spawn_timer.stop()
 	GameManager.set_game_enabled(false)
 	HUD.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
-	player.global_position = start_position
+	player.global_position = start_position.global_position
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	for node in enemies:
 		queue_free()

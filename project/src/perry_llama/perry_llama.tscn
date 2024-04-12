@@ -25,6 +25,7 @@ position = Vector2(360, 640)
 enabled = false
 
 [node name="Floor" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(24, 664)
 collision_layer = 4
 
@@ -49,6 +50,7 @@ unique_name_in_owner = true
 position = Vector2(152, 664)
 
 [node name="PerryRun" parent="." instance=ExtResource("7_mxegh")]
+unique_name_in_owner = true
 position = Vector2(632, 592)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("9_4s8se")]
@@ -56,4 +58,3 @@ unique_name_in_owner = true
 position = Vector2(544, 664)
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
-[connection signal="body_entered" from="Despawn" to="." method="_on_despawn_body_entered"]

@@ -33,15 +33,15 @@ point_count = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_6w0m0"]
 size = Vector3(2, 0.25, 0.75)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tn5e7"]
-size = Vector3(2, 0.5, 0.5)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bx0k3"]
+height = 0.5
 
-[sub_resource type="BoxMesh" id="BoxMesh_wmqdq"]
-size = Vector3(2, 0.5, 0.5)
+[sub_resource type="CylinderMesh" id="CylinderMesh_qbeim"]
+height = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1gyi8"]
 transparency = 1
-albedo_color = Color(1, 0.501961, 1, 0.54902)
+albedo_color = Color(0, 0.254902, 0.462745, 1)
 
 [node name="PerrySkeeball" type="Node3D"]
 script = ExtResource("1_gi8s2")
@@ -68,11 +68,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75646, 2.75737)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, -3)
 
 [node name="CameraNode" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965925, 0.258819, 0, -0.258819, 0.965925, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.939692, 0.34202, 0, -0.34202, 0.939692, 0, 0, 0)
 
 [node name="Camera1" type="Camera3D" parent="CameraNode"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
 v_offset = 1.0
 projection = 1
 current = true
@@ -91,35 +91,35 @@ fov = 27.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 1.8, 0.6)
 
 [node name="Skeeball" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.2, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.154776, 0.5)
 waiting_path = NodePath("../../WaitingPath")
 
 [node name="Skeeball2" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.2, 0.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.154776, 0.3)
 waiting_path = NodePath("../../WaitingPath")
 
 [node name="Skeeball3" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.2, 0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.154776, 0.1)
 waiting_path = NodePath("../../WaitingPath")
 
 [node name="Skeeball4" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.154776, -0.1)
 waiting_path = NodePath("../../WaitingPath")
 
 [node name="Skeeball5" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.7, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.654776, 0.5)
 waiting_path = NodePath("../../WaitingPath")
 
 [node name="Skeeball6" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.7, 0.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.654776, 0.3)
 waiting_path = NodePath("../../WaitingPath")
 
 [node name="Skeeball7" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.7, 0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.654776, 0.1)
 waiting_path = NodePath("../../WaitingPath")
 
 [node name="Skeeball8" parent="Skeeballs" node_paths=PackedStringArray("waiting_path") instance=ExtResource("3_o8b2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.7, -0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.654776, -0.1)
 waiting_path = NodePath("../../WaitingPath")
 
 [node name="WaitingPath" type="Path3D" parent="."]
@@ -133,6 +133,7 @@ transform = Transform3D(-4.37113e-08, 0, -1, 0, 0.999998, 0, 0.999998, 0, -4.371
 progress = 0.647607
 
 [node name="ScoreTarget" parent="." instance=ExtResource("6_afse7")]
+unique_name_in_owner = true
 
 [node name="BallDespawn" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.25, -2.25)
@@ -146,15 +147,15 @@ unique_name_in_owner = true
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.9, 1.8, 0.6)
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.25, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 2.25, 0.7)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.3, -0.2)
-shape = SubResource("BoxShape3D_tn5e7")
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0)
+shape = SubResource("CylinderShape3D_bx0k3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0999999, 0)
-mesh = SubResource("BoxMesh_wmqdq")
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0)
+mesh = SubResource("CylinderMesh_qbeim")
 surface_material_override/0 = SubResource("StandardMaterial3D_1gyi8")
 
 [connection signal="body_entered" from="BallDespawn" to="." method="_on_ball_despawn_body_entered"]
