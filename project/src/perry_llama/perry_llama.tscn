@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgu5dun6rgtic"]
+[gd_scene load_steps=10 format=3 uid="uid://cgu5dun6rgtic"]
 
 [ext_resource type="Script" path="res://src/perry_llama/perry_llama.gd" id="1_m1610"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_npa5y"]
 [ext_resource type="Texture2D" uid="uid://bp26itcmp7en1" path="res://textures/perry_llama/llama_background_256_512.png" id="3_0uvvx"]
-[ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="4_tinke"]
 [ext_resource type="PackedScene" uid="uid://cmnxppb5dpdr6" path="res://src/perry_llama/player.tscn" id="5_xhyv5"]
 [ext_resource type="PackedScene" uid="uid://bhvh5e4jf5b7o" path="res://src/perry_llama/despawn.tscn" id="6_lg8u8"]
 [ext_resource type="PackedScene" uid="uid://m2beoi334dvw" path="res://src/perry_llama/perry_running.tscn" id="7_mxegh"]
@@ -22,11 +21,10 @@ script = ExtResource("1_m1610")
 [node name="GameBackground" parent="." instance=ExtResource("2_npa5y")]
 game_background_texture = ExtResource("3_0uvvx")
 
-[node name="ClickableArea" parent="." instance=ExtResource("4_tinke")]
-unique_name_in_owner = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(360, 640)
+enabled = false
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(24, 664)
@@ -37,21 +35,26 @@ position = Vector2(336, 20)
 shape = SubResource("RectangleShape2D_nchlr")
 
 [node name="Player" parent="." instance=ExtResource("5_xhyv5")]
+unique_name_in_owner = true
 position = Vector2(144, 664)
 
-[node name="Enemy_Spawn_Timer" type="Timer" parent="."]
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 wait_time = 3.0
 script = ExtResource("7_ppvet")
 
 [node name="Despawn" parent="." instance=ExtResource("6_lg8u8")]
+unique_name_in_owner = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(152, 664)
 
 [node name="PerryRun" parent="." instance=ExtResource("7_mxegh")]
 position = Vector2(632, 592)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("9_4s8se")]
+unique_name_in_owner = true
 position = Vector2(544, 664)
 
-[connection signal="timeout" from="Enemy_Spawn_Timer" to="PerryLlama" method="_on_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="EnemySpawnTimer" to="PerryLlama" method="_on_enemy_spawn_timer_timeout"]

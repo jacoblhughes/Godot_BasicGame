@@ -47,14 +47,8 @@ func _ready():
 		%WallBottom.position.x *= xatio
 		%WallTop.scale.x *= xatio
 		%WallBottom.scale.x *= xatio
-		old_position = %Enemy.position
-		print(old_position)
-		%Enemy.position.x *= xatio
-		second_position = %Enemy.position
-		print(second_position)
-
-		print(%Enemy.return_size())
-		%Enemy.position.x += %Enemy.return_size().x
+		print(%Enemy.position)
+		%Enemy.set_x_position(%Enemy.position.x * xatio)
 		print(%Enemy.position)
 		%Ball.position.x *= xatio
 		%PlayerStart.position.x *= xatio

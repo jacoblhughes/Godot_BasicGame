@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal dino_hit
 func _ready():
 	animation_player = $AnimatedSprite2D
-	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
+	HUD.clickable_input_event.connect(_on_clickable_input_event)
 #func _input(event):
 #		if event.is_action_pressed("left_mouse_click"):
 #			velocity.y = JUMP_VELOCITY

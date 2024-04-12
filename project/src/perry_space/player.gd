@@ -24,7 +24,7 @@ func _ready():
 	rocketspawn_node = get_node("RocketSpawn")
 	start_position_marker = get_parent().get_node("StartPosition")
 	target_position = start_position_marker.position
-	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
+	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	pass
 	
 func _on_clickable_input_event(event, input_position):
@@ -37,8 +37,8 @@ func _physics_process(_delta):
 
 	if target_position !=null:
 		global_position = global_position.lerp(target_position, lerp_speed)
-	global_position.x = clamp(global_position.x, %ClickableArea.get_play_area_position().x,%ClickableArea.get_play_area_position().x+%ClickableArea.get_play_area_size().x)
-	global_position.y = clamp(global_position.y, %ClickableArea.get_play_area_position().y,%ClickableArea.get_play_area_position().y+%ClickableArea.get_play_area_size().y)
+	global_position.x = clamp(global_position.x, HUD.get_play_area_position().x,HUD.get_play_area_position().x+HUD.get_play_area_size().x)
+	global_position.y = clamp(global_position.y, HUD.get_play_area_position().y,HUD.get_play_area_position().y+HUD.get_play_area_size().y)
 
 
 

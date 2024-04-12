@@ -53,13 +53,13 @@ position = Vector2(360, 640)
 
 [node name="Player" parent="." node_paths=PackedStringArray("ball", "starting_position_marker") instance=ExtResource("5_wx7nr")]
 unique_name_in_owner = true
-position = Vector2(676, 640)
+position = Vector2(680, 640)
 ball = NodePath("../Ball")
 starting_position_marker = NodePath("../PlayerStart")
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("6_47f6h")]
 unique_name_in_owner = true
-position = Vector2(44, 640)
+position = Vector2(40, 640)
 ball = NodePath("../Ball")
 
 [node name="PlayerStart" type="Marker2D" parent="."]

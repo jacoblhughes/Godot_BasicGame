@@ -57,9 +57,9 @@ func _draw():
 
 
 func _ready():
-	var new_area = Vector2(%ClickableArea.get_play_area_size().x,%ClickableArea.get_play_area_size().x)
-	var left_over = (%ClickableArea.get_play_area_size().y/2) - (%ClickableArea.get_play_area_size().x/2)
-	var new_position = Vector2(%ClickableArea.get_play_area_position().x,%ClickableArea.get_play_area_position().y+left_over)
+	var new_area = Vector2(HUD.get_play_area_size().x,HUD.get_play_area_size().x)
+	var left_over = (HUD.get_play_area_size().y/2) - (HUD.get_play_area_size().x/2)
+	var new_position = Vector2(HUD.get_play_area_position().x,HUD.get_play_area_position().y+left_over)
 	cell_size = Vector2(new_area.x/snakecells,new_area.y/snakecells)
 
 	_set_play_area_size(new_area)
@@ -76,7 +76,7 @@ func _ready():
 	SnakeTimer = get_parent().get_node("Snake_Move_Timer")
 	HUD.startButtonPressed.connect(_on_play_button_pressed)
 
-	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
+	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	HUD.set_or_reset_level(level_value)
 	food_spawner = get_parent().get_node("spawner_food")
 	head  = head_scene.instantiate()

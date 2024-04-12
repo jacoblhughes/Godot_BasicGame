@@ -45,3 +45,7 @@ func _on_position_reset():
 
 func return_size():
 	return %Sprite2D.get_rect().size
+
+func set_x_position(value):
+	print(value, 'here')
+	original_position_x = value

@@ -10,17 +10,49 @@ var level_value = 1
 @onready var start_position : Vector2
 @onready var enemy_position : Vector2
 @onready var despawn : Area2D
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	start_position = get_parent().get_node("StartPosition").global_position
-	enemy_spawn_timer = get_parent().get_node("Enemy_Spawn_Timer")
-	player = get_parent().get_node("Player")
-	enemy_spawner = get_parent().get_node("EnemySpawner")
-	enemy_position = enemy_spawner.get_node("EnemyPosition").global_position
+	
+	
+	
+	start_position = %StartPosition.global_position
+	enemy_spawn_timer = %EnemySpawnTimer
+	player = %Player
+	enemy_spawner = %EnemySpawner
+	enemy_position = %EnemySpawner.global_position
 #	_game_initialize()
 	player.dino_hit.connect(_on_dino_hit)
-	despawn = get_parent().get_node("Despawn")
+	despawn = %Despawn
 	despawn.body_entered.connect(_on_despawn_body_entered)
+	var xform = get_viewport_rect().size.x
+	var yform = get_viewport_rect().size.y
+	if yform > 1280:
+		%Camera2D.enabled = true
+		%Camera2D.zoom.y = yform/1280
+
+#	if xform > 720:
+#		var xatio = xform/720
+#		%Lose.position.x *= xatio
+#		%Win.position.x *= xatio
+#		%Lose.scale *= xatio
+#		%Win.scale *= xatio
+#		%WallTop.position.x *= xatio
+#		%WallBottom.position.x *= xatio
+#		%WallTop.scale.x *= xatio
+#		%WallBottom.scale.x *= xatio
+#		print(%Enemy.position)
+#		%Enemy.set_x_position(%Enemy.position.x * xatio)
+#		print(%Enemy.position)
+#		%Ball.position.x *= xatio
+#		%PlayerStart.position.x *= xatio
+#		%Player.position.x *= xatio
+		
+	
+	
 	for node in get_tree().get_nodes_in_group("enemy"):
 		node.remove_from_group("enemy")
 	pass # Replace with function body.

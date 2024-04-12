@@ -28,7 +28,7 @@ func _ready():
 	# Existing setup code...
 
 	Input.set_use_accumulated_input(true)
-	%ClickableArea.clickable_input_event.connect(_on_clickable_input_event)
+	HUD.clickable_input_event.connect(_on_clickable_input_event)
 
 func _on_clickable_input_event(event, input_position):
 
