@@ -4,14 +4,20 @@ extends Node2D
 @onready var player : CharacterBody2D
 @onready var enemy_spawn_timer : Timer
 var score_value = 1
-var level_advance_value = 10
-var level_value = 1
+
 @onready var enemy_spawner : Node2D
 @onready var start_position : Vector2
 @onready var enemy_position : Vector2
 @onready var despawn : Area2D
 
-
+var initial_score_value = 0
+#var score_advance_value = 1
+var initial_lives_value = 1
+#var lives_advance_value = 1
+var initial_level_value = 1
+var level_advance_check_value = 10
+var level_advance_value = 1
+var start_button_callable
 
 
 # Called when the node enters the scene tree for the first time.

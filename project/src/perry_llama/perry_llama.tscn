@@ -13,10 +13,8 @@
 size = Vector2(640, 40)
 
 [node name="PerryLlama" type="Node2D"]
-metadata/_edit_horizontal_guides_ = []
-
-[node name="PerryLlama" type="Node2D" parent="."]
 script = ExtResource("1_m1610")
+metadata/_edit_horizontal_guides_ = []
 
 [node name="GameBackground" parent="." instance=ExtResource("2_npa5y")]
 game_background_texture = ExtResource("3_0uvvx")
@@ -57,4 +55,5 @@ position = Vector2(632, 592)
 unique_name_in_owner = true
 position = Vector2(544, 664)
 
-[connection signal="timeout" from="EnemySpawnTimer" to="PerryLlama" method="_on_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
+[connection signal="body_entered" from="Despawn" to="." method="_on_despawn_body_entered"]
