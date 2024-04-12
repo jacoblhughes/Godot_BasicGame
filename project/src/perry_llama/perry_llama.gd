@@ -54,8 +54,8 @@ func _ready():
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")
-	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value, start_button_callable, game_over_callable,countdown_timer_callable)
-
+	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable)
+	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	
 	
 	for node in get_tree().get_nodes_in_group("enemy"):
@@ -80,7 +80,7 @@ func _on_despawn_body_entered(body):
 	pass # Replace with function body.
 	
 func advance_level():
-	enemy_spawn_timer.wait_time = enemy_spawn_timer.original_time * pow(.95,GameManager.get_game_level())
+	enemy_spawn_timer.wait_time = enemy_spawn_timer.original_time * pow(.95,HUD.get_game_level())
 
 func _on_play_button_pressed():
 
@@ -94,7 +94,7 @@ func _on_dino_hit():
 func _on_game_over():
 	enemy_spawn_timer.stop()
 	GameManager.set_game_enabled(false)
-	HUD.set_gameover_panel(true)
+	GameStartGameOver.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
 	player.global_position = start_position.global_position
 	var enemies = get_tree().get_nodes_in_group("enemy")

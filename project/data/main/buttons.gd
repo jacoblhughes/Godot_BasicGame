@@ -53,7 +53,7 @@ func _on_game_chosen(game_key,game_scene):
 	self.visible = false
 	var title = GameManager.get_game_list_values(game_key)["title"]
 	var directions = GameManager.get_game_list_values(game_key)["directions"]
-	HUD.set_game(true,title,directions)
+	GameStartGameOver.set_game(true,title,directions)
 	GameManager.set_game_key(game_key)
 	var game_scene_instance = game_scene.instantiate()
 	main_scene.add_child(game_scene_instance)

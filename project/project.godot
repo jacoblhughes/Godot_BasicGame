@@ -23,6 +23,7 @@ AudioManager="*res://data/main/audio_manager.tscn"
 GameManager="*res://data/main/game_manager.tscn"
 Buttons="*res://data/main/buttons.tscn"
 Background="*res://data/main/background.tscn"
+GameStartGameOver="*res://data/main/game_start_game_over.tscn"
 HUD="*res://data/main/hud.tscn"
 
 [display]

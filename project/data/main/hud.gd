@@ -21,9 +21,6 @@ var level_advance_value : int
 
 signal hud_ready
 
-signal startButtonPressed
-signal game_over
-
 signal countdown_timer_timeout
 signal game_left_timer_timeout
 signal clickable_input_event
@@ -68,10 +65,6 @@ func set_or_reset_score(value = 0):
 func return_score():
 	return score
 
-func set_game(flag,title,directions):
-	%GameStartPanel.visible = flag
-	%Title.text=title
-	%Directions.text = directions
 
 func set_or_reset_level(default_level = "INF"):
 	if typeof(default_level) == TYPE_INT:
@@ -85,6 +78,9 @@ func update_game_level(new_level):
 	var this_level = str(game_level)
 	%Level.text = this_level
 
+func home_button_pressed():
+	_on_home_button_pressed()
+
 func _on_home_button_pressed():
 	if !Background.visible:
 		Background.visible = true
@@ -92,8 +88,8 @@ func _on_home_button_pressed():
 	clear_hud()
 
 	GameManager.set_game_enabled(false)
-	set_gameover_panel(false)
-	set_gameover_panel_congrats(false)
+	GameStartGameOver.set_gameover_panel(false)
+	GameStartGameOver.set_gameover_panel_congrats(false)
 	child_node_to_delete = game_scene.get_children()
 	if child_node_to_delete:
 		Buttons.visible = true
@@ -102,27 +98,7 @@ func _on_home_button_pressed():
 	HUD.set_or_reset_level()
 
 	pass # Replace with function body.
-	
-func _on_play_button_pressed():
-	%GameStartPanel.visible = false
-	startButtonPressed.emit()
-	pass # Replace with function body.
 
-func set_gameover_panel(flag):
-	%GameOverPanel.visible = flag
-
-func set_gamestart_panel(flag):
-	%GameStartPanel.visible = flag
-
-func set_gameover_panel_congrats(vis):
-	%GameOverPanel.visible = vis
-	if(vis):
-#		game_over_panel_congrats.play()
-		%HighscoreAchieved.visible = true
-	else:
-#		game_over_panel_congrats.stop()
-		%HighscoreAchieved.visible = false
-		
 func set_or_reset_lives(default_lives = "INF"):
 	if typeof(default_lives) == TYPE_INT:
 		lives = default_lives
@@ -131,10 +107,6 @@ func set_or_reset_lives(default_lives = "INF"):
 		lives=3
 		%Lives.text = default_lives
 		
-func set_game_again():
-	game_scene.add_child(GameManager.current_game_scene.instantiate(),true)
-	set_gamestart_panel(true)
-
 func return_lives():
 	return lives
 	
@@ -144,7 +116,7 @@ func update_lives(change):
 	var new_lives = old_lives + change
 	lives = new_lives
 	if lives <= 0:
-		game_over.emit()
+		GameStartGameOver.out_of_lives()
 	%Lives.text = str(lives)
 	
 
@@ -207,7 +179,9 @@ func get_play_area_position():
 func get_play_area_size():
 	return %InputPanel.size
 
-func hud_initialize(this_initial_score_value, this_initial_lives_value, this_initial_level_value, this_level_advance_check_value, this_level_advance_value, this_start_button_callable, this_game_over_callable, this_countdown_timer_timeout):
+
+
+func hud_initialize(this_initial_score_value, this_initial_lives_value, this_initial_level_value, this_level_advance_check_value, this_level_advance_value, this_countdown_timer_timeout):
 	initial_score_value = this_initial_score_value
 	print(initial_score_value)
 	initial_lives_value = this_initial_lives_value
@@ -217,8 +191,7 @@ func hud_initialize(this_initial_score_value, this_initial_lives_value, this_ini
 	set_or_reset_score(initial_score_value)
 	set_or_reset_lives(initial_lives_value)
 	set_or_reset_level(initial_level_value)
-	startButtonPressed.connect(this_start_button_callable)
-	game_over.connect(this_game_over_callable)
+
 	countdown_timer_timeout.connect(this_countdown_timer_timeout)
 #	HUD.countdown_timer_timeout.connect(_on_countdown_timer_timeout)
 #	HUD.game_left_timer_timeout.connect(_on_game_left_timer_timeout)

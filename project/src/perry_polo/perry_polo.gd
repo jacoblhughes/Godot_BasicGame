@@ -65,8 +65,9 @@ func _ready():
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")
-	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value, start_button_callable, game_over_callable,countdown_timer_callable)
-
+	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable)
+	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
+	
 func _draw():
 	if second_position != Vector2.ZERO:
 			draw_line(old_position,second_position,Color.BLACK,25)
@@ -90,9 +91,9 @@ func _on_lose_body_entered(body):
 	pass # Replace with function body.
 
 func advance_level():
-	%Enemy.speed = %Enemy.original_speed * pow(1.05,GameManager.get_game_level())
-	%Ball.speed_increase= %Ball.original_speed_increase * pow(1.05,GameManager.get_game_level())
-	%Ball.increased_velocity = %Ball.original_velocity * pow(1.05,GameManager.get_game_level())
+	%Enemy.speed = %Enemy.original_speed * pow(1.05,HUD.get_game_level())
+	%Ball.speed_increase= %Ball.original_speed_increase * pow(1.05,HUD.get_game_level())
+	%Ball.increased_velocity = %Ball.original_velocity * pow(1.05,HUD.get_game_level())
 	pass
 
 func _on_game_over():

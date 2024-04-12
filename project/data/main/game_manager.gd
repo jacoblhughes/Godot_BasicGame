@@ -147,7 +147,7 @@ func check_highscore_and_rank():
 
 
 	if(added):
-		HUD.set_gameover_panel_congrats(true)
+		GameStartGameOver.set_gameover_panel_congrats(true)
 #	_replace_highscore_list()
 	
 func initiate_highscores_section():

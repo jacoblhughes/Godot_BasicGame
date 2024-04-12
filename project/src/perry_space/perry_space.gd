@@ -71,5 +71,5 @@ func _on_enemy_hit():
 		advance_level()
 	
 func advance_level():
-	#rocket_timer.wait_time = player.original_rocket_time * pow(.95,GameManager.get_game_level())
-	enemy_timer.wait_time = enemy_spawner.original_enemy_time * pow(.95,GameManager.get_game_level())
+
+	enemy_timer.wait_time = enemy_spawner.original_enemy_time * pow(.95,HUD.get_game_level())

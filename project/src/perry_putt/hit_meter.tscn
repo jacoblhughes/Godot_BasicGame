@@ -9,7 +9,7 @@ script = ExtResource("1_skhgp")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -128.0
@@ -21,7 +21,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="TextureButton" type="TextureButton" parent="."]
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -48.0

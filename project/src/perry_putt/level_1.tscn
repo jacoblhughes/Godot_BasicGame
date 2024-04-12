@@ -18,7 +18,6 @@ hit_meter = NodePath("../HitMeter")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)
-zoom = Vector2(3, 1)
 
 [node name="Hole" parent="." instance=ExtResource("3_k5m4i")]
 unique_name_in_owner = true
