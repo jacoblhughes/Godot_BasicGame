@@ -6,6 +6,7 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_wealh")
 metadata/_edit_vertical_guides_ = [360.0]
+metadata/_edit_horizontal_guides_ = [144.0]
 
 [node name="StartCountdownTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -51,14 +52,14 @@ theme_type_variation = &"PanelInput"
 layout_mode = 3
 anchors_preset = 0
 offset_right = 192.0
-offset_bottom = 192.0
+offset_bottom = 128.0
 mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TopLeft"]
 layout_mode = 1
 anchors_preset = -1
 offset_right = 192.0
-offset_bottom = 192.0
+offset_bottom = 128.0
 mouse_filter = 2
 theme = ExtResource("2_7580m")
 theme_type_variation = &"MarginContainerHUD"
@@ -122,6 +123,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -11.0
+offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -136,19 +139,18 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -208.0
-offset_bottom = 192.0
+offset_bottom = 128.0
 grow_horizontal = 0
 mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TopRight"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -208.0
-offset_bottom = 192.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_bottom = 160.0
+grow_horizontal = 0
 mouse_filter = 2
 theme = ExtResource("2_7580m")
 theme_type_variation = &"MarginContainerHUD"

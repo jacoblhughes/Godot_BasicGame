@@ -29,7 +29,8 @@ func _ready():
 	%CheckPoint2.body_entered.connect(_on_cp_2_body_entered)
 	%CheckPoint2.body_entered.connect(_on_cp_3_body_entered)
 	%Finish.body_entered.connect(_on_finish_body_entered)
-
+	%RaceTrack.body_exited.connect(_on_race_track_body_exited)
+	%MeltZone.body_entered.connect(_on_melt_zone_body_entered)
 #	_game_initialize()
 	reset_point = %Finish.position
 	
@@ -104,13 +105,12 @@ func _on_cp_3_body_entered(body):
 func _on_finish_body_entered(body):
 
 	if GameManager.get_game_enabled():
-		
+		finish_hit=true
 		reset_point = %Finish.position
-		if finish_hit == false:
+		if finish_hit == true and c_p_1_hit == true and c_p_2_hit == true and c_p_3_hit == true:
 			HUD.update_score(score_value)
 			if HUD.check_advance_level():
 				advance_level()
-		finish_hit=true
 	
 	_reset_checkpoints()
 	pass # Replace with function body.
@@ -135,6 +135,7 @@ func _on_countdown_timer_timeout():
 	pass # Replace with function body.
 
 func advance_level():
+	
 	pass
 
 
