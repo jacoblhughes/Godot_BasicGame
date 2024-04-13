@@ -58,12 +58,19 @@ func _on_game_chosen(game_key,game_scene):
 	var game_scene_instance = game_scene.instantiate()
 	main_scene.add_child(game_scene_instance)
 	GameManager.set_current_game_scene(perry_says)
+	HUD.show()
+	GameStartGameOver.show()
 
+	print('after?')
+	
+	
 func _on_about_pressed():
 	self.visible = false
 	about_scene = about.instantiate()
 	main_scene.add_child(about_scene)
 	GameManager.set_current_game_scene(about)
+	HUD.hide()
+	GameStartGameOver.hide()
 	pass # Replace with function body.
 
 func _on_options_pressed():
@@ -71,6 +78,8 @@ func _on_options_pressed():
 	options_scene = options.instantiate()
 	main_scene.add_child(options_scene)
 	GameManager.set_current_game_scene(options)
+	HUD.hide()
+	GameStartGameOver.hide()
 	pass # Replace with function body.
 
 
@@ -79,6 +88,8 @@ func _on_highscore_pressed():
 	highscore_scene = highscore.instantiate()
 	main_scene.add_child(highscore_scene)
 	GameManager.set_current_game_scene(highscore)
+	HUD.hide()
+	GameStartGameOver.hide()
 	pass # Replace with function body.
 
 

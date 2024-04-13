@@ -33,7 +33,7 @@ func _ready():
 	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")
 	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
-	
+	Background.show()
 	%EnemySpawnPosition.position.x = xwindow
 	%SpawnTimer.wait_time = original_spawn_timer
 	%Player.position = %StartPosition.position
@@ -54,7 +54,7 @@ func _on_enemy_scoring_body_entered(body):
 	pass # Replace with function body.
 		
 func _on_game_over():
-	print('game over')
+
 	for nodes in get_tree().get_nodes_in_group("enemy"):
 		nodes.remove_from_group("enemy")
 		nodes.queue_free()

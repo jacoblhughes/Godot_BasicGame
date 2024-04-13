@@ -6,6 +6,9 @@ signal main_ready
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	HUD.hide()
+	GameStartGameOver.hide()
+	Background.hide()
 	pass # Replace with function body.
 
 			

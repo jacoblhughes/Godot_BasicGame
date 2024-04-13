@@ -86,7 +86,7 @@ func _on_home_button_pressed():
 		Background.visible = true
 
 	clear_hud()
-
+	GameStartGameOver.hide()
 	GameManager.set_game_enabled(false)
 	GameStartGameOver.set_gameover_panel(false)
 	GameStartGameOver.set_gameover_panel_congrats(false)
@@ -96,7 +96,8 @@ func _on_home_button_pressed():
 		for child in child_node_to_delete:
 			child.queue_free()
 	HUD.set_or_reset_level()
-
+	self.hide()
+	Background.hide()
 	pass # Replace with function body.
 
 func set_or_reset_lives(default_lives = "INF"):

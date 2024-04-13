@@ -18,12 +18,17 @@ func _ready():
 
 	if xform > 720:
 		print('here')
-		var nodes_to_move =[%PerryBall,%PerryRun,%Hole,%Obstacles]
+		var obstacles
+		if %Obstacles.get_child_count() > 0:
+			obstacles = %Obstacles.get_children()
+			for node in obstacles:
+				node.position.x *= xatio
+		var nodes_to_move =[%PerryBall,%Hole]
 		for node in nodes_to_move:
 			node.position.x *= xatio
 		var nodes_to_scale = [%Map]
 		for node in nodes_to_scale:
-			node.position.x *= xatio
+			node.scale.x *= xatio
 	
 	%Hole.ball_sank.connect(_on_ball_sank)
 	%HitMeter.send_value.connect(_on_hit_meter_value)

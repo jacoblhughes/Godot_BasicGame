@@ -34,6 +34,7 @@ func set_game(flag,title,directions):
 func _on_play_button_pressed():
 	%GameStartPanel.visible = false
 	start_button_pressed.emit()
+	self.hide()
 	pass # Replace with function body.
 
 func set_gameover_panel(flag):
@@ -53,3 +54,4 @@ func set_gameover_panel_congrats(vis):
 		
 func _on_home_button_pressed():
 	HUD.home_button_pressed()
+	self.hide()

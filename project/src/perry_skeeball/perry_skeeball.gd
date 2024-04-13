@@ -14,7 +14,7 @@ var skeeballs
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print(active_ball)
-	Background.visible = false
+	Background.hide()
 	%Shelf.load_ball.connect(_on_load_ball)
 	%ScoreTarget.scored.connect(_on_scored)
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
@@ -22,6 +22,7 @@ func _ready():
 	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")
 	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
+	Background.hide()
 	skeeballs = get_tree().get_nodes_in_group("skeeballs")
 	pass # Replace with function body.
 
