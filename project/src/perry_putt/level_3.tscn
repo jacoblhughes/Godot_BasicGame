@@ -280,7 +280,7 @@ layer_0/tile_data = PackedInt32Array(2031623, 65536, 1, 2097159, 65536, 1, 21626
 
 [node name="PerryBall" parent="." node_paths=PackedStringArray("hit_meter") instance=ExtResource("3_3d3ev")]
 unique_name_in_owner = true
-position = Vector2(144, 1088)
+position = Vector2(128, 1024)
 collision_mask = 20
 hit_meter = NodePath("../HitMeter")
 

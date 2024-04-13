@@ -15,8 +15,8 @@ var level_advance_value = 1
 var start_button_callable
 
 func _ready():
-	Background.hide()
-	print('hereeerererererer')
+
+
 	%Player.hit.connect(_on_player_hit)
 	%EnemyTimer.timeout.connect(_on_mob_timer_timeout)
 #	_game_initialize()

@@ -1,57 +1,49 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf4xkqs74ytur"]
+[gd_scene load_steps=7 format=3 uid="uid://cf4xkqs74ytur"]
 
 [ext_resource type="Script" path="res://src/perry_run/perry_run.gd" id="2_1lkn6"]
-[ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="2_xnsfy"]
 [ext_resource type="PackedScene" uid="uid://b7gr1u1puu88l" path="res://src/perry_run/tile_map.tscn" id="3_axivd"]
 [ext_resource type="PackedScene" uid="uid://bxseg85es8o1u" path="res://src/perry_run/player.tscn" id="3_d1s5q"]
-[ext_resource type="PackedScene" uid="uid://dp2een83p3lff" path="res://src/perry_run/cp_1.tscn" id="4_8luf4"]
 [ext_resource type="PackedScene" uid="uid://m5niu6tioii2" path="res://src/perry_run/race_track.tscn" id="4_f80jr"]
-[ext_resource type="PackedScene" uid="uid://c3kd1ocyiv6lp" path="res://src/perry_run/cp_2.tscn" id="5_eslgb"]
 [ext_resource type="PackedScene" uid="uid://chglk5p1v121k" path="res://src/perry_run/melt_zone.tscn" id="5_qlbnr"]
-[ext_resource type="PackedScene" uid="uid://u65hddr3i0os" path="res://src/perry_run/cp_3.tscn" id="6_v4o0x"]
-[ext_resource type="PackedScene" uid="uid://dyvmjt6kgjcpy" path="res://src/perry_run/finish.tscn" id="7_c2dpw"]
+[ext_resource type="PackedScene" uid="uid://dp2een83p3lff" path="res://src/perry_run/check_point.tscn" id="6_vcxuv"]
 
 [node name="PerryRun" type="Node2D"]
-
-[node name="PerryRun" type="Node2D" parent="."]
 script = ExtResource("2_1lkn6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(360, 640)
 
 [node name="TileMap" parent="." instance=ExtResource("3_axivd")]
-position = Vector2(40, 176)
-
-[node name="Player" parent="." node_paths=PackedStringArray("clickable_area") instance=ExtResource("3_d1s5q")]
 unique_name_in_owner = true
-position = Vector2(112, 240)
-clickable_area = NodePath("../ClickableArea")
+layer_0/tile_data = PackedInt32Array(65536, 262144, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 327680, 0, 393216, 262144, 0, 458752, 327680, 0, 65537, 65536, 0, 131073, 262144, 0, 196609, 327680, 0, 262145, 393216, 0, 327681, 196608, 0, 393217, 131072, 0, 458753, 196608, 0, 65538, 65536, 0, 131074, 65536, 0, 196610, 65536, 0, 262146, 393216, 0, 327682, 393216, 0, 393218, 393216, 0, 458754, 393216, 0, 65539, 65536, 0, 131075, 65536, 0, 196611, 196608, 0, 262147, 327680, 0, 327683, 393216, 0, 393219, 262144, 0, 458755, 327680, 0, 65540, 196608, 0, 131076, 131072, 0, 196612, 393216, 0, 262148, 196608, 0, 327684, 0, 0, 393220, 131072, 0, 458756, 196608, 0, 524288, 393216, 0, 524289, 327680, 0, 524290, 65536, 0, 524291, 65536, 0, 524292, 131072, 0, 65541, 393216, 0, 131077, 393216, 0, 196613, 393216, 0, 262149, 393216, 0, 327685, 393216, 0, 5, 393216, 0, 4, 393216, 0, 3, 393216, 0, 2, 393216, 0, 1, 393216, 0, 0, 393216, 0, 393221, 393216, 0, 458757, 393216, 0, 524293, 393216, 0, 589829, 393216, 0, 589828, 393216, 0, 589827, 393216, 0, 589826, 393216, 0, 589825, 393216, 0, 589824, 393216, 0)
 
-[node name="ClickableArea" parent="." instance=ExtResource("2_xnsfy")]
+[node name="Player" parent="." instance=ExtResource("3_d1s5q")]
 unique_name_in_owner = true
+position = Vector2(112, 248)
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(112, 240)
-
-[node name="CP1" parent="." instance=ExtResource("4_8luf4")]
-position = Vector2(240, 488)
-
-[node name="CP2" parent="." instance=ExtResource("5_eslgb")]
-position = Vector2(496, 1000)
-
-[node name="CP3" parent="." instance=ExtResource("6_v4o0x")]
-position = Vector2(112, 744)
-
-[node name="Finish" parent="." instance=ExtResource("7_c2dpw")]
+unique_name_in_owner = true
 position = Vector2(112, 248)
 
 [node name="MeltZone" parent="." instance=ExtResource("5_qlbnr")]
+unique_name_in_owner = true
 
 [node name="RaceTrack" parent="." instance=ExtResource("4_f80jr")]
+unique_name_in_owner = true
 
-[connection signal="body_entered" from="CP1" to="PerryRun" method="_on_cp_1_body_entered"]
-[connection signal="body_entered" from="CP2" to="PerryRun" method="_on_cp_2_body_entered"]
-[connection signal="body_entered" from="CP3" to="PerryRun" method="_on_cp_3_body_entered"]
-[connection signal="body_entered" from="Finish" to="PerryRun" method="_on_finish_body_entered"]
-[connection signal="body_entered" from="MeltZone" to="PerryRun" method="_on_melt_zone_body_entered"]
-[connection signal="body_exited" from="RaceTrack" to="PerryRun" method="_on_race_track_body_exited"]
+[node name="CheckPoint1" parent="." instance=ExtResource("6_vcxuv")]
+unique_name_in_owner = true
+position = Vector2(480, 504)
+
+[node name="CheckPoint2" parent="." instance=ExtResource("6_vcxuv")]
+unique_name_in_owner = true
+position = Vector2(608, 1128)
+
+[node name="CheckPoint3" parent="." instance=ExtResource("6_vcxuv")]
+unique_name_in_owner = true
+position = Vector2(224, 760)
+
+[node name="Finish" parent="." instance=ExtResource("6_vcxuv")]
+unique_name_in_owner = true
+position = Vector2(112, 248)

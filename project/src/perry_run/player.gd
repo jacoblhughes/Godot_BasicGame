@@ -4,19 +4,18 @@ var force = 500
 var target_position = Vector2(0,0)
 var lerp_speed = 0.1
 var is_touching = false 
-var start_position : Marker2D
+
 var move_speed = 200
 var stop_threshold = 10  # Stop moving when within 10 pixels of the target
-@onready var saucer : Node2D
+
 var game_on = false
-@export var clickable_area : Node2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	start_position = get_parent().get_node("StartPosition")
-	target_position = start_position.global_position
-	saucer = get_parent().get_node("PerryRun")
-	saucer.game_start.connect(_on_game_start)
-	saucer.out_of_bounds.connect(_on_out_of_bounds)
+
+	target_position = %StartPosition.global_position
+	get_parent().game_start.connect(_on_game_start)
+	get_parent().out_of_bounds.connect(_on_out_of_bounds)
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	pass
 

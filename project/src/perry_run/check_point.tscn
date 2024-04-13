@@ -3,10 +3,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_a0ung"]
 radius = 56.0
 
-[node name="CP1" type="Area2D"]
+[node name="CheckPoint" type="Area2D"]
 collision_layer = 32
 collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 z_index = 1
 shape = SubResource("CircleShape2D_a0ung")

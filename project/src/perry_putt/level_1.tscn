@@ -281,7 +281,7 @@ layer_0/tile_data = PackedInt32Array(327681, 0, 0, 393217, 0, 1, 458753, 0, 1, 5
 
 [node name="PerryBall" parent="." node_paths=PackedStringArray("hit_meter") instance=ExtResource("2_0unr6")]
 unique_name_in_owner = true
-position = Vector2(128, 320)
+position = Vector2(96, 256)
 hit_meter = NodePath("../HitMeter")
 
 [node name="Camera2D" type="Camera2D" parent="."]

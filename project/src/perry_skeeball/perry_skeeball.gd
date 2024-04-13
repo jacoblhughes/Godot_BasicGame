@@ -13,8 +13,7 @@ var start_button_callable
 var skeeballs
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(active_ball)
-	Background.hide()
+
 	%Shelf.load_ball.connect(_on_load_ball)
 	%ScoreTarget.scored.connect(_on_scored)
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
