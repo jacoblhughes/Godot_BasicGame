@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dx4hwtnr40m1r"]
+[gd_scene load_steps=16 format=3 uid="uid://dx4hwtnr40m1r"]
 
 [ext_resource type="Script" path="res://src/perry_space/perry_space.gd" id="1_yw0yd"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_esp7d"]
-[ext_resource type="PackedScene" uid="uid://csika1k1sresr" path="res://src/main/clickable_area.tscn" id="2_g54w4"]
 [ext_resource type="Script" path="res://src/perry_space/player.gd" id="3_60l8u"]
 [ext_resource type="Texture2D" uid="uid://betwbe8urunx7" path="res://textures/perry_space/space_background_256_512.png" id="3_bvgf7"]
 [ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://textures/perry_space/attack_256.png" id="4_jqsem"]
@@ -46,20 +45,18 @@ size = Vector2(26, 48)
 size = Vector2(98.054, 1024)
 
 [node name="PerrySpace" type="Node2D"]
-
-[node name="PerrySpace" type="Node2D" parent="."]
 script = ExtResource("1_yw0yd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(360, 640)
+enabled = false
 
 [node name="GameBackground" parent="." instance=ExtResource("2_esp7d")]
 game_background_texture = ExtResource("3_bvgf7")
 
-[node name="ClickableArea" parent="." instance=ExtResource("2_g54w4")]
-unique_name_in_owner = true
-
 [node name="Player" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
 collision_mask = 2
 script = ExtResource("3_60l8u")
 
@@ -88,35 +85,45 @@ stream = ExtResource("6_huksw")
 bus = &"Game"
 
 [node name="RocketTimer" type="Timer" parent="Player"]
+unique_name_in_owner = true
 wait_time = 0.9
 
 [node name="StartPosition" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(128, 664)
 
 [node name="EnemySpawner" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("6_rbrt6")
 
 [node name="EnemyTimer" type="Timer" parent="EnemySpawner"]
+unique_name_in_owner = true
 wait_time = 2.0
 
 [node name="SpawnLocations" type="Node2D" parent="EnemySpawner"]
 
-[node name="Marker2D" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
+[node name="Marker1" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
+unique_name_in_owner = true
 position = Vector2(704, 288)
 
-[node name="Marker2D2" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
+[node name="Marker2" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
+unique_name_in_owner = true
 position = Vector2(704, 480)
 
-[node name="Marker2D3" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
+[node name="Marker3" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
+unique_name_in_owner = true
 position = Vector2(704, 1088)
 
-[node name="Marker2D4" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
+[node name="Marker4" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
+unique_name_in_owner = true
 position = Vector2(704, 688)
 
-[node name="Marker2D5" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
+[node name="Marker5" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
+unique_name_in_owner = true
 position = Vector2(704, 896)
 
 [node name="EnemyDeathzone" type="Area2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, 688)
 collision_layer = 8
 collision_mask = 2
@@ -125,14 +132,10 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_3f3jt")
 
 [node name="RocketDeathzone" type="Area2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(712, 688)
 collision_layer = 1024
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RocketDeathzone"]
 shape = SubResource("RectangleShape2D_3f3jt")
-
-[connection signal="timeout" from="Player/RocketTimer" to="Player" method="_on_rocket_timer_timeout"]
-[connection signal="timeout" from="EnemySpawner/EnemyTimer" to="EnemySpawner" method="_on_enemy_timer_timeout"]
-[connection signal="area_entered" from="EnemyDeathzone" to="PerrySpace" method="_on_enemy_deathzone_area_entered"]
-[connection signal="area_entered" from="RocketDeathzone" to="PerrySpace" method="_on_rocket_deathzone_area_entered"]

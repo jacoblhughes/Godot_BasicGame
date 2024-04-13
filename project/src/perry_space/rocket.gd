@@ -7,7 +7,7 @@ class_name SpaceRocket
 signal enemy_hit
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	perry_space = get_parent().get_parent().get_parent().get_node("PerrySpace")
+	perry_space = get_parent().get_parent()
 	visible_notifier.connect("screen_exited",_on_screen_exited)
 
 	pass # Replace with function body.

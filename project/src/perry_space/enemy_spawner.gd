@@ -11,6 +11,7 @@ var original_enemy_time = 2
 func _ready():
 	enemy_timer = $EnemyTimer
 	enemy_timer.wait_time = original_enemy_time
+	enemy_timer.timeout.connect(_on_enemy_timer_timeout)
 	pass # Replace with function body.
 
 func _on_enemy_timer_timeout():

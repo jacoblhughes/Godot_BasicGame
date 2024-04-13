@@ -18,9 +18,10 @@ var lerp_speed = 0.1
 var is_touching = false 
 var original_rocket_time = .9
 func _ready():
-	perry_space = get_parent().get_node("PerrySpace")
+	perry_space = get_parent()
 	rocket_timer = $RocketTimer
 	rocket_timer.wait_time = original_rocket_time
+	rocket_timer.timeout.connect(_on_rocket_timer_timeout)
 	rocketspawn_node = get_node("RocketSpawn")
 	start_position_marker = get_parent().get_node("StartPosition")
 	target_position = start_position_marker.position
