@@ -1,7 +1,8 @@
 extends Node2D
 
 #var food := Food.new()
-@onready var snake := get_parent().get_node("PerryPython") as Snake
+@onready var snake := get_parent() as Snake
+@export var my_food : PackedScene
 var my_food_instance
 var tween_rotate: Tween
 
@@ -11,25 +12,19 @@ var angle = 0     # Current angle in degrees
 var png_size = 150
 
 signal food_eaten
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	HUD.reset_score()
-	my_food_instance = preload("res://src/perry_python/food.tscn").instantiate()
-	spawn_food()
-
-	my_food_instance.SnakeFoodReady.connect(_on_food_initialized)
-	my_food_instance.snake_cell_size = %PerryPython.return_cell_size()
-	get_parent().add_child.call_deferred(my_food_instance)
-
+	get_parent().dimensions_ready.connect(_on_dimensions_ready)
 
 	pass # Replace with function body.
 
-
+func _on_dimensions_ready():
+	spawn_food()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	my_food_instance.position = my_food_instance.food_position + %PerryPython.return_cell_size()/2
+	my_food_instance.position = my_food_instance.food_position + get_parent().return_snake_cell_size()/2
 	
 	queue_redraw()
 	
@@ -51,12 +46,18 @@ func _draw():
 	
 func spawn_food():
 	var is_on_occupied_position = true
+	
+	my_food_instance = my_food.instantiate()
+	my_food_instance.SnakeFoodReady.connect(_on_food_initialized)
+	my_food_instance.snake_cell_size = get_parent().return_snake_cell_size()
+	get_parent().add_child.call_deferred(my_food_instance)
+	
 	while is_on_occupied_position:
 		var random_position = Vector2()
-		random_position.x = randi_range(0, %PerryPython.GRID_SIZE.x - %PerryPython.snakecellsize.x)
-		random_position.y = randi_range(0, %PerryPython.GRID_SIZE.y - %PerryPython.snakecellsize.y)
+		random_position.x = randi_range(0, get_parent().return_play_area_size().x - get_parent().return_snake_cell_size().x)
+		random_position.y = randi_range(0, get_parent().return_play_area_size().y - get_parent().return_snake_cell_size().y)
 
-		my_food_instance.food_position = random_position.snapped(%PerryPython.snakecellsize) + %PerryPython.GRID_POSITION
+		my_food_instance.food_position = random_position.snapped(get_parent().return_snake_cell_size()) + get_parent().return_play_area_position()
 		for minisnake in snake.minisnakes:
 			if my_food_instance.get_rect().intersects(minisnake.get_rect()):
 				is_on_occupied_position = true

@@ -47,7 +47,7 @@ func _ready():
 		var nodes_to_move =[%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish,%RaceTrack,%MeltZone,%Player]
 		for node in nodes_to_move:
 			node.position.x *= xatio
-		var nodes_to_scale = [%TileMap]
+		var nodes_to_scale = [%TileMap,%MeltZone,%RaceTrack]
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
 		

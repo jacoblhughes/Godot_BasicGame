@@ -16,14 +16,14 @@ size = Vector2(56, 1280)
 size = Vector2(96, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpshr"]
-size = Vector2(560, 992)
+size = Vector2(352, 1088)
 
 [node name="PerryFlap" type="Node2D"]
 script = ExtResource("1_ym0sw")
 enemy_wall = ExtResource("2_3bg0i")
 enemy_wall_2 = ExtResource("3_eemtl")
 enemy_wall_3 = ExtResource("4_pqam4")
-metadata/_edit_horizontal_guides_ = [640.0]
+metadata/_edit_horizontal_guides_ = [640.0, 64.0, 640.0]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -34,10 +34,6 @@ enabled = false
 unique_name_in_owner = true
 position = Vector2(720, 640)
 gizmo_extents = 343.5
-
-[node name="ColorRect" type="ColorRect" parent="EnemySpawnPosition"]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="GameBackground" parent="." instance=ExtResource("2_vrvjj")]
 game_background_texture = ExtResource("4_abbuh")
@@ -67,12 +63,12 @@ shape = SubResource("RectangleShape2D_221hg")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(202, 666)
+position = Vector2(202, 640)
 
 [node name="FlyZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlyZone"]
-position = Vector2(360, 640)
+position = Vector2(256, 640)
 shape = SubResource("RectangleShape2D_gpshr")
 
 [connection signal="body_entered" from="EnemyDespawn" to="EnemyDespawn" method="_on_body_entered"]
