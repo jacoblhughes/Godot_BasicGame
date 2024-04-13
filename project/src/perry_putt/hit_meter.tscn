@@ -13,11 +13,10 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -128.0
-offset_top = 24.0
+offset_top = 72.0
 offset_right = 128.0
-offset_bottom = 72.0
+offset_bottom = 120.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 
 [node name="TextureButton" type="TextureButton" parent="."]
@@ -25,11 +24,10 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -48.0
-offset_top = 80.0
+offset_top = 128.0
 offset_right = 48.0
-offset_bottom = 176.0
+offset_bottom = 224.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 1
 texture_normal = ExtResource("2_5ytor")
 texture_pressed = ExtResource("2_5ytor")

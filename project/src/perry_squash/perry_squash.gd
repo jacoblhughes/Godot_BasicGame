@@ -55,7 +55,7 @@ func _on_game_over():
 		node.velocity= Vector3.ZERO
 	%EnemyTimer.stop()
 	GameManager.set_game_enabled(false)
-	HUD.set_gameover_panel(true)
+	GameStartGameOver.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
 	%Player.allow_move(false)
 

@@ -55,7 +55,7 @@ func _on_player_hit():
 		_game_over()
 
 func _game_over():
-	HUD.set_gameover_panel(true)
+	GameStartGameOver.set_gameover_panel(true)
 	GameManager.set_game_enabled(false)
 	enemy_timer.stop()
 

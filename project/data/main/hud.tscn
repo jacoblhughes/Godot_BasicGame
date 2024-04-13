@@ -111,12 +111,15 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer2" type="GridContainer" parent="TopLeft/MarginContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="TopLeft/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_7580m")
 
-[node name="Home_Button" type="Button" parent="TopLeft/MarginContainer/VBoxContainer/GridContainer2"]
+[node name="Home_Button" type="Button" parent="TopLeft/MarginContainer/VBoxContainer/Control"]
 layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
@@ -214,4 +217,4 @@ vertical_alignment = 1
 [connection signal="timeout" from="GameLeftTimer" to="." method="_on_game_left_timer_timeout"]
 [connection signal="timeout" from="GamePassedTimer" to="." method="_on_game_passed_timer_timeout"]
 [connection signal="gui_input" from="Input/MarginContainer/InputPanel" to="." method="_on_panel_gui_input"]
-[connection signal="pressed" from="TopLeft/MarginContainer/VBoxContainer/GridContainer2/Home_Button" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="TopLeft/MarginContainer/VBoxContainer/Control/Home_Button" to="." method="_on_home_button_pressed"]

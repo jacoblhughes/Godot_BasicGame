@@ -98,5 +98,5 @@ func advance_level():
 
 func _on_game_over():
 	GameManager.set_game_enabled(false)
-	HUD.set_gameover_panel(true)
+	GameStartGameOver.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()

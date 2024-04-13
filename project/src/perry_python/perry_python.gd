@@ -214,7 +214,7 @@ func game_over():
 	
 	SnakeTimer.stop()
 	minisnakes = []
-	HUD.set_gameover_panel(true)
+	GameStartGameOver.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
 	pass
 

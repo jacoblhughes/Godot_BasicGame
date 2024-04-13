@@ -19,6 +19,9 @@ var start_button_callable
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+
+	
 #	%Hole.ball_sank.connect(_on_perry_ball_sank)
 
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
@@ -46,7 +49,7 @@ func _on_play_button_pressed():
 
 func _on_game_over():
 	GameManager.set_game_enabled(false)
-	HUD.set_gameover_panel(true)
+	GameStartGameOver.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
 	
 func apply_level(scene):

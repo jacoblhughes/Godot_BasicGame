@@ -118,7 +118,7 @@ func _on_game_left_timer_timeout():
 	reset_point = finish_area.position
 	_out_of_bounds()
 	GameManager.set_game_enabled(false)
-	HUD.set_gameover_panel(true)
+	GameStartGameOver.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
 
 	pass # Replace with function body.

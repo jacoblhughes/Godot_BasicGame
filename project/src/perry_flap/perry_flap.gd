@@ -59,7 +59,7 @@ func _on_game_over():
 		nodes.remove_from_group("enemy")
 		nodes.queue_free()
 	GameManager.set_game_enabled(false)
-	HUD.set_gameover_panel(true)
+	GameStartGameOver.set_gameover_panel(true)
 	%SpawnTimer.stop()
 	%Player.motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	%Player.position = %StartPosition.position

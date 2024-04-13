@@ -71,7 +71,7 @@ func _on_play_button_pressed():
 func _on_game_over():
 	print('game over')
 	GameManager.set_game_enabled(false)
-	HUD.set_gameover_panel(true)
+	GameStartGameOver.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
 
 func _on_scored():
