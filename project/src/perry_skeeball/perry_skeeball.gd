@@ -43,12 +43,12 @@ func _on_load_ball(event,input_position):
 		set_up_new_ball()
 
 func set_up_new_ball():
-	print(active_ball, " before")
+
 	skeeballs = get_tree().get_nodes_in_group("skeeballs")
 	if len(skeeballs)>0:
 		active_ball = skeeballs[0]
 		active_ball.remove_ball.connect(_on_dead_ball)
-		print(active_ball, " after")
+
 		active_ball.get_ready(%StartingPoint.global_position)
 
 	pass
@@ -69,18 +69,18 @@ func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
 
 func _on_game_over():
-	print('game over')
+
 	GameManager.set_game_enabled(false)
 	GameStartGameOver.set_gameover_panel(true)
 	GameManager.check_highscore_and_rank()
 
 func _on_scored():
-	print('here')
+
 	HUD.update_score(1)
 
 func _on_dead_ball():
 	active_ball = null
 	skeeballs = get_tree().get_nodes_in_group("skeeballs")
-	print(len(skeeballs))
+
 	if len(skeeballs) <= 1:
 		HUD.update_lives(-1)

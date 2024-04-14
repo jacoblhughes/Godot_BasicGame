@@ -30,8 +30,8 @@ func _ready():
 	
 	var xform = get_viewport_rect().size.x
 	var yform = get_viewport_rect().size.y
-	print(get_viewport_rect())
-	print(get_viewport_transform())
+
+
 	var whirlpools = whirlpool.get_children()
 	if yform > 1280:
 		%Camera2D.enabled = true
@@ -47,9 +47,9 @@ func _ready():
 		%WallBottom.position.x *= xatio
 		%WallTop.scale.x *= xatio
 		%WallBottom.scale.x *= xatio
-		print(%Enemy.position)
+
 		%Enemy.set_x_position(%Enemy.position.x * xatio)
-		print(%Enemy.position)
+
 		%Ball.position.x *= xatio
 		%PlayerStart.position.x *= xatio
 		%Player.position.x *= xatio
@@ -79,7 +79,7 @@ func _on_play_button_pressed():
 func _on_win_body_entered(body):
 	if(GameManager.get_game_enabled()):
 		if body is PerryBall:
-			print('here')
+
 			position_reset.emit()
 			HUD.update_score(score_value)
 			if HUD.check_advance_level():

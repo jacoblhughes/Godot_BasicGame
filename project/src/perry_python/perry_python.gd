@@ -13,6 +13,7 @@ var curr_direction = Vector2.ZERO
 var snake_length = 0
  
 signal hit(minisnake_hit: Minisnake)
+
 var snake_timer
 var isFirst = true
 var isFirstminiSnake = true
@@ -49,11 +50,11 @@ func _ready():
 	var left_over = (HUD.get_play_area_size().y/2) - (HUD.get_play_area_size().x/2)
 	var game_position = Vector2(HUD.get_play_area_position().x,HUD.get_play_area_position().y+left_over)
 	snake_cell_size = Vector2(game_area.x/snake_cells,game_area.y/snake_cells)
-	print('here rererere ready')
+
 	set_play_area_size(game_area)
 	set_play_area_position(game_position)
 	set_snake_cell_size(snake_cell_size)
-	print(snake_cell_size)
+
 	snake_timer = %SnakeTimer
 	snake_timer.timeout.connect(_on_snake_move_timer_timeout)
 	
@@ -61,7 +62,7 @@ func _ready():
 	var yform = get_viewport_rect().size.y
 	var xatio = xform/720
 	var yatio = yform/1280
-	print(xform , " " , yform)
+
 	if yform > 1280:
 		%Camera2D.enabled = true
 #		%Camera2D.zoom.y = yform/1280
@@ -80,28 +81,28 @@ func _ready():
 	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
-	print('here re ready')
+
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	food_spawner = %spawner_food
 	head  = head_scene.instantiate()
 	food_spawner.food_eaten.connect(_on_food_eaten)
-	print('heererererere')
+
 	add_child.call_deferred(head)
-	print('second')
+
 	snake_timer.wait_time = original_snake_time
 
-	print('third')
+
 	head.size = snake_cell_size
 	head.curr_position = game_position + Vector2(game_size.x/2,game_size.y/2)
-	print('ererere')
-	head.hit.connect(_on_hit)
+
+	hit.connect(_on_hit)
 	minisnakes.push_front(head)
-	print('here ready')
+
 	dimensions_ready.emit()
 func _draw():
 	
 	if snake_cell_size:
-		print(snake_cell_size)
+
 		for i in snake_cells+1:
 
 			var vectortest = Vector2(i*snake_cell_size.x+game_position.x,0+game_position.y)
@@ -180,13 +181,14 @@ func grow() -> void:
 	new_head.add_to_group("snakeLengths")
 	minisnakes.push_back(new_head)
 
-	get_parent().get_node("body").add_child.call_deferred(new_head)
+	%body.add_child.call_deferred(new_head)
 
 	
 func _on_hit(mini:Minisnake) -> void:
 	await get_tree().process_frame
 	for minisnake in minisnakes:
 		minisnake.go_to_previous_position()
+	print('on hit')
 	HUD.update_lives(-1)
 
 	

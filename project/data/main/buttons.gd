@@ -61,7 +61,7 @@ func _on_game_chosen(game_key,game_scene):
 	HUD.show()
 	GameStartGameOver.show()
 
-	print('after?')
+
 	
 	
 func _on_about_pressed():

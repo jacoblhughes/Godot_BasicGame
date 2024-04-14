@@ -31,17 +31,17 @@ func _ready():
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
 
 func _on_clickable_input_event(event, input_position):
-	print(can_move)
+
 	if GameManager.get_game_enabled() and can_move:
-		print('here', event.pressed)
+
 		if event is InputEventScreenTouch:
 			if event.pressed:
-				print('PRESSED')
+
 				start_swipe_pos = input_position
 				touch_start_time = Time.get_ticks_msec() / 1000.0 # Get current time in seconds
 				is_swiping = true
 			else:
-				print('something else')
+
 				is_swiping = false
 				end_swipe_pos = input_position
 				var touch_duration = (Time.get_ticks_msec() / 1000.0) - touch_start_time
@@ -53,12 +53,12 @@ func _on_clickable_input_event(event, input_position):
 					handle_swipe()
 
 func handle_click():
-	print('should click')
+
 	if is_on_floor():
 		target_velocity.y = jump_impulse
 
 func handle_swipe():
-	print('should swipe')
+
 	var swipe_direction = (end_swipe_pos - start_swipe_pos).normalized()
 	# Store the 3D movement direction based on swipe
 	movement_direction = Vector3(swipe_direction.x, 0, swipe_direction.y)

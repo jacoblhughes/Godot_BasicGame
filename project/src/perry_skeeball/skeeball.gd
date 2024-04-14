@@ -25,12 +25,6 @@ func _integrate_forces(state):
 		var current_transform = state.get_transform()
 		current_transform.origin = target_position
 		state.set_transform(current_transform)
-#	print(state.step)
-#	if manual_move:
-#		state.transform.origin =  move_to_position
-#		manual_move = false
-#		if state.transform.origin.distance_to(move_to_position) < .01:
-#			freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
 
 func get_ready(input_position):
 	manual_move = true

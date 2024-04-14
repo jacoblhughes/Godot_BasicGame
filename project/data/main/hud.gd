@@ -184,7 +184,7 @@ func get_play_area_size():
 
 func hud_initialize(this_initial_score_value, this_initial_lives_value, this_initial_level_value, this_level_advance_check_value, this_level_advance_value, this_countdown_timer_timeout):
 	initial_score_value = this_initial_score_value
-	print(initial_score_value)
+
 	initial_lives_value = this_initial_lives_value
 	initial_level_value = this_initial_level_value
 	level_advance_check_value = this_level_advance_check_value

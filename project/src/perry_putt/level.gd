@@ -11,13 +11,13 @@ func _ready():
 	var yform = get_viewport_rect().size.y
 	var xatio = xform/720
 	var yatio = yform/1280
-	print(xform , " " , yform)
+
 	if yform > 1280:
 		%Camera2D.enabled = true
 #		%Camera2D.zoom.y = yform/1280
 
 	if xform > 720:
-		print('here')
+
 		var obstacles
 		if %Obstacles.get_child_count() > 0:
 			obstacles = %Obstacles.get_children()

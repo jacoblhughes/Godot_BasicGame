@@ -94,7 +94,7 @@ func _initialize_buttons():
 func _computer_turn_start():
 	_set_buttons_disabled(true)
 	_add_next_value()
-	print('heeeeeee')
+
 	%PlaybackTimer.start()
 	
 func _set_buttons_disabled(setting):
@@ -129,7 +129,7 @@ func _on_play_button_pressed():
 	pass # Replace with function body.
 	
 func _on_playback_timer_timeout():
-	print(computerPopulate)
+
 	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]].called_from_game()
 	computerPopulate+=1
 	if(computerPopulate == len(arrayOfButtonsToFollow)):
