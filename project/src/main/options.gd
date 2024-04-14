@@ -1,9 +1,9 @@
-extends AspectRatioContainer
+extends Control
 @onready var InitialsInput : LineEdit = %Initials
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#P
+	%Button.pressed.connect(_on_home_button_pressed)
 	%BackgroundOnOff.button_pressed = AudioManager.get_background_music_status()
 	%GameEffectsOnOff.button_pressed = AudioManager.get_game_music_status()
 	%BackgroundVolume.value = AudioManager.get_background_music_level()
@@ -39,3 +39,6 @@ func _on_reset_high_scores_pressed():
 func _on_initials_text_changed(new_text):
 	GameManager.save_initials(new_text)
 	pass # Replace with function body.
+
+func _on_home_button_pressed():
+	HUD.home_button_pressed()

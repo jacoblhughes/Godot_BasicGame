@@ -23,14 +23,14 @@ perry_polo
 	make icons that give powerups or other things
 
 perry_llama
-	Make scenes different sizes (ht and width)0
+	
 
 perry_dodge
 	powerups
 
 perry_flap
 	make the walls not fall
-	make sure the highscore can't be called twice
+
 
 perry_run
 
@@ -49,19 +49,16 @@ Make directions for each game
 All:
 	
 	Make all touch
-	Make level checking unified in Game Manager
+
 	Make timer for use in all
 	Make classes for things, like perry dodge enemies
 	Improved backgrounds
 	Improved sounds (like from one place mainly)
 	Improved background music
-	Make the buttons a separate scene
 	game initializations
 		standardize
 		put in buttons?
-		make the button to create game a single function?
 	Fix the way the background is created and is displayed
-	Get rid of the need for the play area
 	Consolidate the sounds
 	
 Options

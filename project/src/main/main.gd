@@ -16,7 +16,8 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed('pc_reset'):
 		get_tree().reload_current_scene()
-		pass
+	if Input.is_action_just_pressed("pc_quit"):
+		get_tree().quit()
 
 
 	pass

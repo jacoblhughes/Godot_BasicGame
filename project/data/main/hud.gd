@@ -27,7 +27,7 @@ signal clickable_input_event
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	print(DisplayServer.get_display_safe_area())
-#	print(DisplayServer.screen_get_usable_rect())
+	%InputPanel.input_event.connect(_on_clickable_input_event)
 	pass
 func _process(delta):
 	if time_left:
@@ -169,10 +169,14 @@ func _on_game_passed_timer_timeout():
 	pass # Replace with function body.
 
 
-func _on_panel_gui_input(event):
+#func _on_panel_gui_input(event):
+#	if event is InputEventScreenTouch and not event.is_handled:
+#		clickable_input_event.emit(event,event.position)
+	pass # Replace with function body.
+
+func _on_clickable_input_event(event):
 	if event is InputEventScreenTouch:
 		clickable_input_event.emit(event,event.position)
-	pass # Replace with function body.
 
 func get_play_area_position():
 	return %InputPanel.global_position
@@ -182,7 +186,13 @@ func get_play_area_size():
 
 
 
-func hud_initialize(this_initial_score_value, this_initial_lives_value, this_initial_level_value, this_level_advance_check_value, this_level_advance_value, this_countdown_timer_timeout):
+func hud_initialize(
+	this_initial_score_value
+, this_initial_lives_value
+, this_initial_level_value,this_level_advance_check_value, this_level_advance_value
+, this_countdown_timer_timeout
+, this_game_left_timer_timeout
+):
 	initial_score_value = this_initial_score_value
 
 	initial_lives_value = this_initial_lives_value
@@ -194,7 +204,4 @@ func hud_initialize(this_initial_score_value, this_initial_lives_value, this_ini
 	set_or_reset_level(initial_level_value)
 
 	countdown_timer_timeout.connect(this_countdown_timer_timeout)
-#	HUD.countdown_timer_timeout.connect(_on_countdown_timer_timeout)
-#	HUD.game_left_timer_timeout.connect(_on_game_left_timer_timeout)
-#	HUD.countdown_timer_timeout.connect(_on_countdown_timer_timeout)
-#	HUD.game_left_timer_timeout.connect(_on_game_left_timer_timeout)
+	game_left_timer_timeout.connect(this_game_left_timer_timeout)

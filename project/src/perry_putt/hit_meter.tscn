@@ -28,7 +28,6 @@ offset_top = 128.0
 offset_right = 48.0
 offset_bottom = 224.0
 grow_horizontal = 2
-mouse_filter = 1
 texture_normal = ExtResource("2_5ytor")
 texture_pressed = ExtResource("2_5ytor")
 ignore_texture_size = true

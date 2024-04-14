@@ -17,7 +17,11 @@ func _process(delta):
 	pass
 
 func out_of_lives():
+	show()
 	game_over.emit()
+	set_gameover_panel(true)
+	GameManager.set_game_enabled(false)
+	GameManager.check_highscore_and_rank()
 
 
 func game_start_game_over_initialize( this_start_button_callable, this_game_over_callable):

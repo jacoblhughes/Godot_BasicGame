@@ -3,30 +3,69 @@
 [ext_resource type="Script" path="res://src/main/options.gd" id="1_w0opa"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="2_e7rg0"]
 
-[node name="Options" type="AspectRatioContainer"]
+[node name="Options" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-ratio = 0.5625
 script = ExtResource("1_w0opa")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme = ExtResource("2_e7rg0")
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.215686, 0.580392, 0.431373, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+theme = ExtResource("2_e7rg0")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_e7rg0")
+text = "Home"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_e7rg0")
+theme_type_variation = &"MarginContainerHUD"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2"]
 layout_mode = 2
 theme = ExtResource("2_e7rg0")
 theme_type_variation = &"VBoxContainerOptions"
 
-[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="Control3" type="Control" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="BackgroundOnOff" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+[node name="BackgroundOnOff" type="CheckButton" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -35,7 +74,7 @@ action_mode = 0
 text = "Background Music: "
 alignment = 1
 
-[node name="BackgroundVolume" type="HSlider" parent="MarginContainer/VBoxContainer"]
+[node name="BackgroundVolume" type="HSlider" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -45,7 +84,7 @@ step = 0.05
 tick_count = 21
 ticks_on_borders = true
 
-[node name="GameEffectsOnOff" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+[node name="GameEffectsOnOff" type="CheckButton" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -53,7 +92,7 @@ theme = ExtResource("2_e7rg0")
 text = "Game Audio:"
 alignment = 1
 
-[node name="GameEffectsVolume" type="HSlider" parent="MarginContainer/VBoxContainer"]
+[node name="GameEffectsVolume" type="HSlider" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -63,7 +102,7 @@ step = 0.05
 tick_count = 21
 ticks_on_borders = true
 
-[node name="InitialsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="InitialsLabel" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -73,7 +112,7 @@ text = "Input initials below to change:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Initials" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+[node name="Initials" type="LineEdit" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -82,30 +121,30 @@ theme = ExtResource("2_e7rg0")
 alignment = 1
 max_length = 3
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="ResetHighScores" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ResetHighScores" type="Button" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_e7rg0")
 text = "Reset High Scores"
 
-[node name="Control4" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="Control4" type="Control" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BackgroundOnOff" to="." method="_on_check_button_pressed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/BackgroundVolume" to="." method="_on_h_slider_value_changed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/GameEffectsOnOff" to="." method="_on_check_button_2_pressed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/GameEffectsVolume" to="." method="_on_h_slider_2_value_changed"]
-[connection signal="text_changed" from="MarginContainer/VBoxContainer/Initials" to="." method="_on_initials_text_changed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ResetHighScores" to="." method="_on_reset_high_scores_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/VBoxContainer/BackgroundOnOff" to="." method="_on_check_button_pressed"]
+[connection signal="value_changed" from="VBoxContainer/MarginContainer2/VBoxContainer/BackgroundVolume" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/VBoxContainer/GameEffectsOnOff" to="." method="_on_check_button_2_pressed"]
+[connection signal="value_changed" from="VBoxContainer/MarginContainer2/VBoxContainer/GameEffectsVolume" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="text_changed" from="VBoxContainer/MarginContainer2/VBoxContainer/Initials" to="." method="_on_initials_text_changed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/VBoxContainer/ResetHighScores" to="." method="_on_reset_high_scores_pressed"]

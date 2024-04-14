@@ -1,4 +1,4 @@
-extends TouchScreenButton
+extends TextureButton
 @onready var sprite_number : int = 0
 @onready var button_number : int = 1
 #@onready var animated_sprite : AnimatedSprite2D
@@ -13,6 +13,7 @@ func _ready():
 #	texture_button = $TextureButton
 #	animated_sprite = $TextureButton/AnimatedSprite2D
 	audio_stream_player = %AudioStreamPlayer
+	pressed.connect(_on_texture_button_pressed)
 	pass
 
 func initiate_button():
@@ -76,4 +77,10 @@ func _on_texture_button_pressed():
 	pass # Replace with function body.
 
 func called_from_game():
-	_on_texture_button_pressed()
+
+	pressed.emit()
+	toggle_mode = true
+	button_pressed = true
+	await get_tree().create_timer(play_time).timeout
+	button_pressed = false
+	toggle_mode = false

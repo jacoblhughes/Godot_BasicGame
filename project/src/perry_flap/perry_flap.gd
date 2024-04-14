@@ -25,7 +25,8 @@ func _ready():
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")	
-	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable)
+	var game_left_timer_callable = Callable(self,"_on_game_left_timer_timeout")
+	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable, game_left_timer_callable)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
 	
@@ -43,7 +44,7 @@ func _ready():
 		var nodes_to_move =[%EnemySpawnPosition]
 		for node in nodes_to_move:
 			node.position.x *= xatio
-		var nodes_to_scale = [%Map]
+		var nodes_to_scale = []
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
 	
@@ -71,12 +72,10 @@ func _on_game_over():
 	for nodes in get_tree().get_nodes_in_group("enemy"):
 		nodes.remove_from_group("enemy")
 		nodes.queue_free()
-	GameManager.set_game_enabled(false)
-	GameStartGameOver.set_gameover_panel(true)
 	%SpawnTimer.stop()
 	%Player.motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	%Player.position = %StartPosition.position
-	GameManager.check_highscore_and_rank()
+
 
 
 func advance_level():

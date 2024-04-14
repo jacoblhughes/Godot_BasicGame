@@ -25,28 +25,51 @@ script = ExtResource("3_nsfda")
 unique_name_in_owner = true
 
 [node name="PerryButton" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(104, 432)
+offset_left = 104.0
+offset_top = 432.0
+offset_right = 104.0
+offset_bottom = 432.0
 
 [node name="PerryButton2" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(360, 432)
+offset_left = 360.0
+offset_top = 432.0
+offset_right = 360.0
+offset_bottom = 432.0
 
 [node name="PerryButton3" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(104, 688)
+offset_left = 104.0
+offset_top = 688.0
+offset_right = 104.0
+offset_bottom = 688.0
 
 [node name="PerryButton4" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(360, 688)
+offset_left = 360.0
+offset_top = 688.0
+offset_right = 360.0
+offset_bottom = 688.0
 
 [node name="PerryButton5" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(40, 176)
+offset_left = 40.0
+offset_top = 176.0
+offset_right = 40.0
+offset_bottom = 176.0
 
 [node name="PerryButton6" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(424, 176)
+offset_left = 424.0
+offset_top = 176.0
+offset_right = 424.0
+offset_bottom = 176.0
 
 [node name="PerryButton7" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(40, 944)
+offset_left = 40.0
+offset_top = 944.0
+offset_right = 40.0
+offset_bottom = 944.0
 
 [node name="PerryButton8" parent="Buttons" instance=ExtResource("3_o4idv")]
-position = Vector2(424, 944)
+offset_left = 424.0
+offset_top = 944.0
+offset_right = 424.0
+offset_bottom = 944.0
 
-[connection signal="timeout" from="PlaybackTimer" to="." method="_on_playback_timer_timeout"]
 [connection signal="ready" from="Buttons" to="." method="_on_buttons_ready"]

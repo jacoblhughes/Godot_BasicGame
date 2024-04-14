@@ -31,7 +31,7 @@ var buttonObject = {}
 var sounds = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	%PlaybackTimer.timeout.connect(_on_playback_timer_timeout)
 	sounds = [preload("res://sounds/perry_says/c_low.wav"),preload("res://sounds/perry_says/d.wav")
 	,preload("res://sounds/perry_says/e.wav"),preload("res://sounds/perry_says/f.wav")
 	,preload("res://sounds/perry_says/g.wav"),preload("res://sounds/perry_says/a.wav")
@@ -40,9 +40,11 @@ func _ready():
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")
-	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable)
+	var game_left_timer_callable = Callable(self,"_on_game_left_timer_timeout")
+	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable, game_left_timer_callable)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
+
 	await _initialize_buttons()
 
 
@@ -59,12 +61,8 @@ func _process(_delta):
 			else:
 				HUD.update_lives(-1)
 
-func _game_lose():
-	GameStartGameOver.set_gameover_panel(true)
-	GameManager.check_highscore_and_rank()
+func _on_game_over():
 	_set_buttons_disabled(true)
-	HUD.reset_score()
-	GameManager.set_game_enabled(false)
 	computerPopulate = 0
 	arrayOfButtonsToFollow = []
 	_stop_game_button_sounds()
@@ -92,7 +90,7 @@ func _initialize_buttons():
 	groupOfButtons = get_tree().get_nodes_in_group("perry_says_buttons")
 
 func _computer_turn_start():
-	_set_buttons_disabled(true)
+
 	_add_next_value()
 
 	%PlaybackTimer.start()
@@ -129,13 +127,12 @@ func _on_play_button_pressed():
 	pass # Replace with function body.
 	
 func _on_playback_timer_timeout():
-
+	_set_buttons_disabled(false)
 	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]].called_from_game()
 	computerPopulate+=1
 	if(computerPopulate == len(arrayOfButtonsToFollow)):
 
 		playerTurn = true
-
 		computerPopulate = 0
 		_set_buttons_disabled(false)
 		%PlaybackTimer.stop()
@@ -149,8 +146,9 @@ func _stop_game_button_sounds():
 	
 func _stop_game_button_animations_and_timer():
 	for button in groupOfButtons:
-		button.animated_sprite.stop()
-		button.animated_sprite.play('default')
+#		button.animated_sprite.stop()
+#		button.animated_sprite.play('default')
+		pass
 	%PlaybackTimer.stop()
 
 func _on_game_button_pressed(which):

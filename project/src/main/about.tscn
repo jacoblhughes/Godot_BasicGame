@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8eyyvj5cesul"]
+[gd_scene load_steps=3 format=3 uid="uid://b8eyyvj5cesul"]
 
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="1_5bi5k"]
+[ext_resource type="Script" path="res://src/main/about.gd" id="1_37xf7"]
 
-[node name="AspectRatioContainer" type="AspectRatioContainer"]
+[node name="About" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,22 +12,57 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-ratio = 0.5625
+script = ExtResource("1_37xf7")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme = ExtResource("1_5bi5k")
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
-layout_mode = 2
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.215686, 0.580392, 0.431373, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+theme = ExtResource("1_5bi5k")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_5bi5k")
+text = "Home"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_5bi5k")
+theme_type_variation = &"MarginContainerHUD"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_5bi5k")
 theme_type_variation = &"MarginContainerAbout"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_5bi5k")
 bbcode_enabled = true
