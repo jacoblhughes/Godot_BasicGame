@@ -1,18 +1,17 @@
-class_name Snake
 extends Node2D
-
+class_name Snake
 
 
 #var head := Minisnake.new()
-@onready var head
-@onready var head_scene = preload("res://src/perry_python/player.tscn")
+var head
+@export var head_scene : PackedScene
 var minisnakes := [] as Array[Minisnake]
 
 var next_direction = Vector2.ZERO
 var curr_direction = Vector2.ZERO
 
 var snake_length = 0
-var play_area_min 
+ 
 signal hit(minisnake_hit: Minisnake)
 var snake_timer
 var isFirst = true
@@ -31,14 +30,6 @@ var snake_cells = 8
 var snake_cell_size := Vector2(0,0)
 var game_size := Vector2(0,0)
 var game_position := Vector2(0,0)
-var cell_size
-var sizewidth 
-var sizeheight
-var originalx
-var originaly
-var width
-var height
-var BLUE  = Color.WHITE
 
 signal dimensions_ready
 
@@ -51,32 +42,18 @@ var level_advance_check_value = 10
 var level_advance_value = 1
 var start_button_callable
 
-func _draw():
-
-	if cell_size:
-
-		for i in snake_cells+1:
-
-			var vectortest = Vector2(i*cell_size.x+game_position.x,0+game_position.y)
-			var vectortest1 = Vector2(i*cell_size.x+game_position.x,height+game_position.y)
-			draw_line(vectortest,vectortest1,BLUE)
-			
-		for i in snake_cells+1:
-			var vectortest2 = Vector2(0+game_position.x,i*cell_size.y+game_position.y)
-			var vectortest3 = Vector2(width+game_position.x,i*cell_size.y+game_position.y)
-			draw_line(vectortest2,vectortest3,BLUE)
 
 
 func _ready():
 	var game_area = Vector2(HUD.get_play_area_size().x,HUD.get_play_area_size().x)
 	var left_over = (HUD.get_play_area_size().y/2) - (HUD.get_play_area_size().x/2)
 	var game_position = Vector2(HUD.get_play_area_position().x,HUD.get_play_area_position().y+left_over)
-	cell_size = Vector2(game_area.x/snake_cells,game_area.y/snake_cells)
-
+	snake_cell_size = Vector2(game_area.x/snake_cells,game_area.y/snake_cells)
+	print('here rererere ready')
 	set_play_area_size(game_area)
 	set_play_area_position(game_position)
-	set_snake_cell_size(cell_size)
-
+	set_snake_cell_size(snake_cell_size)
+	print(snake_cell_size)
 	snake_timer = %SnakeTimer
 	snake_timer.timeout.connect(_on_snake_move_timer_timeout)
 	
@@ -103,16 +80,38 @@ func _ready():
 	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
-	
+	print('here re ready')
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	food_spawner = %spawner_food
 	head  = head_scene.instantiate()
 	food_spawner.food_eaten.connect(_on_food_eaten)
-	get_parent().add_child.call_deferred(head)
+	print('heererererere')
+	add_child.call_deferred(head)
+	print('second')
 	snake_timer.wait_time = original_snake_time
+
+	print('third')
+	head.size = snake_cell_size
+	head.curr_position = game_position + Vector2(game_size.x/2,game_size.y/2)
+	print('ererere')
+	head.hit.connect(_on_hit)
+	minisnakes.push_front(head)
+	print('here ready')
 	dimensions_ready.emit()
-	_on_grid_ready()
+func _draw():
 	
+	if snake_cell_size:
+		print(snake_cell_size)
+		for i in snake_cells+1:
+
+			var vectortest = Vector2(i*snake_cell_size.x+game_position.x,0+game_position.y)
+			var vectortest1 = Vector2(i*snake_cell_size.x+game_position.x,snake_cell_size.y+game_position.y)
+			draw_line(vectortest,vectortest1,Color.BLUE)
+			
+		for i in snake_cells+1:
+			var vectortest2 = Vector2(0+game_position.x,i*snake_cell_size.y+game_position.y)
+			var vectortest3 = Vector2(snake_cell_size.x+game_position.x,i*snake_cell_size.y+game_position.y)
+			draw_line(vectortest2,vectortest3,Color.BLUE)
 
 
 func _process(_delta):
@@ -153,8 +152,8 @@ func move() -> void:
 
 	curr_direction = next_direction
 	var next_position = head.curr_position + (curr_direction * snake_cell_size)
-	next_position.x = play_area_min.x + fposmod(next_position.x - play_area_min.x,game_size.x) 
-	next_position.y = play_area_min.y + fposmod(next_position.y - play_area_min.y,game_size.y)
+	next_position.x = game_position.x + fposmod(next_position.x - game_position.x,game_size.x) 
+	next_position.y = game_position.y + fposmod(next_position.y - game_position.y,game_size.y)
 	head.curr_position = next_position
 
 	for i in range(1, minisnakes.size()):
@@ -203,12 +202,6 @@ func _on_game_over():
 	GameManager.check_highscore_and_rank()
 	pass
 
-func _on_grid_ready():
-	head.size = snake_cell_size
-	head.curr_position = play_area_min + Vector2(game_size.x/2,game_size.y/2)
-#	head.SnakePartReady.connect(_on_head_ready)
-	hit.connect(_on_hit)
-	minisnakes.push_front(head)
 
 func _on_food_eaten():
 	HUD.update_score(score_value)
@@ -236,7 +229,7 @@ func set_snake_cell_size(value):
 	snake_cell_size = value
 
 func return_snake_cell_size():
-		return cell_size
+		return snake_cell_size
 
 func return_snake_cells():
 	return snake_cells

@@ -6,6 +6,7 @@ var size := Vector2()
 var color := Color()
 
 func get_rect() -> Rect2:
+	print('minisnakes')
 	return Rect2(curr_position,size)
 
 func _set_curr_position(new_position: Vector2) -> void:

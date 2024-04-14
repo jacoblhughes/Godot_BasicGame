@@ -198,9 +198,3 @@ func hud_initialize(this_initial_score_value, this_initial_lives_value, this_ini
 #	HUD.game_left_timer_timeout.connect(_on_game_left_timer_timeout)
 #	HUD.countdown_timer_timeout.connect(_on_countdown_timer_timeout)
 #	HUD.game_left_timer_timeout.connect(_on_game_left_timer_timeout)
-
-func set_input(flag):
-	if flag:
-		%InputPanel.MOUSE_FILTER_PASS
-	else:
-		%InputPanel.MOUSE_FILTER_IGNORE

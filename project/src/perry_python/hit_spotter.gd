@@ -26,4 +26,5 @@ func _on_snake_hit(minisnake_hit: Minisnake) -> void:
 	hit_color = Color.BLUE
 
 func _on_dimensions_ready():
+	print('and this one')
 	hit_spot = Rect2(Vector2.ZERO,  get_parent().return_snake_cell_size())
