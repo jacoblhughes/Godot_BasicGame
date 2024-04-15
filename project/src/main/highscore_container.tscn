@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="2_84gqx"]
 
 [node name="HighscoreContainer" type="Control"]
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,29 +25,63 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme = ExtResource("2_84gqx")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+alignment = 1
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("2_84gqx")
 text = "Title"
 
-[node name="InitialsBox" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Col1" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="RankBox1" type="VBoxContainer" parent="HBoxContainer/Col1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InitialsBox1" type="VBoxContainer" parent="HBoxContainer/Col1"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ScoresBox" type="HBoxContainer" parent="VBoxContainer"]
+[node name="ScoresBox1" type="VBoxContainer" parent="HBoxContainer/Col1"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Col2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RankBox2" type="VBoxContainer" parent="HBoxContainer/Col2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InitialsBox2" type="VBoxContainer" parent="HBoxContainer/Col2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScoresBox2" type="VBoxContainer" parent="HBoxContainer/Col2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
