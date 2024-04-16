@@ -1,14 +1,7 @@
 extends Node2D
 
 @export var enemy_scenes : Array[PackedScene] = []
-@onready var player : CharacterBody2D
 @onready var enemy_spawn_timer : Timer
-
-
-@onready var enemy_spawner : Node2D
-@onready var start_position : Marker2D
-
-@onready var despawn : Area2D
 
 var initial_score_value = 0
 var score_advance_base_value = 1
@@ -43,18 +36,14 @@ func _ready():
 #		%Camera2D.zoom.y = yform/1280
 
 	if xform > 720:
-		var nodes_to_move =[start_position,enemy_spawner,%PerryRun]
+		var nodes_to_move =[%StartPosition,%EnemySpawner,%PerryRun]
 		for node in nodes_to_move:
 			node.position.x *= xatio
 		var nodes_to_scale = []
 	
-	start_position = %StartPosition
 	enemy_spawn_timer = %EnemySpawnTimer
-	player = %Player
-	enemy_spawner = %EnemySpawner
-	player.dino_hit.connect(_on_dino_hit)
-	despawn = %Despawn
-	despawn.body_entered.connect(_on_despawn_body_entered)
+	%Player.dino_hit.connect(_on_dino_hit)
+	%Despawn.body_entered.connect(_on_despawn_body_entered)
 	
 	for node in get_tree().get_nodes_in_group("enemy"):
 		node.remove_from_group("enemy")
@@ -65,7 +54,7 @@ func _ready():
 func _on_enemy_spawn_timer_timeout():
 	var enemy_choice = floor(randf_range(0, 4))
 	var enemy = enemy_scenes[enemy_choice].instantiate()
-	enemy_spawner.add_child.call_deferred(enemy,true)
+	%EnemySpawner.add_child.call_deferred(enemy,true)
 	pass # Replace with function body.
 
 
@@ -92,7 +81,7 @@ func _on_dino_hit():
 	
 func _on_game_over():
 	enemy_spawn_timer.stop()
-	player.global_position = start_position.global_position
+	%Player.global_position = %StartPosition.global_position
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	for node in enemies:
 		queue_free()

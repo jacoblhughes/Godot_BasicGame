@@ -45,10 +45,16 @@ func _ready():
 	var yform = get_viewport_rect().size.y
 	var xatio = xform/720
 	var yatio = yform/1280
-
-#	if yform > 1280:
+	print(xform , " " , yform)
+	if yform > 1280:
 #		%Camera2D.enabled = true
 #		%Camera2D.zoom.y = yform/1280
+		var nodes_to_move =[%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish,%RaceTrack,%MeltZone,%Player,%StartPosition,%MeltZone,%RaceTrack]
+		for node in nodes_to_move:
+			node.position.y *= yatio
+		var nodes_to_scale = [%TileMap,%MeltZone,%RaceTrack]
+		for node in nodes_to_scale:
+			node.scale.y *= yatio
 
 	if xform > 720:
 		var nodes_to_move =[%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish,%RaceTrack,%MeltZone,%Player,%StartPosition,%MeltZone,%RaceTrack]
@@ -111,6 +117,7 @@ func _on_finish_body_entered(body):
 		if c_p_1_hit == true and c_p_2_hit == true and c_p_3_hit == true:
 			HUD.update_score()
 			%Finish.clear()
+			await get_tree().create_timer(3).timeout
 			for node in checkpoints:
 				node.reset()
 			if HUD.check_advance_level():
@@ -121,7 +128,7 @@ func _on_finish_body_entered(body):
 
 func _on_play_button_pressed():
 
-	GameManager.set_game_enabled(true)
+
 	HUD.set_start_timer_countdown_and_start()
 
 func _reset_checkpoints():

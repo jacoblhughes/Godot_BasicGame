@@ -20,7 +20,7 @@ func _ready():
 
 		var obstacles = %Obstacles
 		if obstacles.get_child_count() > 0:
-			for node in obstacles:
+			for node in obstacles.get_children():
 				node.position.x *= xatio
 		var nodes_to_move =[%PerryBall,%Hole]
 		for node in nodes_to_move:

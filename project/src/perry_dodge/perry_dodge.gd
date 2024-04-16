@@ -31,10 +31,16 @@ func _ready():
 	var xatio = xform/720
 	var yatio = yform/1280
 
-#	if yform > 1280:
+	if yform > 1280:
 #		%Camera2D.enabled = true
 #		%Camera2D.zoom.y = yform/1280
-
+		var nodes_to_move =[%StartPosition]
+		for node in nodes_to_move:
+			node.position.y *= yatio
+		var nodes_to_scale = [%TileMap]
+		for node in nodes_to_scale:
+			node.scale.y *= yatio
+			
 	if xform > 720:
 
 		var nodes_to_move =[%StartPosition]
