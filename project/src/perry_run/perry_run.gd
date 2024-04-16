@@ -25,14 +25,7 @@ signal out_of_bounds(new_target_position)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	%CheckPoint1.body_entered.connect(_on_cp_1_body_entered)
-	%CheckPoint2.body_entered.connect(_on_cp_2_body_entered)
-	%CheckPoint3.body_entered.connect(_on_cp_3_body_entered)
-	%Finish.body_entered.connect(_on_finish_body_entered)
-	%RaceTrack.body_exited.connect(_on_race_track_body_exited)
-	%MeltZone.body_entered.connect(_on_melt_zone_body_entered)
-	checkpoints = [%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish]
-	reset_point = %Finish.position
+
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
@@ -45,10 +38,15 @@ func _ready():
 	var yform = get_viewport_rect().size.y
 	var xatio = xform/720
 	var yatio = yform/1280
-
-#	if yform > 1280:
-#		%Camera2D.enabled = true
-#		%Camera2D.zoom.y = yform/1280
+	print(xform , " " , yform)
+	
+	if yform > 1280:
+		var nodes_to_move =[%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish,%RaceTrack,%MeltZone,%Player,%StartPosition,%MeltZone,%RaceTrack]
+		for node in nodes_to_move:
+			node.position.x *= xatio
+		var nodes_to_scale = [%TileMap,%MeltZone,%RaceTrack]
+		for node in nodes_to_scale:
+			node.scale.x *= xatio
 
 	if xform > 720:
 		var nodes_to_move =[%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish,%RaceTrack,%MeltZone,%Player,%StartPosition,%MeltZone,%RaceTrack]
@@ -57,7 +55,15 @@ func _ready():
 		var nodes_to_scale = [%TileMap,%MeltZone,%RaceTrack]
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
-	
+
+	%CheckPoint1.body_entered.connect(_on_cp_1_body_entered)
+	%CheckPoint2.body_entered.connect(_on_cp_2_body_entered)
+	%CheckPoint3.body_entered.connect(_on_cp_3_body_entered)
+	%Finish.body_entered.connect(_on_finish_body_entered)
+	%RaceTrack.body_exited.connect(_on_race_track_body_exited)
+	%MeltZone.body_entered.connect(_on_melt_zone_body_entered)
+	checkpoints = [%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish]
+	reset_point = %Finish.position
 
 	pass # Replace with function body.
 
