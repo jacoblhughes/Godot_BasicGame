@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjw6sh7j2lsq3"]
+[gd_scene load_steps=9 format=3 uid="uid://bjw6sh7j2lsq3"]
 
-[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="1_25uw0"]
 [ext_resource type="Script" path="res://src/perry_dodge/perry_dodge.gd" id="1_mjawl"]
 [ext_resource type="PackedScene" uid="uid://5w3s3bekcgvy" path="res://src/perry_dodge/enemy.tscn" id="2_ndgye"]
 [ext_resource type="Texture2D" uid="uid://dmi16l057ro3v" path="res://textures/perry_dodge/creep_background_128.png" id="3_lj6dr"]
@@ -25,30 +24,19 @@ sources/0 = SubResource("TileSetAtlasSource_ajf4l")
 script = ExtResource("1_mjawl")
 mob_scene = ExtResource("2_ndgye")
 
-[node name="GameBackground" parent="." instance=ExtResource("1_25uw0")]
-game_background_texture = ExtResource("3_lj6dr")
-stretch_mode_tile = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(360, 640)
 enabled = false
 
 [node name="TileMap" type="TileMap" parent="."]
-visible = false
-position = Vector2(40, 144)
+unique_name_in_owner = true
 tile_set = SubResource("TileSet_rfxxs")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 196608, 0, 2, 131072, 0, 4, 196608, 0, 3, 0, 0, 65540, 0, 0, 65539, 65536, 0, 65538, 0, 0, 65537, 65536, 0, 131073, 0, 0, 131074, 131072, 0, 131075, 131072, 0, 196611, 196608, 0, 131076, 196608, 0, 196612, 0, 0, 262148, 65536, 0, 327684, 131072, 0, 327683, 0, 0, 327682, 65536, 0, 327681, 196608, 0, 327680, 0, 0, 262144, 65536, 0, 196608, 131072, 0, 131072, 196608, 0, 65536, 65536, 0, 196609, 131072, 0, 196610, 65536, 0, 262145, 0, 0, 262146, 131072, 0, 262147, 0, 0, 393219, 196608, 0, 393220, 131072, 0, 458756, 65536, 0, 458755, 0, 0, 458754, 0, 0, 458753, 65536, 0, 393217, 0, 0, 393216, 196608, 0, 393218, 131072, 0, 458752, 131072, 0)
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 196608, 0, 2, 131072, 0, 4, 196608, 0, 3, 0, 0, 65540, 0, 0, 65539, 65536, 0, 65538, 0, 0, 65537, 65536, 0, 131073, 0, 0, 131074, 131072, 0, 131075, 131072, 0, 196611, 196608, 0, 131076, 196608, 0, 196612, 0, 0, 262148, 65536, 0, 327684, 131072, 0, 327683, 0, 0, 327682, 65536, 0, 327681, 196608, 0, 327680, 0, 0, 262144, 65536, 0, 196608, 131072, 0, 131072, 196608, 0, 65536, 65536, 0, 196609, 131072, 0, 196610, 65536, 0, 262145, 0, 0, 262146, 131072, 0, 262147, 0, 0, 393219, 196608, 0, 393220, 131072, 0, 458756, 65536, 0, 458755, 0, 0, 458754, 0, 0, 458753, 65536, 0, 393217, 0, 0, 393216, 196608, 0, 393218, 131072, 0, 458752, 131072, 0, 524290, 65536, 0, 589824, 65536, 0, 524288, 131072, 0, 589827, 131072, 0, 458757, 131072, 0, 131077, 131072, 0, 5, 196608, 0, 327685, 196608, 0, 589829, 196608, 0, 524292, 131072, 0, 589825, 131072, 0, 524289, 131072, 0, 589828, 131072, 0, 262149, 131072, 0, 196613, 65536, 0, 524291, 65536, 0, 589826, 196608, 0, 524293, 0, 0, 393221, 0, 0, 65541, 0, 0)
 
-[node name="ScoreTimer" type="Timer" parent="."]
+[node name="ScoreAndMobTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-
-[node name="MobTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-
-[node name="StartTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 2.0
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -65,7 +53,3 @@ rotation = 1.56455
 
 [node name="Player" parent="." instance=ExtResource("5_10pmt")]
 unique_name_in_owner = true
-
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
-[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
-[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

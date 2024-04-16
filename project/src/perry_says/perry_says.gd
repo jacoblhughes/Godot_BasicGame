@@ -9,17 +9,15 @@ var rng = RandomNumberGenerator.new()
 
 var groupOfButtons
 
-var disabledColor
-var score_value = 1
-
 var initial_score_value = 0
-#var score_advance_value = 1
+var score_advance_base_value = 1
 var initial_lives_value = 1
-#var lives_advance_value = 1
+var lives_advance_base_value = 1
 var initial_level_value = 1
 var level_advance_check_value = 10
-var level_advance_value = 1
-var start_button_callable
+var level_advance_base_value = 1
+var start_timer_countdown_value = 3
+var game_time_left_timer_value = 3
 
 var playerTurn = false
 var computerPopulate = 0
@@ -28,22 +26,38 @@ var button_pressed
 var buttonObject = {}
 
 
-var sounds = []
+@export var sounds :Array[AudioStreamWAV] = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	%PlaybackTimer.timeout.connect(_on_playback_timer_timeout)
-	sounds = [preload("res://sounds/perry_says/c_low.wav"),preload("res://sounds/perry_says/d.wav")
-	,preload("res://sounds/perry_says/e.wav"),preload("res://sounds/perry_says/f.wav")
-	,preload("res://sounds/perry_says/g.wav"),preload("res://sounds/perry_says/a.wav")
-	,preload("res://sounds/perry_says/b.wav"),preload("res://sounds/perry_says/c.wav")]
+
 	
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
-	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")
-	var game_left_timer_callable = Callable(self,"_on_game_left_timer_timeout")
-	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable, game_left_timer_callable)
+	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
+	var game_time_left_timer_callable = Callable(self,"_on_game_time_left_timer_timeout")
+	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
+	
+	var xform = get_viewport_rect().size.x
+	var yform = get_viewport_rect().size.y
+	var xatio = xform/720
+	var yatio = yform/1280
+
+#	if yform > 1280:
+#		%Camera2D.enabled = true
+#		%Camera2D.zoom.y = yform/1280
+
+	if xform > 720:
+
+		var nodes_to_move =[]
+		for node in nodes_to_move:
+			node.position.x *= xatio
+		var nodes_to_scale = []
+		for node in nodes_to_scale:
+			node.scale.x *= xatio
+
+	%PlaybackTimer.timeout.connect(_on_playback_timer_timeout)
 
 	await _initialize_buttons()
 
@@ -55,14 +69,12 @@ func _process(_delta):
 		if(len(arrayOfPlayerResponse)>0):
 			if(arrayOfButtonsToFollow[playerPopulate] == arrayOfPlayerResponse[playerPopulate]):
 				if(len(arrayOfButtonsToFollow) == len(arrayOfPlayerResponse)):
-					_set_buttons_disabled(true)
 					_player_turn_end()
 					_computer_turn_start()
 			else:
-				HUD.update_lives(-1)
+				HUD.update_lives()
 
 func _on_game_over():
-	_set_buttons_disabled(true)
 	computerPopulate = 0
 	arrayOfButtonsToFollow = []
 	_stop_game_button_sounds()
@@ -95,13 +107,8 @@ func _computer_turn_start():
 
 	%PlaybackTimer.start()
 	
-func _set_buttons_disabled(setting):
-
-#	for i in len(groupOfButtons):
-#		groupOfButtons[i].texture_button.disabled = setting
-	pass
 func _player_turn_end():
-	HUD.update_score(score_value)
+	HUD.update_score()
 	if HUD.check_advance_level():
 		advance_level()
 	playerTurn = false
@@ -110,8 +117,8 @@ func _player_turn_end():
 
 func advance_level():
 	for button in groupOfButtons:
-		button.play_time = button.original_time * pow(.95,HUD.get_game_level())
-	%PlaybackTimer.wait_time = %PlaybackTimer.original_time * pow(.95,HUD.get_game_level())
+		button.play_time = button.original_time * pow(.95,HUD.return_game_level())
+	%PlaybackTimer.wait_time = %PlaybackTimer.original_time * pow(.95,HUD.return_game_level())
 
 func _get_next_value():
 	buttonToAdd = floor(rng.randf_range(0, 8))
@@ -127,14 +134,14 @@ func _on_play_button_pressed():
 	pass # Replace with function body.
 	
 func _on_playback_timer_timeout():
-	_set_buttons_disabled(false)
+
 	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]].called_from_game()
 	computerPopulate+=1
 	if(computerPopulate == len(arrayOfButtonsToFollow)):
 
 		playerTurn = true
 		computerPopulate = 0
-		_set_buttons_disabled(false)
+
 		%PlaybackTimer.stop()
 		
 	pass # Replace with function body.
@@ -145,18 +152,9 @@ func _stop_game_button_sounds():
 	pass
 	
 func _stop_game_button_animations_and_timer():
-	for button in groupOfButtons:
-#		button.animated_sprite.stop()
-#		button.animated_sprite.play('default')
-		pass
 	%PlaybackTimer.stop()
 
 func _on_game_button_pressed(which):
 	if(playerTurn):
 		arrayOfPlayerResponse.append(which)
 		playerPopulate += 1
-
-
-func _on_buttons_ready():
-
-	pass # Replace with function body.

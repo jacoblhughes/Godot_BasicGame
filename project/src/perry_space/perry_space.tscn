@@ -1,13 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://dx4hwtnr40m1r"]
+[gd_scene load_steps=18 format=3 uid="uid://dx4hwtnr40m1r"]
 
 [ext_resource type="Script" path="res://src/perry_space/perry_space.gd" id="1_yw0yd"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_esp7d"]
 [ext_resource type="Script" path="res://src/perry_space/player.gd" id="3_60l8u"]
 [ext_resource type="Texture2D" uid="uid://betwbe8urunx7" path="res://textures/perry_space/space_background_256_512.png" id="3_bvgf7"]
 [ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://textures/perry_space/attack_256.png" id="4_jqsem"]
+[ext_resource type="PackedScene" uid="uid://b3u8q37r05igq" path="res://src/perry_space/rocket.tscn" id="5_letol"]
 [ext_resource type="AudioStream" uid="uid://dubvdpeowmlwb" path="res://sounds/perry_space/rocket_shoot.wav" id="5_r6tm6"]
 [ext_resource type="AudioStream" uid="uid://qr7a7tnqwl30" path="res://sounds/perry_space/player_hit.wav" id="6_huksw"]
 [ext_resource type="Script" path="res://src/perry_space/enemy_spawner.gd" id="6_rbrt6"]
+[ext_resource type="PackedScene" uid="uid://byr54mhj3utn8" path="res://src/perry_space/enemy.tscn" id="10_eoo4e"]
 
 [sub_resource type="Gradient" id="Gradient_fecji"]
 colors = PackedColorArray(0.939454, 0.905903, 1.54018e-06, 1, 1, 0, 0, 1)
@@ -59,6 +61,7 @@ game_background_texture = ExtResource("3_bvgf7")
 unique_name_in_owner = true
 collision_mask = 2
 script = ExtResource("3_60l8u")
+rocket_scene = ExtResource("5_letol")
 
 [node name="FlameParticles" type="GPUParticles2D" parent="Player"]
 position = Vector2(-32, 0)
@@ -95,6 +98,7 @@ position = Vector2(128, 664)
 [node name="EnemySpawner" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("6_rbrt6")
+enemy_scene = ExtResource("10_eoo4e")
 
 [node name="EnemyTimer" type="Timer" parent="EnemySpawner"]
 unique_name_in_owner = true

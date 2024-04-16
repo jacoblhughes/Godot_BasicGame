@@ -1,28 +1,34 @@
 extends Node3D
 
-var active_ball
 var initial_score_value = 0
-#var score_advance_value = 1
+var score_advance_base_value = 1
 var initial_lives_value = 1
-#var lives_advance_value = 1
+var lives_advance_base_value = 1
 var initial_level_value = 1
 var level_advance_check_value = 10
-var level_advance_value = 1
-var start_button_callable
+var level_advance_base_value = 1
+var start_timer_countdown_value = 3
+var game_time_left_timer_value = 3
+
+var active_ball
 
 var skeeballs
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	%Shelf.load_ball.connect(_on_load_ball)
-	%ScoreTarget.scored.connect(_on_scored)
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
-	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")
-	var game_left_timer_callable = Callable(self,"_on_game_left_timer_timeout")
-	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable, game_left_timer_callable)
+	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
+	var game_time_left_timer_callable = Callable(self,"_on_game_time_left_timer_timeout")
+	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.hide()
+
+	#3D
+	
+	%Shelf.load_ball.connect(_on_load_ball)
+	%ScoreTarget.scored.connect(_on_scored)
+			
 	skeeballs = get_tree().get_nodes_in_group("skeeballs")
 	pass # Replace with function body.
 
@@ -73,12 +79,11 @@ func _on_game_over():
 	pass
 	
 func _on_scored():
-
-	HUD.update_score(1)
+	HUD.update_score()
 
 func _on_dead_ball():
 	active_ball = null
 	skeeballs = get_tree().get_nodes_in_group("skeeballs")
 
 	if len(skeeballs) <= 1:
-		HUD.update_lives(-1)
+		HUD.update_lives()

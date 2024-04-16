@@ -20,10 +20,11 @@ size = Vector2(352, 1088)
 
 [node name="PerryFlap" type="Node2D"]
 script = ExtResource("1_ym0sw")
-enemy_wall = ExtResource("2_3bg0i")
-enemy_wall_2 = ExtResource("3_eemtl")
-enemy_wall_3 = ExtResource("4_pqam4")
+scenes = Array[PackedScene]([ExtResource("2_3bg0i"), ExtResource("3_eemtl"), ExtResource("4_pqam4")])
 metadata/_edit_horizontal_guides_ = [640.0, 64.0, 640.0]
+
+[node name="GameBackground" parent="." instance=ExtResource("2_vrvjj")]
+game_background_texture = ExtResource("4_abbuh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -34,9 +35,6 @@ enabled = false
 unique_name_in_owner = true
 position = Vector2(720, 640)
 gizmo_extents = 343.5
-
-[node name="GameBackground" parent="." instance=ExtResource("2_vrvjj")]
-game_background_texture = ExtResource("4_abbuh")
 
 [node name="EnemyDespawn" type="Area2D" parent="."]
 collision_layer = 8

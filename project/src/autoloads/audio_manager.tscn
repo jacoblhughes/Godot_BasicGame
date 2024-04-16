@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bdfjgmd53s2ur"]
 
-[ext_resource type="Script" path="res://data/main/audio_manager.gd" id="1_8x220"]
+[ext_resource type="Script" path="res://src/autoloads/audio_manager.gd" id="1_8x220"]
 [ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://sounds/main/applause.wav" id="2_kbh4v"]
 [ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://sounds/main/gameover.wav" id="3_djlji"]
 [ext_resource type="AudioStream" uid="uid://buulegk5q7el8" path="res://sounds/main/background_music.wav" id="4_yd4c5"]

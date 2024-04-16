@@ -25,7 +25,7 @@ func _on_clickable_input_event(event, input_position):
 		
 func hit():
 	if(GameManager.get_game_enabled()):
-		HUD.update_lives(-1)
+		HUD.update_lives()
 
 func _physics_process(delta):
 	if(GameManager.get_game_enabled()):

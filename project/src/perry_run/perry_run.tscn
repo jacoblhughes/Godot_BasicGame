@@ -21,11 +21,11 @@ layer_0/tile_data = PackedInt32Array(65536, 262144, 0, 131072, 0, 0, 196608, 0, 
 
 [node name="Player" parent="." instance=ExtResource("3_d1s5q")]
 unique_name_in_owner = true
-position = Vector2(72, 200)
+position = Vector2(160, 192)
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(72, 200)
+position = Vector2(160, 192)
 
 [node name="MeltZone" parent="." instance=ExtResource("5_qlbnr")]
 unique_name_in_owner = true
@@ -36,15 +36,19 @@ unique_name_in_owner = true
 [node name="CheckPoint1" parent="." instance=ExtResource("6_vcxuv")]
 unique_name_in_owner = true
 position = Vector2(456, 568)
+rotation = -0.785398
 
 [node name="CheckPoint2" parent="." instance=ExtResource("6_vcxuv")]
 unique_name_in_owner = true
 position = Vector2(568, 1080)
+rotation = 0.785398
 
 [node name="CheckPoint3" parent="." instance=ExtResource("6_vcxuv")]
 unique_name_in_owner = true
 position = Vector2(184, 824)
+rotation = 0.785398
 
 [node name="Finish" parent="." instance=ExtResource("6_vcxuv")]
 unique_name_in_owner = true
 position = Vector2(72, 200)
+rotation = 0.785398

@@ -3,35 +3,32 @@ extends Node3D
 @export var mob_scene: PackedScene
 
 var enemies
-var score_value = 1
 
 var initial_score_value = 0
-#var score_advance_value = 1
+var score_advance_base_value = 1
 var initial_lives_value = 1
-#var lives_advance_value = 1
+var lives_advance_base_value = 1
 var initial_level_value = 1
 var level_advance_check_value = 10
-var level_advance_value = 1
-var start_button_callable
+var level_advance_base_value = 1
+var start_timer_countdown_value = 3
+var game_time_left_timer_value = 3
 
 func _ready():
 
+	var start_button_callable = Callable(self, "_on_play_button_pressed")
+	var game_over_callable = Callable(self,"_on_game_over")
+	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
+	var game_time_left_timer_callable = Callable(self,"_on_game_time_left_timer_timeout")
+	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
+	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
+	Background.hide()
 
 	%Player.hit.connect(_on_player_hit)
 	%EnemyTimer.timeout.connect(_on_mob_timer_timeout)
 #	_game_initialize()
 	for node in get_tree().get_nodes_in_group("enemy"):
 		node.remove_from_group("enemy")
-
-
-	var start_button_callable = Callable(self, "_on_play_button_pressed")
-	var game_over_callable = Callable(self,"_on_game_over")
-	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")
-	var game_left_timer_callable = Callable(self,"_on_game_left_timer_timeout")
-	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable, game_left_timer_callable)
-	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
-	Background.hide()
-
 
 
 func _physics_process(delta):
@@ -51,7 +48,7 @@ func _on_mob_timer_timeout():
 
 func _on_player_hit():
 	if GameManager.get_game_enabled():
-		HUD.update_lives(-1)
+		HUD.update_lives()
 
 func _on_game_over():
 	for node in get_tree().get_nodes_in_group("enemy"):
@@ -61,12 +58,12 @@ func _on_game_over():
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
-	HUD.countdown_timer_start_and_time_left()
+	HUD.set_start_timer_countdown_and_start()
 
-func _on_countdown_timer_timeout():
+func _on_start_timer_countdown_timeout():
 	%Player.allow_move(true)
 	%EnemyTimer.start()
 
 func _on_mob_squashed():
-	HUD.update_score(score_value)
+	HUD.update_score()
 

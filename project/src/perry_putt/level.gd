@@ -1,5 +1,5 @@
 extends Node2D
-var score_value = -1
+
 signal ball_sank
 signal game_over
 
@@ -12,15 +12,14 @@ func _ready():
 	var xatio = xform/720
 	var yatio = yform/1280
 
-	if yform > 1280:
-		%Camera2D.enabled = true
+#	if yform > 1280:
+#		%Camera2D.enabled = true
 #		%Camera2D.zoom.y = yform/1280
 
 	if xform > 720:
 
-		var obstacles
-		if %Obstacles.get_child_count() > 0:
-			obstacles = %Obstacles.get_children()
+		var obstacles = %Obstacles
+		if obstacles.get_child_count() > 0:
 			for node in obstacles:
 				node.position.x *= xatio
 		var nodes_to_move =[%PerryBall,%Hole]
@@ -47,7 +46,7 @@ func _on_ball_sank():
 		queue_free()
 		
 func _on_hit_meter_value(_progress_value):
-	HUD.update_score(score_value)
+	HUD.update_score(-1)
 	if HUD.return_score() < 1:
 		game_over.emit()
 		

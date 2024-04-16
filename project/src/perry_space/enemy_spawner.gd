@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var enemy_scene = preload("res://src/perry_space/enemy.tscn")
+@export var enemy_scene : PackedScene
 
 @onready var spawn_positions = $SpawnLocations
 signal enemy_spawned(enemy_instance)

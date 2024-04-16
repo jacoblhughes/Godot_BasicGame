@@ -8,28 +8,26 @@ var is_touching = false
 var move_speed = 200
 var stop_threshold = 10  # Stop moving when within 10 pixels of the target
 
-var game_on = false
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
 	target_position = %StartPosition.global_position
-	get_parent().game_start.connect(_on_game_start)
 	get_parent().out_of_bounds.connect(_on_out_of_bounds)
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	pass
 
 func _on_clickable_input_event(event, input_position):
+	
 	if event.pressed:
 		target_position = input_position
-		if(GameManager.get_game_enabled() and game_on == true):
+		if(GameManager.get_game_enabled()):
 			is_touching=true
 			target_position = input_position
 		pass
 
 func _physics_process(delta):
 
-	if(GameManager.get_game_enabled() and game_on == true):
+	if GameManager.get_game_enabled():
 		var to_target = target_position - global_position
 		var direction = to_target.normalized()
 		if(direction.x<0):
@@ -50,9 +48,6 @@ func _physics_process(delta):
 			# Decelerate to a stop when not touching
 			velocity = velocity.move_toward(Vector2.ZERO, move_speed * delta)
 			move_and_slide()
-			
-func _on_game_start():
-	game_on = true
 
 func _on_out_of_bounds(reset_point):
 	target_position=reset_point

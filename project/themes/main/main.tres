@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=32 format=3 uid="uid://s0srltpmhp6g"]
+[gd_resource type="Theme" load_steps=39 format=3 uid="uid://s0srltpmhp6g"]
 
 [ext_resource type="Texture2D" uid="uid://c7brus421yppd" path="res://textures/main/checkbutton.png" id="1_ac3hv"]
 [ext_resource type="Texture2D" uid="uid://cw6vvyabe8vgo" path="res://textures/main/hslider.png" id="2_w4lev"]
@@ -18,6 +18,21 @@ bg_color = Color(0.188235, 0.376471, 0.509804, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub2f4"]
 bg_color = Color(0.188235, 0.376471, 0.509804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bi6sw"]
+bg_color = Color(0.733333, 0.121569, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10qpf"]
+bg_color = Color(0.733333, 0.121569, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qt0o3"]
+bg_color = Color(0.733333, 0.121569, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4qum"]
+bg_color = Color(0.733333, 0.121569, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onicd"]
+bg_color = Color(0.733333, 0.121569, 0.2, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3pmn"]
 atlas = ExtResource("1_ac3hv")
@@ -76,8 +91,14 @@ expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4rcvc"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxchp"]
+bg_color = Color(0.576471, 0.47451, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tst5f"]
-bg_color = Color(0.356863, 0.431373, 0.882353, 1)
+bg_color = Color(0.576471, 0.47451, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xlw4"]
+bg_color = Color(0.576471, 0.47451, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcucr"]
 bg_color = Color(0.290196, 0.14902, 0.345098, 1)
@@ -95,6 +116,12 @@ Button/styles/focus = SubResource("StyleBoxFlat_f5cs7")
 Button/styles/hover = SubResource("StyleBoxFlat_r75i3")
 Button/styles/normal = SubResource("StyleBoxFlat_hl18o")
 Button/styles/pressed = SubResource("StyleBoxFlat_ub2f4")
+ButtonReset/base_type = &"Button"
+ButtonReset/styles/disabled = SubResource("StyleBoxFlat_bi6sw")
+ButtonReset/styles/focus = SubResource("StyleBoxFlat_10qpf")
+ButtonReset/styles/hover = SubResource("StyleBoxFlat_qt0o3")
+ButtonReset/styles/normal = SubResource("StyleBoxFlat_i4qum")
+ButtonReset/styles/pressed = SubResource("StyleBoxFlat_onicd")
 CheckButton/icons/checked = SubResource("AtlasTexture_q3pmn")
 CheckButton/icons/unchecked = SubResource("AtlasTexture_ewtcl")
 CheckButton/styles/disabled = SubResource("StyleBoxFlat_awsrc")
@@ -105,6 +132,9 @@ CheckButton/styles/normal = SubResource("StyleBoxFlat_qah5f")
 CheckButton/styles/pressed = SubResource("StyleBoxFlat_exv3h")
 GridContainer/constants/h_separation = 10
 GridContainer/constants/v_separation = 2
+GridContainerButtonsScene/base_type = &"GridContainer"
+GridContainerButtonsScene/constants/h_separation = 5
+GridContainerButtonsScene/constants/v_separation = 5
 HBoxContainer/constants/separation = 10
 HSlider/icons/grabber = SubResource("AtlasTexture_3utcs")
 HSlider/icons/grabber_disabled = SubResource("AtlasTexture_7blxu")
@@ -128,7 +158,13 @@ LabelHUD/base_type = &"Label"
 LabelHUD/colors/font_color = Color(1, 1, 1, 1)
 LabelHUD/constants/outline_size = 4
 LabelHUD/font_sizes/font_size = 25
+LabelTitle/base_type = &"Label"
+LabelTitle/colors/font_color = Color(0.188235, 0.376471, 0.509804, 1)
+LabelTitle/colors/font_outline_color = Color(0, 0, 0, 1)
+LabelTitle/font_sizes/font_size = 68
+LineEdit/styles/focus = SubResource("StyleBoxFlat_wxchp")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_tst5f")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_7xlw4")
 MarginContainer/constants/margin_bottom = 80
 MarginContainer/constants/margin_left = 40
 MarginContainer/constants/margin_right = 40
@@ -139,10 +175,15 @@ MarginContainerAbout/constants/margin_left = 20
 MarginContainerAbout/constants/margin_right = 20
 MarginContainerAbout/constants/margin_top = 20
 MarginContainerButtons/base_type = &"MarginContainer"
-MarginContainerButtons/constants/margin_bottom = 8
-MarginContainerButtons/constants/margin_left = 8
-MarginContainerButtons/constants/margin_right = 8
-MarginContainerButtons/constants/margin_top = 8
+MarginContainerButtons/constants/margin_bottom = 10
+MarginContainerButtons/constants/margin_left = 10
+MarginContainerButtons/constants/margin_right = 10
+MarginContainerButtons/constants/margin_top = 10
+MarginContainerButtonsScene/base_type = &"MarginContainer"
+MarginContainerButtonsScene/constants/margin_bottom = 20
+MarginContainerButtonsScene/constants/margin_left = 20
+MarginContainerButtonsScene/constants/margin_right = 20
+MarginContainerButtonsScene/constants/margin_top = 20
 MarginContainerGames/base_type = &"MarginContainer"
 MarginContainerGames/constants/margin_bottom = 0
 MarginContainerGames/constants/margin_left = 0

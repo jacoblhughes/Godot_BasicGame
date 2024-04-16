@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://d4cpf87cb1bs0"]
 
-[ext_resource type="Script" path="res://data/main/buttons.gd" id="1_bni1w"]
+[ext_resource type="Script" path="res://src/autoloads/buttons.gd" id="1_bni1w"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://src/perry_says/perry_says.tscn" id="2_p72e3"]
 [ext_resource type="PackedScene" uid="uid://c1ov306httsie" path="res://src/perry_python/perry_python.tscn" id="3_e04k2"]
 [ext_resource type="PackedScene" uid="uid://c1n3bt7ntc5gf" path="res://src/perry_polo/perry_polo.tscn" id="4_2g5rt"]
@@ -56,115 +56,141 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("14_ihqmu")
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-ratio = 0.5625
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("14_ihqmu")
+theme_type_variation = &"MarginContainerButtonsScene"
 
-[node name="GameContainer" type="VBoxContainer" parent="AspectRatioContainer"]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 5
 
-[node name="PerrySays" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+theme = ExtResource("14_ihqmu")
+theme_type_variation = &"LabelTitle"
+theme_override_font_sizes/font_size = 0
+text = "PERRY ARCADE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_ihqmu")
+theme_type_variation = &"GridContainerButtonsScene"
+columns = 3
+
+[node name="PerrySays" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("18_h2tu3")
 game_scene_selection = ExtResource("2_p72e3")
 game_key_selection = "1"
 game_title = "Perry Says"
 
-[node name="PerryPython" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
+[node name="PerryPython" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("19_evpij")
 game_scene_selection = ExtResource("3_e04k2")
 game_key_selection = "2"
 game_title = "Perry Python"
 
-[node name="PerryPolo" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
+[node name="PerryPolo" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("20_c8i4i")
 game_scene_selection = ExtResource("4_2g5rt")
 game_key_selection = "3"
 game_title = "Perry Polo"
 
-[node name="PerryLlama" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
+[node name="PerryLlama" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("21_fernw")
 game_scene_selection = ExtResource("5_c3ay5")
 game_key_selection = "4"
 game_title = "Perry Llama Leap"
 
-[node name="PerryDodge" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
+[node name="PerryDodge" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("22_o05ny")
 game_scene_selection = ExtResource("6_witco")
 game_key_selection = "5"
 game_title = "Perry Dodge"
 
-[node name="PerryFlap" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
+[node name="PerryFlap" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("23_p1kel")
 game_scene_selection = ExtResource("7_8m0e8")
 game_key_selection = "6"
 game_title = "Perry Flap"
 
-[node name="PerryRun" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
+[node name="PerryRun" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("24_gh28p")
 game_scene_selection = ExtResource("8_jcog7")
 game_key_selection = "7"
 game_title = "Perry Run"
 
-[node name="PerrySpace" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
+[node name="PerrySpace" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("25_3shli")
 game_scene_selection = ExtResource("9_f6anq")
 game_key_selection = "8"
 game_title = "Perry Space"
 
-[node name="PerrrySquash" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
+[node name="PerrrySquash" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("26_ilcnv")
 game_scene_selection = ExtResource("10_j1rxk")
 game_key_selection = "9"
 game_title = "Perry Squash"
 
-[node name="PerryPutt" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
+[node name="PerryPutt" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("27_3ayht")
 game_scene_selection = ExtResource("11_yj5m7")
 game_key_selection = "10"
 game_title = "Perry Putt"
 
-[node name="PerrySkeeball" parent="AspectRatioContainer/GameContainer" instance=ExtResource("17_10g4p")]
+[node name="PerrySkeeball" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("28_nr3es")
 game_scene_selection = ExtResource("29_677qr")
 game_key_selection = "11"
 game_title = "Perry Skeeball"
 
-[node name="Highscores" type="Button" parent="AspectRatioContainer/GameContainer"]
+[node name="GameContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_constants/separation = 5
+
+[node name="Highscores" type="Button" parent="MarginContainer/VBoxContainer/GameContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("14_ihqmu")
 text = "Highscores"
 
-[node name="About" type="Button" parent="AspectRatioContainer/GameContainer"]
+[node name="About" type="Button" parent="MarginContainer/VBoxContainer/GameContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("14_ihqmu")
 text = "About"
 
-[node name="Options" type="Button" parent="AspectRatioContainer/GameContainer"]
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/GameContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("14_ihqmu")
 text = "Options"
 
-[connection signal="pressed" from="AspectRatioContainer/GameContainer/Highscores" to="." method="_on_highscore_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/GameContainer/About" to="." method="_on_about_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/GameContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GameContainer/Highscores" to="." method="_on_highscore_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GameContainer/About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GameContainer/Options" to="." method="_on_options_pressed"]

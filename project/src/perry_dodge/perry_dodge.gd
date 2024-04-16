@@ -1,47 +1,58 @@
 extends Node2D
 
 var initial_score_value = 0
-#var score_advance_value = 1
+var score_advance_base_value = 1
 var initial_lives_value = 1
-#var lives_advance_value = 1
+var lives_advance_base_value = 1
 var initial_level_value = 1
 var level_advance_check_value = 10
-var level_advance_value = 1
-var start_button_callable
+var level_advance_base_value = 1
+var start_timer_countdown_value = 3
+var game_time_left_timer_value = 3
 
 @export var mob_scene: PackedScene
-var score_value = 1
 
 var original_mob_time = 1
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	%MobTimer.wait_time = original_mob_time
+
+	
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
-	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")
-	var game_left_timer_callable = Callable(self,"_on_game_left_timer_timeout")
-	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable, game_left_timer_callable)
-
+	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
+	var game_time_left_timer_callable = Callable(self,"_on_game_time_left_timer_timeout")
+	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
-func _on_score_timer_timeout():
-	HUD.update_score(score_value)
-	if HUD.check_advance_level():
-		advance_level()
-	pass # Replace with function body.
+	
+	var xform = get_viewport_rect().size.x
+	var yform = get_viewport_rect().size.y
+	var xatio = xform/720
+	var yatio = yform/1280
+
+#	if yform > 1280:
+#		%Camera2D.enabled = true
+#		%Camera2D.zoom.y = yform/1280
+
+	if xform > 720:
+
+		var nodes_to_move =[%StartPosition]
+		for node in nodes_to_move:
+			node.position.x *= xatio
+		var nodes_to_scale = [%TileMap]
+		for node in nodes_to_scale:
+			node.scale.x *= xatio
+	
+	%Player.start(%StartPosition.position)
+	%ScoreAndMobTimer.wait_time = original_mob_time
+	%ScoreAndMobTimer.timeout.connect(_on_mob_timer_timeout)
 	
 func advance_level():
-	%MobTimer.wait_time = original_mob_time * pow(.95,HUD.get_game_level())
-
-func _on_start_timer_timeout():
-	%MobTimer.start()
-	%ScoreTimer.start()
-	%StartTimer.stop()
+	%ScoreAndMobTimer.wait_time = original_mob_time * pow(.95,HUD.return_game_level())
 
 func _on_mob_timer_timeout():
+
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 
@@ -67,13 +78,15 @@ func _on_mob_timer_timeout():
 	# Spawn the mob by adding it to the Main scene.
 	get_parent().add_child(mob)
 
-func _on_game_over():
-	%MobTimer.stop()
-	%ScoreTimer.stop()
+	HUD.update_score()
+	if HUD.check_advance_level():
+		advance_level()
 
+
+func _on_game_over():
+	%ScoreAndMobTimer.stop()
 
 func _on_play_button_pressed():
-
 	GameManager.set_game_enabled(true)
-	%StartTimer.start()
+	%ScoreAndMobTimer.start()
 	pass

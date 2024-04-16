@@ -10,7 +10,7 @@ signal took_damage
 @onready var perry_space : Node2D
 signal enemy_hit
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-@onready var rocket_scene = preload("res://src/perry_space/rocket.tscn")
+@export var rocket_scene : PackedScene
 
 var rocketspawn_node
 var target_position = Vector2(0,0)

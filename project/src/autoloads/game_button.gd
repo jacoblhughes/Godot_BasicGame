@@ -8,7 +8,7 @@ extends Button
 signal game_chosen
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	text = game_title
+	%Title.text = game_title
 	%TextureRect.texture = game_image_texture
 	pass # Replace with function body.
 

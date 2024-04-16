@@ -1,32 +1,26 @@
 extends Node2D
 
 var initial_score_value = 0
-#var score_advance_value = 1
+var score_advance_base_value = 1
 var initial_lives_value = 1
-#var lives_advance_value = 1
+var lives_advance_base_value = 1
 var initial_level_value = 1
 var level_advance_check_value = 10
-var level_advance_value = 1
-var start_button_callable
-
-var score_advance_value = 1
+var level_advance_base_value = 1
+var start_timer_countdown_value = 3
+var game_time_left_timer_value = 3
 
 var original_spawn_timer = 1.5
-
-@export var enemy_wall : PackedScene
-@export var enemy_wall_2 : PackedScene
-@export var enemy_wall_3 : PackedScene
-var scenes : Array
+@export var scenes : Array[PackedScene]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	scenes = [enemy_wall, enemy_wall_2, enemy_wall_3]
 	
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
-	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")	
-	var game_left_timer_callable = Callable(self,"_on_game_left_timer_timeout")
-	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable, game_left_timer_callable)
+	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")	
+	var game_time_left_timer_callable = Callable(self,"_on_game_time_left_timer_timeout")
+	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
 	
@@ -35,8 +29,8 @@ func _ready():
 	var xatio = xform/720
 	var yatio = yform/1280
 
-	if yform > 1280:
-		%Camera2D.enabled = true
+#	if yform > 1280:
+#		%Camera2D.enabled = true
 #		%Camera2D.zoom.y = yform/1280
 
 	if xform > 720:
@@ -47,7 +41,6 @@ func _ready():
 		var nodes_to_scale = []
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
-	
 
 	%SpawnTimer.wait_time = original_spawn_timer
 	%Player.position = %StartPosition.position
@@ -62,7 +55,7 @@ func _on_play_button_pressed():
 
 func _on_enemy_scoring_body_entered(body):
 
-	HUD.update_score(score_advance_value)
+	HUD.update_score()
 	if HUD.check_advance_level():
 		advance_level()
 	pass # Replace with function body.
@@ -79,7 +72,7 @@ func _on_game_over():
 
 
 func advance_level():
-	%SpawnTimer.wait_time = original_spawn_timer * pow(.95,HUD.get_game_level())
+	%SpawnTimer.wait_time = original_spawn_timer * pow(.95,HUD.return_game_level())
 
 func _on_spawn_timer_timeout():
 	var chosen_index = randi() % scenes.size()

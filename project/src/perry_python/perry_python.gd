@@ -19,14 +19,12 @@ var isFirst = true
 var isFirstminiSnake = true
 @onready var grid : Node2D
 @onready var food_spawner :Node2D 
-var level_value = 1
+
 var head_original_x
 var head_original_y
-var score_value = 1
+
 
 var original_snake_time = .75
-
-
 var snake_cells = 8
 var snake_cell_size := Vector2(0,0)
 var game_size := Vector2(0,0)
@@ -35,13 +33,14 @@ var game_position := Vector2(0,0)
 signal dimensions_ready
 
 var initial_score_value = 0
-#var score_advance_value = 1
+var score_advance_base_value = 1
 var initial_lives_value = 1
-#var lives_advance_value = 1
+var lives_advance_base_value = 1
 var initial_level_value = 1
 var level_advance_check_value = 10
-var level_advance_value = 1
-var start_button_callable
+var level_advance_base_value = 1
+var start_timer_countdown_value = 3
+var game_time_left_timer_value = 3
 
 
 
@@ -55,19 +54,26 @@ func _ready():
 	set_play_area_position(game_position)
 	set_snake_cell_size(snake_cell_size)
 
-	snake_timer = %SnakeTimer
-	snake_timer.timeout.connect(_on_snake_move_timer_timeout)
+
+	var start_button_callable = Callable(self, "_on_play_button_pressed")
+	var game_over_callable = Callable(self,"_on_game_over")
+	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
+	var game_time_left_timer_callable = Callable(self,"_on_game_time_left_timer_timeout")
+	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
+	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
+	Background.show()
 	
 	var xform = get_viewport_rect().size.x
 	var yform = get_viewport_rect().size.y
 	var xatio = xform/720
 	var yatio = yform/1280
 
-	if yform > 1280:
-		%Camera2D.enabled = true
+#	if yform > 1280:
+#		%Camera2D.enabled = true
 #		%Camera2D.zoom.y = yform/1280
 
 	if xform > 720:
+
 		var nodes_to_move =[]
 		for node in nodes_to_move:
 			node.position.x *= xatio
@@ -75,27 +81,16 @@ func _ready():
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
 	
-	var start_button_callable = Callable(self, "_on_play_button_pressed")
-	var game_over_callable = Callable(self,"_on_game_over")
-	var countdown_timer_callable = Callable(self,"_on_countdown_timer_timeout")
-	var game_left_timer_callable = Callable(self,"_on_game_left_timer_timeout")
-	HUD.hud_initialize(initial_score_value, initial_lives_value, initial_level_value,level_advance_check_value,level_advance_value,countdown_timer_callable, game_left_timer_callable)
-	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
-	Background.show()
-
+	snake_timer = %SnakeTimer
+	snake_timer.timeout.connect(_on_snake_move_timer_timeout)
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	food_spawner = %spawner_food
 	head  = head_scene.instantiate()
 	food_spawner.food_eaten.connect(_on_food_eaten)
-
-	add_child.call_deferred(head)
-
-	snake_timer.wait_time = original_snake_time
-
-
 	head.size = snake_cell_size
 	head.curr_position = game_position + Vector2(game_size.x/2,game_size.y/2)
-
+	add_child.call_deferred(head)
+	snake_timer.wait_time = original_snake_time
 	hit.connect(_on_hit)
 	minisnakes.push_front(head)
 
@@ -174,7 +169,7 @@ func _on_snake_move_timer_timeout():
 func grow() -> void:
 
 
-	var new_head = preload("res://src/perry_python/segment.tscn").instantiate()
+	var new_head = head_scene.instantiate()
 	var last_head :=minisnakes.back() as SnakeBoy
 	new_head.curr_position = last_head.curr_position
 #	new_head.color = SnakeVariables.BLUE
@@ -189,7 +184,7 @@ func _on_hit(mini:Minisnake) -> void:
 	await get_tree().process_frame
 	for minisnake in minisnakes:
 		minisnake.go_to_previous_position()
-	HUD.update_lives(-1)
+	HUD.update_lives()
 
 	
 func _on_play_button_pressed():
@@ -200,18 +195,16 @@ func _on_game_over():
 	
 	snake_timer.stop()
 	minisnakes = []
-
-
 	pass
 
 
 func _on_food_eaten():
-	HUD.update_score(score_value)
+	HUD.update_score()
 	if HUD.check_advance_level():
 		advance_level()
 	
 func advance_level():
-	snake_timer.wait_time = original_snake_time * pow(.95,HUD.get_game_level())
+	snake_timer.wait_time = original_snake_time * pow(.95,HUD.return_game_level())
 
 
 

@@ -1,13 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcxdvv4qwwmqm"]
+[gd_scene load_steps=14 format=3 uid="uid://bcxdvv4qwwmqm"]
 
 [ext_resource type="Script" path="res://src/perry_says/perry_says.gd" id="1_fdqsf"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_0t6vh"]
+[ext_resource type="AudioStream" uid="uid://cma8otyo7vbuh" path="res://sounds/perry_says/c_low.wav" id="2_3k85m"]
 [ext_resource type="Texture2D" uid="uid://c67eolerebque" path="res://textures/perry_says/simonsays_background_128.png" id="2_8tja7"]
+[ext_resource type="AudioStream" uid="uid://cmye6pgw80jha" path="res://sounds/perry_says/d.wav" id="3_04kq7"]
 [ext_resource type="Script" path="res://src/perry_says/playback_timer.gd" id="3_nsfda"]
 [ext_resource type="PackedScene" uid="uid://d2enwj4xxpx4q" path="res://src/perry_says/perry_button.tscn" id="3_o4idv"]
+[ext_resource type="AudioStream" uid="uid://bsao2g3wg0bn1" path="res://sounds/perry_says/e.wav" id="4_gjraj"]
+[ext_resource type="AudioStream" uid="uid://b5ahaxwfxl02m" path="res://sounds/perry_says/f.wav" id="5_lpmgt"]
+[ext_resource type="AudioStream" uid="uid://c17gpmvnv352b" path="res://sounds/perry_says/g.wav" id="6_4meve"]
+[ext_resource type="AudioStream" uid="uid://c0pagaj3k2vas" path="res://sounds/perry_says/a.wav" id="7_5jrer"]
+[ext_resource type="AudioStream" uid="uid://cft2fpvmijb8i" path="res://sounds/perry_says/b.wav" id="8_1a60j"]
+[ext_resource type="AudioStream" uid="uid://dggso5hv38lp6" path="res://sounds/perry_says/c.wav" id="9_o87dh"]
 
 [node name="PerrySays" type="Node2D"]
 script = ExtResource("1_fdqsf")
+sounds = Array[AudioStreamWAV]([ExtResource("2_3k85m"), ExtResource("3_04kq7"), ExtResource("4_gjraj"), ExtResource("5_lpmgt"), ExtResource("6_4meve"), ExtResource("7_5jrer"), ExtResource("8_1a60j"), ExtResource("9_o87dh")])
 metadata/_edit_vertical_guides_ = [360.0]
 metadata/_edit_horizontal_guides_ = [-640.0]
 
@@ -71,5 +80,3 @@ offset_left = 424.0
 offset_top = 944.0
 offset_right = 424.0
 offset_bottom = 944.0
-
-[connection signal="ready" from="Buttons" to="." method="_on_buttons_ready"]

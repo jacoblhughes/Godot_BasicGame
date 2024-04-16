@@ -7,6 +7,7 @@ var audio_stream_player : AudioStreamPlayer
 signal perry_pressed
 var original_time = .75
 var play_time
+@export var button_texture : Resource
 
 func _ready():
 	play_time = original_time
@@ -17,12 +18,9 @@ func _ready():
 	pass
 
 func initiate_button():
-
-
 	var total_columns = 16
 	var desired_column = sprite_number
 
-	var button_texture = preload("res://textures/perry_says/perry_says_buttons_256.png")
 	var atlas_texture = AtlasTexture.new()
 	var pressed_atlas_texture = AtlasTexture.new()
 

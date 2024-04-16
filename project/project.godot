@@ -19,12 +19,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-AudioManager="*res://data/main/audio_manager.tscn"
-GameManager="*res://data/main/game_manager.tscn"
-Buttons="*res://data/main/buttons.tscn"
-Background="*res://data/main/background.tscn"
-GameStartGameOver="*res://data/main/game_start_game_over.tscn"
-HUD="*res://data/main/hud.tscn"
+AudioManager="*res://src/autoloads/audio_manager.tscn"
+GameManager="*res://src/autoloads/game_manager.tscn"
+Buttons="*res://src/autoloads/buttons.tscn"
+Background="*res://src/autoloads/background.tscn"
+GameStartGameOver="*res://src/autoloads/game_start_game_over.tscn"
+HUD="*res://src/autoloads/hud.tscn"
 
 [display]
 

@@ -13,13 +13,8 @@ var lerp_speed = 0.1
 var is_touching = false 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	start_position = get_parent().get_node('StartPosition')
-	target_position = start_position.global_position
-	
-#	PlayArea.in_play_area.connect(_on_in_play_area)
+func _ready():	
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
-	start(target_position)
 	
 func _on_clickable_input_event(event,input_position):
 	if event.pressed:
@@ -59,7 +54,7 @@ func _physics_process(_delta):
 func hit():
 
 	if(GameManager.get_game_enabled()):
-		HUD.update_lives(-1)
+		HUD.update_lives()
 
 	
 func start(pos):

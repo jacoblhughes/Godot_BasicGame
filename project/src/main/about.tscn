@@ -30,6 +30,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_5bi5k")
+theme_type_variation = &"MarginContainerHUD"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_5bi5k")
+theme_type_variation = &"MarginContainerAbout"
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_5bi5k")
+text = "Thank you for using Perry Arcade!
+
+Credit:
+Director: Jacob Hughes
+Lead Llama Artist: Christina Esquer
+Assistant To The Intern: Roderick P Hughes 7
+
+For information regarding privacy policies, please visit:
+https://jacoblhughes.com/index.php?content=apps
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -50,29 +80,3 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_5bi5k")
 text = "Home"
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_5bi5k")
-theme_type_variation = &"MarginContainerHUD"
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme = ExtResource("1_5bi5k")
-theme_type_variation = &"MarginContainerAbout"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/MarginContainer"]
-layout_mode = 2
-theme = ExtResource("1_5bi5k")
-bbcode_enabled = true
-text = "[center][b]Thank you for using Perry Arcade![/b][/center]
-
-[b]Credit:[/b]
-[b]Director:[/b] Jacob Hughes
-[b]Lead Llama Artist:[/b] Christina Esquer
-[b]Assistant To The Intern:[/b] Roderick P Hughes 7
-
-[b]For information regarding privacy policies, please visit:[/b]
-[url=https://jacoblhughes.com/index.php?content=apps]https://jacoblhughes.com/index.php?content=apps[/url]
-"

@@ -16,13 +16,13 @@ whirlpool = NodePath("Whirpools")
 metadata/_edit_horizontal_guides_ = [1200.0, 960.0, 240.0, 640.0, 480.0, 720.0, 400.0, 320.0, 800.0, 880.0, 560.0, 1040.0, 1120.0, 160.0, 640.0]
 metadata/_edit_vertical_guides_ = [680.0, 360.0, 40.0, 360.0, 200.0, 360.0, 520.0, 280.0, 440.0, 120.0, 600.0]
 
+[node name="GameBackground" parent="." instance=ExtResource("3_7c1vq")]
+game_background_texture = ExtResource("2_q4x8g")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(360, 640)
 enabled = false
-
-[node name="GameBackground" parent="." instance=ExtResource("3_7c1vq")]
-game_background_texture = ExtResource("2_q4x8g")
 
 [node name="Whirpools" type="Node2D" parent="."]
 unique_name_in_owner = true
