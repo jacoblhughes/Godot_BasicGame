@@ -39,29 +39,19 @@ func _ready():
 	var xatio = xform/720
 	var yatio = yform/1280
 	print(xform , " " , yform)
-<<<<<<< HEAD
-	
-	if yform > 1280:
-		var nodes_to_move =[%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish,%RaceTrack,%MeltZone,%Player,%StartPosition,%MeltZone,%RaceTrack]
-		for node in nodes_to_move:
-			node.position.x *= xatio
-		var nodes_to_scale = [%TileMap,%MeltZone,%RaceTrack]
-		for node in nodes_to_scale:
-			node.scale.x *= xatio
-=======
+
 	if yform > 1280:
 #		%Camera2D.enabled = true
 #		%Camera2D.zoom.y = yform/1280
-		var nodes_to_move =[%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish,%RaceTrack,%MeltZone,%Player,%StartPosition,%MeltZone,%RaceTrack]
+		var nodes_to_move =[%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish,%Player,%StartPosition,%MeltZone,%RaceTrack]
 		for node in nodes_to_move:
 			node.position.y *= yatio
 		var nodes_to_scale = [%TileMap,%MeltZone,%RaceTrack]
 		for node in nodes_to_scale:
 			node.scale.y *= yatio
->>>>>>> 7f7ba1c521679a9596a323b3587a41e4b7fbe6db
 
 	if xform > 720:
-		var nodes_to_move =[%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish,%RaceTrack,%MeltZone,%Player,%StartPosition,%MeltZone,%RaceTrack]
+		var nodes_to_move =[%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish,%Player,%StartPosition,%MeltZone,%RaceTrack]
 		for node in nodes_to_move:
 			node.position.x *= xatio
 		var nodes_to_scale = [%TileMap,%MeltZone,%RaceTrack]

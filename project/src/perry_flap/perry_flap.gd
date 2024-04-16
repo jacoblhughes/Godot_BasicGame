@@ -29,13 +29,17 @@ func _ready():
 	var xatio = xform/720
 	var yatio = yform/1280
 
-#	if yform > 1280:
-#		%Camera2D.enabled = true
-#		%Camera2D.zoom.y = yform/1280
+	if yform > 1280:
+		var nodes_to_move = [%Player,%EnemyDespawn,%EnemySpawn]
+		for node in nodes_to_move:
+			node.position.y *= yatio
+		var nodes_to_scale = [%EnemyDespawn,%EnemySpawn]
+		for node in nodes_to_scale:
+			node.scale.y *= yatio
 
 	if xform > 720:
 
-		var nodes_to_move =[%EnemySpawnPosition]
+		var nodes_to_move =[%EnemySpawn]
 		for node in nodes_to_move:
 			node.position.x *= xatio
 		var nodes_to_scale = []
@@ -78,7 +82,7 @@ func _on_spawn_timer_timeout():
 	var chosen_index = randi() % scenes.size()
 	var chosen_scene = scenes[chosen_index].instantiate()
 	chosen_scene.position = %EnemySpawnPosition.position
-	add_child(chosen_scene,true)
+	%EnemySpawn.add_child(chosen_scene,true)
 
 	chosen_scene.add_to_group("enemy")
 	pass # Replace with function body.

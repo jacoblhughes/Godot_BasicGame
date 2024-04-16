@@ -12,9 +12,17 @@ func _ready():
 	var xatio = xform/720
 	var yatio = yform/1280
 
-#	if yform > 1280:
-#		%Camera2D.enabled = true
-#		%Camera2D.zoom.y = yform/1280
+	if yform > 1280:
+		var obstacles = %Obstacles
+		if obstacles.get_child_count() > 0:
+			for node in obstacles.get_children():
+				node.position.x *= xatio
+		var nodes_to_move = [%PerryBall,%Hole]
+		for node in nodes_to_move:
+			node.position.y *= yatio
+		var nodes_to_scale = [%Map]
+		for node in nodes_to_scale:
+			node.scale.y *= yatio
 
 	if xform > 720:
 
@@ -28,6 +36,7 @@ func _ready():
 		var nodes_to_scale = [%Map]
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
+	
 	
 	%Hole.ball_sank.connect(_on_ball_sank)
 	%HitMeter.send_value.connect(_on_hit_meter_value)

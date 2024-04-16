@@ -5,6 +5,7 @@ class_name Snake
 #var head := Minisnake.new()
 var head
 @export var head_scene : PackedScene
+@export var body_scene : PackedScene
 var minisnakes := [] as Array[Minisnake]
 
 var next_direction = Vector2.ZERO
@@ -169,7 +170,7 @@ func _on_snake_move_timer_timeout():
 func grow() -> void:
 
 
-	var new_head = head_scene.instantiate()
+	var new_head = body_scene.instantiate()
 	var last_head :=minisnakes.back() as SnakeBoy
 	new_head.curr_position = last_head.curr_position
 #	new_head.color = SnakeVariables.BLUE

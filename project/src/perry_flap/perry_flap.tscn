@@ -31,12 +31,8 @@ unique_name_in_owner = true
 position = Vector2(360, 640)
 enabled = false
 
-[node name="EnemySpawnPosition" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(720, 640)
-gizmo_extents = 343.5
-
 [node name="EnemyDespawn" type="Area2D" parent="."]
+unique_name_in_owner = true
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("4_7jpv8")
@@ -68,6 +64,14 @@ position = Vector2(202, 640)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlyZone"]
 position = Vector2(256, 640)
 shape = SubResource("RectangleShape2D_gpshr")
+
+[node name="EnemySpawn" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(720, 640)
+
+[node name="EnemySpawnPosition" type="Marker2D" parent="EnemySpawn"]
+unique_name_in_owner = true
+gizmo_extents = 343.5
 
 [connection signal="body_entered" from="EnemyDespawn" to="EnemyDespawn" method="_on_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
