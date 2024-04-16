@@ -21,7 +21,7 @@ var second_position = Vector2.ZERO
 var win_area
 var lose_area
 var game_reset = false
-@export var whirlpool : Node2D
+@export var whirlpools : Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -37,26 +37,23 @@ func _ready():
 	var yform = get_viewport_rect().size.y
 	var xatio = xform/720
 	var yatio = yform/1280
-	
-	var whirlpools = whirlpool.get_children()
+
 	
 #	if yform > 1280:
 #		%Camera2D.enabled = true
 #		%Camera2D.zoom.y = yform/1280
 
 	if xform > 720:
-		var obstacles = %Whirlpools
-		if obstacles.get_child_count() > 0:
-			for node in obstacles:
+		var obstacles = whirlpools
+		if whirlpools.get_child_count() > 0:
+			for node in obstacles.get_children():
 				node.position.x *= xatio
 		var nodes_to_move =[%Lose,%Win,%WallTop,%WallBottom,%Enemy,%Ball,%Player]
 		for node in nodes_to_move:
 			node.position.x *= xatio
 		var nodes_to_scale = [%Lose,%Win,%WallTop,%WallBottom]
 		for node in nodes_to_scale:
-			node.scale.x *= xatio		
-		for node in whirlpools:
-			node.position.x *= xatio
+			node.scale.x *= xatio
 
 
 	%Win.body_entered.connect(_on_win_body_entered)

@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cs18y0ygm8p13" path="res://src/main/options.tscn" id="12_wiofo"]
 [ext_resource type="PackedScene" uid="uid://2opj6l2yf0hy" path="res://src/main/highscore.tscn" id="13_sdpee"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="14_ihqmu"]
-[ext_resource type="PackedScene" uid="uid://urp5eq32gjnv" path="res://data/main/game_button.tscn" id="17_10g4p"]
+[ext_resource type="PackedScene" uid="uid://urp5eq32gjnv" path="res://src/autoloads/game_button.tscn" id="17_10g4p"]
 [ext_resource type="Texture2D" uid="uid://bds1772kdlg7f" path="res://textures/perry_says/perry_says_buttons_logo_256.png" id="18_h2tu3"]
 [ext_resource type="Texture2D" uid="uid://bqd3t0ewnnfu" path="res://textures/main/cham_256.png" id="19_evpij"]
 [ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://textures/perry_polo/pong_paddle1.png" id="20_c8i4i"]
