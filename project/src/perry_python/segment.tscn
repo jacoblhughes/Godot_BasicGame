@@ -6,14 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_121gs"]
 size = Vector2(64, 64)
 
-[node name="MyBody" type="Area2D"]
+[node name="Segment" type="Area2D"]
 script = ExtResource("1_2ehx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_f32o0")
 flip_v = true
-script = ExtResource("1_2ehx4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_121gs")

@@ -4,10 +4,10 @@
 [ext_resource type="SpriteFrames" uid="uid://bd2em2armt88p" path="res://textures/perry_flap/enemy_wall.tres" id="2_ettvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjiyy"]
-size = Vector2(80, 520)
+size = Vector2(128, 520)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tlwy"]
-size = Vector2(80, 520)
+size = Vector2(128, 520)
 
 [node name="EnemyWall" type="CharacterBody2D"]
 collision_layer = 2
@@ -18,13 +18,13 @@ metadata/_edit_horizontal_guides_ = [640.0, 320.0, 800.0, 880.0, 720.0, 560.0, 4
 
 [node name="TopWall" type="AnimatedSprite2D" parent="."]
 position = Vector2(-7.62939e-06, -380)
-scale = Vector2(0.3125, 0.677083)
+scale = Vector2(0.5, 0.677083)
 sprite_frames = ExtResource("2_ettvq")
 autoplay = "default"
 
 [node name="BottomWall" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3.8147e-06, 380)
-scale = Vector2(0.3125, 0.677083)
+scale = Vector2(0.5, 0.677083)
 sprite_frames = ExtResource("2_ettvq")
 autoplay = "default"
 flip_v = true

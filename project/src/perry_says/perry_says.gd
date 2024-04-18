@@ -30,7 +30,7 @@ var buttonObject = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	
+
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
@@ -38,18 +38,21 @@ func _ready():
 	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
-	
+
 	var xform = get_viewport_rect().size.x
 	var yform = get_viewport_rect().size.y
 	var xatio = xform/720
 	var yatio = yform/1280
 
-#	if yform > 1280:
-#		%Camera2D.enabled = true
-#		%Camera2D.zoom.y = yform/1280
+	if yform > 1280:
+		var obstacles = %Buttons
+		for node in obstacles.get_children():
+			node.position.y *= yatio
 
 	if xform > 720:
-
+		var obstacles = %Buttons
+		for node in obstacles.get_children():
+			node.position.x *= xatio
 		var nodes_to_move =[]
 		for node in nodes_to_move:
 			node.position.x *= xatio
@@ -82,7 +85,7 @@ func _on_game_over():
 	playerTurn = false
 	arrayOfPlayerResponse = []
 	playerPopulate = -1
-	
+
 func _initialize_buttons():
 	for node in get_tree().get_nodes_in_group("perry_says_buttons"):
 		node.remove_from_group("perry_says_buttons")
@@ -106,7 +109,7 @@ func _computer_turn_start():
 	_add_next_value()
 
 	%PlaybackTimer.start()
-	
+
 func _player_turn_end():
 	HUD.update_score()
 	if HUD.check_advance_level():
@@ -123,16 +126,16 @@ func advance_level():
 func _get_next_value():
 	buttonToAdd = floor(rng.randf_range(0, 8))
 	return buttonToAdd
-	
+
 func _add_next_value():
 	arrayOfButtonsToFollow.append(_get_next_value())
 	pass # Replace with function body.
-	
+
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
 	_computer_turn_start()
 	pass # Replace with function body.
-	
+
 func _on_playback_timer_timeout():
 
 	groupOfButtons[arrayOfButtonsToFollow[computerPopulate]].called_from_game()
@@ -143,14 +146,14 @@ func _on_playback_timer_timeout():
 		computerPopulate = 0
 
 		%PlaybackTimer.stop()
-		
+
 	pass # Replace with function body.
 
 func _stop_game_button_sounds():
 #	for button in groupOfButtons:
 #		button.sound.stop()
 	pass
-	
+
 func _stop_game_button_animations_and_timer():
 	%PlaybackTimer.stop()
 

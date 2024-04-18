@@ -15,4 +15,4 @@ func _set_curr_position(new_position: Vector2) -> void:
 
 func go_to_previous_position() -> void:
 	curr_position = prev_position
-	
+

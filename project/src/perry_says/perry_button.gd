@@ -1,4 +1,4 @@
-extends TextureButton
+extends Node2D
 @onready var sprite_number : int = 0
 @onready var button_number : int = 1
 #@onready var animated_sprite : AnimatedSprite2D
@@ -14,7 +14,7 @@ func _ready():
 #	texture_button = $TextureButton
 #	animated_sprite = $TextureButton/AnimatedSprite2D
 	audio_stream_player = %AudioStreamPlayer
-	pressed.connect(_on_texture_button_pressed)
+	%Button.pressed.connect(_on_texture_button_pressed)
 	pass
 
 func initiate_button():
@@ -26,13 +26,13 @@ func initiate_button():
 
 	atlas_texture.atlas = button_texture
 	pressed_atlas_texture.atlas = button_texture
-	
+
 	var texture_width = atlas_texture.get_width()/total_columns
 
 	var column_index = (desired_column % total_columns)
 
 	var pressed_column_index = desired_column+1 % total_columns
-	
+
 	var region_rect = Rect2(
 		column_index * texture_width,
 		0,  # Since there is only one row, the row index is always 0
@@ -45,11 +45,11 @@ func initiate_button():
 		texture_width,
 		texture_width  # Assuming square textures, adjust if necessary
 	)
-	
+
 	atlas_texture.set_region(region_rect)
 	pressed_atlas_texture.set_region(pressed_region_rect)
-	texture_normal = atlas_texture
-	texture_pressed = pressed_atlas_texture
+	%Button.texture_normal = atlas_texture
+	%Button.texture_pressed = pressed_atlas_texture
 #	var sprite_frames = SpriteFrames.new()
 #	sprite_frames.clear_all()
 ##	sprite_frames.add_animation('default')
@@ -76,9 +76,9 @@ func _on_texture_button_pressed():
 
 func called_from_game():
 
-	pressed.emit()
-	toggle_mode = true
-	button_pressed = true
+	%Button.pressed.emit()
+	%Button.toggle_mode = true
+	%Button.button_pressed = true
 	await get_tree().create_timer(play_time).timeout
-	button_pressed = false
-	toggle_mode = false
+	%Button.button_pressed = false
+	%Button.toggle_mode = false

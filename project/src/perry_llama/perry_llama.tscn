@@ -24,11 +24,6 @@ metadata/_edit_horizontal_guides_ = []
 [node name="GameBackground" parent="." instance=ExtResource("2_npa5y")]
 game_background_texture = ExtResource("3_0uvvx")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(360, 640)
-enabled = false
-
 [node name="Floor" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(24, 664)

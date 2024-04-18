@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1ov306httsie"]
+[gd_scene load_steps=9 format=3 uid="uid://c1ov306httsie"]
 
 [ext_resource type="Script" path="res://src/perry_python/perry_python.gd" id="1_5btnr"]
 [ext_resource type="Texture2D" uid="uid://b6o8i6d3x1cqy" path="res://textures/perry_python/snake_background_144_256.png" id="2_hp12s"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_qh02o"]
 [ext_resource type="PackedScene" uid="uid://dfnx72qlyx548" path="res://src/perry_python/player.tscn" id="2_v5o8n"]
 [ext_resource type="PackedScene" uid="uid://bxl4qmrohr3eh" path="res://src/perry_python/segment.tscn" id="3_6idbn"]
-[ext_resource type="Script" path="res://src/perry_python/grid.gd" id="3_t14ja"]
 [ext_resource type="Script" path="res://src/perry_python/spawn_food.gd" id="4_llfef"]
 [ext_resource type="Script" path="res://src/perry_python/hit_spotter.gd" id="5_skcxu"]
 [ext_resource type="PackedScene" uid="uid://c1lvj4sddaalt" path="res://src/perry_python/food.tscn" id="6_ntsi0"]
@@ -18,27 +17,21 @@ body_scene = ExtResource("3_6idbn")
 [node name="GameBackground" parent="." instance=ExtResource("2_qh02o")]
 game_background_texture = ExtResource("2_hp12s")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Body" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(360, 640)
-enabled = false
-
-[node name="body" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="grid" type="Node2D" parent="."]
-unique_name_in_owner = true
-script = ExtResource("3_t14ja")
 
 [node name="SnakeTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.75
 
-[node name="spawner_food" type="Node2D" parent="."]
+[node name="FoodSpawner" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_llfef")
 my_food = ExtResource("6_ntsi0")
 
-[node name="hit_spotter" type="Node2D" parent="."]
+[node name="HitSpotter" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_skcxu")
+
+[node name="Player" parent="." instance=ExtResource("2_v5o8n")]
+unique_name_in_owner = true

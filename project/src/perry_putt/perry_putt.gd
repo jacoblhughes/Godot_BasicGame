@@ -20,9 +20,9 @@ var game_time_left_timer_value = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 
-	
+
+
 #	%Hole.ball_sank.connect(_on_perry_ball_sank)
 
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
@@ -32,7 +32,7 @@ func _ready():
 	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
-	
+
 	var xform = get_viewport_rect().size.x
 	var yform = get_viewport_rect().size.y
 	var xatio = xform/720
@@ -50,7 +50,7 @@ func _ready():
 		var nodes_to_scale = []
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
-			
+
 
 	if start_level_2:
 		apply_level(level_2)
@@ -72,14 +72,14 @@ func _on_play_button_pressed():
 func _on_game_over():
 	pass
 
-	
+
 func apply_level(scene):
 	current_scene = scene
 	var scene_instance = scene.instantiate()
 	scene_instance.ball_sank.connect(_on_ball_sank)
 	scene_instance.game_over.connect(_on_game_over)
 	add_child.call_deferred(scene_instance)
-	
+
 func _on_ball_sank():
 	if current_scene == level_1:
 		apply_level(level_2)

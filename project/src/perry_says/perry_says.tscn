@@ -17,14 +17,11 @@
 [node name="PerrySays" type="Node2D"]
 script = ExtResource("1_fdqsf")
 sounds = Array[AudioStreamWAV]([ExtResource("2_3k85m"), ExtResource("3_04kq7"), ExtResource("4_gjraj"), ExtResource("5_lpmgt"), ExtResource("6_4meve"), ExtResource("7_5jrer"), ExtResource("8_1a60j"), ExtResource("9_o87dh")])
-metadata/_edit_vertical_guides_ = [360.0]
-metadata/_edit_horizontal_guides_ = [-640.0]
+metadata/_edit_vertical_guides_ = [360.0, 296.0, 424.0]
+metadata/_edit_horizontal_guides_ = [-640.0, 640.0, 320.0, 160.0, 480.0, 800.0, 960.0, 1120.0]
 
 [node name="GameBackground" parent="." instance=ExtResource("2_0t6vh")]
 game_background_texture = ExtResource("2_8tja7")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(360, 640)
 
 [node name="PlaybackTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -34,49 +31,25 @@ script = ExtResource("3_nsfda")
 unique_name_in_owner = true
 
 [node name="PerryButton" parent="Buttons" instance=ExtResource("3_o4idv")]
-offset_left = 104.0
-offset_top = 432.0
-offset_right = 104.0
-offset_bottom = 432.0
+position = Vector2(232, 320)
 
 [node name="PerryButton2" parent="Buttons" instance=ExtResource("3_o4idv")]
-offset_left = 360.0
-offset_top = 432.0
-offset_right = 360.0
-offset_bottom = 432.0
+position = Vector2(168, 576)
 
 [node name="PerryButton3" parent="Buttons" instance=ExtResource("3_o4idv")]
-offset_left = 104.0
-offset_top = 688.0
-offset_right = 104.0
-offset_bottom = 688.0
+position = Vector2(168, 832)
 
 [node name="PerryButton4" parent="Buttons" instance=ExtResource("3_o4idv")]
-offset_left = 360.0
-offset_top = 688.0
-offset_right = 360.0
-offset_bottom = 688.0
+position = Vector2(232, 1088)
 
 [node name="PerryButton5" parent="Buttons" instance=ExtResource("3_o4idv")]
-offset_left = 40.0
-offset_top = 176.0
-offset_right = 40.0
-offset_bottom = 176.0
+position = Vector2(488, 320)
 
 [node name="PerryButton6" parent="Buttons" instance=ExtResource("3_o4idv")]
-offset_left = 424.0
-offset_top = 176.0
-offset_right = 424.0
-offset_bottom = 176.0
+position = Vector2(552, 576)
 
 [node name="PerryButton7" parent="Buttons" instance=ExtResource("3_o4idv")]
-offset_left = 40.0
-offset_top = 944.0
-offset_right = 40.0
-offset_bottom = 944.0
+position = Vector2(552, 832)
 
 [node name="PerryButton8" parent="Buttons" instance=ExtResource("3_o4idv")]
-offset_left = 424.0
-offset_top = 944.0
-offset_right = 424.0
-offset_bottom = 944.0
+position = Vector2(488, 1088)

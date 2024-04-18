@@ -91,7 +91,7 @@ func _physics_process(delta):
 				mob.squash()
 				target_velocity.y = bounce_impulse
 				# Prevent further duplicate calls.
-				break	
+				break
 	# Apply the movement
 	velocity = target_velocity
 	move_and_slide()
@@ -99,7 +99,7 @@ func _physics_process(delta):
 	if movement_direction != Vector3.ZERO:
 		$Pivot.look_at(global_transform.origin + movement_direction, Vector3.UP)
 	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
-	
+
 func _on_mob_detector_body_entered(body):
 	die()
 # And this function at the bottom.

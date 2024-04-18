@@ -25,10 +25,10 @@ func _ready():
 	Background.hide()
 
 	#3D
-	
+
 	%Shelf.load_ball.connect(_on_load_ball)
 	%ScoreTarget.scored.connect(_on_scored)
-			
+
 	skeeballs = get_tree().get_nodes_in_group("skeeballs")
 	pass # Replace with function body.
 
@@ -77,7 +77,7 @@ func _on_play_button_pressed():
 
 func _on_game_over():
 	pass
-	
+
 func _on_scored():
 	HUD.update_score()
 

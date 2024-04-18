@@ -24,11 +24,6 @@ sources/0 = SubResource("TileSetAtlasSource_ajf4l")
 script = ExtResource("1_mjawl")
 mob_scene = ExtResource("2_ndgye")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(360, 640)
-enabled = false
-
 [node name="TileMap" type="TileMap" parent="."]
 unique_name_in_owner = true
 tile_set = SubResource("TileSet_rfxxs")

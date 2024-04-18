@@ -18,11 +18,11 @@ func _ready():
 	animated_sprite = get_node("AnimatedSprite2D")
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	pass
-	
+
 func _on_clickable_input_event(event, input_position):
 	if event.pressed:
 		velocity.y = jump_force
-		
+
 func hit():
 	if(GameManager.get_game_enabled()):
 		HUD.update_lives()

@@ -1,34 +1,116 @@
-[gd_scene load_steps=8 format=3 uid="uid://byr54mhj3utn8"]
+[gd_scene load_steps=20 format=3 uid="uid://byr54mhj3utn8"]
 
 [ext_resource type="Script" path="res://src/perry_space/enemy.gd" id="1_upvbl"]
-[ext_resource type="Texture2D" uid="uid://buab01uyncmou" path="res://textures/perry_space/enemy_256.png" id="2_45imq"]
+[ext_resource type="Texture2D" uid="uid://cywosjxskjg2d" path="res://textures/perry_space/enemy_blue_256.png" id="2_7dick"]
+[ext_resource type="Texture2D" uid="uid://ir7hx8wgahth" path="res://textures/perry_space/enemy_green_256.png" id="2_traeb"]
 [ext_resource type="AudioStream" uid="uid://byygwxpyf0h3k" path="res://sounds/perry_space/enemy_die.wav" id="3_e35dg"]
+[ext_resource type="Texture2D" uid="uid://cunkbfjaeggqn" path="res://textures/perry_space/enemy_yellow_256.png" id="4_lp3yr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m1nbk"]
-atlas = ExtResource("2_45imq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqegt"]
+atlas = ExtResource("2_7dick")
 region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d0g1m"]
-atlas = ExtResource("2_45imq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_81xft"]
+atlas = ExtResource("2_7dick")
 region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpaa2"]
+atlas = ExtResource("2_7dick")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgbdb"]
+atlas = ExtResource("2_7dick")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5j5m"]
+atlas = ExtResource("2_traeb")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnnau"]
+atlas = ExtResource("2_traeb")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp5ex"]
+atlas = ExtResource("2_traeb")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j47y"]
+atlas = ExtResource("2_traeb")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2qpl"]
+atlas = ExtResource("4_lp3yr")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qh0o"]
+atlas = ExtResource("4_lp3yr")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytglr"]
+atlas = ExtResource("4_lp3yr")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnrir"]
+atlas = ExtResource("4_lp3yr")
+region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1131m"]
 animations = [{
 "frames": [{
-"duration": 10.0,
-"texture": SubResource("AtlasTexture_m1nbk")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqegt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d0g1m")
+"texture": SubResource("AtlasTexture_81xft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpaa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgbdb")
 }],
 "loop": true,
-"name": &"default",
-"speed": 1.0
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5j5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnnau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp5ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j47y")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2qpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qh0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytglr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnrir")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g0732"]
 radius = 24.0
-height = 80.0
+height = 80.0001
 
 [node name="Enemy" type="Area2D"]
 collision_layer = 2
@@ -36,9 +118,10 @@ collision_mask = 25
 script = ExtResource("1_upvbl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+unique_name_in_owner = true
+scale = Vector2(0.33, 0.33)
 sprite_frames = SubResource("SpriteFrames_1131m")
-autoplay = "default"
+animation = &"green"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

@@ -19,11 +19,6 @@ metadata/_edit_vertical_guides_ = [680.0, 360.0, 40.0, 360.0, 200.0, 360.0, 520.
 [node name="GameBackground" parent="." instance=ExtResource("3_7c1vq")]
 game_background_texture = ExtResource("2_q4x8g")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(360, 640)
-enabled = false
-
 [node name="Whirpools" type="Node2D" parent="."]
 unique_name_in_owner = true
 
@@ -57,14 +52,19 @@ position = Vector2(680, 640)
 ball = NodePath("../Ball")
 starting_position_marker = NodePath("../PlayerStart")
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("6_47f6h")]
+[node name="Enemy" parent="." node_paths=PackedStringArray("ball", "enemy_start") instance=ExtResource("6_47f6h")]
 unique_name_in_owner = true
 position = Vector2(56, 640)
 ball = NodePath("../Ball")
+enemy_start = NodePath("../EnemyStart")
 
 [node name="PlayerStart" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(656, 640)
+
+[node name="EnemyStart" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(56, 640)
 
 [node name="Win" parent="." instance=ExtResource("10_yguu7")]
 unique_name_in_owner = true

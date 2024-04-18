@@ -2,7 +2,7 @@ extends CanvasLayer
 var config = ConfigFile.new()
 
 
-var game_key
+
 @export var perry_says: PackedScene
 var perry_says_scene
 @export var perry_python: PackedScene
@@ -62,8 +62,8 @@ func _on_game_chosen(game_key,game_scene):
 	GameStartGameOver.show()
 
 
-	
-	
+
+
 func _on_about_pressed():
 	self.visible = false
 	about_scene = about.instantiate()
