@@ -3,19 +3,15 @@
 [ext_resource type="Script" path="res://src/perry_run/floor.gd" id="1_exyns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
-size = Vector2(1080, 360)
+size = Vector2(2524, 360)
 
-[node name="FloorStart" type="RigidBody2D"]
-mass = 100.0
-gravity_scale = 0.0
-can_sleep = false
-freeze_mode = 1
-linear_damp_mode = 1
+[node name="FloorStart" type="StaticBody2D"]
+constant_linear_velocity = Vector2(10, 0)
 script = ExtResource("1_exyns")
 metadata/_edit_vertical_guides_ = [360.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(540, 0)
+position = Vector2(1262, 0)
 shape = SubResource("RectangleShape2D_w3qdx")
 
 [node name="ColorRect" type="ColorRect" parent="."]

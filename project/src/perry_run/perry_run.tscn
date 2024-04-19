@@ -23,12 +23,12 @@ unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("3_d1s5q")]
 unique_name_in_owner = true
-position = Vector2(160, 192)
+position = Vector2(160, 842)
 motion_mode = 0
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(160, 192)
+position = Vector2(160, 842)
 
 [node name="EnemySpawnPositions" type="Node2D" parent="."]
 unique_name_in_owner = true

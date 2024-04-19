@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends StaticBody2D
 class_name PerryRunFloor
 
 const SPEED = 300.0
@@ -10,4 +10,4 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	var direction = -1
-	linear_velocity.x = direction * SPEED
+
