@@ -3,13 +3,13 @@ class_name PerrySpacePlayer
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var start_position_marker : Marker2D
-signal took_damage
+
 @onready var RocketShootSound : AudioStreamPlayer = $RocketShootSound
 @onready var player_hit_sound : AudioStreamPlayer = $PlayerDamageSound
 @onready var rocket_timer : Timer
 @onready var perry_space : Node2D
-signal enemy_collide
-signal enemy_destroyed
+
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @export var rocket_scene : PackedScene
 
@@ -46,17 +46,15 @@ func _physics_process(_delta):
 
 
 func shoot():
+
 	var rocket_instance = rocket_scene.instantiate()
 	rocketspawn_node.add_child(rocket_instance)
-	rocket_instance.enemy_hit.connect(_on_enemy_destroyed)
 	rocket_instance.global_position = global_position
 	rocket_instance.global_position.x += 80
 	RocketShootSound.play()
 
-func _on_enemy_collide():
-	enemy_collide.emit()
-
 func take_damage():
+	HUD.update_lives()
 	player_hit_sound.play()
 
 
@@ -64,6 +62,3 @@ func _on_rocket_timer_timeout():
 
 	shoot()
 	pass # Replace with function body.
-
-func _on_enemy_destroyed():
-	enemy_destroyed.emit()

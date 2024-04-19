@@ -44,10 +44,11 @@ color_ramp = SubResource("GradientTexture1D_es2e6")
 size = Vector2(26, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3f3jt"]
-size = Vector2(98.054, 1024)
+size = Vector2(32, 1280)
 
 [node name="PerrySpace" type="Node2D"]
 script = ExtResource("1_yw0yd")
+metadata/_edit_horizontal_guides_ = [640.0]
 
 [node name="GameBackground" parent="." instance=ExtResource("2_esp7d")]
 game_background_texture = ExtResource("3_bvgf7")
@@ -88,7 +89,7 @@ wait_time = 0.5
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(128, 664)
+position = Vector2(128, 640)
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -103,27 +104,27 @@ wait_time = 2.0
 
 [node name="Marker1" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
 unique_name_in_owner = true
-position = Vector2(704, 288)
+position = Vector2(720, 256)
 
 [node name="Marker2" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
 unique_name_in_owner = true
-position = Vector2(704, 480)
+position = Vector2(720, 448)
 
 [node name="Marker3" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
 unique_name_in_owner = true
-position = Vector2(704, 1088)
+position = Vector2(720, 640)
 
 [node name="Marker4" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
 unique_name_in_owner = true
-position = Vector2(704, 688)
+position = Vector2(720, 832)
 
 [node name="Marker5" type="Marker2D" parent="EnemySpawner/SpawnLocations"]
 unique_name_in_owner = true
-position = Vector2(704, 896)
+position = Vector2(720, 1088)
 
 [node name="EnemyDeathzone" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, 688)
+position = Vector2(0, 640)
 collision_layer = 8
 collision_mask = 2
 
@@ -132,7 +133,7 @@ shape = SubResource("RectangleShape2D_3f3jt")
 
 [node name="RocketDeathzone" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(712, 688)
+position = Vector2(720, 640)
 collision_layer = 1024
 collision_mask = 16
 

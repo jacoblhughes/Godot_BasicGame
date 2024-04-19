@@ -3,7 +3,7 @@ extends CharacterBody2D
 var force = 500
 var target_position = Vector2(0,0)
 var lerp_speed = 0.1
-var is_touching = false 
+var is_touching = false
 
 var move_speed = 200
 var stop_threshold = 10  # Stop moving when within 10 pixels of the target
@@ -17,7 +17,7 @@ func _ready():
 	pass
 
 func _on_clickable_input_event(event, input_position):
-	
+
 	if event.pressed:
 		target_position = input_position
 		if(GameManager.get_game_enabled()):

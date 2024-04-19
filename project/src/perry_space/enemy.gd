@@ -1,14 +1,17 @@
 extends Area2D
 class_name SpaceEnemy
 
-@export var SPEED = 120
+@export var SPEED = 100
 
+var worth
 var health
+signal enemy_destroyed(value)
 
 @onready var enemy_die_sound : AudioStreamPlayer = $EnemyHitSound
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var value = floor(randf_range(1,4))
+	worth = value
 	scale *= value
 	health = value
 	var skin = floor(randf_range(1,4))
@@ -27,6 +30,7 @@ func _physics_process(delta):
 	pass
 
 func die():
+	enemy_destroyed.emit(worth)
 
 	queue_free()
 

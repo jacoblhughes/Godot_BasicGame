@@ -33,21 +33,21 @@ func _ready():
 #	print(DisplayServer.get_display_safe_area())
 	input_panel.input_event.connect(_on_clickable_input_event)
 	pass
-	
+
 func _process(delta):
 
 	if start_time_timer_used and start_timer_countdown:
 		var countdown_timer_left = %StartCountdownTimer.time_left
 		%Time.text = "%d:%02d" % [floor(countdown_timer_left / 60), int(countdown_timer_left) % 60]
-	
+
 	if game_time_left_timer_used and game_time_left_timing:
 		var game_left_timer = %GameTimeLeftTimer.time_left
 		%Time.text = "%d:%02d" % [floor(game_left_timer / 60), int(game_left_timer) % 60]
 	pass
-	
+
 func update_initials(value):
 	%Initials.text = value
-	
+
 func return_initials():
 	return(%Initials.text)
 
@@ -57,7 +57,7 @@ func update_score(value = 1):
 	score = new_score
 	var score_text = str(score)
 	%Score.text = score_text
-	
+
 func set_or_reset_score(value = 0):
 	var new_score
 	if value != 0:
@@ -78,7 +78,7 @@ func set_or_reset_level(default_level = "INF"):
 		%Level.text = str(level)
 	else:
 		%Level.text = default_level
-			
+
 func update_game_level(value):
 	var old_level = level
 	var new_level = old_level + value
@@ -114,10 +114,10 @@ func set_or_reset_lives(default_lives = "INF"):
 	else:
 		lives=3
 		%Lives.text = default_lives
-		
+
 func return_lives():
 	return lives
-	
+
 func update_lives(value = -1):
 
 	var old_lives = lives
@@ -126,13 +126,13 @@ func update_lives(value = -1):
 	if lives <= 0:
 		GameStartGameOver.out_of_lives()
 	%Lives.text = str(lives)
-	
+
 
 func check_advance_level():
-		if(return_score() % level_advance_check_value == 0):
+		if(int(return_score()) % level_advance_check_value == 0):
 			update_game_level(level_advance_base_value * 1)
 			return true
-			
+
 func return_game_level():
 	return level
 
@@ -160,10 +160,10 @@ func _on_game_left_timer_timeout():
 	game_time_left_timer_timeout.emit()
 	clear_timer()
 	pass # Replace with function body.
-	
+
 func clear_timer():
 	%Time.text = "INF"
-	
+
 func clear_hud():
 	set_or_reset_score()
 	set_or_reset_lives()

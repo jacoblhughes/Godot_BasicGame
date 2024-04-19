@@ -43,29 +43,21 @@ func _ready():
 	if yform > 1280:
 #		%Camera2D.enabled = true
 #		%Camera2D.zoom.y = yform/1280
-		var nodes_to_move =[%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish,%Player,%StartPosition,%MeltZone,%RaceTrack]
+		var nodes_to_move =[]
 		for node in nodes_to_move:
 			node.position.y *= yatio
-		var nodes_to_scale = [%TileMap,%MeltZone,%RaceTrack]
+		var nodes_to_scale = []
 		for node in nodes_to_scale:
 			node.scale.y *= yatio
 
 	if xform > 720:
-		var nodes_to_move =[%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish,%Player,%StartPosition,%MeltZone,%RaceTrack]
+		var nodes_to_move =[]
 		for node in nodes_to_move:
 			node.position.x *= xatio
-		var nodes_to_scale = [%TileMap,%MeltZone,%RaceTrack]
+		var nodes_to_scale = []
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
 
-	%CheckPoint1.body_entered.connect(_on_cp_1_body_entered)
-	%CheckPoint2.body_entered.connect(_on_cp_2_body_entered)
-	%CheckPoint3.body_entered.connect(_on_cp_3_body_entered)
-	%Finish.body_entered.connect(_on_finish_body_entered)
-	%RaceTrack.body_exited.connect(_on_race_track_body_exited)
-	%MeltZone.body_entered.connect(_on_melt_zone_body_entered)
-	checkpoints = [%CheckPoint1,%CheckPoint2,%CheckPoint3,%Finish]
-	reset_point = %Finish.position
 
 	pass # Replace with function body.
 
@@ -73,19 +65,6 @@ func _ready():
 func _process(_delta):
 
 	pass
-
-func _on_race_track_body_exited(body):
-	_out_of_bounds()
-	pass # Replace with function body.
-
-func _on_melt_zone_body_entered(body):
-	_out_of_bounds()
-	pass # Replace with function body.
-
-func _out_of_bounds():
-
-	%Player.position = reset_point
-	out_of_bounds.emit(reset_point)
 
 func _on_cp_1_body_entered(body):
 	if c_p_1_hit == false:
@@ -157,6 +136,6 @@ func _on_game_time_left_timer_timeout():
 
 func _on_game_over():
 	reset_point = %StartPosition.position
-	_out_of_bounds()
+
 
 	pass # Replace with function body.

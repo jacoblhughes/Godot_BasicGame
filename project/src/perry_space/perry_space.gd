@@ -57,11 +57,10 @@ func _ready():
 
 	rocket_timer = %RocketTimer
 	player = %Player
-	player.took_damage.connect(_on_player_hit)
-	player.enemy_destroyed.connect(_on_enemy_hit)
+
 	%EnemyDeathzone.area_entered.connect(_on_enemy_deathzone_area_entered)
 	%RocketDeathzone.area_entered.connect(_on_rocket_deathzone_area_entered)
-
+	%EnemySpawner.enemy_spawned.connect(_on_enemy_spawned)
 	pass # Replace with function body.
 
 
@@ -100,8 +99,11 @@ func _on_game_over():
 	rocket_timer.stop()
 	GameManager.check_highscore_and_rank()
 
-func _on_enemy_hit():
-	HUD.update_score()
+func _on_enemy_spawned(enemy):
+	enemy.enemy_destroyed.connect(_on_enemy_destroyed)
+
+func _on_enemy_destroyed(value):
+	HUD.update_score(value)
 	if HUD.check_advance_level():
 		advance_level()
 

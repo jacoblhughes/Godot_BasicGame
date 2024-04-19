@@ -1,49 +1,62 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf4xkqs74ytur"]
+[gd_scene load_steps=10 format=3 uid="uid://cf4xkqs74ytur"]
 
 [ext_resource type="Script" path="res://src/perry_run/perry_run.gd" id="2_1lkn6"]
-[ext_resource type="PackedScene" uid="uid://b7gr1u1puu88l" path="res://src/perry_run/tile_map.tscn" id="3_axivd"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_pjw21"]
 [ext_resource type="PackedScene" uid="uid://bxseg85es8o1u" path="res://src/perry_run/player.tscn" id="3_d1s5q"]
-[ext_resource type="PackedScene" uid="uid://m5niu6tioii2" path="res://src/perry_run/race_track.tscn" id="4_f80jr"]
-[ext_resource type="PackedScene" uid="uid://chglk5p1v121k" path="res://src/perry_run/melt_zone.tscn" id="5_qlbnr"]
-[ext_resource type="PackedScene" uid="uid://dp2een83p3lff" path="res://src/perry_run/check_point.tscn" id="6_vcxuv"]
+[ext_resource type="Texture2D" uid="uid://bx5cma57kljk6" path="res://textures/perry_flap/flappy_background_256_512.png" id="3_xg8ln"]
+[ext_resource type="Script" path="res://src/perry_run/enemy_spawn.gd" id="5_y6ah6"]
+[ext_resource type="PackedScene" uid="uid://b46ie0qbg858a" path="res://src/perry_run/floor_start.tscn" id="6_tai0o"]
+[ext_resource type="PackedScene" uid="uid://c5kgr28iarvx1" path="res://src/perry_run/platform.tscn" id="7_j2cui"]
+[ext_resource type="Script" path="res://src/perry_run/enemy_despawn.gd" id="7_w8xaw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmxft"]
+size = Vector2(10, 360)
 
 [node name="PerryRun" type="Node2D"]
 script = ExtResource("2_1lkn6")
 
-[node name="TileMap" parent="." instance=ExtResource("3_axivd")]
+[node name="GameBackground" parent="." instance=ExtResource("2_pjw21")]
+game_background_texture = ExtResource("3_xg8ln")
+
+[node name="EnemyTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-layer_0/tile_data = PackedInt32Array(65536, 262144, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 327680, 0, 393216, 262144, 0, 458752, 327680, 0, 65537, 65536, 0, 131073, 262144, 0, 196609, 327680, 0, 262145, 393216, 0, 327681, 196608, 0, 393217, 131072, 0, 458753, 196608, 0, 65538, 65536, 0, 131074, 65536, 0, 196610, 65536, 0, 262146, 393216, 0, 327682, 393216, 0, 393218, 393216, 0, 458754, 393216, 0, 65539, 65536, 0, 131075, 65536, 0, 196611, 196608, 0, 262147, 327680, 0, 327683, 393216, 0, 393219, 262144, 0, 458755, 327680, 0, 65540, 196608, 0, 131076, 131072, 0, 196612, 393216, 0, 262148, 196608, 0, 327684, 0, 0, 393220, 131072, 0, 458756, 196608, 0, 524288, 393216, 0, 524289, 327680, 0, 524290, 65536, 0, 524291, 65536, 0, 524292, 131072, 0, 65541, 393216, 0, 131077, 393216, 0, 196613, 393216, 0, 262149, 393216, 0, 327685, 393216, 0, 5, 393216, 0, 4, 393216, 0, 3, 393216, 0, 2, 393216, 0, 1, 393216, 0, 0, 393216, 0, 393221, 393216, 0, 458757, 393216, 0, 524293, 393216, 0, 589829, 393216, 0, 589828, 393216, 0, 589827, 393216, 0, 589826, 393216, 0, 589825, 393216, 0, 589824, 393216, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_d1s5q")]
 unique_name_in_owner = true
 position = Vector2(160, 192)
+motion_mode = 0
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(160, 192)
 
-[node name="MeltZone" parent="." instance=ExtResource("5_qlbnr")]
+[node name="EnemySpawnPositions" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_y6ah6")
+
+[node name="EnemySpawn" type="Node2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
 
-[node name="RaceTrack" parent="." instance=ExtResource("4_f80jr")]
-unique_name_in_owner = true
+[node name="FloorStart" parent="EnemySpawnPositions/EnemySpawn" instance=ExtResource("6_tai0o")]
+position = Vector2(0, 1100)
 
-[node name="CheckPoint1" parent="." instance=ExtResource("6_vcxuv")]
-unique_name_in_owner = true
-position = Vector2(456, 568)
-rotation = -0.785398
+[node name="Platform" parent="EnemySpawnPositions/EnemySpawn" instance=ExtResource("7_j2cui")]
+position = Vector2(720, 740)
 
-[node name="CheckPoint2" parent="." instance=ExtResource("6_vcxuv")]
+[node name="EnemyPositionLow" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
-position = Vector2(568, 1080)
-rotation = 0.785398
+position = Vector2(720, 1100)
 
-[node name="CheckPoint3" parent="." instance=ExtResource("6_vcxuv")]
+[node name="EnemyPositionHigh" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
-position = Vector2(184, 824)
-rotation = 0.785398
+position = Vector2(720, 740)
 
-[node name="Finish" parent="." instance=ExtResource("6_vcxuv")]
+[node name="EnemyDespawn" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(72, 200)
-rotation = 0.785398
+position = Vector2(-4, 1100)
+script = ExtResource("7_w8xaw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDespawn"]
+shape = SubResource("RectangleShape2D_hmxft")
+
+[connection signal="body_exited" from="EnemyDespawn" to="EnemyDespawn" method="_on_body_exited"]

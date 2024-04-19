@@ -30,7 +30,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		animation_player.play("jumping")
 		velocity.y += gravity * delta
-		
+
 	if is_on_floor():
 		animation_player.play("default")  # Start the "jumping" animation
 		double_jump_counter = false
