@@ -5,8 +5,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
 size = Vector2(2524, 360)
 
-[node name="FloorStart" type="StaticBody2D"]
-constant_linear_velocity = Vector2(10, 0)
+[node name="FloorStart" type="RigidBody2D"]
+mass = 1000.0
+inertia = 1000.0
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
 script = ExtResource("1_exyns")
 metadata/_edit_vertical_guides_ = [360.0]
 
@@ -16,5 +20,5 @@ shape = SubResource("RectangleShape2D_w3qdx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_top = -180.0
-offset_right = 1080.0
+offset_right = 2524.0
 offset_bottom = 180.0

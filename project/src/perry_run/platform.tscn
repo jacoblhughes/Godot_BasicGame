@@ -5,7 +5,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
 size = Vector2(360, 80)
 
-[node name="Platform" type="StaticBody2D"]
+[node name="Platform" type="RigidBody2D"]
+collision_mask = 0
+mass = 1000.0
+inertia = 1000.0
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
 script = ExtResource("1_ale58")
 metadata/_edit_vertical_guides_ = [360.0]
 

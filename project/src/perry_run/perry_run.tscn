@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf4xkqs74ytur"]
+[gd_scene load_steps=9 format=3 uid="uid://cf4xkqs74ytur"]
 
 [ext_resource type="Script" path="res://src/perry_run/perry_run.gd" id="2_1lkn6"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_pjw21"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bx5cma57kljk6" path="res://textures/perry_flap/flappy_background_256_512.png" id="3_xg8ln"]
 [ext_resource type="Script" path="res://src/perry_run/enemy_spawn.gd" id="5_y6ah6"]
 [ext_resource type="PackedScene" uid="uid://b46ie0qbg858a" path="res://src/perry_run/floor_start.tscn" id="6_tai0o"]
-[ext_resource type="PackedScene" uid="uid://c5kgr28iarvx1" path="res://src/perry_run/platform.tscn" id="7_j2cui"]
 [ext_resource type="Script" path="res://src/perry_run/enemy_despawn.gd" id="7_w8xaw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmxft"]
@@ -30,18 +29,15 @@ motion_mode = 0
 unique_name_in_owner = true
 position = Vector2(160, 842)
 
-[node name="EnemySpawnPositions" type="Node2D" parent="."]
+[node name="EnemySpawn" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_y6ah6")
 
-[node name="EnemySpawn" type="Node2D" parent="EnemySpawnPositions"]
-unique_name_in_owner = true
-
-[node name="FloorStart" parent="EnemySpawnPositions/EnemySpawn" instance=ExtResource("6_tai0o")]
+[node name="FloorStart" parent="EnemySpawn" instance=ExtResource("6_tai0o")]
 position = Vector2(0, 1100)
 
-[node name="Platform" parent="EnemySpawnPositions/EnemySpawn" instance=ExtResource("7_j2cui")]
-position = Vector2(720, 740)
+[node name="EnemySpawnPositions" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="EnemyPositionLow" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
