@@ -1,10 +1,6 @@
 extends Node2D
 
-var c_p_1_hit = false
-var c_p_2_hit = false
-var c_p_3_hit = false
-var finish_hit = false
-var checkpoints = []
+@export var player_scene : PackedScene
 
 var initial_score_value = 0
 var score_advance_base_value = 1
@@ -21,7 +17,7 @@ var reset_point
 var game_on = false
 
 
-signal out_of_bounds(new_target_position)
+signal game_start
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -67,8 +63,11 @@ func _process(_delta):
 	pass
 
 func _on_play_button_pressed():
-#	HUD.set_start_timer_countdown_and_start()
+	game_start.emit()
+	var player = player_scene.instantiate()
+	player.position = %StartPosition.position
+	add_child.call_deferred(player)
 	pass
-	
+
 func advance_level():
 	pass

@@ -14,6 +14,7 @@ size = Vector2(10, 360)
 
 [node name="PerryRun" type="Node2D"]
 script = ExtResource("2_1lkn6")
+player_scene = ExtResource("3_d1s5q")
 metadata/_edit_vertical_guides_ = [720.0, 2224.0]
 
 [node name="GameBackground" parent="." instance=ExtResource("2_pjw21")]
@@ -21,28 +22,25 @@ game_background_texture = ExtResource("3_xg8ln")
 
 [node name="EnemyTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 1.5
-
-[node name="Player" parent="." instance=ExtResource("3_d1s5q")]
-unique_name_in_owner = true
-position = Vector2(160, 842)
-motion_mode = 0
+wait_time = 2.0
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(160, 842)
+position = Vector2(160, 800)
 
 [node name="EnemySpawn" type="Node2D" parent="." node_paths=PackedStringArray("enemy_timer")]
 unique_name_in_owner = true
 script = ExtResource("5_y6ah6")
 enemy_timer = NodePath("../EnemyTimer")
 enemy_floor = ExtResource("6_i0v16")
-
-[node name="FloorStart" parent="EnemySpawn" instance=ExtResource("6_tai0o")]
-position = Vector2(0, 1100)
+enemy_start = ExtResource("6_tai0o")
 
 [node name="EnemySpawnPositions" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="EnemyPositionStart" type="Marker2D" parent="EnemySpawnPositions"]
+unique_name_in_owner = true
+position = Vector2(0, 1100)
 
 [node name="EnemyPositionFloor" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
