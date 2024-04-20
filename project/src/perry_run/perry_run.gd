@@ -66,76 +66,9 @@ func _process(_delta):
 
 	pass
 
-func _on_cp_1_body_entered(body):
-	if c_p_1_hit == false:
-		HUD.update_score()
-	c_p_1_hit=true
-	%CheckPoint1.clear()
-	reset_point = %CheckPoint1.position
-	pass # Replace with function body.
-
-
-func _on_cp_2_body_entered(body):
-	if c_p_2_hit == false:
-		HUD.update_score()
-	c_p_2_hit=true
-	%CheckPoint2.clear()
-	reset_point = %CheckPoint2.position
-	pass # Replace with function body.
-
-
-func _on_cp_3_body_entered(body):
-	if c_p_3_hit == false:
-		HUD.update_score()
-	c_p_3_hit=true
-	%CheckPoint3.clear()
-	reset_point = %CheckPoint3.position
-	pass # Replace with function body.
-
-func _on_finish_body_entered(body):
-	if GameManager.get_game_enabled():
-		reset_point = %Finish.position
-		if c_p_1_hit == true and c_p_2_hit == true and c_p_3_hit == true:
-			HUD.update_score()
-			%Finish.clear()
-			await get_tree().create_timer(3).timeout
-			for node in checkpoints:
-				node.reset()
-			if HUD.check_advance_level():
-				advance_level()
-
-	_reset_checkpoints()
-	pass # Replace with function body.
-
 func _on_play_button_pressed():
-
-
-	HUD.set_start_timer_countdown_and_start()
-
-func _reset_checkpoints():
-	c_p_1_hit = false
-	c_p_2_hit = false
-	c_p_3_hit = false
-	finish_hit = false
-
-func _on_start_timer_countdown_timeout():
-
-
-	HUD.set_game_time_left_and_start()
-	GameManager.set_game_enabled(true)
-
-
-	pass # Replace with function body.
-
-func advance_level():
-
+#	HUD.set_start_timer_countdown_and_start()
 	pass
-
-func _on_game_time_left_timer_timeout():
-	HUD.update_lives()
-
-func _on_game_over():
-	reset_point = %StartPosition.position
-
-
-	pass # Replace with function body.
+	
+func advance_level():
+	pass

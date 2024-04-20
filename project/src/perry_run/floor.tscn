@@ -6,6 +6,7 @@
 size = Vector2(360, 360)
 
 [node name="Floor" type="RigidBody2D"]
+collision_mask = 0
 mass = 1000.0
 inertia = 1000.0
 gravity_scale = 0.0
