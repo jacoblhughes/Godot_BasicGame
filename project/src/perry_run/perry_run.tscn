@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf4xkqs74ytur"]
+[gd_scene load_steps=11 format=3 uid="uid://cf4xkqs74ytur"]
 
 [ext_resource type="Script" path="res://src/perry_run/perry_run.gd" id="2_1lkn6"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_pjw21"]
@@ -8,54 +8,62 @@
 [ext_resource type="PackedScene" uid="uid://dovtsr10tkaq7" path="res://src/perry_run/floor.tscn" id="6_i0v16"]
 [ext_resource type="PackedScene" uid="uid://b46ie0qbg858a" path="res://src/perry_run/floor_start.tscn" id="6_tai0o"]
 [ext_resource type="Script" path="res://src/perry_run/enemy_despawn.gd" id="7_w8xaw"]
+[ext_resource type="PackedScene" uid="uid://c5kgr28iarvx1" path="res://src/perry_run/platform.tscn" id="8_bllec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmxft"]
-size = Vector2(10, 360)
+size = Vector2(10, 672)
 
 [node name="PerryRun" type="Node2D"]
 script = ExtResource("2_1lkn6")
 player_scene = ExtResource("3_d1s5q")
 metadata/_edit_vertical_guides_ = [720.0, 2224.0]
+metadata/_edit_horizontal_guides_ = [944.0]
 
 [node name="GameBackground" parent="." instance=ExtResource("2_pjw21")]
 game_background_texture = ExtResource("3_xg8ln")
 
-[node name="EnemyTimer" type="Timer" parent="."]
+[node name="FloorTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 2.0
+wait_time = 1.5
+
+[node name="PlatformTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(160, 800)
 
-[node name="EnemySpawn" type="Node2D" parent="." node_paths=PackedStringArray("enemy_timer")]
+[node name="EnemySpawn" type="Node2D" parent="." node_paths=PackedStringArray("floor_timer", "platform_timer")]
 unique_name_in_owner = true
 script = ExtResource("5_y6ah6")
-enemy_timer = NodePath("../EnemyTimer")
-enemy_floor = ExtResource("6_i0v16")
-enemy_start = ExtResource("6_tai0o")
+floor_timer = NodePath("../FloorTimer")
+platform_timer = NodePath("../PlatformTimer")
+floor_base = ExtResource("6_i0v16")
+floor_start = ExtResource("6_tai0o")
+platform_base = ExtResource("8_bllec")
 
 [node name="EnemySpawnPositions" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="EnemyPositionStart" type="Marker2D" parent="EnemySpawnPositions"]
+[node name="FloorStartPosition" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
 position = Vector2(0, 1100)
 
-[node name="EnemyPositionFloor" type="Marker2D" parent="EnemySpawnPositions"]
+[node name="FloorPosition" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
 position = Vector2(720, 1100)
 
-[node name="EnemyPositionHigh" type="Marker2D" parent="EnemySpawnPositions"]
+[node name="PlatformPosition" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
 position = Vector2(720, 740)
 
 [node name="EnemyDespawn" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-4, 1100)
+position = Vector2(-4, 944)
 script = ExtResource("7_w8xaw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDespawn"]
 shape = SubResource("RectangleShape2D_hmxft")
 
-[connection signal="body_exited" from="EnemyDespawn" to="EnemyDespawn" method="_on_body_exited"]
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
