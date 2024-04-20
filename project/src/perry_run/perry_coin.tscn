@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bpqa0c0w6jcdj"]
+[gd_scene load_steps=21 format=3 uid="uid://bpqa0c0w6jcdj"]
 
 [ext_resource type="Texture2D" uid="uid://8n46hvyiilsr" path="res://textures/bonus/perry_coin.png" id="1_20a8u"]
+[ext_resource type="Script" path="res://src/perry_run/perry_coin.gd" id="1_hptyd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sutbu"]
 atlas = ExtResource("1_20a8u")
@@ -122,9 +123,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="PerryCoin" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_03pgq"]
+radius = 32.0624
+
+[node name="PerryCoin" type="Area2D"]
 light_mask = 2
+script = ExtResource("1_hptyd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3y1uh")
 autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_03pgq")

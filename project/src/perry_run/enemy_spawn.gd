@@ -2,9 +2,11 @@ extends Node2D
 
 @export var floor_timer : Timer
 @export var platform_timer : Timer
+@export var coin_timer : Timer
 @export var floor_base : PackedScene
 @export var floor_start : PackedScene
 @export var platform_base : PackedScene
+@export var coin_scene : PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_parent().game_start.connect(_on_game_start)
@@ -13,6 +15,7 @@ func _ready():
 func _on_game_start():
 	floor_timer.timeout.connect(_on_floor_timer_timeout)
 	platform_timer.timeout.connect(_on_platform_timer_timeout)
+	coin_timer.timeout.connect(_on_coin_timer_timeout)
 	print('base start')
 	var floor_start_instance = floor_start.instantiate()
 	floor_start_instance.position = %FloorStartPosition.position
@@ -25,6 +28,7 @@ func _on_game_start():
 	%FloorTimer.start()
 	print('start timer')
 	%PlatformTimer.start()
+	%CoinTimer.start()
 	pass # Replace with function body.
 
 
@@ -47,3 +51,14 @@ func _on_platform_timer_timeout():
 	var new_timeout = randi_range(3,5)
 	%PlatformTimer.wait_time = new_timeout
 	pass
+
+func _on_coin_timer_timeout():
+	var new_location = randi_range(0,1)
+	var coin_scene_instance = coin_scene.instantiate()
+	if new_location > 0:
+		coin_scene_instance.position = %TopPosition.position
+	else:
+		coin_scene_instance.position = %BottomPosition.position
+	add_child.call_deferred(coin_scene_instance)
+		
+	

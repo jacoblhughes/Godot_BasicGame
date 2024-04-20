@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bxseg85es8o1u"]
 
-[ext_resource type="Script" path="res://src/perry_run/player2.gd" id="1_k3y03"]
+[ext_resource type="Script" path="res://src/perry_run/player.gd" id="1_yn1sn"]
 [ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://textures/perry_run/perry_run_256.png" id="2_8qjdp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7ioa"]
@@ -32,7 +32,7 @@ height = 256.0
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 motion_mode = 1
-script = ExtResource("1_k3y03")
+script = ExtResource("1_yn1sn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oy4wx")

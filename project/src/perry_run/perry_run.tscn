@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf4xkqs74ytur"]
+[gd_scene load_steps=14 format=3 uid="uid://cf4xkqs74ytur"]
 
 [ext_resource type="Script" path="res://src/perry_run/perry_run.gd" id="2_1lkn6"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_pjw21"]
@@ -9,15 +9,22 @@
 [ext_resource type="PackedScene" uid="uid://b46ie0qbg858a" path="res://src/perry_run/floor_start.tscn" id="6_tai0o"]
 [ext_resource type="Script" path="res://src/perry_run/enemy_despawn.gd" id="7_w8xaw"]
 [ext_resource type="PackedScene" uid="uid://c5kgr28iarvx1" path="res://src/perry_run/platform.tscn" id="8_bllec"]
+[ext_resource type="PackedScene" uid="uid://bpqa0c0w6jcdj" path="res://src/perry_run/perry_coin.tscn" id="9_vnokm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmxft"]
 size = Vector2(10, 672)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxewu"]
+size = Vector2(720, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysqax"]
+size = Vector2(16, 672)
+
 [node name="PerryRun" type="Node2D"]
 script = ExtResource("2_1lkn6")
 player_scene = ExtResource("3_d1s5q")
-metadata/_edit_vertical_guides_ = [720.0, 2224.0]
-metadata/_edit_horizontal_guides_ = [944.0]
+metadata/_edit_vertical_guides_ = [720.0, 2224.0, 360.0]
+metadata/_edit_horizontal_guides_ = [944.0, 920.0]
 
 [node name="GameBackground" parent="." instance=ExtResource("2_pjw21")]
 game_background_texture = ExtResource("3_xg8ln")
@@ -30,40 +37,70 @@ wait_time = 1.5
 unique_name_in_owner = true
 wait_time = 3.0
 
+[node name="CoinTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(160, 800)
 
-[node name="EnemySpawn" type="Node2D" parent="." node_paths=PackedStringArray("floor_timer", "platform_timer")]
+[node name="ObjectSpawn" type="Node2D" parent="." node_paths=PackedStringArray("floor_timer", "platform_timer", "coin_timer")]
 unique_name_in_owner = true
 script = ExtResource("5_y6ah6")
 floor_timer = NodePath("../FloorTimer")
 platform_timer = NodePath("../PlatformTimer")
+coin_timer = NodePath("../CoinTimer")
 floor_base = ExtResource("6_i0v16")
 floor_start = ExtResource("6_tai0o")
 platform_base = ExtResource("8_bllec")
+coin_scene = ExtResource("9_vnokm")
 
 [node name="EnemySpawnPositions" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="FloorStartPosition" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
-position = Vector2(0, 1100)
+position = Vector2(0, 920)
 
 [node name="FloorPosition" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
-position = Vector2(720, 1100)
+position = Vector2(720, 920)
 
 [node name="PlatformPosition" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
-position = Vector2(720, 740)
+position = Vector2(720, 680)
 
-[node name="EnemyDespawn" type="Area2D" parent="."]
+[node name="FloorCoinDespawn" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-4, 944)
+position = Vector2(-4, 920)
 script = ExtResource("7_w8xaw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDespawn"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorCoinDespawn"]
 shape = SubResource("RectangleShape2D_hmxft")
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+[node name="CoinSpawnPositions" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="TopPosition" type="Marker2D" parent="CoinSpawnPositions"]
+unique_name_in_owner = true
+position = Vector2(720, 632)
+
+[node name="BottomPosition" type="Marker2D" parent="CoinSpawnPositions"]
+unique_name_in_owner = true
+position = Vector2(720, 872)
+
+[node name="PlayerFell" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 1280)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerFell"]
+position = Vector2(360, 0)
+shape = SubResource("RectangleShape2D_qxewu")
+
+[node name="PlayerPushed" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-360, 920)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPushed"]
+position = Vector2(360, 0)
+shape = SubResource("RectangleShape2D_ysqax")

@@ -6,23 +6,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
 size = Vector2(2220, 360)
 
-[node name="FloorStart" type="RigidBody2D"]
+[node name="FloorStart" type="AnimatableBody2D"]
 collision_mask = 0
-mass = 1000.0
-inertia = 1000.0
-gravity_scale = 0.0
-max_contacts_reported = 100
-contact_monitor = true
-can_sleep = false
-lock_rotation = true
 script = ExtResource("1_exyns")
 metadata/_edit_vertical_guides_ = [360.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1110, 0)
+position = Vector2(1110, 180)
 scale = Vector2(69.375, 11.25)
 texture = ExtResource("2_bmsfj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1110, 0)
+position = Vector2(1110, 180)
 shape = SubResource("RectangleShape2D_w3qdx")
