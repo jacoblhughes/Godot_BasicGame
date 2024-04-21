@@ -36,12 +36,10 @@ floor_constant_speed = true
 script = ExtResource("1_yn1sn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -128)
 sprite_frames = SubResource("SpriteFrames_oy4wx")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -128)
 shape = SubResource("CapsuleShape2D_flqbc")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-unique_name_in_owner = true
-target_position = Vector2(0, 150)
