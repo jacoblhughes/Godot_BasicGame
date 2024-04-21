@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c67eolerebque"
-path="res://.godot/imported/simonsays_background_128.png-d992d892569014aa910e1e4adce5bd4f.ctex"
+uid="uid://u28nu2gmaihg"
+path="res://.godot/imported/logo.png-a8eb91ac5a9c93e4d863bddcb3b7b3c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_says/simonsays_background_128.png"
-dest_files=["res://.godot/imported/simonsays_background_128.png-d992d892569014aa910e1e4adce5bd4f.ctex"]
+source_file="res://textures/perry_says/logo.png"
+dest_files=["res://.godot/imported/logo.png-a8eb91ac5a9c93e4d863bddcb3b7b3c6.ctex"]
 
 [params]
 
