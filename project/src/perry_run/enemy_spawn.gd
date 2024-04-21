@@ -44,7 +44,6 @@ func _on_floor_timer_timeout():
 	floor_base_instance.position = %FloorPosition.position
 	add_child.call_deferred(floor_base_instance)
 	var new_timeout = round(randf_range(2.5,3)*2)/2
-	print(new_timeout)
 	%FloorTimer.wait_time = new_timeout
 	pass
 
@@ -53,7 +52,6 @@ func _on_platform_timer_timeout():
 	platform_instance.position = %PlatformPosition.position
 	add_child.call_deferred(platform_instance)
 	var new_timeout = round(randf_range(3,8)*2)/2
-#	print(new_timeout)
 	%PlatformTimer.wait_time = new_timeout
 	pass
 
@@ -63,7 +61,6 @@ func _on_high_platform_timer_timeout():
 	high_platform_instance.position = %HighPlatformPosition.position
 	add_child.call_deferred(high_platform_instance)
 	var new_timeout = round(randf_range(3,8)*2)/2
-#	print(new_timeout)
 	%HighPlatformTimer.wait_time = new_timeout
 	pass
 

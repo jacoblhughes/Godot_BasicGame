@@ -57,6 +57,7 @@ func update_score(value = 1):
 	score = new_score
 	var score_text = str(score)
 	%Score.text = score_text
+	check_advance_level()
 
 func set_or_reset_score(value = 0):
 	var new_score

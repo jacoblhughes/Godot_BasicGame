@@ -15,4 +15,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if body is PerryRunPlayer:
 		HUD.update_score()
-		queue_free()
+		die()
+
+func die():
+	queue_free()
