@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name PerryRunPlayer
 
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -750.0
 const MAX_JUMP_TIME = 0.2  # Maximum time the jump button can be held
 var gravity = 1200
 var jump_time = 0.0  # Time for which the jump button is held
@@ -22,7 +22,7 @@ func _physics_process(delta):
 
 	elif Input.is_action_pressed("ui_accept") and not is_on_floor() and jump_time < MAX_JUMP_TIME:
 		jump_time += delta
-		velocity.y -= 45
+		velocity.y -= 35
 
 	move_and_slide()
 	correct_x_position()

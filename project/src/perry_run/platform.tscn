@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5kgr28iarvx1"]
+[gd_scene load_steps=4 format=3 uid="uid://c5kgr28iarvx1"]
 
 [ext_resource type="Script" path="res://src/perry_run/floor.gd" id="1_ale58"]
+[ext_resource type="Texture2D" uid="uid://nnwj6rgte0kt" path="res://textures/perry_run/checkered_flag_green.png" id="2_81s60"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
 size = Vector2(500, 100)
@@ -9,9 +10,10 @@ size = Vector2(500, 100)
 script = ExtResource("1_ale58")
 metadata/_edit_vertical_guides_ = [360.0]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 500.0
-offset_bottom = 100.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(250, 50)
+scale = Vector2(5.20833, 3.125)
+texture = ExtResource("2_81s60")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(250, 50)

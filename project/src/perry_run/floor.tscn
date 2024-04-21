@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dovtsr10tkaq7"]
+[gd_scene load_steps=4 format=3 uid="uid://dovtsr10tkaq7"]
 
 [ext_resource type="Script" path="res://src/perry_run/floor.gd" id="1_531s7"]
+[ext_resource type="Texture2D" uid="uid://bxcpofclbe23m" path="res://textures/perry_run/track.png" id="2_60g0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
 size = Vector2(500, 400)
@@ -10,10 +11,10 @@ collision_mask = 0
 script = ExtResource("1_531s7")
 metadata/_edit_vertical_guides_ = [360.0]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-unique_name_in_owner = true
-offset_right = 500.0
-offset_bottom = 400.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(250, 200)
+scale = Vector2(7.8125, 12.5)
+texture = ExtResource("2_60g0f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(250, 200)

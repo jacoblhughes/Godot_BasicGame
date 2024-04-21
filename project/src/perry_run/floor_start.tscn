@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b46ie0qbg858a"]
 
 [ext_resource type="Script" path="res://src/perry_run/floor.gd" id="1_exyns"]
-[ext_resource type="Texture2D" uid="uid://cnm0lgsnq82ub" path="res://textures/main/background_32.png" id="2_bmsfj"]
+[ext_resource type="Texture2D" uid="uid://bxcpofclbe23m" path="res://textures/perry_run/track.png" id="2_expav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
 size = Vector2(1860, 400)
@@ -9,12 +9,17 @@ size = Vector2(1860, 400)
 [node name="FloorStart" type="AnimatableBody2D"]
 collision_mask = 0
 script = ExtResource("1_exyns")
-metadata/_edit_vertical_guides_ = [360.0]
+metadata/_edit_vertical_guides_ = [360.0, 924.0, 930.0, 930.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(930, 200)
-scale = Vector2(58.125, 12.5)
-texture = ExtResource("2_bmsfj")
+position = Vector2(465, 200)
+scale = Vector2(14.5313, 12.5)
+texture = ExtResource("2_expav")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1396, 200)
+scale = Vector2(14.5313, 12.5)
+texture = ExtResource("2_expav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(930, 200)

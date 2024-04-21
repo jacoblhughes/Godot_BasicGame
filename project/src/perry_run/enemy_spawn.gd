@@ -26,7 +26,6 @@ func _on_game_start():
 
 	var floor_base_instance = floor_base.instantiate()
 	floor_base_instance.position = %FloorPosition.position
-	floor_base_instance.set_color(true)
 	add_child.call_deferred(floor_base_instance)
 
 	%FloorTimer.start()
