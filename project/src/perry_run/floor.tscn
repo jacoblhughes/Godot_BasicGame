@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/perry_run/floor.gd" id="1_531s7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
-size = Vector2(360, 360)
+size = Vector2(500, 400)
 
 [node name="Floor" type="AnimatableBody2D"]
 collision_mask = 0
@@ -11,9 +11,11 @@ script = ExtResource("1_531s7")
 metadata/_edit_vertical_guides_ = [360.0]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 360.0
-offset_bottom = 360.0
+unique_name_in_owner = true
+offset_right = 500.0
+offset_bottom = 400.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(180, 180)
+position = Vector2(250, 200)
 shape = SubResource("RectangleShape2D_w3qdx")
+one_way_collision = true

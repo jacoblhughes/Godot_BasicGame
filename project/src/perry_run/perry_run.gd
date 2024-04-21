@@ -55,7 +55,7 @@ func _ready():
 			node.scale.x *= xatio
 
 	%PlayerFell.body_entered.connect(_on_player_fall_out)
-	%PlayerPushed.body_entered.connect(_on_player_fall_out)
+#	%PlayerPushed.body_entered.connect(_on_player_fall_out)
 	pass # Replace with function body.
 
 
@@ -68,13 +68,15 @@ func _on_play_button_pressed():
 	var player = player_scene.instantiate()
 	player.position = %StartPosition.position
 	add_child.call_deferred(player)
+	player.set_xpos(%StartPosition.position.x)
 	pass
 
 func advance_level():
 	pass
 
-func _on_player_fall_out():
-	HUD.update_lives()
+func _on_player_fall_out(body):
+	if body is PerryRunPlayer:
+		HUD.update_lives()
 
 func _on_game_over():
 	pass

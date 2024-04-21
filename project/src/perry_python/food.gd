@@ -30,7 +30,7 @@ func start_tween():
 	tween_rotate = create_tween()
 	tween_rotate.finished.connect(_on_tween_completed)
 	tween_rotate.tween_property(my_sprite, "position", Vector2(x,y), .1).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-#	tween_rotate.tween_property(my_food_instance.my_sprite, "position",  Vector2(320,320), 1.0)
+
 
 	pass
 func _process(delta):

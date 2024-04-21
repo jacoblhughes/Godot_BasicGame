@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b46ie0qbg858a" path="res://src/perry_run/floor_start.tscn" id="6_tai0o"]
 [ext_resource type="Script" path="res://src/perry_run/enemy_despawn.gd" id="7_w8xaw"]
 [ext_resource type="PackedScene" uid="uid://c5kgr28iarvx1" path="res://src/perry_run/platform.tscn" id="8_bllec"]
+[ext_resource type="PackedScene" uid="uid://c253kktvhan5h" path="res://src/perry_run/high_platform.tscn" id="9_7fsbn"]
 [ext_resource type="PackedScene" uid="uid://bpqa0c0w6jcdj" path="res://src/perry_run/perry_coin.tscn" id="9_vnokm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmxft"]
@@ -17,23 +18,24 @@ size = Vector2(10, 672)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxewu"]
 size = Vector2(720, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysqax"]
-size = Vector2(16, 672)
-
 [node name="PerryRun" type="Node2D"]
 script = ExtResource("2_1lkn6")
 player_scene = ExtResource("3_d1s5q")
 metadata/_edit_vertical_guides_ = [720.0, 2224.0, 360.0]
-metadata/_edit_horizontal_guides_ = [944.0, 920.0]
+metadata/_edit_horizontal_guides_ = [944.0, 920.0, 880.0]
 
 [node name="GameBackground" parent="." instance=ExtResource("2_pjw21")]
 game_background_texture = ExtResource("3_xg8ln")
 
 [node name="FloorTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 1.5
+wait_time = 2.0
 
 [node name="PlatformTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="HighPlatformTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 3.0
 
@@ -44,15 +46,17 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(160, 800)
 
-[node name="ObjectSpawn" type="Node2D" parent="." node_paths=PackedStringArray("floor_timer", "platform_timer", "coin_timer")]
+[node name="ObjectSpawn" type="Node2D" parent="." node_paths=PackedStringArray("floor_timer", "platform_timer", "high_platform_timer", "coin_timer")]
 unique_name_in_owner = true
 script = ExtResource("5_y6ah6")
 floor_timer = NodePath("../FloorTimer")
 platform_timer = NodePath("../PlatformTimer")
+high_platform_timer = NodePath("../HighPlatformTimer")
 coin_timer = NodePath("../CoinTimer")
 floor_base = ExtResource("6_i0v16")
 floor_start = ExtResource("6_tai0o")
 platform_base = ExtResource("8_bllec")
+high_platform_base = ExtResource("9_7fsbn")
 coin_scene = ExtResource("9_vnokm")
 
 [node name="EnemySpawnPositions" type="Node2D" parent="."]
@@ -60,19 +64,23 @@ unique_name_in_owner = true
 
 [node name="FloorStartPosition" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
-position = Vector2(0, 920)
+position = Vector2(0, 880)
 
 [node name="FloorPosition" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
-position = Vector2(720, 920)
+position = Vector2(720, 880)
 
 [node name="PlatformPosition" type="Marker2D" parent="EnemySpawnPositions"]
 unique_name_in_owner = true
-position = Vector2(720, 680)
+position = Vector2(720, 640)
+
+[node name="HighPlatformPosition" type="Marker2D" parent="EnemySpawnPositions"]
+unique_name_in_owner = true
+position = Vector2(720, 400)
 
 [node name="FloorCoinDespawn" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-4, 920)
+position = Vector2(-4, 880)
 script = ExtResource("7_w8xaw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorCoinDespawn"]
@@ -81,13 +89,17 @@ shape = SubResource("RectangleShape2D_hmxft")
 [node name="CoinSpawnPositions" type="Node2D" parent="."]
 unique_name_in_owner = true
 
+[node name="HighPosition" type="Marker2D" parent="CoinSpawnPositions"]
+unique_name_in_owner = true
+position = Vector2(720, 384)
+
 [node name="TopPosition" type="Marker2D" parent="CoinSpawnPositions"]
 unique_name_in_owner = true
-position = Vector2(720, 632)
+position = Vector2(720, 624)
 
 [node name="BottomPosition" type="Marker2D" parent="CoinSpawnPositions"]
 unique_name_in_owner = true
-position = Vector2(720, 872)
+position = Vector2(720, 864)
 
 [node name="PlayerFell" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -96,11 +108,3 @@ position = Vector2(0, 1280)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerFell"]
 position = Vector2(360, 0)
 shape = SubResource("RectangleShape2D_qxewu")
-
-[node name="PlayerPushed" type="Area2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(-360, 920)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPushed"]
-position = Vector2(360, 0)
-shape = SubResource("RectangleShape2D_ysqax")

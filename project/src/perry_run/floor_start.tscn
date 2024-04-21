@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cnm0lgsnq82ub" path="res://textures/main/background_32.png" id="2_bmsfj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
-size = Vector2(2220, 360)
+size = Vector2(1860, 400)
 
 [node name="FloorStart" type="AnimatableBody2D"]
 collision_mask = 0
@@ -12,10 +12,11 @@ script = ExtResource("1_exyns")
 metadata/_edit_vertical_guides_ = [360.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1110, 180)
-scale = Vector2(69.375, 11.25)
+position = Vector2(930, 200)
+scale = Vector2(58.125, 12.5)
 texture = ExtResource("2_bmsfj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1110, 180)
+position = Vector2(930, 200)
 shape = SubResource("RectangleShape2D_w3qdx")
+one_way_collision = true
