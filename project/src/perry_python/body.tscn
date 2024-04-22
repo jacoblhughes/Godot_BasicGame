@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxl4qmrohr3eh"]
+
+[ext_resource type="Script" path="res://src/perry_python/player.gd" id="1_ujoyq"]
+[ext_resource type="Texture2D" uid="uid://cate8gdpokb80" path="res://src/perry_python/textures/body.png" id="2_pqx7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_121gs"]
+size = Vector2(32, 32)
+
+[node name="Segment" type="Area2D"]
+script = ExtResource("1_ujoyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_pqx7h")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_121gs")

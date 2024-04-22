@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://57ctvn73ownk"
-path="res://.godot/imported/checkered_flag_green.png-3d3246f59dccd3c69c84dbfad4c23b6d.ctex"
+uid="uid://dwntdb272kug5"
+path="res://.godot/imported/food.png-2e1e448ed8c06adf14b0c327e2c57207.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/checkered_flag_green.png"
-dest_files=["res://.godot/imported/checkered_flag_green.png-3d3246f59dccd3c69c84dbfad4c23b6d.ctex"]
+source_file="res://src/perry_python/textures/food.png"
+dest_files=["res://.godot/imported/food.png-2e1e448ed8c06adf14b0c327e2c57207.ctex"]
 
 [params]
 

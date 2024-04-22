@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8e1i30x1riit"]
+
+[ext_resource type="Script" path="res://src/perry_space/player.gd" id="1_5i1fi"]
+[ext_resource type="PackedScene" uid="uid://b3u8q37r05igq" path="res://src/perry_space/rocket.tscn" id="2_7wwmf"]
+[ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://textures/perry_space/attack_256.png" id="3_hfni8"]
+[ext_resource type="AudioStream" uid="uid://dubvdpeowmlwb" path="res://sounds/perry_space/rocket_shoot.wav" id="4_o37y1"]
+[ext_resource type="AudioStream" uid="uid://qr7a7tnqwl30" path="res://sounds/perry_space/player_hit.wav" id="5_k5pjo"]
+
+[sub_resource type="Gradient" id="Gradient_fecji"]
+colors = PackedColorArray(0.939454, 0.905903, 1.54018e-06, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_es2e6"]
+gradient = SubResource("Gradient_fecji")
+
+[sub_resource type="Curve" id="Curve_a80q3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.515789), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dut66"]
+curve = SubResource("Curve_a80q3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y75bv"]
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_box_extents = Vector3(1, 2, 1)
+particle_flag_disable_z = true
+spread = 30.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -200.0
+initial_velocity_max = -200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 10.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_dut66")
+color_ramp = SubResource("GradientTexture1D_es2e6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy4xc"]
+size = Vector2(26, 48)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_5i1fi")
+rocket_scene = ExtResource("2_7wwmf")
+
+[node name="FlameParticles" type="GPUParticles2D" parent="."]
+position = Vector2(-32, 0)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_y75bv")
+lifetime = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_hfni8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_gy4xc")
+
+[node name="RocketSpawn" type="Node" parent="."]
+
+[node name="RocketShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_o37y1")
+bus = &"Game"
+
+[node name="PlayerDamageSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_k5pjo")
+bus = &"Game"
+
+[node name="RocketTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5

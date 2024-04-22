@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjmtllw66oe1g"
-path="res://.godot/imported/SnakeBody.png-06624d0e06763dbe44ba9511a9f36ffd.ctex"
+uid="uid://diogjajjjp0mt"
+path="res://.godot/imported/background.png-f4502e5cd52bca141064cc74c6ed0ec8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_python/SnakeBody.png"
-dest_files=["res://.godot/imported/SnakeBody.png-06624d0e06763dbe44ba9511a9f36ffd.ctex"]
+source_file="res://src/perry_python/textures/background.png"
+dest_files=["res://.godot/imported/background.png-f4502e5cd52bca141064cc74c6ed0ec8.ctex"]
 
 [params]
 

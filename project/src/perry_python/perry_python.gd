@@ -84,7 +84,10 @@ func _ready():
 	body = %Body
 	head = %Player
 	food_spawner.food_eaten.connect(_on_food_eaten)
-	head.size = snake_cell_size
+	print('here')
+	print('snake size: ', snake_cell_size)
+	head.update_scale(snake_cell_size)
+	print('then here')
 	head.curr_position = game_position + Vector2(game_area.x/2,game_area.y/2)
 	snake_timer.wait_time = original_snake_time
 	head.hit.connect(_on_hit)
@@ -167,15 +170,17 @@ func _on_snake_move_timer_timeout():
 func grow() -> void:
 
 
-	var new_head = body_scene.instantiate()
-	var last_head :=minisnakes.back() as SnakeBoy
-	new_head.curr_position = last_head.curr_position
+	var new_body = body_scene.instantiate()
+	var old_body := minisnakes.back() as SnakeBoy
+	new_body.curr_position = old_body.curr_position
 #	new_head.color = SnakeVariables.BLUE
-	new_head.size = snake_cell_size
-	new_head.add_to_group("snakeLengths")
-	minisnakes.push_back(new_head)
+	print(new_body.size)
+	new_body.update_scale(snake_cell_size)
+	print(new_body.size)
+	new_body.add_to_group("snakeLengths")
+	minisnakes.push_back(new_body)
 
-	%Body.add_child.call_deferred(new_head,true)
+	%Body.add_child.call_deferred(new_body,true)
 
 
 func _on_hit(mini:Minisnake) -> void:

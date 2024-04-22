@@ -2,11 +2,6 @@ extends Node2D
 
 @export var my_food : PackedScene
 var my_food_instance
-
-
-
-var png_size = 150
-
 signal food_eaten
 
 # Called when the node enters the scene tree for the first time.
@@ -47,7 +42,7 @@ func spawn_food():
 
 	my_food_instance = my_food.instantiate()
 	my_food_instance.snake_cell_size = get_parent().return_snake_cell_size()
-
+	print(get_parent().return_snake_cell_size())
 
 	while is_on_occupied_position:
 		var random_position = Vector2()

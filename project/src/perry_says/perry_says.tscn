@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://c0pagaj3k2vas" path="res://sounds/perry_says/a.wav" id="7_5jrer"]
 [ext_resource type="AudioStream" uid="uid://cft2fpvmijb8i" path="res://sounds/perry_says/b.wav" id="8_1a60j"]
 [ext_resource type="AudioStream" uid="uid://dggso5hv38lp6" path="res://sounds/perry_says/c.wav" id="9_o87dh"]
-[ext_resource type="Texture2D" uid="uid://c8rtqxhtpbj8e" path="res://textures/perry_says/background.png" id="11_umc41"]
+[ext_resource type="Texture2D" uid="uid://c8rtqxhtpbj8e" path="res://src/perry_says/textures/background.png" id="11_tkw4p"]
 
 [node name="PerrySays" type="Node2D"]
 script = ExtResource("1_fdqsf")
@@ -21,7 +21,7 @@ metadata/_edit_vertical_guides_ = [360.0, 296.0, 424.0]
 metadata/_edit_horizontal_guides_ = [-640.0, 640.0, 320.0, 160.0, 480.0, 800.0, 960.0, 1120.0]
 
 [node name="GameBackground" parent="." instance=ExtResource("2_0t6vh")]
-game_background_texture = ExtResource("11_umc41")
+game_background_texture = ExtResource("11_tkw4p")
 
 [node name="PlaybackTimer" type="Timer" parent="."]
 unique_name_in_owner = true

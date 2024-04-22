@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp7cmwv4a61xf"
-path="res://.godot/imported/buttons.png-5e0f39b2a50beec9783ba5a6a5f3c3b6.ctex"
+uid="uid://cmcc7o6235as6"
+path="res://.godot/imported/body_pre.png-4f8de2b9d3dd91ffbf0522a4bdf6f173.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_says/buttons.png"
-dest_files=["res://.godot/imported/buttons.png-5e0f39b2a50beec9783ba5a6a5f3c3b6.ctex"]
+source_file="res://src/perry_python/textures/body_pre.png"
+dest_files=["res://.godot/imported/body_pre.png-4f8de2b9d3dd91ffbf0522a4bdf6f173.ctex"]
 
 [params]
 
