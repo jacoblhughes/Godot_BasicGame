@@ -168,15 +168,10 @@ func _on_snake_move_timer_timeout():
 	pass # Replace with function body.
 
 func grow() -> void:
-
-
 	var new_body = body_scene.instantiate()
 	var old_body := minisnakes.back() as SnakeBoy
 	new_body.curr_position = old_body.curr_position
-#	new_head.color = SnakeVariables.BLUE
-	print(new_body.size)
 	new_body.update_scale(snake_cell_size)
-	print(new_body.size)
 	new_body.add_to_group("snakeLengths")
 	minisnakes.push_back(new_body)
 

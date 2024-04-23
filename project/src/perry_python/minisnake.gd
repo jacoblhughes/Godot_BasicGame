@@ -26,9 +26,6 @@ func return_size():
 
 
 func update_scale(val):
-	print(val)
-	print(size)
 	size = %CollisionShape2D.shape.get_size()
 	var new_scale = val/size
 	set_scale(new_scale)
-	scale *= new_scale

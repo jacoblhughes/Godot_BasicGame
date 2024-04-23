@@ -7,7 +7,7 @@ var radius = 10  # Radius of the circular path
 var speed = 90   # Angular speed (degrees per second)
 var angle = 0
 var tween_rotate: Tween
-
+var size
 @onready var my_sprite: Sprite2D
 
 
@@ -40,3 +40,8 @@ func _process(delta):
 func _on_tween_completed():
 	start_tween()
 	pass
+
+func update_scale(val):
+	size = %Sprite2D.get_texture().get_size()
+	var new_scale = val/size
+	set_scale(new_scale)

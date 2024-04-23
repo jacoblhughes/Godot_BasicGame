@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var my_food : PackedScene
+var cell_size : Vector2
 var my_food_instance
 signal food_eaten
 
@@ -41,7 +42,8 @@ func spawn_food():
 	var is_on_occupied_position = true
 
 	my_food_instance = my_food.instantiate()
-	my_food_instance.snake_cell_size = get_parent().return_snake_cell_size()
+	my_food_instance.update_scale(get_parent().return_snake_cell_size())
+
 	print(get_parent().return_snake_cell_size())
 
 	while is_on_occupied_position:
