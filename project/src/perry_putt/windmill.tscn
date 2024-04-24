@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dtpn51vqswmex"]
 
-[ext_resource type="Texture2D" uid="uid://bqs0g4vjbre8e" path="res://textures/perry_putt/windmill.png" id="1_j80t8"]
+[ext_resource type="Texture2D" uid="uid://bqs0g4vjbre8e" path="res://src/perry_putt/textures/windmill.png" id="1_j80t8"]
 [ext_resource type="Script" path="res://src/perry_putt/windmill.gd" id="1_odl7w"]
-[ext_resource type="Texture2D" uid="uid://dbcm2sj4qv8ql" path="res://textures/perry_putt/fans.png" id="2_v18aq"]
+[ext_resource type="Texture2D" uid="uid://dbcm2sj4qv8ql" path="res://src/perry_putt/textures/fans.png" id="2_v18aq"]
 [ext_resource type="PackedScene" uid="uid://dsqumagonjfi0" path="res://src/perry_putt/fan.tscn" id="4_rmfhb"]
 
 [sub_resource type="Animation" id="Animation_5ucnc"]

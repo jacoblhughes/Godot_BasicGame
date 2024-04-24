@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/perry_llama/perry_llama.gd" id="1_m1610"]
 [ext_resource type="PackedScene" uid="uid://bq80x8xgeg676" path="res://src/perry_llama/enemy.tscn" id="2_aqn3c"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_npa5y"]
-[ext_resource type="Texture2D" uid="uid://bp26itcmp7en1" path="res://textures/perry_llama/llama_background_256_512.png" id="3_0uvvx"]
+[ext_resource type="Texture2D" uid="uid://bp26itcmp7en1" path="res://src/perry_llama/textures/background.png" id="3_0uvvx"]
 [ext_resource type="PackedScene" uid="uid://cvxj73pvwioxn" path="res://src/perry_llama/enemy_width.tscn" id="3_et56j"]
 [ext_resource type="PackedScene" uid="uid://c3mt1hra3f11n" path="res://src/perry_llama/enemy_height.tscn" id="4_pdyo5"]
 [ext_resource type="PackedScene" uid="uid://ms4317mbra45" path="res://src/perry_llama/enemy_large.tscn" id="5_aylog"]

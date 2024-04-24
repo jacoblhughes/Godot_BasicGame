@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ba58j2y72ke3i"]
 
-[ext_resource type="Texture2D" uid="uid://baiovxi0eqhhi" path="res://textures/perry_putt/terrain.png" id="1_yofir"]
+[ext_resource type="Texture2D" uid="uid://baiovxi0eqhhi" path="res://src/perry_putt/textures/terrain.png" id="1_yofir"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iyim3"]
 friction = 0.4

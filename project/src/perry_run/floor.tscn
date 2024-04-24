@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dovtsr10tkaq7"]
 
 [ext_resource type="Script" path="res://src/perry_run/floor.gd" id="1_531s7"]
-[ext_resource type="Texture2D" uid="uid://bxcpofclbe23m" path="res://textures/perry_run/track.png" id="2_60g0f"]
+[ext_resource type="Texture2D" uid="uid://bxcpofclbe23m" path="res://src/perry_run/textures/track.png" id="2_60g0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
 size = Vector2(500, 400)

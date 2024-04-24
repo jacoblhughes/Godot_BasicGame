@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgbjvdct5rvuk"]
 
 [ext_resource type="Script" path="res://src/perry_flap/enemy_wall.gd" id="1_mlwx1"]
-[ext_resource type="SpriteFrames" uid="uid://bd2em2armt88p" path="res://textures/perry_flap/enemy_wall.tres" id="2_crqqh"]
+[ext_resource type="SpriteFrames" uid="uid://bd2em2armt88p" path="res://src/perry_flap/textures/enemy_wall.tres" id="2_crqqh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mosl6"]
 size = Vector2(128, 640)

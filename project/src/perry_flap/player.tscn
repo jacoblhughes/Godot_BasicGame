@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bmuk80oxjv7v8"]
 
 [ext_resource type="Script" path="res://src/perry_flap/player.gd" id="1_j807i"]
-[ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://textures/perry_flap/bird_256.png" id="2_vjucp"]
+[ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://src/perry_flap/textures/player.png" id="2_vjucp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6q761"]
 atlas = ExtResource("2_vjucp")

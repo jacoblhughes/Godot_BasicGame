@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dj57r36gu2ip7"]
 
 [ext_resource type="Script" path="res://src/perry_putt/perry_ball.gd" id="1_3qedb"]
-[ext_resource type="Texture2D" uid="uid://id04l63f5eii" path="res://textures/perry_putt/perry_ball.png" id="2_kuc52"]
-[ext_resource type="Texture2D" uid="uid://dn668e6ckrbnr" path="res://textures/perry_putt/arrow.png" id="3_jojly"]
+[ext_resource type="Texture2D" uid="uid://id04l63f5eii" path="res://src/perry_putt/textures/player.png" id="2_kuc52"]
+[ext_resource type="Texture2D" uid="uid://dn668e6ckrbnr" path="res://src/perry_putt/textures/arrow.png" id="3_jojly"]
 [ext_resource type="Script" path="res://src/perry_putt/sink_area.gd" id="3_sdw5y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kjkql"]

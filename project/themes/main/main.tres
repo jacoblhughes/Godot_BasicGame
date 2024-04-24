@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=39 format=3 uid="uid://s0srltpmhp6g"]
 
-[ext_resource type="Texture2D" uid="uid://c7brus421yppd" path="res://textures/main/checkbutton.png" id="1_ac3hv"]
-[ext_resource type="Texture2D" uid="uid://cw6vvyabe8vgo" path="res://textures/main/hslider.png" id="2_w4lev"]
-[ext_resource type="Texture2D" uid="uid://5q2wio1wnhsm" path="res://textures/main/tick.png" id="3_iopkv"]
+[ext_resource type="Texture2D" uid="uid://c7brus421yppd" path="res://src/main/textures/checkbutton.png" id="1_ac3hv"]
+[ext_resource type="Texture2D" uid="uid://cw6vvyabe8vgo" path="res://src/main/textures/hslider.png" id="2_w4lev"]
+[ext_resource type="Texture2D" uid="uid://5q2wio1wnhsm" path="res://src/main/textures/tick.png" id="3_iopkv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfs50"]
 bg_color = Color(0.188235, 0.376471, 0.509804, 1)

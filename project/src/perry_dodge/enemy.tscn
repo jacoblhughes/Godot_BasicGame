@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://5w3s3bekcgvy"]
 
 [ext_resource type="Script" path="res://src/perry_dodge/enemy.gd" id="1_b1bst"]
-[ext_resource type="Texture2D" uid="uid://bachwuvglsehj" path="res://textures/perry_dodge/cat_256.png" id="2_14tsm"]
-[ext_resource type="Texture2D" uid="uid://dbpht8jhl2ecj" path="res://textures/perry_dodge/fish_256.png" id="3_24sxv"]
-[ext_resource type="Texture2D" uid="uid://dft2rdkhq263u" path="res://textures/perry_dodge/turtle_256.png" id="4_v87rl"]
+[ext_resource type="Texture2D" uid="uid://bachwuvglsehj" path="res://src/perry_dodge/textures/cat.png" id="2_14tsm"]
+[ext_resource type="Texture2D" uid="uid://dbpht8jhl2ecj" path="res://src/perry_dodge/textures/fish.png" id="3_24sxv"]
+[ext_resource type="Texture2D" uid="uid://dft2rdkhq263u" path="res://src/perry_dodge/textures/turtle.png" id="4_v87rl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0t3o"]
 atlas = ExtResource("2_14tsm")

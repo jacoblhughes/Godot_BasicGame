@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://yx5dxjclj4xk"]
 
-[ext_resource type="PackedScene" uid="uid://c1qom21uu3dq4" path="res://src/perry_skeeball/ramp_mesh.gltf" id="1_yig10"]
-[ext_resource type="PackedScene" uid="uid://ce72k57rmha7h" path="res://src/perry_skeeball/skeeball_body.gltf" id="2_nclxy"]
+[ext_resource type="PackedScene" uid="uid://c1qom21uu3dq4" path="res://src/perry_skeeball/textures/ramp_mesh.gltf" id="1_yig10"]
+[ext_resource type="PackedScene" uid="uid://ce72k57rmha7h" path="res://src/perry_skeeball/textures/skeeball_body.gltf" id="2_nclxy"]
 
 [node name="Test" type="Node3D"]
 

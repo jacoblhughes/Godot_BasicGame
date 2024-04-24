@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bkdnr0sq2f8i2"]
 
 [ext_resource type="Script" path="res://src/perry_putt/level.gd" id="1_31kyd"]
-[ext_resource type="Texture2D" uid="uid://baiovxi0eqhhi" path="res://textures/perry_putt/terrain.png" id="2_q0kd5"]
+[ext_resource type="Texture2D" uid="uid://baiovxi0eqhhi" path="res://src/perry_putt/textures/terrain.png" id="2_q0kd5"]
 [ext_resource type="PackedScene" uid="uid://dj57r36gu2ip7" path="res://src/perry_putt/perry_ball.tscn" id="3_02p5t"]
 [ext_resource type="PackedScene" uid="uid://c7b4h03ge6ecb" path="res://src/perry_putt/hole.tscn" id="4_qfdyq"]
 [ext_resource type="PackedScene" uid="uid://cvfwxyniuy1jd" path="res://src/perry_putt/alligator.tscn" id="6_sxqkm"]

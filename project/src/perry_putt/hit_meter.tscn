@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3vxqafcjt47d"]
 
 [ext_resource type="Script" path="res://src/perry_putt/hit_meter.gd" id="1_skhgp"]
-[ext_resource type="Texture2D" uid="uid://vgrksd6w3kjc" path="res://textures/app_art/perry_original_icon_192.png" id="2_5ytor"]
+[ext_resource type="Texture2D" uid="uid://vgrksd6w3kjc" path="res://src/app_art/perry_original_icon_192.png" id="2_5ytor"]
 
 [node name="HitMeter" type="CanvasLayer"]
 layer = 2

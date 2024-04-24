@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cejd8k77mpr23"]
 
-[ext_resource type="ArrayMesh" uid="uid://cihn5qki13v1h" path="res://src/perry_skeeball/skeeball_body_mesh.tres" id="1_23lnp"]
-[ext_resource type="ArrayMesh" uid="uid://u0r53wsvl6tw" path="res://src/perry_skeeball/ramp_mesh.tres" id="2_cbhjr"]
+[ext_resource type="ArrayMesh" uid="uid://cihn5qki13v1h" path="res://src/perry_skeeball/textures/skeeball_body_mesh.tres" id="1_23lnp"]
+[ext_resource type="ArrayMesh" uid="uid://u0r53wsvl6tw" path="res://src/perry_skeeball/textures/ramp_mesh.tres" id="2_cbhjr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v350t"]
 friction = 0.4

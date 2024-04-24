@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2enwj4xxpx4q"]
 
 [ext_resource type="Script" path="res://src/perry_says/perry_button.gd" id="1_blm1s"]
-[ext_resource type="Texture2D" uid="uid://btwlo8i6jxjs8" path="res://textures/app_art/perry_original_icon_256.png" id="1_wwvm0"]
+[ext_resource type="Texture2D" uid="uid://btwlo8i6jxjs8" path="res://src/app_art/perry_original_icon_256.png" id="1_wwvm0"]
 [ext_resource type="Texture2D" uid="uid://cp7cmwv4a61xf" path="res://src/perry_says/textures/buttons.png" id="2_6776r"]
 
 [node name="PerryButton" type="Node2D"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c253kktvhan5h"]
 
 [ext_resource type="Script" path="res://src/perry_run/floor.gd" id="1_dqppt"]
-[ext_resource type="Texture2D" uid="uid://dy3kimjn4kf6u" path="res://textures/perry_run/checkered_flag.png" id="2_ij3vj"]
+[ext_resource type="Texture2D" uid="uid://dy3kimjn4kf6u" path="res://src/perry_run/textures/checkered_flag.png" id="2_ij3vj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ist2f"]
 size = Vector2(252, 52)

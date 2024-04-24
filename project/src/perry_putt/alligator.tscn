@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cvfwxyniuy1jd"]
 
 [ext_resource type="Script" path="res://src/perry_putt/alligator.gd" id="1_0jcfx"]
-[ext_resource type="Texture2D" uid="uid://bum6tln8w3p6v" path="res://textures/perry_putt/alligator.png" id="1_w43q4"]
+[ext_resource type="Texture2D" uid="uid://bum6tln8w3p6v" path="res://src/perry_putt/textures/alligator.png" id="1_w43q4"]
 
 [sub_resource type="Animation" id="Animation_kh4x0"]
 length = 0.001

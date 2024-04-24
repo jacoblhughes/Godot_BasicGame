@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/perry_space/perry_space.gd" id="1_yw0yd"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_esp7d"]
-[ext_resource type="Texture2D" uid="uid://betwbe8urunx7" path="res://textures/perry_space/space_background_256_512.png" id="3_bvgf7"]
+[ext_resource type="Texture2D" uid="uid://betwbe8urunx7" path="res://src/perry_space/textures/background.png" id="3_bvgf7"]
 [ext_resource type="PackedScene" uid="uid://c8e1i30x1riit" path="res://src/perry_space/player.tscn" id="4_52ny6"]
 [ext_resource type="Script" path="res://src/perry_space/enemy_spawner.gd" id="6_rbrt6"]
 [ext_resource type="PackedScene" uid="uid://byr54mhj3utn8" path="res://src/perry_space/enemy.tscn" id="10_eoo4e"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtkr0v8bhef4k"]
 
 [ext_resource type="Script" path="res://src/main/parallax_background.gd" id="1_asf31"]
-[ext_resource type="Texture2D" uid="uid://betwbe8urunx7" path="res://textures/perry_space/space_background_256_512.png" id="2_acjhj"]
+[ext_resource type="Texture2D" uid="uid://betwbe8urunx7" path="res://src/perry_space/textures/background.png" id="2_acjhj"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 layer = -1
