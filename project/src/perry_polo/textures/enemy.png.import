@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bss5quy1eqwo6"
-path="res://.godot/imported/pong_paddle1.png-803485cbe1ac9b194ebbb9313b78e148.ctex"
+uid="uid://chwov2ai7nyuk"
+path="res://.godot/imported/enemy.png-c492d0c15265dd47847aa3f2beffc012.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_polo/pong_paddle1.png"
-dest_files=["res://.godot/imported/pong_paddle1.png-803485cbe1ac9b194ebbb9313b78e148.ctex"]
+source_file="res://src/perry_polo/textures/enemy.png"
+dest_files=["res://.godot/imported/enemy.png-c492d0c15265dd47847aa3f2beffc012.ctex"]
 
 [params]
 

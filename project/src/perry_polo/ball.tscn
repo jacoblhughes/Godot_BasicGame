@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bf4jsvnkmhkg4"]
 
 [ext_resource type="Script" path="res://src/perry_polo/ball.gd" id="1_cbu0u"]
-[ext_resource type="Texture2D" uid="uid://0i3nb3jhnam6" path="res://textures/perry_polo/perry_circle-Sheet.png" id="2_8u8wk"]
+[ext_resource type="Texture2D" uid="uid://0i3nb3jhnam6" path="res://src/perry_polo/textures/polo_ball.png" id="2_8u8wk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s0nxu"]
 atlas = ExtResource("2_8u8wk")

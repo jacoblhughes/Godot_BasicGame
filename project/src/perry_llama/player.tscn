@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cmnxppb5dpdr6"]
 
 [ext_resource type="Script" path="res://src/perry_llama/player.gd" id="1_gkvo8"]
-[ext_resource type="Texture2D" uid="uid://3fw72qk2urij" path="res://textures/perry_llama/llama_256.png" id="2_q3c1q"]
+[ext_resource type="Texture2D" uid="uid://3fw72qk2urij" path="res://src/perry_llama/textures/llama_256.png" id="2_q3c1q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r340r"]
 atlas = ExtResource("2_q3c1q")

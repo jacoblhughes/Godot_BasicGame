@@ -20,8 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://b5tn0pixedbmk" path="res://src/autoloads/textures/title.png" id="17_ublv1"]
 [ext_resource type="Texture2D" uid="uid://u28nu2gmaihg" path="res://src/perry_says/textures/logo.png" id="18_n8brg"]
 [ext_resource type="Texture2D" uid="uid://bqd3t0ewnnfu" path="res://textures/main/cham_256.png" id="19_evpij"]
-[ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://textures/perry_polo/pong_paddle1.png" id="20_c8i4i"]
-[ext_resource type="Texture2D" uid="uid://b3ceohymx1b0e" path="res://textures/perry_llama/lava_256.png" id="21_fernw"]
+[ext_resource type="Texture2D" uid="uid://b3ceohymx1b0e" path="res://src/perry_llama/textures/lava_256.png" id="21_fernw"]
+[ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://src/perry_polo/textures/player.png" id="21_t38uj"]
 [ext_resource type="Texture2D" uid="uid://bpbsvxbbk4ce8" path="res://textures/perry_dodge/perry_creep_single_256.png" id="22_o05ny"]
 [ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://textures/perry_flap/bird_256.png" id="23_p1kel"]
 [ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://textures/perry_run/perry_run_256.png" id="24_gh28p"]
@@ -75,10 +75,11 @@ theme_override_constants/separation = 5
 [node name="Label" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.15
+size_flags_stretch_ratio = 0.1
 theme = ExtResource("14_ihqmu")
 theme_type_variation = &"LabelTitle"
 texture = ExtResource("17_ublv1")
+expand_mode = 5
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -103,7 +104,7 @@ game_title = "Perry Python"
 
 [node name="PerryPolo" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-game_image_texture = ExtResource("20_c8i4i")
+game_image_texture = ExtResource("21_t38uj")
 game_scene_selection = ExtResource("4_2g5rt")
 game_key_selection = "3"
 game_title = "Perry Polo"

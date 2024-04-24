@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chwov2ai7nyuk"
-path="res://.godot/imported/pong_paddle2.png-bc295abe07b6e676198e0074da088393.ctex"
+uid="uid://u62ax3hvv1m1"
+path="res://.godot/imported/whirlpool.png-fee5bbb6f73c1969e3e01fff3a072f71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_polo/pong_paddle2.png"
-dest_files=["res://.godot/imported/pong_paddle2.png-bc295abe07b6e676198e0074da088393.ctex"]
+source_file="res://src/perry_polo/textures/whirlpool.png"
+dest_files=["res://.godot/imported/whirlpool.png-fee5bbb6f73c1969e3e01fff3a072f71.ctex"]
 
 [params]
 

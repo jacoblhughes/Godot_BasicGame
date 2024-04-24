@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0i3nb3jhnam6"
-path="res://.godot/imported/perry_circle-Sheet.png-c770bb5aca8ad4eac68ee6b5df64c89f.ctex"
+uid="uid://b3ceohymx1b0e"
+path="res://.godot/imported/lava_256.png-e910033b9ca7d2438e6e8655700dd39b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_polo/perry_circle-Sheet.png"
-dest_files=["res://.godot/imported/perry_circle-Sheet.png-c770bb5aca8ad4eac68ee6b5df64c89f.ctex"]
+source_file="res://src/perry_llama/textures/lava_256.png"
+dest_files=["res://.godot/imported/lava_256.png-e910033b9ca7d2438e6e8655700dd39b.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhvh5e4jf5b7o"]
 
-[ext_resource type="Texture2D" uid="uid://b3ceohymx1b0e" path="res://textures/perry_llama/lava_256.png" id="1_2qpke"]
+[ext_resource type="Texture2D" uid="uid://b3ceohymx1b0e" path="res://src/perry_llama/textures/lava_256.png" id="1_2qpke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pk4an"]
 size = Vector2(16, 90)

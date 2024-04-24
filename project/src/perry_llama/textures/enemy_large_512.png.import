@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwmdmhgrmwif2"
-path="res://.godot/imported/pong_pool.png-0b5df1d675eb0f596236a87b9b944a1f.ctex"
+uid="uid://l7mxkl4hb7ua"
+path="res://.godot/imported/enemy_large_512.png-8026ca9a8411d22d0d4bfd44d9ff24fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_polo/pong_pool.png"
-dest_files=["res://.godot/imported/pong_pool.png-0b5df1d675eb0f596236a87b9b944a1f.ctex"]
+source_file="res://src/perry_llama/textures/enemy_large_512.png"
+dest_files=["res://.godot/imported/enemy_large_512.png-8026ca9a8411d22d0d4bfd44d9ff24fb.ctex"]
 
 [params]
 

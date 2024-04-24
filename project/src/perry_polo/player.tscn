@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bv8nj3y80s60n"]
 
 [ext_resource type="Script" path="res://src/perry_polo/player.gd" id="1_mheu3"]
-[ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://textures/perry_polo/pong_paddle1.png" id="2_38w1m"]
+[ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://src/perry_polo/textures/player.png" id="2_38w1m"]
 
 [node name="Player" type="CharacterBody2D"]
 disable_mode = 2

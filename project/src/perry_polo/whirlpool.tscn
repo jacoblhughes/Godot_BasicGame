@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://b2gewckxrwhda"]
 
 [ext_resource type="Script" path="res://src/perry_polo/whirlpool.gd" id="1_uxs1l"]
-[ext_resource type="Texture2D" uid="uid://u62ax3hvv1m1" path="res://textures/perry_polo/whirlpool_256.png" id="2_wxyeu"]
+[ext_resource type="Texture2D" uid="uid://u62ax3hvv1m1" path="res://src/perry_polo/textures/whirlpool.png" id="2_wxyeu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iq6f3"]
 radius = 128.0

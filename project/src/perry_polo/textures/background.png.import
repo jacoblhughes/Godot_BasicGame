@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u62ax3hvv1m1"
-path="res://.godot/imported/whirlpool_256.png-d2a4c2b1923bdd7cd4055748c249507c.ctex"
+uid="uid://c4rylxpixdbli"
+path="res://.godot/imported/background.png-94661ec22265fef9fde6711f09259fc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_polo/whirlpool_256.png"
-dest_files=["res://.godot/imported/whirlpool_256.png-d2a4c2b1923bdd7cd4055748c249507c.ctex"]
+source_file="res://src/perry_polo/textures/background.png"
+dest_files=["res://.godot/imported/background.png-94661ec22265fef9fde6711f09259fc8.ctex"]
 
 [params]
 

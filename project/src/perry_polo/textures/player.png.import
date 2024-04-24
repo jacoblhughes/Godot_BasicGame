@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3ceohymx1b0e"
-path="res://.godot/imported/lava_256.png-610fcd179520d6faa0b64533d627351f.ctex"
+uid="uid://bss5quy1eqwo6"
+path="res://.godot/imported/player.png-581cfbc8b8abaabb76e07a9c50dd7c6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perry_llama/lava_256.png"
-dest_files=["res://.godot/imported/lava_256.png-610fcd179520d6faa0b64533d627351f.ctex"]
+source_file="res://src/perry_polo/textures/player.png"
+dest_files=["res://.godot/imported/player.png-581cfbc8b8abaabb76e07a9c50dd7c6f.ctex"]
 
 [params]
 

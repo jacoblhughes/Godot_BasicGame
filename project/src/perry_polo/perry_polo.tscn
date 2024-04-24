@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c1n3bt7ntc5gf"]
 
 [ext_resource type="Script" path="res://src/perry_polo/perry_polo.gd" id="1_ry11p"]
-[ext_resource type="Texture2D" uid="uid://c4rylxpixdbli" path="res://textures/perry_polo/pong_pool_144_256.png" id="2_q4x8g"]
+[ext_resource type="Texture2D" uid="uid://c4rylxpixdbli" path="res://src/perry_polo/textures/background.png" id="2_q4x8g"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="3_7c1vq"]
 [ext_resource type="PackedScene" uid="uid://bf4jsvnkmhkg4" path="res://src/perry_polo/ball.tscn" id="3_n2q35"]
 [ext_resource type="PackedScene" uid="uid://bxl4jcd30qnrr" path="res://src/perry_polo/wall.tscn" id="5_57nuv"]
