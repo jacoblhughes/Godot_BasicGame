@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cii58wta6uq53"
-path="res://.godot/imported/Llama Walking.png-a169118b6826b4dd7b42a7adb55c6f0e.ctex"
+uid="uid://l7mxkl4hb7ua"
+path="res://.godot/imported/enemy_large.png-0d1851df8657cb24443fffd0ac2d6a8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/perry_llama/textures/Llama Walking.png"
-dest_files=["res://.godot/imported/Llama Walking.png-a169118b6826b4dd7b42a7adb55c6f0e.ctex"]
+source_file="res://src/perry_llama/textures/enemy_large.png"
+dest_files=["res://.godot/imported/enemy_large.png-0d1851df8657cb24443fffd0ac2d6a8e.ctex"]
 
 [params]
 

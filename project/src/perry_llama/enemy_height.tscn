@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3mt1hra3f11n"]
 
 [ext_resource type="Script" path="res://src/perry_llama/enemy.gd" id="1_jvhrn"]
-[ext_resource type="Texture2D" uid="uid://bt3hmnk6ain6w" path="res://src/perry_llama/textures/enemy_height_256_512.png" id="2_5xs5s"]
+[ext_resource type="Texture2D" uid="uid://bt3hmnk6ain6w" path="res://src/perry_llama/textures/enemy_tall.png" id="2_5xs5s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20oip"]
 size = Vector2(64, 128)

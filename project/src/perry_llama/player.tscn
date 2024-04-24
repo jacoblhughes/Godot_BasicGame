@@ -1,22 +1,22 @@
 [gd_scene load_steps=9 format=3 uid="uid://cmnxppb5dpdr6"]
 
 [ext_resource type="Script" path="res://src/perry_llama/player.gd" id="1_gkvo8"]
-[ext_resource type="Texture2D" uid="uid://3fw72qk2urij" path="res://src/perry_llama/textures/llama_256.png" id="2_q3c1q"]
+[ext_resource type="Texture2D" uid="uid://3fw72qk2urij" path="res://src/perry_llama/textures/llama.png" id="2_hm4p1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r340r"]
-atlas = ExtResource("2_q3c1q")
+atlas = ExtResource("2_hm4p1")
 region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivc20"]
-atlas = ExtResource("2_q3c1q")
+atlas = ExtResource("2_hm4p1")
 region = Rect2(256, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_os657"]
-atlas = ExtResource("2_q3c1q")
+atlas = ExtResource("2_hm4p1")
 region = Rect2(512, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jc30w"]
-atlas = ExtResource("2_q3c1q")
+atlas = ExtResource("2_hm4p1")
 region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t46dg"]
