@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=31 format=3 uid="uid://d4cpf87cb1bs0"]
 
 [ext_resource type="Script" path="res://src/autoloads/buttons.gd" id="1_bni1w"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://src/perry_says/perry_says.tscn" id="2_p72e3"]
@@ -17,7 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://2opj6l2yf0hy" path="res://src/main/highscore.tscn" id="13_sdpee"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="14_ihqmu"]
 [ext_resource type="PackedScene" uid="uid://urp5eq32gjnv" path="res://src/autoloads/game_button.tscn" id="17_10g4p"]
-[ext_resource type="Texture2D" uid="uid://u28nu2gmaihg" path="res://textures/perry_says/logo.png" id="18_n8brg"]
+[ext_resource type="Texture2D" uid="uid://b5tn0pixedbmk" path="res://src/autoloads/textures/title.png" id="17_ublv1"]
+[ext_resource type="Texture2D" uid="uid://u28nu2gmaihg" path="res://src/perry_says/textures/logo.png" id="18_n8brg"]
 [ext_resource type="Texture2D" uid="uid://bqd3t0ewnnfu" path="res://textures/main/cham_256.png" id="19_evpij"]
 [ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://textures/perry_polo/pong_paddle1.png" id="20_c8i4i"]
 [ext_resource type="Texture2D" uid="uid://b3ceohymx1b0e" path="res://textures/perry_llama/lava_256.png" id="21_fernw"]
@@ -71,16 +72,13 @@ theme_type_variation = &"MarginContainerButtonsScene"
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
 theme = ExtResource("14_ihqmu")
 theme_type_variation = &"LabelTitle"
-theme_override_font_sizes/font_size = 0
-text = "PERRY ARCADE"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("17_ublv1")
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
