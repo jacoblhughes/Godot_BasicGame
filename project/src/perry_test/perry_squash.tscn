@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt5tdatog3mbc"]
+
+[ext_resource type="PackedScene" uid="uid://ce3onoowy5npr" path="res://src/perry_test/player.tscn" id="1_05i6n"]
+
+[node name="PerrySquash" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_05i6n")]
