@@ -5,3 +5,10 @@
 [node name="PerrySquash" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_05i6n")]
+position = Vector2(64, 256)
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(64, 256)
+
+[node name="EndPosition" type="Marker2D" parent="."]
+position = Vector2(624, 256)
