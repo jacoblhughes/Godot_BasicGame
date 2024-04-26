@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=32 format=3 uid="uid://d4cpf87cb1bs0"]
 
 [ext_resource type="Script" path="res://src/autoloads/buttons.gd" id="1_bni1w"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://src/perry_says/perry_says.tscn" id="2_p72e3"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://src/main/textures/perry_original_256.png" id="26_ilcnv"]
 [ext_resource type="Texture2D" uid="uid://id04l63f5eii" path="res://src/perry_putt/textures/player.png" id="27_3ayht"]
 [ext_resource type="Texture2D" uid="uid://vgrksd6w3kjc" path="res://src/app_art/perry_original_icon_192.png" id="28_nr3es"]
+[ext_resource type="PackedScene" uid="uid://dt5tdatog3mbc" path="res://src/perry_test/perry_squash.tscn" id="28_tc350"]
 [ext_resource type="PackedScene" uid="uid://d0f2kixg3jth7" path="res://src/perry_skeeball/perry_skeeball.tscn" id="29_677qr"]
 
 [node name="Buttons" type="CanvasLayer"]
@@ -147,7 +148,7 @@ game_title = "Perry Space"
 [node name="PerrrySquash" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("26_ilcnv")
-game_scene_selection = ExtResource("10_j1rxk")
+game_scene_selection = ExtResource("28_tc350")
 game_key_selection = "9"
 game_title = "Perry Squash"
 

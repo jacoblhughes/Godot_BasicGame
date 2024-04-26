@@ -67,7 +67,7 @@ func _ready():
 		else:
 			config.set_value("main", "initials","JLH")
 			config.save(perry_arcade_path)
-		
+
 		if config.get_value("background_music", "value", DEFAULT_FLOAT) != DEFAULT_FLOAT:
 			pass
 		else:
@@ -100,22 +100,22 @@ func _ready():
 	AudioManager.set_background_music_mute(config.get_value("background_music", "playing", DEFAULT_FLOAT))
 	AudioManager.update_game_music(config.get_value("game_music", "value", DEFAULT_FLOAT))
 	AudioManager.set_game_music_mute(config.get_value("game_music", "playing", DEFAULT_FLOAT))
-	
+
 func get_games_list():
 	return games_list
-	
+
 func get_config_path_file():
 	return perry_arcade_path
-	
+
 func save_initials(initials):
 	HUD.update_initials(initials)
 	current_initials = initials
 	config.set_value("main", "initials",current_initials)
 	config.save(perry_arcade_path)
-	
+
 func return_initials():
 	return current_initials
-	
+
 func check_highscore_and_rank():
 	var high_scores_names = config.get_value(game_key, "names", [])
 	var high_scores = config.get_value(game_key, "scores", [])
@@ -126,7 +126,7 @@ func check_highscore_and_rank():
 		print("Error: Names and scores arrays have different sizes.")
 		return
 
-	var added = false 
+	var added = false
 
 	for i in range(high_scores.size()):
 		if score > high_scores[i]:
@@ -149,25 +149,25 @@ func check_highscore_and_rank():
 	if(added):
 		GameStartGameOver.set_gameover_panel_congrats(true)
 #	_replace_highscore_list()
-	
+
 func initiate_highscores_section():
 	for key in games_list.keys():
 		if not config.has_section(key):
 			config.set_value(key,"scores",[0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 			config.set_value(key,"names",["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
 			config.save(perry_arcade_path)
-		
+
 func get_highscore_scores(key):
 
 	var scores = config.get_value(key,"scores", [])
-	
+
 	return scores
-	
+
 func get_highscore_names(key):
 
 	var names = config.get_value(key,"names", [])
 	return names
-	
+
 func set_current_game_scene(scene):
 	current_game_scene = scene
 
@@ -199,7 +199,7 @@ func save_background_music_choice(value):
 func save_game_effects_choice(game_effects_playing):
 	config.set_value("game_music","playing",game_effects_playing)
 	config.save(perry_arcade_path)
-	
+
 func save_background_music_value(value):
 	config.set_value("background_music","value",value)
 	config.save(perry_arcade_path)

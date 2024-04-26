@@ -1,29 +1,42 @@
 extends CharacterBody2D
+class_name PerrySquashPlayer
 
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
-var moving_speed = 100
-var slam_speed = 400
+const SPEED = 200.0
 var is_slamming = false
+var normal = true
+var direction
+@export var start_marker: Marker2D
+var start_position
+@export var end_marker: Marker2D
+var end_position
 
 func _ready():
-	# Initial back and forth movement setup can be done using an AnimationPlayer or manually here
+	start_position = start_marker.position
+	end_position = end_marker.position
 	pass
 
 func _physics_process(delta):
-	if !is_slamming:
-		# Logic for moving back and forth
-		position.x += moving_speed * delta
-		if position.x > get_viewport_rect().size.x or position.x < 0:
-			moving_speed = -moving_speed  # Change direction
+	if normal:
+		direction = 1
+	if !normal:
+		direction = -1
+	if normal and position.x >= end_position.x:
+		normal = false
+	if !normal and position.x <= start_position.x:
+		normal = true
+	if !is_slamming and int(position.y) == start_position.y:
+		velocity.x = direction * SPEED
+	if is_on_floor():
+		is_slamming = false
+	if !is_slamming and position.y > start_position.y:
+		position = position.lerp(Vector2(position.x,start_position.y),.1)
 	else:
-		# Slamming down logic
-		velocity.y += slam_speed * delta
-		move_and_slide()
-
-func _input(event):
-	if event is InputEventKey and event.pressed and event.scancode == KEY_SPACE:
-		# When the player presses a button (e.g., space bar)
+		direction = 0
+		velocity.y = 1500
+	if Input.is_action_pressed("ui_accept"):
 		is_slamming = true
+		velocity = Vector2.ZERO
+
+
+	move_and_slide()
+

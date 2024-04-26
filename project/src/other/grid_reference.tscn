@@ -1,0 +1,3634 @@
+[gd_scene format=3 uid="uid://brwrw47ug7fwj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 720.0
+offset_bottom = 1280.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer16" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer17" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer18" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer19" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer20" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer21" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer22" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer23" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer24" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer24"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer25" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer25"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer26" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer26"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer27" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer27"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer28" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer28"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer29" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer29"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer30" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer30"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="HBoxContainer31" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer31"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="HBoxContainer32" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect13" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0, 0.403922)
+
+[node name="ColorRect14" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 0, 0.403922)
+
+[node name="ColorRect15" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect16" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
+
+[node name="ColorRect17" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 1, 1, 0.403922)
+
+[node name="ColorRect18" type="ColorRect" parent="VBoxContainer/HBoxContainer32"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0.403922)
