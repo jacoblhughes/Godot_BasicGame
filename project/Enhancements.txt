@@ -9,9 +9,12 @@ Perry Arcade
 16	45	80
 20	36	64
 40	18	32
+	9   16
 
 
 V2:
+
+Make level changes actually mean something
 
 How do I handle the different xatio's and the timing around moving nodes.
 	Make it consistent with call deferred or a signal
@@ -52,7 +55,7 @@ perry_space
 	rockets should emit signal back to game to handle game scoring and such
 
 perry_squash
-	Make the thing not move until after I click the button via timer or something else
+	Why does being on or above the start position fuck it up?
 
 Clamp things
 Make directions for each game

@@ -23,11 +23,11 @@ func start_meter():
 
 	meter_status = true
 
-	
+
 func stop_meter():
 	meter_status = false
 	send_value.emit(%ProgressBar.value)
-		
+
 func clear():
 	%ProgressBar.value = 0
 

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cj0i3bqn4ap1r" path="res://src/perry_flap/perry_flap.tscn" id="7_8m0e8"]
 [ext_resource type="PackedScene" uid="uid://cf4xkqs74ytur" path="res://src/perry_run/perry_run.tscn" id="8_jcog7"]
 [ext_resource type="PackedScene" uid="uid://dx4hwtnr40m1r" path="res://src/perry_space/perry_space.tscn" id="9_f6anq"]
-[ext_resource type="PackedScene" uid="uid://dt5tdatog3mbc" path="res://src/perry_squash/perry_squash.tscn" id="10_j1rxk"]
+[ext_resource type="PackedScene" uid="uid://c1hivhtg5s78l" path="res://src/perry_squash/perry_squash.tscn" id="10_j1rxk"]
 [ext_resource type="PackedScene" uid="uid://b8eyyvj5cesul" path="res://src/main/about.tscn" id="11_mcf75"]
 [ext_resource type="PackedScene" uid="uid://cuo4gv5dg3v" path="res://src/perry_putt/perry_putt.tscn" id="11_yj5m7"]
 [ext_resource type="PackedScene" uid="uid://eol8e22mmwv0" path="res://src/perry_test/perry_test.tscn" id="12_2hp02"]
@@ -29,8 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://src/main/textures/perry_original_256.png" id="26_ilcnv"]
 [ext_resource type="Texture2D" uid="uid://id04l63f5eii" path="res://src/perry_putt/textures/player.png" id="27_3ayht"]
 [ext_resource type="Texture2D" uid="uid://vgrksd6w3kjc" path="res://src/app_art/perry_original_icon_192.png" id="28_nr3es"]
-[ext_resource type="PackedScene" uid="uid://dt5tdatog3mbc" path="res://src/perry_squash/perry_squash.tscn" id="28_tc350"]
-[ext_resource type="PackedScene" uid="uid://d0f2kixg3jth7" path="res://src/perry_skeeball/perry_skeeball.tscn" id="29_677qr"]
+[ext_resource type="PackedScene" uid="uid://c1hivhtg5s78l" path="res://src/perry_squash/perry_squash.tscn" id="28_tc350"]
+[ext_resource type="PackedScene" uid="uid://d0f2kixg3jth7" path="res://src/move/perry_skeeball.tscn" id="29_677qr"]
 
 [node name="Buttons" type="CanvasLayer"]
 layer = 3

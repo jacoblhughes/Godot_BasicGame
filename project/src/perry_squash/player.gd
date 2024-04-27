@@ -20,6 +20,7 @@ func initialize_positions():
 	initialized = true
 
 func _physics_process(delta):
+
 	if initialized:
 		if normal:
 			direction = 1

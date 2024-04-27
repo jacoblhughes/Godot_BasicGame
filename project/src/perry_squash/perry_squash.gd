@@ -35,7 +35,6 @@ func _ready():
 	if xform > 720:
 		var nodes_to_move = [%Player,%StartPosition,%EndPosition,%Floor,%EnemySpawnRight,%EnemySpawnLeft,%EnemyDespawnLeft,%EnemyDespawnRight]
 		for node in nodes_to_move:
-			print(node)
 			node.position.x *= xatio
 		var nodes_to_scale = [%Floor]
 		for node in nodes_to_scale:
@@ -52,3 +51,9 @@ func _process(delta):
 
 func _on_enemy_squashed():
 	HUD.update_score()
+
+func _on_play_button_pressed():
+	GameManager.set_game_enabled(true)
+
+func _on_game_over():
+	GameManager.set_game_enabled(false)
