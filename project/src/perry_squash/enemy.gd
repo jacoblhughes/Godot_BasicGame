@@ -1,35 +1,34 @@
-extends CharacterBody3D
+extends CharacterBody2D
+class_name PerrySquashEnemy
 
-# Minimum speed of the mob in meters per second.
-@export var min_speed = 8
-# Maximum speed of the mob in meters per second.
-@export var max_speed = 12
-signal squashed
-func _physics_process(_delta):
+var speed = 100
+var direction = 0
+signal enemy_squashed
+# Called when the node enters the scene tree for the first time.
+func _ready():
+
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	velocity.x = speed * direction
 	move_and_slide()
+	if %ShapeCast2D.is_colliding():
+		var collider = %ShapeCast2D.get_collider(0)
+		if collider is PerrySquashPlayer:
 
-# This function will be called from the Main scene.
-func initialize(start_position, player_position):
-	# We position the mob by placing it at start_position
-	# and rotate it towards player_position, so it looks at the player.
-	player_position = Vector3(player_position.x,start_position.y,player_position.z)
-	look_at_from_position(start_position, player_position, Vector3.UP)
-	# Rotate this mob randomly within range of -90 and +90 degrees,
-	# so that it doesn't move directly towards the player.
-	rotate_y(randf_range(-PI / 4, PI / 4))
+			enemy_squashed.emit()
+			die()
+	pass
 
-	# We calculate a random speed (integer)
-	var random_speed = randi_range(min_speed, max_speed)
-	# We calculate a forward velocity that represents the speed.
-	velocity = Vector3.FORWARD * random_speed
-	# We then rotate the velocity vector based on the mob's Y rotation
-	# in order to move in the direction the mob is looking.
-	velocity = velocity.rotated(Vector3.UP, rotation.y)
-	$AnimationPlayer.speed_scale = random_speed / min_speed
-
-func _on_visible_on_screen_notifier_3d_screen_exited():
+func die():
 	queue_free()
 
-func squash():
-	squashed.emit()
-	queue_free()
+func set_direction(val):
+	if val == 1:
+		direction = 1
+		%AnimatedSprite2D.flip_h = true
+	elif val == -1:
+		direction = -1
+
