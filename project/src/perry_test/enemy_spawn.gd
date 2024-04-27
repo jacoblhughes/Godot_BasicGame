@@ -21,10 +21,10 @@ func _on_enemy_timer_timeout():
 	var left_or_right_val = randi_range(0,1)
 	if left_or_right_val > 0:
 		enemy.position = enemy_spawn_right.position
-		enemy.direction = -1
+		enemy.set_direction(-1)
 	else:
 		enemy.position = enemy_spawn_left.position
-		enemy.direction = 1
+		enemy.set_direction(1)
 	enemy.enemy_squashed.connect(_on_enemy_squashed)
 	add_child(enemy)
 

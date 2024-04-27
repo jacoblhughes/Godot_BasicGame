@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_vrvjj"]
 [ext_resource type="PackedScene" uid="uid://dgbjvdct5rvuk" path="res://src/perry_flap/enemy_wall_2.tscn" id="3_eemtl"]
 [ext_resource type="Script" path="res://src/perry_flap/enemy_despawn.gd" id="4_7jpv8"]
-[ext_resource type="Texture2D" uid="uid://bx5cma57kljk6" path="res://textures/perry_flap/flappy_background_256_512.png" id="4_abbuh"]
+[ext_resource type="Texture2D" uid="uid://bx5cma57kljk6" path="res://src/perry_flap/textures/background.png" id="4_abbuh"]
 [ext_resource type="PackedScene" uid="uid://cpcavmwe55upr" path="res://src/perry_flap/enemy_wall_3.tscn" id="4_pqam4"]
 [ext_resource type="PackedScene" uid="uid://bmuk80oxjv7v8" path="res://src/perry_flap/player.tscn" id="6_dekd4"]
 

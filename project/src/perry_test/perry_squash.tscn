@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ce3onoowy5npr" path="res://src/perry_test/player.tscn" id="1_05i6n"]
 [ext_resource type="Script" path="res://src/perry_test/perry_squash.gd" id="1_wigsa"]
-[ext_resource type="PackedScene" uid="uid://brwrw47ug7fwj" path="res://src/other/grid_reference.tscn" id="2_ff0kx"]
+[ext_resource type="PackedScene" uid="uid://brwrw47ug7fwj" path="res://src/reference/grid_reference.tscn" id="2_n54d0"]
 [ext_resource type="Script" path="res://src/perry_test/enemy_spawn.gd" id="3_ndbqx"]
 [ext_resource type="PackedScene" uid="uid://cffkkoahp3jak" path="res://src/perry_test/enemy.tscn" id="4_airey"]
 [ext_resource type="Script" path="res://src/perry_test/enemy_despawn.gd" id="4_sff2m"]
@@ -17,12 +17,12 @@ size = Vector2(32, 64)
 script = ExtResource("1_wigsa")
 metadata/_edit_vertical_guides_ = [360.0]
 
+[node name="GridReference" parent="." instance=ExtResource("2_n54d0")]
+
 [node name="EnemyTImer" type="Timer" parent="."]
 unique_name_in_owner = true
 
-[node name="Control" parent="." instance=ExtResource("2_ff0kx")]
-
-[node name="CharacterBody2D" parent="." node_paths=PackedStringArray("start_marker", "end_marker") instance=ExtResource("1_05i6n")]
+[node name="Player" parent="." node_paths=PackedStringArray("start_marker", "end_marker") instance=ExtResource("1_05i6n")]
 position = Vector2(64, 400)
 motion_mode = 0
 start_marker = NodePath("../StartPosition")
@@ -51,10 +51,10 @@ enemy_scene = ExtResource("4_airey")
 enemy_timer = NodePath("../EnemyTImer")
 
 [node name="EnemySpawnLeft" type="Marker2D" parent="."]
-position = Vector2(40, 960)
+position = Vector2(80, 960)
 
 [node name="EnemySpawnRight" type="Marker2D" parent="."]
-position = Vector2(680, 960)
+position = Vector2(640, 960)
 
 [node name="EnemyDespawn" type="Node2D" parent="." node_paths=PackedStringArray("enemy_despawn_left", "enemy_despawn_right")]
 script = ExtResource("4_sff2m")
@@ -62,7 +62,7 @@ enemy_despawn_left = NodePath("../EnemyDespawnLeft")
 enemy_despawn_right = NodePath("../EnemyDespawnRight")
 
 [node name="EnemyDespawnLeft" type="Area2D" parent="."]
-position = Vector2(-16, 928)
+position = Vector2(-48, 928)
 collision_layer = 8
 collision_mask = 2
 
@@ -70,7 +70,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_7x3f3")
 
 [node name="EnemyDespawnRight" type="Area2D" parent="."]
-position = Vector2(736, 928)
+position = Vector2(768, 928)
 collision_layer = 8
 collision_mask = 2
 
