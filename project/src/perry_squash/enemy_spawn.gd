@@ -26,6 +26,7 @@ func _on_enemy_timer_timeout():
 		enemy.position = enemy_spawn_left.position
 		enemy.set_direction(1)
 	enemy.enemy_squashed.connect(_on_enemy_squashed)
+
 	add_child(enemy)
 
 func _on_enemy_squashed():

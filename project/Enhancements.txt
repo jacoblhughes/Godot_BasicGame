@@ -13,6 +13,9 @@ Perry Arcade
 
 V2:
 
+How do I handle the different xatio's and the timing around moving nodes.
+	Make it consistent with call deferred or a signal
+
 Introduce at least 1 then 2 new game elements to make it fun
 If not too much of a detriment, add a loss element
 

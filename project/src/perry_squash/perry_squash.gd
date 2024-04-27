@@ -14,6 +14,8 @@ var game_time_left_timer_value = 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
+
+	#here herehrehrehrherherh
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
@@ -31,10 +33,11 @@ func _ready():
 		pass
 
 	if xform > 720:
-		var nodes_to_move =[]
+		var nodes_to_move = [%Player,%StartPosition,%EndPosition,%Floor,%EnemySpawnRight,%EnemySpawnLeft,%EnemyDespawnLeft,%EnemyDespawnRight]
 		for node in nodes_to_move:
+			print(node)
 			node.position.x *= xatio
-		var nodes_to_scale = []
+		var nodes_to_scale = [%Floor]
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
 
@@ -44,6 +47,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#print(%EndPosition.position)
 	pass
 
 func _on_enemy_squashed():

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cffkkoahp3jak"]
+[gd_scene load_steps=11 format=3 uid="uid://cffkkoahp3jak"]
 
 [ext_resource type="Script" path="res://src/perry_squash/enemy.gd" id="1_kf3cl"]
 [ext_resource type="Texture2D" uid="uid://bv184k45kv766" path="res://src/perry_squash/textures/enemy.png" id="1_ru0yg"]
+[ext_resource type="Texture2D" uid="uid://0b7t0iyj3pj1" path="res://src/perry_squash/textures/enemy_hurt.png" id="3_73h56"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e33d0"]
 atlas = ExtResource("1_ru0yg")
@@ -9,6 +10,14 @@ region = Rect2(0, 0, 64, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8lpkh"]
 atlas = ExtResource("1_ru0yg")
+region = Rect2(64, 0, 64, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu6xa"]
+atlas = ExtResource("3_73h56")
+region = Rect2(0, 0, 64, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8fqq"]
+atlas = ExtResource("3_73h56")
 region = Rect2(64, 0, 64, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_agd62"]
@@ -22,6 +31,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu6xa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8fqq")
+}],
+"loop": true,
+"name": &"pain",
 "speed": 5.0
 }]
 
@@ -41,8 +61,8 @@ unique_name_in_owner = true
 position = Vector2(0, -18)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_agd62")
+animation = &"pain"
 autoplay = "default"
-frame_progress = 0.405284
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -18)
