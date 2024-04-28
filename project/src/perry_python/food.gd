@@ -2,7 +2,7 @@
 extends Node2D
 
 var food_position := Vector2()
-var snake_cell_size := Vector2()
+var cell_size := Vector2()
 var radius = 10  # Radius of the circular path
 var speed = 90   # Angular speed (degrees per second)
 var angle = 0
@@ -19,8 +19,12 @@ func _ready():
 	pass # Replace with function body.
 
 func get_rect() -> Rect2:
-	var size =  snake_cell_size
-	return Rect2(food_position,size)
+
+	return Rect2(food_position,cell_size)
+
+func set_cell_size(val):
+	print(val)
+	cell_size = val
 
 func start_tween():
 

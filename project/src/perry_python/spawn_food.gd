@@ -19,7 +19,8 @@ func _process(delta):
 	my_food_instance.position = my_food_instance.food_position + get_parent().return_snake_cell_size()/2
 
 	queue_redraw()
-	print(my_food_instance.get_rect()," ",%Player.get_rect())
+	#print("Food Rect: ", str(my_food_instance.get_rect()))
+	#print("Player Rect: ", str(%Player.get_rect()))
 	if my_food_instance.get_rect().intersects(%Player.get_rect()):
 
 		food_eaten.emit()
@@ -44,14 +45,12 @@ func spawn_food():
 	my_food_instance = my_food.instantiate()
 	my_food_instance.update_scale(get_parent().return_snake_cell_size())
 
-	print(get_parent().return_snake_cell_size())
-
 	while is_on_occupied_position:
 		var random_position = Vector2()
 		random_position.x = randi_range(0, get_parent().return_play_area_size().x - get_parent().return_snake_cell_size().x)
 		random_position.y = randi_range(0, get_parent().return_play_area_size().y - get_parent().return_snake_cell_size().y)
 		my_food_instance.food_position = random_position.snapped(get_parent().return_snake_cell_size()) + get_parent().return_play_area_position()
-
+		my_food_instance.set_cell_size(cell_size)
 		for minisnake in get_parent().minisnakes:
 			if my_food_instance.get_rect().intersects(minisnake.get_rect()):
 				is_on_occupied_position = true

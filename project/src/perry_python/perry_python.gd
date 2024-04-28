@@ -84,14 +84,12 @@ func _ready():
 	body = %Body
 	head = %Player
 	food_spawner.food_eaten.connect(_on_food_eaten)
-	print('here')
-	print('snake size: ', snake_cell_size)
 	head.update_scale(snake_cell_size)
-	print('then here')
 	head.curr_position = game_position + Vector2(game_area.x/2,game_area.y/2)
 	snake_timer.wait_time = original_snake_time
 	head.hit.connect(_on_hit)
 	minisnakes.push_front(head)
+	%FoodSpawner.cell_size = snake_cell_size
 	dimensions_ready.emit()
 
 func _draw():

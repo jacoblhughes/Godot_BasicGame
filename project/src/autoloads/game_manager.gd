@@ -23,17 +23,72 @@ signal initialsUpdated
 var game_key = "JLH"
 
 var games_list : Dictionary = {
-"1":{"title":"Perry Says","short_name":"perry_says","directions":"Smash Perry in the right order to get the high score!"}
-,"2":{"title":"Perry Python","short_name":"perry_python","directions":"Make Perry eat the unfunny clown!"}
-,"3":{"title":"Perry Water Polo","short_name":"perry_polo","directions":"Bounce Perry around to get the highscore!"}
-,"4":{"title":"Perry's Llama Leap","short_name":"perry_llama","directions":"Perry stole your headband. Jump over his garbage as you chase him down!"}
-,"5":{"title":"Perry Dodge","short_name":"perry_dodge","directions":"Help Perry avoid the zoo animals!"}
-,"6":{"title":"Perry Flap","short_name":"perry_flap","directions":"Perry is trying to stop the bird from getting home. Help flappy!"}
-,"7":{"title":"Perry Run","short_name":"perry_run","directions":"Get to the end of the maze as fast as you can and as many times as you can!"}
-,"8":{"title":"Perry Space Attack","short_name":"perry_space","directions":"Roddy needs help avoiding the Vegaliens"}
-,"9":{"title":"Perry Squash","short_name":"perry_squash","directions":"Help Perry squash"}
-,"10":{"title":"Perry Putt","short_name":"perry_putt","directions":"Help Perry putt"}
-,"11":{"title":"Perry Skeeball","short_name":"perry_skeeball","directions":"Skeeball"}
+"1":
+	{"title":"Perry Says",
+"short_name":"perry_says",
+"objective":"Smash Perry in the face to get the high score!",
+"directions":"Click on the buttons in the correct order"
+}
+,"2":
+	{"title":"Perry Python",
+"short_name":"perry_python",
+"objective":"Make Perry eat the unfunny mouse!",
+"directions":"Turn Perry by clicking above, below, left, or right of the character"
+}
+,"3":
+	{"title":"Perry Water Polo",
+"short_name":"perry_polo",
+"objective":"Bounce Perry past your enemy!",
+"directions":"Click above or below to protect your side and shoot Perry into the enemy side!"
+}
+,"4":
+	{"title":"Perry's Llama Leap",
+"short_name":"perry_llama",
+"objective":"Perry stole your headband. Jump over his garbage as you chase him down!",
+"directions":"Click to make the llama jump or double jump!"
+}
+,"5":
+	{"title":"Perry Dodge",
+"short_name":"perry_dodge",
+"objective":"Help Perry avoid the zoo animals!",
+"directions":"Click on the sceen to help Perry escape the charging animals"
+}
+,"6":
+	{"title":"Perry Flap",
+"short_name":"perry_flap",
+"objective":"Perry is trying to stop the bird from getting home. Help flappy!",
+"directions":"Click to keep Flappy Perry up, stop clicking to let it fall"
+}
+,"7":
+	{"title":"Perry Run",
+"short_name":"perry_run",
+"objective":"Keep jumping and running to avoice obstacles",
+"directions":"SClick to make Perry jump from platform to platform"
+}
+,"8":
+	{"title":"Perry Space Attack",
+"short_name":"perry_space",
+"objective":"Help Perry stop the invading Vegaliens",
+"directions":"Click to move the character. Avoid being hit or letting the enemies past you"
+}
+,"9":
+	{"title":"Perry Squash",
+"short_name":"perry_squash",
+"objective":"Help Perry squash",
+"directions":"Click to sqash the enemies. Avoid the red snakes"
+}
+,"10":
+	{"title":"Perry Putt",
+"short_name":"perry_putt",
+"objective":"Help Perry putt",
+"directions":"Click the direction, then use the power meter button to determine the hit strength"
+}
+,"11":
+	{"title":"Perry Skeeball",
+"short_name":"perry_skeeball",
+"objective":"Help roll Perry into the goals",
+"directions":"Click to shoot the ball in the direction of the arrow. Higher zones are worth more"
+}
 }
 
 var background_canvas_layer_instance

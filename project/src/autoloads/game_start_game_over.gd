@@ -29,12 +29,13 @@ func game_start_game_over_initialize( this_start_button_callable, this_game_over
 	game_over.connect(this_game_over_callable)
 	pass
 
-func set_game(flag,title,directions):
+func set_game(flag,title,objective,directions):
 	%GameStartPanel.visible = flag
+	%Objective.text = objective
 	%Title.text=title
 	%Directions.text = directions
 
-	
+
 func _on_play_button_pressed():
 	%GameStartPanel.visible = false
 	start_button_pressed.emit()
@@ -55,7 +56,7 @@ func set_gameover_panel_congrats(vis):
 	else:
 #		game_over_panel_congrats.stop()
 		%HighscoreAchieved.visible = false
-		
+
 func _on_home_button_pressed():
 	HUD.home_button_pressed()
 	self.hide()
