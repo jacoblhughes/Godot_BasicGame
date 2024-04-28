@@ -7,6 +7,7 @@ var gravity = 1200
 var jump_time = 0.0
 var xpos
 var should_jump
+var jump_scale
 
 func _ready():
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
@@ -29,7 +30,7 @@ func _physics_process(delta):
 
 	elif should_jump and not is_on_floor() and jump_time < MAX_JUMP_TIME:
 		jump_time += delta
-		velocity.y -= 35
+		velocity.y -= (35*jump_scale)
 
 	move_and_slide()
 	position.x = clamp(position.x, xpos, xpos)  # Keep the player at xpos
@@ -37,3 +38,6 @@ func _physics_process(delta):
 
 func set_xpos(pos):
 	xpos = pos
+
+func set_yatio(val):
+	jump_scale = val

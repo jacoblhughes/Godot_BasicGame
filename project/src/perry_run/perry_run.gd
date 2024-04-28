@@ -15,7 +15,7 @@ var game_time_left_timer_value = 60
 var level_value = 1
 var reset_point
 var game_on = false
-
+var player_jump_scale
 
 signal game_start
 # Called when the node enters the scene tree for the first time.
@@ -37,24 +37,36 @@ func _ready():
 	print(xform , " " , yform)
 
 	if yform > 1280:
-#		%Camera2D.enabled = true
-#		%Camera2D.zoom.y = yform/1280
-		var nodes_to_move =[]
+		var objects_1 = %EnemySpawnPositions.get_children()
+		for node in objects_1:
+			node.position.y *= yatio
+		var objects_2 = %CoinSpawnPositions.get_children()
+		for node in objects_2:
+			node.position.y *= yatio
+		var nodes_to_move =[%StartPosition,%FloorCoinDespawn,%PlayerFell]
 		for node in nodes_to_move:
 			node.position.y *= yatio
-		var nodes_to_scale = []
+		var nodes_to_scale = [%FloorCoinDespawn]
 		for node in nodes_to_scale:
 			node.scale.y *= yatio
 
 	if xform > 720:
-		var nodes_to_move =[]
+		var objects_1 = %EnemySpawnPositions.get_children()
+		for node in objects_1:
+			node.position.x *= xatio
+		var objects_2 = %CoinSpawnPositions.get_children()
+		for node in objects_2:
+			node.position.x *= xatio
+		var nodes_to_move =[%PlayerFell]
 		for node in nodes_to_move:
 			node.position.x *= xatio
-		var nodes_to_scale = []
+		var nodes_to_scale = [%PlayerFell]
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
 
 	%PlayerFell.body_entered.connect(_on_player_fall_out)
+	%ObjectSpawn.set_xatio(xatio)
+	player_jump_scale = yatio
 #	%PlayerPushed.body_entered.connect(_on_player_fall_out)
 	pass # Replace with function body.
 
@@ -68,6 +80,7 @@ func _on_play_button_pressed():
 	var player = player_scene.instantiate()
 	player.position = %StartPosition.position
 	add_child.call_deferred(player)
+	player.set_yatio(player_jump_scale)
 	player.set_xpos(%StartPosition.position.x)
 	pass
 
