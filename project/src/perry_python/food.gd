@@ -23,7 +23,6 @@ func get_rect() -> Rect2:
 	return Rect2(food_position,cell_size)
 
 func set_cell_size(val):
-	print(val)
 	cell_size = val
 
 func start_tween():

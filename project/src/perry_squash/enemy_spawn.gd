@@ -33,6 +33,6 @@ func _on_enemy_timer_timeout():
 
 func _on_enemy_squashed():
 	enemy_squashed.emit()
-	
-func set_probability(val):
-	probability = val
+
+func increase_probability():
+	probability /= .95

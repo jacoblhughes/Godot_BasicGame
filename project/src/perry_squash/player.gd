@@ -24,10 +24,11 @@ func initialize_positions():
 func _on_clickable_input_event(event, input_position):
 	if event.is_pressed() and GameManager.get_game_enabled():
 		is_slamming = true
+		normal = !normal
 
 func _physics_process(delta):
-
 	if initialized and GameManager.get_game_enabled():
+
 		if normal:
 			direction = 1
 		if !normal:
@@ -38,7 +39,7 @@ func _physics_process(delta):
 			normal = true
 		if is_slamming:
 			velocity = Vector2.ZERO
-		if !is_slamming and int(position.y) == start_position.y:
+		if !is_slamming and int(position.y) == int(start_position.y):
 			velocity.x = direction * SPEED
 		if is_on_floor():
 			is_slamming = false

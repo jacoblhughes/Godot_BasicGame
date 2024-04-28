@@ -12,7 +12,7 @@ func initialize_bounds():
 	var left_pos = left_bound.position
 
 	var right_pos = right_bound.position
-	print(right_pos)
+
 	for node in get_children():
 		node.set_left_and_right_bound(left_pos,right_pos)
 

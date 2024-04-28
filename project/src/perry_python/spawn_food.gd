@@ -17,10 +17,7 @@ func _on_dimensions_ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	my_food_instance.position = my_food_instance.food_position + get_parent().return_snake_cell_size()/2
-
 	queue_redraw()
-	#print("Food Rect: ", str(my_food_instance.get_rect()))
-	#print("Player Rect: ", str(%Player.get_rect()))
 	if my_food_instance.get_rect().intersects(%Player.get_rect()):
 
 		food_eaten.emit()

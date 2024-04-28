@@ -73,18 +73,7 @@ func return_score():
 	return score
 
 
-func set_or_reset_level(default_level = "INF"):
-	if typeof(default_level) == TYPE_INT:
-		level = default_level
-		%Level.text = str(level)
-	else:
-		%Level.text = default_level
 
-func update_game_level(value):
-	var old_level = level
-	var new_level = old_level + value
-	level = new_level
-	%Level.text = str(level)
 
 func home_button_pressed():
 	_on_home_button_pressed()
@@ -130,9 +119,23 @@ func update_lives(value = -1):
 
 
 func check_advance_level():
-		if(int(return_score()) % level_advance_check_value == 0):
-			update_game_level(level_advance_base_value * 1)
-			return true
+	if(int(return_score()) % level_advance_check_value == 0):
+		var new_level = int(return_score())/level_advance_check_value
+		set_or_reset_level((level_advance_base_value * new_level)+initial_level_value)
+		return true
+
+func set_or_reset_level(default_level = "INF"):
+	if typeof(default_level) == TYPE_INT:
+		level = default_level
+		%Level.text = str(level)
+	else:
+		%Level.text = default_level
+
+#func update_game_level(value):
+	#var old_level = level
+	#var new_level = old_level + value
+	#level = new_level
+	#%Level.text = str(level)
 
 func return_game_level():
 	return level
