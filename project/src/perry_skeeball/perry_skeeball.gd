@@ -10,9 +10,6 @@ var level_advance_base_value = 1
 var start_timer_countdown_value = 3
 var game_time_left_timer_value = 30
 
-
-
-
 var skeeballs
 # Called when the node enters the scene tree for the first time.
 func _ready():

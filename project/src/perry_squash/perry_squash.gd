@@ -51,9 +51,14 @@ func _process(delta):
 
 func _on_enemy_squashed():
 	HUD.update_score()
+	if HUD.check_advance_level():
+		advance_level()
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
 
 func _on_game_over():
 	GameManager.set_game_enabled(false)
+
+func advance_level():
+	%EnemyTimer.wait_time *= .95

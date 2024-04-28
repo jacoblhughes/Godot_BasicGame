@@ -89,7 +89,7 @@ func _on_lose_body_entered(body):
 
 func advance_level():
 	%Enemy.speed = %Enemy.original_speed * pow(1.05,HUD.return_game_level())
-	%Ball.speed_increase= %Ball.original_speed_increase * pow(1.05,HUD.return_game_level())
+	%Ball.speed_increase = %Ball.original_speed_increase * pow(1.05,HUD.return_game_level())
 	%Ball.increased_velocity = %Ball.original_velocity * pow(1.05,HUD.return_game_level())
 	pass
 

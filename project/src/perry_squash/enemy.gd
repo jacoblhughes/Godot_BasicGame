@@ -4,11 +4,12 @@ class_name PerrySquashEnemy
 var speed = 100
 var direction = 0
 var cause_pain = false
+var good_or_bad
 signal enemy_squashed
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var good_or_bad = true if randf_range(0, 1) > 0.1 else false
 	if good_or_bad:
 		cause_pain = false
 		%AnimatedSprite2D.play("default")
