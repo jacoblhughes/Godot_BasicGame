@@ -21,7 +21,7 @@ var start_timer_countdown_value : int
 var game_time_left_timer_value : int
 
 
-@onready var game_scene : Node = get_tree().get_root().get_node("Main")
+var game_scene : Node 
 
 signal hud_ready
 @export var input_panel : Panel
@@ -30,6 +30,7 @@ signal game_time_left_timer_timeout
 signal clickable_input_event
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	game_scene = get_tree().get_root().get_node("Main")
 #	print(DisplayServer.get_display_safe_area())
 	input_panel.input_event.connect(_on_clickable_input_event)
 	pass

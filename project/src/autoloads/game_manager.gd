@@ -5,8 +5,6 @@ var config = ConfigFile.new()
 
 var child_node_to_delete
 
-@onready var main_node : Node
-
 var perry_arcade_path = "user://perry_arcade.cfg"
 var game_enabled = false
 var current_game_scene : PackedScene
@@ -93,9 +91,8 @@ var games_list : Dictionary = {
 
 var background_canvas_layer_instance
 
-@onready var game_scene : Node = get_tree().get_root().get_node("Main")
-
 func _ready():
+
 	var file_exists = FileAccess.file_exists(perry_arcade_path)
 	if(!file_exists):
 
