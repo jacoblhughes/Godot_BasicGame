@@ -64,7 +64,3 @@ bus = &"Game"
 [node name="PlayerDamageSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_k5pjo")
 bus = &"Game"
-
-[node name="RocketTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.5

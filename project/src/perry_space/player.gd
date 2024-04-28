@@ -6,7 +6,7 @@ var start_position_marker : Marker2D
 
 @onready var RocketShootSound : AudioStreamPlayer = $RocketShootSound
 @onready var player_hit_sound : AudioStreamPlayer = $PlayerDamageSound
-@onready var rocket_timer : Timer
+@export var rocket_timer : Timer
 @onready var perry_space : Node2D
 
 
@@ -20,7 +20,6 @@ var is_touching = false
 var original_rocket_time = .9
 func _ready():
 	perry_space = get_parent()
-	rocket_timer = $RocketTimer
 	rocket_timer.wait_time = original_rocket_time
 	rocket_timer.timeout.connect(_on_rocket_timer_timeout)
 	rocketspawn_node = get_node("RocketSpawn")

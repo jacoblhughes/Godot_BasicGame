@@ -54,17 +54,27 @@ script = ExtResource("5_voyn8")
 left_bound = NodePath("../LeftBound")
 right_bound = NodePath("../RightBound")
 
-[node name="ScoringZoneHigh" parent="ScoringZones" instance=ExtResource("6_a640e")]
+[node name="ScoringZone5" parent="ScoringZones" instance=ExtResource("6_a640e")]
 position = Vector2(128, 128)
-worth = 3
+worth = 5
 speed = 300
 
-[node name="ScoringZoneMiddle" parent="ScoringZones" instance=ExtResource("6_a640e")]
-position = Vector2(128, 320)
-worth = 2
-speed = 175
+[node name="ScoringZone4" parent="ScoringZones" instance=ExtResource("6_a640e")]
+position = Vector2(128, 224)
+worth = 4
+speed = 250
 
-[node name="ScoringZoneLow" parent="ScoringZones" instance=ExtResource("6_a640e")]
+[node name="ScoringZone3" parent="ScoringZones" instance=ExtResource("6_a640e")]
+position = Vector2(128, 320)
+worth = 3
+speed = 200
+
+[node name="ScoringZone2" parent="ScoringZones" instance=ExtResource("6_a640e")]
+position = Vector2(128, 416)
+worth = 2
+speed = 150
+
+[node name="ScoringZone1" parent="ScoringZones" instance=ExtResource("6_a640e")]
 position = Vector2(128, 512)
 worth = 1
 speed = 100

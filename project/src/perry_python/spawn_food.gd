@@ -19,7 +19,7 @@ func _process(delta):
 	my_food_instance.position = my_food_instance.food_position + get_parent().return_snake_cell_size()/2
 
 	queue_redraw()
-
+	print(my_food_instance.get_rect()," ",%Player.get_rect())
 	if my_food_instance.get_rect().intersects(%Player.get_rect()):
 
 		food_eaten.emit()

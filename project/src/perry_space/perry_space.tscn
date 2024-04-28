@@ -17,8 +17,13 @@ metadata/_edit_horizontal_guides_ = [640.0]
 [node name="GameBackground" parent="." instance=ExtResource("2_esp7d")]
 game_background_texture = ExtResource("3_bvgf7")
 
-[node name="Player" parent="." instance=ExtResource("4_52ny6")]
+[node name="RocketTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 0.5
+
+[node name="Player" parent="." node_paths=PackedStringArray("rocket_timer") instance=ExtResource("4_52ny6")]
+unique_name_in_owner = true
+rocket_timer = NodePath("../RocketTimer")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true

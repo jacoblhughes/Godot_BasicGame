@@ -3,10 +3,9 @@ class_name PerrySkeeballPlayer
 
 @export var aim_node : Control
 @export var start_position : Marker2D
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -500.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	HUD.clickable_input_event.connect(_on_clickable_input_event)

@@ -8,13 +8,11 @@ var collision_shape : CollisionShape2D
 var collision_shape_size
 @export var worth : int
 @export var speed : int
-@export var shape_width_mult : int
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	scale.x *= (6/worth)
-	collision_shape = %CollisionShape2D
-	collision_shape_size = collision_shape.shape.size * (6/worth)
+
 	body_entered.connect(_on_body_entered)
 	pass # Replace with function body.
 
@@ -25,9 +23,9 @@ func _process(delta):
 		direction = 1
 	if !normal:
 		direction = -1
-	if normal and position.x >= right_bound_position.x - (collision_shape_size.x/2):
+	if normal and position.x >= right_bound_position.x:
 		normal = false
-	if !normal and position.x <= left_bound_position.x + (collision_shape_size.x/2):
+	if !normal and position.x <= left_bound_position.x:
 		normal = true
 	position.x += (speed * direction * delta)
 

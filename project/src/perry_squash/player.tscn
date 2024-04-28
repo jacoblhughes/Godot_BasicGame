@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ce3onoowy5npr"]
 
 [ext_resource type="Script" path="res://src/perry_squash/player.gd" id="1_x3ykn"]
-[ext_resource type="Texture2D" uid="uid://b1utojxb373y5" path="res://icon.svg" id="2_hpos3"]
+[ext_resource type="Texture2D" uid="uid://bf2rgeripqka6" path="res://src/perry_squash/textures/player.png" id="2_24yh4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3yiv4"]
 size = Vector2(128, 128)
@@ -12,7 +12,8 @@ script = ExtResource("1_x3ykn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -64)
-texture = ExtResource("2_hpos3")
+scale = Vector2(4, 4)
+texture = ExtResource("2_24yh4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -64)
