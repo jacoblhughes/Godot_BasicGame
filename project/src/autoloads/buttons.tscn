@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=31 format=3 uid="uid://d4cpf87cb1bs0"]
 
 [ext_resource type="Script" path="res://src/autoloads/buttons.gd" id="1_bni1w"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://src/perry_says/perry_says.tscn" id="2_p72e3"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cj0i3bqn4ap1r" path="res://src/perry_flap/perry_flap.tscn" id="7_8m0e8"]
 [ext_resource type="PackedScene" uid="uid://cf4xkqs74ytur" path="res://src/perry_run/perry_run.tscn" id="8_jcog7"]
 [ext_resource type="PackedScene" uid="uid://dx4hwtnr40m1r" path="res://src/perry_space/perry_space.tscn" id="9_f6anq"]
-[ext_resource type="PackedScene" uid="uid://c1hivhtg5s78l" path="res://src/perry_squash/perry_squash.tscn" id="10_j1rxk"]
 [ext_resource type="PackedScene" uid="uid://b8eyyvj5cesul" path="res://src/main/about.tscn" id="11_mcf75"]
 [ext_resource type="PackedScene" uid="uid://cuo4gv5dg3v" path="res://src/perry_putt/perry_putt.tscn" id="11_yj5m7"]
 [ext_resource type="PackedScene" uid="uid://eol8e22mmwv0" path="res://src/perry_test/perry_test.tscn" id="12_2hp02"]
@@ -30,7 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://id04l63f5eii" path="res://src/perry_putt/textures/player.png" id="27_3ayht"]
 [ext_resource type="Texture2D" uid="uid://vgrksd6w3kjc" path="res://src/app_art/perry_original_icon_192.png" id="28_nr3es"]
 [ext_resource type="PackedScene" uid="uid://c1hivhtg5s78l" path="res://src/perry_squash/perry_squash.tscn" id="28_tc350"]
-[ext_resource type="PackedScene" uid="uid://d0f2kixg3jth7" path="res://src/move/perry_skeeball.tscn" id="29_677qr"]
+[ext_resource type="PackedScene" uid="uid://b5lf2x22u4o8p" path="res://src/perry_skeeball/perry_skeeball.tscn" id="30_4oqyp"]
 
 [node name="Buttons" type="CanvasLayer"]
 layer = 3
@@ -43,7 +42,7 @@ perry_dodge = ExtResource("6_witco")
 perry_flap = ExtResource("7_8m0e8")
 perry_run = ExtResource("8_jcog7")
 perry_space = ExtResource("9_f6anq")
-perry_squash = ExtResource("10_j1rxk")
+perry_squash = ExtResource("28_tc350")
 perry_putt = ExtResource("11_yj5m7")
 perry_test = ExtResource("12_2hp02")
 about = ExtResource("11_mcf75")
@@ -162,7 +161,7 @@ game_title = "Perry Putt"
 [node name="PerrySkeeball" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
 game_image_texture = ExtResource("28_nr3es")
-game_scene_selection = ExtResource("29_677qr")
+game_scene_selection = ExtResource("30_4oqyp")
 game_key_selection = "11"
 game_title = "Perry Skeeball"
 

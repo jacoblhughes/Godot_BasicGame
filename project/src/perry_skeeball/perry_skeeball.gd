@@ -8,9 +8,10 @@ var initial_level_value = 1
 var level_advance_check_value = 10
 var level_advance_base_value = 1
 var start_timer_countdown_value = 3
-var game_time_left_timer_value = 3
+var game_time_left_timer_value = 30
 
-var active_ball
+
+
 
 var skeeballs
 # Called when the node enters the scene tree for the first time.
@@ -23,53 +24,53 @@ func _ready():
 	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.hide()
-	pass # Replace with function body.
+
+	var xform = get_viewport_rect().size.x
+	var yform = get_viewport_rect().size.y
+	var xatio = xform/720
+	var yatio = yform/1280
+	print(xform , " " , yform)
+
+	if yform > 1280:
+#		%Camera2D.enabled = true
+#		%Camera2D.zoom.y = yform/1280
+		var nodes_to_move =[]
+		for node in nodes_to_move:
+			node.position.y *= yatio
+		var nodes_to_scale = []
+		for node in nodes_to_scale:
+			node.scale.y *= yatio
+
+	if xform > 720:
+		var nodes_to_move =[%Floor,%StartPosition,%Player,%JumpZone,%Aim,%LeftBound,%RightBound,%LeftWall,%RightWall,%PlayerDespawn]
+		for node in nodes_to_move:
+			node.position.x *= xatio
+		var nodes_to_scale = [%Floor,%JumpZone,%PlayerDespawn]
+		for node in nodes_to_scale:
+			node.scale.x *= xatio
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
+
 	pass
 
-#func _on_load_ball(event,input_position):
-	#if event is InputEventScreenTouch and event.pressed and active_ball == null:
-		#set_up_new_ball()
-#
-#func set_up_new_ball():
-#
-	#skeeballs = get_tree().get_nodes_in_group("skeeballs")
-	#if len(skeeballs)>0:
-		#active_ball = skeeballs[0]
-		#active_ball.remove_ball.connect(_on_dead_ball)
-#
-		#active_ball.get_ready(%StartingPoint.global_position)
-#
-	#pass
-#
-#
-#func _on_ball_despawn_body_entered(body):
-	#if body is PerrySkeeball:
-		#body.dead_ball()
-	#pass # Replace with function body.
-#
-#
-#func _on_area_3d_input_event(camera, event, position, normal, shape_idx):
-	#if event is InputEventScreenTouch and event.pressed and active_ball != null:
-		#active_ball.shoot()
-	#pass # Replace with function body.
-
 func _on_play_button_pressed():
-	GameManager.set_game_enabled(true)
+	HUD.set_start_timer_countdown_and_start()
+
+
 
 func _on_game_over():
-
+	GameManager.set_game_enabled(false)
 	pass
 
 func _on_scored():
 	HUD.update_score()
 
-#func _on_dead_ball():
-	#active_ball = null
-	#skeeballs = get_tree().get_nodes_in_group("skeeballs")
-#
-	#if len(skeeballs) <= 1:
-		#HUD.update_lives()
+func _on_start_timer_countdown_timeout():
+	GameManager.set_game_enabled(true)
+	HUD.set_game_time_left_and_start()
+
+func _on_game_time_left_timer_timeout():
+	HUD.update_lives()

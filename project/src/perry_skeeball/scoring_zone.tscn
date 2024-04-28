@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://befoiaibcs2eg"]
+
+[ext_resource type="Script" path="res://src/perry_skeeball/scoring_zone.gd" id="1_m0hoh"]
+[ext_resource type="Texture2D" uid="uid://8nq2kkknfyeu" path="res://src/perry_skeeball/textures/scoring_zone.png" id="2_ueh8x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcwwl"]
+size = Vector2(64, 64)
+
+[node name="ScoringZone" type="Area2D"]
+script = ExtResource("1_m0hoh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_ueh8x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_mcwwl")

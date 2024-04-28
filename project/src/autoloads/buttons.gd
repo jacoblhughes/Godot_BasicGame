@@ -61,9 +61,6 @@ func _on_game_chosen(game_key,game_scene):
 	HUD.show()
 	GameStartGameOver.show()
 
-
-
-
 func _on_about_pressed():
 	self.visible = false
 	about_scene = about.instantiate()
