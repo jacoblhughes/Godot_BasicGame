@@ -63,7 +63,7 @@ var games_list : Dictionary = {
 	{"title":"Perry Run",
 "short_name":"perry_run",
 "objective":"Keep jumping and running to avoice obstacles",
-"directions":"SClick to make Perry jump from platform to platform"
+"directions":"Click to make Perry jump from platform to platform"
 }
 ,"8":
 	{"title":"Perry Space Attack",
@@ -75,7 +75,7 @@ var games_list : Dictionary = {
 	{"title":"Perry Squash",
 "short_name":"perry_squash",
 "objective":"Help Perry squash",
-"directions":"Click to sqash the enemies. Avoid the red snakes"
+"directions":"Click to squash the enemies. Avoid the red snakes"
 }
 ,"10":
 	{"title":"Perry Putt",

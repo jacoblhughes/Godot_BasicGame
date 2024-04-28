@@ -25,10 +25,10 @@
 [ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://src/perry_flap/textures/player.png" id="23_p1kel"]
 [ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://src/perry_run/textures/player.png" id="24_gh28p"]
 [ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://src/perry_space/textures/player.png" id="25_3shli"]
-[ext_resource type="Texture2D" uid="uid://denmx5k15fgj5" path="res://src/main/textures/perry_original_256.png" id="26_ilcnv"]
-[ext_resource type="Texture2D" uid="uid://id04l63f5eii" path="res://src/perry_putt/textures/player.png" id="27_3ayht"]
-[ext_resource type="Texture2D" uid="uid://vgrksd6w3kjc" path="res://src/app_art/perry_original_icon_192.png" id="28_nr3es"]
+[ext_resource type="Texture2D" uid="uid://bf2rgeripqka6" path="res://src/perry_squash/textures/player.png" id="27_n1kpu"]
+[ext_resource type="Texture2D" uid="uid://bum6tln8w3p6v" path="res://src/perry_putt/textures/alligator.png" id="28_oiy2q"]
 [ext_resource type="PackedScene" uid="uid://c1hivhtg5s78l" path="res://src/perry_squash/perry_squash.tscn" id="28_tc350"]
+[ext_resource type="Texture2D" uid="uid://8nq2kkknfyeu" path="res://src/perry_skeeball/textures/scoring_zone.png" id="29_6pwba"]
 [ext_resource type="PackedScene" uid="uid://b5lf2x22u4o8p" path="res://src/perry_skeeball/perry_skeeball.tscn" id="30_4oqyp"]
 
 [node name="Buttons" type="CanvasLayer"]
@@ -146,21 +146,21 @@ game_title = "Perry Space"
 
 [node name="PerrrySquash" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-game_image_texture = ExtResource("26_ilcnv")
+game_image_texture = ExtResource("27_n1kpu")
 game_scene_selection = ExtResource("28_tc350")
 game_key_selection = "9"
 game_title = "Perry Squash"
 
 [node name="PerryPutt" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-game_image_texture = ExtResource("27_3ayht")
+game_image_texture = ExtResource("28_oiy2q")
 game_scene_selection = ExtResource("11_yj5m7")
 game_key_selection = "10"
 game_title = "Perry Putt"
 
 [node name="PerrySkeeball" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-game_image_texture = ExtResource("28_nr3es")
+game_image_texture = ExtResource("29_6pwba")
 game_scene_selection = ExtResource("30_4oqyp")
 game_key_selection = "11"
 game_title = "Perry Skeeball"

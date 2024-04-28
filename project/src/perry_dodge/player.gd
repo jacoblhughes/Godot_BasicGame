@@ -10,12 +10,12 @@ var player_collision = true
 
 var target_position
 var lerp_speed = 0.1
-var is_touching = false 
+var is_touching = false
 
 # Called when the node enters the scene tree for the first time.
-func _ready():	
+func _ready():
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
-	
+
 func _on_clickable_input_event(event,input_position):
 	if event.pressed:
 		target_position = input_position
@@ -56,7 +56,7 @@ func hit():
 	if(GameManager.get_game_enabled()):
 		HUD.update_lives()
 
-	
+
 func start(pos):
 	position = pos
 	$CollisionShape2D.set_deferred("disabled", false)

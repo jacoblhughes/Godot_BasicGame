@@ -13,15 +13,21 @@ var initialized = false
 
 func _ready():
 	call_deferred("initialize_positions")
+	HUD.clickable_input_event.connect(_on_clickable_input_event)
 
 func initialize_positions():
 	start_position = start_marker.position
 	end_position = end_marker.position
 	initialized = true
 
+
+func _on_clickable_input_event(event, input_position):
+	if event.is_pressed() and GameManager.get_game_enabled():
+		is_slamming = true
+
 func _physics_process(delta):
 
-	if initialized:
+	if initialized and GameManager.get_game_enabled():
 		if normal:
 			direction = 1
 		if !normal:
@@ -30,6 +36,8 @@ func _physics_process(delta):
 			normal = false
 		if !normal and position.x <= start_position.x:
 			normal = true
+		if is_slamming:
+			velocity = Vector2.ZERO
 		if !is_slamming and int(position.y) == start_position.y:
 			velocity.x = direction * SPEED
 		if is_on_floor():
@@ -39,9 +47,7 @@ func _physics_process(delta):
 		else:
 			direction = 0
 			velocity.y = 1500
-		if Input.is_action_pressed("ui_accept"):
-			is_slamming = true
-			velocity = Vector2.ZERO
+
 		move_and_slide()
 
 func take_damage():

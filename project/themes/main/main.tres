@@ -1,4 +1,8 @@
-[gd_resource type="Theme" load_steps=36 format=3 uid="uid://s0srltpmhp6g"]
+[gd_resource type="Theme" load_steps=39 format=3 uid="uid://s0srltpmhp6g"]
+
+[ext_resource type="Texture2D" uid="uid://c7brus421yppd" path="res://src/main/textures/checkbutton.png" id="1_h2ttr"]
+[ext_resource type="Texture2D" uid="uid://cw6vvyabe8vgo" path="res://src/main/textures/hslider.png" id="1_r1egc"]
+[ext_resource type="Texture2D" uid="uid://5q2wio1wnhsm" path="res://src/main/textures/tick.png" id="2_0alvr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfs50"]
 bg_color = Color(0.188235, 0.376471, 0.509804, 1)
@@ -31,9 +35,11 @@ bg_color = Color(0.733333, 0.121569, 0.2, 1)
 bg_color = Color(0.733333, 0.121569, 0.2, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3pmn"]
+atlas = ExtResource("1_h2ttr")
 region = Rect2(0, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ewtcl"]
+atlas = ExtResource("1_h2ttr")
 region = Rect2(64, 0, 64, 32)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awsrc"]
@@ -55,12 +61,15 @@ bg_color = Color(0.215686, 0.580392, 0.431373, 1)
 bg_color = Color(0.215686, 0.580392, 0.431373, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3utcs"]
+atlas = ExtResource("1_r1egc")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7blxu"]
+atlas = ExtResource("1_r1egc")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t77ge"]
+atlas = ExtResource("1_r1egc")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dki8k"]
@@ -130,7 +139,7 @@ HBoxContainer/constants/separation = 10
 HSlider/icons/grabber = SubResource("AtlasTexture_3utcs")
 HSlider/icons/grabber_disabled = SubResource("AtlasTexture_7blxu")
 HSlider/icons/grabber_highlight = SubResource("AtlasTexture_t77ge")
-HSlider/icons/tick = null
+HSlider/icons/tick = ExtResource("2_0alvr")
 HSlider/styles/slider = SubResource("StyleBoxFlat_dki8k")
 ItemList/styles/cursor = SubResource("StyleBoxEmpty_orp2f")
 ItemList/styles/cursor_unfocused = SubResource("StyleBoxEmpty_yi1hl")
