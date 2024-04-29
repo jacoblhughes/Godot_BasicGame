@@ -40,9 +40,14 @@ var highscore_scene
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	main_scene = get_tree().get_root().get_node("Main")
+
 	for item in get_tree().get_nodes_in_group("game_button"):
 		item.game_chosen.connect(_on_game_chosen)
+	call_deferred("get_main_scene")
+	pass
+	
+func get_main_scene():
+	main_scene = get_tree().get_root().get_node("Main")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

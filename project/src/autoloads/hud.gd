@@ -21,7 +21,7 @@ var start_timer_countdown_value : int
 var game_time_left_timer_value : int
 
 
-var game_scene : Node 
+var main_scene : Node 
 
 signal hud_ready
 @export var input_panel : Panel
@@ -30,10 +30,15 @@ signal game_time_left_timer_timeout
 signal clickable_input_event
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	game_scene = get_tree().get_root().get_node("Main")
+
 #	print(DisplayServer.get_display_safe_area())
 	input_panel.input_event.connect(_on_clickable_input_event)
+	call_deferred("get_main_scene")
 	pass
+	
+func get_main_scene():
+	main_scene = get_tree().get_root().get_node("Main")
+	
 
 func _process(delta):
 
@@ -88,7 +93,7 @@ func _on_home_button_pressed():
 	GameManager.set_game_enabled(false)
 	GameStartGameOver.set_gameover_panel(false)
 	GameStartGameOver.set_gameover_panel_congrats(false)
-	child_node_to_delete = game_scene.get_children()
+	child_node_to_delete = main_scene.get_children()
 	if child_node_to_delete:
 		Buttons.visible = true
 		for child in child_node_to_delete:
