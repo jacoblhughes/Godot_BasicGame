@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=34 format=3 uid="uid://d4cpf87cb1bs0"]
 
 [ext_resource type="Script" path="res://src/autoloads/buttons.gd" id="1_bni1w"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://src/perry_says/perry_says.tscn" id="2_p72e3"]
@@ -30,6 +30,9 @@
 [ext_resource type="PackedScene" uid="uid://c1hivhtg5s78l" path="res://src/perry_squash/perry_squash.tscn" id="28_tc350"]
 [ext_resource type="Texture2D" uid="uid://8nq2kkknfyeu" path="res://src/perry_skeeball/textures/scoring_zone.png" id="29_6pwba"]
 [ext_resource type="PackedScene" uid="uid://b5lf2x22u4o8p" path="res://src/perry_skeeball/perry_skeeball.tscn" id="30_4oqyp"]
+[ext_resource type="PackedScene" uid="uid://xvrd48862wjw" path="res://src/perry_pinball/perry_pinball.tscn" id="31_1i602"]
+[ext_resource type="Texture2D" uid="uid://b1utojxb373y5" path="res://icon.svg" id="31_4cchd"]
+[ext_resource type="PackedScene" uid="uid://bcb2atrka7rpg" path="res://src/perry_tamagotchi/perry_tamagotchi.tscn" id="32_4vrx3"]
 
 [node name="Buttons" type="CanvasLayer"]
 layer = 3
@@ -164,6 +167,20 @@ game_image_texture = ExtResource("29_6pwba")
 game_scene_selection = ExtResource("30_4oqyp")
 game_key_selection = "11"
 game_title = "Perry Skeeball"
+
+[node name="PerryPinball" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
+layout_mode = 2
+game_image_texture = ExtResource("31_4cchd")
+game_scene_selection = ExtResource("31_1i602")
+game_key_selection = "12"
+game_title = "Perry Pinball"
+
+[node name="PerryTamagotchi" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
+layout_mode = 2
+game_image_texture = ExtResource("31_4cchd")
+game_scene_selection = ExtResource("32_4vrx3")
+game_key_selection = "13"
+game_title = "Perry Tamagotchi"
 
 [node name="GameContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

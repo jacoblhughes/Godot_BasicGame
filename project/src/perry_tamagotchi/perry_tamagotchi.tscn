@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://bcb2atrka7rpg"]
+
+[ext_resource type="Texture2D" uid="uid://b77tvafil8mhy" path="res://src/perry_tamagotchi/textures/player.png" id="1_yjm48"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n4m7"]
+atlas = ExtResource("1_yjm48")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7y51"]
+atlas = ExtResource("1_yjm48")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s67iy"]
+atlas = ExtResource("1_yjm48")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giesl"]
+atlas = ExtResource("1_yjm48")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knk50"]
+atlas = ExtResource("1_yjm48")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ubsq"]
+atlas = ExtResource("1_yjm48")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5awha"]
+atlas = ExtResource("1_yjm48")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pckc"]
+atlas = ExtResource("1_yjm48")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6nl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1n4m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7y51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s67iy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giesl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knk50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ubsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5awha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pckc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxyyc"]
+size = Vector2(32, 32)
+
+[node name="PerryTamagotchi" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_k6nl3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_vxyyc")

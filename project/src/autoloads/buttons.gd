@@ -45,7 +45,7 @@ func _ready():
 		item.game_chosen.connect(_on_game_chosen)
 	call_deferred("get_main_scene")
 	pass
-	
+
 func get_main_scene():
 	main_scene = get_tree().get_root().get_node("Main")
 	pass # Replace with function body.

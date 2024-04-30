@@ -87,6 +87,18 @@ var games_list : Dictionary = {
 "objective":"Help roll Perry into the goals",
 "directions":"Click to shoot the ball in the direction of the arrow. Higher zones are worth more"
 }
+,"12":
+	{"title":"Perry Pinball",
+"short_name":"perry_pinball",
+"objective":"Help roll Perry into the goals",
+"directions":"Click to shoot the ball in the direction of the arrow. Higher zones are worth more"
+}
+,"13":
+	{"title":"Perry Tamagotchi",
+"short_name":"perry_tamagotchi",
+"objective":"Help roll Perry into the goals",
+"directions":"Click to shoot the ball in the direction of the arrow. Higher zones are worth more"
+}
 }
 
 var background_canvas_layer_instance
