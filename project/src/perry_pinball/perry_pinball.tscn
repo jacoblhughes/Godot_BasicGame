@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://xvrd48862wjw"]
+[gd_scene load_steps=3 format=3 uid="uid://xvrd48862wjw"]
+
+[ext_resource type="Texture2D" uid="uid://bj7vuedvwa1x5" path="res://src/perry_pinball/textures/paddle.png" id="1_73akx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7j3ad"]
+radius = 8.0
+height = 64.0
 
 [node name="PerryPinball" type="Node2D"]
+
+[node name="LeftPaddle" type="RigidBody2D" parent="."]
+rotation = 1.5708
+can_sleep = false
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftPaddle"]
+position = Vector2(-1.39876e-06, -32)
+rotation = 1.5708
+texture = ExtResource("1_73akx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPaddle"]
+position = Vector2(-1.39876e-06, -32)
+shape = SubResource("CapsuleShape2D_7j3ad")
