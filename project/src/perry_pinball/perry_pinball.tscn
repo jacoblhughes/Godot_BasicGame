@@ -9,16 +9,16 @@
 [ext_resource type="Script" path="res://src/perry_pinball/ball.gd" id="5_wyirj"]
 [ext_resource type="Script" path="res://src/perry_pinball/spring.gd" id="6_0ygbd"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7j3ad"]
-radius = 15.9999
-height = 128.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rwsv"]
 size = Vector2(16, 976)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x1emw"]
 friction = 0.8
 bounce = 0.6
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7j3ad"]
+radius = 15.9999
+height = 128.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2uhir"]
 radius = 16.0
@@ -45,30 +45,6 @@ game_background_texture = ExtResource("2_sp6vk")
 [node name="GridReference" parent="." instance=ExtResource("1_w8n57")]
 show_9x16 = true
 
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(160, 1040)
-node_a = NodePath("../PinballMachine/LeftBumper")
-node_b = NodePath("../LeftPaddle")
-angular_limit_lower = 2.07345
-angular_limit_upper = -1.61967
-motor_enabled = true
-motor_target_velocity = 0.872665
-
-[node name="LeftPaddle" type="CharacterBody2D" parent="."]
-position = Vector2(160, 1040)
-rotation = 1.5708
-script = ExtResource("5_ibuj2")
-
-[node name="Sprite2D" type="Sprite2D" parent="LeftPaddle"]
-position = Vector2(-0.000117238, -64)
-rotation = 1.5708
-scale = Vector2(2, 2)
-texture = ExtResource("2_ke25i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPaddle"]
-position = Vector2(-0.000117238, -64)
-shape = SubResource("CapsuleShape2D_7j3ad")
-
 [node name="PinballMachine" type="Node2D" parent="."]
 
 [node name="BallWall" type="StaticBody2D" parent="PinballMachine"]
@@ -76,6 +52,7 @@ position = Vector2(600, 744)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PinballMachine/BallWall"]
 shape = SubResource("RectangleShape2D_4rwsv")
+disabled = true
 
 [node name="Walls" type="StaticBody2D" parent="PinballMachine"]
 
@@ -90,6 +67,26 @@ physics_material_override = SubResource("PhysicsMaterial_x1emw")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine/LeftBumper"]
 polygon = PackedVector2Array(0, 0, 112, 0, 112, -32, 0, -368)
 
+[node name="PinJoint2D" type="PinJoint2D" parent="PinballMachine/LeftBumper"]
+position = Vector2(112, 0)
+node_a = NodePath("..")
+node_b = NodePath("LeftPaddle")
+
+[node name="LeftPaddle" type="RigidBody2D" parent="PinballMachine/LeftBumper/PinJoint2D"]
+unique_name_in_owner = true
+rotation = 1.5708
+script = ExtResource("5_ibuj2")
+
+[node name="Sprite2D" type="Sprite2D" parent="PinballMachine/LeftBumper/PinJoint2D/LeftPaddle"]
+position = Vector2(-0.000117238, -64)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("2_ke25i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinballMachine/LeftBumper/PinJoint2D/LeftPaddle"]
+position = Vector2(-0.000117238, -64)
+shape = SubResource("CapsuleShape2D_7j3ad")
+
 [node name="RightBumper" type="StaticBody2D" parent="PinballMachine"]
 position = Vector2(592, 1040)
 physics_material_override = SubResource("PhysicsMaterial_x1emw")
@@ -97,26 +94,28 @@ physics_material_override = SubResource("PhysicsMaterial_x1emw")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine/RightBumper"]
 polygon = PackedVector2Array(0, 0, -112, 0, -112, -32, 0, -368)
 
-[node name="PinJoint2D2" type="PinJoint2D" parent="PinballMachine/RightBumper"]
+[node name="PinJoint2D" type="PinJoint2D" parent="PinballMachine/RightBumper"]
 position = Vector2(-112, 0)
 node_a = NodePath("..")
 node_b = NodePath("RightPaddle")
 angular_limit_enabled = true
-angular_limit_lower = -0.523599
-angular_limit_upper = 0.523599
-motor_enabled = true
-motor_target_velocity = 1.74533
+angular_limit_lower = 2.23926
+angular_limit_upper = -2.43997
 
-[node name="RightPaddle" type="RigidBody2D" parent="PinballMachine/RightBumper/PinJoint2D2"]
-position = Vector2(80, -8)
-mass = 0.01
+[node name="RightPaddle" type="RigidBody2D" parent="PinballMachine/RightBumper/PinJoint2D"]
+unique_name_in_owner = true
+mass = 0.1
+gravity_scale = 0.0
+can_sleep = false
+script = ExtResource("5_ibuj2")
+left = false
 
-[node name="Sprite2D" type="Sprite2D" parent="PinballMachine/RightBumper/PinJoint2D2/RightPaddle"]
+[node name="Sprite2D" type="Sprite2D" parent="PinballMachine/RightBumper/PinJoint2D/RightPaddle"]
 position = Vector2(-64, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("2_ke25i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PinballMachine/RightBumper/PinJoint2D2/RightPaddle"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinballMachine/RightBumper/PinJoint2D/RightPaddle"]
 position = Vector2(-64, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2uhir")

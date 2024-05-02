@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 @export var left = true
 
 # Called when the node enters the scene tree for the first time.
@@ -7,9 +7,11 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
-	velocity.y += 9.81 * delta
-	move_and_slide()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	if Input.is_action_just_pressed("hit_space"):
+		print('wow')
+		apply_torque_impulse(10000)
+
+
 #func _integrate_forces(state):
 	#var current_rotation_degrees = rad_to_deg(rotation)
 	#var new_rotation_degrees  # Convert current rotation from radians to degrees
