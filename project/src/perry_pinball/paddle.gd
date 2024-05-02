@@ -1,17 +1,22 @@
 extends RigidBody2D
 @export var left = true
-
+var factor
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	if left:
+		factor = 1
+	else:
+		factor = -1
 	pass # Replace with function body.
 
 func _physics_process(delta):
+
+
 	if Input.is_action_just_pressed("hit_space"):
 		print('wow')
-		apply_impulse(Vector2(0,2000),%Marker2D.global_position)
+		apply_impulse(Vector2(0,2000 * -factor),%Marker2D.global_position)
 	elif Input.is_action_just_released("hit_space"):
-		apply_impulse(Vector2(0,-2000),%Marker2D.global_position)
+		apply_impulse(Vector2(0,2000 * factor),%Marker2D.global_position)
 
 
 func _integrate_forces(state):
