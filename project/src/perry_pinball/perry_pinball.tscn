@@ -73,7 +73,6 @@ node_b = NodePath("LeftPaddle")
 [node name="LeftPaddle" type="RigidBody2D" parent="PinballMachine/LeftBumper/PinJoint2D"]
 unique_name_in_owner = true
 rotation = 1.5708
-script = ExtResource("5_ibuj2")
 
 [node name="Sprite2D" type="Sprite2D" parent="PinballMachine/LeftBumper/PinJoint2D/LeftPaddle"]
 position = Vector2(-0.000117238, -64)
@@ -96,14 +95,24 @@ polygon = PackedVector2Array(0, 0, -112, 0, -112, -32, 0, -368)
 position = Vector2(-112, 0)
 node_a = NodePath("..")
 node_b = NodePath("RightPaddle")
+bias = 0.9
 
 [node name="RightPaddle" type="RigidBody2D" parent="PinballMachine/RightBumper/PinJoint2D"]
 unique_name_in_owner = true
-mass = 0.5
+rotation = -0.523599
+mass = 5.0
 gravity_scale = 0.0
 can_sleep = false
 script = ExtResource("5_ibuj2")
 left = false
+
+[node name="Marker2D" type="Marker2D" parent="PinballMachine/RightBumper/PinJoint2D/RightPaddle"]
+unique_name_in_owner = true
+position = Vector2(-128, 0)
+
+[node name="ColorRect" type="ColorRect" parent="PinballMachine/RightBumper/PinJoint2D/RightPaddle/Marker2D"]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Sprite2D" type="Sprite2D" parent="PinballMachine/RightBumper/PinJoint2D/RightPaddle"]
 position = Vector2(-64, 0)
@@ -117,6 +126,7 @@ shape = SubResource("CapsuleShape2D_2uhir")
 
 [node name="Ball" type="RigidBody2D" parent="." groups=["ball"]]
 position = Vector2(640, 816)
+mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_pac4u")
 gravity_scale = 0.8
 script = ExtResource("5_wyirj")
