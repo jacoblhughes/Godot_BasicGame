@@ -90,14 +90,14 @@ var games_list : Dictionary = {
 ,"12":
 	{"title":"Perry Pinball",
 "short_name":"perry_pinball",
-"objective":"Help roll Perry into the goals",
-"directions":"Click to shoot the ball in the direction of the arrow. Higher zones are worth more"
+"objective":"Bonk Perry against the mushrooms so he relaxes",
+"directions":"Click to keep the ball up and hit the bumpers to get a score. Keep the ball from falling below the flippers."
 }
 ,"13":
 	{"title":"Perry Tamagotchi",
 "short_name":"perry_tamagotchi",
-"objective":"Help roll Perry into the goals",
-"directions":"Click to shoot the ball in the direction of the arrow. Higher zones are worth more"
+"objective":"Watch over your own Perry",
+"directions":"Keep Perry happy and healthy!"
 }
 }
 
@@ -219,6 +219,13 @@ func initiate_highscores_section():
 		if not config.has_section(key):
 			config.set_value(key,"scores",[0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 			config.set_value(key,"names",["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
+			if key == "perry_tamagotchi":
+				config.set_value(key, "living",false)
+				config.set_value(key, "hatch_time",null)
+				config.set_value(key, "health", 100)
+				config.set_value(key, "hunger", 100)
+				config.set_value(key, "happiness", 100)
+				config.set_value(key, "last_interaction_time", null)
 			config.save(perry_arcade_path)
 
 func get_highscore_scores(key):

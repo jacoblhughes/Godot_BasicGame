@@ -21,7 +21,7 @@ var start_timer_countdown_value : int
 var game_time_left_timer_value : int
 
 
-var main_scene : Node 
+var main_scene : Node
 
 signal hud_ready
 @export var input_panel : Panel
@@ -35,10 +35,10 @@ func _ready():
 	input_panel.input_event.connect(_on_clickable_input_event)
 	call_deferred("get_main_scene")
 	pass
-	
+
 func get_main_scene():
 	main_scene = get_tree().get_root().get_node("Main")
-	
+
 
 func _process(delta):
 

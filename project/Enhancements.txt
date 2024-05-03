@@ -24,6 +24,17 @@ If not too much of a detriment, add a loss element
 
 Make things their own scene and arrange - get rid of /2's and such where possible
 
+make scaling all 1
+
+adjust canvaslayers
+
+HUD 1
+GameStartOver3
+Buttons3
+HitMeter (stuff) 2
+
+background -2
+
 perry_says
 	Make Smaller?
 	Make the buttons move or something
