@@ -1,17 +1,19 @@
-[gd_scene load_steps=20 format=3 uid="uid://xvrd48862wjw"]
+[gd_scene load_steps=16 format=3 uid="uid://xvrd48862wjw"]
 
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="1_5aqa8"]
 [ext_resource type="Script" path="res://src/perry_pinball/perry_pinball.gd" id="1_5m1s2"]
-[ext_resource type="PackedScene" uid="uid://brwrw47ug7fwj" path="res://src/reference/grid_reference.tscn" id="1_w8n57"]
+[ext_resource type="Texture2D" uid="uid://tnt2ps7utby6" path="res://src/perry_pinball/textures/background.png" id="3_ddbgp"]
 [ext_resource type="PackedScene" uid="uid://lcx8nxfsn0dl" path="res://src/perry_pinball/left_paddle.tscn" id="4_ani1h"]
 [ext_resource type="PackedScene" uid="uid://denfedtiiogso" path="res://src/perry_pinball/right_paddle.tscn" id="5_wpo1i"]
 [ext_resource type="Script" path="res://src/perry_pinball/ball.gd" id="5_wyirj"]
 [ext_resource type="Script" path="res://src/perry_pinball/spring.gd" id="6_0ygbd"]
-[ext_resource type="Texture2D" uid="uid://chf5vory1tu30" path="res://src/perry_pinball/textures/bumper.png" id="8_pon1x"]
-[ext_resource type="Script" path="res://src/perry_pinball/bumper.gd" id="8_s1epn"]
+[ext_resource type="PackedScene" uid="uid://pue0wwaoec4b" path="res://src/perry_pinball/bumper.tscn" id="8_t6jch"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bi8t"]
+bounce = 0.6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rwsv"]
-size = Vector2(16, 976)
+size = Vector2(16, 856)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x1emw"]
 friction = 0.8
@@ -19,7 +21,7 @@ bounce = 0.6
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pac4u"]
 friction = 0.3
-bounce = 0.6
+bounce = 0.5
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_2is3e"]
 
@@ -29,57 +31,26 @@ radius = 24.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkjii"]
 size = Vector2(64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dp2ea"]
-atlas = ExtResource("8_pon1x")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o3uo1"]
-atlas = ExtResource("8_pon1x")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_px1q2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dp2ea")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o3uo1")
-}],
-"loop": true,
-"name": &"hit",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ddkcp"]
-radius = 48.0
-
 [node name="PerryPinball" type="Node2D"]
 script = ExtResource("1_5m1s2")
 
 [node name="GameBackground" parent="." instance=ExtResource("1_5aqa8")]
-
-[node name="GridReference" parent="." instance=ExtResource("1_w8n57")]
-show_9x16 = true
+game_background_texture = ExtResource("3_ddbgp")
 
 [node name="PinballMachine" type="Node2D" parent="."]
 
 [node name="BallWall" type="StaticBody2D" parent="PinballMachine"]
-position = Vector2(600, 744)
+position = Vector2(600, 684)
+physics_material_override = SubResource("PhysicsMaterial_5bi8t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PinballMachine/BallWall"]
 shape = SubResource("RectangleShape2D_4rwsv")
 
-[node name="Walls" type="StaticBody2D" parent="PinballMachine"]
+[node name="OuterWalls" type="StaticBody2D" parent="PinballMachine"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine/Walls"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine/OuterWalls"]
 position = Vector2(0, 4)
-polygon = PackedVector2Array(0, 0, 720, 0, 720, 44, 96, 44, 48, 92, 48, 1232, 672, 1232, 672, 92, 624, 44, 720, 44, 720, 1280, 0, 1280)
+polygon = PackedVector2Array(0, -4, 720, -4, 720, 44, 96, 44, 48, 92, 48, 1228, 672, 1228, 672, 92, 624, 44, 720, 44, 720, 1276, 0, 1276)
 
 [node name="LeftBumper" type="StaticBody2D" parent="PinballMachine"]
 position = Vector2(48, 1040)
@@ -92,6 +63,7 @@ polygon = PackedVector2Array(0, 0, 136, 0, 136, -32, 0, -368)
 position = Vector2(136, 0)
 node_a = NodePath("..")
 node_b = NodePath("LeftPaddle")
+bias = 0.9
 
 [node name="LeftPaddle" parent="PinballMachine/LeftBumper/PinJoint2D" instance=ExtResource("4_ani1h")]
 unique_name_in_owner = true
@@ -112,8 +84,14 @@ bias = 0.9
 [node name="RightPaddle" parent="PinballMachine/RightBumper/PinJoint2D" instance=ExtResource("5_wpo1i")]
 unique_name_in_owner = true
 
+[node name="StaticBody2D" type="StaticBody2D" parent="PinballMachine"]
+position = Vector2(160, 1120)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine/StaticBody2D"]
+polygon = PackedVector2Array(-112, -80, 160, 52, 448, 76, 448, 112, -112, 112)
+
 [node name="Ball" type="RigidBody2D" parent="." groups=["ball"]]
-position = Vector2(640, 816)
+position = Vector2(640, 1132)
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_pac4u")
 gravity_scale = 0.8
@@ -135,17 +113,11 @@ shape = SubResource("RectangleShape2D_pkjii")
 
 [node name="Bumpers" type="Node2D" parent="."]
 
-[node name="Bumper" type="StaticBody2D" parent="Bumpers"]
-position = Vector2(312, 392)
-script = ExtResource("8_s1epn")
+[node name="Bumper" parent="Bumpers" instance=ExtResource("8_t6jch")]
+position = Vector2(320, 320)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bumpers/Bumper"]
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_px1q2")
+[node name="Bumper2" parent="Bumpers" instance=ExtResource("8_t6jch")]
+position = Vector2(160, 562)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bumpers/Bumper"]
-shape = SubResource("CircleShape2D_ddkcp")
-
-[node name="Area2D" type="Area2D" parent="Bumpers/Bumper"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bumpers/Bumper/Area2D"]
+[node name="Bumper3" parent="Bumpers" instance=ExtResource("8_t6jch")]
+position = Vector2(480, 640)

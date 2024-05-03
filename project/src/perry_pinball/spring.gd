@@ -12,6 +12,5 @@ func _process(delta):
 	pass
 
 func _on_body_entered(body):
-	print(body)
 	if body.is_in_group("ball"):
-		body.apply_impulse(Vector2(0,-5000))
+		body.can_launch = true
