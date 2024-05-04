@@ -20,7 +20,7 @@ func _ready():
 	var game_time_left_timer_callable = Callable(self,"_on_game_time_left_timer_timeout")
 	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
-	Background.hide()
+	Background.show()
 
 	var xform = get_viewport_rect().size.x
 	var yform = get_viewport_rect().size.y
@@ -31,7 +31,7 @@ func _ready():
 	if yform > 1280:
 #		%Camera2D.enabled = true
 #		%Camera2D.zoom.y = yform/1280
-		var nodes_to_move =[%Floor,%StartPosition,%Player,%JumpZone,%LeftWall,%RightWall,%PlayerDespawn]
+		var nodes_to_move =[%Floor,%StartPosition,%Player,%JumpZone,%LeftWall,%RightWall,%PlayerDespawn,%Aim]
 		for node in nodes_to_move:
 			node.position.y *= yatio
 		var nodes_to_scale = [%Floor,%LeftWall,%RightWall,%PlayerDespawn]

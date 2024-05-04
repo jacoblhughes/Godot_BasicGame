@@ -219,13 +219,19 @@ func initiate_highscores_section():
 		if not config.has_section(key):
 			config.set_value(key,"scores",[0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 			config.set_value(key,"names",["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
-			if key == "perry_tamagotchi":
+		if key == "13":
+			if !config.has_section_key(key,"living"):
 				config.set_value(key, "living",false)
-				config.set_value(key, "hatch_time",null)
+			if !config.has_section_key(key,"hatch_time"):
+				config.set_value(key, "hatch_time","null")
+			if !config.has_section_key(key,"health"):
 				config.set_value(key, "health", 100)
+			if !config.has_section_key(key,"hunger"):
 				config.set_value(key, "hunger", 100)
+			if !config.has_section_key(key,"happiness"):
 				config.set_value(key, "happiness", 100)
-				config.set_value(key, "last_interaction_time", null)
+
+				#config.set_value(key, "last_interaction_time", null)
 			config.save(perry_arcade_path)
 
 func get_highscore_scores(key):
@@ -278,3 +284,23 @@ func save_background_music_value(value):
 func save_game_effects_value(value):
 	config.set_value("game_music","value",value)
 	config.save(perry_arcade_path)
+
+func save_perry_tamagotchi_status(status):
+	var save_key = "13"
+	config.set_value(save_key, "living", status.get("living", false))
+	config.set_value(save_key, "hatch_time", status.get("hatch_time", null))
+	config.set_value(save_key, "health", status.get("health", 100))
+	config.set_value(save_key, "hunger", status.get("hunger", 100))
+	config.set_value(save_key, "happiness", status.get("happiness", 100))
+	config.save(perry_arcade_path)
+
+func load_perry_tamagotchi_status():
+	var save_key = "13"
+	var status = {
+		"living": config.get_value(save_key, "living", false),
+		"hatch_time": config.get_value(save_key, "hatch_time", null),
+		"health": config.get_value(save_key, "health", 100),
+		"hunger": config.get_value(save_key, "hunger", 100),
+		"happiness": config.get_value(save_key, "happiness", 100)
+	}
+	return status

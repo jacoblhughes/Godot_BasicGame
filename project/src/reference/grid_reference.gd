@@ -12,8 +12,8 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if hide_background:
-		Background.hide()
-
+		#Background.hide()
+		pass
 func set_show_half(value):
 		show_half = value
 		%HalfGrid.visible = value
@@ -25,7 +25,7 @@ func set_show_third(value):
 func set_show_fourth(value):
 		show_fourth = value
 		%FourthGrid.visible = value
-		
+
 func set_show_fifth(value):
 		show_fifth = value
 		%FifthGrid.visible = value

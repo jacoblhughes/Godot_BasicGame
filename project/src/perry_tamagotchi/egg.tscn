@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://cm2g75if5ikie"]
+
+[ext_resource type="Script" path="res://src/perry_tamagotchi/egg.gd" id="1_mhmkb"]
+[ext_resource type="Texture2D" uid="uid://4s7xalwlrqb1" path="res://src/perry_tamagotchi/textures/egg.png" id="1_ububj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byg5c"]
+atlas = ExtResource("1_ububj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3suqp"]
+atlas = ExtResource("1_ububj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbqa8"]
+atlas = ExtResource("1_ububj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_047ex"]
+atlas = ExtResource("1_ububj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txqy4"]
+atlas = ExtResource("1_ububj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsff4"]
+atlas = ExtResource("1_ububj")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aljs3"]
+atlas = ExtResource("1_ububj")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avcpj"]
+atlas = ExtResource("1_ububj")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7tdu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byg5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3suqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbqa8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_047ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txqy4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsff4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aljs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avcpj")
+}],
+"loop": false,
+"name": &"hatching",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwp0u"]
+size = Vector2(480, 480)
+
+[node name="Egg" type="Area2D"]
+script = ExtResource("1_mhmkb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -240)
+scale = Vector2(15, 15)
+sprite_frames = SubResource("SpriteFrames_a7tdu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -240)
+shape = SubResource("RectangleShape2D_xwp0u")
+
+[connection signal="input_event" from="." to="." method="_on_input_event_2"]
