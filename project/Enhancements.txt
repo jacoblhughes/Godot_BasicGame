@@ -93,3 +93,5 @@ Options
 Notes:
 	Timing loading for each element - noticably android and labels and such
 		Do I still have this?
+
+children_light_up.connect(Callable(node, "light_up"))

@@ -4,6 +4,7 @@ extends Node2D
 @export var player_scene : PackedScene
 @export var egg_scene : PackedScene
 @export var starting_marker : Marker2D
+@export var tween_locations_node : Node2D
 
 var initial_score_value = 0
 var score_advance_base_value = 1
@@ -26,6 +27,8 @@ var last_hunger_penalize
 
 var hunger_penalize_seconds = 1730
 var health_effected = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
@@ -63,12 +66,12 @@ func _ready():
 
 	# Assign the loaded values to the variables
 	living_status = tamagotchi_status.get("living", false)
-	hatch_time = tamagotchi_status.get("hatch_time",  "null")
+	hatch_time = tamagotchi_status.get("hatch_time",  0)
 	health_status = tamagotchi_status.get("health", 100)
 	hunger_status = tamagotchi_status.get("hunger", 100)
 	happiness_status = tamagotchi_status.get("happiness", 100)
-	last_hunger_satisfy = tamagotchi_status.get("last_hunger_satisfy",  "null")
-	last_hunger_penalize = tamagotchi_status.get("last_hunger_penalize",  "null")
+	last_hunger_satisfy = tamagotchi_status.get("last_hunger_satisfy",  0)
+	last_hunger_penalize = tamagotchi_status.get("last_hunger_penalize",  0)
 	# Print statements to verify the values
 
 	status_hud.set_status({
@@ -81,22 +84,23 @@ func _ready():
 		"last_hunger_penalize": last_hunger_penalize
 	})
 
+	status_hud.hunger_satisfy.connect(_on_hunger_satisfy_button_pressed)
+
 	if living_status:
-		var player = player_scene.instantiate()
-		player.position = starting_marker.position
-		add_child.call_deferred(player)
+		_initiate_player()
 	else:
 		var egg = egg_scene.instantiate()
 		egg.position = starting_marker.position
 		egg.egg_hatched.connect(_on_egg_hatched)
 		add_child.call_deferred(egg)
 
+
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if living_status:
+	if living_status and last_hunger_satisfy != 0:
 		_check_hunger()
 
 
@@ -106,13 +110,12 @@ func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
 
 func _on_egg_hatched():
-	var player = player_scene.instantiate()
-	player.position = starting_marker.position
+
 	living_status = true
 	hatch_time = Time.get_unix_time_from_system()
 	last_hunger_satisfy = Time.get_unix_time_from_system()
 	last_hunger_penalize = Time.get_unix_time_from_system()
-	add_child.call_deferred(player)
+	_initiate_player()
 	status_hud.set_status({
 		"living": living_status,
 		"hatch_time": hatch_time,
@@ -131,6 +134,9 @@ func _on_egg_hatched():
 		"last_hunger_satisfy": last_hunger_satisfy,
 		"last_hunger_penalize": last_hunger_penalize
 	})
+
+
+
 	pass
 
 func _check_hunger():
@@ -169,3 +175,20 @@ func _check_hunger():
 			"last_hunger_satisfy": last_hunger_satisfy,
 			"last_hunger_penalize": last_hunger_penalize
 		})
+
+func _initiate_player():
+	var player = player_scene.instantiate()
+	player.position = starting_marker.position
+
+
+	var location_markers = []
+	location_markers.append(starting_marker.position)
+	for node in tween_locations_node.get_children():
+		location_markers.append(node.position)
+
+	add_child.call_deferred(player)
+	player.call_deferred("assign_tween_positions",location_markers)
+
+func _on_hunger_satisfy_button_pressed():
+	player.hunger_satisfy()
+	pass

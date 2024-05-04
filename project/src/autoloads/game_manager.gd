@@ -223,7 +223,7 @@ func initiate_highscores_section():
 			if !config.has_section_key(key,"living"):
 				config.set_value(key, "living",false)
 			if !config.has_section_key(key,"hatch_time"):
-				config.set_value(key, "hatch_time","null")
+				config.set_value(key, "hatch_time",0)
 			if !config.has_section_key(key,"health"):
 				config.set_value(key, "health", 100)
 			if !config.has_section_key(key,"hunger"):
@@ -231,9 +231,9 @@ func initiate_highscores_section():
 			if !config.has_section_key(key,"happiness"):
 				config.set_value(key, "happiness", 100)
 			if !config.has_section_key(key,"last_hunger_satisfy"):
-				config.set_value(key, "last_hunger_satisfy", "null")
+				config.set_value(key, "last_hunger_satisfy", 0)
 			if !config.has_section_key(key,"last_hunger_penalize"):
-				config.set_value(key, "last_hunger_penalize", "null")
+				config.set_value(key, "last_hunger_penalize", 0)
 			config.save(perry_arcade_path)
 
 func get_highscore_scores(key):
@@ -290,23 +290,23 @@ func save_game_effects_value(value):
 func save_perry_tamagotchi_status(status):
 	var save_key = "13"
 	config.set_value(save_key, "living", status.get("living", false))
-	config.set_value(save_key, "hatch_time", status.get("hatch_time", "null"))
+	config.set_value(save_key, "hatch_time", status.get("hatch_time", 0))
 	config.set_value(save_key, "health", status.get("health", 100))
 	config.set_value(save_key, "hunger", status.get("hunger", 100))
 	config.set_value(save_key, "happiness", status.get("happiness", 100))
-	config.set_value(save_key, "last_hunger_satisfy", status.get("last_hunger_satisfy", 100))
-	config.set_value(save_key, "last_hunger_penalize", status.get("last_hunger_penalize", 100))
+	config.set_value(save_key, "last_hunger_satisfy", status.get("last_hunger_satisfy", 0))
+	config.set_value(save_key, "last_hunger_penalize", status.get("last_hunger_penalize", 0))
 	config.save(perry_arcade_path)
 
 func load_perry_tamagotchi_status():
 	var save_key = "13"
 	var status = {
 		"living": config.get_value(save_key, "living", false),
-		"hatch_time": config.get_value(save_key, "hatch_time",  "null"),
+		"hatch_time": config.get_value(save_key, "hatch_time",  0),
 		"health": config.get_value(save_key, "health", 100),
 		"hunger": config.get_value(save_key, "hunger", 100),
 		"happiness": config.get_value(save_key, "happiness", 100),
-		"last_hunger_satisfy": config.get_value(save_key, "last_hunger_satisfy",  "null"),
-		"last_hunger_penalize": config.get_value(save_key, "last_hunger_penalize",  "null")
+		"last_hunger_satisfy": config.get_value(save_key, "last_hunger_satisfy",  0),
+		"last_hunger_penalize": config.get_value(save_key, "last_hunger_penalize",  0)
 	}
 	return status

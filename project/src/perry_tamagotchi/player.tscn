@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://wyxnlnfdot65"]
+[gd_scene load_steps=13 format=3 uid="uid://wyxnlnfdot65"]
 
+[ext_resource type="Script" path="res://src/perry_tamagotchi/player.gd" id="1_1qqry"]
 [ext_resource type="Texture2D" uid="uid://b77tvafil8mhy" path="res://src/perry_tamagotchi/textures/player.png" id="1_syujb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xq8v3"]
@@ -104,14 +105,22 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxyyc"]
 size = Vector2(128, 128)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="Area2D" node_paths=PackedStringArray("tween_timer")]
+script = ExtResource("1_1qqry")
+tween_timer = NodePath("TweenTimer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -64)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_k6nl3")
-animation = &"walk_down_left"
+animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_vxyyc")
+
+[node name="TweenTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
