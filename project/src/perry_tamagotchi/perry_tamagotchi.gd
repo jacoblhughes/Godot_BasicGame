@@ -20,15 +20,14 @@ var hatch_time
 var health_status
 var hunger_status
 var happiness_status
+var last_hunger_satisfy
+var last_hunger_penalize
 
-var last_check = Time.get_unix_time_from_system()
 
+var hunger_penalize_seconds = 1730
+var health_effected = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(Time.get_unix_time_from_system())
-	print(Time.get_datetime_dict_from_system())
-
-
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
@@ -64,26 +63,22 @@ func _ready():
 
 	# Assign the loaded values to the variables
 	living_status = tamagotchi_status.get("living", false)
-	hatch_time = tamagotchi_status.get("hatch_time", null)
+	hatch_time = tamagotchi_status.get("hatch_time",  "null")
 	health_status = tamagotchi_status.get("health", 100)
 	hunger_status = tamagotchi_status.get("hunger", 100)
 	happiness_status = tamagotchi_status.get("happiness", 100)
-
+	last_hunger_satisfy = tamagotchi_status.get("last_hunger_satisfy",  "null")
+	last_hunger_penalize = tamagotchi_status.get("last_hunger_penalize",  "null")
 	# Print statements to verify the values
-	print("Living Status: " + str(living_status))
-	print("Hatch Time: " + str(hatch_time))
-	print("Health Status: " + str(health_status))
-	print("Hunger Status: " + str(hunger_status))
-	print("Happiness Status: " + str(happiness_status))
-
-
 
 	status_hud.set_status({
 		"living": living_status,
 		"hatch_time": hatch_time,
 		"health": health_status,
 		"hunger": hunger_status,
-		"happiness": happiness_status
+		"happiness": happiness_status,
+		"last_hunger_satisfy": last_hunger_satisfy,
+		"last_hunger_penalize": last_hunger_penalize
 	})
 
 	if living_status:
@@ -101,17 +96,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var current_time = Time.get_unix_time_from_system()
-	if current_time - last_check > 5:
-		last_check = Time.get_unix_time_from_system()
-		print("hungry")
-		status_hud.set_status({
-			"living": living_status,
-			"hatch_time": hatch_time,
-			"health": health_status,
-			"hunger": hunger_status,
-			"happiness": happiness_status
-		})
+	if living_status:
+		_check_hunger()
 
 
 	pass
@@ -123,20 +109,63 @@ func _on_egg_hatched():
 	var player = player_scene.instantiate()
 	player.position = starting_marker.position
 	living_status = true
-	hatch_time = Time.get_datetime_string_from_system()
+	hatch_time = Time.get_unix_time_from_system()
+	last_hunger_satisfy = Time.get_unix_time_from_system()
+	last_hunger_penalize = Time.get_unix_time_from_system()
 	add_child.call_deferred(player)
 	status_hud.set_status({
 		"living": living_status,
 		"hatch_time": hatch_time,
 		"health": health_status,
 		"hunger": hunger_status,
-		"happiness": happiness_status
+		"happiness": happiness_status,
+		"last_hunger_satisfy": last_hunger_satisfy,
+		"last_hunger_penalize": last_hunger_penalize
 	})
 	GameManager.save_perry_tamagotchi_status({
 		"living": living_status,
 		"hatch_time": hatch_time,
 		"health": health_status,
 		"hunger": hunger_status,
-		"happiness": happiness_status
+		"happiness": happiness_status,
+		"last_hunger_satisfy": last_hunger_satisfy,
+		"last_hunger_penalize": last_hunger_penalize
 	})
 	pass
+
+func _check_hunger():
+	var current_time = Time.get_unix_time_from_system()
+	var seconds_since_last_satisfy = current_time - last_hunger_satisfy
+	var hunger_decrease = floor(seconds_since_last_satisfy / hunger_penalize_seconds)  # Calculate how much hunger should decrease
+
+	# Update hunger status and apply health penalties if needed
+	if hunger_decrease > 0:
+		hunger_status = max(hunger_status - hunger_decrease, 0)  # Reduce hunger, prevent it from going below 0
+		last_hunger_satisfy = current_time  # Reset last satisfy time
+
+		# Check if hunger is depleted
+		if hunger_status == 0:
+			health_effected = true
+			health_status -= 1  # Subtract some health if hunger reaches 0
+			health_status = max(health_status, 0)  # Prevent health from dropping below 0
+			last_hunger_penalize = current_time  # Update the last hunger penalize time
+#
+		## Update the HUD and save the game state
+		status_hud.set_status({
+			"living": living_status,
+			"hatch_time": hatch_time,
+			"health": health_status,
+			"hunger": hunger_status,
+			"happiness": happiness_status,
+			"last_hunger_satisfy": last_hunger_satisfy,
+			"last_hunger_penalize": last_hunger_penalize
+		})
+		GameManager.save_perry_tamagotchi_status({
+			"living": living_status,
+			"hatch_time": hatch_time,
+			"health": health_status,
+			"hunger": hunger_status,
+			"happiness": happiness_status,
+			"last_hunger_satisfy": last_hunger_satisfy,
+			"last_hunger_penalize": last_hunger_penalize
+		})

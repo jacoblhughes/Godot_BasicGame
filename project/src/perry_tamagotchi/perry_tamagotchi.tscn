@@ -100,5 +100,33 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
+[node name="Label2" type="Label" parent="StatusHUD/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Last Hunger Satisfy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LastHungerSatisfy" type="Label" parent="StatusHUD/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Label4" type="Label" parent="StatusHUD/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Last Hunger Penalize"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LastHungerPenalize" type="Label" parent="StatusHUD/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
 [node name="StartingPosition" type="Marker2D" parent="."]
 position = Vector2(360, 848)

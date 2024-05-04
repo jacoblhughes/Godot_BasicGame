@@ -15,7 +15,9 @@ func set_status(status):
 
 	# Assign the loaded values to the variables
 	%Living.text = str(status.get("living", false))
-	%HatchTime.text = str(status.get("hatch_time", null))
+	%HatchTime.text = str(status.get("hatch_time",  "null"))
 	%Health.value = status.get("health", 100)
 	%Hunger.value = status.get("hunger", 100)
 	%Happiness.value = status.get("happiness", 100)
+	%LastHungerSatisfy.text = str(status.get("last_hunger_satisfy",  "null"))
+	%LastHungerPenalize.text = str(status.get("last_hunger_penalize",  "null"))
