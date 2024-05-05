@@ -1,15 +1,15 @@
 [gd_scene load_steps=9 format=3 uid="uid://bcb2atrka7rpg"]
 
 [ext_resource type="Script" path="res://src/perry_tamagotchi/perry_tamagotchi.gd" id="1_67vg0"]
-[ext_resource type="PackedScene" uid="uid://brwrw47ug7fwj" path="res://src/reference/grid_reference.tscn" id="1_yo03j"]
 [ext_resource type="Script" path="res://src/perry_tamagotchi/status.gd" id="2_jwau4"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="4_hc1e6"]
 [ext_resource type="PackedScene" uid="uid://wyxnlnfdot65" path="res://src/perry_tamagotchi/player.tscn" id="4_udded"]
 [ext_resource type="PackedScene" uid="uid://cm2g75if5ikie" path="res://src/perry_tamagotchi/egg.tscn" id="5_4uxp6"]
 [ext_resource type="Texture2D" uid="uid://dtvt5yswyd1jr" path="res://src/perry_tamagotchi/textures/background.png" id="5_da04n"]
 [ext_resource type="PackedScene" uid="uid://ycyrtwiwu34s" path="res://src/perry_tamagotchi/hunger_satisfy.tscn" id="6_un5if"]
+[ext_resource type="PackedScene" uid="uid://k3a3utfo8fh1" path="res://src/perry_tamagotchi/happiness_satisfy.tscn" id="9_geso7"]
 
-[node name="PerryTamagotchi" type="Node2D" node_paths=PackedStringArray("status_hud", "starting_marker", "tween_locations_node", "hunger_satisfy_node")]
+[node name="PerryTamagotchi" type="Node2D" node_paths=PackedStringArray("status_hud", "starting_marker", "tween_locations_node", "hunger_satisfy_node", "happiness_satisfy_node")]
 script = ExtResource("1_67vg0")
 status_hud = NodePath("StatusHUD")
 player_scene = ExtResource("4_udded")
@@ -17,14 +17,12 @@ egg_scene = ExtResource("5_4uxp6")
 starting_marker = NodePath("StartingPosition")
 tween_locations_node = NodePath("TweenLocations")
 hunger_satisfy_node = NodePath("HungerSatisfy")
+happiness_satisfy_node = NodePath("HappinessSatisfy")
 metadata/_edit_vertical_guides_ = [360.0]
 
 [node name="GameBackground" parent="." instance=ExtResource("4_hc1e6")]
-game_background_texture = ExtResource("5_da04n")
-
-[node name="GridReference" parent="." instance=ExtResource("1_yo03j")]
 visible = false
-show_fifth = true
+game_background_texture = ExtResource("5_da04n")
 
 [node name="StatusHUD" type="CanvasLayer" parent="."]
 script = ExtResource("2_jwau4")
@@ -123,6 +121,20 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
+[node name="Label8" type="Label" parent="StatusHUD/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Last Happiness Satisfy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LastHappinessSatisfy" type="Label" parent="StatusHUD/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
 [node name="Label4" type="Label" parent="StatusHUD/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -144,11 +156,26 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Eat"
 
+[node name="HappinessSatisfy" type="Button" parent="StatusHUD/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Play"
+
+[node name="Label6" type="Label" parent="StatusHUD/GridContainer"]
+layout_mode = 2
+text = "Current Time:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CurrentTime" type="Label" parent="StatusHUD/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StartingPosition" type="Marker2D" parent="."]
 position = Vector2(360, 1024)
@@ -156,16 +183,22 @@ position = Vector2(360, 1024)
 [node name="HungerSatisfy" parent="." instance=ExtResource("6_un5if")]
 position = Vector2(576, 384)
 
+[node name="HappinessSatisfy" parent="." instance=ExtResource("9_geso7")]
+position = Vector2(360, 320)
+
 [node name="TweenLocations" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="TweenLocations"]
 position = Vector2(144, 768)
 
 [node name="Marker2D2" type="Marker2D" parent="TweenLocations"]
-position = Vector2(208, 384)
+position = Vector2(144, 384)
 
 [node name="Marker2D3" type="Marker2D" parent="TweenLocations"]
-position = Vector2(432, 640)
+position = Vector2(512, 640)
 
 [node name="Marker2D4" type="Marker2D" parent="TweenLocations"]
 position = Vector2(576, 896)
+
+[node name="Marker2D5" type="Marker2D" parent="TweenLocations"]
+position = Vector2(288, 640)

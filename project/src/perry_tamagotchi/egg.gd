@@ -25,6 +25,7 @@ func _on_clickable_input_event(event, input_position):
 			hatched = true
 			%AnimatedSprite2D.play("hatching")
 			%AnimatedSprite2D.animation_finished.connect(_on_hatching_animation_finished)
+			HUD.clickable_input_event.disconnect(_on_clickable_input_event)
 	pass
 
 func _on_hatching_animation_finished():
