@@ -220,19 +220,24 @@ func initiate_highscores_section():
 			config.set_value(key,"scores",[0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 			config.set_value(key,"names",["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
 		if key == "13":
-			if !config.has_section_key(key,"living"):
+			print('here')
+			print(config.get_value(key,"hunger"))
+			print(typeof(config.get_value(key,"hunger")))
+
+			if !config.has_section_key(key,"living") or typeof(config.get_value(key,"living")) != 1:
 				config.set_value(key, "living",false)
-			if !config.has_section_key(key,"hatch_time"):
+			if !config.has_section_key(key,"hatch_time") or typeof(config.get_value(key,"hatch_time")) != 27:
 				config.set_value(key, "hatch_time", {})
-			if !config.has_section_key(key,"health"):
+			if !config.has_section_key(key,"health") or (typeof(config.get_value(key,"health")) != 2 and typeof(config.get_value(key,"health")) != 3):
 				config.set_value(key, "health", 100)
-			if !config.has_section_key(key,"hunger"):
+			if !config.has_section_key(key,"hunger") or (typeof(config.get_value(key,"hunger")) != 2 and typeof(config.get_value(key,"hunger")) != 3):
+				print('resetttttingggggggg')
 				config.set_value(key, "hunger", 100)
-			if !config.has_section_key(key,"happiness"):
+			if !config.has_section_key(key,"happiness") or (typeof(config.get_value(key,"happiness")) != 2 and typeof(config.get_value(key,"happiness")) != 3):
 				config.set_value(key, "happiness", 100)
-			if !config.has_section_key(key,"last_hunger_satisfy"):
+			if !config.has_section_key(key,"last_hunger_satisfy") or typeof(config.get_value(key,"last_hunger_satisfy")) != 27:
 				config.set_value(key, "last_hunger_satisfy", {})
-			if !config.has_section_key(key,"last_hunger_penalize"):
+			if !config.has_section_key(key,"last_hunger_penalize") or typeof(config.get_value(key,"last_hunger_penalize")) != 27:
 				config.set_value(key, "last_hunger_penalize", {})
 			config.save(perry_arcade_path)
 
@@ -299,6 +304,7 @@ func save_game_effects_value(value):
 	#config.save(perry_arcade_path)
 
 func save_perry_tamagotchi_status(status):
+	print(status.get("hunger", 100)," >>>>>>")
 	var save_key = "13"
 	config.set_value(save_key, "living", status.get("living", false))
 	# Format float values as strings to prevent scientific notation

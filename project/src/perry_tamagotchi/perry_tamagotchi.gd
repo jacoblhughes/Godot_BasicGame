@@ -26,7 +26,7 @@ var last_hunger_satisfy
 var last_hunger_penalize
 
 
-var hunger_penalize_seconds = 1730
+var hunger_penalize_seconds = 30
 var health_effected = false
 
 signal player_to_eat
@@ -66,6 +66,10 @@ func _ready():
 	# Load the status from the GameManager
 	var tamagotchi_status = GameManager.load_perry_tamagotchi_status()
 
+	print(typeof(tamagotchi_status.get("last_hunger_penalize")))
+	print(tamagotchi_status.get("last_hunger_penalize"))
+	print('<<<<<<<<<<<<<<<')
+
 	# Assign the loaded values to the variables
 	living_status = tamagotchi_status.get("living", false)
 	hatch_time = tamagotchi_status.get("hatch_time",  0)
@@ -75,6 +79,12 @@ func _ready():
 	last_hunger_satisfy = tamagotchi_status.get("last_hunger_satisfy",  0)
 	last_hunger_penalize = tamagotchi_status.get("last_hunger_penalize",  0)
 	# Print statements to verify the values
+	if hatch_time == {} or last_hunger_satisfy == {} or last_hunger_penalize == {}:
+		print('got here, unfortuna')
+		living_status = false
+		health_status = 100
+		hunger_status = 100
+		happiness_status = 100
 
 	status_hud.set_status({
 		"living": living_status,
@@ -102,6 +112,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+
 	if living_status and last_hunger_satisfy != {}:
 		_check_hunger()
 
@@ -157,9 +168,10 @@ func _check_hunger():
 			health_effected = true
 			health_status -= 1  # Subtract some health if hunger reaches 0
 			health_status = max(health_status, 0)  # Prevent health from dropping below 0
-			last_hunger_penalize = current_time  # Update the last hunger penalize time
+			last_hunger_penalize = Time.get_datetime_dict_from_unix_time(current_time)  # Update the last hunger penalize time
 #
 		## Update the HUD and save the game state
+		print(hunger_status," --------")
 		status_hud.set_status({
 			"living": living_status,
 			"hatch_time": hatch_time,
@@ -180,6 +192,7 @@ func _check_hunger():
 		})
 
 func _initiate_player():
+	status_hud.show()
 	var player = player_scene.instantiate()
 	player.position = starting_marker.position
 	player_to_eat.connect(Callable(player, "_on_player_to_eat"))

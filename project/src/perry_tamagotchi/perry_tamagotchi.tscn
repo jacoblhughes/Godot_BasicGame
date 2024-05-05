@@ -21,6 +21,7 @@ metadata/_edit_vertical_guides_ = [360.0]
 show_fifth = true
 
 [node name="StatusHUD" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("2_jwau4")
 
 [node name="GridContainer" type="GridContainer" parent="StatusHUD"]
