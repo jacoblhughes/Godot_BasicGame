@@ -5,6 +5,7 @@ extends Node2D
 @export var egg_scene : PackedScene
 @export var starting_marker : Marker2D
 @export var tween_locations_node : Node2D
+@export var hunger_satisfy_node : Node2D
 
 var initial_score_value = 0
 var score_advance_base_value = 1
@@ -28,6 +29,7 @@ var last_hunger_penalize
 var hunger_penalize_seconds = 1730
 var health_effected = false
 
+signal player_to_eat
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -142,6 +144,7 @@ func _on_egg_hatched():
 func _check_hunger():
 	var current_time = Time.get_unix_time_from_system()
 	var seconds_since_last_satisfy = current_time - last_hunger_satisfy
+	print(current_time, "    ", last_hunger_satisfy)
 	var hunger_decrease = floor(seconds_since_last_satisfy / hunger_penalize_seconds)  # Calculate how much hunger should decrease
 
 	# Update hunger status and apply health penalties if needed
@@ -179,7 +182,11 @@ func _check_hunger():
 func _initiate_player():
 	var player = player_scene.instantiate()
 	player.position = starting_marker.position
-
+	player_to_eat.connect(Callable(player, "_on_player_to_eat"))
+	player.player_eating.connect(Callable(hunger_satisfy_node, "play_eating_animation"))
+	hunger_satisfy_node.hunger_satisfy_animation_finished.connect(Callable(player, "_on_player_finished_eating"))
+	player.player_finished_eating.connect(Callable(status_hud,"_on_player_finished_eating"))
+	player.player_finished_eating.connect(_on_player_hunger_satisfy)
 
 	var location_markers = []
 	location_markers.append(starting_marker.position)
@@ -188,7 +195,31 @@ func _initiate_player():
 
 	add_child.call_deferred(player)
 	player.call_deferred("assign_tween_positions",location_markers)
+	player.call_deferred("assign_hunger_satisfy_position",hunger_satisfy_node.position)
 
 func _on_hunger_satisfy_button_pressed():
-	player.hunger_satisfy()
+	player_to_eat.emit()
 	pass
+
+func _on_player_hunger_satisfy():
+	var current_time = Time.get_unix_time_from_system()
+	last_hunger_satisfy = current_time
+	hunger_status = min(hunger_status + 20, 100)
+	status_hud.set_status({
+		"living": living_status,
+		"hatch_time": hatch_time,
+		"health": health_status,
+		"hunger": hunger_status,
+		"happiness": happiness_status,
+		"last_hunger_satisfy": last_hunger_satisfy,
+		"last_hunger_penalize": last_hunger_penalize
+	})
+	GameManager.save_perry_tamagotchi_status({
+		"living": living_status,
+		"hatch_time": hatch_time,
+		"health": health_status,
+		"hunger": hunger_status,
+		"happiness": happiness_status,
+		"last_hunger_satisfy": last_hunger_satisfy,
+		"last_hunger_penalize": last_hunger_penalize
+	})

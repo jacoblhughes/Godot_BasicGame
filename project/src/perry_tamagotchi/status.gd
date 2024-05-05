@@ -25,3 +25,10 @@ func set_status(status):
 
 func _on_hunger_satisfy_pressed():
 	hunger_satisfy.emit()
+	set_hunger_satisfy_button_disabled(true)
+
+func set_hunger_satisfy_button_disabled(val):
+	%HungerSatisfy.disabled = val
+
+func _on_player_finished_eating():
+	set_hunger_satisfy_button_disabled(false)

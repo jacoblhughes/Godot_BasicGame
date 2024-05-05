@@ -1,217 +1,20 @@
-[gd_scene load_steps=36 format=3 uid="uid://bcb2atrka7rpg"]
+[gd_scene load_steps=7 format=3 uid="uid://bcb2atrka7rpg"]
 
 [ext_resource type="Script" path="res://src/perry_tamagotchi/perry_tamagotchi.gd" id="1_67vg0"]
 [ext_resource type="PackedScene" uid="uid://brwrw47ug7fwj" path="res://src/reference/grid_reference.tscn" id="1_yo03j"]
 [ext_resource type="Script" path="res://src/perry_tamagotchi/status.gd" id="2_jwau4"]
 [ext_resource type="PackedScene" uid="uid://wyxnlnfdot65" path="res://src/perry_tamagotchi/player.tscn" id="4_udded"]
 [ext_resource type="PackedScene" uid="uid://cm2g75if5ikie" path="res://src/perry_tamagotchi/egg.tscn" id="5_4uxp6"]
-[ext_resource type="Script" path="res://src/perry_tamagotchi/hunger_satisfy.gd" id="6_pb5d1"]
-[ext_resource type="Texture2D" uid="uid://bl7qnwdme8cnq" path="res://src/perry_tamagotchi/textures/hunger_satsify.png" id="6_w4lj7"]
-[ext_resource type="Script" path="res://src/perry_tamagotchi/marker_test.gd" id="8_jcgyn"]
+[ext_resource type="PackedScene" uid="uid://ycyrtwiwu34s" path="res://src/perry_tamagotchi/hunger_satisfy.tscn" id="6_un5if"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hxk64"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_brko5"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2cyfr"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xb6sx"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7swmm"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5hmbh"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wtr5w"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ar2b"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8b5p2"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mfwq5"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(576, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3yae8"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(640, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rg4ba"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(704, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t8xvf"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(768, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cdsrv"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(832, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kld0g"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(896, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jra6f"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(960, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ostwv"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(1024, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dlsnn"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(1088, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i6quq"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(1152, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_47n0b"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(1216, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uqlm5"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(1280, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0lffk"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(1344, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_afrfk"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(1408, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ow3nh"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(1472, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rcg08"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(1536, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_es2ou"]
-atlas = ExtResource("6_w4lj7")
-region = Rect2(1600, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e7evl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hxk64")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_brko5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2cyfr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xb6sx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7swmm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5hmbh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wtr5w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6ar2b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8b5p2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mfwq5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3yae8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rg4ba")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t8xvf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cdsrv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kld0g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jra6f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ostwv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dlsnn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i6quq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_47n0b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uqlm5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0lffk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_afrfk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ow3nh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rcg08")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_es2ou")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="PerryTamagotchi" type="Node2D" node_paths=PackedStringArray("status_hud", "starting_marker", "tween_locations_node")]
+[node name="PerryTamagotchi" type="Node2D" node_paths=PackedStringArray("status_hud", "starting_marker", "tween_locations_node", "hunger_satisfy_node")]
 script = ExtResource("1_67vg0")
 status_hud = NodePath("StatusHUD")
 player_scene = ExtResource("4_udded")
 egg_scene = ExtResource("5_4uxp6")
 starting_marker = NodePath("StartingPosition")
 tween_locations_node = NodePath("TweenLocations")
+hunger_satisfy_node = NodePath("HungerSatisfy")
 metadata/_edit_vertical_guides_ = [360.0]
 
 [node name="GridReference" parent="." instance=ExtResource("1_yo03j")]
@@ -338,29 +141,18 @@ text = "Eat"
 [node name="StartingPosition" type="Marker2D" parent="."]
 position = Vector2(360, 1024)
 
-[node name="HungerSatisfy" type="Node2D" parent="."]
-position = Vector2(576, 384)
-script = ExtResource("6_pb5d1")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HungerSatisfy"]
-position = Vector2(0, -128)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_e7evl")
+[node name="HungerSatisfy" parent="." instance=ExtResource("6_un5if")]
 
 [node name="TweenLocations" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="TweenLocations"]
 position = Vector2(144, 768)
-script = ExtResource("8_jcgyn")
 
 [node name="Marker2D2" type="Marker2D" parent="TweenLocations"]
 position = Vector2(288, 384)
-script = ExtResource("8_jcgyn")
 
 [node name="Marker2D3" type="Marker2D" parent="TweenLocations"]
 position = Vector2(432, 640)
-script = ExtResource("8_jcgyn")
 
 [node name="Marker2D4" type="Marker2D" parent="TweenLocations"]
 position = Vector2(432, 896)
-script = ExtResource("8_jcgyn")

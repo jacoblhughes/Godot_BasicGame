@@ -287,16 +287,29 @@ func save_game_effects_value(value):
 	config.set_value("game_music","value",value)
 	config.save(perry_arcade_path)
 
+#func save_perry_tamagotchi_status(status):
+	#var save_key = "13"
+	#config.set_value(save_key, "living", status.get("living", false))
+	#config.set_value(save_key, "hatch_time", status.get("hatch_time", 0))
+	#config.set_value(save_key, "health", status.get("health", 100))
+	#config.set_value(save_key, "hunger", status.get("hunger", 100))
+	#config.set_value(save_key, "happiness", status.get("happiness", 100))
+	#config.set_value(save_key, "last_hunger_satisfy", status.get("last_hunger_satisfy", 0))
+	#config.set_value(save_key, "last_hunger_penalize", status.get("last_hunger_penalize", 0))
+	#config.save(perry_arcade_path)
+
 func save_perry_tamagotchi_status(status):
 	var save_key = "13"
 	config.set_value(save_key, "living", status.get("living", false))
-	config.set_value(save_key, "hatch_time", status.get("hatch_time", 0))
+	# Format float values as strings to prevent scientific notation
+	config.set_value(save_key, "hatch_time", "%.0f" % status.get("hatch_time", 0))
 	config.set_value(save_key, "health", status.get("health", 100))
 	config.set_value(save_key, "hunger", status.get("hunger", 100))
 	config.set_value(save_key, "happiness", status.get("happiness", 100))
-	config.set_value(save_key, "last_hunger_satisfy", status.get("last_hunger_satisfy", 0))
-	config.set_value(save_key, "last_hunger_penalize", status.get("last_hunger_penalize", 0))
+	config.set_value(save_key, "last_hunger_satisfy", "%.0f" % status.get("last_hunger_satisfy", 0))
+	config.set_value(save_key, "last_hunger_penalize", "%.0f" % status.get("last_hunger_penalize", 0))
 	config.save(perry_arcade_path)
+
 
 func load_perry_tamagotchi_status():
 	var save_key = "13"
