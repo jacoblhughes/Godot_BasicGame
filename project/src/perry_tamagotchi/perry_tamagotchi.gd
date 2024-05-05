@@ -26,7 +26,7 @@ var last_hunger_satisfy
 var last_hunger_penalize
 
 
-var hunger_penalize_seconds = 30
+var hunger_penalize_seconds = 172800
 var health_effected = false
 
 signal player_to_eat
@@ -66,10 +66,6 @@ func _ready():
 	# Load the status from the GameManager
 	var tamagotchi_status = GameManager.load_perry_tamagotchi_status()
 
-	print(typeof(tamagotchi_status.get("last_hunger_penalize")))
-	print(tamagotchi_status.get("last_hunger_penalize"))
-	print('<<<<<<<<<<<<<<<')
-
 	# Assign the loaded values to the variables
 	living_status = tamagotchi_status.get("living", false)
 	hatch_time = tamagotchi_status.get("hatch_time",  0)
@@ -78,9 +74,8 @@ func _ready():
 	happiness_status = tamagotchi_status.get("happiness", 100)
 	last_hunger_satisfy = tamagotchi_status.get("last_hunger_satisfy",  0)
 	last_hunger_penalize = tamagotchi_status.get("last_hunger_penalize",  0)
-	# Print statements to verify the values
+
 	if hatch_time == {} or last_hunger_satisfy == {} or last_hunger_penalize == {}:
-		print('got here, unfortuna')
 		living_status = false
 		health_status = 100
 		hunger_status = 100
@@ -171,7 +166,7 @@ func _check_hunger():
 			last_hunger_penalize = Time.get_datetime_dict_from_unix_time(current_time)  # Update the last hunger penalize time
 #
 		## Update the HUD and save the game state
-		print(hunger_status," --------")
+
 		status_hud.set_status({
 			"living": living_status,
 			"hatch_time": hatch_time,

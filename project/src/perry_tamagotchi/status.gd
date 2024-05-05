@@ -14,10 +14,6 @@ func _process(delta):
 	pass
 
 func set_status(status):
-	print(status.get("hatch_time", {}))
-	print(status.get("last_hunger_satisfy", {}))
-	print(status.get("last_hunger_penalize", {}))
-	print('oooooooooooooooooooooooooooooooooooo')
 	var current_living_status = status.get("living", false)
 	if current_living_status:
 		%Living.text = str(status.get("living", false))
