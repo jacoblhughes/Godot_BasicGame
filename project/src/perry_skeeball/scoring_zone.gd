@@ -12,7 +12,7 @@ var collision_shape_size
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	%Label.text = str(worth)
 	body_entered.connect(_on_body_entered)
 	pass # Replace with function body.
 
