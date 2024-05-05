@@ -138,6 +138,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Eat"
 
+[node name="CurrentTime" type="Label" parent="StatusHUD/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="StartingPosition" type="Marker2D" parent="."]
 position = Vector2(360, 1024)
 

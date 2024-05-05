@@ -10,19 +10,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	%CurrentTime.text = Time.get_datetime_string_from_system(true)
 	pass
 
 func set_status(status):
-
 	# Assign the loaded values to the variables
 	%Living.text = str(status.get("living", false))
-	%HatchTime.text = Time.get_datetime_string_from_unix_time(status.get("hatch_time",  0))
+	%HatchTime.text = Time.get_datetime_string_from_datetime_dict(status.get("hatch_time", {}),true)
 	%Health.value = status.get("health", 100)
 	%Hunger.value = status.get("hunger", 100)
 	%Happiness.value = status.get("happiness", 100)
-	%LastHungerSatisfy.text = Time.get_datetime_string_from_unix_time(status.get("last_hunger_satisfy",  0))
-	%LastHungerPenalize.text = Time.get_datetime_string_from_unix_time(status.get("last_hunger_penalize",  0))
-
+	%LastHungerSatisfy.text = Time.get_datetime_string_from_datetime_dict(status.get("last_hunger_satisfy", {}),true)
+	%LastHungerPenalize.text = Time.get_datetime_string_from_datetime_dict(status.get("last_hunger_penalize", {}),true)
+	
 func _on_hunger_satisfy_pressed():
 	hunger_satisfy.emit()
 	set_hunger_satisfy_button_disabled(true)

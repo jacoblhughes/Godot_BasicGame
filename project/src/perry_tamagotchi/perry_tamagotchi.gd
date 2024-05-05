@@ -102,7 +102,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if living_status and last_hunger_satisfy != 0:
+	if living_status and last_hunger_satisfy != {}:
 		_check_hunger()
 
 
@@ -114,9 +114,10 @@ func _on_play_button_pressed():
 func _on_egg_hatched():
 
 	living_status = true
-	hatch_time = Time.get_unix_time_from_system()
-	last_hunger_satisfy = Time.get_unix_time_from_system()
-	last_hunger_penalize = Time.get_unix_time_from_system()
+	var current_time = Time.get_unix_time_from_system()
+	hatch_time = Time.get_datetime_dict_from_unix_time(current_time)
+	last_hunger_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
+	last_hunger_penalize = Time.get_datetime_dict_from_unix_time(current_time)
 	_initiate_player()
 	status_hud.set_status({
 		"living": living_status,
@@ -143,14 +144,13 @@ func _on_egg_hatched():
 
 func _check_hunger():
 	var current_time = Time.get_unix_time_from_system()
-	var seconds_since_last_satisfy = current_time - last_hunger_satisfy
-	print(current_time, "    ", last_hunger_satisfy)
+	var seconds_since_last_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_hunger_satisfy)
 	var hunger_decrease = floor(seconds_since_last_satisfy / hunger_penalize_seconds)  # Calculate how much hunger should decrease
 
 	# Update hunger status and apply health penalties if needed
 	if hunger_decrease > 0:
 		hunger_status = max(hunger_status - hunger_decrease, 0)  # Reduce hunger, prevent it from going below 0
-		last_hunger_satisfy = current_time  # Reset last satisfy time
+		last_hunger_satisfy = Time.get_datetime_dict_from_unix_time(current_time)  # Reset last satisfy time
 
 		# Check if hunger is depleted
 		if hunger_status == 0:
@@ -203,7 +203,7 @@ func _on_hunger_satisfy_button_pressed():
 
 func _on_player_hunger_satisfy():
 	var current_time = Time.get_unix_time_from_system()
-	last_hunger_satisfy = current_time
+	last_hunger_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
 	hunger_status = min(hunger_status + 20, 100)
 	status_hud.set_status({
 		"living": living_status,
