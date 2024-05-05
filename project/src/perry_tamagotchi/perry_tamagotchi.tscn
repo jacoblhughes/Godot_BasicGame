@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="4_hc1e6"]
 [ext_resource type="PackedScene" uid="uid://wyxnlnfdot65" path="res://src/perry_tamagotchi/player.tscn" id="4_udded"]
 [ext_resource type="PackedScene" uid="uid://cm2g75if5ikie" path="res://src/perry_tamagotchi/egg.tscn" id="5_4uxp6"]
-[ext_resource type="Texture2D" uid="uid://dtvt5yswyd1jr" path="res://src/perry_tamagotchi/textures/background.png" id="5_lhfn6"]
+[ext_resource type="Texture2D" uid="uid://dtvt5yswyd1jr" path="res://src/perry_tamagotchi/textures/background.png" id="5_da04n"]
 [ext_resource type="PackedScene" uid="uid://ycyrtwiwu34s" path="res://src/perry_tamagotchi/hunger_satisfy.tscn" id="6_un5if"]
 
 [node name="PerryTamagotchi" type="Node2D" node_paths=PackedStringArray("status_hud", "starting_marker", "tween_locations_node", "hunger_satisfy_node")]
@@ -20,13 +20,13 @@ hunger_satisfy_node = NodePath("HungerSatisfy")
 metadata/_edit_vertical_guides_ = [360.0]
 
 [node name="GameBackground" parent="." instance=ExtResource("4_hc1e6")]
-game_background_texture = ExtResource("5_lhfn6")
+game_background_texture = ExtResource("5_da04n")
 
 [node name="GridReference" parent="." instance=ExtResource("1_yo03j")]
+visible = false
 show_fifth = true
 
 [node name="StatusHUD" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("2_jwau4")
 
 [node name="GridContainer" type="GridContainer" parent="StatusHUD"]

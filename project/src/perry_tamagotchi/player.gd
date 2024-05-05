@@ -56,7 +56,7 @@ func assign_hunger_satisfy_position(pos):
 	hunger_satisfy_node_position = pos
 
 func _on_tween_timer_timeout():
-	
+
 	if !override_position:
 		new_tween_position_selection = randi_range(0,len(tween_positions)-1)
 		while new_tween_position_selection == current_tween_position_selection:
@@ -69,7 +69,7 @@ func _on_tween_timer_timeout():
 		var tween = create_tween()
 		tween.finished.connect(_on_tween_completed)
 		tween.tween_property(self, "position", new_tween_position, 2).set_ease(Tween.EASE_OUT)
-		
+
 func _on_tween_completed():
 
 	if !override_position and !pending_override:
@@ -81,7 +81,7 @@ func _on_tween_completed():
 	elif override_position and !pending_override:
 		self.hide()
 		player_eating.emit()
-		
+
 	if pending_override:
 		new_tween_position = pending_tween_position
 		var new_wait_time = randi_range(1,5)

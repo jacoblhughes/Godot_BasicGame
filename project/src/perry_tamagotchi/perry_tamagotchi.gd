@@ -108,7 +108,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
-	if living_status and last_hunger_satisfy != {}:
+	if living_status and last_hunger_satisfy != {} and GameManager.get_game_enabled():
 		_check_hunger()
 
 
