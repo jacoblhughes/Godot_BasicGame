@@ -7,13 +7,24 @@ func _ready():
 		factor = 1
 	else:
 		factor = -1
+	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	pass # Replace with function body.
 
+func _on_clickable_input_event(event, _input_position):
+	if GameManager.get_game_enabled():
+		
+		if event.pressed:
+			apply_impulse(Vector2(0,2000 * -factor),%Marker2D.global_position)
+		if !event.pressed:
+			apply_impulse(Vector2(0,2000 * factor),%Marker2D.global_position)
+	
+
 func _physics_process(delta):
-	if Input.is_action_just_pressed("hit_space"):
-		apply_impulse(Vector2(0,2000 * -factor),%Marker2D.global_position)
-	elif Input.is_action_just_released("hit_space"):
-		apply_impulse(Vector2(0,2000 * factor),%Marker2D.global_position)
+	pass
+	#if Input.is_action_just_pressed("hit_space"):
+		#apply_impulse(Vector2(0,2000 * -factor),%Marker2D.global_position)
+	#elif Input.is_action_just_released("hit_space"):
+		#apply_impulse(Vector2(0,2000 * factor),%Marker2D.global_position)
 
 
 func _integrate_forces(state):

@@ -232,8 +232,8 @@ func initiate_highscores_section():
 				config.set_value(key, "happiness", 100)
 			if !config.has_section_key(key,"last_hunger_satisfy") or typeof(config.get_value(key,"last_hunger_satisfy")) != 27:
 				config.set_value(key, "last_hunger_satisfy", {})
-			if !config.has_section_key(key,"last_hunger_penalize") or typeof(config.get_value(key,"last_hunger_penalize")) != 27:
-				config.set_value(key, "last_hunger_penalize", {})
+			if !config.has_section_key(key,"last_health_satisfy") or typeof(config.get_value(key,"last_health_satisfy")) != 27:
+				config.set_value(key, "last_health_satisfy", {})
 			if !config.has_section_key(key,"last_happiness_satisfy") or typeof(config.get_value(key,"last_happiness_satisfy")) != 27:
 				config.set_value(key, "last_happiness_satisfy", {})
 			config.save(perry_arcade_path)
@@ -271,6 +271,15 @@ func reset_high_scores():
 	for key in games_list.keys():
 		config.set_value(key, "scores", [0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 		config.set_value(key, "names", ["JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH", "JLH"])
+		if key == "13":
+			config.set_value(key, "living",false)
+			config.set_value(key, "hatch_time", {})
+			config.set_value(key, "health", 100)
+			config.set_value(key, "hunger", 100)
+			config.set_value(key, "happiness", 100)
+			config.set_value(key, "last_hunger_satisfy", {})
+			config.set_value(key, "last_health_satisfy", {})
+			config.set_value(key, "last_happiness_satisfy", {})
 		config.save(perry_arcade_path)
 
 func save_background_music_choice(value):
@@ -297,7 +306,7 @@ func save_game_effects_value(value):
 	#config.set_value(save_key, "hunger", status.get("hunger", 100))
 	#config.set_value(save_key, "happiness", status.get("happiness", 100))
 	#config.set_value(save_key, "last_hunger_satisfy", status.get("last_hunger_satisfy", 0))
-	#config.set_value(save_key, "last_hunger_penalize", status.get("last_hunger_penalize", 0))
+	#config.set_value(save_key, "last_health_satisfy", status.get("last_health_satisfy", 0))
 	#config.save(perry_arcade_path)
 
 func save_perry_tamagotchi_status(status):
@@ -310,7 +319,7 @@ func save_perry_tamagotchi_status(status):
 	config.set_value(save_key, "hunger", status.get("hunger", 100))
 	config.set_value(save_key, "happiness", status.get("happiness", 100))
 	config.set_value(save_key, "last_hunger_satisfy", status.get("last_hunger_satisfy", {}))
-	config.set_value(save_key, "last_hunger_penalize", status.get("last_hunger_penalize", {}))
+	config.set_value(save_key, "last_health_satisfy", status.get("last_health_satisfy", {}))
 	config.set_value(save_key, "last_happiness_satisfy", status.get("last_happiness_satisfy", {}))
 	config.save(perry_arcade_path)
 
@@ -324,7 +333,7 @@ func load_perry_tamagotchi_status():
 		"hunger": config.get_value(save_key, "hunger", 100),
 		"happiness": config.get_value(save_key, "happiness", 100),
 		"last_hunger_satisfy": config.get_value(save_key, "last_hunger_satisfy",  {}),
-		"last_hunger_penalize": config.get_value(save_key, "last_hunger_penalize",  {}),
+		"last_health_satisfy": config.get_value(save_key, "last_health_satisfy",  {}),
 		"last_happiness_satisfy": config.get_value(save_key, "last_happiness_satisfy",  {}),
 	}
 	return status

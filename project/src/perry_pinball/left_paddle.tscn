@@ -11,6 +11,7 @@ height = 128.0
 rotation = 2.0944
 mass = 5.0
 gravity_scale = 0.0
+can_sleep = false
 script = ExtResource("1_5dq7t")
 
 [node name="Marker2D" type="Marker2D" parent="."]

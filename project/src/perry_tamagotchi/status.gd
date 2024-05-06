@@ -15,7 +15,7 @@ func _process(delta):
 	pass
 
 func set_status(status):
-	print(status)
+
 	var current_living_status = status.get("living", false)
 	if current_living_status:
 		%Living.text = str(status.get("living", false))
@@ -24,7 +24,7 @@ func set_status(status):
 		%Hunger.value = status.get("hunger", 100)
 		%Happiness.value = status.get("happiness", 100)
 		%LastHungerSatisfy.text = Time.get_datetime_string_from_datetime_dict(status.get("last_hunger_satisfy", {}),true)
-		%LastHungerPenalize.text = Time.get_datetime_string_from_datetime_dict(status.get("last_hunger_penalize", {}),true)
+		%LastHungerPenalize.text = Time.get_datetime_string_from_datetime_dict(status.get("last_health_satisfy", {}),true)
 		%LastHappinessSatisfy.text = Time.get_datetime_string_from_datetime_dict(status.get("last_happiness_satisfy", {}),true)
 	else:
 		%Living.text = str(status.get("living", false))
@@ -33,7 +33,7 @@ func set_status(status):
 		%Hunger.value = status.get("hunger", 100)
 		%Happiness.value = status.get("happiness", 100)
 		%LastHungerSatisfy.text = str(status.get("last_hunger_satisfy", {}))
-		%LastHungerPenalize.text = str(status.get("last_hunger_penalize", {}))
+		%LastHungerPenalize.text = str(status.get("last_health_satisfy", {}))
 		%LastHappinessSatisfy.text =str(status.get("last_happiness_satisfy", {}))
 	# Assign the loaded values to the variables
 
