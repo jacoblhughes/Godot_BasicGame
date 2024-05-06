@@ -12,7 +12,7 @@ var game_time_left_timer_value = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
@@ -50,6 +50,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	
+
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)

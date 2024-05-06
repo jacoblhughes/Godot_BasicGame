@@ -13,6 +13,6 @@ func _process(delta):
 
 
 func _on_clickable_input_event(event, input_position):
-	if event.pressed and can_launch:
+	if event.pressed and can_launch and GameManager.get_game_enabled():
 		apply_impulse(Vector2(0,-5000))
 		can_launch = false

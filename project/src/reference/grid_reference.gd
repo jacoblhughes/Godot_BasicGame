@@ -6,6 +6,7 @@ extends CanvasLayer
 @export var show_third : bool  : set = set_show_third
 @export var show_fourth : bool  : set = set_show_fourth
 @export var show_fifth : bool  : set = set_show_fifth
+@export var show_sixth : bool : set = set_show_sixth
 @export var show_9x16 : bool  : set = set_show_ninesixteen
 @export var show_18x32 : bool  : set = set_show_eighteenthirtytwo
 
@@ -29,6 +30,11 @@ func set_show_fourth(value):
 func set_show_fifth(value):
 		show_fifth = value
 		%FifthGrid.visible = value
+
+func set_show_sixth(value):
+		show_sixth = value
+		%SixthGrid.visible = value
+
 
 func set_show_ninesixteen(value):
 		show_9x16 = value

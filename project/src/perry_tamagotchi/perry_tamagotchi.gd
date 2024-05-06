@@ -291,7 +291,7 @@ func _check_hunger_and_happiness():
 			health_effected = false
 			health_status +=1 # Subtract some health if hunger reaches 0
 			health_status = min(health_status, 100)  # Prevent health from dropping below 0
-			
+
 		## Update the HUD and save the game state
 
 

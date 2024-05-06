@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://tnt2ps7utby6" path="res://src/perry_pinball/textures/background.png" id="3_ddbgp"]
 [ext_resource type="PackedScene" uid="uid://lcx8nxfsn0dl" path="res://src/perry_pinball/left_paddle.tscn" id="4_ani1h"]
 [ext_resource type="PackedScene" uid="uid://denfedtiiogso" path="res://src/perry_pinball/right_paddle.tscn" id="5_wpo1i"]
-[ext_resource type="Script" path="res://src/perry_pinball/ball.gd" id="5_wyirj"]
 [ext_resource type="Script" path="res://src/perry_pinball/spring.gd" id="6_0ygbd"]
+[ext_resource type="Script" path="res://src/perry_pinball/pinball.gd" id="6_uxxsj"]
+[ext_resource type="Texture2D" uid="uid://chijw7jghe4i3" path="res://src/perry_pinball/textures/pinball.png" id="7_shnbq"]
 [ext_resource type="PackedScene" uid="uid://pue0wwaoec4b" path="res://src/perry_pinball/bumper.tscn" id="8_t6jch"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bi8t"]
@@ -22,8 +23,6 @@ bounce = 0.6
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pac4u"]
 friction = 0.3
 bounce = 0.5
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_2is3e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wi2l7"]
 radius = 24.0
@@ -45,6 +44,9 @@ physics_material_override = SubResource("PhysicsMaterial_5bi8t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PinballMachine/BallWall"]
 shape = SubResource("RectangleShape2D_4rwsv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine/BallWall"]
+polygon = PackedVector2Array(8, 20, 8, 428, -8, 428, -8, -428, -24, -524, -472, -492, -472, -508, -24, -540, 8, -428)
 
 [node name="OuterWalls" type="StaticBody2D" parent="PinballMachine"]
 
@@ -84,24 +86,28 @@ bias = 0.9
 [node name="RightPaddle" parent="PinballMachine/RightBumper/PinJoint2D" instance=ExtResource("5_wpo1i")]
 unique_name_in_owner = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="PinballMachine"]
+[node name="Catch" type="StaticBody2D" parent="PinballMachine"]
 position = Vector2(160, 1120)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine/Catch"]
 polygon = PackedVector2Array(-112, -80, 160, 52, 448, 76, 448, 112, -112, 112)
 
-[node name="Ball" type="RigidBody2D" parent="." groups=["ball"]]
+[node name="Polygon2D" type="Polygon2D" parent="PinballMachine/Catch"]
+color = Color(0.84648, 0.550683, 0, 1)
+polygon = PackedVector2Array(-112, -80, 160, 52, 448, 76, 448, 112, -112, 112)
+
+[node name="Pinball" type="RigidBody2D" parent="." groups=["ball"]]
 position = Vector2(640, 1132)
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_pac4u")
 gravity_scale = 0.8
-script = ExtResource("5_wyirj")
+script = ExtResource("6_uxxsj")
 
-[node name="Sprite2D" type="Sprite2D" parent="Ball"]
-scale = Vector2(32, 32)
-texture = SubResource("CanvasTexture_2is3e")
+[node name="Sprite2D" type="Sprite2D" parent="Pinball"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_shnbq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pinball"]
 shape = SubResource("CircleShape2D_wi2l7")
 
 [node name="Spring" type="Area2D" parent="."]

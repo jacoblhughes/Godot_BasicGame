@@ -12,12 +12,12 @@ func _ready():
 
 func _on_clickable_input_event(event, _input_position):
 	if GameManager.get_game_enabled():
-		
+
 		if event.pressed:
 			apply_impulse(Vector2(0,2000 * -factor),%Marker2D.global_position)
 		if !event.pressed:
 			apply_impulse(Vector2(0,2000 * factor),%Marker2D.global_position)
-	
+
 
 func _physics_process(delta):
 	pass

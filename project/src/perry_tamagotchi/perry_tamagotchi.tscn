@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcb2atrka7rpg"]
+[gd_scene load_steps=11 format=3 uid="uid://bcb2atrka7rpg"]
 
 [ext_resource type="Script" path="res://src/perry_tamagotchi/perry_tamagotchi.gd" id="1_67vg0"]
 [ext_resource type="Script" path="res://src/perry_tamagotchi/status.gd" id="2_jwau4"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="4_hc1e6"]
+[ext_resource type="PackedScene" uid="uid://brwrw47ug7fwj" path="res://src/reference/grid_reference.tscn" id="4_q8jp0"]
 [ext_resource type="PackedScene" uid="uid://wyxnlnfdot65" path="res://src/perry_tamagotchi/player.tscn" id="4_udded"]
 [ext_resource type="PackedScene" uid="uid://cm2g75if5ikie" path="res://src/perry_tamagotchi/egg.tscn" id="5_4uxp6"]
 [ext_resource type="Texture2D" uid="uid://dtvt5yswyd1jr" path="res://src/perry_tamagotchi/textures/background.png" id="5_da04n"]
 [ext_resource type="PackedScene" uid="uid://ycyrtwiwu34s" path="res://src/perry_tamagotchi/hunger_satisfy.tscn" id="6_un5if"]
 [ext_resource type="PackedScene" uid="uid://k3a3utfo8fh1" path="res://src/perry_tamagotchi/happiness_satisfy.tscn" id="9_geso7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryljj"]
+bg_color = Color(0.696208, 0, 0.206916, 1)
 
 [node name="PerryTamagotchi" type="Node2D" node_paths=PackedStringArray("status_hud", "starting_marker", "tween_locations_node", "hunger_satisfy_node", "happiness_satisfy_node")]
 script = ExtResource("1_67vg0")
@@ -20,24 +24,41 @@ hunger_satisfy_node = NodePath("HungerSatisfy")
 happiness_satisfy_node = NodePath("HappinessSatisfy")
 metadata/_edit_vertical_guides_ = [360.0]
 
-[node name="GameBackground" parent="." instance=ExtResource("4_hc1e6")]
+[node name="GridReference" parent="." instance=ExtResource("4_q8jp0")]
 visible = false
+show_sixth = true
+
+[node name="GameBackground" parent="." instance=ExtResource("4_hc1e6")]
 game_background_texture = ExtResource("5_da04n")
 
 [node name="StatusHUD" type="CanvasLayer" parent="."]
 script = ExtResource("2_jwau4")
 
-[node name="GridContainer" type="GridContainer" parent="StatusHUD"]
+[node name="MarginContainer" type="MarginContainer" parent="StatusHUD"]
 anchors_preset = -1
 anchor_top = 0.8
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="StatusHUD/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ryljj")
+
+[node name="GridContainer" type="GridContainer" parent="StatusHUD/MarginContainer"]
+layout_mode = 2
 mouse_filter = 2
 columns = 2
 
-[node name="Label" type="Label" parent="StatusHUD/GridContainer"]
+[node name="Label" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -45,13 +66,14 @@ text = "Living Status"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Living" type="Label" parent="StatusHUD/GridContainer"]
+[node name="Living" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="Label3" type="Label" parent="StatusHUD/GridContainer"]
+[node name="Label3" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -59,13 +81,13 @@ text = "Hatch Time"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HatchTime" type="Label" parent="StatusHUD/GridContainer"]
+[node name="HatchTime" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="Label5" type="Label" parent="StatusHUD/GridContainer"]
+[node name="Label5" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -73,13 +95,13 @@ text = "Health"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Health" type="ProgressBar" parent="StatusHUD/GridContainer"]
+[node name="Health" type="ProgressBar" parent="StatusHUD/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="Label7" type="Label" parent="StatusHUD/GridContainer"]
+[node name="Label7" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -87,13 +109,13 @@ text = "Hunger"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Hunger" type="ProgressBar" parent="StatusHUD/GridContainer"]
+[node name="Hunger" type="ProgressBar" parent="StatusHUD/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="Label9" type="Label" parent="StatusHUD/GridContainer"]
+[node name="Label9" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -101,13 +123,14 @@ text = "Happiness"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Happiness" type="ProgressBar" parent="StatusHUD/GridContainer"]
+[node name="Happiness" type="ProgressBar" parent="StatusHUD/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="Label2" type="Label" parent="StatusHUD/GridContainer"]
+[node name="Label2" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -115,13 +138,15 @@ text = "Last Hunger Satisfy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LastHungerSatisfy" type="Label" parent="StatusHUD/GridContainer"]
+[node name="LastHungerSatisfy" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="Label8" type="Label" parent="StatusHUD/GridContainer"]
+[node name="Label8" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -129,13 +154,15 @@ text = "Last Happiness Satisfy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LastHappinessSatisfy" type="Label" parent="StatusHUD/GridContainer"]
+[node name="LastHappinessSatisfy" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="Label4" type="Label" parent="StatusHUD/GridContainer"]
+[node name="Label4" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -143,34 +170,37 @@ text = "Last Hunger Penalize"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LastHungerPenalize" type="Label" parent="StatusHUD/GridContainer"]
+[node name="LastHungerPenalize" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="HungerSatisfy" type="Button" parent="StatusHUD/GridContainer"]
+[node name="HungerSatisfy" type="Button" parent="StatusHUD/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Eat"
 
-[node name="HappinessSatisfy" type="Button" parent="StatusHUD/GridContainer"]
+[node name="HappinessSatisfy" type="Button" parent="StatusHUD/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Play"
 
-[node name="Label6" type="Label" parent="StatusHUD/GridContainer"]
+[node name="Label6" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
+visible = false
 layout_mode = 2
 text = "Current Time:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CurrentTime" type="Label" parent="StatusHUD/GridContainer"]
+[node name="CurrentTime" type="Label" parent="StatusHUD/MarginContainer/GridContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
