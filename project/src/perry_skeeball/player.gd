@@ -5,6 +5,7 @@ class_name PerrySkeeballPlayer
 @export var start_position : Marker2D
 const JUMP_VELOCITY = -500.0
 var can_shoot = true
+var target_position
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 func _ready():
@@ -22,9 +23,14 @@ func _on_clickable_input_event(event, input_position):
 		velocity.x = direction.x * JUMP_VELOCITY
 		velocity.y = direction.y * JUMP_VELOCITY
 
+		target_position = input_position
+
 func _physics_process(delta):
 	if GameManager.get_game_enabled():
 		move_and_slide()
+		var adjusted_direction = (target_position - global_position).normalized()
+		$Aim.rotation = adjusted_direction.angle() - rotation
+
 
 func shoot_straight():
 	var magnitude = velocity.length()

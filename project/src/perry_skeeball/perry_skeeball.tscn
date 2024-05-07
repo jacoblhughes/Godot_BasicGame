@@ -60,22 +60,22 @@ worth = 5
 speed = 300
 
 [node name="ScoringZone4" parent="ScoringZones" instance=ExtResource("6_a640e")]
-position = Vector2(128, 224)
+position = Vector2(192, 224)
 worth = 4
 speed = 250
 
 [node name="ScoringZone3" parent="ScoringZones" instance=ExtResource("6_a640e")]
-position = Vector2(128, 320)
+position = Vector2(256, 320)
 worth = 3
 speed = 200
 
 [node name="ScoringZone2" parent="ScoringZones" instance=ExtResource("6_a640e")]
-position = Vector2(128, 416)
+position = Vector2(320, 416)
 worth = 2
 speed = 150
 
 [node name="ScoringZone1" parent="ScoringZones" instance=ExtResource("6_a640e")]
-position = Vector2(128, 512)
+position = Vector2(384, 512)
 worth = 1
 speed = 100
 
@@ -84,7 +84,7 @@ unique_name_in_owner = true
 position = Vector2(360, 1216)
 motion_mode = 1
 script = ExtResource("5_2rkmk")
-aim_node = NodePath("../Aim")
+aim_node = NodePath("Aim")
 start_position = NodePath("../StartPosition")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
@@ -94,29 +94,17 @@ texture = ExtResource("4_plxv8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_4k4iq")
 
-[node name="JumpZone" type="Area2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(360, 640)
-script = ExtResource("6_ftwjx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpZone"]
-shape = SubResource("RectangleShape2D_4dxcx")
-
-[node name="Aim" type="Control" parent="."]
+[node name="Aim" type="Control" parent="Player"]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 360.0
-offset_top = 1216.0
-offset_right = 360.0
-offset_bottom = 1216.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_oqjgx")
 
-[node name="TextureRect" type="TextureRect" parent="Aim"]
+[node name="TextureRect" type="TextureRect" parent="Player/Aim"]
 layout_mode = 0
 offset_left = -24.0
 offset_top = -128.0
@@ -124,6 +112,14 @@ offset_right = 56.0
 offset_bottom = -80.0
 rotation = -1.5708
 texture = ExtResource("5_8uj86")
+
+[node name="JumpZone" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(360, 640)
+script = ExtResource("6_ftwjx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpZone"]
+shape = SubResource("RectangleShape2D_4dxcx")
 
 [node name="LeftWall" parent="." instance=ExtResource("12_41p0c")]
 unique_name_in_owner = true

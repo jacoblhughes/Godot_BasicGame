@@ -31,7 +31,7 @@ func _ready():
 	if yform > 1280:
 #		%Camera2D.enabled = true
 #		%Camera2D.zoom.y = yform/1280
-		var nodes_to_move =[%Floor,%StartPosition,%Player,%JumpZone,%LeftWall,%RightWall,%PlayerDespawn,%Aim]
+		var nodes_to_move =[%Floor,%StartPosition,%Player,%JumpZone,%LeftWall,%RightWall,%PlayerDespawn]
 		for node in nodes_to_move:
 			node.position.y *= yatio
 		var nodes_to_scale = [%Floor,%LeftWall,%RightWall,%PlayerDespawn]
@@ -39,7 +39,7 @@ func _ready():
 			node.scale.y *= yatio
 
 	if xform > 720:
-		var nodes_to_move =[%Floor,%StartPosition,%Player,%JumpZone,%Aim,%LeftBound,%RightBound,%LeftWall,%RightWall,%PlayerDespawn]
+		var nodes_to_move =[%Floor,%StartPosition,%Player,%JumpZone,%LeftBound,%RightBound,%LeftWall,%RightWall,%PlayerDespawn]
 		for node in nodes_to_move:
 			node.position.x *= xatio
 		var nodes_to_scale = [%Floor,%JumpZone,%PlayerDespawn]

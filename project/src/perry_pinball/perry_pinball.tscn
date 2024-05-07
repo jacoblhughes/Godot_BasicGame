@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://pue0wwaoec4b" path="res://src/perry_pinball/bumper.tscn" id="8_t6jch"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bi8t"]
-bounce = 0.6
+bounce = 0.5
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rwsv"]
-size = Vector2(16, 856)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w6l0"]
+size = Vector2(144, 16)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x1emw"]
 friction = 0.8
@@ -22,7 +22,7 @@ bounce = 0.6
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pac4u"]
 friction = 0.3
-bounce = 0.5
+bounce = 0.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wi2l7"]
 radius = 24.0
@@ -42,11 +42,17 @@ game_background_texture = ExtResource("3_ddbgp")
 position = Vector2(600, 684)
 physics_material_override = SubResource("PhysicsMaterial_5bi8t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PinballMachine/BallWall"]
-shape = SubResource("RectangleShape2D_4rwsv")
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine/BallWall"]
-polygon = PackedVector2Array(8, 20, 8, 428, -8, 428, -8, -428, -24, -524, -472, -492, -472, -508, -24, -540, 8, -428)
+polygon = PackedVector2Array(8, 20, 8, 428, -8, 428, -8, -428, -8, -516, -24, -532, -400, -532, -400, -548, -8, -548, 8, -532, 8, -428)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinballMachine/BallWall"]
+position = Vector2(-472, -540)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_1w6l0")
+one_way_collision = true
+
+[node name="Polygon2D" type="Polygon2D" parent="PinballMachine/BallWall"]
+polygon = PackedVector2Array(8, 20, 8, 428, -8, 428, -8, -428, -8, -516, -24, -532, -544, -532, -544, -548, -8, -548, 8, -532, 8, -428)
 
 [node name="OuterWalls" type="StaticBody2D" parent="PinballMachine"]
 
@@ -120,10 +126,10 @@ shape = SubResource("RectangleShape2D_pkjii")
 [node name="Bumpers" type="Node2D" parent="."]
 
 [node name="Bumper" parent="Bumpers" instance=ExtResource("8_t6jch")]
-position = Vector2(320, 320)
+position = Vector2(320, 384)
 
 [node name="Bumper2" parent="Bumpers" instance=ExtResource("8_t6jch")]
-position = Vector2(160, 562)
+position = Vector2(192, 576)
 
 [node name="Bumper3" parent="Bumpers" instance=ExtResource("8_t6jch")]
-position = Vector2(480, 640)
+position = Vector2(448, 576)
