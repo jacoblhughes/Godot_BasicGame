@@ -1,21 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://b5lf2x22u4o8p"]
+[gd_scene load_steps=13 format=3 uid="uid://b5lf2x22u4o8p"]
 
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="1_d7u1b"]
 [ext_resource type="Script" path="res://src/perry_skeeball/perry_skeeball.gd" id="1_tajwk"]
 [ext_resource type="Texture2D" uid="uid://cweqdv5xykd43" path="res://src/perry_skeeball/textures/background.png" id="2_nmeb6"]
 [ext_resource type="Texture2D" uid="uid://bi82puqvaqk2j" path="res://src/perry_skeeball/textures/floor.png" id="3_clg7h"]
-[ext_resource type="Texture2D" uid="uid://1us1vavoubli" path="res://src/perry_skeeball/textures/player.png" id="4_plxv8"]
-[ext_resource type="Script" path="res://src/perry_skeeball/player.gd" id="5_2rkmk"]
-[ext_resource type="Texture2D" uid="uid://cied0gacevm80" path="res://src/perry_skeeball/textures/arrow.png" id="5_8uj86"]
 [ext_resource type="Script" path="res://src/perry_skeeball/scoring_zones.gd" id="5_voyn8"]
 [ext_resource type="PackedScene" uid="uid://befoiaibcs2eg" path="res://src/perry_skeeball/scoring_zone.tscn" id="6_a640e"]
 [ext_resource type="Script" path="res://src/perry_skeeball/jump_zone.gd" id="6_ftwjx"]
-[ext_resource type="Script" path="res://src/perry_skeeball/aim.gd" id="8_oqjgx"]
+[ext_resource type="PackedScene" uid="uid://etjyvor7d7ct" path="res://src/perry_skeeball/player.tscn" id="7_pxodx"]
 [ext_resource type="PackedScene" uid="uid://dh3cbj462furn" path="res://src/perry_skeeball/wall.tscn" id="12_41p0c"]
 [ext_resource type="Script" path="res://src/perry_skeeball/player_despawn.gd" id="13_ghxpd"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4k4iq"]
-radius = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dxcx"]
 size = Vector2(720, 32)
@@ -79,39 +73,9 @@ position = Vector2(384, 512)
 worth = 1
 speed = 100
 
-[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("aim_node", "start_position")]
+[node name="Player" parent="." node_paths=PackedStringArray("start_position") instance=ExtResource("7_pxodx")]
 unique_name_in_owner = true
-position = Vector2(360, 1216)
-motion_mode = 1
-script = ExtResource("5_2rkmk")
-aim_node = NodePath("Aim")
 start_position = NodePath("../StartPosition")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-scale = Vector2(3, 3)
-texture = ExtResource("4_plxv8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_4k4iq")
-
-[node name="Aim" type="Control" parent="Player"]
-unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("8_oqjgx")
-
-[node name="TextureRect" type="TextureRect" parent="Player/Aim"]
-layout_mode = 0
-offset_left = -24.0
-offset_top = -128.0
-offset_right = 56.0
-offset_bottom = -80.0
-rotation = -1.5708
-texture = ExtResource("5_8uj86")
 
 [node name="JumpZone" type="Area2D" parent="."]
 unique_name_in_owner = true
