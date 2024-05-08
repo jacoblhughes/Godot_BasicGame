@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://src/perry_python/perry_python.gd" id="1_5btnr"]
 [ext_resource type="Texture2D" uid="uid://diogjajjjp0mt" path="res://src/perry_python/textures/background.png" id="2_hp12s"]
-[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_qh02o"]
 [ext_resource type="PackedScene" uid="uid://dfnx72qlyx548" path="res://src/perry_python/player.tscn" id="2_v5o8n"]
 [ext_resource type="PackedScene" uid="uid://bxl4qmrohr3eh" path="res://src/perry_python/body.tscn" id="3_y35yk"]
 [ext_resource type="Script" path="res://src/perry_python/spawn_food.gd" id="4_llfef"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="4_q73ho"]
 [ext_resource type="Script" path="res://src/perry_python/hit_spotter.gd" id="5_skcxu"]
 [ext_resource type="PackedScene" uid="uid://c1lvj4sddaalt" path="res://src/perry_python/food.tscn" id="6_ntsi0"]
 
@@ -14,7 +14,7 @@ script = ExtResource("1_5btnr")
 head_scene = ExtResource("2_v5o8n")
 body_scene = ExtResource("3_y35yk")
 
-[node name="GameBackground" parent="." instance=ExtResource("2_qh02o")]
+[node name="GameBackground" parent="." instance=ExtResource("4_q73ho")]
 game_background_texture = ExtResource("2_hp12s")
 
 [node name="Body" type="Node2D" parent="."]

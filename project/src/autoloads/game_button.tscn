@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://urp5eq32gjnv"]
 
-[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="1_assr7"]
+[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main.tres" id="1_assr7"]
 [ext_resource type="Script" path="res://src/autoloads/game_button.gd" id="2_8mp2g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2b0ck"]

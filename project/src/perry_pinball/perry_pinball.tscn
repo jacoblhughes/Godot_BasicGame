@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://xvrd48862wjw"]
 
-[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="1_5aqa8"]
 [ext_resource type="Script" path="res://src/perry_pinball/perry_pinball.gd" id="1_5m1s2"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="2_a5c40"]
 [ext_resource type="Texture2D" uid="uid://tnt2ps7utby6" path="res://src/perry_pinball/textures/background.png" id="3_ddbgp"]
 [ext_resource type="PackedScene" uid="uid://lcx8nxfsn0dl" path="res://src/perry_pinball/left_paddle.tscn" id="4_ani1h"]
 [ext_resource type="PackedScene" uid="uid://denfedtiiogso" path="res://src/perry_pinball/right_paddle.tscn" id="5_wpo1i"]
@@ -21,8 +21,8 @@ friction = 0.8
 bounce = 0.6
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pac4u"]
-friction = 0.3
-bounce = 0.25
+friction = 0.1
+bounce = 0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wi2l7"]
 radius = 24.0
@@ -33,7 +33,7 @@ size = Vector2(64, 64)
 [node name="PerryPinball" type="Node2D"]
 script = ExtResource("1_5m1s2")
 
-[node name="GameBackground" parent="." instance=ExtResource("1_5aqa8")]
+[node name="GameBackground" parent="." instance=ExtResource("2_a5c40")]
 game_background_texture = ExtResource("3_ddbgp")
 
 [node name="PinballMachine" type="Node2D" parent="."]
@@ -107,6 +107,8 @@ position = Vector2(640, 1132)
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_pac4u")
 gravity_scale = 0.8
+linear_damp = 0.1
+angular_damp = 0.1
 script = ExtResource("6_uxxsj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Pinball"]

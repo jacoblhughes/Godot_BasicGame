@@ -4,7 +4,7 @@ extends Control
 
 func _ready():
 	%Button.pressed.connect(_on_home_button_pressed)
-	
+
 	var games_list = GameManager.get_games_list()
 	for game_key in games_list.keys():
 		var title = games_list[game_key]['title']

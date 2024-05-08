@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cyl28swe7b43k"]
 
 [ext_resource type="Script" path="res://src/autoloads/hud.gd" id="1_mwk8y"]
-[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="2_ppr75"]
+[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main.tres" id="2_ppr75"]
 [ext_resource type="Script" path="res://src/autoloads/input_panel.gd" id="3_ttfox"]
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("input_panel")]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://b5lf2x22u4o8p"]
 
-[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="1_d7u1b"]
 [ext_resource type="Script" path="res://src/perry_skeeball/perry_skeeball.gd" id="1_tajwk"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="2_cvbvj"]
 [ext_resource type="Texture2D" uid="uid://cweqdv5xykd43" path="res://src/perry_skeeball/textures/background.png" id="2_nmeb6"]
 [ext_resource type="Texture2D" uid="uid://bi82puqvaqk2j" path="res://src/perry_skeeball/textures/floor.png" id="3_clg7h"]
 [ext_resource type="Script" path="res://src/perry_skeeball/scoring_zones.gd" id="5_voyn8"]
@@ -21,7 +21,7 @@ size = Vector2(736, 16)
 script = ExtResource("1_tajwk")
 metadata/_edit_vertical_guides_ = [360.0]
 
-[node name="GameBackground" parent="." instance=ExtResource("1_d7u1b")]
+[node name="GameBackground" parent="." instance=ExtResource("2_cvbvj")]
 game_background_texture = ExtResource("2_nmeb6")
 
 [node name="Floor" type="Sprite2D" parent="."]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ce3onoowy5npr" path="res://src/perry_squash/player.tscn" id="1_05i6n"]
 [ext_resource type="Script" path="res://src/perry_squash/perry_squash.gd" id="1_6oioj"]
-[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_qw37c"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="2_64bp4"]
 [ext_resource type="Texture2D" uid="uid://btgw3tyiu6s6a" path="res://src/perry_squash/textures/background.png" id="3_0lvnr"]
 [ext_resource type="Script" path="res://src/perry_squash/enemy_spawn.gd" id="3_w7asd"]
 [ext_resource type="PackedScene" uid="uid://cffkkoahp3jak" path="res://src/perry_squash/enemy.tscn" id="4_airey"]
@@ -19,7 +19,7 @@ size = Vector2(32, 64)
 script = ExtResource("1_6oioj")
 metadata/_edit_vertical_guides_ = [360.0]
 
-[node name="GameBackground" parent="." instance=ExtResource("2_qw37c")]
+[node name="GameBackground" parent="." instance=ExtResource("2_64bp4")]
 game_background_texture = ExtResource("3_0lvnr")
 
 [node name="EnemyTimer" type="Timer" parent="."]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://c1n3bt7ntc5gf"]
 
 [ext_resource type="Script" path="res://src/perry_polo/perry_polo.gd" id="1_ry11p"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="2_oxloa"]
 [ext_resource type="Texture2D" uid="uid://c4rylxpixdbli" path="res://src/perry_polo/textures/background.png" id="2_q4x8g"]
-[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="3_7c1vq"]
 [ext_resource type="PackedScene" uid="uid://bf4jsvnkmhkg4" path="res://src/perry_polo/ball.tscn" id="3_n2q35"]
 [ext_resource type="PackedScene" uid="uid://bxl4jcd30qnrr" path="res://src/perry_polo/wall.tscn" id="5_57nuv"]
 [ext_resource type="PackedScene" uid="uid://bv8nj3y80s60n" path="res://src/perry_polo/player.tscn" id="5_wx7nr"]
@@ -16,7 +16,7 @@ whirlpools = NodePath("Whirpools")
 metadata/_edit_horizontal_guides_ = [1200.0, 960.0, 240.0, 640.0, 480.0, 720.0, 400.0, 320.0, 800.0, 880.0, 560.0, 1040.0, 1120.0, 160.0, 640.0]
 metadata/_edit_vertical_guides_ = [680.0, 360.0, 40.0, 360.0, 200.0, 360.0, 520.0, 280.0, 440.0, 120.0, 600.0]
 
-[node name="GameBackground" parent="." instance=ExtResource("3_7c1vq")]
+[node name="GameBackground" parent="." instance=ExtResource("2_oxloa")]
 game_background_texture = ExtResource("2_q4x8g")
 
 [node name="Whirpools" type="Node2D" parent="."]

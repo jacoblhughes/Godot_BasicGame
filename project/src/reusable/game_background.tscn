@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0e3falqlw7c6"]
 
-[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="1_iary5"]
-[ext_resource type="Script" path="res://src/main/game_background.gd" id="1_ubqke"]
+[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main.tres" id="1_iary5"]
+[ext_resource type="Script" path="res://src/reusable/game_background.gd" id="1_ubqke"]
 
 [node name="GameBackground" type="CanvasLayer"]
 layer = -1

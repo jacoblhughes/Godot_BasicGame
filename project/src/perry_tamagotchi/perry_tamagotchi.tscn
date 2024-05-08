@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcb2atrka7rpg"]
+[gd_scene load_steps=10 format=3 uid="uid://bcb2atrka7rpg"]
 
 [ext_resource type="Script" path="res://src/perry_tamagotchi/perry_tamagotchi.gd" id="1_67vg0"]
 [ext_resource type="Script" path="res://src/perry_tamagotchi/status.gd" id="2_jwau4"]
-[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="4_hc1e6"]
-[ext_resource type="PackedScene" uid="uid://brwrw47ug7fwj" path="res://src/reference/grid_reference.tscn" id="4_q8jp0"]
 [ext_resource type="PackedScene" uid="uid://wyxnlnfdot65" path="res://src/perry_tamagotchi/player.tscn" id="4_udded"]
 [ext_resource type="PackedScene" uid="uid://cm2g75if5ikie" path="res://src/perry_tamagotchi/egg.tscn" id="5_4uxp6"]
 [ext_resource type="Texture2D" uid="uid://dtvt5yswyd1jr" path="res://src/perry_tamagotchi/textures/background.png" id="5_da04n"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="5_ik4tp"]
 [ext_resource type="PackedScene" uid="uid://ycyrtwiwu34s" path="res://src/perry_tamagotchi/hunger_satisfy.tscn" id="6_un5if"]
 [ext_resource type="PackedScene" uid="uid://k3a3utfo8fh1" path="res://src/perry_tamagotchi/happiness_satisfy.tscn" id="9_geso7"]
 
@@ -24,11 +23,7 @@ hunger_satisfy_node = NodePath("HungerSatisfy")
 happiness_satisfy_node = NodePath("HappinessSatisfy")
 metadata/_edit_vertical_guides_ = [360.0]
 
-[node name="GridReference" parent="." instance=ExtResource("4_q8jp0")]
-visible = false
-show_sixth = true
-
-[node name="GameBackground" parent="." instance=ExtResource("4_hc1e6")]
+[node name="GameBackground" parent="." instance=ExtResource("5_ik4tp")]
 game_background_texture = ExtResource("5_da04n")
 
 [node name="StatusHUD" type="CanvasLayer" parent="."]

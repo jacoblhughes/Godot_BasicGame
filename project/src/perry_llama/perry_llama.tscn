@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://src/perry_llama/perry_llama.gd" id="1_m1610"]
 [ext_resource type="PackedScene" uid="uid://bq80x8xgeg676" path="res://src/perry_llama/enemy.tscn" id="2_aqn3c"]
-[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/main/game_background.tscn" id="2_npa5y"]
 [ext_resource type="Texture2D" uid="uid://bp26itcmp7en1" path="res://src/perry_llama/textures/background.png" id="3_0uvvx"]
 [ext_resource type="PackedScene" uid="uid://cvxj73pvwioxn" path="res://src/perry_llama/enemy_width.tscn" id="3_et56j"]
 [ext_resource type="PackedScene" uid="uid://c3mt1hra3f11n" path="res://src/perry_llama/enemy_height.tscn" id="4_pdyo5"]
 [ext_resource type="PackedScene" uid="uid://ms4317mbra45" path="res://src/perry_llama/enemy_large.tscn" id="5_aylog"]
 [ext_resource type="PackedScene" uid="uid://cmnxppb5dpdr6" path="res://src/perry_llama/player.tscn" id="5_xhyv5"]
+[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="6_e8a6k"]
 [ext_resource type="PackedScene" uid="uid://bhvh5e4jf5b7o" path="res://src/perry_llama/despawn.tscn" id="6_lg8u8"]
 [ext_resource type="PackedScene" uid="uid://m2beoi334dvw" path="res://src/perry_llama/perry_running.tscn" id="7_mxegh"]
 [ext_resource type="Script" path="res://src/perry_llama/emeny_spawn_timer.gd" id="7_ppvet"]
@@ -21,7 +21,7 @@ script = ExtResource("1_m1610")
 enemy_scenes = Array[PackedScene]([ExtResource("3_et56j"), ExtResource("4_pdyo5"), ExtResource("5_aylog"), ExtResource("2_aqn3c")])
 metadata/_edit_horizontal_guides_ = []
 
-[node name="GameBackground" parent="." instance=ExtResource("2_npa5y")]
+[node name="GameBackground" parent="." instance=ExtResource("6_e8a6k")]
 game_background_texture = ExtResource("3_0uvvx")
 
 [node name="Floor" type="StaticBody2D" parent="."]

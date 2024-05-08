@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://2opj6l2yf0hy"]
 
 [ext_resource type="Script" path="res://src/main/highscore.gd" id="1_e5vce"]
-[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main/main.tres" id="2_73fkq"]
+[ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main.tres" id="2_73fkq"]
 [ext_resource type="PackedScene" uid="uid://davdgqbwd237w" path="res://src/main/highscore_container.tscn" id="3_83p6a"]
 
 [node name="Highscore" type="Control"]

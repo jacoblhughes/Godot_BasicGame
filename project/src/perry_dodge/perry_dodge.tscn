@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/perry_dodge/perry_dodge.gd" id="1_mjawl"]
 [ext_resource type="PackedScene" uid="uid://5w3s3bekcgvy" path="res://src/perry_dodge/enemy.tscn" id="2_ndgye"]
-[ext_resource type="Texture2D" uid="uid://dmi16l057ro3v" path="res://textures/perry_dodge/creep_background_128.png" id="3_lj6dr"]
+[ext_resource type="Texture2D" uid="uid://dmi16l057ro3v" path="res://src/perry_dodge/textures/background.png" id="3_lj6dr"]
 [ext_resource type="Script" path="res://src/perry_dodge/mob_path.gd" id="4_27mf4"]
 [ext_resource type="PackedScene" uid="uid://0dmkhtys2fv3" path="res://src/perry_dodge/player.tscn" id="5_10pmt"]
 
