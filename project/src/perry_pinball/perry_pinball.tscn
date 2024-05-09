@@ -104,9 +104,9 @@ polygon = PackedVector2Array(-112, -80, 160, 52, 448, 76, 448, 112, -112, 112)
 
 [node name="Pinball" type="RigidBody2D" parent="." groups=["ball"]]
 position = Vector2(640, 1132)
-mass = 2.0
+mass = 2.5
 physics_material_override = SubResource("PhysicsMaterial_pac4u")
-gravity_scale = 0.8
+gravity_scale = 0.9
 linear_damp = 0.1
 angular_damp = 0.1
 script = ExtResource("6_uxxsj")

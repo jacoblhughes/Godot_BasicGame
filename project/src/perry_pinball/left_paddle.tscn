@@ -5,29 +5,32 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wjs6e"]
 friction = 0.1
-bounce = 0.3
+bounce = 0.5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7j3ad"]
 radius = 15.9999
 height = 128.0
 
 [node name="LeftPaddle" type="RigidBody2D"]
-rotation = 2.0944
+rotation = 0.523599
 physics_material_override = SubResource("PhysicsMaterial_wjs6e")
 gravity_scale = 0.0
 can_sleep = false
+linear_damp = 30.0
+angular_damp = 30.0
 script = ExtResource("1_5dq7t")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-0.000465393, -128)
+position = Vector2(128, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.000117238, -64)
-rotation = 1.5708
+position = Vector2(64, 0)
+rotation = 3.14159
 scale = Vector2(2, 2)
 texture = ExtResource("2_e448l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.000117238, -64)
+position = Vector2(64, 0)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_7j3ad")
