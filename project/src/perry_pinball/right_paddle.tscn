@@ -1,23 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://denfedtiiogso"]
+[gd_scene load_steps=4 format=3 uid="uid://denfedtiiogso"]
 
 [ext_resource type="Script" path="res://src/perry_pinball/paddle.gd" id="1_6byyk"]
 [ext_resource type="Texture2D" uid="uid://bj7vuedvwa1x5" path="res://src/perry_pinball/textures/paddle.png" id="2_1xi1i"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2v4p8"]
-friction = 0.1
-bounce = 0.5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2uhir"]
 radius = 16.0
 height = 128.0
 
-[node name="RightPaddle" type="RigidBody2D"]
+[node name="RightPaddle" type="CharacterBody2D"]
 rotation = -0.523599
-physics_material_override = SubResource("PhysicsMaterial_2v4p8")
-gravity_scale = 0.0
-can_sleep = false
-linear_damp = 30.0
-angular_damp = 30.0
 script = ExtResource("1_6byyk")
 left = false
 

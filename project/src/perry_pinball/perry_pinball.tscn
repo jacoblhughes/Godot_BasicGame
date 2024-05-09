@@ -128,10 +128,10 @@ shape = SubResource("RectangleShape2D_pkjii")
 [node name="Bumpers" type="Node2D" parent="."]
 
 [node name="Bumper" parent="Bumpers" instance=ExtResource("8_t6jch")]
-position = Vector2(320, 384)
+position = Vector2(320, 320)
 
 [node name="Bumper2" parent="Bumpers" instance=ExtResource("8_t6jch")]
-position = Vector2(192, 576)
+position = Vector2(192, 512)
 
 [node name="Bumper3" parent="Bumpers" instance=ExtResource("8_t6jch")]
-position = Vector2(448, 576)
+position = Vector2(448, 512)
