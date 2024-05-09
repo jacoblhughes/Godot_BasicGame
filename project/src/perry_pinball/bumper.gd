@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var worth = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,3 +14,4 @@ func _on_body_entered(body):
 		body.linear_velocity = direction * bounce_strength
 		await get_tree().create_timer(.5).timeout
 		%AnimatedSprite2D.play("default")
+		HUD.update_score(worth)

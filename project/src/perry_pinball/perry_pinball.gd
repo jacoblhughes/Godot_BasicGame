@@ -2,7 +2,7 @@ extends Node2D
 
 var initial_score_value = 0
 var score_advance_base_value = 1
-var initial_lives_value = 1
+var initial_lives_value = 3
 var lives_advance_base_value = 1
 var initial_level_value = 1
 var level_advance_check_value = 10
@@ -53,3 +53,4 @@ func _process(delta):
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
+
