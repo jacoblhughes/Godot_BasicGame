@@ -114,15 +114,19 @@ texture = ExtResource("4_7nepx")
 physics_material_override = SubResource("PhysicsMaterial_gajnb")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine2/OuterWalls"]
-polygon = PackedVector2Array(0, 0, 0, 1280, 200, 1280, 200, 1176, 24, 1050, 24, 809, 83, 651, 11, 337, 10, 307, 18, 264, 24, 247, 37, 221, 53, 199, 90, 158, 129, 125, 131, 104, 135, 90, 144, 74, 160, 59, 180, 46, 205, 34, 229, 25, 266, 15, 312, 8, 356, 5, 400, 5, 464, 11, 515, 22, 563, 37, 607, 53, 637, 51, 659, 67, 681, 78, 690, 97, 697, 148, 692, 177, 692, 1280, 720, 1280, 720, 0)
+polygon = PackedVector2Array(0, 0, 0, 1280, 200, 1280, 200, 1176, 24, 1050, 24, 809, 83, 651, 11, 337, 10, 307, 18, 264, 24, 247, 37, 221, 53, 199, 90, 158, 129, 125, 131, 104, 135, 90, 144, 74, 160, 59, 180, 46, 205, 34, 229, 25, 266, 15, 312, 8, 356, 5, 400, 5, 464, 11, 515, 22, 563, 37, 600, 52, 621, 67, 655, 96, 680, 135, 692, 176, 692, 1280, 720, 1280, 720, 0)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="PinballMachine2/OuterWalls"]
 position = Vector2(200, 1176)
+node_a = NodePath("..")
+node_b = NodePath("LeftPaddle")
 
 [node name="LeftPaddle" parent="PinballMachine2/OuterWalls/PinJoint2D" instance=ExtResource("4_ani1h")]
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="PinballMachine2/OuterWalls"]
 position = Vector2(450, 1176)
+node_a = NodePath("../../RampWalls")
+node_b = NodePath("RightPaddle")
 
 [node name="RightPaddle" parent="PinballMachine2/OuterWalls/PinJoint2D2" instance=ExtResource("5_wpo1i")]
 
@@ -131,7 +135,7 @@ position = Vector2(450, 1280)
 physics_material_override = SubResource("PhysicsMaterial_qvbma")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine2/RampWalls"]
-polygon = PackedVector2Array(0, 0, 190, 0, 190, -1116, 182, -1132, 170, -1150, 145, -1172, 129, -1147, 141, -1136, 155, -1119, 163, -1106, 172, -1081, 178, -1057, 178, -1027, 173, -1006, 76, -672, 175, -473, 176, -230, 0, -104)
+polygon = PackedVector2Array(0, 0, 190, 0, 190, -1104, 176, -1141, 160, -1158, 145, -1172, 129, -1147, 141, -1136, 155, -1119, 163, -1106, 172, -1081, 178, -1057, 178, -1027, 173, -1006, 76, -672, 175, -473, 176, -230, 0, -104)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PinballMachine2/RampWalls"]
 polygon = PackedVector2Array(72, -1188, 85, -1181, 95, -1203, 81, -1208)
