@@ -1,15 +1,14 @@
-[gd_scene load_steps=26 format=3 uid="uid://xvrd48862wjw"]
+[gd_scene load_steps=15 format=3 uid="uid://xvrd48862wjw"]
 
 [ext_resource type="Script" path="res://src/perry_pinball/perry_pinball.gd" id="1_5m1s2"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="2_a5c40"]
+[ext_resource type="PackedScene" uid="uid://dbrwtwpvvmcen" path="res://src/perry_pinball/pinball.tscn" id="2_k0r45"]
 [ext_resource type="PackedScene" uid="uid://brwrw47ug7fwj" path="res://src/reference/grid_reference.tscn" id="2_m5b6l"]
 [ext_resource type="Texture2D" uid="uid://tnt2ps7utby6" path="res://src/perry_pinball/textures/background.png" id="3_ddbgp"]
 [ext_resource type="Texture2D" uid="uid://br8t0gx53ry6x" path="res://src/perry_pinball/textures/0Yziab.png" id="4_7nepx"]
 [ext_resource type="PackedScene" uid="uid://lcx8nxfsn0dl" path="res://src/perry_pinball/left_paddle.tscn" id="4_ani1h"]
 [ext_resource type="PackedScene" uid="uid://denfedtiiogso" path="res://src/perry_pinball/right_paddle.tscn" id="5_wpo1i"]
 [ext_resource type="PackedScene" uid="uid://c1vpyeuwjipw" path="res://src/perry_pinball/spring.tscn" id="6_55ylv"]
-[ext_resource type="Script" path="res://src/perry_pinball/pinball.gd" id="6_uxxsj"]
-[ext_resource type="Texture2D" uid="uid://chijw7jghe4i3" path="res://src/perry_pinball/textures/pinball.png" id="7_shnbq"]
 [ext_resource type="PackedScene" uid="uid://pue0wwaoec4b" path="res://src/perry_pinball/bumper.tscn" id="8_t6jch"]
 [ext_resource type="Script" path="res://src/perry_pinball/fall.gd" id="10_g0ujo"]
 
@@ -21,76 +20,14 @@ bounce = 0.6
 friction = 0.1
 bounce = 0.6
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pac4u"]
-friction = 0.1
-bounce = 0.2
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sggxg"]
-atlas = ExtResource("7_shnbq")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3seep"]
-atlas = ExtResource("7_shnbq")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g4p6g"]
-atlas = ExtResource("7_shnbq")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qwpxt"]
-atlas = ExtResource("7_shnbq")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f57ax"]
-atlas = ExtResource("7_shnbq")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_utc55"]
-atlas = ExtResource("7_shnbq")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oin8k"]
-atlas = ExtResource("7_shnbq")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sq1yt"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sggxg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3seep")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g4p6g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qwpxt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f57ax")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_utc55")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oin8k")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_wi2l7"]
-radius = 19.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nse3a"]
-size = Vector2(80, 24)
+size = Vector2(250, 24)
 
-[node name="PerryPinball" type="Node2D"]
+[node name="PerryPinball" type="Node2D" node_paths=PackedStringArray("starting_marker")]
 script = ExtResource("1_5m1s2")
-metadata/_edit_vertical_guides_ = [666.0]
+starting_marker = NodePath("StartingPosition")
+pinball_scene = ExtResource("2_k0r45")
+metadata/_edit_vertical_guides_ = [666.0, 200.0, 450.0, 325.0]
 
 [node name="GridReference" parent="." instance=ExtResource("2_m5b6l")]
 show_9x16 = true
@@ -148,25 +85,6 @@ polygon = PackedVector2Array(-49, -1214, -43, -1230, -129, -1230, -176, -1222, -
 
 [node name="Spring" parent="." instance=ExtResource("6_55ylv")]
 
-[node name="Pinball" type="RigidBody2D" parent="." node_paths=PackedStringArray("starting_position_marker") groups=["ball"]]
-position = Vector2(666, 1246)
-mass = 2.5
-physics_material_override = SubResource("PhysicsMaterial_pac4u")
-gravity_scale = 0.9
-linear_damp = 0.1
-angular_damp = 0.1
-script = ExtResource("6_uxxsj")
-starting_position_marker = NodePath("../StartingPosition")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pinball"]
-position = Vector2(4.76837e-07, -2.38419e-07)
-scale = Vector2(1.25, 1.25)
-sprite_frames = SubResource("SpriteFrames_sq1yt")
-autoplay = "default"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pinball"]
-shape = SubResource("CircleShape2D_wi2l7")
-
 [node name="Bumpers" type="Node2D" parent="."]
 
 [node name="Bumper" parent="Bumpers" instance=ExtResource("8_t6jch")]
@@ -182,7 +100,8 @@ position = Vector2(320, 320)
 worth = 3
 
 [node name="Fall" type="Area2D" parent="."]
-position = Vector2(320, 1268)
+unique_name_in_owner = true
+position = Vector2(325, 1268)
 script = ExtResource("10_g0ujo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fall"]

@@ -10,6 +10,8 @@ var level_advance_base_value = 1
 var start_timer_countdown_value = 3
 var game_time_left_timer_value = 1
 
+@export var starting_marker : Marker2D
+@export var pinball_scene : PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -46,7 +48,8 @@ func _ready():
 			node.scale.x *= xatio
 	pass # Replace with function body.
 
-
+	_spawn_pinball()
+	%Fall.pinball_oob.connect(_on_pinball_ooo)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -54,3 +57,12 @@ func _process(delta):
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
 
+func _spawn_pinball():
+	var pinball = pinball_scene.instantiate()
+	pinball.position = starting_marker.position
+
+	add_child.call_deferred(pinball)
+	pass
+
+func _on_pinball_ooo():
+	_spawn_pinball()

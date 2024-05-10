@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://dbrwtwpvvmcen"]
+
+[ext_resource type="Script" path="res://src/perry_pinball/pinball.gd" id="1_kcq6c"]
+[ext_resource type="Texture2D" uid="uid://chijw7jghe4i3" path="res://src/perry_pinball/textures/pinball.png" id="2_su7pj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pac4u"]
+friction = 0.1
+bounce = 0.2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sggxg"]
+atlas = ExtResource("2_su7pj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3seep"]
+atlas = ExtResource("2_su7pj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4p6g"]
+atlas = ExtResource("2_su7pj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwpxt"]
+atlas = ExtResource("2_su7pj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f57ax"]
+atlas = ExtResource("2_su7pj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utc55"]
+atlas = ExtResource("2_su7pj")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oin8k"]
+atlas = ExtResource("2_su7pj")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sq1yt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sggxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3seep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4p6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwpxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f57ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utc55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oin8k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wi2l7"]
+radius = 19.0
+
+[node name="Pinball" type="RigidBody2D" groups=["ball"]]
+position = Vector2(666, 1246)
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_pac4u")
+gravity_scale = 0.9
+linear_damp = 0.1
+angular_damp = 0.1
+script = ExtResource("1_kcq6c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, -2.38419e-07)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_sq1yt")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wi2l7")

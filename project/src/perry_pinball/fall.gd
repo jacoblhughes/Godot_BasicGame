@@ -1,5 +1,6 @@
 extends Area2D
 
+signal pinball_oob
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,4 +15,5 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.is_in_group("ball"):
 		HUD.update_lives()
-		body.reset_position()
+		pinball_oob.emit()
+		body.queue_free()
