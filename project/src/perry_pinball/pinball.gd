@@ -1,5 +1,7 @@
 extends RigidBody2D
 var can_launch = false
+@export var starting_position_marker : Marker2D
+@export var impulse_value = 5500
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
@@ -14,5 +16,8 @@ func _process(delta):
 
 func _on_clickable_input_event(event, input_position):
 	if event.pressed and can_launch and GameManager.get_game_enabled():
-		apply_impulse(Vector2(0,-5000))
+		apply_impulse(Vector2(0,-impulse_value))
 		can_launch = false
+
+func reset_position():
+	position = starting_position_marker.position

@@ -4,24 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://bj7vuedvwa1x5" path="res://src/perry_pinball/textures/paddle.png" id="2_1xi1i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2uhir"]
-radius = 16.0
-height = 128.0
+radius = 8.0
+height = 96.0
 
 [node name="RightPaddle" type="CharacterBody2D"]
 rotation = -0.523599
 script = ExtResource("1_6byyk")
 left = false
 
-[node name="Marker2D" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(-128, 0)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-64, 0)
-scale = Vector2(2, 2)
+position = Vector2(-48, 0)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_1xi1i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-64, 0)
+position = Vector2(-48, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2uhir")
