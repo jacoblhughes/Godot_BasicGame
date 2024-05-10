@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="2_a5c40"]
 [ext_resource type="PackedScene" uid="uid://brwrw47ug7fwj" path="res://src/reference/grid_reference.tscn" id="2_m5b6l"]
 [ext_resource type="Texture2D" uid="uid://tnt2ps7utby6" path="res://src/perry_pinball/textures/background.png" id="3_ddbgp"]
-[ext_resource type="Texture2D" uid="uid://br8t0gx53ry6x" path="res://src/perry_pinball/textures/0Yziab.png" id="4_7nepx"]
 [ext_resource type="PackedScene" uid="uid://lcx8nxfsn0dl" path="res://src/perry_pinball/left_paddle.tscn" id="4_ani1h"]
+[ext_resource type="Texture2D" uid="uid://br8t0gx53ry6x" path="res://src/perry_pinball/textures/0Yziab.png" id="5_kvd41"]
 [ext_resource type="PackedScene" uid="uid://denfedtiiogso" path="res://src/perry_pinball/right_paddle.tscn" id="5_wpo1i"]
 [ext_resource type="PackedScene" uid="uid://c1vpyeuwjipw" path="res://src/perry_pinball/spring.tscn" id="6_55ylv"]
 [ext_resource type="Script" path="res://src/perry_pinball/pinball.gd" id="6_uxxsj"]
@@ -93,6 +93,7 @@ script = ExtResource("1_5m1s2")
 metadata/_edit_vertical_guides_ = [666.0]
 
 [node name="GridReference" parent="." instance=ExtResource("2_m5b6l")]
+visible = false
 show_9x16 = true
 
 [node name="GameBackground" parent="." instance=ExtResource("2_a5c40")]
@@ -100,13 +101,26 @@ game_background_texture = ExtResource("3_ddbgp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -2
-visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_top = -157.0
 offset_right = 720.0
 offset_bottom = 1280.0
-texture = ExtResource("4_7nepx")
+texture = ExtResource("5_kvd41")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(460, 1184)
+node_a = NodePath("../PinballMachine2/RampWalls")
+node_b = NodePath("RightPaddle")
+
+[node name="RightPaddle" parent="PinJoint2D2" instance=ExtResource("5_wpo1i")]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(188, 1184)
+node_a = NodePath("../PinballMachine2/OuterWalls")
+node_b = NodePath("LeftPaddle")
+
+[node name="LeftPaddle" parent="PinJoint2D" instance=ExtResource("4_ani1h")]
 
 [node name="PinballMachine2" type="Node2D" parent="."]
 
@@ -114,31 +128,17 @@ texture = ExtResource("4_7nepx")
 physics_material_override = SubResource("PhysicsMaterial_gajnb")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine2/OuterWalls"]
-polygon = PackedVector2Array(0, 0, 0, 1280, 200, 1280, 200, 1176, 24, 1050, 24, 809, 83, 651, 11, 337, 10, 307, 18, 264, 24, 247, 37, 221, 53, 199, 90, 158, 129, 125, 131, 104, 135, 90, 144, 74, 160, 59, 180, 46, 205, 34, 229, 25, 266, 15, 312, 8, 356, 5, 400, 5, 464, 11, 515, 22, 563, 37, 600, 52, 621, 67, 655, 96, 680, 135, 692, 176, 692, 1280, 720, 1280, 720, 0)
-
-[node name="PinJoint2D" type="PinJoint2D" parent="PinballMachine2/OuterWalls"]
-position = Vector2(200, 1176)
-node_a = NodePath("..")
-node_b = NodePath("LeftPaddle")
-
-[node name="LeftPaddle" parent="PinballMachine2/OuterWalls/PinJoint2D" instance=ExtResource("4_ani1h")]
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="PinballMachine2/OuterWalls"]
-position = Vector2(450, 1176)
-node_a = NodePath("../../RampWalls")
-node_b = NodePath("RightPaddle")
-
-[node name="RightPaddle" parent="PinballMachine2/OuterWalls/PinJoint2D2" instance=ExtResource("5_wpo1i")]
+polygon = PackedVector2Array(0, 0, 0, 1280, 200, 1280, 200, 1176, 24, 1050, 24, 809, 83, 651, 11, 337, 10, 307, 18, 264, 24, 247, 37, 221, 53, 199, 90, 158, 129, 125, 131, 104, 135, 90, 144, 74, 160, 59, 180, 46, 205, 34, 229, 25, 266, 15, 312, 8, 356, 5, 400, 5, 476, 8, 564, 32, 600, 52, 621, 67, 655, 96, 680, 135, 692, 176, 692, 1280, 720, 1280, 720, 0)
 
 [node name="RampWalls" type="StaticBody2D" parent="PinballMachine2"]
 position = Vector2(450, 1280)
 physics_material_override = SubResource("PhysicsMaterial_qvbma")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine2/RampWalls"]
-polygon = PackedVector2Array(0, 0, 190, 0, 190, -1104, 176, -1141, 160, -1158, 145, -1172, 129, -1147, 141, -1136, 155, -1119, 163, -1106, 172, -1081, 178, -1057, 178, -1027, 173, -1006, 76, -672, 175, -473, 176, -230, 0, -104)
+polygon = PackedVector2Array(0, 0, 190, 0, 190, -1104, 176, -1141, 146, -1172, 129, -1147, 141, -1136, 155, -1119, 163, -1106, 172, -1081, 178, -1057, 178, -1027, 173, -1006, 76, -672, 175, -473, 176, -230, 0, -104)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PinballMachine2/RampWalls"]
-polygon = PackedVector2Array(72, -1188, 85, -1181, 95, -1203, 81, -1208)
+polygon = PackedVector2Array(72, -1188, 85, -1181, 94, -1196, 78, -1204)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="PinballMachine2/RampWalls"]
 polygon = PackedVector2Array(14, -1207, 25, -1202, 32, -1220, 20, -1225)

@@ -5,7 +5,7 @@ var factor = 1
 var flipper_active = false  # Ensure a defined initial state
 
 var intermediate_time = 0
-var snap_time = .1
+var snap_time = .05
 var snap_angle = 60
 func _ready():
 	factor = -1 if not left else 1
