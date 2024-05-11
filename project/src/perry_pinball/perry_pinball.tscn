@@ -1,14 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://xvrd48862wjw"]
+[gd_scene load_steps=14 format=3 uid="uid://xvrd48862wjw"]
 
 [ext_resource type="Script" path="res://src/perry_pinball/perry_pinball.gd" id="1_5m1s2"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="2_a5c40"]
 [ext_resource type="PackedScene" uid="uid://dbrwtwpvvmcen" path="res://src/perry_pinball/pinball.tscn" id="2_k0r45"]
 [ext_resource type="PackedScene" uid="uid://brwrw47ug7fwj" path="res://src/reference/grid_reference.tscn" id="2_m5b6l"]
 [ext_resource type="Texture2D" uid="uid://tnt2ps7utby6" path="res://src/perry_pinball/textures/background.png" id="3_ddbgp"]
-[ext_resource type="PackedScene" uid="uid://lcx8nxfsn0dl" path="res://src/perry_pinball/left_paddle.tscn" id="4_ani1h"]
 [ext_resource type="Texture2D" uid="uid://br8t0gx53ry6x" path="res://src/perry_pinball/textures/0Yziab.png" id="5_kvd41"]
-[ext_resource type="PackedScene" uid="uid://denfedtiiogso" path="res://src/perry_pinball/right_paddle.tscn" id="5_wpo1i"]
 [ext_resource type="PackedScene" uid="uid://c1vpyeuwjipw" path="res://src/perry_pinball/spring.tscn" id="6_55ylv"]
+[ext_resource type="PackedScene" uid="uid://lcx8nxfsn0dl" path="res://src/perry_pinball/paddle.tscn" id="7_6sbu2"]
 [ext_resource type="PackedScene" uid="uid://pue0wwaoec4b" path="res://src/perry_pinball/bumper.tscn" id="8_t6jch"]
 [ext_resource type="Script" path="res://src/perry_pinball/fall.gd" id="10_g0ujo"]
 
@@ -50,14 +49,16 @@ position = Vector2(460, 1184)
 node_a = NodePath("../PinballMachine2/RampWalls")
 node_b = NodePath("RightPaddle")
 
-[node name="RightPaddle" parent="PinJoint2D2" instance=ExtResource("5_wpo1i")]
+[node name="RightPaddle" parent="PinJoint2D2" instance=ExtResource("7_6sbu2")]
+position = Vector2(-2, 0)
+left = false
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(188, 1184)
 node_a = NodePath("../PinballMachine2/OuterWalls")
 node_b = NodePath("LeftPaddle")
 
-[node name="LeftPaddle" parent="PinJoint2D" instance=ExtResource("4_ani1h")]
+[node name="LeftPaddle" parent="PinJoint2D" instance=ExtResource("7_6sbu2")]
 
 [node name="PinballMachine2" type="Node2D" parent="."]
 
