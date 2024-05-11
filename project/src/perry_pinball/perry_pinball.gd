@@ -18,6 +18,11 @@ var game_time_left_timer_value = 1
 @export var nodes_to_move_y : Array[Node]
 @export var nodes_to_scale_y : Array[Node]
 
+var xform = 0
+var yform = 0
+var xatio = 0
+var yatio = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -64,6 +69,7 @@ func _on_play_button_pressed():
 func _spawn_pinball():
 	var pinball = pinball_scene.instantiate()
 	pinball.position = starting_marker.position
+	pinball.scale = Vector2(xatio,yatio)
 
 	add_child.call_deferred(pinball)
 	pass

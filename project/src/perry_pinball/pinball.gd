@@ -1,10 +1,10 @@
 extends RigidBody2D
 var can_launch = false
 @export var starting_position_marker : Marker2D
-@export var impulse_value = 8500
+@export var impulse_value = 9500
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var additional_impulse_value = randi_range(-500,500)
+	var additional_impulse_value = randi_range(0,1500)
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	pass # Replace with function body.
 

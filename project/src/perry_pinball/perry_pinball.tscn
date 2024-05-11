@@ -30,8 +30,8 @@ size = Vector2(250, 24)
 script = ExtResource("1_5m1s2")
 starting_marker = NodePath("StartingPosition")
 pinball_scene = ExtResource("2_k0r45")
-nodes_to_move_x = [NodePath("Fall"), NodePath("StartingPosition"), NodePath("PinballMachine/RampWalls"), NodePath("PinballMachine/OuterWalls"), NodePath("PinballMachine/SideBumper"), NodePath("PinballMachine/SideBumper2")]
-nodes_to_scale_x = [NodePath("PinballMachine")]
+nodes_to_move_x = [NodePath("Fall"), NodePath("StartingPosition"), NodePath("Spring"), NodePath("PinJoint2D2"), NodePath("PinJoint2D")]
+nodes_to_scale_x = [NodePath("PinballMachine"), NodePath("PinJoint2D2/RightPaddle"), NodePath("PinJoint2D/LeftPaddle")]
 metadata/_edit_vertical_guides_ = [666.0, 200.0, 450.0, 325.0]
 
 [node name="GridReference" parent="." instance=ExtResource("2_m5b6l")]
@@ -72,7 +72,7 @@ node_b = NodePath("LeftPaddle")
 physics_material_override = SubResource("PhysicsMaterial_gajnb")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PinballMachine/OuterWalls"]
-polygon = PackedVector2Array(0, 0, 0, 1280, 200, 1280, 200, 1176, 24, 1050, 24, 809, 83, 651, 11, 337, 10, 307, 18, 264, 24, 247, 37, 221, 53, 199, 90, 158, 130, 119, 130, 104, 131, 88, 138, 73, 155, 57, 172, 40, 192, 27, 210, 20, 242, 8, 266, 3, 480, 4, 500, 8, 547, 21, 592, 40, 617, 55, 644, 80, 678, 114, 690, 135, 692, 176, 692, 1280, 720, 1280, 720, 0)
+polygon = PackedVector2Array(0, 0, 0, 1280, 200, 1280, 200, 1176, 24, 1050, 24, 809, 83, 651, 11, 337, 10, 307, 18, 264, 24, 247, 37, 221, 53, 199, 90, 158, 130, 119, 130, 104, 131, 88, 138, 73, 155, 57, 172, 40, 192, 27, 210, 20, 242, 8, 266, 3, 480, 4, 500, 8, 547, 21, 595, 36, 626, 48, 652, 68, 673, 90, 684, 110, 690, 135, 692, 176, 692, 1280, 720, 1280, 720, 0)
 
 [node name="RampWalls" type="StaticBody2D" parent="PinballMachine"]
 position = Vector2(450, 1280)
