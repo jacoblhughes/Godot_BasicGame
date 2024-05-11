@@ -12,6 +12,12 @@ var game_time_left_timer_value = 1
 
 @export var starting_marker : Marker2D
 @export var pinball_scene : PackedScene
+
+@export var nodes_to_move_x : Array[Node]
+@export var nodes_to_scale_x : Array[Node]
+@export var nodes_to_move_y : Array[Node]
+@export var nodes_to_scale_y : Array[Node]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -40,11 +46,9 @@ func _ready():
 			node.scale.y *= yatio
 
 	if xform > 720:
-		var nodes_to_move =[]
-		for node in nodes_to_move:
+		for node in nodes_to_move_x:
 			node.position.x *= xatio
-		var nodes_to_scale = []
-		for node in nodes_to_scale:
+		for node in nodes_to_scale_x:
 			node.scale.x *= xatio
 	pass # Replace with function body.
 

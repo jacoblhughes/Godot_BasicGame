@@ -17,7 +17,8 @@ func _ready():
 		#snap_angle = -abs(snap_angle)  # Ensure left flipper snap angle is negative
 	else:
 		factor = 1
-		base_angle = 210
+		base_angle = 30
+		scale = Vector2(-1,1)
 		#snap_angle = abs(snap_angle)  # Ensure right flipper snap angle is positive
 	rotation_degrees = base_angle
 func _on_clickable_input_event(event, _input_position):
