@@ -41,13 +41,9 @@ func _ready():
 	print(xform , " " , yform)
 
 	if yform > 1280:
-#		%Camera2D.enabled = true
-#		%Camera2D.zoom.y = yform/1280
-		var nodes_to_move =[]
-		for node in nodes_to_move:
+		for node in nodes_to_move_y:
 			node.position.y *= yatio
-		var nodes_to_scale = []
-		for node in nodes_to_scale:
+		for node in nodes_to_scale_y:
 			node.scale.y *= yatio
 
 	if xform > 720:
@@ -55,7 +51,7 @@ func _ready():
 			node.position.x *= xatio
 		for node in nodes_to_scale_x:
 			node.scale.x *= xatio
-	pass # Replace with function body.
+
 
 	_spawn_pinball()
 	%Fall.pinball_oob.connect(_on_pinball_ooo)
