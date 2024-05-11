@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://chijw7jghe4i3" path="res://src/perry_pinball/textures/pinball.png" id="2_su7pj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pac4u"]
-friction = 0.1
-bounce = 0.2
+friction = 0.0
+bounce = 0.1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sggxg"]
 atlas = ExtResource("2_su7pj")
