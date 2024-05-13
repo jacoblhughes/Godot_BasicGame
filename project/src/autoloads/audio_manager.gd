@@ -32,7 +32,7 @@ func set_background_music_mute(true_or_false):
 		GameManager.save_background_music_choice(background_playing)
 		return
 	pass # Replace with function body.
-	
+
 func get_background_music_status():
 	return background_playing
 
@@ -47,10 +47,10 @@ func set_game_music_mute(true_or_false):
 		AudioServer.set_bus_mute(_this_bus_index,true)
 		GameManager.save_game_effects_choice(game_effects_playing)
 	pass # Replace with function body.
-	
+
 func get_game_music_status():
 	return game_effects_playing
-	
+
 func update_background_music(value):
 
 	background_level = value
@@ -59,19 +59,19 @@ func update_background_music(value):
 	GameManager.save_background_music_value(value)
 
 	pass
-	
+
 
 func get_background_music_level():
 	return background_level
-	
-	
+
+
 func update_game_music(value):
 	game_effects_level = value
 	var _this_bus_index = AudioServer.get_bus_index("Game")
 	AudioServer.set_bus_volume_db(_this_bus_index,linear_to_db(value))
 	GameManager.save_game_effects_value(game_effects_level)
 	pass
-	
+
 
 func get_game_music_level():
 
