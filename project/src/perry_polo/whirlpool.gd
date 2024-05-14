@@ -15,7 +15,8 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 
-	if body is PerryBall:
+	if body.is_in_group("perryball"):
+		AudioManager.play_sound("perry_polo_whirlpool_sounds")
 		in_whirlpool = true
 		applyWhirlpoolForce(body)
 
@@ -35,7 +36,7 @@ func applyWhirlpoolForce(body):
 
 func _on_area_2d_body_exited(body):
 
-	if body is PerryBall:
+	if body.is_in_group("perryball"):
 		in_whirlpool = false
 	pass # Replace with function body.
 

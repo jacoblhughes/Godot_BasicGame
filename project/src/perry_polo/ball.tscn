@@ -78,7 +78,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nrpdu"]
 radius = 29.0
 
-[node name="Ball" type="CharacterBody2D"]
+[node name="Ball" type="CharacterBody2D" groups=["perryball"]]
 position = Vector2(384, 584)
 disable_mode = 2
 collision_layer = 128

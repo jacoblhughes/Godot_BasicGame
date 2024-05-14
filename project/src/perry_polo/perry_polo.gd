@@ -74,7 +74,7 @@ func _on_play_button_pressed():
 
 func _on_win_body_entered(body):
 	if(GameManager.get_game_enabled()):
-		if body is PerryBall:
+		if body.is_in_group("perryball"):
 
 			position_reset.emit()
 			HUD.update_score()
@@ -82,7 +82,7 @@ func _on_win_body_entered(body):
 				advance_level()
 
 func _on_lose_body_entered(body):
-	if body is PerryBall:
+	if body.is_in_group("perryball"):
 		position_reset.emit()
 		HUD.update_lives()
 	pass # Replace with function body.

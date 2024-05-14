@@ -1,5 +1,4 @@
 extends CharacterBody2D
-class_name PerryBall
 
 var reset_round = false
 
