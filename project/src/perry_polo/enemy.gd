@@ -1,4 +1,4 @@
-extends Paddle
+extends CharacterBody2D
 
 @export var ball : CharacterBody2D
 @export var enemy_start : Marker2D

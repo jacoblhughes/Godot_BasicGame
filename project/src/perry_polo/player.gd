@@ -1,4 +1,4 @@
-extends Paddle
+extends CharacterBody2D
 
 
 @onready var my_sprite : Sprite2D

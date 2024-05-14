@@ -13,7 +13,9 @@ var speed_increase = 1.05
 var increased_velocity : Vector2
 var collision_cooldown: float = 1.0
 var max_speed = 1000
-@onready var background : TextureRect
+
+
+
 func _ready():
 
 #	_game_initialize()
@@ -40,7 +42,8 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity * delta)
 		if collision:
 			var this_collision = collision.get_collider()
-			if this_collision is Paddle:
+			AudioManager.play_sound("perry_polo_ball_hit")
+			if this_collision.is_in_group("paddle"):
 
 				var reflect_direction = collision.get_remainder().bounce((collision.get_normal()).normalized())
 				velocity = velocity.bounce((collision.get_normal()).normalized())*speed_increase

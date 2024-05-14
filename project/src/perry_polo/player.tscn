@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/perry_polo/player.gd" id="1_mheu3"]
 [ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://src/perry_polo/textures/player.png" id="2_38w1m"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["paddle"]]
 disable_mode = 2
 collision_mask = 128
 safe_margin = 8.0

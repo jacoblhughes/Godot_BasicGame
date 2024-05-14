@@ -95,3 +95,5 @@ Notes:
 		Do I still have this?
 
 children_light_up.connect(Callable(node, "light_up"))
+
+rename sound Buses

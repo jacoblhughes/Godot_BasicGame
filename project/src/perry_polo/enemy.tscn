@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/perry_polo/enemy.gd" id="1_a8nfe"]
 [ext_resource type="Texture2D" uid="uid://chwov2ai7nyuk" path="res://src/perry_polo/textures/enemy.png" id="2_5tfko"]
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["paddle"]]
 collision_layer = 2
 collision_mask = 128
 safe_margin = 8.0
