@@ -13,20 +13,23 @@ Perry Arcade
 
 
 V2:
-
+Make advance level a universal callable
 Make level changes actually mean something
 
 How do I handle the different xatio's and the timing around moving nodes.
 	Make it consistent with call deferred or a signal
 
 Introduce at least 1 then 2 new game elements to make it fun
-If not too much of a detriment, add a loss element
+If not too much of a detriment, add another way to lose.
+
+Add at least 2 sounds per game
+Each game gets backgroudn noise
 
 Make things their own scene and arrange - get rid of /2's and such where possible
 
 make scaling all 1
 
-adjust canvaslayers
+adjust canvaslayers (probably move everything up or down one)
 
 HUD 1
 GameStartOver3
@@ -35,10 +38,12 @@ HitMeter (stuff) 2
 
 background -2
 
+
+
 perry_says
-	Make Smaller?
 	Make the buttons move or something
 	Make timer for inactivity of player
+	Make it move to a beat?
 
 perry_python
 	need to compare to snake length on when to spawn, not the score
@@ -97,3 +102,4 @@ Notes:
 children_light_up.connect(Callable(node, "light_up"))
 
 rename sound Buses
+
