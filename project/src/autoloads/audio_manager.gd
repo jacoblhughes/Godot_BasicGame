@@ -2,13 +2,13 @@ extends Node
 
 
 #main
-@export var main_applause : AudioStreamWAV 
-@export var main_game_over : AudioStreamWAV 
-@export var main_background_music : AudioStreamWAV 
+@export var main_applause : AudioStreamWAV
+@export var main_game_over : AudioStreamWAV
+@export var main_background_music : AudioStreamWAV
 
 
 #perry_polo
-@export var perry_polo_ball_hit : AudioStreamWAV 
+@export var perry_polo_ball_hit : AudioStreamWAV
 @export var perry_polo_whirlpool_sounds : Array[AudioStreamWAV]
 @export var perry_polo_background_music : AudioStreamWAV
 
@@ -38,7 +38,7 @@ func _ready():
 			p.connect("finished", Callable(self, "_on_stream_finished").bind(bus, p))
 			p.name = "Game" + str(i+1)
 			p.bus = bus
-	
+
 	background_player = AudioStreamPlayer.new()
 	background_player.name = "Background"
 	add_child(background_player)
@@ -67,7 +67,7 @@ func _process(delta):
 	for bus in queues.keys():
 		if not queues[bus].is_empty() and not available[bus].is_empty():
 
-			
+
 			var player = available[bus].pop_front()
 			var audio_stream = queues[bus].pop_front()
 			if audio_stream:
@@ -75,7 +75,7 @@ func _process(delta):
 				player.play()
 			else:
 				print("Failed to load audio stream")
-				
+
 
 func set_background_music_mute(true_or_false):
 
