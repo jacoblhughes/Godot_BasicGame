@@ -97,7 +97,7 @@ func _on_game_over():
 	for item in enemies:
 		item.queue_free()
 	rocket_timer.stop()
-	GameManager.check_highscore_and_rank()
+
 
 func _on_enemy_spawned(enemy):
 	enemy.enemy_destroyed.connect(_on_enemy_destroyed)

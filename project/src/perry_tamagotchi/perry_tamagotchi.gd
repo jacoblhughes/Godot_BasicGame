@@ -27,9 +27,10 @@ var last_hunger_satisfy
 var last_health_satisfy
 var last_happiness_satisfy
 
-var hunger_penalize_seconds = 1728
-var happiness_penalize_decrease = 1728*2
-var health_penalize_decrease = 1728/2
+var base_penalize_seconds = 1728
+var hunger_penalize_seconds = base_penalize_seconds
+var happiness_penalize_decrease = base_penalize_seconds*2
+var health_penalize_decrease = base_penalize_seconds
 var health_effected = false
 
 signal player_to_eat
@@ -79,6 +80,9 @@ func _ready():
 	last_hunger_satisfy = tamagotchi_status.get("last_hunger_satisfy",  {})
 	last_health_satisfy = tamagotchi_status.get("last_health_satisfy",  {})
 	last_happiness_satisfy =  tamagotchi_status.get("last_happiness_satisfy",  {})
+
+	if hunger_status == 0 or happiness_status == 0:
+		health_effected = true
 
 	if !living_status or hatch_time == {} or last_hunger_satisfy == {} or last_health_satisfy == {} or last_happiness_satisfy == {}:
 		living_status = false
@@ -200,17 +204,20 @@ func _on_egg_hatched():
 
 func _check_hunger_and_happiness():
 	var current_time = Time.get_unix_time_from_system()
+	var days_since_hatch = int((current_time - Time.get_unix_time_from_datetime_dict(hatch_time)) / 86400)
+	HUD.set_or_reset_score(days_since_hatch)
 	var seconds_since_last_hunger_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_hunger_satisfy)
 	var hunger_decrease = floor(seconds_since_last_hunger_satisfy / hunger_penalize_seconds)  # Calculate how much hunger should decrease
 	var seconds_since_last_happiness_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_happiness_satisfy)
 	var happiness_decrease = floor(seconds_since_last_happiness_satisfy / happiness_penalize_decrease)
+
 	if !health_effected:
 		last_health_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
 	else:
 		var seconds_since_last_health_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_health_satisfy)
 		var health_decrease = floor(seconds_since_last_health_satisfy / health_penalize_decrease)
 		if health_effected and health_decrease > 0:
-			health_status = max(health_status - 1, 0)
+			health_status = max(health_status - health_decrease, 0)
 			last_health_satisfy = Time.get_datetime_dict_from_unix_time(current_time)  # Reset last satisfy time
 			status_hud.set_status({
 				"living": living_status,
