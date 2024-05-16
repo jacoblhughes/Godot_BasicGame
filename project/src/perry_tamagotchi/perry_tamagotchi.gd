@@ -81,8 +81,10 @@ func _ready():
 	last_health_satisfy = tamagotchi_status.get("last_health_satisfy",  {})
 	last_happiness_satisfy =  tamagotchi_status.get("last_happiness_satisfy",  {})
 
-	if hunger_status == 0 or happiness_status == 0:
-		health_effected = true
+	print(hunger_status,"   ",happiness_status)
+
+
+
 
 	if !living_status or hatch_time == {} or last_hunger_satisfy == {} or last_health_satisfy == {} or last_happiness_satisfy == {}:
 		living_status = false
@@ -93,18 +95,32 @@ func _ready():
 		last_health_satisfy = {}
 		last_happiness_satisfy= {}
 		hatch_time = {}
+	else:
+		var current_time = Time.get_unix_time_from_system()
+		var seconds_since_last_hunger_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_hunger_satisfy)
+		var hunger_decrease = floor(seconds_since_last_hunger_satisfy / hunger_penalize_seconds)
+		var seconds_since_last_happiness_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_happiness_satisfy)
+		var happiness_decrease = floor(seconds_since_last_happiness_satisfy / happiness_penalize_decrease)
 
+		if hunger_decrease > 0:
+			hunger_status = max(hunger_status - hunger_decrease, 0)  # Reduce hunger, prevent it from going below 0
+			last_hunger_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
 
-	status_hud.set_status({
-		"living": living_status,
-		"hatch_time": hatch_time,
-		"health": health_status,
-		"hunger": hunger_status,
-		"happiness": happiness_status,
-		"last_hunger_satisfy": last_hunger_satisfy,
-		"last_health_satisfy": last_health_satisfy,
-		"last_happiness_satisfy": last_happiness_satisfy
-	})
+		if happiness_decrease > 0:
+			happiness_status = max(happiness_status - happiness_decrease, 0)  # Reduce hunger, prevent it from going below 0
+			last_happiness_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
+
+		if hunger_status == 0 or happiness_status == 0:
+			health_effected = true
+
+		if health_effected:
+			var seconds_since_last_health_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_health_satisfy)
+			var health_decrease = floor(seconds_since_last_health_satisfy / health_penalize_decrease)
+			if health_decrease > 0:
+				health_status = max(health_status - health_decrease, 0)
+				last_health_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
+
+	_update_status_and_save()
 
 	status_hud.hunger_satisfy.connect(_on_hunger_satisfy_button_pressed)
 	status_hud.happiness_satisfy.connect(_on_happiness_satisfy_button_pressed)
@@ -145,27 +161,7 @@ func _on_game_over():
 	hatch_time = {}
 
 
-	status_hud.set_status({
-		"living": living_status,
-		"hatch_time": hatch_time,
-		"health": health_status,
-		"hunger": hunger_status,
-		"happiness": happiness_status,
-		"last_hunger_satisfy": last_hunger_satisfy,
-		"last_health_satisfy": last_health_satisfy,
-		"last_happiness_satisfy": last_happiness_satisfy
-	})
-
-	GameManager.save_perry_tamagotchi_status({
-		"living": living_status,
-		"hatch_time": hatch_time,
-		"health": health_status,
-		"hunger": hunger_status,
-		"happiness": happiness_status,
-		"last_hunger_satisfy": last_hunger_satisfy,
-		"last_health_satisfy": last_health_satisfy,
-		"last_happiness_satisfy": last_happiness_satisfy
-	})
+	_update_status_and_save()
 
 
 func _on_egg_hatched():
@@ -177,26 +173,7 @@ func _on_egg_hatched():
 	last_health_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
 	last_happiness_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
 	_initiate_player()
-	status_hud.set_status({
-		"living": living_status,
-		"hatch_time": hatch_time,
-		"health": health_status,
-		"hunger": hunger_status,
-		"happiness": happiness_status,
-		"last_hunger_satisfy": last_hunger_satisfy,
-		"last_health_satisfy": last_health_satisfy,
-		"last_happiness_satisfy": last_happiness_satisfy
-	})
-	GameManager.save_perry_tamagotchi_status({
-		"living": living_status,
-		"hatch_time": hatch_time,
-		"health": health_status,
-		"hunger": hunger_status,
-		"happiness": happiness_status,
-		"last_hunger_satisfy": last_hunger_satisfy,
-		"last_health_satisfy": last_health_satisfy,
-		"last_happiness_satisfy": last_happiness_satisfy
-	})
+	_update_status_and_save()
 
 
 
@@ -216,95 +193,75 @@ func _check_hunger_and_happiness():
 	var seconds_since_last_health_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_health_satisfy)
 	var health_decrease = floor(seconds_since_last_health_satisfy / health_penalize_decrease)
 
-	if health_effected:
 
-		print(seconds_since_last_health_satisfy)
-		if health_effected and health_decrease > 0:
-			health_status = max(health_status - health_decrease, 0)
-			last_health_satisfy = Time.get_datetime_dict_from_unix_time(current_time)  # Reset last satisfy time
-			status_hud.set_status({
-				"living": living_status,
-				"hatch_time": hatch_time,
-				"health": health_status,
-				"hunger": hunger_status,
-				"happiness": happiness_status,
-				"last_hunger_satisfy": last_hunger_satisfy,
-				"last_health_satisfy": last_health_satisfy,
-				"last_happiness_satisfy": last_happiness_satisfy
-			})
-			GameManager.save_perry_tamagotchi_status({
-				"living": living_status,
-				"hatch_time": hatch_time,
-				"health": health_status,
-				"hunger": hunger_status,
-				"happiness": happiness_status,
-				"last_hunger_satisfy": last_hunger_satisfy,
-				"last_health_satisfy": last_health_satisfy,
-				"last_happiness_satisfy": last_happiness_satisfy
-			})
-			if health_status <= 0:
-				HUD.update_lives()
-	# Update hunger status and apply health penalties if needed
+
 	if hunger_decrease > 0:
 		hunger_status = max(hunger_status - hunger_decrease, 0)  # Reduce hunger, prevent it from going below 0
 		last_hunger_satisfy = Time.get_datetime_dict_from_unix_time(current_time)  # Reset last satisfy time
-		status_hud.set_status({
-			"living": living_status,
-			"hatch_time": hatch_time,
-			"health": health_status,
-			"hunger": hunger_status,
-			"happiness": happiness_status,
-			"last_hunger_satisfy": last_hunger_satisfy,
-			"last_health_satisfy": last_health_satisfy,
-			"last_happiness_satisfy": last_happiness_satisfy
-		})
-		GameManager.save_perry_tamagotchi_status({
-			"living": living_status,
-			"hatch_time": hatch_time,
-			"health": health_status,
-			"hunger": hunger_status,
-			"happiness": happiness_status,
-			"last_hunger_satisfy": last_hunger_satisfy,
-			"last_health_satisfy": last_health_satisfy,
-			"last_happiness_satisfy": last_happiness_satisfy
-		})
+		_update_status_and_save()
 		if hunger_status == 0:
 			health_effected = true
+
 	if happiness_decrease > 0:
 		happiness_status = max(happiness_status - happiness_decrease, 0)  # Reduce hunger, prevent it from going below 0
 		last_happiness_satisfy = Time.get_datetime_dict_from_unix_time(current_time)  # Reset last satisfy time
-		status_hud.set_status({
-			"living": living_status,
-			"hatch_time": hatch_time,
-			"health": health_status,
-			"hunger": hunger_status,
-			"happiness": happiness_status,
-			"last_hunger_satisfy": last_hunger_satisfy,
-			"last_health_satisfy": last_health_satisfy,
-			"last_happiness_satisfy": last_happiness_satisfy
-		})
-		GameManager.save_perry_tamagotchi_status({
-			"living": living_status,
-			"hatch_time": hatch_time,
-			"health": health_status,
-			"hunger": hunger_status,
-			"happiness": happiness_status,
-			"last_hunger_satisfy": last_hunger_satisfy,
-			"last_health_satisfy": last_health_satisfy,
-			"last_happiness_satisfy": last_happiness_satisfy
-		})
-		# Check if hunger is depleted
+		_update_status_and_save()
 		if happiness_status == 0:
 			health_effected = true
 #
+
+	if health_effected and health_decrease > 0:
+		health_status = max(health_status - health_decrease, 0)
+		last_health_satisfy = Time.get_datetime_dict_from_unix_time(current_time)  # Reset last satisfy time
+		_update_status_and_save()
+		if health_status <= 0:
+			HUD.update_lives()
+
+
 	if hunger_status > 0 and happiness_status > 0 and health_status < 100:
+			print('status chnaged')
 			health_effected = false
 			health_status +=1 # Subtract some health if hunger reaches 0
 			health_status = min(health_status, 100)  # Prevent health from dropping below 0
-
+			_update_status_and_save()
 		## Update the HUD and save the game state
 
 
+func _update_status_and_save():
+	print(hunger_status,"   ",happiness_status)
+	status_hud.set_status({
+		"living": living_status,
+		"hatch_time": hatch_time,
+		"health": health_status,
+		"hunger": hunger_status,
+		"happiness": happiness_status,
+		"last_hunger_satisfy": last_hunger_satisfy,
+		"last_health_satisfy": last_health_satisfy,
+		"last_happiness_satisfy": last_happiness_satisfy
+	})
+	GameManager.save_perry_tamagotchi_status({
+		"living": living_status,
+		"hatch_time": hatch_time,
+		"health": health_status,
+		"hunger": hunger_status,
+		"happiness": happiness_status,
+		"last_hunger_satisfy": last_hunger_satisfy,
+		"last_health_satisfy": last_health_satisfy,
+		"last_happiness_satisfy": last_happiness_satisfy
+	})
+
+func _update_status():
+
+	status_hud.set_status({
+		"living": living_status,
+		"hatch_time": hatch_time,
+		"health": health_status,
+		"hunger": hunger_status,
+		"happiness": happiness_status,
+		"last_hunger_satisfy": last_hunger_satisfy,
+		"last_health_satisfy": last_health_satisfy,
+		"last_happiness_satisfy": last_happiness_satisfy
+	})
 
 
 func _initiate_player():
@@ -344,26 +301,7 @@ func _on_player_hunger_satisfy():
 	var current_time = Time.get_unix_time_from_system()
 	last_hunger_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
 	hunger_status = min(hunger_status + 20, 100)
-	status_hud.set_status({
-		"living": living_status,
-		"hatch_time": hatch_time,
-		"health": health_status,
-		"hunger": hunger_status,
-		"happiness": happiness_status,
-		"last_hunger_satisfy": last_hunger_satisfy,
-		"last_health_satisfy": last_health_satisfy,
-		"last_happiness_satisfy": last_happiness_satisfy
-	})
-	GameManager.save_perry_tamagotchi_status({
-		"living": living_status,
-		"hatch_time": hatch_time,
-		"health": health_status,
-		"hunger": hunger_status,
-		"happiness": happiness_status,
-		"last_hunger_satisfy": last_hunger_satisfy,
-		"last_health_satisfy": last_health_satisfy,
-		"last_happiness_satisfy": last_happiness_satisfy
-	})
+	_update_status_and_save()
 
 func _on_happiness_satisfy_button_pressed():
 	player_to_play.emit()
@@ -373,23 +311,4 @@ func _on_player_happiness_satisfy():
 	var current_time = Time.get_unix_time_from_system()
 	last_happiness_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
 	happiness_status = min(happiness_status + 20, 100)
-	status_hud.set_status({
-		"living": living_status,
-		"hatch_time": hatch_time,
-		"health": health_status,
-		"hunger": hunger_status,
-		"happiness": happiness_status,
-		"last_hunger_satisfy": last_hunger_satisfy,
-		"last_health_satisfy": last_health_satisfy,
-		"last_happiness_satisfy": last_happiness_satisfy
-	})
-	GameManager.save_perry_tamagotchi_status({
-		"living": living_status,
-		"hatch_time": hatch_time,
-		"health": health_status,
-		"hunger": hunger_status,
-		"happiness": happiness_status,
-		"last_hunger_satisfy": last_hunger_satisfy,
-		"last_health_satisfy": last_health_satisfy,
-		"last_happiness_satisfy": last_happiness_satisfy
-	})
+	_update_status_and_save()
