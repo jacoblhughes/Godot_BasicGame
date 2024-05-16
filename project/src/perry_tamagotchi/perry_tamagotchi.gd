@@ -203,6 +203,7 @@ func _on_egg_hatched():
 	pass
 
 func _check_hunger_and_happiness():
+
 	var current_time = Time.get_unix_time_from_system()
 	var days_since_hatch = int((current_time - Time.get_unix_time_from_datetime_dict(hatch_time)) / 86400)
 	HUD.set_or_reset_score(days_since_hatch)
@@ -210,12 +211,14 @@ func _check_hunger_and_happiness():
 	var hunger_decrease = floor(seconds_since_last_hunger_satisfy / hunger_penalize_seconds)  # Calculate how much hunger should decrease
 	var seconds_since_last_happiness_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_happiness_satisfy)
 	var happiness_decrease = floor(seconds_since_last_happiness_satisfy / happiness_penalize_decrease)
-
 	if !health_effected:
 		last_health_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
-	else:
-		var seconds_since_last_health_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_health_satisfy)
-		var health_decrease = floor(seconds_since_last_health_satisfy / health_penalize_decrease)
+	var seconds_since_last_health_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_health_satisfy)
+	var health_decrease = floor(seconds_since_last_health_satisfy / health_penalize_decrease)
+
+	if health_effected:
+
+		print(seconds_since_last_health_satisfy)
 		if health_effected and health_decrease > 0:
 			health_status = max(health_status - health_decrease, 0)
 			last_health_satisfy = Time.get_datetime_dict_from_unix_time(current_time)  # Reset last satisfy time
