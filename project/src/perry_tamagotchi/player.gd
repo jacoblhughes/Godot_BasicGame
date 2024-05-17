@@ -27,11 +27,11 @@ func _ready():
 
 
 func _physics_process(delta):
-
+	
 	if current_tween_position != new_tween_position and new_tween_position_selection != null:
 		var direction = new_tween_position - current_tween_position
 		var direction_normalized = direction.normalized()
-
+		print(direction)
 		var angle = rad_to_deg(direction_normalized.angle_to(Vector2.RIGHT))
 		if angle < 0:
 			angle += 360
@@ -66,7 +66,7 @@ func assign_happiness_satisfy_position(pos):
 	happiness_satisfy_node_position = pos
 
 func _on_tween_timer_timeout():
-
+	print(pending_tween_position)
 	if !override_position:
 		new_tween_position_selection = randi_range(0,len(tween_positions)-1)
 		while new_tween_position_selection == current_tween_position_selection:
@@ -76,6 +76,7 @@ func _on_tween_timer_timeout():
 		tween.finished.connect(_on_tween_completed)
 		tween.tween_property(self, "position", new_tween_position, 2).set_ease(Tween.EASE_OUT)
 	else:
+		new_tween_position = pending_tween_position
 		var tween = create_tween()
 		tween.finished.connect(_on_tween_completed)
 		tween.tween_property(self, "position", new_tween_position, 2).set_ease(Tween.EASE_OUT)

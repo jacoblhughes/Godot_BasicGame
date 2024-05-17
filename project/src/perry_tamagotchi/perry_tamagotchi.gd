@@ -81,11 +81,6 @@ func _ready():
 	last_health_satisfy = tamagotchi_status.get("last_health_satisfy",  {})
 	last_happiness_satisfy =  tamagotchi_status.get("last_happiness_satisfy",  {})
 
-	print(hunger_status,"   ",happiness_status)
-
-
-
-
 	if !living_status or hatch_time == {} or last_hunger_satisfy == {} or last_health_satisfy == {} or last_happiness_satisfy == {}:
 		living_status = false
 		health_status = 100
@@ -132,7 +127,9 @@ func _ready():
 		egg.position = starting_marker.position
 		egg.egg_hatched.connect(_on_egg_hatched)
 		add_child.call_deferred(egg)
-
+	
+	print(hunger_satisfy_node.position)
+	print(happiness_satisfy_node.position)
 
 	pass # Replace with function body.
 
@@ -219,7 +216,7 @@ func _check_hunger_and_happiness():
 
 
 	if hunger_status > 0 and happiness_status > 0 and health_status < 100:
-			print('status chnaged')
+
 			health_effected = false
 			health_status +=1 # Subtract some health if hunger reaches 0
 			health_status = min(health_status, 100)  # Prevent health from dropping below 0
@@ -228,7 +225,7 @@ func _check_hunger_and_happiness():
 
 
 func _update_status_and_save():
-	print(hunger_status,"   ",happiness_status)
+
 	status_hud.set_status({
 		"living": living_status,
 		"hatch_time": hatch_time,
