@@ -127,7 +127,7 @@ func _ready():
 		egg.position = starting_marker.position
 		egg.egg_hatched.connect(_on_egg_hatched)
 		add_child.call_deferred(egg)
-	
+
 	print(hunger_satisfy_node.position)
 	print(happiness_satisfy_node.position)
 

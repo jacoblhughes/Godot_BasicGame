@@ -28,6 +28,7 @@ signal hud_ready
 signal start_timer_countdown_timeout
 signal game_time_left_timer_timeout
 signal clickable_input_event
+signal advance_level
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -128,7 +129,7 @@ func check_advance_level():
 	if(int(return_score()) % level_advance_check_value == 0):
 		var new_level = int(return_score())/level_advance_check_value
 		set_or_reset_level((level_advance_base_value * new_level)+initial_level_value)
-		return true
+		advance_level.emit()
 
 func set_or_reset_level(default_level = "INF"):
 	if typeof(default_level) == TYPE_INT:
@@ -211,17 +212,18 @@ func get_play_area_size():
 
 
 func hud_initialize(
-this_initial_score_value, this_score_advance_base_value
-
-, this_initial_lives_value, this_lives_advance_base_value
-
-, this_initial_level_value,this_level_advance_check_value, this_level_advance_value
-
+	this_initial_score_value
+, this_score_advance_base_value
+, this_initial_lives_value
+, this_lives_advance_base_value
+, this_initial_level_value
+,this_level_advance_check_value
+, this_level_advance_value
 , this_start_timer_countdown_callable
 , this_start_timer_countdown_value
-
 , this_game_time_left_timer_callable
 , this_game_time_left_timer_value
+, this_advance_level_callable
 ):
 	initial_score_value = this_initial_score_value
 	score_advance_base_value = this_score_advance_base_value
@@ -238,3 +240,4 @@ this_initial_score_value, this_score_advance_base_value
 
 	start_timer_countdown_timeout.connect(this_start_timer_countdown_callable)
 	game_time_left_timer_timeout.connect(this_game_time_left_timer_callable)
+	advance_level.connect(this_advance_level_callable)

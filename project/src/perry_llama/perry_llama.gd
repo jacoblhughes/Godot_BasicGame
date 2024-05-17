@@ -40,11 +40,12 @@ func _ready():
 			node.scale.y *= yatio
 
 	if xform > 720:
-		var nodes_to_move = [%StartPosition,%EnemySpawner,%PerryRun]
+		var nodes_to_move = [%StartPosition,%EnemySpawner,%PerryRun,%Floor]
 		for node in nodes_to_move:
 			node.position.x *= xatio
-		var nodes_to_scale = []
-
+		var nodes_to_scale = [%Floor]
+		for node in nodes_to_scale:
+			node.scale.x *= yatio
 	enemy_spawn_timer = %EnemySpawnTimer
 	%Player.dino_hit.connect(_on_dino_hit)
 	%Despawn.body_entered.connect(_on_despawn_body_entered)
