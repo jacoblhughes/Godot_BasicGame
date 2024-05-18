@@ -13,7 +13,7 @@ Perry Arcade
 
 
 V2:
-Make advance level a universal callable
+
 Make level changes actually mean something
 
 How do I handle the different xatio's and the timing around moving nodes.
@@ -78,28 +78,15 @@ Make directions for each game
 
 
 All:
-
-	Make all touch
-
-	Make timer for use in all
-	Make classes for things, like perry dodge enemies
-	Improved backgrounds
 	Improved sounds (like from one place mainly)
 	Improved background music
-	game initializations
-		standardize
-		put in buttons?
-	Fix the way the background is created and is displayed
 	Consolidate the sounds
 
 Options
 	Better way for placement
 
-Notes:
-	Timing loading for each element - noticably android and labels and such
-		Do I still have this?
-
 children_light_up.connect(Callable(node, "light_up"))
 
 rename sound Buses
 
+Card matching game

@@ -74,6 +74,7 @@ func set_or_reset_score(value = 0):
 		new_score = 0
 	score = new_score
 	%Score.text = str(score)
+	
 	check_advance_level()
 
 func return_score():
@@ -126,7 +127,7 @@ func update_lives(value = -1):
 
 
 func check_advance_level():
-	if(int(return_score()) % level_advance_check_value == 0):
+	if(int(return_score()) > 0 and int(return_score()) % level_advance_check_value == 0):
 		var new_level = int(return_score())/level_advance_check_value
 		set_or_reset_level((level_advance_base_value * new_level)+initial_level_value)
 		advance_level.emit()
