@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bigiwmxipgbwn"
-path="res://.godot/imported/jump.wav-9929cda0887706a49e42c77a561093b0.sample"
+uid="uid://crjkhotcldat0"
+path="res://.godot/imported/explode.wav-21550827c005bdc26526a2b9239a077e.sample"
 
 [deps]
 
-source_file="res://sounds/perry_platform/jump.wav"
-dest_files=["res://.godot/imported/jump.wav-9929cda0887706a49e42c77a561093b0.sample"]
+source_file="res://src/perry_space/sounds/explode.wav"
+dest_files=["res://.godot/imported/explode.wav-21550827c005bdc26526a2b9239a077e.sample"]
 
 [params]
 

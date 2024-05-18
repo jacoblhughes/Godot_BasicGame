@@ -27,7 +27,7 @@ unique_name_in_owner = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("start_marker", "end_marker") instance=ExtResource("1_05i6n")]
 unique_name_in_owner = true
-position = Vector2(64, 704)
+position = Vector2(360, 704)
 start_marker = NodePath("../StartPosition")
 end_marker = NodePath("../EndPosition")
 

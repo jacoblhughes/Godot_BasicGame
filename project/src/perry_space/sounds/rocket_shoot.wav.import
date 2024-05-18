@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dubvdpeowmlwb"
-path="res://.godot/imported/rocket_shoot.wav-206b14096e2ca99dac705101ba232d86.sample"
+path="res://.godot/imported/rocket_shoot.wav-0ec8ec5ef9ba682ee673bedf68fffda4.sample"
 
 [deps]
 
-source_file="res://sounds/perry_space/rocket_shoot.wav"
-dest_files=["res://.godot/imported/rocket_shoot.wav-206b14096e2ca99dac705101ba232d86.sample"]
+source_file="res://src/perry_space/sounds/rocket_shoot.wav"
+dest_files=["res://.godot/imported/rocket_shoot.wav-0ec8ec5ef9ba682ee673bedf68fffda4.sample"]
 
 [params]
 

@@ -19,9 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://b5tn0pixedbmk" path="res://src/autoloads/textures/title.png" id="17_ublv1"]
 [ext_resource type="Texture2D" uid="uid://u28nu2gmaihg" path="res://src/perry_says/textures/logo.png" id="18_n8brg"]
 [ext_resource type="Texture2D" uid="uid://dwntdb272kug5" path="res://src/perry_python/textures/food.png" id="20_8ff62"]
-[ext_resource type="Texture2D" uid="uid://b3ceohymx1b0e" path="res://src/perry_llama/textures/lava.png" id="21_fernw"]
 [ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://src/perry_polo/textures/player.png" id="21_t38uj"]
 [ext_resource type="Texture2D" uid="uid://bpbsvxbbk4ce8" path="res://src/perry_dodge/textures/logo.png" id="22_o05ny"]
+[ext_resource type="Texture2D" uid="uid://cr156l77l8mqj" path="res://src/perry_llama/textures/logo.png" id="22_odxlo"]
 [ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://src/perry_flap/textures/player.png" id="23_p1kel"]
 [ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://src/perry_run/textures/player.png" id="24_gh28p"]
 [ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://src/perry_space/textures/player.png" id="25_3shli"]
@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://xvrd48862wjw" path="res://src/perry_pinball/perry_pinball.tscn" id="31_1i602"]
 [ext_resource type="Texture2D" uid="uid://chf5vory1tu30" path="res://src/perry_pinball/textures/bumper.png" id="31_gm5l3"]
 [ext_resource type="PackedScene" uid="uid://bcb2atrka7rpg" path="res://src/perry_tamagotchi/perry_tamagotchi.tscn" id="32_4vrx3"]
-[ext_resource type="Texture2D" uid="uid://ehr5hg5n10d5" path="res://src/perry_tamagotchi/textures/laptop.png" id="33_f8v16"]
+[ext_resource type="Texture2D" uid="uid://dcwd5u8o7tqpp" path="res://src/perry_tamagotchi/textures/logo.png" id="33_rus2q"]
 
 [node name="Buttons" type="CanvasLayer"]
 layer = 3
@@ -115,7 +115,7 @@ game_title = "Perry Polo"
 
 [node name="PerryLlama" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-game_image_texture = ExtResource("21_fernw")
+game_image_texture = ExtResource("22_odxlo")
 game_scene_selection = ExtResource("5_c3ay5")
 game_key_selection = "4"
 game_title = "Perry Llama Leap"
@@ -170,6 +170,7 @@ game_key_selection = "11"
 game_title = "Perry Skeeball"
 
 [node name="PerryPinball" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
+visible = false
 layout_mode = 2
 game_image_texture = ExtResource("31_gm5l3")
 game_scene_selection = ExtResource("31_1i602")
@@ -178,7 +179,7 @@ game_title = "Perry Pinball"
 
 [node name="PerryTamagotchi" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-game_image_texture = ExtResource("33_f8v16")
+game_image_texture = ExtResource("33_rus2q")
 game_scene_selection = ExtResource("32_4vrx3")
 game_key_selection = "13"
 game_title = "Perry Tamagotchi"

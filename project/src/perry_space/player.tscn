@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://src/perry_space/player.gd" id="1_5i1fi"]
 [ext_resource type="PackedScene" uid="uid://b3u8q37r05igq" path="res://src/perry_space/rocket.tscn" id="2_7wwmf"]
 [ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://src/perry_space/textures/player.png" id="3_hfni8"]
-[ext_resource type="AudioStream" uid="uid://dubvdpeowmlwb" path="res://sounds/perry_space/rocket_shoot.wav" id="4_o37y1"]
-[ext_resource type="AudioStream" uid="uid://qr7a7tnqwl30" path="res://sounds/perry_space/player_hit.wav" id="5_k5pjo"]
+[ext_resource type="AudioStream" uid="uid://dubvdpeowmlwb" path="res://src/perry_space/sounds/rocket_shoot.wav" id="4_o37y1"]
+[ext_resource type="AudioStream" uid="uid://qr7a7tnqwl30" path="res://src/perry_space/sounds/player_hit.wav" id="5_k5pjo"]
 
 [sub_resource type="Gradient" id="Gradient_fecji"]
 colors = PackedColorArray(0.939454, 0.905903, 1.54018e-06, 1, 1, 0, 0, 1)

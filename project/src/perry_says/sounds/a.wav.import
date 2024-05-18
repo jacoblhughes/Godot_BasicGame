@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cj4pmpm87vc1e"
-path="res://.godot/imported/laser.wav-960bc485c89f6de1e47121e48871c317.sample"
+uid="uid://c0pagaj3k2vas"
+path="res://.godot/imported/a.wav-bb9e2539ff3b775758877985b50a5ab3.sample"
 
 [deps]
 
-source_file="res://sounds/perry_space/laser.wav"
-dest_files=["res://.godot/imported/laser.wav-960bc485c89f6de1e47121e48871c317.sample"]
+source_file="res://src/perry_says/sounds/a.wav"
+dest_files=["res://.godot/imported/a.wav-bb9e2539ff3b775758877985b50a5ab3.sample"]
 
 [params]
 
