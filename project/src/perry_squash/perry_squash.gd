@@ -13,14 +13,12 @@ var game_time_left_timer_value = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-
-	#here herehrehrehrherherh
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
 	var game_time_left_timer_callable = Callable(self,"_on_game_time_left_timer_timeout")
-	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
+	var advance_level_callable = Callable(self,"_on_advance_level")
+	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value,advance_level_callable)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
 
@@ -56,8 +54,7 @@ func _process(delta):
 
 func _on_enemy_squashed():
 	HUD.update_score()
-	if HUD.check_advance_level():
-		advance_level()
+
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
@@ -65,6 +62,6 @@ func _on_play_button_pressed():
 func _on_game_over():
 	GameManager.set_game_enabled(false)
 
-func advance_level():
+func _on_advance_level():
 	%EnemyTimer.wait_time *= .95
 	%EnemySpawn.increase_probability()

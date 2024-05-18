@@ -41,21 +41,14 @@ var game_time_left_timer_value = 3
 
 
 func _ready():
-	game_area = Vector2(HUD.get_play_area_size().x,HUD.get_play_area_size().x)
-	left_over = (HUD.get_play_area_size().y/2) - (HUD.get_play_area_size().x/2)
-	game_position = Vector2(HUD.get_play_area_position().x,HUD.get_play_area_position().y+left_over)
-	snake_cell_size = Vector2(game_area.x/snake_cells,game_area.y/snake_cells)
-
-	set_play_area_size(game_area)
-	set_play_area_position(game_position)
-	set_snake_cell_size(snake_cell_size)
 
 
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
 	var game_time_left_timer_callable = Callable(self,"_on_game_time_left_timer_timeout")
-	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
+	var advance_level_callable = Callable(self,"_on_advance_level")
+	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value,advance_level_callable)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
 
@@ -75,6 +68,15 @@ func _ready():
 		var nodes_to_scale = []
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
+
+	game_area = Vector2(HUD.get_play_area_size().x,HUD.get_play_area_size().x)
+	left_over = (HUD.get_play_area_size().y/2) - (HUD.get_play_area_size().x/2)
+	game_position = Vector2(HUD.get_play_area_position().x,HUD.get_play_area_position().y+left_over)
+	snake_cell_size = Vector2(game_area.x/snake_cells,game_area.y/snake_cells)
+
+	set_play_area_size(game_area)
+	set_play_area_position(game_position)
+	set_snake_cell_size(snake_cell_size)
 
 	snake_timer = %SnakeTimer
 	snake_timer.timeout.connect(_on_snake_move_timer_timeout)
@@ -196,13 +198,9 @@ func _on_game_over():
 
 func _on_food_eaten():
 	HUD.update_score()
-	if HUD.check_advance_level():
-		advance_level()
 
-func advance_level():
+func _on_advance_level():
 	snake_timer.wait_time = original_snake_time * pow(.95,HUD.return_game_level())
-
-
 
 func set_play_area_size(value):
 	game_area = value

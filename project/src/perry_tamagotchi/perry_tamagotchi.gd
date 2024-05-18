@@ -42,7 +42,8 @@ func _ready():
 	var game_over_callable = Callable(self,"_on_game_over")
 	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
 	var game_time_left_timer_callable = Callable(self,"_on_game_time_left_timer_timeout")
-	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
+	var advance_level_callable = Callable(self,"_on_advance_level")
+	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value,advance_level_callable)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
 
@@ -92,6 +93,7 @@ func _ready():
 		hatch_time = {}
 	else:
 		var current_time = Time.get_unix_time_from_system()
+		var days_since_hatch = int((current_time - Time.get_unix_time_from_datetime_dict(hatch_time)) / 86400)
 		var seconds_since_last_hunger_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_hunger_satisfy)
 		var hunger_decrease = floor(seconds_since_last_hunger_satisfy / hunger_penalize_seconds)
 		var seconds_since_last_happiness_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_happiness_satisfy)
@@ -114,6 +116,8 @@ func _ready():
 			if health_decrease > 0:
 				health_status = max(health_status - health_decrease, 0)
 				last_health_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
+
+		_update_score(days_since_hatch)
 
 	_update_status_and_save()
 
@@ -173,14 +177,12 @@ func _on_egg_hatched():
 	_update_status_and_save()
 
 
-
 	pass
 
 func _check_hunger_and_happiness():
 
 	var current_time = Time.get_unix_time_from_system()
 	var days_since_hatch = int((current_time - Time.get_unix_time_from_datetime_dict(hatch_time)) / 86400)
-	HUD.set_or_reset_score(days_since_hatch)
 	var seconds_since_last_hunger_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_hunger_satisfy)
 	var hunger_decrease = floor(seconds_since_last_hunger_satisfy / hunger_penalize_seconds)  # Calculate how much hunger should decrease
 	var seconds_since_last_happiness_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_happiness_satisfy)
@@ -196,6 +198,7 @@ func _check_hunger_and_happiness():
 		hunger_status = max(hunger_status - hunger_decrease, 0)  # Reduce hunger, prevent it from going below 0
 		last_hunger_satisfy = Time.get_datetime_dict_from_unix_time(current_time)  # Reset last satisfy time
 		_update_status_and_save()
+		_update_score(days_since_hatch)
 		if hunger_status == 0:
 			health_effected = true
 
@@ -203,6 +206,7 @@ func _check_hunger_and_happiness():
 		happiness_status = max(happiness_status - happiness_decrease, 0)  # Reduce hunger, prevent it from going below 0
 		last_happiness_satisfy = Time.get_datetime_dict_from_unix_time(current_time)  # Reset last satisfy time
 		_update_status_and_save()
+		_update_score(days_since_hatch)
 		if happiness_status == 0:
 			health_effected = true
 #
@@ -211,6 +215,7 @@ func _check_hunger_and_happiness():
 		health_status = max(health_status - health_decrease, 0)
 		last_health_satisfy = Time.get_datetime_dict_from_unix_time(current_time)  # Reset last satisfy time
 		_update_status_and_save()
+		_update_score(days_since_hatch)
 		if health_status <= 0:
 			HUD.update_lives()
 
@@ -247,18 +252,8 @@ func _update_status_and_save():
 		"last_happiness_satisfy": last_happiness_satisfy
 	})
 
-func _update_status():
-
-	status_hud.set_status({
-		"living": living_status,
-		"hatch_time": hatch_time,
-		"health": health_status,
-		"hunger": hunger_status,
-		"happiness": happiness_status,
-		"last_hunger_satisfy": last_hunger_satisfy,
-		"last_health_satisfy": last_health_satisfy,
-		"last_happiness_satisfy": last_happiness_satisfy
-	})
+func _update_score(value):
+	HUD.set_or_reset_score(value)
 
 
 func _initiate_player():
@@ -309,3 +304,6 @@ func _on_player_happiness_satisfy():
 	last_happiness_satisfy = Time.get_datetime_dict_from_unix_time(current_time)
 	happiness_status = min(happiness_status + 20, 100)
 	_update_status_and_save()
+
+func _on_advance_level():
+	pass

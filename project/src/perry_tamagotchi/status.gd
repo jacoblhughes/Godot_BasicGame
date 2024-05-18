@@ -15,11 +15,12 @@ func _process(delta):
 	pass
 
 func set_status(status):
-
 	var current_living_status = status.get("living", false)
 	if current_living_status:
 		%Living.text = str(status.get("living", false))
-		%HatchTime.text = Time.get_datetime_string_from_datetime_dict(status.get("hatch_time", {}),true)
+		var time_with_offset = Time.get_unix_time_from_datetime_dict(status.get("hatch_time", {})) + (Time.get_time_zone_from_system()['bias']*60)
+		%HatchTime.text = Time.get_datetime_string_from_unix_time(time_with_offset)
+		#Time.get_datetime_string_from_datetime_dict(status.get("hatch_time", {}),true)
 		%Health.value = status.get("health", 100)
 		%Hunger.value = status.get("hunger", 100)
 		%Happiness.value = status.get("happiness", 100)

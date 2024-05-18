@@ -20,13 +20,12 @@ var player_jump_scale
 signal game_start
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
 	var game_time_left_timer_callable = Callable(self,"_on_game_time_left_timer_timeout")
-	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value)
+	var advance_level_callable = Callable(self,"_on_advance_level")
+	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value,advance_level_callable)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
 	Background.show()
 
@@ -84,7 +83,7 @@ func _on_play_button_pressed():
 	player.set_xpos(%StartPosition.position.x)
 	pass
 
-func advance_level():
+func _on_advance_level():
 	pass
 
 func _on_player_fall_out(body):

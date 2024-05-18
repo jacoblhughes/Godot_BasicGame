@@ -74,7 +74,7 @@ func set_or_reset_score(value = 0):
 		new_score = 0
 	score = new_score
 	%Score.text = str(score)
-
+	check_advance_level()
 
 func return_score():
 	return score
