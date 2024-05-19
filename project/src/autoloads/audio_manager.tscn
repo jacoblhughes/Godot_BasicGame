@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdfjgmd53s2ur"]
+[gd_scene load_steps=12 format=3 uid="uid://bdfjgmd53s2ur"]
 
 [ext_resource type="Script" path="res://src/autoloads/audio_manager.gd" id="1_8x220"]
 [ext_resource type="AudioStream" uid="uid://c8e8dke0akcem" path="res://src/perry_polo/sounds/ball_hit.wav" id="2_78ox1"]
 [ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://src/main/sounds/applause.wav" id="2_kbh4v"]
 [ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://src/main/sounds/game_over.wav" id="3_djlji"]
-[ext_resource type="AudioStream" uid="uid://buulegk5q7el8" path="res://src/main/sounds/background_music.wav" id="4_yd4c5"]
 [ext_resource type="AudioStream" uid="uid://8nu7ewt4g11f" path="res://src/main/sounds/background_music_2.wav" id="5_8yvv8"]
 [ext_resource type="AudioStream" uid="uid://5fg6qgyiwwa3" path="res://src/perry_polo/sounds/whirlpool_1.wav" id="6_6yj6a"]
 [ext_resource type="AudioStream" uid="uid://ne7blc6cda8d" path="res://src/perry_polo/sounds/whirlpool_2.wav" id="7_xlxc4"]
@@ -17,7 +16,7 @@
 script = ExtResource("1_8x220")
 main_applause = ExtResource("2_kbh4v")
 main_game_over = ExtResource("3_djlji")
-background_music = ExtResource("4_yd4c5")
+background_music = ExtResource("5_8yvv8")
 background_music_2 = ExtResource("5_8yvv8")
 perry_polo_ball_hit = ExtResource("2_78ox1")
 perry_polo_whirlpool_sounds = Array[AudioStreamWAV]([ExtResource("6_6yj6a"), ExtResource("7_xlxc4"), ExtResource("8_ssowe"), ExtResource("9_qknc4"), ExtResource("10_d3m4x"), ExtResource("11_0a25u")])

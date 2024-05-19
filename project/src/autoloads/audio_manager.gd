@@ -29,7 +29,8 @@ var buses = {"Game": 8} # Define the number of players for each bus
 var available = {}  # Dictionary to hold available players for each bus
 var queues = {}  # Dictionary to hold queues for each bus
 
-
+var background_player_length
+var background_player_2_length
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -56,11 +57,15 @@ func _ready():
 	background_player = AudioStreamPlayer.new()
 	background_player.name = "Background"
 	background_player.stream = background_music
+	background_player_length = background_player.stream.get_length()
+
 	background_audio_node.add_child(background_player)
 	background_player.bus = "Background"
 	background_player_2 = AudioStreamPlayer.new()
 	background_player_2.name = "Background2"
 	background_player_2.stream = background_music_2
+	background_player_2_length = background_player_2.stream.get_length()
+
 	background_audio_node.add_child(background_player_2)
 	background_player_2.bus = "Background"
 	background_animation_player = AnimationPlayer.new()
@@ -69,31 +74,38 @@ func _ready():
 
 	var animation_library = AnimationLibrary.new()
 
+	var overall_length = 2.0
+	var high_easing = 10.0
+	var low_easing = 0.25
+
 	# Create the FadeToTrack1 animation
 	var fade_to_track1 = Animation.new()
 	fade_to_track1.resource_name = "FadeToTrack1"
-	fade_to_track1.length = 0.5
-	fade_to_track1.loop = true  # Set animation to loop
+	fade_to_track1.length = overall_length
+	fade_to_track1.loop_mode = 0  # Set animation to loop
 
 	# Track for background_player volume_db
 	fade_to_track1.add_track(Animation.TYPE_VALUE)
 	fade_to_track1.track_set_path(0, NodePath("Background:volume_db"))
 	fade_to_track1.track_set_interpolation_type(0, Animation.INTERPOLATION_LINEAR)
-	fade_to_track1.track_insert_key(0, 0.0, -80.0)
-	fade_to_track1.track_insert_key(0, 0.5, 0.0)
+	fade_to_track1.track_insert_key(0, 0.0, -80.0,low_easing)
+	#fade_to_track1.track_set_key_transition(0,0.0,.25)
+	fade_to_track1.track_insert_key(0, overall_length, 0.0,low_easing)
+	#fade_to_track1.track_set_key_transition(0,5.0,.25)
 
 	# Track for background_player_2 volume_db
 	fade_to_track1.add_track(Animation.TYPE_VALUE)
 	fade_to_track1.track_set_path(1, NodePath("Background2:volume_db"))
 	fade_to_track1.track_set_interpolation_type(1, Animation.INTERPOLATION_LINEAR)
-	fade_to_track1.track_insert_key(1, 0.0, 0.0)
-	fade_to_track1.track_insert_key(1, 0.5, -80.0)
-
+	fade_to_track1.track_insert_key(1, 0.0, 0.0, low_easing)
+	#fade_to_track1.track_set_key_transition(1,0.0,5.5)
+	fade_to_track1.track_insert_key(1, overall_length, -80.0, low_easing)
+	#fade_to_track1.track_set_key_transition(1,5.0,5.5)
 	# Track for background_player_2 playing state
 	fade_to_track1.add_track(Animation.TYPE_VALUE)
 	fade_to_track1.track_set_path(2, NodePath("Background2:playing"))
 	fade_to_track1.track_set_interpolation_type(2, Animation.INTERPOLATION_LINEAR)
-	fade_to_track1.track_insert_key(2, 0.5, false)
+	fade_to_track1.track_insert_key(2, overall_length, false)
 
 	# Add FadeToTrack1 animation to AnimationLibrary
 	animation_library.add_animation("FadeToTrack1", fade_to_track1)
@@ -101,29 +113,31 @@ func _ready():
 	# Create the FadeToTrack2 animation
 	var fade_to_track2 = Animation.new()
 	fade_to_track2.resource_name = "FadeToTrack2"
-	fade_to_track2.length = 0.5
-	fade_to_track2.loop = true  # Set animation to loop
+	fade_to_track2.length = overall_length
+	fade_to_track2.loop_mode = 0  # Set animation to loop
 
 	# Track for background_player volume_db
 	fade_to_track2.add_track(Animation.TYPE_VALUE)
 	fade_to_track2.track_set_path(0, NodePath("Background:volume_db"))
 	fade_to_track2.track_set_interpolation_type(0, Animation.INTERPOLATION_LINEAR)
-	fade_to_track2.track_insert_key(0, 0.0, 0.0)
-	fade_to_track2.track_insert_key(0, 0.5, -80.0)
-
+	fade_to_track2.track_insert_key(0, 0.0, 0.0, low_easing)
+	#fade_to_track2.track_set_key_transition(0,0.0,5.5)
+	fade_to_track2.track_insert_key(0, overall_length, -80.0, low_easing)
+	#fade_to_track2.track_set_key_transition(0,5.0,5.5)
 	# Track for background_player playing state
 	fade_to_track2.add_track(Animation.TYPE_VALUE)
 	fade_to_track2.track_set_path(1, NodePath("Background:playing"))
 	fade_to_track2.track_set_interpolation_type(1, Animation.INTERPOLATION_LINEAR)
-	fade_to_track2.track_insert_key(1, 0.5, false)
+	fade_to_track2.track_insert_key(1, overall_length, false)
 
 	# Track for background_player_2 volume_db
 	fade_to_track2.add_track(Animation.TYPE_VALUE)
 	fade_to_track2.track_set_path(2, NodePath("Background2:volume_db"))
 	fade_to_track2.track_set_interpolation_type(2, Animation.INTERPOLATION_LINEAR)
-	fade_to_track2.track_insert_key(2, 0.0, -80.0)
-	fade_to_track2.track_insert_key(2, 0.5, 0.0)
-
+	fade_to_track2.track_insert_key(2, 0.0, -80.0, low_easing)
+	#fade_to_track2.track_set_key_transition(2,0.0,.25)
+	fade_to_track2.track_insert_key(2, overall_length, 0.0, low_easing)
+	#fade_to_track2.track_set_key_transition(2,5.0,.25)
 	# Add FadeToTrack2 animation to AnimationLibrary
 	animation_library.add_animation("FadeToTrack2", fade_to_track2)
 
@@ -134,29 +148,25 @@ func _ready():
 	# background_animation_player.play("FadeToTrack1")
 	# background_animation_player.play("FadeToTrack2")
 
-func test():
-	print('here')
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Background"),false)
-	crossfade_to()
-	await get_tree().create_timer(5).timeout
-	crossfade_to()
-	await get_tree().create_timer(5).timeout
-	crossfade_to()
 func crossfade_to() -> void:
 
 	# If both tracks are playing, we're calling the function in the middle of a fade.
 	# We return early to avoid jumps in the sound.
 	if background_player.playing and background_player_2.playing:
 		return
-
+	print('crossfade')
 	# The `playing` property of the stream players tells us which track is active.
 	# If it's track two, we fade to track one, and vice-versa.
-	if background_player_2.playing:
-		background_player.play()
-		background_animation_player.play("AnimationLib/FadeToTrack1")
-	else:
+	if background_player.playing:
 		background_player_2.play()
 		background_animation_player.play("AnimationLib/FadeToTrack2")
+	else:
+		background_player.play()
+		background_animation_player.play("AnimationLib/FadeToTrack1")
+
+func stop_all_background_music():
+	background_player.stop()
+	background_player_2.stop()
 
 
 func _on_stream_finished(bus, player):
@@ -179,6 +189,13 @@ func play_sound(sound_name: String):
 
 
 func _process(delta):
+
+	if ((background_player.get_playback_position() > background_player_length - 2)
+		or
+		(background_player_2.get_playback_position() > background_player_2_length - 2)
+		):
+			crossfade_to()
+
 	for bus in queues.keys():
 		if not queues[bus].is_empty() and not available[bus].is_empty():
 
@@ -197,12 +214,12 @@ func set_background_music_mute(true_or_false):
 	background_playing = true_or_false
 	var _this_bus_index = AudioServer.get_bus_index("Background")
 	if(background_playing):
-		background_player.stream = background_music
-		background_player.play()
+
+		crossfade_to()
 		AudioServer.set_bus_mute(_this_bus_index,false)
 		GameManager.save_background_music_choice(background_playing)
 	else:
-		background_player.stop()
+		stop_all_background_music()
 		AudioServer.set_bus_mute(_this_bus_index,true)
 		GameManager.save_background_music_choice(background_playing)
 	pass # Replace with function body.

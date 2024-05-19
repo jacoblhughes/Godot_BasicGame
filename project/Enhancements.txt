@@ -88,5 +88,5 @@ Options
 children_light_up.connect(Callable(node, "light_up"))
 
 rename sound Buses
-
+make controlling background music more fluid and all through the animation player, perhaps
 Card matching game

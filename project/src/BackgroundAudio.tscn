@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0sdyxp57f3n"]
+
+[ext_resource type="AudioStream" uid="uid://buulegk5q7el8" path="res://src/main/sounds/background_music.wav" id="1_6edb0"]
+[ext_resource type="AudioStream" uid="uid://8nu7ewt4g11f" path="res://src/main/sounds/background_music_2.wav" id="2_ii6i8"]
+
+[sub_resource type="Animation" id="Animation_yahfd"]
+resource_name = "FadeToTrack1"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(0.25, 0.25),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background2:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(5.5, 5.5),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background2:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qh6e5"]
+resource_name = "FadeToTrack2"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(5.5, 5.5),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background2:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(0.25, 0.25),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eibxc"]
+_data = {
+"FadeToTrack1": SubResource("Animation_yahfd"),
+"FadeToTrack2": SubResource("Animation_qh6e5")
+}
+
+[node name="BackgroundAudio" type="Node"]
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_6edb0")
+bus = &"Background"
+
+[node name="Background2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ii6i8")
+volume_db = -80.0
+bus = &"Background"
+
+[node name="BackgroundAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"AnimationLib": SubResource("AnimationLibrary_eibxc")
+}
