@@ -30,11 +30,11 @@ func find_audio_stream_nodes(scene_path, node, result):
 # Recursive function to traverse directories and search for scenes
 func traverse_directory(path, result):
 	var dir_access = DirAccess.open(path)
-	
+
 	if dir_access:
 		dir_access.list_dir_begin()
 		var file_name = dir_access.get_next()
-		
+
 		while file_name != "":
 			if file_name != "." and file_name != "..":
 				var file_path = path.path_join(file_name)
