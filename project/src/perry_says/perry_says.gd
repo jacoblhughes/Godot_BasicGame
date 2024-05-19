@@ -26,7 +26,7 @@ var button_pressed
 var buttonObject = {}
 
 
-@export var sounds :Array[AudioStreamWAV] = []
+@export var sounds :Array[String] = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
@@ -95,11 +95,8 @@ func _initialize_buttons():
 		node.add_to_group("perry_says_buttons")
 		node.perry_pressed.connect(_on_game_button_pressed)
 		node.button_number = i
-#		node.texture_button.disabled = true
 		node.initiate_button()
-		var audio_stream_wav = AudioStream.new()
-		audio_stream_wav = sounds[i]
-		node.audio_stream_player.set_stream(audio_stream_wav)
+		node.audio_string = "perry_says_" + sounds[i]
 		i+=1
 	groupOfButtons = get_tree().get_nodes_in_group("perry_says_buttons")
 

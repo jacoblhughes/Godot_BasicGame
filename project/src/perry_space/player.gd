@@ -4,8 +4,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var start_position_marker : Marker2D
 
-@onready var RocketShootSound : AudioStreamPlayer = $RocketShootSound
-@onready var player_hit_sound : AudioStreamPlayer = $PlayerDamageSound
+
+
 @export var rocket_timer : Timer
 @onready var perry_space : Node2D
 
@@ -50,11 +50,12 @@ func shoot():
 	rocketspawn_node.add_child(rocket_instance)
 	rocket_instance.global_position = global_position
 	rocket_instance.global_position.x += 80
-	RocketShootSound.play()
+	AudioManager.play_sound("perry_space_rocket_shoot")
+
 
 func take_damage():
 	HUD.update_lives()
-	player_hit_sound.play()
+	AudioManager.play_sound("perry_space_player_hit")
 
 
 func _on_rocket_timer_timeout():

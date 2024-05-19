@@ -8,10 +8,25 @@ extends Node
 @export var background_music : AudioStreamWAV
 @export var background_music_2 : AudioStreamWAV
 
+#perry_says
+@export var perry_says_c_low : AudioStreamWAV
+@export var perry_says_d : AudioStreamWAV
+@export var perry_says_e : AudioStreamWAV
+@export var perry_says_f : AudioStreamWAV
+@export var perry_says_g : AudioStreamWAV
+@export var perry_says_a : AudioStreamWAV
+@export var perry_says_b : AudioStreamWAV
+@export var perry_says_c : AudioStreamWAV
+
 
 #perry_polo
 @export var perry_polo_ball_hit : AudioStreamWAV
 @export var perry_polo_whirlpool_sounds : Array[AudioStreamWAV]
+
+#perry_space
+@export var perry_space_rocket_shoot : AudioStreamWAV
+@export var perry_space_player_hit : AudioStreamWAV
+@export var perry_space_enemy_die : AudioStreamWAV
 
 
 var background_animation_player : AnimationPlayer = null
@@ -184,6 +199,26 @@ func play_sound(sound_name: String):
 		"perry_polo_whirlpool_sounds":
 			var selection = perry_polo_whirlpool_sounds[randi() % perry_polo_whirlpool_sounds.size()]
 			queues["Game"].append(selection)
+		"perry_space_rocket_shoot":
+			queues["Game"].append(perry_space_rocket_shoot)
+		"perry_space_player_hit":
+			queues["Game"].append(perry_space_player_hit)
+		"perry_says_c_low":
+				queues["Game"].append(perry_says_c_low)
+		"perry_says_d":
+				queues["Game"].append(perry_says_d)
+		"perry_says_e":
+				queues["Game"].append(perry_says_e)
+		"perry_says_f":
+				queues["Game"].append(perry_says_f)
+		"perry_says_g":
+				queues["Game"].append(perry_says_g)
+		"perry_says_a":
+				queues["Game"].append(perry_says_a)
+		"perry_says_b":
+				queues["Game"].append(perry_says_b)
+		"perry_says_c":
+				queues["Game"].append(perry_says_c)
 		_:
 			print("Sound not recognized")
 

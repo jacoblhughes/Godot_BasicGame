@@ -16,7 +16,3 @@ offset_right = 128.0
 offset_bottom = 128.0
 action_mode = 0
 texture_normal = ExtResource("1_wwvm0")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button"]
-unique_name_in_owner = true
-bus = &"Game"

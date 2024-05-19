@@ -1,22 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcxdvv4qwwmqm"]
+[gd_scene load_steps=6 format=3 uid="uid://bcxdvv4qwwmqm"]
 
 [ext_resource type="Script" path="res://src/perry_says/perry_says.gd" id="1_fdqsf"]
-[ext_resource type="AudioStream" uid="uid://cma8otyo7vbuh" path="res://src/perry_says/sounds/c_low.wav" id="2_jiqsh"]
 [ext_resource type="Script" path="res://src/perry_says/playback_timer.gd" id="3_nsfda"]
 [ext_resource type="PackedScene" uid="uid://d2enwj4xxpx4q" path="res://src/perry_says/perry_button.tscn" id="3_o4idv"]
-[ext_resource type="AudioStream" uid="uid://cmye6pgw80jha" path="res://src/perry_says/sounds/d.wav" id="3_pnsqn"]
-[ext_resource type="AudioStream" uid="uid://bsao2g3wg0bn1" path="res://src/perry_says/sounds/e.wav" id="4_scqb2"]
-[ext_resource type="AudioStream" uid="uid://b5ahaxwfxl02m" path="res://src/perry_says/sounds/f.wav" id="5_c5krm"]
-[ext_resource type="AudioStream" uid="uid://c17gpmvnv352b" path="res://src/perry_says/sounds/g.wav" id="6_m0bd6"]
-[ext_resource type="AudioStream" uid="uid://c0pagaj3k2vas" path="res://src/perry_says/sounds/a.wav" id="7_gh0gk"]
-[ext_resource type="AudioStream" uid="uid://cft2fpvmijb8i" path="res://src/perry_says/sounds/b.wav" id="8_olta7"]
-[ext_resource type="AudioStream" uid="uid://dggso5hv38lp6" path="res://src/perry_says/sounds/c.wav" id="9_d70j3"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="10_nw2da"]
 [ext_resource type="Texture2D" uid="uid://c8rtqxhtpbj8e" path="res://src/perry_says/textures/background.png" id="11_tkw4p"]
 
 [node name="PerrySays" type="Node2D"]
 script = ExtResource("1_fdqsf")
-sounds = Array[AudioStreamWAV]([ExtResource("2_jiqsh"), ExtResource("3_pnsqn"), ExtResource("4_scqb2"), ExtResource("5_c5krm"), ExtResource("6_m0bd6"), ExtResource("7_gh0gk"), ExtResource("8_olta7"), ExtResource("9_d70j3")])
+sounds = Array[String](["c_low", "d", "e", "f", "g", "a", "b", "c"])
 metadata/_edit_vertical_guides_ = [360.0, 296.0, 424.0]
 metadata/_edit_horizontal_guides_ = [-640.0, 640.0, 320.0, 160.0, 480.0, 800.0, 960.0, 1120.0]
 

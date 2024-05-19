@@ -1,19 +1,15 @@
 extends Node2D
 @onready var sprite_number : int = 0
 @onready var button_number : int = 1
-#@onready var animated_sprite : AnimatedSprite2D
-var audio_stream_player : AudioStreamPlayer
-#@onready var texture_button : TextureButton
+
 signal perry_pressed
 var original_time = .75
 var play_time
 @export var button_texture : Resource
+var audio_string = null
 
 func _ready():
 	play_time = original_time
-#	texture_button = $TextureButton
-#	animated_sprite = $TextureButton/AnimatedSprite2D
-	audio_stream_player = %AudioStreamPlayer
 	%Button.pressed.connect(_on_texture_button_pressed)
 	pass
 
@@ -50,28 +46,16 @@ func initiate_button():
 	pressed_atlas_texture.set_region(pressed_region_rect)
 	%Button.texture_normal = atlas_texture
 	%Button.texture_pressed = pressed_atlas_texture
-#	var sprite_frames = SpriteFrames.new()
-#	sprite_frames.clear_all()
-##	sprite_frames.add_animation('default')
-#	sprite_frames.add_frame('default',atlas_texture,1,0)
-#	sprite_frames.add_animation('pressed')
-#	sprite_frames.add_frame('pressed',pressed_atlas_texture,1,0)
-#	animated_sprite.set_sprite_frames(sprite_frames)
-#	animated_sprite.set_animation("default")
-
-	# Adjust other properties as needed
-#	animated_sprite.scale = Vector2(0.75, 0.75)
-#	size = Vector2(192, 192)
 
 
 func _on_texture_button_pressed():
-#	animated_sprite.play('pressed')
+
 	perry_pressed.emit(button_number)
-	audio_stream_player.play()
-	await get_tree().create_timer(play_time).timeout
-	audio_stream_player.stop()
-#	animated_sprite.stop()
-#	animated_sprite.play('default')
+	AudioManager.play_sound(audio_string)
+	#audio_stream_player.play()
+	#await get_tree().create_timer(play_time).timeout
+	#audio_stream_player.stop()
+
 	pass # Replace with function body.
 
 func called_from_game():

@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://byr54mhj3utn8"]
+[gd_scene load_steps=19 format=3 uid="uid://byr54mhj3utn8"]
 
 [ext_resource type="Script" path="res://src/perry_space/enemy.gd" id="1_upvbl"]
 [ext_resource type="Texture2D" uid="uid://cywosjxskjg2d" path="res://src/perry_space/textures/enemy_blue.png" id="2_7dick"]
 [ext_resource type="Texture2D" uid="uid://ir7hx8wgahth" path="res://src/perry_space/textures/enemy_green.png" id="2_traeb"]
-[ext_resource type="AudioStream" uid="uid://byygwxpyf0h3k" path="res://src/perry_space/sounds/enemy_die.wav" id="3_e35dg"]
 [ext_resource type="Texture2D" uid="uid://cunkbfjaeggqn" path="res://src/perry_space/textures/enemy_yellow.png" id="4_lp3yr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqegt"]
@@ -126,9 +125,5 @@ animation = &"green"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_g0732")
-
-[node name="EnemyHitSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_e35dg")
-bus = &"Game"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

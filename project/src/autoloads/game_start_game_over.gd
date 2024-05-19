@@ -51,10 +51,10 @@ func set_gamestart_panel(flag):
 func set_gameover_panel_congrats(vis):
 	%GameOverPanel.visible = vis
 	if(vis):
-#		game_over_panel_congrats.play()
+
 		%HighscoreAchieved.visible = true
 	else:
-#		game_over_panel_congrats.stop()
+
 		%HighscoreAchieved.visible = false
 
 func _on_home_button_pressed():
