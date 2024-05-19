@@ -55,32 +55,108 @@ func _ready():
 
 	background_player = AudioStreamPlayer.new()
 	background_player.name = "Background"
+	background_player.stream = background_music
 	background_audio_node.add_child(background_player)
 	background_player.bus = "Background"
 	background_player_2 = AudioStreamPlayer.new()
 	background_player_2.name = "Background2"
+	background_player_2.stream = background_music_2
 	background_audio_node.add_child(background_player_2)
 	background_player_2.bus = "Background"
 	background_animation_player = AnimationPlayer.new()
 	background_animation_player.name = "BackgroundAnimationPlayer"
 	background_audio_node.add_child(background_animation_player)
 
-func crossfade_to(audio_stream: AudioStream) -> void:
+	var animation_library = AnimationLibrary.new()
+
+	# Create the FadeToTrack1 animation
+	var fade_to_track1 = Animation.new()
+	fade_to_track1.resource_name = "FadeToTrack1"
+	fade_to_track1.length = 0.5
+	fade_to_track1.loop = true  # Set animation to loop
+
+	# Track for background_player volume_db
+	fade_to_track1.add_track(Animation.TYPE_VALUE)
+	fade_to_track1.track_set_path(0, NodePath("Background:volume_db"))
+	fade_to_track1.track_set_interpolation_type(0, Animation.INTERPOLATION_LINEAR)
+	fade_to_track1.track_insert_key(0, 0.0, -80.0)
+	fade_to_track1.track_insert_key(0, 0.5, 0.0)
+
+	# Track for background_player_2 volume_db
+	fade_to_track1.add_track(Animation.TYPE_VALUE)
+	fade_to_track1.track_set_path(1, NodePath("Background2:volume_db"))
+	fade_to_track1.track_set_interpolation_type(1, Animation.INTERPOLATION_LINEAR)
+	fade_to_track1.track_insert_key(1, 0.0, 0.0)
+	fade_to_track1.track_insert_key(1, 0.5, -80.0)
+
+	# Track for background_player_2 playing state
+	fade_to_track1.add_track(Animation.TYPE_VALUE)
+	fade_to_track1.track_set_path(2, NodePath("Background2:playing"))
+	fade_to_track1.track_set_interpolation_type(2, Animation.INTERPOLATION_LINEAR)
+	fade_to_track1.track_insert_key(2, 0.5, false)
+
+	# Add FadeToTrack1 animation to AnimationLibrary
+	animation_library.add_animation("FadeToTrack1", fade_to_track1)
+
+	# Create the FadeToTrack2 animation
+	var fade_to_track2 = Animation.new()
+	fade_to_track2.resource_name = "FadeToTrack2"
+	fade_to_track2.length = 0.5
+	fade_to_track2.loop = true  # Set animation to loop
+
+	# Track for background_player volume_db
+	fade_to_track2.add_track(Animation.TYPE_VALUE)
+	fade_to_track2.track_set_path(0, NodePath("Background:volume_db"))
+	fade_to_track2.track_set_interpolation_type(0, Animation.INTERPOLATION_LINEAR)
+	fade_to_track2.track_insert_key(0, 0.0, 0.0)
+	fade_to_track2.track_insert_key(0, 0.5, -80.0)
+
+	# Track for background_player playing state
+	fade_to_track2.add_track(Animation.TYPE_VALUE)
+	fade_to_track2.track_set_path(1, NodePath("Background:playing"))
+	fade_to_track2.track_set_interpolation_type(1, Animation.INTERPOLATION_LINEAR)
+	fade_to_track2.track_insert_key(1, 0.5, false)
+
+	# Track for background_player_2 volume_db
+	fade_to_track2.add_track(Animation.TYPE_VALUE)
+	fade_to_track2.track_set_path(2, NodePath("Background2:volume_db"))
+	fade_to_track2.track_set_interpolation_type(2, Animation.INTERPOLATION_LINEAR)
+	fade_to_track2.track_insert_key(2, 0.0, -80.0)
+	fade_to_track2.track_insert_key(2, 0.5, 0.0)
+
+	# Add FadeToTrack2 animation to AnimationLibrary
+	animation_library.add_animation("FadeToTrack2", fade_to_track2)
+
+	# Set the animation library to the AnimationPlayer
+	background_animation_player.add_animation_library("AnimationLib",animation_library)
+
+	# Optionally, play the animations
+	# background_animation_player.play("FadeToTrack1")
+	# background_animation_player.play("FadeToTrack2")
+
+func test():
+	print('here')
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Background"),false)
+	crossfade_to()
+	await get_tree().create_timer(5).timeout
+	crossfade_to()
+	await get_tree().create_timer(5).timeout
+	crossfade_to()
+func crossfade_to() -> void:
+
 	# If both tracks are playing, we're calling the function in the middle of a fade.
 	# We return early to avoid jumps in the sound.
 	if background_player.playing and background_player_2.playing:
 		return
 
-	# The `playing` property of the stream players tells us which track is active. 
+	# The `playing` property of the stream players tells us which track is active.
 	# If it's track two, we fade to track one, and vice-versa.
 	if background_player_2.playing:
-		background_player.stream = audio_stream
 		background_player.play()
-		background_animation_player.play("FadeToTrack1")
+		background_animation_player.play("AnimationLib/FadeToTrack1")
 	else:
-		background_player_2.stream = audio_stream
 		background_player_2.play()
-		background_animation_player.play("FadeToTrack2")
+		background_animation_player.play("AnimationLib/FadeToTrack2")
 
 
 func _on_stream_finished(bus, player):
