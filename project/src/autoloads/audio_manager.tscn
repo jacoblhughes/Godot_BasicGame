@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdfjgmd53s2ur"]
+[gd_scene load_steps=15 format=3 uid="uid://bdfjgmd53s2ur"]
 
 [ext_resource type="Script" path="res://src/autoloads/audio_manager.gd" id="1_8x220"]
 [ext_resource type="AudioStream" uid="uid://c8e8dke0akcem" path="res://src/perry_polo/sounds/ball_hit.wav" id="2_78ox1"]
 [ext_resource type="AudioStream" uid="uid://x3n1q7m1tucn" path="res://src/main/sounds/applause.wav" id="2_kbh4v"]
 [ext_resource type="AudioStream" uid="uid://dnw4emjqovlsj" path="res://src/main/sounds/game_over.wav" id="3_djlji"]
 [ext_resource type="AudioStream" uid="uid://buulegk5q7el8" path="res://src/main/sounds/background_music.wav" id="4_yd4c5"]
+[ext_resource type="AudioStream" uid="uid://8nu7ewt4g11f" path="res://src/main/sounds/background_music_2.wav" id="5_8yvv8"]
 [ext_resource type="AudioStream" uid="uid://5fg6qgyiwwa3" path="res://src/perry_polo/sounds/whirlpool_1.wav" id="6_6yj6a"]
 [ext_resource type="AudioStream" uid="uid://ne7blc6cda8d" path="res://src/perry_polo/sounds/whirlpool_2.wav" id="7_xlxc4"]
 [ext_resource type="AudioStream" uid="uid://bp5r6h3vh78kg" path="res://src/perry_polo/sounds/whirlpool_3.wav" id="8_ssowe"]
@@ -12,10 +13,64 @@
 [ext_resource type="AudioStream" uid="uid://xyd6estyfnks" path="res://src/perry_polo/sounds/whirlpool_5.wav" id="10_d3m4x"]
 [ext_resource type="AudioStream" uid="uid://6cwelwtcotvx" path="res://src/perry_polo/sounds/whirlpool_6.wav" id="11_0a25u"]
 
+[sub_resource type="Animation" id="Animation_1afjc"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vw4r4"]
+_data = {
+"new_animation": SubResource("Animation_1afjc")
+}
+
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_8x220")
 main_applause = ExtResource("2_kbh4v")
 main_game_over = ExtResource("3_djlji")
-main_background_music = ExtResource("4_yd4c5")
+background_music = ExtResource("4_yd4c5")
+background_music_2 = ExtResource("5_8yvv8")
 perry_polo_ball_hit = ExtResource("2_78ox1")
 perry_polo_whirlpool_sounds = Array[AudioStreamWAV]([ExtResource("6_6yj6a"), ExtResource("7_xlxc4"), ExtResource("8_ssowe"), ExtResource("9_qknc4"), ExtResource("10_d3m4x"), ExtResource("11_0a25u")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vw4r4")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]

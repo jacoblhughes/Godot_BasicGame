@@ -4,14 +4,19 @@ extends Node
 #main
 @export var main_applause : AudioStreamWAV
 @export var main_game_over : AudioStreamWAV
-@export var main_background_music : AudioStreamWAV
+
+@export var background_music : AudioStreamWAV
+@export var background_music_2 : AudioStreamWAV
 
 
 #perry_polo
 @export var perry_polo_ball_hit : AudioStreamWAV
 @export var perry_polo_whirlpool_sounds : Array[AudioStreamWAV]
-@export var perry_polo_background_music : AudioStreamWAV
 
+
+var background_animation_player : AnimationPlayer = null
+var background_player : AudioStreamPlayer = null
+var background_player_2 : AudioStreamPlayer = null
 # Export the NodePath to the player_initials scene
 
 var background_playing : bool = false
@@ -24,25 +29,59 @@ var buses = {"Game": 8} # Define the number of players for each bus
 var available = {}  # Dictionary to hold available players for each bus
 var queues = {}  # Dictionary to hold queues for each bus
 
-var background_player : AudioStreamPlayer = null
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var game_audio_node = Node.new()
+	game_audio_node.name = "GameAudio"
+	add_child(game_audio_node)
+
+	var background_audio_node = Node.new()
+	background_audio_node.name = "BackgroundAudio"
+	add_child(background_audio_node)
+
 	for bus in buses.keys():
 		available[bus] = []
 		queues[bus] = []
 		for i in range(buses[bus]):
 			var p = AudioStreamPlayer.new()
-			add_child(p)
+			game_audio_node.add_child(p)  # Add to the game audio parent node
 			available[bus].append(p)
 			p.connect("finished", Callable(self, "_on_stream_finished").bind(bus, p))
-			p.name = "Game" + str(i+1)
+			p.name = "Game" + str(i + 1)
 			p.bus = bus
+
 
 	background_player = AudioStreamPlayer.new()
 	background_player.name = "Background"
-	add_child(background_player)
+	background_audio_node.add_child(background_player)
 	background_player.bus = "Background"
+	background_player_2 = AudioStreamPlayer.new()
+	background_player_2.name = "Background2"
+	background_audio_node.add_child(background_player_2)
+	background_player_2.bus = "Background"
+	background_animation_player = AnimationPlayer.new()
+	background_animation_player.name = "BackgroundAnimationPlayer"
+	background_audio_node.add_child(background_animation_player)
+
+func crossfade_to(audio_stream: AudioStream) -> void:
+	# If both tracks are playing, we're calling the function in the middle of a fade.
+	# We return early to avoid jumps in the sound.
+	if background_player.playing and background_player_2.playing:
+		return
+
+	# The `playing` property of the stream players tells us which track is active. 
+	# If it's track two, we fade to track one, and vice-versa.
+	if background_player_2.playing:
+		background_player.stream = audio_stream
+		background_player.play()
+		background_animation_player.play("FadeToTrack1")
+	else:
+		background_player_2.stream = audio_stream
+		background_player_2.play()
+		background_animation_player.play("FadeToTrack2")
+
 
 func _on_stream_finished(bus, player):
 	# When finished playing a stream, make the player available again.
@@ -82,7 +121,7 @@ func set_background_music_mute(true_or_false):
 	background_playing = true_or_false
 	var _this_bus_index = AudioServer.get_bus_index("Background")
 	if(background_playing):
-		background_player.stream = main_background_music
+		background_player.stream = background_music
 		background_player.play()
 		AudioServer.set_bus_mute(_this_bus_index,false)
 		GameManager.save_background_music_choice(background_playing)
