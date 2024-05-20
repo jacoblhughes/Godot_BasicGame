@@ -24,9 +24,13 @@ var computerPopulate = 0
 var playerPopulate = -1
 var button_pressed
 var buttonObject = {}
-
+var base_playback_timer_time = 1.25
 
 @export var sounds :Array[String] = []
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
@@ -60,7 +64,7 @@ func _ready():
 			node.scale.x *= xatio
 
 	%PlaybackTimer.timeout.connect(_on_playback_timer_timeout)
-
+	%PlaybackTimer.wait_time = base_playback_timer_time
 	await _initialize_buttons()
 
 
@@ -115,7 +119,7 @@ func _player_turn_end():
 func _on_advance_level():
 	for button in groupOfButtons:
 		button.play_time = button.original_time * pow(.95,HUD.return_game_level())
-	%PlaybackTimer.wait_time = %PlaybackTimer.original_time * pow(.95,HUD.return_game_level())
+	%PlaybackTimer.wait_time = base_playback_timer_time * pow(.95,HUD.return_game_level())
 
 func _get_next_value():
 	buttonToAdd = floor(rng.randf_range(0, 8))

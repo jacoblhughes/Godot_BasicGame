@@ -4,7 +4,7 @@ extends Node2D
 @export var enemy_spawn_right : Marker2D
 @export var enemy_scene : PackedScene
 @export var enemy_timer : Timer
-var probability = .1
+var probability = 0
 signal enemy_squashed
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+
 	pass
 
 func _on_enemy_timer_timeout():
@@ -33,6 +34,3 @@ func _on_enemy_timer_timeout():
 
 func _on_enemy_squashed():
 	enemy_squashed.emit()
-
-func increase_probability():
-	probability /= .95

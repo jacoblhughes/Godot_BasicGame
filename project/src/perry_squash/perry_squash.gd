@@ -11,6 +11,8 @@ var level_advance_base_value = 1
 var start_timer_countdown_value = 3
 var game_time_left_timer_value = 3
 
+var base_enemy_timer_time = 1
+var base_enemy_spawn_probability = .1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
@@ -44,6 +46,7 @@ func _ready():
 			node.scale.x *= xatio
 
 	%EnemySpawn.enemy_squashed.connect(_on_enemy_squashed)
+	%EnemySpawn.probability = base_enemy_spawn_probability
 	pass # Replace with function body.
 
 
@@ -63,5 +66,5 @@ func _on_game_over():
 	GameManager.set_game_enabled(false)
 
 func _on_advance_level():
-	%EnemyTimer.wait_time *= .95
-	%EnemySpawn.increase_probability()
+	%EnemyTimer.wait_time = base_enemy_timer_time * pow(.95,HUD.return_game_level())
+	%EnemySpawn.probability = base_enemy_spawn_probability * pow(1.05,HUD.return_game_level())

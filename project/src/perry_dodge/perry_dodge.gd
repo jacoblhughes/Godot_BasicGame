@@ -12,7 +12,7 @@ var game_time_left_timer_value = 3
 
 @export var mob_scene: PackedScene
 
-var original_mob_time = 1.25
+var base_score_and_mob_timer_time = 1.25
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -52,12 +52,12 @@ func _ready():
 			node.scale.x *= xatio
 
 	%Player.start(%StartPosition.position)
-	%ScoreAndMobTimer.wait_time = original_mob_time
+	%ScoreAndMobTimer.wait_time = base_score_and_mob_timer_time
 	%ScoreAndMobTimer.timeout.connect(_on_mob_timer_timeout)
 
 func _on_advance_level():
 
-	%ScoreAndMobTimer.wait_time = original_mob_time * pow(.95,HUD.return_game_level())
+	%ScoreAndMobTimer.wait_time = base_score_and_mob_timer_time * pow(.95,HUD.return_game_level())
 
 func _on_mob_timer_timeout():
 

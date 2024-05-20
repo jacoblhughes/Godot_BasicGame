@@ -13,6 +13,7 @@ var level_advance_base_value = 1
 var start_timer_countdown_value = 3
 var game_time_left_timer_value = 3
 
+var base_enemy_spawn_timer_time = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -71,7 +72,7 @@ func _on_despawn_body_entered(body):
 	pass # Replace with function body.
 
 func _on_advance_level():
-	enemy_spawn_timer.wait_time = enemy_spawn_timer.original_time * pow(.95,HUD.return_game_level())
+	enemy_spawn_timer.wait_time = base_enemy_spawn_timer_time * pow(.95,HUD.return_game_level())
 
 func _on_play_button_pressed():
 

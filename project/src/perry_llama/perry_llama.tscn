@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cgu5dun6rgtic"]
+[gd_scene load_steps=13 format=3 uid="uid://cgu5dun6rgtic"]
 
 [ext_resource type="Script" path="res://src/perry_llama/perry_llama.gd" id="1_m1610"]
 [ext_resource type="PackedScene" uid="uid://bq80x8xgeg676" path="res://src/perry_llama/enemy.tscn" id="2_aqn3c"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="6_e8a6k"]
 [ext_resource type="PackedScene" uid="uid://bhvh5e4jf5b7o" path="res://src/perry_llama/despawn.tscn" id="6_lg8u8"]
 [ext_resource type="PackedScene" uid="uid://m2beoi334dvw" path="res://src/perry_llama/perry_running.tscn" id="7_mxegh"]
-[ext_resource type="Script" path="res://src/perry_llama/emeny_spawn_timer.gd" id="7_ppvet"]
 [ext_resource type="PackedScene" uid="uid://xxmabh5cuit2" path="res://src/perry_llama/enemy_spawner.tscn" id="9_4s8se"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nchlr"]
@@ -41,7 +40,6 @@ position = Vector2(168, 832)
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 3.0
-script = ExtResource("7_ppvet")
 
 [node name="Despawn" parent="." instance=ExtResource("6_lg8u8")]
 unique_name_in_owner = true

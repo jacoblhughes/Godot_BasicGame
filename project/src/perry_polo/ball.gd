@@ -6,10 +6,8 @@ var reset_round = false
 # Called when the node enters the scene tree for the first time.
 var position_reset = false
 var stored_position = Vector2(0,0)
-var original_speed_increase = 1.05
-var speed_increase = 1.05
-@export var original_velocity = Vector2(-250,0)
-var increased_velocity : Vector2
+var speed_increase = 0.0
+var increased_velocity : Vector2 = Vector2.ZERO
 var collision_cooldown: float = 1.0
 var max_speed = 1000
 
@@ -18,7 +16,7 @@ var max_speed = 1000
 func _ready():
 
 #	_game_initialize()
-	increased_velocity = original_velocity
+
 	stored_position = position
 	reset_round = true
 	get_parent().position_reset.connect(_on_position_reset)

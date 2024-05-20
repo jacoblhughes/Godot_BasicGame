@@ -7,10 +7,12 @@ var lives_advance_base_value = 1
 var initial_level_value = 1
 var level_advance_check_value = 10
 var level_advance_base_value = 1
-var start_timer_countdown_value = 3
+var start_timer_countdown_value = 2
 var game_time_left_timer_value = 30
 
-var skeeballs
+var base_scoring_zone_speed = 50
+var base_player_size = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
@@ -46,7 +48,9 @@ func _ready():
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
 
-
+	for node in %ScoringZones.get_children():
+		node.speed = base_scoring_zone_speed * node.worth
+	%Player.scale *= base_player_size
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta):
@@ -56,14 +60,9 @@ func _process(delta):
 func _on_play_button_pressed():
 	HUD.set_start_timer_countdown_and_start()
 
-
-
 func _on_game_over():
 	GameManager.set_game_enabled(false)
 	pass
-
-func _on_scored():
-	HUD.update_score()
 
 func _on_start_timer_countdown_timeout():
 	GameManager.set_game_enabled(true)
@@ -71,3 +70,9 @@ func _on_start_timer_countdown_timeout():
 
 func _on_game_time_left_timer_timeout():
 	HUD.update_lives()
+
+func _on_advance_level():
+	print('herehere')
+	for node in %ScoringZones.get_children():
+		node.speed = base_scoring_zone_speed * node.worth * pow(1.05,HUD.return_game_level())
+	%Player.scale *= base_player_size * pow(.5,HUD.return_game_level())

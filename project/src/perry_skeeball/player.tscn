@@ -7,11 +7,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4k4iq"]
 radius = 48.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("start_position")]
-position = Vector2(360, 1216)
+[node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_eb6ag")
-start_position = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
@@ -31,9 +29,8 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Aim"]
 layout_mode = 0
-offset_left = -24.0
-offset_top = -128.0
-offset_right = 56.0
-offset_bottom = -80.0
-rotation = -1.5708
+offset_left = 64.0
+offset_top = -24.0
+offset_right = 144.0
+offset_bottom = 24.0
 texture = ExtResource("3_pwfe2")

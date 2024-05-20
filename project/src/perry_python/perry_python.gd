@@ -19,7 +19,7 @@ var next_direction = Vector2.ZERO
 var curr_direction = Vector2.ZERO
 
 
-var original_snake_time = .7
+var base_snake_timer_time = .7
 var snake_cells = 10
 var game_area
 var snake_cell_size := Vector2(0,0)
@@ -88,7 +88,7 @@ func _ready():
 	food_spawner.food_eaten.connect(_on_food_eaten)
 	head.update_scale(snake_cell_size)
 	head.curr_position = game_position + Vector2(game_area.x/2,game_area.y/2)
-	snake_timer.wait_time = original_snake_time
+	snake_timer.wait_time = base_snake_timer_time
 	head.hit.connect(_on_hit)
 	minisnakes.push_front(head)
 	%FoodSpawner.cell_size = snake_cell_size
@@ -200,7 +200,7 @@ func _on_food_eaten():
 	HUD.update_score()
 
 func _on_advance_level():
-	snake_timer.wait_time = original_snake_time * pow(.95,HUD.return_game_level())
+	snake_timer.wait_time = base_snake_timer_time * pow(.95,HUD.return_game_level())
 
 func set_play_area_size(value):
 	game_area = value

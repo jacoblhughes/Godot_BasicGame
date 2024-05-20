@@ -3,15 +3,15 @@ extends CharacterBody2D
 @export var ball : CharacterBody2D
 @export var enemy_start : Marker2D
 
-var original_speed = 1.25
-var speed
+
+var speed = 0.0
 
 var sprite_half_y
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	speed = original_speed
+
 	sprite_half_y= return_size().y/4
 	get_parent().position_reset.connect(_on_position_reset)
 	pass # Replace with function body.

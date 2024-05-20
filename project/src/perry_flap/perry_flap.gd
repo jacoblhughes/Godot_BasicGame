@@ -10,7 +10,7 @@ var level_advance_base_value = 1
 var start_timer_countdown_value = 3
 var game_time_left_timer_value = 3
 
-var original_spawn_timer = 2
+var base_spawn_timer_time = 2
 @export var scenes : Array[PackedScene]
 
 # Called when the node enters the scene tree for the first time.
@@ -47,7 +47,7 @@ func _ready():
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
 
-	%SpawnTimer.wait_time = original_spawn_timer
+	%SpawnTimer.wait_time = base_spawn_timer_time
 	%Player.position = %StartPosition.position
 	pass # Replace with function body.
 
@@ -71,7 +71,7 @@ func _on_game_over():
 	%Player.position = %StartPosition.position
 
 func _on_advance_level():
-	%SpawnTimer.wait_time = original_spawn_timer * pow(.95,HUD.return_game_level())
+	%SpawnTimer.wait_time = base_spawn_timer_time * pow(.95,HUD.return_game_level())
 
 func _on_spawn_timer_timeout():
 	var chosen_index = randi() % scenes.size()

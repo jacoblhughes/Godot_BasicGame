@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcxdvv4qwwmqm"]
+[gd_scene load_steps=5 format=3 uid="uid://bcxdvv4qwwmqm"]
 
 [ext_resource type="Script" path="res://src/perry_says/perry_says.gd" id="1_fdqsf"]
-[ext_resource type="Script" path="res://src/perry_says/playback_timer.gd" id="3_nsfda"]
 [ext_resource type="PackedScene" uid="uid://d2enwj4xxpx4q" path="res://src/perry_says/perry_button.tscn" id="3_o4idv"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="10_nw2da"]
 [ext_resource type="Texture2D" uid="uid://c8rtqxhtpbj8e" path="res://src/perry_says/textures/background.png" id="11_tkw4p"]
@@ -17,7 +16,6 @@ game_background_texture = ExtResource("11_tkw4p")
 
 [node name="PlaybackTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-script = ExtResource("3_nsfda")
 
 [node name="Buttons" type="Node2D" parent="."]
 unique_name_in_owner = true

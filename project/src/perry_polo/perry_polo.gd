@@ -22,6 +22,12 @@ var win_area
 var lose_area
 var game_reset = false
 @export var whirlpools : Node2D
+
+var base_enemy_speed = 1
+var base_ball_speed_increase = 1.05
+var base_ball_increased_velocity = Vector2(-250,0)
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
@@ -62,7 +68,9 @@ func _ready():
 
 	%Win.body_entered.connect(_on_win_body_entered)
 	%Lose.body_entered.connect(_on_lose_body_entered)
-#	_game_initialize()
+	%Enemy.speed = base_enemy_speed
+	%Ball.speed_increase = base_ball_speed_increase
+	%Ball.increased_velocity = base_ball_increased_velocity
 
 
 func _draw():
@@ -86,9 +94,10 @@ func _on_lose_body_entered(body):
 	pass # Replace with function body.
 
 func _on_advance_level():
-	%Enemy.speed = %Enemy.original_speed * pow(1.05,HUD.return_game_level())
-	%Ball.speed_increase = %Ball.original_speed_increase * pow(1.05,HUD.return_game_level())
-	%Ball.increased_velocity = %Ball.original_velocity * pow(1.05,HUD.return_game_level())
+	
+	%Enemy.speed = base_enemy_speed * pow(1.05,HUD.return_game_level())
+	%Ball.speed_increase = base_ball_speed_increase * pow(1.05,HUD.return_game_level())
+	%Ball.increased_velocity = base_ball_increased_velocity * pow(1.05,HUD.return_game_level())
 	pass
 
 func _on_game_over():

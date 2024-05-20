@@ -23,6 +23,9 @@ var game_time_left_timer_value : int
 
 var main_scene : Node
 
+var previous_score = 0
+
+
 signal hud_ready
 @export var input_panel : Panel
 signal start_timer_countdown_timeout
@@ -80,9 +83,6 @@ func set_or_reset_score(value = 0):
 func return_score():
 	return score
 
-
-
-
 func home_button_pressed():
 	_on_home_button_pressed()
 
@@ -127,10 +127,11 @@ func update_lives(value = -1):
 
 
 func check_advance_level():
-	if(int(return_score()) > 0 and int(return_score()) % level_advance_check_value == 0):
-		var new_level = int(return_score())/level_advance_check_value
-		set_or_reset_level((level_advance_base_value * new_level)+initial_level_value)
-		advance_level.emit()
+	if score > 0 and score >= previous_score:
+		if (score % level_advance_check_value) < (score - previous_score):
+			var new_level = int(int(score) / int(level_advance_check_value))
+			set_or_reset_level((level_advance_base_value * new_level) + initial_level_value)
+			advance_level.emit()
 
 func set_or_reset_level(default_level = "INF"):
 	if typeof(default_level) == TYPE_INT:
@@ -166,7 +167,13 @@ func set_game_time_left_and_start():
 	game_time_left_timing = true
 	%GameTimeLeftTimer.wait_time = game_time_left_timer_value
 	%GameTimeLeftTimer.start()
-
+	
+func add_time_to_game_time_left(value):
+	var new_time_left = %GameTimeLeftTimer.time_left + value
+	%GameTimeLeftTimer.stop()
+	%GameTimeLeftTimer.wait_time = new_time_left
+	%GameTimeLeftTimer.start()
+	
 func _on_game_left_timer_timeout():
 	game_time_left_timer_used = false
 	game_time_left_timer_timeout.emit()
