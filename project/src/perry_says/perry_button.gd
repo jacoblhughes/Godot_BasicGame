@@ -3,13 +3,12 @@ extends Node2D
 @onready var button_number : int = 1
 
 signal perry_pressed
-var original_time = .75
 var play_time
 @export var button_texture : Resource
 var audio_string = null
 
 func _ready():
-	play_time = original_time
+
 	%Button.pressed.connect(_on_texture_button_pressed)
 	pass
 

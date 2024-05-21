@@ -13,6 +13,7 @@ var game_time_left_timer_value = 3
 
 var base_enemy_timer_time = 1
 var base_enemy_spawn_probability = .1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var start_button_callable = Callable(self, "_on_play_button_pressed")

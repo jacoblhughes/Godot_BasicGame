@@ -77,7 +77,7 @@ func set_or_reset_score(value = 0):
 		new_score = 0
 	score = new_score
 	%Score.text = str(score)
-	
+
 	check_advance_level()
 
 func return_score():
@@ -167,13 +167,13 @@ func set_game_time_left_and_start():
 	game_time_left_timing = true
 	%GameTimeLeftTimer.wait_time = game_time_left_timer_value
 	%GameTimeLeftTimer.start()
-	
+
 func add_time_to_game_time_left(value):
 	var new_time_left = %GameTimeLeftTimer.time_left + value
 	%GameTimeLeftTimer.stop()
 	%GameTimeLeftTimer.wait_time = new_time_left
 	%GameTimeLeftTimer.start()
-	
+
 func _on_game_left_timer_timeout():
 	game_time_left_timer_used = false
 	game_time_left_timer_timeout.emit()

@@ -11,79 +11,88 @@ Perry Arcade
 40	18	32
 	9   16
 
-V2:
+Improvements:
 
 All:
 	Make level changes actually mean something
-	Improved sounds (like from one place mainly)
 	Improved background music
 	Consolidate the sounds
+	Add at least 2 sounds per game
+	3 background musics
 
 How do I handle the different xatio's and the timing around moving nodes.
 	Make it consistent with call deferred or a signal
 
-Introduce at least 1 then 2 new game elements to make it fun
-If not too much of a detriment, add another way to lose.
-
-Add at least 2 sounds per game
-3 background musics
-
 Make things their own scene and arrange - get rid of /2's and such where possible
-
-make scaling all 1
+	Make scaling all 1
 
 adjust canvaslayers (probably move everything up or down one)
-
 	HUD 1
-	GameStartOver3
-	Buttons3
-	HitMeter (stuff) 2
+	GameStartOver 3
+	Buttons 3
+	Stuff 2
+		HitMeter
+		Status
+	Background -2
 
-	background -2
+	perry_says
+	perry_python
+		need to compare to snake length on when to spawn, not the score
 
-perry_says
-	Make the buttons move or something
-	Make timer for inactivity of player
-	Make it move to a beat?
-	Do I need to worry about cutting off the music?
+	perry_polo
+		make the whirlpools fling instead of pull in (done?)
+		make the player move in relation to event target not at event target (done?)
 
-perry_python
-	need to compare to snake length on when to spawn, not the score
+	perry_llama
+		better enemies
 
-perry_polo
-	make the whirlpools fling instead of pull in (done?)
-	make the player move in relation to event target not at event target (done?)
-	make icons that give powerups or other things
+	perry_dodge
+	perry_flap
+	perry_run
+		cleaning up
 
-perry_llama
-	better enemies
+	perry_skeeball
+	perry_space
+		Rockets global position??
+		rockets should emit signal back to game to handle game scoring and such
 
-perry_dodge
-	powerups
+	perry_squash
+		Why does being on or above the start position fuck it up?
 
-perry_flap
-	make the walls not fall
+	perry_putt:
+	perry_tamagotchi
 
-perry_run
-	cleaning up
+Enhancements:
 
-perry_space
-	Rockets global position??
-	rockets should emit signal back to game to handle game scoring and such
+	perry_says
+		Make the buttons move or something
+		Make timer for inactivity of player
+		Make it move to a beat?
+		Do I need to worry about cutting off the music?\
 
-perry_squash
-	Why does being on or above the start position fuck it up?
+	perry_python
+	perry_polo
+		power ups
 
-perry_squash:
-	size of snakes and motion
+	perry_llama
+	perry_dodge
+		power ups
 
-perry_putt:
-	one more level
+	perry_flap
+	perry_run
+	perry_skeeball
+	perry_space
+	perry_squash:
+		make the snakes an animation to control the collision sizes better
 
-perry_tamagotchi:
-	buttons
-	visuals
+	perry_putt:
+		one more level
 
+	perry_tamagotchi:
+		visuals
+
+	perry_pinball
+	perry_match
 
 Keep:
 	children_light_up.connect(Callable(node, "light_up"))
@@ -92,3 +101,6 @@ Future/ideas:
 	rename sound Buses
 	make controlling background music more fluid and all through the animation player, perhaps
 	Card matching game
+	Pinball
+	Introduce at least 1 then 2 new game elements to make it fun
+	If not too much of a detriment, add another way to lose.

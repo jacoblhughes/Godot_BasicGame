@@ -17,6 +17,9 @@ game_background_texture = ExtResource("11_tkw4p")
 [node name="PlaybackTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="PlayerInputTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
 [node name="Buttons" type="Node2D" parent="."]
 unique_name_in_owner = true
 

@@ -20,7 +20,7 @@ var start_timer_countdown_value = 3
 var game_time_left_timer_value = 3
 
 var base_enemy_timer_time = 2
-
+var base_rocket_timer_time = .75
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
@@ -57,9 +57,10 @@ func _ready():
 	enemy_timer = %EnemyTimer
 
 	rocket_timer = %RocketTimer
+	rocket_timer.wait_time = base_rocket_timer_time
 	player = %Player
-	
-	%EnemyTimer.wait_timer = base_enemy_timer_time
+
+	%EnemyTimer.wait_time = base_enemy_timer_time
 
 	%EnemyDeathzone.area_entered.connect(_on_enemy_deathzone_area_entered)
 	%RocketDeathzone.area_entered.connect(_on_rocket_deathzone_area_entered)
@@ -110,5 +111,5 @@ func _on_enemy_destroyed(value):
 
 
 func _on_advance_level():
-
+	rocket_timer.wait_time = base_rocket_timer_time * pow(.95,HUD.return_game_level())
 	enemy_timer.wait_time = base_enemy_timer_time * pow(.95,HUD.return_game_level())

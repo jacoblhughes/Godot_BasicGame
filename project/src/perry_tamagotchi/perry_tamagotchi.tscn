@@ -28,6 +28,7 @@ metadata/_edit_vertical_guides_ = [360.0]
 game_background_texture = ExtResource("5_da04n")
 
 [node name="StatusHUD" type="CanvasLayer" parent="."]
+layer = 2
 script = ExtResource("2_jwau4")
 
 [node name="MarginContainer" type="MarginContainer" parent="StatusHUD"]

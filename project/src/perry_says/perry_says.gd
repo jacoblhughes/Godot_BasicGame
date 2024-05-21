@@ -25,7 +25,7 @@ var playerPopulate = -1
 var button_pressed
 var buttonObject = {}
 var base_playback_timer_time = 1.25
-
+var base_button_play_time = .75
 @export var sounds :Array[String] = []
 
 
@@ -65,6 +65,8 @@ func _ready():
 
 	%PlaybackTimer.timeout.connect(_on_playback_timer_timeout)
 	%PlaybackTimer.wait_time = base_playback_timer_time
+
+
 	await _initialize_buttons()
 
 
@@ -103,7 +105,8 @@ func _initialize_buttons():
 		node.audio_string = "perry_says_" + sounds[i]
 		i+=1
 	groupOfButtons = get_tree().get_nodes_in_group("perry_says_buttons")
-
+	for button in groupOfButtons:
+		button.play_time = base_button_play_time
 func _computer_turn_start():
 
 	_add_next_value()
@@ -118,7 +121,7 @@ func _player_turn_end():
 
 func _on_advance_level():
 	for button in groupOfButtons:
-		button.play_time = button.original_time * pow(.95,HUD.return_game_level())
+		button.play_time = base_button_play_time * pow(.95,HUD.return_game_level())
 	%PlaybackTimer.wait_time = base_playback_timer_time * pow(.95,HUD.return_game_level())
 
 func _get_next_value():
