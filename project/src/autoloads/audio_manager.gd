@@ -1,33 +1,34 @@
 extends Node
 
 
-#main
-@export var main_applause : AudioStreamWAV
-@export var main_game_over : AudioStreamWAV
+##main
+#@export var main_applause : AudioStreamWAV
+#@export var main_game_over : AudioStreamWAV
 
 @export var background_music : AudioStreamWAV
 @export var background_music_2 : AudioStreamWAV
 
-#perry_says
-@export var perry_says_c_low : AudioStreamWAV
-@export var perry_says_d : AudioStreamWAV
-@export var perry_says_e : AudioStreamWAV
-@export var perry_says_f : AudioStreamWAV
-@export var perry_says_g : AudioStreamWAV
-@export var perry_says_a : AudioStreamWAV
-@export var perry_says_b : AudioStreamWAV
-@export var perry_says_c : AudioStreamWAV
+##perry_says
+#@export var perry_says_c_low : AudioStreamWAV
+#@export var perry_says_d : AudioStreamWAV
+#@export var perry_says_e : AudioStreamWAV
+#@export var perry_says_f : AudioStreamWAV
+#@export var perry_says_g : AudioStreamWAV
+#@export var perry_says_a : AudioStreamWAV
+#@export var perry_says_b : AudioStreamWAV
+#@export var perry_says_c : AudioStreamWAV
+#
+#
+##perry_polo
+#@export var perry_polo_ball_hit : AudioStreamWAV
+#@export var perry_polo_whirlpool_sounds : Array[AudioStreamWAV]
+#
+##perry_space
+#@export var perry_space_rocket_shoot : AudioStreamWAV
+#@export var perry_space_player_hit : AudioStreamWAV
+#@export var perry_space_enemy_die : AudioStreamWAV
 
-
-#perry_polo
-@export var perry_polo_ball_hit : AudioStreamWAV
-@export var perry_polo_whirlpool_sounds : Array[AudioStreamWAV]
-
-#perry_space
-@export var perry_space_rocket_shoot : AudioStreamWAV
-@export var perry_space_player_hit : AudioStreamWAV
-@export var perry_space_enemy_die : AudioStreamWAV
-
+@export var path_to_sfx_folder : String
 
 var background_animation_player : AnimationPlayer = null
 var background_player : AudioStreamPlayer = null
@@ -46,6 +47,8 @@ var queues = {}  # Dictionary to hold queues for each bus
 
 var background_player_length
 var background_player_2_length
+
+var audio_files = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -162,6 +165,7 @@ func _ready():
 	# Optionally, play the animations
 	# background_animation_player.play("FadeToTrack1")
 	# background_animation_player.play("FadeToTrack2")
+	load_sfx_files(path_to_sfx_folder)
 
 func crossfade_to() -> void:
 
@@ -189,38 +193,11 @@ func _on_stream_finished(bus, player):
 	available[bus].append(player)
 
 func play_sound(sound_name: String):
-	match sound_name:
-		"perry_polo_ball_hit":
-			queues["Game"].append(perry_polo_ball_hit)
-		"main_applause":
-			queues["Game"].append(main_applause)
-		"main_game_over":
-			queues["Game"].append(main_game_over)
-		"perry_polo_whirlpool_sounds":
-			var selection = perry_polo_whirlpool_sounds[randi() % perry_polo_whirlpool_sounds.size()]
-			queues["Game"].append(selection)
-		"perry_space_rocket_shoot":
-			queues["Game"].append(perry_space_rocket_shoot)
-		"perry_space_player_hit":
-			queues["Game"].append(perry_space_player_hit)
-		"perry_says_c_low":
-				queues["Game"].append(perry_says_c_low)
-		"perry_says_d":
-				queues["Game"].append(perry_says_d)
-		"perry_says_e":
-				queues["Game"].append(perry_says_e)
-		"perry_says_f":
-				queues["Game"].append(perry_says_f)
-		"perry_says_g":
-				queues["Game"].append(perry_says_g)
-		"perry_says_a":
-				queues["Game"].append(perry_says_a)
-		"perry_says_b":
-				queues["Game"].append(perry_says_b)
-		"perry_says_c":
-				queues["Game"].append(perry_says_c)
-		_:
-			print("Sound not recognized")
+	print(sound_name)
+	if audio_files.has(sound_name):
+		queues["Game"].append(audio_files[sound_name])
+	else:
+		print("Sound not recognized")
 
 
 func _process(delta):
@@ -306,3 +283,30 @@ func update_game_music(value):
 func get_game_music_level():
 
 	return game_effects_level
+
+func load_sfx_files(path_to_sfx_folder: String):
+	print(path_to_sfx_folder)
+	var dir_access = DirAccess.open(path_to_sfx_folder)
+
+	if dir_access:
+		dir_access.list_dir_begin()
+		var file_name = dir_access.get_next()
+
+		while file_name != "":
+			if file_name != "." and file_name != "..":
+				var file_path = path_to_sfx_folder.path_join(file_name)
+				if dir_access.current_is_dir():
+					# Recursively traverse subdirectories
+					load_sfx_files(file_path)
+				else:
+					if file_name.ends_with(".wav"):
+						var audio_stream = load(file_path) as AudioStreamWAV
+						if audio_stream:
+							audio_files[file_name.get_basename()] = audio_stream
+			file_name = dir_access.get_next()
+		dir_access.list_dir_end()
+	else:
+		print("Error opening directory:", path_to_sfx_folder)
+	for node in audio_files:
+		print(node,' ',audio_files[node])
+	print(audio_files)

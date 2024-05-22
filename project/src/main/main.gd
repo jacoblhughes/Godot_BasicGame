@@ -5,9 +5,9 @@ func _ready():
 	HUD.hide()
 	GameStartGameOver.hide()
 	Background.hide()
-	print(Time.get_datetime_dict_from_system())
-	print(Time.get_datetime_string_from_system())
-	search_scenes()
+	#print(Time.get_datetime_dict_from_system())
+	#print(Time.get_datetime_string_from_system())
+	#search_scenes()
 	pass # Replace with function body.
 
 

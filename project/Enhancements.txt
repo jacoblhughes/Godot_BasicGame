@@ -66,7 +66,7 @@ Enhancements:
 
 	perry_llama
 		better enemy visuals
-		
+
 	perry_dodge
 		power ups
 
