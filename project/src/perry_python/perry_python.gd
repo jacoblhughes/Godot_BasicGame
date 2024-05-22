@@ -218,7 +218,7 @@ func set_snake_cell_size(value):
 	snake_cell_size = value
 
 func return_snake_cell_size():
-		return snake_cell_size
+	return snake_cell_size
 
 func return_snake_cells():
 	return snake_cells

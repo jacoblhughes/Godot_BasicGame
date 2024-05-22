@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var my_food : PackedScene
+@export var body_node : Node2D
 var cell_size : Vector2
 var my_food_instance
 signal food_eaten
@@ -22,7 +23,7 @@ func _process(delta):
 
 		food_eaten.emit()
 		my_food_instance.queue_free()
-		if(HUD.return_score() > (get_parent().return_snake_cells() *2)):
+		if(len(body_node.get_children()) >= (get_parent().return_snake_cells() * 2)):
 
 			spawn_food()
 

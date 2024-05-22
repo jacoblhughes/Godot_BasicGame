@@ -24,10 +24,11 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 wait_time = 0.75
 
-[node name="FoodSpawner" type="Node2D" parent="."]
+[node name="FoodSpawner" type="Node2D" parent="." node_paths=PackedStringArray("body_node")]
 unique_name_in_owner = true
 script = ExtResource("4_llfef")
 my_food = ExtResource("6_ntsi0")
+body_node = NodePath("../Body")
 
 [node name="HitSpotter" type="Node2D" parent="."]
 unique_name_in_owner = true

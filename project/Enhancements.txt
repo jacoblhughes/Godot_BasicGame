@@ -37,12 +37,7 @@ adjust canvaslayers (probably move everything up or down one)
 
 	perry_says
 	perry_python
-		need to compare to snake length on when to spawn, not the score
-
 	perry_polo
-		make the whirlpools fling instead of pull in (done?)
-		make the player move in relation to event target not at event target (done?)
-
 	perry_llama
 		better enemies
 
@@ -53,16 +48,17 @@ adjust canvaslayers (probably move everything up or down one)
 
 	perry_skeeball
 	perry_space
-		Rockets global position??
-		rockets should emit signal back to game to handle game scoring and such
-
 	perry_squash
 		Why does being on or above the start position fuck it up?
 
-	perry_putt:
+	perry_putt
 	perry_tamagotchi
 
 Enhancements:
+
+	All
+		global positioning
+		signal handling
 
 	perry_says
 		Make the buttons move or something
@@ -73,6 +69,8 @@ Enhancements:
 	perry_python
 	perry_polo
 		power ups
+		check how the player and enemy move
+			make them move in relation to event targets not at event target
 
 	perry_llama
 	perry_dodge
@@ -82,7 +80,9 @@ Enhancements:
 	perry_run
 	perry_skeeball
 	perry_space
-	perry_squash:
+		especially double check signals to make sure things are clear/clean
+
+	perry_squash
 		make the snakes an animation to control the collision sizes better
 
 	perry_putt:
