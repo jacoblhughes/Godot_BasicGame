@@ -72,7 +72,7 @@ func _on_game_time_left_timer_timeout():
 	HUD.update_lives()
 
 func _on_advance_level():
-	print('herehere')
+
 	for node in %ScoringZones.get_children():
 		node.speed = base_scoring_zone_speed * node.worth * pow(1.05,HUD.return_game_level())
 	%Player.scale *= base_player_size * pow(.5,HUD.return_game_level())

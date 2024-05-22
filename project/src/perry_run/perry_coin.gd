@@ -1,6 +1,8 @@
 extends Area2D
 class_name PerryRunCoin
 
+var speed = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	body_entered.connect(_on_body_entered)
@@ -9,7 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.x += 5 * -1
+	position.x += speed * -1
 	pass
 
 func _on_body_entered(body):

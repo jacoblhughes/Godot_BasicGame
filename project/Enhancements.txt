@@ -20,12 +20,6 @@ All:
 	Add at least 2 sounds per game
 	3 background musics
 
-How do I handle the different xatio's and the timing around moving nodes.
-	Make it consistent with call deferred or a signal
-
-Make things their own scene and arrange - get rid of /2's and such where possible
-	Make scaling all 1
-
 adjust canvaslayers (probably move everything up or down one)
 	HUD 1
 	GameStartOver 3
@@ -39,8 +33,6 @@ adjust canvaslayers (probably move everything up or down one)
 	perry_python
 	perry_polo
 	perry_llama
-		better enemies
-
 	perry_dodge
 	perry_flap
 	perry_run
@@ -73,6 +65,8 @@ Enhancements:
 			make them move in relation to event targets not at event target
 
 	perry_llama
+		better enemy visuals
+		
 	perry_dodge
 		power ups
 
@@ -104,3 +98,10 @@ Future/ideas:
 	Pinball
 	Introduce at least 1 then 2 new game elements to make it fun
 	If not too much of a detriment, add another way to lose.
+
+
+How do I handle the different xatio's and the timing around moving nodes.
+	Make it consistent with call deferred or a signal
+
+Make things their own scene and arrange - get rid of /2's and such where possible
+	Make scaling all 1

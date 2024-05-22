@@ -23,9 +23,11 @@ var base_floor_timer_time = 2
 var base_platform_timer_time = 3
 var base_high_floor_timer_time = 3
 var base_coin_timer_time = 1
-
+var base_object_speed = 5
+var base_coin_position_change_delta = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
@@ -71,6 +73,7 @@ func _ready():
 
 	%PlayerFell.body_entered.connect(_on_player_fall_out)
 	%ObjectSpawn.set_xatio(xatio)
+	%ObjectSpawn.set_object_speed(base_object_speed)
 	player_jump_scale = yatio
 #	%PlayerPushed.body_entered.connect(_on_player_fall_out)
 
@@ -101,7 +104,10 @@ func _on_advance_level():
 	%FloorTimer.wait_time = base_floor_timer_time * pow(.95,HUD.return_game_level())
 	%PlatformTimer.wait_time = base_platform_timer_time * pow(.95,HUD.return_game_level())
 	%HighPlatformTimer.wait_time = base_high_floor_timer_time * pow(.95,HUD.return_game_level())
-	%CoinTimer.wait_time = base_coin_timer_time * pow(.95,HUD.return_game_level())	
+	%CoinTimer.wait_time = base_coin_timer_time * pow(.95,HUD.return_game_level())
+	%ObjectSpawn.set_object_speed(base_object_speed * pow(1.05,HUD.return_game_level()))
+	for node in %ObjectSpawn.get_children():
+		node.speed = base_object_speed * pow(1.05,HUD.return_game_level())
 	pass
 
 func _on_player_fall_out(body):
