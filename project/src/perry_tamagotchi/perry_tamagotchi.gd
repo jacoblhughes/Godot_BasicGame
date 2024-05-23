@@ -132,9 +132,6 @@ func _ready():
 		egg.egg_hatched.connect(_on_egg_hatched)
 		add_child.call_deferred(egg)
 
-	print(hunger_satisfy_node.position)
-	print(happiness_satisfy_node.position)
-
 	pass # Replace with function body.
 
 
@@ -229,8 +226,6 @@ func _check_hunger_and_happiness():
 
 	if health_status <=0:
 		HUD.update_lives()
-		
-	#print(seconds_since_last_health_satisfy)
 
 func _update_status_and_save():
 

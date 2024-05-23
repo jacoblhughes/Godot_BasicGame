@@ -19,7 +19,7 @@ func set_status(status):
 	if current_living_status:
 		%Living.text = str(status.get("living", false))
 		var time_with_offset = Time.get_unix_time_from_datetime_dict(status.get("hatch_time", {})) + (Time.get_time_zone_from_system()['bias']*60)
-		%HatchTime.text = Time.get_datetime_string_from_unix_time(time_with_offset)
+		%HatchTime.text = format_birth_date_from_unix(time_with_offset)
 		#Time.get_datetime_string_from_datetime_dict(status.get("hatch_time", {}),true)
 		%Health.value = status.get("health", 100)
 		%Hunger.value = status.get("hunger", 100)
@@ -55,3 +55,18 @@ func set_action_buttons_disabled(val):
 
 func _on_player_finished_playing():
 	set_action_buttons_disabled(false)
+
+
+func format_birth_date_from_unix(unix_time_val: int) -> String:
+	var datetime_dict = Time.get_datetime_dict_from_unix_time(unix_time_val)
+	
+	var formatted_string = "Birth Day: %02d %02d %d at %02d %02d %02d" % [
+		datetime_dict["month"],
+		datetime_dict["day"],
+		datetime_dict["year"],
+		datetime_dict["hour"],
+		datetime_dict["minute"],
+		datetime_dict["second"]
+	]
+	
+	return formatted_string
