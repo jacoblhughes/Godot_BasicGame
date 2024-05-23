@@ -23,6 +23,7 @@ func initialize_positions():
 
 func _on_clickable_input_event(event, input_position):
 	if event.is_pressed() and GameManager.get_game_enabled():
+		AudioManager.play_sound("perry_squash_squash")
 		is_slamming = true
 		normal = !normal
 

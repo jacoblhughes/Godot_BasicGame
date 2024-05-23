@@ -4,7 +4,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	%Button.pressed.connect(_on_home_button_pressed)
-	%Test.pressed.connect(_on_test_pressed)
+
 	%BackgroundOnOff.button_pressed = AudioManager.get_background_music_status()
 	%GameEffectsOnOff.button_pressed = AudioManager.get_game_music_status()
 	%BackgroundVolume.value = AudioManager.get_background_music_level()

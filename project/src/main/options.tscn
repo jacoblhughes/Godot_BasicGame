@@ -157,12 +157,6 @@ size_flags_horizontal = 3
 theme = ExtResource("2_e7rg0")
 text = "Home"
 
-[node name="Test" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Test"
-
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/VBoxContainer/BackgroundOnOff" to="." method="_on_check_button_pressed"]
 [connection signal="value_changed" from="VBoxContainer/MarginContainer2/VBoxContainer/BackgroundVolume" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/VBoxContainer/GameEffectsOnOff" to="." method="_on_check_button_2_pressed"]

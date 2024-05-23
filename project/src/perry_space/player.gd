@@ -55,7 +55,6 @@ func shoot():
 
 func take_damage():
 	HUD.update_lives()
-	AudioManager.play_sound("perry_space_player_hit")
 
 
 func _on_rocket_timer_timeout():

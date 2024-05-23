@@ -20,4 +20,5 @@ func _on_body_entered(body):
 		die()
 
 func die():
+	AudioManager.play_sound("perry_run_coin")
 	queue_free()

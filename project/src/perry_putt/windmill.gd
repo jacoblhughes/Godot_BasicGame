@@ -12,9 +12,7 @@ func _process(delta):
 
 
 func _on_activation_area_body_entered(body):
-
 	if body is PerryPuttFan:
-
 		body.activate_collision()
 	pass # Replace with function body.
 
@@ -23,4 +21,5 @@ func _on_activation_area_body_exited(body):
 
 	if body is PerryPuttFan:
 		body.deactivate_collision()
+
 	pass # Replace with function body.

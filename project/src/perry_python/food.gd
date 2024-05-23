@@ -41,6 +41,7 @@ func _process(delta):
 	angle += (speed * 2)*delta
 
 func _on_tween_completed():
+
 	start_tween()
 	pass
 

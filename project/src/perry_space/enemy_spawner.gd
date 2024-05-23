@@ -6,10 +6,9 @@ extends Node2D
 signal enemy_spawned(enemy_instance)
 
 
-@onready var enemy_timer : Timer
+@export var enemy_timer : Timer
 
 func _ready():
-	enemy_timer = $EnemyTimer
 
 	enemy_timer.timeout.connect(_on_enemy_timer_timeout)
 	pass # Replace with function body.

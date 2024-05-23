@@ -21,9 +21,12 @@ func _on_clickable_input_event(event, input_position):
 		if(GameManager.get_game_enabled()):
 			if is_on_floor():
 				velocity.y = JUMP_VELOCITY
+				AudioManager.play_sound("perry_llama_jump")
 			elif not is_on_floor() and double_jump_counter  == false:
 				velocity.y = JUMP_VELOCITY
+				AudioManager.play_sound("perry_llama_jump")
 				double_jump_counter = true
+			
 	pass
 
 func _physics_process(delta):

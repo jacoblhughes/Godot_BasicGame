@@ -25,6 +25,7 @@ func _physics_process(delta):
 
 	# Check both traditional input and the clickable event
 	if should_jump and is_on_floor():
+		AudioManager.play_sound("perry_run_jump")
 		velocity.y = JUMP_VELOCITY
 		jump_time = 0  # Start counting jump time
 

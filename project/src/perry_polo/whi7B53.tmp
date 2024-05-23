@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://b2gewckxrwhda"]
+
+[ext_resource type="Script" path="res://src/perry_polo/whirlpool.gd" id="1_uxs1l"]
+[ext_resource type="Texture2D" uid="uid://u62ax3hvv1m1" path="res://src/perry_polo/textures/whirlpool.png" id="2_wxyeu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iq6f3"]
+radius = 128.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5sts"]
+atlas = ExtResource("2_wxyeu")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osmxd"]
+atlas = ExtResource("2_wxyeu")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cclq"]
+atlas = ExtResource("2_wxyeu")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yixce"]
+atlas = ExtResource("2_wxyeu")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqupc"]
+atlas = ExtResource("2_wxyeu")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8iap"]
+atlas = ExtResource("2_wxyeu")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwmhf"]
+atlas = ExtResource("2_wxyeu")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdhrm"]
+atlas = ExtResource("2_wxyeu")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3pros"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5sts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osmxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cclq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yixce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqupc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8iap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwmhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdhrm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Whirlpool" type="Node2D" groups=["perry_polo_whirlpool"]]
+script = ExtResource("1_uxs1l")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+collision_layer = 256
+collision_mask = 128
+gravity = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_iq6f3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_3pros")
+autoplay = "default"
+frame = 2
+frame_progress = 0.340273
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -75,4 +75,4 @@ func _on_advance_level():
 
 	for node in %ScoringZones.get_children():
 		node.speed = base_scoring_zone_speed * node.worth * pow(1.05,HUD.return_game_level())
-	%Player.scale *= base_player_size * pow(.5,HUD.return_game_level())
+	%Player.scale *= base_player_size * pow(.95,HUD.return_game_level())

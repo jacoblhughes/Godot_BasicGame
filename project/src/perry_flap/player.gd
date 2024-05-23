@@ -17,10 +17,13 @@ var animated_sprite : AnimatedSprite2D
 func _ready():
 	animated_sprite = get_node("AnimatedSprite2D")
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
+	%TweetTimer.timeout.connect(_on_tweet_timeout)
+	%TweetTimer.start()
 	pass
 
 func _on_clickable_input_event(event, input_position):
 	if event.pressed:
+		AudioManager.play_sound("perry_flap_flap")
 		velocity.y = jump_force
 
 func hit():
@@ -54,10 +57,13 @@ func _physics_process(delta):
 #		global_position = global_position.lerp(target_position, lerp_speed)
 		global_position.x = clamp(global_position.x, HUD.get_play_area_position().x,HUD.get_play_area_position().x+HUD.get_play_area_size().x)
 		global_position.y = clamp(global_position.y, HUD.get_play_area_position().y,HUD.get_play_area_position().y+HUD.get_play_area_size().y)
-
-
-
+	
 	else:
 		velocity.y = 0
 
-
+func _on_tweet_timeout():
+	var new_wait_time = randi_range(5,10)
+	%TweetTimer.wait_time = new_wait_time
+	
+	AudioManager.play_sound("perry_flap_tweet")
+	%TweetTimer.start()

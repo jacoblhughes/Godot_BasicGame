@@ -29,7 +29,7 @@ func _physics_process(delta):
 	pass
 
 func die():
-	AudioManager.play_sound("perry_space_enemy_die")
+
 	enemy_destroyed.emit(worth)
 
 	queue_free()

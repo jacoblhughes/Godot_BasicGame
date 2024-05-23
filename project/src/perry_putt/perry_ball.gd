@@ -29,4 +29,5 @@ func _on_clickable_input(event, input_position):
 func _on_hit_meter_value(progress_value):
 	var arrow_global_direction = Vector2(cos($Aim.rotation + rotation), sin($Aim.rotation + rotation))
 	apply_impulse(arrow_global_direction * progress_value * strength)
+	AudioManager.play_sound("perry_putt_ball_hit")
 	hit_meter.clear()

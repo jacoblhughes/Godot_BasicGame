@@ -140,7 +140,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
 	if living_status and last_hunger_satisfy != {} and last_happiness_satisfy != {} and GameManager.get_game_enabled():
 		_check_hunger_and_happiness()
 
@@ -228,6 +227,10 @@ func _check_hunger_and_happiness():
 			_update_status_and_save()
 		## Update the HUD and save the game state
 
+	if health_status <=0:
+		HUD.update_lives()
+		
+	#print(seconds_since_last_health_satisfy)
 
 func _update_status_and_save():
 

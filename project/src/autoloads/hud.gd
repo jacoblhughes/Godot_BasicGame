@@ -128,7 +128,7 @@ func update_lives(value = -1):
 
 func check_advance_level():
 	if score > 0 and score >= previous_score:
-		if (score % level_advance_check_value) < (score - previous_score):
+		if (int(score) % level_advance_check_value) < (int(score) - int(previous_score)):
 			var new_level = int(int(score) / int(level_advance_check_value))
 			set_or_reset_level((level_advance_base_value * new_level) + initial_level_value)
 			advance_level.emit()

@@ -29,7 +29,7 @@ func _on_clickable_input_event(event, input_position):
 			var direction_vector = Vector2(cos(angle), sin(angle))
 			velocity.x = direction_vector.x * JUMP_VELOCITY
 			velocity.y = direction_vector.y * JUMP_VELOCITY
-
+			AudioManager.play_sound("perry_skeeball_rolling")
 func _physics_process(delta):
 	if GameManager.get_game_enabled():
 		move_and_slide()
@@ -38,7 +38,7 @@ func shoot_straight():
 	var magnitude = velocity.length()
 	velocity.y = -magnitude
 	velocity.x = 0
-
+	AudioManager.play_sound("perry_skeeball_fling")
 func reset_position():
 	velocity = Vector2.ZERO
 	%Aim.set_visible(false)

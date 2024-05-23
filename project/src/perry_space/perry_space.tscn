@@ -33,10 +33,11 @@ rocket_timer = NodePath("../RocketTimer")
 unique_name_in_owner = true
 position = Vector2(128, 640)
 
-[node name="EnemySpawner" type="Node2D" parent="."]
+[node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("enemy_timer")]
 unique_name_in_owner = true
 script = ExtResource("6_rbrt6")
 enemy_scene = ExtResource("10_eoo4e")
+enemy_timer = NodePath("../EnemyTimer")
 
 [node name="SpawnLocations" type="Node2D" parent="EnemySpawner"]
 

@@ -81,7 +81,8 @@ Enhancements:
 
 	perry_putt:
 		one more level
-
+		sounds on wall hit
+		
 	perry_tamagotchi:
 		visuals
 

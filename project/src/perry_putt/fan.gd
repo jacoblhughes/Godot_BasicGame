@@ -11,6 +11,7 @@ func _process(delta):
 	pass
 	
 func activate_collision():
+	AudioManager.play_sound("perry_putt_windmill_squeak")
 	%CollisionShape2D.call_deferred("set","disabled",false)
 
 func deactivate_collision():

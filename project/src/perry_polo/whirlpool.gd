@@ -16,7 +16,8 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 
 	if body.is_in_group("perryball"):
-		AudioManager.play_sound("perry_polo_whirlpool_sounds")
+		var whirlpool_noise = randi_range(1,4)
+		AudioManager.play_sound("perry_polo_whirlpool_"+str(whirlpool_noise))
 		in_whirlpool = true
 		applyWhirlpoolForce(body)
 

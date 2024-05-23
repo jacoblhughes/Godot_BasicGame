@@ -27,6 +27,7 @@ func _on_screen_exited():
 
 func _on_area_entered(area):
 	if area is SpaceEnemy:
+		AudioManager.play_sound("perry_space_enemy_hit")
 		area.take_damage()
 		queue_free()
 

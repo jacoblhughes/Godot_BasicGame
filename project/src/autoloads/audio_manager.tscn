@@ -8,4 +8,4 @@
 script = ExtResource("1_8x220")
 background_music = ExtResource("2_x8lja")
 background_music_2 = ExtResource("3_ssguv")
-path_to_sfx_folder = "res://src/main/sounds/sfx/"
+path_to_sfx_folder = "res://src/"

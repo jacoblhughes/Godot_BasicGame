@@ -51,9 +51,7 @@ func _on_texture_button_pressed():
 
 	perry_pressed.emit(button_number)
 	AudioManager.play_sound(audio_string)
-	#audio_stream_player.play()
-	#await get_tree().create_timer(play_time).timeout
-	#audio_stream_player.stop()
+
 
 	pass # Replace with function body.
 

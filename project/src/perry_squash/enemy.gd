@@ -48,6 +48,7 @@ func _process(delta):
 
 func die():
 	queue_free()
+	AudioManager.play_sound("perry_squash_snake_hit")
 
 func set_direction(val):
 	if val == 1:

@@ -165,7 +165,7 @@ func _ready():
 	# Optionally, play the animations
 	# background_animation_player.play("FadeToTrack1")
 	# background_animation_player.play("FadeToTrack2")
-	load_sfx_files(path_to_sfx_folder)
+	load_sfx_files()
 
 func crossfade_to() -> void:
 
@@ -177,10 +177,12 @@ func crossfade_to() -> void:
 	# The `playing` property of the stream players tells us which track is active.
 	# If it's track two, we fade to track one, and vice-versa.
 	if background_player.playing:
+		print('shoud play 2')
 		background_player_2.play()
 		background_animation_player.play("AnimationLib/FadeToTrack2")
 	else:
 		background_player.play()
+		print('shoud play 1')
 		background_animation_player.play("AnimationLib/FadeToTrack1")
 
 func stop_all_background_music():
@@ -193,7 +195,7 @@ func _on_stream_finished(bus, player):
 	available[bus].append(player)
 
 func play_sound(sound_name: String):
-	print(sound_name)
+
 	if audio_files.has(sound_name):
 		queues["Game"].append(audio_files[sound_name])
 	else:
@@ -284,8 +286,34 @@ func get_game_music_level():
 
 	return game_effects_level
 
-func load_sfx_files(path_to_sfx_folder: String):
-	print(path_to_sfx_folder)
+#func load_sfx_files(path_to_sfx_folder: String):
+	#print(path_to_sfx_folder)
+	#var dir_access = DirAccess.open(path_to_sfx_folder)
+#
+	#if dir_access:
+		#dir_access.list_dir_begin()
+		#var file_name = dir_access.get_next()
+#
+		#while file_name != "":
+			#if file_name != "." and file_name != "..":
+				#var file_path = path_to_sfx_folder.path_join(file_name)
+				#if dir_access.current_is_dir():
+					## Recursively traverse subdirectories
+					#load_sfx_files(file_path)
+				#else:
+					#if file_name.ends_with(".wav"):
+						#var audio_stream = load(file_path) as AudioStreamWAV
+						#if audio_stream:
+							#audio_files[file_name.get_basename()] = audio_stream
+			#file_name = dir_access.get_next()
+		#dir_access.list_dir_end()
+	#else:
+		#print("Error opening directory:", path_to_sfx_folder)
+	#for node in audio_files:
+		#print(node,' ',audio_files[node])
+	#print(audio_files)
+	
+func load_sfx_files():
 	var dir_access = DirAccess.open(path_to_sfx_folder)
 
 	if dir_access:
@@ -294,19 +322,25 @@ func load_sfx_files(path_to_sfx_folder: String):
 
 		while file_name != "":
 			if file_name != "." and file_name != "..":
-				var file_path = path_to_sfx_folder.path_join(file_name)
-				if dir_access.current_is_dir():
-					# Recursively traverse subdirectories
-					load_sfx_files(file_path)
-				else:
-					if file_name.ends_with(".wav"):
-						var audio_stream = load(file_path) as AudioStreamWAV
-						if audio_stream:
-							audio_files[file_name.get_basename()] = audio_stream
+				var game_path = path_to_sfx_folder.path_join(file_name)
+				if dir_access.current_is_dir() and file_name.begins_with("perry_"):
+					# Check if "sounds" folder exists in the game directory
+					var sounds_path = game_path.path_join("sounds")
+					var sounds_dir_access = DirAccess.open(sounds_path)
+					if sounds_dir_access:
+						sounds_dir_access.list_dir_begin()
+						var sound_file_name = sounds_dir_access.get_next()
+
+						while sound_file_name != "":
+							if sound_file_name != "." and sound_file_name != "..":
+								var sound_file_path = sounds_path.path_join(sound_file_name)
+								if !sounds_dir_access.current_is_dir() and sound_file_name.ends_with(".wav"):
+									var audio_stream = load(sound_file_path) as AudioStreamWAV
+									if audio_stream:
+										audio_files[sound_file_name.get_basename()] = audio_stream
+							sound_file_name = sounds_dir_access.get_next()
+						sounds_dir_access.list_dir_end()
 			file_name = dir_access.get_next()
 		dir_access.list_dir_end()
 	else:
 		print("Error opening directory:", path_to_sfx_folder)
-	for node in audio_files:
-		print(node,' ',audio_files[node])
-	print(audio_files)

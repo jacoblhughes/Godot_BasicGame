@@ -57,5 +57,5 @@ func spawn_food():
 			else:
 				is_on_occupied_position = false
 	get_parent().add_child.call_deferred(my_food_instance,true)
-
+	AudioManager.play_sound("perry_python_squeak")
 
