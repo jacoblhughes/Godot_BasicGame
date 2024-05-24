@@ -23,8 +23,8 @@ var base_floor_timer_time = 2
 var base_platform_timer_time = 3
 var base_high_floor_timer_time = 3
 var base_coin_timer_time = 1
-var base_object_speed = 5
-var base_coin_position_change_delta = 5
+var base_object_speed = 400
+var base_coin_position_change_delta = 400
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	

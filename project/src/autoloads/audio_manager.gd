@@ -306,8 +306,13 @@ func load_sfx_files():
 						while sound_file_name != "":
 							if sound_file_name != "." and sound_file_name != "..":
 								var sound_file_path = sounds_path.path_join(sound_file_name)
-								if !sounds_dir_access.current_is_dir() and sound_file_name.ends_with(".wav"):
+								if sound_file_name.ends_with(".import"):
+									sound_file_path = sound_file_path.replace(".import", "")
+									sound_file_name = sound_file_name.replace(".import", "")
+
+								if (!sounds_dir_access.current_is_dir() and sound_file_name.ends_with(".wav")):
 									var audio_stream = load(sound_file_path) as AudioStreamWAV
+
 									if audio_stream:
 										audio_files[sound_file_name.get_basename()] = audio_stream
 							sound_file_name = sounds_dir_access.get_next()
@@ -316,3 +321,4 @@ func load_sfx_files():
 		dir_access.list_dir_end()
 	else:
 		print("Error opening directory:", path_to_sfx_folder)
+

@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxseg85es8o1u"]
+[gd_scene load_steps=7 format=3 uid="uid://bxseg85es8o1u"]
 
 [ext_resource type="Script" path="res://src/perry_run/player.gd" id="1_yn1sn"]
 [ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://src/perry_run/textures/player.png" id="2_8qjdp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q7ioa"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iogh"]
 atlas = ExtResource("2_8qjdp")
 region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7adil"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xghs"]
 atlas = ExtResource("2_8qjdp")
 region = Rect2(256, 0, 256, 256)
 
@@ -15,15 +15,18 @@ region = Rect2(256, 0, 256, 256)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q7ioa")
+"texture": SubResource("AtlasTexture_8iogh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7adil")
+"texture": SubResource("AtlasTexture_5xghs")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj2p2"]
+size = Vector2(32, 192)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -36,5 +39,6 @@ position = Vector2(0, -128)
 sprite_frames = SubResource("SpriteFrames_oy4wx")
 autoplay = "default"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(16, 0, 16, -128, -16, -128, -16, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -96)
+shape = SubResource("RectangleShape2D_kj2p2")

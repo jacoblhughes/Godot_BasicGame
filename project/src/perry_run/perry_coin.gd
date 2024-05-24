@@ -11,7 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.x += speed * -1
+	position.x += speed * -1 * delta
 	pass
 
 func _on_body_entered(body):
