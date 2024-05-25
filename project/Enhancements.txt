@@ -11,30 +11,15 @@ Perry Arcade
 40	18	32
 	9   16
 
+
 Improvements:
-
-	perry_says
-	perry_python
-	perry_polo
-	perry_llama
-	perry_dodge
-	perry_flap
-	perry_run
-	perry_skeeball
-	perry_space
-	perry_squash
-		Why does being on or above the start position fuck it up?
-
-	perry_putt
-	perry_tamagotchi
-
-Enhancements:
 
 	All
 		global positioning
 		signal handling
 		Add at least 2 sounds per game
 		3 background musics
+		
 	perry_says
 		Make the buttons move or something
 		Make timer for inactivity of player
@@ -42,6 +27,8 @@ Enhancements:
 		Do I need to worry about cutting off the music?\
 
 	perry_python
+	
+	
 	perry_polo
 		power ups
 		check how the player and enemy move
@@ -54,17 +41,22 @@ Enhancements:
 		power ups
 
 	perry_flap
+	
+	
 	perry_run
 		cleaning up
 		make the timing of platforms and speed more uniform/related
 		
 	perry_skeeball
+	
+	
 	perry_space
 		especially double check signals to make sure things are clear/clean
 
 	perry_squash
 		make the snakes an animation to control the collision sizes better
-
+		Why does being on or above the start position fuck it up?
+		
 	perry_putt:
 		one more level
 		sounds on wall hit
@@ -73,7 +65,11 @@ Enhancements:
 		visuals
 
 	perry_pinball
+	
+	
 	perry_match
+	
+	
 
 Keep:
 	children_light_up.connect(Callable(node, "light_up"))

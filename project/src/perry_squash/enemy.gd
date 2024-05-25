@@ -41,14 +41,17 @@ func _process(delta):
 		var collider = %ShapeCast2D.get_collider(0)
 		if collider is PerrySquashPlayer and cause_pain:
 			collider.take_damage()
+			AudioManager.play_sound("perry_squash_snake_hit")
+			die()
 		elif collider is PerrySquashPlayer and !cause_pain:
 			enemy_squashed.emit()
+			AudioManager.play_sound("perry_squash_snake_hit")
 			die()
 	pass
 
 func die():
 	queue_free()
-	AudioManager.play_sound("perry_squash_snake_hit")
+
 
 func set_direction(val):
 	if val == 1:

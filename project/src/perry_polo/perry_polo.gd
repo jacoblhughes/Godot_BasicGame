@@ -7,9 +7,9 @@ signal position_reset
 
 var initial_score_value = 0
 var score_advance_base_value = 1
-var initial_lives_value = 1
+var initial_lives_value = 3
 var lives_advance_base_value = 1
-var initial_level_value = 1
+var initial_level_value = 3
 var level_advance_check_value = 10
 var level_advance_base_value = 1
 var start_timer_countdown_value = 3
@@ -101,4 +101,5 @@ func _on_advance_level():
 	pass
 
 func _on_game_over():
+	position_reset.emit()
 	pass
