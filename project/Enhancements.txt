@@ -19,6 +19,9 @@ Improvements:
 		signal handling
 		Add at least 2 sounds per game
 		3 background musics
+		work on margin from bottom of phone for sure, maybe from sides, probs fro top
+		add more clear directions.
+		add more clearly defined win/loss conditions
 		
 	perry_says
 		Make the buttons move or something
@@ -60,6 +63,7 @@ Improvements:
 	perry_putt:
 		one more level
 		sounds on wall hit
+		move the putt button/make it bigger and easier to hit
 		
 	perry_tamagotchi:
 		visuals
