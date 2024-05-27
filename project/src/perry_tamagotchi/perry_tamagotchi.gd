@@ -178,7 +178,7 @@ func _on_egg_hatched():
 func _check_hunger_and_happiness():
 
 	var current_time = Time.get_unix_time_from_system()
-	var days_since_hatch = int((current_time - Time.get_unix_time_from_datetime_dict(hatch_time)) / 86400)
+	var days_since_hatch = int((current_time - Time.get_unix_time_from_datetime_dict(hatch_time)) / 86400) + 1
 	var seconds_since_last_hunger_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_hunger_satisfy)
 	var hunger_decrease = floor(seconds_since_last_hunger_satisfy / hunger_penalize_seconds)  # Calculate how much hunger should decrease
 	var seconds_since_last_happiness_satisfy = current_time - Time.get_unix_time_from_datetime_dict(last_happiness_satisfy)

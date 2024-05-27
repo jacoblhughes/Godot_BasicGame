@@ -189,7 +189,7 @@ func _on_play_button_pressed():
 	snake_timer.start()
 	GameManager.set_game_enabled(true)
 
-	
+
 func _on_game_over():
 
 	snake_timer.stop()
