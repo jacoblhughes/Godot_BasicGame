@@ -59,8 +59,8 @@ func _on_player_finished_playing():
 
 func format_birth_date_from_unix(unix_time_val: int) -> String:
 	var datetime_dict = Time.get_datetime_dict_from_unix_time(unix_time_val)
-	
-	var formatted_string = "Birth Day: %02d %02d %d at %02d %02d %02d" % [
+
+	var formatted_string = "Birth Date: %02d %02d %d at %02d %02d %02d" % [
 		datetime_dict["month"],
 		datetime_dict["day"],
 		datetime_dict["year"],
@@ -68,5 +68,5 @@ func format_birth_date_from_unix(unix_time_val: int) -> String:
 		datetime_dict["minute"],
 		datetime_dict["second"]
 	]
-	
+
 	return formatted_string
