@@ -98,6 +98,11 @@ var games_list : Dictionary = {
 "short_name":"perry_tamagotchi",
 "objective":"Watch over your own Perry",
 "directions":"Keep Perry happy and healthy!"
+},"14":
+	{"title":"Perry Memory",
+"short_name":"perry_memory",
+"objective":"Watch over your own Perry",
+"directions":"Keep Perry happy and healthy!"
 }
 }
 

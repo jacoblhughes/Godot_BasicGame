@@ -1,0 +1,146 @@
+[gd_scene load_steps=23 format=3 uid="uid://bisg5ykkmq3vx"]
+
+[ext_resource type="Script" path="res://src/perry_memory/matching_card.gd" id="1_8kym5"]
+[ext_resource type="Texture2D" uid="uid://712r4t67dlmd" path="res://src/perry_memory/drawings.png" id="2_4nyh1"]
+[ext_resource type="Texture2D" uid="uid://cj8u0dokkwg4c" path="res://src/perry_memory/card.png" id="2_dsta5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptyyj"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(512, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78go2"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(480, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8chxh"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(448, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4yg6"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(416, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bopl3"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(384, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkoj3"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(352, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyiy7"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(320, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rovlk"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(288, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oau2"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(256, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adn5s"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(224, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ngxd"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkhoh"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ncpb"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5slu"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixsi6"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thh40"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egl2w"]
+atlas = ExtResource("2_dsta5")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ifcv0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptyyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78go2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8chxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4yg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bopl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkoj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyiy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rovlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oau2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adn5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ngxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkhoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ncpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5slu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixsi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thh40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egl2w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_07w8h"]
+
+[node name="MatchingCard" type="Node2D" node_paths=PackedStringArray("drawings_animation")]
+script = ExtResource("1_8kym5")
+drawings_png = ExtResource("2_4nyh1")
+drawings_animation = NodePath("Drawing")
+
+[node name="Card" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_ifcv0")
+
+[node name="Drawing" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_07w8h")
