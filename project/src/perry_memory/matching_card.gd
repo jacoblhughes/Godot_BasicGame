@@ -17,21 +17,16 @@ func _process(delta):
 
 
 func _ready():
-
-	# Create a new SpriteFrames resource
 	var sprite_frames = SpriteFrames.new()
-
 	var animation_name = "default"
-
-	var region = pixel_region * Vector2(1,HFRAMES)
-	var texture = AtlasTexture.new()
-	texture.region = region
-	texture.atlas = drawings_png
+	var base_region = pixel_region
+	base_region.size.x *= 1
+	base_region.size.y *= 1
 	for h in range(HFRAMES):
-		sprite_frames.add_frame(animation_name, texture*(h/HFRAMES), 1, 16-h)
-
-	# Assign the created SpriteFrames to AnimatedSprite2D
+		var texture = AtlasTexture.new()
+		texture.atlas = drawings_png
+		var region = Rect2(base_region.position + Vector2(h * base_region.size.x, 0), base_region.size)
+		texture.region = region
+		sprite_frames.add_frame(animation_name, texture)
 	drawings_animation.sprite_frames = sprite_frames
-
-	# Play the first layer's animation
-	#drawings_animation.play("layer_0")
+	drawings_animation.play(animation_name)

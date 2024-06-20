@@ -1,13 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bluoqtx6rtokx"]
+[gd_scene load_steps=5 format=3 uid="uid://bluoqtx6rtokx"]
 
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="1_ji565"]
 [ext_resource type="PackedScene" uid="uid://bisg5ykkmq3vx" path="res://src/perry_memory/matching_card.tscn" id="2_68bav"]
+[ext_resource type="Script" path="res://src/perry_memory/cards.gd" id="2_nobdm"]
+[ext_resource type="Texture2D" uid="uid://712r4t67dlmd" path="res://src/perry_memory/drawings.png" id="4_nalx4"]
 
 [node name="PerryMemory" type="Node2D"]
 
 [node name="GameBackground" parent="." instance=ExtResource("1_ji565")]
 
 [node name="Cards" type="Node2D" parent="."]
+script = ExtResource("2_nobdm")
+matching_card = ExtResource("2_68bav")
+drawings_png = ExtResource("4_nalx4")
+card_width = null
+card_height = null
 
 [node name="MatchingCard" parent="Cards" instance=ExtResource("2_68bav")]
-position = Vector2(192, 192)
+position = Vector2(288, 1040)
