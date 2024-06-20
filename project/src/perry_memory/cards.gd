@@ -23,9 +23,8 @@ func _ready():
 			texture.region = region
 			sprite_frames.add_frame(animation_name, texture)
 			print("Frame added: ", h + v * cards_horizontal)
-
-	drawings_animation.sprite_frames = sprite_frames
-	drawings_animation.play(animation_name)
+			matching_card.drawings_animation.sprite_frames = sprite_frames
+	
 	pass # Replace with function body.
 
 
