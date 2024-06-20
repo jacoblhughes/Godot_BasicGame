@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var matching_card : PackedScene
+@export var matching_card_scene : PackedScene
 @export var drawings_png : Texture
 @export var card_width : int = 32
 @export var card_height : int = 48
@@ -16,15 +16,17 @@ func _ready():
 	var cards_vertical = texture_height / card_height
 
 	for v in range(cards_vertical):
+		var matching_card = matching_card_scene.instantiate()
 		for h in range(cards_horizontal):
 			var texture = AtlasTexture.new()
 			texture.atlas = drawings_png
 			var region = Rect2(Vector2(h * card_width, v * card_height), Vector2(card_width, card_height))
+			print(region)
 			texture.region = region
 			sprite_frames.add_frame(animation_name, texture)
 			print("Frame added: ", h + v * cards_horizontal)
-			matching_card.drawings_animation.sprite_frames = sprite_frames
-	
+		matching_card.drawings_animation.sprite_frames = sprite_frames
+		add_child(matching_card)
 	pass # Replace with function body.
 
 

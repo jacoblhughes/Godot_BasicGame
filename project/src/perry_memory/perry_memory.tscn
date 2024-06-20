@@ -11,7 +11,7 @@
 
 [node name="Cards" type="Node2D" parent="."]
 script = ExtResource("2_nobdm")
-matching_card = ExtResource("2_68bav")
+matching_card_scene = ExtResource("2_68bav")
 drawings_png = ExtResource("4_ki1en")
 
 [node name="MatchingCard" parent="Cards" instance=ExtResource("2_68bav")]
