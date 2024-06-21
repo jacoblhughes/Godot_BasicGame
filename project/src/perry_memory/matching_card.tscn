@@ -3,9 +3,6 @@
 [ext_resource type="Script" path="res://src/perry_memory/matching_card.gd" id="1_8kym5"]
 [ext_resource type="Texture2D" uid="uid://cj8u0dokkwg4c" path="res://src/perry_memory/card.png" id="2_87x2w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iseud"]
-size = Vector2(62, 94)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_bp1pp"]
 atlas = ExtResource("2_87x2w")
 region = Rect2(0, 0, 32, 48)
@@ -130,7 +127,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 30.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_07w8h"]
@@ -141,24 +138,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iseud"]
+size = Vector2(96, 144)
+
 [node name="MatchingCard" type="Area2D" node_paths=PackedStringArray("drawings_animation", "card_animation")]
 script = ExtResource("1_8kym5")
 drawings_animation = NodePath("Drawing")
 card_animation = NodePath("Card")
 metadata/_edit_horizontal_guides_ = [-48.0]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -48)
-shape = SubResource("RectangleShape2D_iseud")
-
 [node name="Card" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ifcv0")
-speed_scale = -1.0
 
 [node name="Drawing" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_07w8h")
-speed_scale = -1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_iseud")
