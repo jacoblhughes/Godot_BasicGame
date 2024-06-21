@@ -15,7 +15,7 @@ func _ready():
 	var cards_horizontal = texture_width / card_width
 	var cards_vertical = texture_height / card_height
 	var cards_per_row = 4
-	var rows = 3
+	var rows = 6
 	var viewport_size = get_viewport_rect().size
 	var horizontal_spacing = (viewport_size.x - (cards_per_row * card_width)) / (cards_per_row + 1)
 	var vertical_spacing = card_height*2  # Adjust as needed for desired vertical spacing
