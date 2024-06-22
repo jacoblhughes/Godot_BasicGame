@@ -5,16 +5,22 @@ extends Node2D
 @export var card_width : int = 32
 @export var card_height : int = 48
 signal card_selected(value)
+
+var cards_per_level : Dictionary = {1:4,2:6,3:8,4:10,5:12}
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+
+func create_game(level_value):
 	var animation_name = "default"
 	var texture_width = drawings_png.get_width()
 	var texture_height = drawings_png.get_height()
 
 	var cards_horizontal = texture_width / card_width
-	var cards_vertical = texture_height / card_height
-	var cards_per_row = 6
-	var rows = 4
+	#var cards_vertical = texture_height / card_height
+	var cards_vertical = cards_per_level[level_value]
+	var rows = cards_vertical*2/4
+	var cards_per_row = cards_vertical*2/rows
 	var viewport_size = get_viewport_rect().size
 	var horizontal_spacing = (viewport_size.x - (cards_per_row * card_width)) / (cards_per_row + 1)
 	var vertical_spacing = card_height*2  # Adjust as needed for desired vertical spacing
@@ -26,7 +32,6 @@ func _ready():
 			var y = (viewport_size.y / 2) + (row - 1) * (card_height + vertical_spacing)
 			positions.append(Vector2(x, y))
 	positions.shuffle()
-	
 	for times in range(2):
 		for v in range(cards_vertical):
 			var row = int(v / cards_per_row)

@@ -11,6 +11,7 @@ var start_timer_countdown_value = 3
 var game_time_left_timer_value = 1
 
 @export var cards_node : Node2D
+var current_level : int = 1
 
 @export var nodes_to_move_x : Array[Node]
 @export var nodes_to_scale_x : Array[Node]
@@ -55,7 +56,8 @@ func _ready():
 		for node in nodes_to_scale_x:
 			node.scale.x *= xatio
 
-	
+	cards_node.create_game(current_level)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -67,8 +69,12 @@ func _on_card_selected(value):
 	elif first_card != null and second_card == null and value != first_card:
 		second_card = value
 		second_card.flip_card()
+		if second_card.flip_card_animation_finished.is_connected(_on_second_card_animation_finished):
+			second_card.flip_card_animation_finished.disconnect(_on_second_card_animation_finished)
+		#if second_card.flip_back_card_animation_finished.is_connected(_on_second_back_card_animation_finished):
+			#second_card.flip_back_card_animation_finished.disconnect(_on_second_back_card_animation_finished)
 		second_card.flip_card_animation_finished.connect(_on_second_card_animation_finished)
-		second_card.flip_back_card_animation_finished.connect(_on_second_back_card_animation_finished)
+		#second_card.flip_back_card_animation_finished.connect(_on_second_back_card_animation_finished)
 
 
 func _on_second_card_animation_finished():
@@ -76,14 +82,38 @@ func _on_second_card_animation_finished():
 		if first_card.selection == second_card.selection:
 			first_card.remove_card()
 			second_card.remove_card()
+			first_card = null
+			second_card = null
 			HUD.update_score()
-			if len(cards_node.get_children()) <= 0:
-				HUD.update_lives()
+			if len(cards_node.get_children()) <= 2:
+				current_level += 1
+				HUD.set_or_reset_level(current_level)
+				if cards_node.get_child_count() > 0:
+					for node in cards_node.get_children():
+						node.queue_free()
+
+				if HUD.return_game_level() >=6:
+					HUD.update_lives()
+				else:
+					cards_node.create_game(current_level)
+
 		else:
 			first_card.flip_card_back()
 			second_card.flip_card_back()
-			
-func _on_second_back_card_animation_finished():
-	first_card = null
-	second_card = null
+			first_card = null
+			second_card = null
 
+func _on_play_button_pressed():
+	GameManager.set_game_enabled(true)
+
+func _on_game_over():
+	pass
+
+func _on_start_timer_countdown_timeout():
+	pass
+
+func _on_game_time_left_timer_timeout():
+	pass
+
+func _on_advance_level():
+	pass

@@ -6,6 +6,7 @@ var flip_timer : Timer
 var remove_timer : Timer
 var selected : bool
 var selection : int
+#var flipped : bool
 signal card_selected(card_node)
 signal flip_card_animation_finished
 signal flip_back_card_animation_finished
@@ -25,10 +26,12 @@ func _ready():
 	pass
 
 func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.button_index == 1 and event.pressed and !selected:
-		card_selected.emit(self)
-		
+	if GameManager.get_game_enabled():
+		if event is InputEventMouseButton and event.button_index == 1 and event.pressed and !selected:
+			card_selected.emit(self)
+
 func flip_card():
+	set_speed_scale_of_animations(1)
 	selected = true
 	drawings_animation.play("default")
 	card_animation.play("default")
@@ -37,19 +40,24 @@ func flip_card_back():
 	flip_timer.start()
 
 func _on_flip_timer_timeout():
-	drawings_animation.play_backwards("default")
-	card_animation.play_backwards("default")
+	set_speed_scale_of_animations(-1)
+	drawings_animation.play("default")
+	card_animation.play("default")
 
 
 func _on_card_animation_finished():
 	if selected:
 		flip_card_animation_finished.emit()
 		selected = false
-	if !selected:
+	elif !selected:
 		flip_back_card_animation_finished.emit()
 
 func remove_card():
 	remove_timer.start()
-	
+
 func _on_remove_timer_timeout():
 	queue_free()
+
+func set_speed_scale_of_animations(value):
+	drawings_animation.speed_scale = value
+	card_animation.speed_scale = value
