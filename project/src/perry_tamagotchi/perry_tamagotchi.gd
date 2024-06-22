@@ -139,8 +139,6 @@ func _ready():
 func _process(delta):
 	if living_status and last_hunger_satisfy != {} and last_happiness_satisfy != {} and GameManager.get_game_enabled():
 		_check_hunger_and_happiness()
-
-
 	pass
 
 func _on_play_button_pressed():

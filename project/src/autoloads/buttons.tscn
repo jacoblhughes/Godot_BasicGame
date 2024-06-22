@@ -187,6 +187,7 @@ game_key_selection = "13"
 game_title = "Perry Tamagotchi"
 
 [node name="PerryMemory" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
+visible = false
 layout_mode = 2
 game_image_texture = ExtResource("35_8vje7")
 game_scene_selection = ExtResource("36_b3736")
