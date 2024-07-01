@@ -83,6 +83,10 @@ Future/ideas:
 	make controlling background music more fluid and all through the animation player, perhaps
 	Card matching game
 	Pinball
+	Space Invaders (maybe)
+	Frogger
+	Breakout
+	Jetpack Joyride
 	Introduce at least 1 then 2 new game elements to make it fun
 	If not too much of a detriment, add another way to lose.
 
