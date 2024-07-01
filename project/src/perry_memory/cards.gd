@@ -5,7 +5,7 @@ extends Node2D
 @export var card_width : int = 32
 @export var card_height : int = 48
 signal card_selected(value)
-
+@export var debug : bool
 var cards_per_level : Dictionary = {1:4,2:6,3:8,4:10,5:12}
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -54,6 +54,8 @@ func create_game(level_value):
 			matching_card.selection = v
 			matching_card.card_selected.connect(func (value) : card_selected.emit(value))
 			add_child(matching_card,true)
+			if debug:
+				matching_card.reveal_card()
 	pass # Replace with function body.
 
 

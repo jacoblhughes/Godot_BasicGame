@@ -2,7 +2,7 @@ extends Node2D
 
 var initial_score_value = 0
 var score_advance_base_value = 1
-var initial_lives_value = 3
+var initial_lives_value = 1
 var lives_advance_base_value = 1
 var initial_level_value = 1
 var level_advance_check_value = 10
@@ -12,6 +12,7 @@ var game_time_left_timer_value = 1
 
 @export var cards_node : Node2D
 var current_level : int = 1
+var level_changing = false
 
 @export var nodes_to_move_x : Array[Node]
 @export var nodes_to_scale_x : Array[Node]
@@ -79,29 +80,37 @@ func _on_card_selected(value):
 
 func _on_second_card_animation_finished():
 	if first_card !=null and second_card !=null:
+
 		if first_card.selection == second_card.selection:
-			first_card.remove_card()
-			second_card.remove_card()
-			first_card = null
-			second_card = null
-			HUD.update_score()
-			if len(cards_node.get_children()) <= 2:
+			if len(cards_node.get_children()) >= 4:
+				_reset_cards()
+			if len(cards_node.get_children()) <= 2 and !level_changing:
+				level_changing = true
+				await get_tree().create_timer(1).timeout
+				_reset_cards()
 				current_level += 1
 				HUD.set_or_reset_level(current_level)
 				if cards_node.get_child_count() > 0:
 					for node in cards_node.get_children():
 						node.queue_free()
-
+				print(HUD.return_game_level())
 				if HUD.return_game_level() >=6:
 					HUD.update_lives()
 				else:
 					cards_node.create_game(current_level)
-
+					level_changing = false
 		else:
 			first_card.flip_card_back()
 			second_card.flip_card_back()
 			first_card = null
 			second_card = null
+
+func _reset_cards():
+	first_card.remove_card()
+	second_card.remove_card()
+	first_card = null
+	second_card = null
+	HUD.update_score()
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)

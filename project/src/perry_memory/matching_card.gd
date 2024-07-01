@@ -61,3 +61,6 @@ func _on_remove_timer_timeout():
 func set_speed_scale_of_animations(value):
 	drawings_animation.speed_scale = value
 	card_animation.speed_scale = value
+
+func reveal_card():
+	drawings_animation.set_frame_and_progress(16,0.0)

@@ -20,3 +20,4 @@ game_background_texture = ExtResource("3_rxhwt")
 script = ExtResource("2_nobdm")
 matching_card_scene = ExtResource("2_68bav")
 drawings_png = ExtResource("4_ki1en")
+debug = true

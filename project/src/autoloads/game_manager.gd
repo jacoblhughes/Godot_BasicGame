@@ -25,84 +25,99 @@ var games_list : Dictionary = {
 	{"title":"Perry Says",
 "short_name":"perry_says",
 "objective":"Smash Perry in the face to get the high score!",
-"directions":"Click on the buttons in the correct order"
+"directions":"Click on the buttons in the correct order",
+"score_type":"score"
 }
 ,"2":
 	{"title":"Perry Python",
 "short_name":"perry_python",
 "objective":"Make Perry eat the unfunny mouse!",
-"directions":"Turn Perry by clicking above, below, left, or right of the character"
+"directions":"Turn Perry by clicking above, below, left, or right of the character",
+"score_type":"score"
 }
 ,"3":
 	{"title":"Perry Water Polo",
 "short_name":"perry_polo",
 "objective":"Bounce Perry past your enemy!",
-"directions":"Click above or below to protect your side and shoot Perry into the enemy side!"
+"directions":"Click above or below to protect your side and shoot Perry into the enemy side!",
+"score_type":"score"
 }
 ,"4":
 	{"title":"Perry's Llama Leap",
 "short_name":"perry_llama",
 "objective":"Perry stole your headband. Jump over his garbage as you chase him down!",
-"directions":"Click to make the llama jump or double jump!"
+"directions":"Click to make the llama jump or double jump!",
+"score_type":"score"
 }
 ,"5":
 	{"title":"Perry Dodge",
 "short_name":"perry_dodge",
 "objective":"Help Perry avoid the zoo animals!",
-"directions":"Click on the sceen to help Perry escape the charging animals"
+"directions":"Click on the sceen to help Perry escape the charging animals",
+"score_type":"score"
 }
 ,"6":
 	{"title":"Perry Flap",
 "short_name":"perry_flap",
 "objective":"Perry is trying to stop the bird from getting home. Help flappy!",
-"directions":"Click to keep Flappy Perry up, stop clicking to let it fall"
+"directions":"Click to keep Flappy Perry up, stop clicking to let it fall",
+"score_type":"score"
 }
 ,"7":
 	{"title":"Perry Run",
 "short_name":"perry_run",
 "objective":"Keep jumping and running to avoice obstacles",
-"directions":"Click to make Perry jump from platform to platform"
+"directions":"Click to make Perry jump from platform to platform",
+"score_type":"score"
 }
 ,"8":
 	{"title":"Perry Space Attack",
 "short_name":"perry_space",
 "objective":"Help Perry stop the invading Vegaliens",
-"directions":"Click to move the character. Avoid being hit or letting the enemies past you"
+"directions":"Click to move the character. Avoid being hit or letting the enemies past you",
+"score_type":"score"
 }
 ,"9":
 	{"title":"Perry Squash",
 "short_name":"perry_squash",
 "objective":"Help Perry squash",
-"directions":"Click to squash the enemies. Avoid the red snakes"
+"directions":"Click to squash the enemies. Avoid the red snakes",
+"score_type":"score"
 }
 ,"10":
 	{"title":"Perry Putt",
 "short_name":"perry_putt",
 "objective":"Help Perry putt",
-"directions":"Click the direction, then use the power meter button to determine the hit strength"
+"directions":"Click the direction, then use the power meter button to determine the hit strength",
+"score_type":"time"
 }
 ,"11":
 	{"title":"Perry Skeeball",
 "short_name":"perry_skeeball",
 "objective":"Help roll Perry into the goals",
-"directions":"Click to shoot the ball in the direction of the arrow. Higher zones are worth more"
+"directions":"Click to shoot the ball in the direction of the arrow. Higher zones are worth more",
+"score_type":"score"
 }
 ,"12":
 	{"title":"Perry Pinball",
 "short_name":"perry_pinball",
 "objective":"Bonk Perry against the mushrooms so he relaxes",
-"directions":"Click to keep the ball up and hit the bumpers to get a score. Keep the ball from falling below the flippers."
+"directions":"Click to keep the ball up and hit the bumpers to get a score. Keep the ball from falling below the flippers.",
+"score_type":"score"
 }
 ,"13":
 	{"title":"Perry Tamagotchi",
 "short_name":"perry_tamagotchi",
 "objective":"Watch over your own Perry",
-"directions":"Keep Perry happy and healthy!"
-},"14":
+"directions":"Keep Perry happy and healthy!",
+"score_type":"score"
+}
+,"14":
 	{"title":"Perry Memory",
 "short_name":"perry_memory",
 "objective":"Watch over your own Perry",
-"directions":"Keep Perry happy and healthy!"
+"directions":"Keep Perry happy and healthy!",
+"score_type":"time"
 }
 }
 
