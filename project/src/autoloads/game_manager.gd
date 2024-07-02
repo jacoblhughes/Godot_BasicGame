@@ -26,63 +26,63 @@ var games_list : Dictionary = {
 "short_name":"perry_says",
 "objective":"Smash Perry in the face to get the high score!",
 "directions":"Click on the buttons in the correct order",
-"score_type":"score"
+"score_type":"value"
 }
 ,"2":
 	{"title":"Perry Python",
 "short_name":"perry_python",
 "objective":"Make Perry eat the unfunny mouse!",
 "directions":"Turn Perry by clicking above, below, left, or right of the character",
-"score_type":"score"
+"score_type":"value"
 }
 ,"3":
 	{"title":"Perry Water Polo",
 "short_name":"perry_polo",
 "objective":"Bounce Perry past your enemy!",
 "directions":"Click above or below to protect your side and shoot Perry into the enemy side!",
-"score_type":"score"
+"score_type":"value"
 }
 ,"4":
 	{"title":"Perry's Llama Leap",
 "short_name":"perry_llama",
 "objective":"Perry stole your headband. Jump over his garbage as you chase him down!",
 "directions":"Click to make the llama jump or double jump!",
-"score_type":"score"
+"score_type":"value"
 }
 ,"5":
 	{"title":"Perry Dodge",
 "short_name":"perry_dodge",
 "objective":"Help Perry avoid the zoo animals!",
 "directions":"Click on the sceen to help Perry escape the charging animals",
-"score_type":"score"
+"score_type":"value"
 }
 ,"6":
 	{"title":"Perry Flap",
 "short_name":"perry_flap",
 "objective":"Perry is trying to stop the bird from getting home. Help flappy!",
 "directions":"Click to keep Flappy Perry up, stop clicking to let it fall",
-"score_type":"score"
+"score_type":"value"
 }
 ,"7":
 	{"title":"Perry Run",
 "short_name":"perry_run",
 "objective":"Keep jumping and running to avoice obstacles",
 "directions":"Click to make Perry jump from platform to platform",
-"score_type":"score"
+"score_type":"value"
 }
 ,"8":
 	{"title":"Perry Space Attack",
 "short_name":"perry_space",
 "objective":"Help Perry stop the invading Vegaliens",
 "directions":"Click to move the character. Avoid being hit or letting the enemies past you",
-"score_type":"score"
+"score_type":"value"
 }
 ,"9":
 	{"title":"Perry Squash",
 "short_name":"perry_squash",
 "objective":"Help Perry squash",
 "directions":"Click to squash the enemies. Avoid the red snakes",
-"score_type":"score"
+"score_type":"value"
 }
 ,"10":
 	{"title":"Perry Putt",
@@ -96,21 +96,21 @@ var games_list : Dictionary = {
 "short_name":"perry_skeeball",
 "objective":"Help roll Perry into the goals",
 "directions":"Click to shoot the ball in the direction of the arrow. Higher zones are worth more",
-"score_type":"score"
+"score_type":"value"
 }
 ,"12":
 	{"title":"Perry Pinball",
 "short_name":"perry_pinball",
 "objective":"Bonk Perry against the mushrooms so he relaxes",
 "directions":"Click to keep the ball up and hit the bumpers to get a score. Keep the ball from falling below the flippers.",
-"score_type":"score"
+"score_type":"value"
 }
 ,"13":
 	{"title":"Perry Tamagotchi",
 "short_name":"perry_tamagotchi",
 "objective":"Watch over your own Perry",
 "directions":"Keep Perry happy and healthy!",
-"score_type":"score"
+"score_type":"value"
 }
 ,"14":
 	{"title":"Perry Memory",
@@ -204,7 +204,10 @@ func check_highscore_and_rank():
 	var high_scores_names = config.get_value(game_key, "names", [])
 	var high_scores = config.get_value(game_key, "scores", [])
 	var score = HUD.return_score()
+	var seconds_passed = HUD.return_seconds_passed()
 	var new_initials = HUD.return_initials()
+	var score_type = games_list[game_key]['score_type']
+
 #	var item_list = $HighScorePopup/ColorRect/ItemList
 	if high_scores_names.size() != high_scores.size():
 		print("Error: Names and scores arrays have different sizes.")
@@ -213,12 +216,20 @@ func check_highscore_and_rank():
 	var added = false
 
 	for i in range(high_scores.size()):
-		if score > high_scores[i]:
-			high_scores.insert(i, score)
-			high_scores_names.insert(i, new_initials)
-			added = true
-			break
+		if score_type == 'value':
+			if score > high_scores[i]:
+				high_scores.insert(i, score)
+				high_scores_names.insert(i, new_initials)
+				added = true
+				break
+		elif score_type == 'time':
+			if seconds_passed < high_scores[i] or high_scores[i] == 0:
 
+				high_scores.insert(i, seconds_passed)
+				high_scores_names.insert(i, new_initials)
+				added = true
+				break
+				
 	if not added and high_scores.size() < 10:
 		high_scores.append(score)
 		high_scores_names.append(new_initials)

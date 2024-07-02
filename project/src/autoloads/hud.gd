@@ -5,10 +5,11 @@ var start_time_timer_used = false
 var game_time_left_timer_used = false
 var start_timer_countdown = false
 var game_time_left_timing = false
-
+var game_time_passed_timer_used = false
 var score = 0
 var lives  = 0
 var level = 0
+var seconds_passed = 0
 
 var initial_score_value : int
 var score_advance_base_value : int
@@ -38,6 +39,7 @@ func _ready():
 #	print(DisplayServer.get_display_safe_area())
 	input_panel.input_event.connect(_on_clickable_input_event)
 	call_deferred("get_main_scene")
+	%GameTimePassedTimer.timeout.connect(_on_game_time_passed_timer_timeout)
 	pass
 
 func get_main_scene():
@@ -82,6 +84,9 @@ func set_or_reset_score(value = 0):
 
 func return_score():
 	return score
+
+func return_seconds_passed():
+	return seconds_passed
 
 func home_button_pressed():
 	_on_home_button_pressed()
@@ -179,6 +184,18 @@ func _on_game_left_timer_timeout():
 	game_time_left_timer_timeout.emit()
 	clear_timer()
 	pass # Replace with function body.
+	
+func set_game_time_passed_timer_start():
+	game_time_passed_timer_used = true
+	%GameTimePassedTimer.start()
+
+func _on_game_time_passed_timer_timeout():
+	var new_seconds_passed = seconds_passed
+	new_seconds_passed += 1
+	seconds_passed = new_seconds_passed
+	%Score.text = str(seconds_passed)
+	pass
+
 
 func clear_timer():
 	%Time.text = "INF"
@@ -195,11 +212,8 @@ func clear_hud():
 	%StartCountdownTimer.wait_time = 3
 	%GameTimeLeftTimer.stop()
 	%GameTimeLeftTimer.wait_time = 60
-#	%GamePassedTimer.stop()
-#	%GamePassedTimer.wait_time = 1
-
-
-
+	%GameTimePassedTimer.stop()
+	%GameTimePassedTimer.wait_time = 1
 
 #func _on_panel_gui_input(event):
 #	if event is InputEventScreenTouch and not event.is_handled:

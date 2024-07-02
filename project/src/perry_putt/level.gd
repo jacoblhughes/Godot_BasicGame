@@ -39,7 +39,6 @@ func _ready():
 
 
 	%Hole.ball_sank.connect(_on_ball_sank)
-	%HitMeter.send_value.connect(_on_hit_meter_value)
 
 	pass # Replace with function body.
 
@@ -53,9 +52,4 @@ func _on_ball_sank():
 		%PerryBall.linear_velocity = Vector2.ZERO
 		ball_sank.emit()
 		queue_free()
-
-func _on_hit_meter_value(_progress_value):
-	HUD.update_score(-1)
-	if HUD.return_score() < 1:
-		game_over.emit()
 

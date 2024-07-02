@@ -59,11 +59,14 @@ func _on_game_chosen(game_key,game_scene):
 	var title = GameManager.get_game_list_values(game_key)["title"]
 	var objective = GameManager.get_game_list_values(game_key)["objective"]
 	var directions = GameManager.get_game_list_values(game_key)["directions"]
+	var score_type = GameManager.get_game_list_values(game_key)["score_type"]
 	GameStartGameOver.set_game(true,title,objective,directions)
 	GameManager.set_game_key(game_key)
 	var game_scene_instance = game_scene.instantiate()
 	main_scene.add_child(game_scene_instance)
 	GameManager.set_current_game_scene(perry_says)
+	if score_type == 'time':
+		HUD.set_game_time_passed_timer_start()
 	HUD.show()
 	GameStartGameOver.show()
 

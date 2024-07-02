@@ -8,7 +8,7 @@ extends Node2D
 var current_scene
 
 
-var initial_score_value = 100
+var initial_score_value = 0
 var score_advance_base_value = 1
 var initial_lives_value = 1
 var lives_advance_base_value = 1

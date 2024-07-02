@@ -11,7 +11,7 @@ var start_timer_countdown_value = 3
 var game_time_left_timer_value = 1
 
 @export var cards_node : Node2D
-var current_level : int = 1
+var current_level : int = 5
 var level_changing = false
 
 @export var nodes_to_move_x : Array[Node]
@@ -93,7 +93,6 @@ func _on_second_card_animation_finished():
 				if cards_node.get_child_count() > 0:
 					for node in cards_node.get_children():
 						node.queue_free()
-				print(HUD.return_game_level())
 				if HUD.return_game_level() >=6:
 					HUD.update_lives()
 				else:
@@ -110,12 +109,12 @@ func _reset_cards():
 	second_card.remove_card()
 	first_card = null
 	second_card = null
-	HUD.update_score()
 
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
 
 func _on_game_over():
+
 	pass
 
 func _on_start_timer_countdown_timeout():

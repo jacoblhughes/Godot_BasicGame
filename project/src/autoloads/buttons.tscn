@@ -34,7 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://chf5vory1tu30" path="res://src/perry_pinball/textures/bumper.png" id="31_gm5l3"]
 [ext_resource type="PackedScene" uid="uid://bcb2atrka7rpg" path="res://src/perry_tamagotchi/perry_tamagotchi.tscn" id="32_4vrx3"]
 [ext_resource type="Texture2D" uid="uid://dcwd5u8o7tqpp" path="res://src/perry_tamagotchi/textures/logo.png" id="33_rus2q"]
-[ext_resource type="Texture2D" uid="uid://b1utojxb373y5" path="res://icon.svg" id="35_8vje7"]
+[ext_resource type="Texture2D" uid="uid://dbrc1jcbwkncb" path="res://src/perry_memory/logo.png" id="35_xkobf"]
 [ext_resource type="PackedScene" uid="uid://bluoqtx6rtokx" path="res://src/perry_memory/perry_memory.tscn" id="36_b3736"]
 
 [node name="Buttons" type="CanvasLayer"]
@@ -188,7 +188,7 @@ game_title = "Perry Tamagotchi"
 
 [node name="PerryMemory" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-game_image_texture = ExtResource("35_8vje7")
+game_image_texture = ExtResource("35_xkobf")
 game_scene_selection = ExtResource("36_b3736")
 game_key_selection = "14"
 game_title = "Perry Memory"

@@ -19,9 +19,10 @@ Improvements:
 		signal handling
 		Add at least 2 sounds per game
 		3 background musics
-		work on margin from bottom of phone for sure, maybe from sides, probs fro top
+		work on margin from bottom of phone for sure, maybe from sides, probs from top
 		add more clear directions.
 		add more clearly defined win/loss conditions
+		use the time/score better and make it more clear what is going on
 
 	perry_says
 		Make the buttons move or something
@@ -81,12 +82,16 @@ Keep:
 Future/ideas:
 	rename sound Buses
 	make controlling background music more fluid and all through the animation player, perhaps
+	
 	Card matching game
+	
 	Pinball
+	
 	Space Invaders (maybe)
 	Frogger
 	Breakout
 	Jetpack Joyride
+	
 	Introduce at least 1 then 2 new game elements to make it fun
 	If not too much of a detriment, add another way to lose.
 
