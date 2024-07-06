@@ -184,7 +184,7 @@ func _on_game_left_timer_timeout():
 	game_time_left_timer_timeout.emit()
 	clear_timer()
 	pass # Replace with function body.
-	
+
 func set_game_time_passed_timer_start():
 	game_time_passed_timer_used = true
 	%GameTimePassedTimer.start()

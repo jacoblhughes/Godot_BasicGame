@@ -17,16 +17,16 @@ metadata/_edit_horizontal_guides_ = [640.0, 320.0, 960.0, 480.0, 800.0, 880.0, 4
 
 [node name="TopWall" type="AnimatedSprite2D" parent="."]
 position = Vector2(7.62939e-06, -320)
-scale = Vector2(0.5, 0.833333)
-sprite_frames = ExtResource("2_crqqh")
-autoplay = "default"
-
-[node name="BottomWall" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2.38419e-07, 440)
-scale = Vector2(0.5, 0.520833)
+scale = Vector2(4, 6.66667)
 sprite_frames = ExtResource("2_crqqh")
 autoplay = "default"
 flip_v = true
+
+[node name="BottomWall" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.38419e-07, 440)
+scale = Vector2(4, 4.16667)
+sprite_frames = ExtResource("2_crqqh")
+autoplay = "default"
 
 [node name="TopCollision" type="CollisionShape2D" parent="."]
 position = Vector2(1.52588e-05, -320)

@@ -57,13 +57,13 @@ func _physics_process(delta):
 #		global_position = global_position.lerp(target_position, lerp_speed)
 		global_position.x = clamp(global_position.x, HUD.get_play_area_position().x,HUD.get_play_area_position().x+HUD.get_play_area_size().x)
 		global_position.y = clamp(global_position.y, HUD.get_play_area_position().y,HUD.get_play_area_position().y+HUD.get_play_area_size().y)
-	
+
 	else:
 		velocity.y = 0
 
 func _on_tweet_timeout():
 	var new_wait_time = randi_range(5,10)
 	%TweetTimer.wait_time = new_wait_time
-	
+
 	AudioManager.play_sound("perry_flap_tweet")
 	%TweetTimer.start()
