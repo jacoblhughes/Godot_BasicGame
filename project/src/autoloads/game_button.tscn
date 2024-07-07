@@ -15,6 +15,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_assr7")
+theme_type_variation = &"ButtonGame"
 script = ExtResource("2_8mp2g")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

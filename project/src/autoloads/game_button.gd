@@ -1,6 +1,6 @@
 extends Button
 
-@export var game_image_texture : CompressedTexture2D
+@export var game_image_texture : AtlasTexture
 @export var game_scene_selection : PackedScene
 @export var game_key_selection : String
 @export var game_title : String

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=38 format=3 uid="uid://d4cpf87cb1bs0"]
 
 [ext_resource type="Script" path="res://src/autoloads/buttons.gd" id="1_bni1w"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://src/perry_says/perry_says.tscn" id="2_p72e3"]
@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bss5quy1eqwo6" path="res://src/perry_polo/textures/player.png" id="21_t38uj"]
 [ext_resource type="Texture2D" uid="uid://bpbsvxbbk4ce8" path="res://src/perry_dodge/textures/logo.png" id="22_o05ny"]
 [ext_resource type="Texture2D" uid="uid://cr156l77l8mqj" path="res://src/perry_llama/textures/logo.png" id="22_odxlo"]
-[ext_resource type="Texture2D" uid="uid://babuc4lrxcy5h" path="res://src/perry_flap/textures/player.png" id="23_p1kel"]
+[ext_resource type="Texture2D" uid="uid://chtx7ejjj7k0w" path="res://src/perry_flap/textures/player.png" id="23_p1kel"]
 [ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://src/perry_run/textures/player.png" id="24_gh28p"]
 [ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://src/perry_space/textures/player.png" id="25_3shli"]
 [ext_resource type="Texture2D" uid="uid://bf2rgeripqka6" path="res://src/perry_squash/textures/player.png" id="27_n1kpu"]
@@ -36,6 +36,10 @@
 [ext_resource type="Texture2D" uid="uid://dcwd5u8o7tqpp" path="res://src/perry_tamagotchi/textures/logo.png" id="33_rus2q"]
 [ext_resource type="Texture2D" uid="uid://dbrc1jcbwkncb" path="res://src/perry_memory/logo.png" id="35_xkobf"]
 [ext_resource type="PackedScene" uid="uid://bluoqtx6rtokx" path="res://src/perry_memory/perry_memory.tscn" id="36_b3736"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c82pa"]
+atlas = ExtResource("23_p1kel")
+region = Rect2(256, 0, 32, 32)
 
 [node name="Buttons" type="CanvasLayer"]
 layer = 3
@@ -131,7 +135,7 @@ game_title = "Perry Dodge"
 
 [node name="PerryFlap" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-game_image_texture = ExtResource("23_p1kel")
+game_image_texture = SubResource("AtlasTexture_c82pa")
 game_scene_selection = ExtResource("7_8m0e8")
 game_key_selection = "6"
 game_title = "Perry Flap"

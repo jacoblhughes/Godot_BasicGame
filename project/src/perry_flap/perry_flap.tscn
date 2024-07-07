@@ -1,30 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://cj0i3bqn4ap1r"]
+[gd_scene load_steps=13 format=3 uid="uid://cj0i3bqn4ap1r"]
 
 [ext_resource type="Script" path="res://src/perry_flap/perry_flap.gd" id="1_ym0sw"]
-[ext_resource type="PackedScene" uid="uid://cacfubsmhibrw" path="res://src/perry_flap/enemy_wall.tscn" id="2_3bg0i"]
-[ext_resource type="PackedScene" uid="uid://dgbjvdct5rvuk" path="res://src/perry_flap/enemy_wall_2.tscn" id="3_eemtl"]
+[ext_resource type="PackedScene" uid="uid://cacfubsmhibrw" path="res://src/perry_flap/enemy.tscn" id="2_wxhth"]
+[ext_resource type="PackedScene" uid="uid://dgbjvdct5rvuk" path="res://src/perry_flap/enemy_top.tscn" id="3_e5wsh"]
+[ext_resource type="PackedScene" uid="uid://cpcavmwe55upr" path="res://src/perry_flap/enemy_bottom.tscn" id="4_3nljp"]
 [ext_resource type="Script" path="res://src/perry_flap/enemy_despawn.gd" id="4_7jpv8"]
 [ext_resource type="Texture2D" uid="uid://bx5cma57kljk6" path="res://src/perry_flap/textures/background.png" id="4_abbuh"]
-[ext_resource type="PackedScene" uid="uid://cpcavmwe55upr" path="res://src/perry_flap/enemy_wall_3.tscn" id="4_pqam4"]
 [ext_resource type="PackedScene" uid="uid://dtkr0v8bhef4k" path="res://src/reusable/parallax_background.tscn" id="5_noill"]
 [ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="5_wupvg"]
 [ext_resource type="PackedScene" uid="uid://bmuk80oxjv7v8" path="res://src/perry_flap/player.tscn" id="6_dekd4"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_srxc7"]
-atlas = ExtResource("4_abbuh")
-region = Rect2(0, 0, 360, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ngsk"]
-atlas = ExtResource("4_abbuh")
-region = Rect2(0, 1920, 360, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dwt5d"]
-atlas = ExtResource("4_abbuh")
-region = Rect2(0, 640, 360, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bjnkh"]
-atlas = ExtResource("4_abbuh")
-region = Rect2(0, 1280, 360, 640)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20w47"]
 size = Vector2(56, 1280)
@@ -37,14 +21,11 @@ size = Vector2(352, 1088)
 
 [node name="PerryFlap" type="Node2D"]
 script = ExtResource("1_ym0sw")
-scenes = Array[PackedScene]([ExtResource("2_3bg0i"), ExtResource("3_eemtl"), ExtResource("4_pqam4")])
+scenes = Array[PackedScene]([ExtResource("2_wxhth"), ExtResource("3_e5wsh"), ExtResource("4_3nljp")])
 metadata/_edit_horizontal_guides_ = [640.0, 64.0, 640.0]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_noill")]
-far_back_texture = SubResource("AtlasTexture_srxc7")
-background_texture = SubResource("AtlasTexture_7ngsk")
-foreground_texture = SubResource("AtlasTexture_dwt5d")
-foreground_extra_texture = SubResource("AtlasTexture_bjnkh")
+combined_texture = ExtResource("4_abbuh")
 
 [node name="GameBackground" parent="." instance=ExtResource("5_wupvg")]
 visible = false
@@ -57,7 +38,7 @@ collision_mask = 2
 script = ExtResource("4_7jpv8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDespawn"]
-position = Vector2(28, 640)
+position = Vector2(-28, 640)
 shape = SubResource("RectangleShape2D_20w47")
 
 [node name="Player" parent="." instance=ExtResource("6_dekd4")]

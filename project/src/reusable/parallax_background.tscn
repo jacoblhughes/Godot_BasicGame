@@ -1,59 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtkr0v8bhef4k"]
+[gd_scene load_steps=2 format=3 uid="uid://dtkr0v8bhef4k"]
 
 [ext_resource type="Script" path="res://src/reusable/parallax_background.gd" id="1_asf31"]
-[ext_resource type="Texture2D" uid="uid://bx5cma57kljk6" path="res://src/perry_flap/textures/background.png" id="2_ro4pj"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u762s"]
-atlas = ExtResource("2_ro4pj")
-region = Rect2(0, 0, 360, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rvnek"]
-atlas = ExtResource("2_ro4pj")
-region = Rect2(0, 1920, 360, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_558t6"]
-atlas = ExtResource("2_ro4pj")
-region = Rect2(0, 640, 360, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_imsvv"]
-atlas = ExtResource("2_ro4pj")
-region = Rect2(0, 1280, 360, 640)
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 layer = -1
 script = ExtResource("1_asf31")
-far_back_texture = SubResource("AtlasTexture_u762s")
-background_texture = SubResource("AtlasTexture_rvnek")
-foreground_texture = SubResource("AtlasTexture_558t6")
-foreground_extra_texture = SubResource("AtlasTexture_imsvv")
-
-[node name="FarBack" type="ParallaxLayer" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="FarBack"]
-scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_u762s")
-centered = false
 
 [node name="Background" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2(720, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Background"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background"]
 scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_rvnek")
+centered = false
+
+[node name="Back" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(720, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Back"]
+scale = Vector2(2, 2)
 centered = false
 
 [node name="Foreground" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2(720, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Foreground"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Foreground"]
 scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_558t6")
 centered = false
 
-[node name="ForegroundExtra" type="ParallaxLayer" parent="."]
+[node name="Front" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2(720, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ForegroundExtra"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Front"]
 scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_imsvv")
 centered = false

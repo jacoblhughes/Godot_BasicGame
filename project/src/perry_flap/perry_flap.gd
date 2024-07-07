@@ -12,6 +12,9 @@ var game_time_left_timer_value = 3
 
 var base_spawn_timer_time = 2
 @export var scenes : Array[PackedScene]
+#120	520		30	130
+#120	640		30	160
+#120	400		30	100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,55 +1,63 @@
 extends ParallaxBackground
 
-@export var far_back_texture : AtlasTexture
-@export var background_texture : AtlasTexture
-@export var foreground_texture : AtlasTexture
-@export var foreground_extra_texture : AtlasTexture
+@export var combined_texture : Texture2D
 
-@onready var far_back_parallax : ParallaxLayer = $FarBack
 @onready var background_parallax : ParallaxLayer = $Background
+@onready var back_parallax : ParallaxLayer = $Back
 @onready var foreground_parallax : ParallaxLayer = $Foreground
-@onready var foreground_extra_parallax : ParallaxLayer = $ForegroundExtra
+@onready var front_parallax : ParallaxLayer = $Front
 
-@onready var far_background_sprite = $FarBack/Sprite2D
-@onready var background_sprite = $Background/Sprite2D
-@onready var foreground_sprite = $Foreground/Sprite2D
-@onready var foreground_extra_sprite = $ForegroundExtra/Sprite2D
-
-
+@onready var background_animatedsprite = $Background/AnimatedSprite2D
+@onready var back_animatedsprite = $Back/AnimatedSprite2D
+@onready var foreground_animatedsprite = $Foreground/AnimatedSprite2D
+@onready var front_animatedsprite = $Front/AnimatedSprite2D
+var speed = 10
 var dimensions_set = false
-@export var speed = 10
-var scroll = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	far_background_sprite.texture = far_back_texture
-	background_sprite.texture = background_texture
-	foreground_sprite.texture = foreground_texture
-	foreground_extra_sprite.texture = foreground_extra_texture
-#	sprite.global_position = GameManager.get_play_area_position()
+	# Set textures and create animations
+	set_animation_sprite_texture(background_animatedsprite, combined_texture, 0)
+	set_animation_sprite_texture(back_animatedsprite, combined_texture, 1)
+	set_animation_sprite_texture(foreground_animatedsprite, combined_texture, 2)
+	set_animation_sprite_texture(front_animatedsprite, combined_texture, 3)
 	pass # Replace with function body.
+	
+# Function to set the texture and create animations
+func set_animation_sprite_texture(animated_sprite: AnimatedSprite2D, texture: Texture2D, layer: int):
+	var frames = 16
+	var frame_width = 360
+	var frame_height = 640
+	var y_offset = layer * frame_height
+	var sprite_frames = SpriteFrames.new()
+
+	
+	for i in range(frames):
+		var atlas_texture = AtlasTexture.new()
+		atlas_texture.atlas = texture
+		var x_offset = i * frame_width
+		var frame_region = Rect2(Vector2(x_offset, y_offset), Vector2(frame_width, frame_height))
+		atlas_texture.set_region(frame_region)
+		sprite_frames.add_frame("default", atlas_texture,1,i)
+	animated_sprite.sprite_frames = sprite_frames
+	animated_sprite.set_autoplay("default")
+	animated_sprite.play("default")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if dimensions_set:
-		background_parallax.motion_offset.x -= speed * delta
-		foreground_parallax.motion_offset.x -= speed * delta
-		foreground_extra_parallax.motion_offset.x -= speed * delta
-	#	scroll = speed * delta
-	#	parallax.set_motion_offset(Vector2(scroll,0))
-
-#	sprite.region_rect.position += delta * far_scroll_speed
-#	if far_sprite.region_rect.position >= Vector2(1024,0):
-#		far_sprite.region_rect.position = Vector2.ZERO
+		background_parallax.motion_offset.x -= speed * delta * 1
+		back_parallax.motion_offset.x -= speed * delta * 3
+		foreground_parallax.motion_offset.x -= speed * delta * 6
+		front_parallax.motion_offset.x -= speed * delta * 10
 	pass
 
 func get_resize_dimensions(xatio,yatio):
-	var array_to_change = [far_background_sprite,background_sprite,foreground_sprite,foreground_extra_sprite]
+	var array_to_change = [background_animatedsprite,back_animatedsprite,foreground_animatedsprite,front_animatedsprite]
 	for node in array_to_change:
 		node.scale.y *= yatio
 		node.scale.x *= xatio
-	var array_to_mirror = [far_back_parallax,background_parallax,foreground_parallax,foreground_extra_parallax]
+	var array_to_mirror = [background_parallax,back_parallax,foreground_parallax,front_parallax]
 	for node in array_to_mirror:
 		node.motion_mirroring.y *= yatio
 		node.motion_mirroring.x *= xatio

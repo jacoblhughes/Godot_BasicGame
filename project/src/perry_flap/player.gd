@@ -11,6 +11,7 @@ var jump_force = -400
 var is_jumping = false
 var gameRun = false
 signal flappy_hit
+var went_up = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animated_sprite : AnimatedSprite2D
@@ -23,23 +24,24 @@ func _ready():
 
 func _on_clickable_input_event(event, input_position):
 	if event.pressed:
+		went_up = true
 		AudioManager.play_sound("perry_flap_flap")
 		velocity.y = jump_force
+		animated_sprite.play("up")  # Play "up" animation when clicked
 
 func hit():
 	if(GameManager.get_game_enabled()):
 		HUD.update_lives()
 
 func _physics_process(delta):
-	if(GameManager.get_game_enabled()):
-	# Apply gravity
+	if GameManager.get_game_enabled():
+		# Apply gravity
 		velocity.y += gravity * delta
-		if(velocity.y>=-25 and velocity.y<5):
-			animated_sprite.play("default")
-		elif(velocity.y <-25):
-			animated_sprite.play("up")
-		else:
-			animated_sprite.play("down")
+		if velocity.y > 0 and went_up:
+			animated_sprite.play("down")  # Play "down" animation when falling
+			went_up = false
+		# Limit horizontal speed
+		# velocity.x = clamp(velocity.x, -max_speed, max_speed)
 		# Limit horizontal speed
 	#	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 

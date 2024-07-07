@@ -116,6 +116,7 @@ Button/styles/focus = SubResource("StyleBoxFlat_f5cs7")
 Button/styles/hover = SubResource("StyleBoxFlat_r75i3")
 Button/styles/normal = SubResource("StyleBoxFlat_hl18o")
 Button/styles/pressed = SubResource("StyleBoxFlat_ub2f4")
+ButtonGame/base_type = &"Button"
 ButtonReset/base_type = &"Button"
 ButtonReset/styles/disabled = SubResource("StyleBoxFlat_bi6sw")
 ButtonReset/styles/focus = SubResource("StyleBoxFlat_10qpf")

@@ -1,16 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://brwrw47ug7fwj"]
+[gd_scene load_steps=5 format=3 uid="uid://brwrw47ug7fwj"]
 
 [ext_resource type="Script" path="res://src/reference/grid_reference.gd" id="1_ltfln"]
-[ext_resource type="PackedScene" uid="uid://cacfubsmhibrw" path="res://src/perry_flap/enemy_wall.tscn" id="2_m6tna"]
+[ext_resource type="PackedScene" uid="uid://cacfubsmhibrw" path="res://src/perry_flap/enemy.tscn" id="2_1sq2q"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main.tres" id="2_m17ir"]
+[ext_resource type="PackedScene" uid="uid://dgbjvdct5rvuk" path="res://src/perry_flap/enemy_top.tscn" id="3_x5tj3"]
 
 [node name="GridReference" type="CanvasLayer"]
 layer = -1
 script = ExtResource("1_ltfln")
 show_18x32 = true
 
-[node name="EnemyWall" parent="." instance=ExtResource("2_m6tna")]
+[node name="EnemyWall" parent="." instance=ExtResource("2_1sq2q")]
 position = Vector2(653, 642)
+
+[node name="EnemyWall2" parent="." instance=ExtResource("3_x5tj3")]
+position = Vector2(504, 640)
 
 [node name="HalfGrid" type="GridContainer" parent="."]
 unique_name_in_owner = true
