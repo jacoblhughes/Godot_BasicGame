@@ -41,3 +41,6 @@ func _physics_process(delta):
 #	if far_sprite.region_rect.position >= Vector2(1024,0):
 #		far_sprite.region_rect.position = Vector2.ZERO
 	pass
+
+func get_resize_dimensions(xatio,yatio):
+	pass

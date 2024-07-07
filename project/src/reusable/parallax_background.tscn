@@ -35,6 +35,7 @@ texture = SubResource("AtlasTexture_u762s")
 centered = false
 
 [node name="Background" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(720, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
 scale = Vector2(2, 2)
@@ -42,6 +43,7 @@ texture = SubResource("AtlasTexture_rvnek")
 centered = false
 
 [node name="Foreground" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(720, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Foreground"]
 scale = Vector2(2, 2)
@@ -49,6 +51,7 @@ texture = SubResource("AtlasTexture_558t6")
 centered = false
 
 [node name="ForegroundExtra" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(720, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ForegroundExtra"]
 scale = Vector2(2, 2)
