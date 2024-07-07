@@ -95,3 +95,6 @@ func _on_fly_zone_body_exited(body):
 		if(GameManager.get_game_enabled()):
 			%Player.hit()
 	pass # Replace with function body.
+
+
+#extends BaseGame
