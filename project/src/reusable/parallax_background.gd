@@ -15,6 +15,8 @@ extends ParallaxBackground
 @onready var foreground_sprite = $Foreground/Sprite2D
 @onready var foreground_extra_sprite = $ForegroundExtra/Sprite2D
 
+
+var dimensions_set = false
 @export var speed = 10
 var scroll = 0
 
@@ -30,12 +32,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-
-	background_parallax.motion_offset.x -= speed * delta
-	foreground_parallax.motion_offset.x -= speed * delta
-	foreground_extra_parallax.motion_offset.x -= speed * delta
-#	scroll = speed * delta
-#	parallax.set_motion_offset(Vector2(scroll,0))
+	if dimensions_set:
+		background_parallax.motion_offset.x -= speed * delta
+		foreground_parallax.motion_offset.x -= speed * delta
+		foreground_extra_parallax.motion_offset.x -= speed * delta
+	#	scroll = speed * delta
+	#	parallax.set_motion_offset(Vector2(scroll,0))
 
 #	sprite.region_rect.position += delta * far_scroll_speed
 #	if far_sprite.region_rect.position >= Vector2(1024,0):
@@ -43,4 +45,13 @@ func _physics_process(delta):
 	pass
 
 func get_resize_dimensions(xatio,yatio):
+	var array_to_change = [far_background_sprite,background_sprite,foreground_sprite,foreground_extra_sprite]
+	for node in array_to_change:
+		node.scale.y *= yatio
+		node.scale.x *= xatio
+	var array_to_mirror = [far_back_parallax,background_parallax,foreground_parallax,foreground_extra_parallax]
+	for node in array_to_mirror:
+		node.motion_mirroring.y *= yatio
+		node.motion_mirroring.x *= xatio
+	dimensions_set = true
 	pass

@@ -39,18 +39,20 @@ func _ready():
 			node.scale.y *= yatio
 
 	if xform > 720:
-
 		var nodes_to_move =[%EnemySpawn]
 		for node in nodes_to_move:
 			node.position.x *= xatio
 		var nodes_to_scale = []
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
-	
+
 	if get_node_or_null("ParallaxBackground")!=null:
+		if xatio <= 1:
+			xatio = 1
+		if yatio <= 1:
+			yatio = 1
 		var parallax_background = get_node_or_null("ParallaxBackground")
 		parallax_background.get_resize_dimensions(xatio,yatio)
-
 
 
 	%SpawnTimer.wait_time = base_spawn_timer_time
