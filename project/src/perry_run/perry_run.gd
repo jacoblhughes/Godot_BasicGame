@@ -25,6 +25,10 @@ var base_high_floor_timer_time = 4
 var base_coin_timer_time = 1
 var base_object_speed = 400
 var base_coin_position_change_delta = 400
+
+var player
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -89,6 +93,13 @@ func _ready():
 	%PlatformTimer.wait_time = base_platform_timer_time
 	%HighPlatformTimer.wait_time = base_high_floor_timer_time
 	%CoinTimer.wait_time = base_coin_timer_time
+	player = player_scene.instantiate()
+	player.position = %StartPosition.position
+	player.motion_mode = 1
+	player.set_yatio(player_jump_scale)
+	player.set_xpos(%StartPosition.position.x)
+	add_child.call_deferred(player)
+
 
 	pass # Replace with function body.
 
@@ -99,20 +110,14 @@ func _process(_delta):
 
 func _on_play_button_pressed():
 	game_start.emit()
-	var player = player_scene.instantiate()
-	player.position = %StartPosition.position
-	add_child.call_deferred(player)
-	player.set_yatio(player_jump_scale)
-	player.set_xpos(%StartPosition.position.x)
+	player.motion_mode = 0
 	pass
 
 func _on_advance_level():
-
-
-	%FloorTimer.wait_time = base_floor_timer_time * pow(.95,HUD.return_game_level())
-	%PlatformTimer.wait_time = base_platform_timer_time * pow(.95,HUD.return_game_level())
-	%HighPlatformTimer.wait_time = base_high_floor_timer_time * pow(.95,HUD.return_game_level())
-	%CoinTimer.wait_time = base_coin_timer_time * pow(.95,HUD.return_game_level())
+	%FloorTimer.wait_time = base_floor_timer_time * pow(1.05,HUD.return_game_level())
+	%PlatformTimer.wait_time = base_platform_timer_time * pow(1.05,HUD.return_game_level())
+	%HighPlatformTimer.wait_time = base_high_floor_timer_time * pow(1.05,HUD.return_game_level())
+	%CoinTimer.wait_time = base_coin_timer_time * pow(1.05,HUD.return_game_level())
 	%ObjectSpawn.set_object_speed(base_object_speed * pow(1.05,HUD.return_game_level()))
 	for node in %ObjectSpawn.get_children():
 		node.speed = base_object_speed * pow(1.05,HUD.return_game_level())

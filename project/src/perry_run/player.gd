@@ -20,7 +20,7 @@ func _on_clickable_input_event(event, input_position):
 		should_jump = false
 
 func _physics_process(delta):
-	if not is_on_floor():
+	if not is_on_floor() and motion_mode == 0:
 		velocity.y += gravity * delta
 
 	# Check both traditional input and the clickable event
@@ -31,7 +31,7 @@ func _physics_process(delta):
 
 	elif should_jump and not is_on_floor() and jump_time < MAX_JUMP_TIME:
 		jump_time += delta
-		velocity.y -= (35*jump_scale)
+		velocity.y -= (35*jump_scale*delta)
 
 	move_and_slide()
 	position.x = clamp(position.x, xpos, xpos)  # Keep the player at xpos

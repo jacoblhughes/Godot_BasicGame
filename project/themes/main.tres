@@ -1,9 +1,6 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://s0srltpmhp6g"]
-
-[ext_resource type="Texture2D" uid="uid://bhheoyo6qtwvx" path="res://src/main/textures/game_button.png" id="1_abquo"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://s0srltpmhp6g"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p3hb4"]
-texture = ExtResource("1_abquo")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpdqp"]
 bg_color = Color(0.419608, 0.14902, 0.262745, 1)
@@ -12,7 +9,6 @@ bg_color = Color(0.419608, 0.14902, 0.262745, 1)
 bg_color = Color(0.419608, 0.14902, 0.262745, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6h6kb"]
-texture = ExtResource("1_abquo")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6p57"]
 bg_color = Color(0.419608, 0.14902, 0.262745, 1)

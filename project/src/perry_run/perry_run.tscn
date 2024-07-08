@@ -34,7 +34,7 @@ game_background_texture = ExtResource("4_1cltd")
 
 [node name="FloorTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 2.0
+wait_time = 4.0
 
 [node name="PlatformTimer" type="Timer" parent="."]
 unique_name_in_owner = true
