@@ -4,20 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://cw6vvyabe8vgo" path="res://src/main/textures/hslider.png" id="2_t2w28"]
 [ext_resource type="Texture2D" uid="uid://5q2wio1wnhsm" path="res://src/main/textures/tick.png" id="3_1rhsq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfs50"]
-bg_color = Color(0.188235, 0.376471, 0.509804, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3e3l7"]
+bg_color = Color(0.54902, 0.470588, 0.647059, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5cs7"]
-bg_color = Color(0.188235, 0.376471, 0.509804, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hps46"]
+bg_color = Color(0.54902, 0.470588, 0.647059, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r75i3"]
-bg_color = Color(0.188235, 0.376471, 0.509804, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tajp1"]
+bg_color = Color(0.54902, 0.470588, 0.647059, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hl18o"]
-bg_color = Color(0.188235, 0.376471, 0.509804, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqy3g"]
+bg_color = Color(0.54902, 0.470588, 0.647059, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub2f4"]
-bg_color = Color(0.188235, 0.376471, 0.509804, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxf3b"]
+bg_color = Color(0.54902, 0.470588, 0.647059, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bi6sw"]
 bg_color = Color(0.733333, 0.121569, 0.2, 1)
@@ -110,13 +110,12 @@ bg_color = Color(0.215686, 0.580392, 0.431373, 1)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [resource]
-Button/colors/font_color = Color(0.964706, 1, 0.972549, 1)
-Button/styles/disabled = SubResource("StyleBoxFlat_lfs50")
-Button/styles/focus = SubResource("StyleBoxFlat_f5cs7")
-Button/styles/hover = SubResource("StyleBoxFlat_r75i3")
-Button/styles/normal = SubResource("StyleBoxFlat_hl18o")
-Button/styles/pressed = SubResource("StyleBoxFlat_ub2f4")
-ButtonGame/base_type = &"Button"
+ButtonGameButton/base_type = &"Button"
+ButtonGameButton/styles/disabled = SubResource("StyleBoxFlat_3e3l7")
+ButtonGameButton/styles/focus = SubResource("StyleBoxFlat_hps46")
+ButtonGameButton/styles/hover = SubResource("StyleBoxFlat_tajp1")
+ButtonGameButton/styles/normal = SubResource("StyleBoxFlat_bqy3g")
+ButtonGameButton/styles/pressed = SubResource("StyleBoxFlat_pxf3b")
 ButtonReset/base_type = &"Button"
 ButtonReset/styles/disabled = SubResource("StyleBoxFlat_bi6sw")
 ButtonReset/styles/focus = SubResource("StyleBoxFlat_10qpf")

@@ -21,13 +21,13 @@ signal game_start
 
 var base_floor_timer_time = 2
 var base_platform_timer_time = 3
-var base_high_floor_timer_time = 3
+var base_high_floor_timer_time = 4
 var base_coin_timer_time = 1
 var base_object_speed = 400
 var base_coin_position_change_delta = 400
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
 	var game_over_callable = Callable(self,"_on_game_over")
 	var start_timer_countdown_callable = Callable(self,"_on_start_timer_countdown_timeout")
@@ -70,7 +70,7 @@ func _ready():
 		var nodes_to_scale = [%PlayerFell]
 		for node in nodes_to_scale:
 			node.scale.x *= xatio
-			
+
 	if get_node_or_null("ParallaxBackground")!=null:
 		if xatio <= 1:
 			xatio = 1
@@ -107,8 +107,8 @@ func _on_play_button_pressed():
 	pass
 
 func _on_advance_level():
-	
-	
+
+
 	%FloorTimer.wait_time = base_floor_timer_time * pow(.95,HUD.return_game_level())
 	%PlatformTimer.wait_time = base_platform_timer_time * pow(.95,HUD.return_game_level())
 	%HighPlatformTimer.wait_time = base_high_floor_timer_time * pow(.95,HUD.return_game_level())
