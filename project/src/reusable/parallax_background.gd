@@ -22,7 +22,7 @@ func _ready():
 	set_animation_sprite_texture(foreground_animatedsprite, combined_texture, 2)
 	set_animation_sprite_texture(front_animatedsprite, combined_texture, 3)
 	pass # Replace with function body.
-	
+
 # Function to set the texture and create animations
 func set_animation_sprite_texture(animated_sprite: AnimatedSprite2D, texture: Texture2D, layer: int):
 	var frames = 16
@@ -31,7 +31,7 @@ func set_animation_sprite_texture(animated_sprite: AnimatedSprite2D, texture: Te
 	var y_offset = layer * frame_height
 	var sprite_frames = SpriteFrames.new()
 
-	
+
 	for i in range(frames):
 		var atlas_texture = AtlasTexture.new()
 		atlas_texture.atlas = texture
