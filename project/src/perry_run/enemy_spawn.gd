@@ -17,7 +17,7 @@ func _ready():
 	get_parent().game_start.connect(_on_game_start)
 	var floor_start_instance = floor_start.instantiate()
 	floor_start_instance.position = %FloorStartPosition.position
-	#floor_start_instance.speed = object_speed
+	floor_start_instance.speed = object_speed * 10
 	add_child.call_deferred(floor_start_instance)
 
 	pass
