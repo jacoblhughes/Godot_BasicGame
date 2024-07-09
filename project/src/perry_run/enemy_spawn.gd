@@ -15,6 +15,7 @@ var xatio
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_parent().game_start.connect(_on_game_start)
+	
 	pass
 
 func _on_game_start():

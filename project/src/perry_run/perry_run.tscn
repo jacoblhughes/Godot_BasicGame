@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cf4xkqs74ytur"]
+[gd_scene load_steps=14 format=3 uid="uid://cf4xkqs74ytur"]
 
 [ext_resource type="Script" path="res://src/perry_run/perry_run.gd" id="2_1lkn6"]
 [ext_resource type="PackedScene" uid="uid://bxseg85es8o1u" path="res://src/perry_run/player.tscn" id="3_d1s5q"]
-[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="3_jm63g"]
 [ext_resource type="PackedScene" uid="uid://dtkr0v8bhef4k" path="res://src/reusable/parallax_background.tscn" id="3_y4pos"]
 [ext_resource type="Texture2D" uid="uid://c2faiktt31xpb" path="res://src/perry_run/textures/background.png" id="4_1cltd"]
 [ext_resource type="Script" path="res://src/perry_run/enemy_spawn.gd" id="5_y6ah6"]
@@ -27,10 +26,6 @@ metadata/_edit_horizontal_guides_ = [944.0, 920.0, 880.0]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_y4pos")]
 combined_texture = ExtResource("4_1cltd")
-
-[node name="GameBackground" parent="." instance=ExtResource("3_jm63g")]
-visible = false
-game_background_texture = ExtResource("4_1cltd")
 
 [node name="FloorTimer" type="Timer" parent="."]
 unique_name_in_owner = true

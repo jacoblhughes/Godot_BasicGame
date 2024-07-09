@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cj0i3bqn4ap1r"]
+[gd_scene load_steps=12 format=3 uid="uid://cj0i3bqn4ap1r"]
 
 [ext_resource type="Script" path="res://src/perry_flap/perry_flap.gd" id="1_ym0sw"]
 [ext_resource type="PackedScene" uid="uid://cacfubsmhibrw" path="res://src/perry_flap/enemy.tscn" id="2_qjab4"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bx5cma57kljk6" path="res://src/perry_flap/textures/background.png" id="4_abbuh"]
 [ext_resource type="PackedScene" uid="uid://cpcavmwe55upr" path="res://src/perry_flap/enemy_bottom.tscn" id="4_dd2nx"]
 [ext_resource type="PackedScene" uid="uid://dtkr0v8bhef4k" path="res://src/reusable/parallax_background.tscn" id="5_noill"]
-[ext_resource type="PackedScene" uid="uid://b0e3falqlw7c6" path="res://src/reusable/game_background.tscn" id="5_wupvg"]
 [ext_resource type="PackedScene" uid="uid://bmuk80oxjv7v8" path="res://src/perry_flap/player.tscn" id="6_dekd4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20w47"]
@@ -26,10 +25,6 @@ metadata/_edit_horizontal_guides_ = [640.0, 64.0, 640.0]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_noill")]
 combined_texture = ExtResource("4_abbuh")
-
-[node name="GameBackground" parent="." instance=ExtResource("5_wupvg")]
-visible = false
-game_background_texture = ExtResource("4_abbuh")
 
 [node name="EnemyDespawn" type="Area2D" parent="."]
 unique_name_in_owner = true

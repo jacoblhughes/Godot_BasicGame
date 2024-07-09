@@ -87,7 +87,7 @@ func _ready():
 	%ObjectSpawn.set_xatio(xatio)
 	%ObjectSpawn.set_object_speed(base_object_speed)
 	player_jump_scale = yatio
-#	%PlayerPushed.body_entered.connect(_on_player_fall_out)
+
 
 	%FloorTimer.wait_time = base_floor_timer_time
 	%PlatformTimer.wait_time = base_platform_timer_time

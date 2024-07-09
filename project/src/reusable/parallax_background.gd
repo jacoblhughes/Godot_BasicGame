@@ -1,3 +1,4 @@
+@tool
 extends ParallaxBackground
 
 @export var combined_texture : Texture2D
