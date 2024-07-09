@@ -42,3 +42,6 @@ func set_xpos(pos):
 
 func set_yatio(val):
 	jump_scale = val
+
+func set_collision_disabled(val):
+	%CollisionShape2D.disabled = val

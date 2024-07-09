@@ -40,5 +40,6 @@ sprite_frames = SubResource("SpriteFrames_oy4wx")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -96)
 shape = SubResource("RectangleShape2D_kj2p2")

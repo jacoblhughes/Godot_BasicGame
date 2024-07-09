@@ -98,6 +98,7 @@ func _ready():
 	player.motion_mode = 1
 	player.set_yatio(player_jump_scale)
 	player.set_xpos(%StartPosition.position.x)
+	player.set_collision_disabled(true)
 	add_child.call_deferred(player)
 
 
@@ -110,6 +111,7 @@ func _process(_delta):
 
 func _on_play_button_pressed():
 	game_start.emit()
+	player.set_collision_disabled(false)
 	player.motion_mode = 0
 	pass
 

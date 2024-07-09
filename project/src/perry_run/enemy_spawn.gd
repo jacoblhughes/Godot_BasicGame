@@ -9,13 +9,17 @@ extends Node2D
 @export var platform_base : PackedScene
 @export var high_platform_base : PackedScene
 @export var coin_scene : PackedScene
-var object_speed = 0
+var object_speed = 5
 var xatio
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_parent().game_start.connect(_on_game_start)
-	
+	var floor_start_instance = floor_start.instantiate()
+	floor_start_instance.position = %FloorStartPosition.position
+	#floor_start_instance.speed = object_speed
+	add_child.call_deferred(floor_start_instance)
+
 	pass
 
 func _on_game_start():
@@ -23,11 +27,7 @@ func _on_game_start():
 	platform_timer.timeout.connect(_on_platform_timer_timeout)
 	coin_timer.timeout.connect(_on_coin_timer_timeout)
 	high_platform_timer.timeout.connect(_on_high_platform_timer_timeout)
-	var floor_start_instance = floor_start.instantiate()
-	floor_start_instance.position = %FloorStartPosition.position
-	floor_start_instance.speed = object_speed
-	add_child.call_deferred(floor_start_instance)
-	await get_tree().create_timer(4/xatio).timeout
+
 
 	var floor_base_instance = floor_base.instantiate()
 	floor_base_instance.position = %FloorPosition.position

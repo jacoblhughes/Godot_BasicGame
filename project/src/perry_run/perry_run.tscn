@@ -44,7 +44,7 @@ unique_name_in_owner = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(160, 800)
+position = Vector2(160, 880)
 
 [node name="ObjectSpawn" type="Node2D" parent="." node_paths=PackedStringArray("floor_timer", "platform_timer", "high_platform_timer", "coin_timer")]
 unique_name_in_owner = true
