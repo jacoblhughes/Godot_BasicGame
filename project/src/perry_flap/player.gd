@@ -15,7 +15,9 @@ var went_up = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animated_sprite : AnimatedSprite2D
+
 func _ready():
+	Glitches.glitch_switch.connect(_on_glitch_switch)
 	animated_sprite = get_node("AnimatedSprite2D")
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	%TweetTimer.timeout.connect(_on_tweet_timeout)
@@ -23,7 +25,8 @@ func _ready():
 	pass
 
 func _on_clickable_input_event(event, input_position):
-	if event.pressed:
+
+	if GameManager.get_game_enabled() and event.pressed:
 		went_up = true
 		AudioManager.play_sound("perry_flap_flap")
 		velocity.y = jump_force
@@ -69,3 +72,13 @@ func _on_tweet_timeout():
 
 	AudioManager.play_sound("perry_flap_tweet")
 	%TweetTimer.start()
+
+func _on_glitch_switch(val):
+	if val:
+		gravity *= -1
+		jump_force *=-1
+		self.scale.y = -1
+	else:
+		gravity *= -1
+		jump_force *=-1
+		self.scale.y = 1

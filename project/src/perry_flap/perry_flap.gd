@@ -66,6 +66,7 @@ func _ready():
 func _on_play_button_pressed():
 	GameManager.set_game_enabled(true)
 	%SpawnTimer.start()
+
 	pass
 
 

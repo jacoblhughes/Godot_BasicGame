@@ -1,17 +1,34 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://s0srltpmhp6g"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://s0srltpmhp6g"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p3hb4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vycbb"]
+bg_color = Color(0, 0.396078, 0.329412, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpdqp"]
-bg_color = Color(0.419608, 0.14902, 0.262745, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3mjo"]
+bg_color = Color(0, 0.396078, 0.329412, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nivmy"]
-bg_color = Color(0.419608, 0.14902, 0.262745, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qh12g"]
+bg_color = Color(0, 0.396078, 0.329412, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6h6kb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlqss"]
+bg_color = Color(0, 0.396078, 0.329412, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6p57"]
-bg_color = Color(0.419608, 0.14902, 0.262745, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1h8e"]
+bg_color = Color(0, 0.396078, 0.329412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lknfu"]
+bg_color = Color(0.980392, 0.431373, 0.47451, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ac2wc"]
+bg_color = Color(0.980392, 0.431373, 0.47451, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uhv7"]
+bg_color = Color(0.980392, 0.431373, 0.47451, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwlao"]
+bg_color = Color(0.980392, 0.431373, 0.47451, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57iwx"]
+bg_color = Color(0.980392, 0.431373, 0.47451, 0.498039)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bi6sw"]
 bg_color = Color(0.733333, 0.121569, 0.2, 1)
@@ -28,6 +45,9 @@ bg_color = Color(0.733333, 0.121569, 0.2, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onicd"]
 bg_color = Color(0.733333, 0.121569, 0.2, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh3yn"]
+bg_color = Color(0.117647, 0.25098, 0.266667, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71cop"]
 bg_color = Color(0.215686, 0.580392, 0.431373, 1)
 
@@ -36,11 +56,34 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [resource]
 ButtonGameButton/base_type = &"Button"
-ButtonGameButton/styles/disabled = SubResource("StyleBoxTexture_p3hb4")
-ButtonGameButton/styles/focus = SubResource("StyleBoxFlat_fpdqp")
-ButtonGameButton/styles/hover = SubResource("StyleBoxFlat_nivmy")
-ButtonGameButton/styles/normal = SubResource("StyleBoxTexture_6h6kb")
-ButtonGameButton/styles/pressed = SubResource("StyleBoxFlat_d6p57")
+ButtonGameButton/styles/disabled = SubResource("StyleBoxFlat_vycbb")
+ButtonGameButton/styles/focus = SubResource("StyleBoxFlat_j3mjo")
+ButtonGameButton/styles/hover = SubResource("StyleBoxFlat_qh12g")
+ButtonGameButton/styles/normal = SubResource("StyleBoxFlat_xlqss")
+ButtonGameButton/styles/pressed = SubResource("StyleBoxFlat_m1h8e")
+ButtonGameStartGameOver/base_type = &"Button"
+ButtonGameStartGameOver/colors/font_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/colors/font_disabled_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/colors/font_focus_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/colors/font_hover_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/colors/font_hover_pressed_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/colors/font_outline_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/colors/font_pressed_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/colors/icon_disabled_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/colors/icon_focus_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/colors/icon_hover_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/colors/icon_hover_pressed_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/colors/icon_normal_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/colors/icon_pressed_color = Color(0.219608, 0.34902, 0.701961, 1)
+ButtonGameStartGameOver/constants/h_separation = 0
+ButtonGameStartGameOver/constants/icon_max_width = 0
+ButtonGameStartGameOver/constants/outline_size = 0
+ButtonGameStartGameOver/font_sizes/font_size = 120
+ButtonGameStartGameOver/styles/disabled = SubResource("StyleBoxFlat_lknfu")
+ButtonGameStartGameOver/styles/focus = SubResource("StyleBoxFlat_ac2wc")
+ButtonGameStartGameOver/styles/hover = SubResource("StyleBoxFlat_6uhv7")
+ButtonGameStartGameOver/styles/normal = SubResource("StyleBoxFlat_fwlao")
+ButtonGameStartGameOver/styles/pressed = SubResource("StyleBoxFlat_57iwx")
 ButtonReset/base_type = &"Button"
 ButtonReset/styles/disabled = SubResource("StyleBoxFlat_bi6sw")
 ButtonReset/styles/focus = SubResource("StyleBoxFlat_10qpf")
@@ -51,26 +94,45 @@ GridContainerButtonsScene/constants/h_separation = 5
 GridContainerButtonsScene/constants/v_separation = 5
 GridContainerGridReference/constants/h_separation = 0
 GridContainerGridReference/constants/v_separation = 0
+LabelCountdown/base_type = &"Label"
+LabelCountdown/colors/font_color = Color(1, 0.635294, 0.67451, 1)
+LabelCountdown/colors/font_shadow_color = Color(0.980392, 0.431373, 0.47451, 1)
+LabelCountdown/font_sizes/font_size = 768
+LabelDirections/base_type = &"Label"
+LabelDirections/colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+LabelDirections/colors/font_shadow_color = Color(0.419608, 0.14902, 0.262745, 1)
 LabelDirections/font_sizes/font_size = 32
+LabelGlitches/base_type = &"Label"
+LabelGlitches/font_sizes/font_size = 64
 LabelHUD/colors/font_color = Color(1, 1, 1, 1)
 LabelHUD/constants/outline_size = 4
 LabelHUD/font_sizes/font_size = 25
-LabelTitle/colors/font_color = Color(0.188235, 0.376471, 0.509804, 1)
-LabelTitle/colors/font_outline_color = Color(0, 0, 0, 1)
+LabelTitle/base_type = &"Label"
+LabelTitle/colors/font_color = Color(0.2, 0.533333, 0.870588, 1)
+LabelTitle/colors/font_shadow_color = Color(0.219608, 0.34902, 0.701961, 1)
 LabelTitle/font_sizes/font_size = 68
 MarginContainerAbout/constants/margin_bottom = 20
 MarginContainerAbout/constants/margin_left = 20
 MarginContainerAbout/constants/margin_right = 20
 MarginContainerAbout/constants/margin_top = 20
+MarginContainerButtonsAutoload/base_type = &"MarginContainer"
+MarginContainerButtonsAutoload/constants/margin_bottom = 25
+MarginContainerButtonsAutoload/constants/margin_left = 25
+MarginContainerButtonsAutoload/constants/margin_right = 25
+MarginContainerButtonsAutoload/constants/margin_top = 25
 MarginContainerButtonsScene/constants/margin_bottom = 20
 MarginContainerButtonsScene/constants/margin_left = 20
 MarginContainerButtonsScene/constants/margin_right = 20
 MarginContainerButtonsScene/constants/margin_top = 20
-MarginContainerGameButton/base_type = &"MarginContainer"
 MarginContainerGameButton/constants/margin_bottom = 10
 MarginContainerGameButton/constants/margin_left = 10
 MarginContainerGameButton/constants/margin_right = 10
 MarginContainerGameButton/constants/margin_top = 10
+MarginContainerGameStartGameOver/base_type = &"MarginContainer"
+MarginContainerGameStartGameOver/constants/margin_bottom = 25
+MarginContainerGameStartGameOver/constants/margin_left = 25
+MarginContainerGameStartGameOver/constants/margin_right = 25
+MarginContainerGameStartGameOver/constants/margin_top = 25
 MarginContainerGames/constants/margin_bottom = 0
 MarginContainerGames/constants/margin_left = 0
 MarginContainerGames/constants/margin_right = 0
@@ -83,6 +145,9 @@ MarginContainerInput/constants/margin_bottom = 20
 MarginContainerInput/constants/margin_left = 20
 MarginContainerInput/constants/margin_right = 20
 MarginContainerInput/constants/margin_top = 20
+PanelButtonsAutoload/base_type = &"Panel"
+PanelButtonsAutoload/styles/panel = SubResource("StyleBoxFlat_fh3yn")
+PanelGameStartGameOver/base_type = &"Panel"
 PanelHUD/styles/panel = SubResource("StyleBoxFlat_71cop")
 PanelInput/styles/panel = SubResource("StyleBoxFlat_o2t1j")
 VBoxContainerOptions/constants/separation = 25

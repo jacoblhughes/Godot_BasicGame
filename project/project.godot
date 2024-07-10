@@ -25,11 +25,13 @@ Buttons="*res://src/autoloads/buttons.tscn"
 Background="*res://src/autoloads/background.tscn"
 GameStartGameOver="*res://src/autoloads/game_start_game_over.tscn"
 HUD="*res://src/autoloads/hud.tscn"
+Glitches="*res://src/autoloads/glitches.tscn"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1

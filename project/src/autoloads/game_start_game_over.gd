@@ -2,18 +2,25 @@ extends CanvasLayer
 
 signal start_button_pressed
 signal game_over
+
+var countdown = 3
 # Called when the node enters the scene tree for the first time.
 
 
 
 func _ready():
+	for node in [%GameStartPanel,%GameOverPanel,%Countdown]:
+		if node.visible:
+			node.hide()
 	%PlayButton.pressed.connect(_on_play_button_pressed)
 	%HomeButtonOnGameover.pressed.connect(_on_home_button_pressed)
+	%CountdownTimer.timeout.connect(_on_countdown_timer_timeout)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+
 	pass
 
 func out_of_lives():
@@ -38,9 +45,28 @@ func set_game(flag,title,objective,directions):
 
 func _on_play_button_pressed():
 	%GameStartPanel.visible = false
-	start_button_pressed.emit()
-	self.hide()
+	%CountdownLabel.text = str(countdown)
+	%Countdown.show()
+
+	%CountdownTimer.start()
+
+
 	pass # Replace with function body.
+
+func _on_countdown_timer_timeout():
+
+	if countdown == 3 or countdown == 2:
+		countdown -= 1
+		%CountdownLabel.text = str(countdown)
+		return
+	elif countdown == 1:
+		%Countdown.hide()
+		%CountdownTimer.stop()
+		start_button_pressed.emit()
+		Glitches.start_glitch_timer()
+		countdown = 3
+		self.hide()
+		return
 
 func set_gameover_panel(flag):
 	%GameOverPanel.visible = flag
@@ -59,4 +85,5 @@ func set_gameover_panel_congrats(vis):
 
 func _on_home_button_pressed():
 	HUD.home_button_pressed()
+	Glitches.reset_glitch()
 	self.hide()
