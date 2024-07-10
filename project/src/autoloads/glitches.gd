@@ -6,6 +6,7 @@ signal glitch_switch(val)
 
 var glitch_upper_limit = 10
 var glitch_lower_limit = 5
+var glitch_time  = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,9 +17,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if glitch_time == false and glitch_active == false and $Timer.get_time_left() <=3 and $Timer.wait_time> 1:
+		print($Timer.get_time_left())
+		glitch_time = true
+		self.show()
+
 	pass
 
 func _on_timer_timeout():
+	if glitch_time and self.visible==true:
+		self.hide()
+		glitch_time = false
 	print('glitch')
 	glitch_active = !glitch_active
 	glitch_switch.emit(glitch_active)
