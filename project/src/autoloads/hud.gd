@@ -40,6 +40,8 @@ func _ready():
 	input_panel.input_event.connect(_on_clickable_input_event)
 	call_deferred("get_main_scene")
 	%GameTimePassedTimer.timeout.connect(_on_game_time_passed_timer_timeout)
+	if %Input.visible:
+		%Input.hide()
 	pass
 
 func get_main_scene():

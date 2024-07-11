@@ -4,9 +4,6 @@ signal start_button_pressed
 signal game_over
 
 var countdown = 3
-# Called when the node enters the scene tree for the first time.
-
-
 
 func _ready():
 	for node in [%GameStartPanel,%GameOverPanel,%Countdown]:
@@ -15,6 +12,8 @@ func _ready():
 	%PlayButton.pressed.connect(_on_play_button_pressed)
 	%HomeButtonOnGameover.pressed.connect(_on_home_button_pressed)
 	%CountdownTimer.timeout.connect(_on_countdown_timer_timeout)
+	if %HighscoreAchieved.visible:
+		%HighscoreAchieved.hide()
 	pass # Replace with function body.
 
 
@@ -29,7 +28,7 @@ func out_of_lives():
 	set_gameover_panel(true)
 	GameManager.set_game_enabled(false)
 	GameManager.check_highscore_and_rank()
-
+	Glitches.reset_glitch()
 
 func game_start_game_over_initialize( this_start_button_callable, this_game_over_callable):
 	start_button_pressed.connect(this_start_button_callable)
@@ -85,5 +84,5 @@ func set_gameover_panel_congrats(vis):
 
 func _on_home_button_pressed():
 	HUD.home_button_pressed()
-	Glitches.reset_glitch()
+
 	self.hide()

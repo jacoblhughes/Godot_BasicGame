@@ -1,34 +1,36 @@
 extends CanvasLayer
 
-var glitch_active = false
-
 signal glitch_switch(val)
 
 var glitch_upper_limit = 10
 var glitch_lower_limit = 5
-var glitch_time  = false
+var show_time  = false
+var glitch_active = false
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	$Timer.timeout.connect(_on_timer_timeout)
 	_set_glitch_timer()
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if glitch_time == false and glitch_active == false and $Timer.get_time_left() <=3 and $Timer.wait_time> 1:
-		print($Timer.get_time_left())
-		glitch_time = true
-		self.show()
 
+	if glitch_active == false and !$Timer.is_stopped() and $Timer.get_time_left() <=3 and $Timer.wait_time > 1:
+		show_time = true
+		self.show()
+	if glitch_active == true and !$Timer.is_stopped() and $Timer.get_time_left() <=3 and $Timer.wait_time > 1:
+		show_time = true
+		self.show()
+	if show_time and glitch_active == false:
+		%Label.text = "Glitch time in:  %.2f" % $Timer.get_time_left()
+	if show_time and glitch_active:
+		%Label.text = "Glitch back in:  %.2f" % $Timer.get_time_left()
 	pass
 
 func _on_timer_timeout():
-	if glitch_time and self.visible==true:
+	if show_time and self.visible==true:
 		self.hide()
-		glitch_time = false
-	print('glitch')
+		show_time = false
 	glitch_active = !glitch_active
 	glitch_switch.emit(glitch_active)
 	_set_glitch_timer()
@@ -36,8 +38,6 @@ func _on_timer_timeout():
 
 func start_glitch_timer():
 	$Timer.start()
-	print($Timer.wait_time)
-	print('here')
 
 func _set_glitch_timer():
 	var new_wait_time = 0
@@ -49,3 +49,8 @@ func _set_glitch_timer():
 
 func reset_glitch():
 	glitch_active = false
+	show_time = false
+	%Timer.stop()
+	%Timer.wait_time = 0
+	self.hide()
+
