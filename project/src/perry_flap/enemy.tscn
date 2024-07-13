@@ -260,14 +260,14 @@ metadata/_edit_horizontal_guides_ = [640.0, 320.0, 800.0, 880.0, 720.0, 560.0, 4
 
 [node name="TopWall" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -380)
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_agppc")
 autoplay = "default"
 flip_v = true
 
 [node name="BottomWall" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 380.25)
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_k6mru")
 autoplay = "default"
 
