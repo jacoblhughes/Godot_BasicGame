@@ -39,7 +39,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c82pa"]
 atlas = ExtResource("23_p1kel")
-region = Rect2(256, 0, 32, 32)
+region = Rect2(320, 0, 40, 40)
 
 [node name="Buttons" type="CanvasLayer"]
 layer = 3

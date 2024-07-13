@@ -17,7 +17,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animated_sprite : AnimatedSprite2D
 
 func _ready():
-	Glitches.glitch_switch.connect(_on_glitch_switch)
+	Interruptions.glitch_switch.connect(_on_glitch_switch)
 	animated_sprite = get_node("AnimatedSprite2D")
 	HUD.clickable_input_event.connect(_on_clickable_input_event)
 	%TweetTimer.timeout.connect(_on_tweet_timeout)

@@ -24,7 +24,7 @@ GameManager="*res://src/autoloads/game_manager.tscn"
 Buttons="*res://src/autoloads/buttons.tscn"
 Background="*res://src/autoloads/background.tscn"
 GameStartGameOver="*res://src/autoloads/game_start_game_over.tscn"
-Glitches="*res://src/autoloads/glitches.tscn"
+Interruptions="*res://src/autoloads/interruptions.tscn"
 HUD="*res://src/autoloads/hud.tscn"
 
 [display]

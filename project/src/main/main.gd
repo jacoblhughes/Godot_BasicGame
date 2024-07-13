@@ -5,7 +5,7 @@ func _ready():
 	HUD.hide()
 	GameStartGameOver.hide()
 	Background.hide()
-	Glitches.hide()
+	Interruptions.hide()
 	#print(Time.get_datetime_dict_from_system())
 	#print(Time.get_datetime_string_from_system())
 	#search_scenes()
