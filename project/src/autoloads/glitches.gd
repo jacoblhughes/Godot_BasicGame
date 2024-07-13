@@ -51,6 +51,6 @@ func reset_glitch():
 	glitch_active = false
 	show_time = false
 	%Timer.stop()
-	%Timer.wait_time = 0
+	%Timer.wait_time = 1
 	self.hide()
 

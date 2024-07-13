@@ -45,7 +45,7 @@ func _ready():
 	var advance_level_callable = Callable(self,"_on_advance_level")
 	HUD.hud_initialize(initial_score_value,score_advance_base_value, initial_lives_value,lives_advance_base_value, initial_level_value,level_advance_check_value,level_advance_base_value,start_timer_countdown_callable,start_timer_countdown_value, game_time_left_timer_callable,game_time_left_timer_value,advance_level_callable)
 	GameStartGameOver.game_start_game_over_initialize(start_button_callable,game_over_callable)
-	Background.show()
+
 
 	var xform = get_viewport_rect().size.x
 	var yform = get_viewport_rect().size.y

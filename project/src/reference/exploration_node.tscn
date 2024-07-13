@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://gk7oxuyuxem3"]
+
+[ext_resource type="Script" path="res://src/reference/exploration_node.gd" id="1_njivb"]
+
+[node name="ExplorationNode" type="Node"]
+script = ExtResource("1_njivb")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+autostart = true

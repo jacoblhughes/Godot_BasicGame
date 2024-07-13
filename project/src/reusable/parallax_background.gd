@@ -27,8 +27,8 @@ func _ready():
 # Function to set the texture and create animations
 func set_animation_sprite_texture(animated_sprite: AnimatedSprite2D, texture: Texture2D, layer: int):
 	var frames = 16
-	var frame_width = 360
-	var frame_height = 640
+	var frame_width = 720
+	var frame_height = 1280
 	var y_offset = layer * frame_height
 	var sprite_frames = SpriteFrames.new()
 

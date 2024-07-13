@@ -1,28 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://brwrw47ug7fwj"]
+[gd_scene load_steps=5 format=3 uid="uid://brwrw47ug7fwj"]
 
 [ext_resource type="Script" path="res://src/reference/grid_reference.gd" id="1_ltfln"]
-[ext_resource type="PackedScene" uid="uid://c253kktvhan5h" path="res://src/perry_run/high_platform.tscn" id="2_52lab"]
-[ext_resource type="PackedScene" uid="uid://dovtsr10tkaq7" path="res://src/perry_run/floor.tscn" id="2_fpokk"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main.tres" id="2_m17ir"]
-[ext_resource type="PackedScene" uid="uid://b46ie0qbg858a" path="res://src/perry_run/floor_start.tscn" id="3_ef5ly"]
-[ext_resource type="PackedScene" uid="uid://c5kgr28iarvx1" path="res://src/perry_run/platform.tscn" id="3_ubpql"]
+[ext_resource type="PackedScene" uid="uid://bmuk80oxjv7v8" path="res://src/perry_flap/player.tscn" id="2_rxkbi"]
+[ext_resource type="PackedScene" uid="uid://cacfubsmhibrw" path="res://src/perry_flap/enemy.tscn" id="2_wipa6"]
 
 [node name="GridReference" type="CanvasLayer"]
 layer = -1
 script = ExtResource("1_ltfln")
 show_18x32 = true
 
-[node name="Floor" parent="." instance=ExtResource("2_fpokk")]
-position = Vector2(0, 680)
+[node name="Enemy" parent="." instance=ExtResource("2_wipa6")]
+position = Vector2(660, 640)
 
-[node name="FloorStart" parent="." instance=ExtResource("3_ef5ly")]
-position = Vector2(0, 240)
+[node name="Player" parent="." instance=ExtResource("2_rxkbi")]
+position = Vector2(529, 642)
 
-[node name="HighPlatform" parent="." instance=ExtResource("2_52lab")]
-position = Vector2(0, 1240)
-
-[node name="Platform" parent="." instance=ExtResource("3_ubpql")]
-position = Vector2(0, 1120)
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "9/16"
 
 [node name="HalfGrid" type="GridContainer" parent="."]
 unique_name_in_owner = true
@@ -721,7 +718,6 @@ color = Color(0.949619, 1, 0.943945, 0.403922)
 
 [node name="NineSixteen" type="GridContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1744,6 +1740,7 @@ color = Color(0.204701, 0.204701, 2.40654e-08, 0.403922)
 
 [node name="EighteenThirtyTwo" type="GridContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

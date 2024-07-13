@@ -94,8 +94,6 @@ func home_button_pressed():
 	_on_home_button_pressed()
 
 func _on_home_button_pressed():
-	if !Background.visible:
-		Background.visible = true
 
 	clear_hud()
 	GameStartGameOver.hide()
@@ -109,7 +107,7 @@ func _on_home_button_pressed():
 			child.queue_free()
 	HUD.set_or_reset_level()
 	self.hide()
-	Background.show()
+
 	pass # Replace with function body.
 
 func set_or_reset_lives(default_lives = "INF"):

@@ -9,9 +9,14 @@ extends CanvasLayer
 @export var show_sixth : bool : set = set_show_sixth
 @export var show_9x16 : bool  : set = set_show_ninesixteen
 @export var show_18x32 : bool  : set = set_show_eighteenthirtytwo
+var xform
+var yform
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	xform = get_viewport().size.x
+	yform = get_viewport().size.y
+	print(xform,"  ",yform)
 	if hide_background:
 		#Background.hide()
 		pass
