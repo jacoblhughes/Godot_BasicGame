@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=20 format=3 uid="uid://s0srltpmhp6g"]
+[gd_resource type="Theme" load_steps=25 format=3 uid="uid://s0srltpmhp6g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vycbb"]
 bg_color = Color(0, 0.396078, 0.329412, 1)
@@ -29,6 +29,21 @@ bg_color = Color(0.980392, 0.431373, 0.47451, 0.498039)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57iwx"]
 bg_color = Color(0.980392, 0.431373, 0.47451, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qxjx"]
+bg_color = Color(0.0627451, 0.0705882, 0.109804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4oo8d"]
+bg_color = Color(0.0627451, 0.0705882, 0.109804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yx0n"]
+bg_color = Color(0.0627451, 0.0705882, 0.109804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_me35c"]
+bg_color = Color(0.0627451, 0.0705882, 0.109804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36atn"]
+bg_color = Color(0.0627451, 0.0705882, 0.109804, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bi6sw"]
 bg_color = Color(0.733333, 0.121569, 0.2, 1)
@@ -100,6 +115,12 @@ ButtonGameStartGameOver/styles/focus = SubResource("StyleBoxFlat_ac2wc")
 ButtonGameStartGameOver/styles/hover = SubResource("StyleBoxFlat_6uhv7")
 ButtonGameStartGameOver/styles/normal = SubResource("StyleBoxFlat_fwlao")
 ButtonGameStartGameOver/styles/pressed = SubResource("StyleBoxFlat_57iwx")
+ButtonHUD/base_type = &"Button"
+ButtonHUD/styles/disabled = SubResource("StyleBoxFlat_1qxjx")
+ButtonHUD/styles/focus = SubResource("StyleBoxFlat_4oo8d")
+ButtonHUD/styles/hover = SubResource("StyleBoxFlat_7yx0n")
+ButtonHUD/styles/normal = SubResource("StyleBoxFlat_me35c")
+ButtonHUD/styles/pressed = SubResource("StyleBoxFlat_36atn")
 ButtonReset/base_type = &"Button"
 ButtonReset/styles/disabled = SubResource("StyleBoxFlat_bi6sw")
 ButtonReset/styles/focus = SubResource("StyleBoxFlat_10qpf")
@@ -126,9 +147,11 @@ LabelGlitches/colors/font_color = Color(1, 1, 1, 1)
 LabelGlitches/colors/font_outline_color = Color(0.243137, 0.231373, 0.396078, 1)
 LabelGlitches/font_sizes/font_size = 64
 LabelGlitches/styles/normal = SubResource("StyleBoxFlat_6thwc")
+LabelHUD/base_type = &"Label"
 LabelHUD/colors/font_color = Color(1, 1, 1, 1)
-LabelHUD/constants/outline_size = 4
-LabelHUD/font_sizes/font_size = 25
+LabelHUD/colors/font_outline_color = Color(0.0627451, 0.0705882, 0.109804, 1)
+LabelHUD/constants/outline_size = 3
+LabelHUD/font_sizes/font_size = 20
 LabelTitle/base_type = &"Label"
 LabelTitle/colors/font_color = Color(0.2, 0.533333, 0.870588, 1)
 LabelTitle/colors/font_shadow_color = Color(0.219608, 0.34902, 0.701961, 1)
