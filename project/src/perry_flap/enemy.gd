@@ -1,16 +1,15 @@
-extends CharacterBody2D
-
+extends Area2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
 func _ready():
+	self.body_entered.connect(_on_body_entered)
 	pass
 
-func _physics_process(_delta):
-	velocity.x = -.75 * SPEED
-	move_and_slide()
-	var last_collision = get_last_slide_collision()
+func _physics_process(delta):
+	position.x -= SPEED * delta
 
-	if last_collision and last_collision.get_collider() is PerryFlapPlayer:
-		last_collision.get_collider().hit()
+func _on_body_entered(body):
+	if body.is_in_group("player"):
+		body.hit()
+	pass

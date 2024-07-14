@@ -15,8 +15,8 @@ var base_spawn_timer_time = 2
 #120	520		30	130
 #120	640		30	160
 #120	400		30	100
+@export var debug : bool
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 
 	var start_button_callable = Callable(self, "_on_play_button_pressed")
@@ -57,7 +57,7 @@ func _ready():
 		var parallax_background = get_node_or_null("ParallaxBackground")
 		parallax_background.get_resize_dimensions(xatio,yatio)
 
-
+	%EnemyScoring.area_entered.connect(_on_enemy_scoring_area_entered)
 	%SpawnTimer.wait_time = base_spawn_timer_time
 	%Player.position = %StartPosition.position
 	pass # Replace with function body.
@@ -70,7 +70,7 @@ func _on_play_button_pressed():
 	pass
 
 
-func _on_enemy_scoring_body_entered(body):
+func _on_enemy_scoring_area_entered(area):
 	HUD.update_score()
 	pass # Replace with function body.
 
@@ -86,12 +86,12 @@ func _on_advance_level():
 	%SpawnTimer.wait_time = base_spawn_timer_time * pow(.95,HUD.return_game_level())
 
 func _on_spawn_timer_timeout():
-	var chosen_index = randi() % scenes.size()
-	var chosen_scene = scenes[chosen_index].instantiate()
-	chosen_scene.position = %EnemySpawnPosition.position
-	%EnemySpawn.add_child(chosen_scene,true)
-
-	chosen_scene.add_to_group("enemy")
+	if !debug:
+		var chosen_index = randi() % scenes.size()
+		var chosen_scene = scenes[chosen_index].instantiate()
+		chosen_scene.position = %EnemySpawnPosition.position
+		%EnemySpawn.add_child(chosen_scene,true)
+		chosen_scene.add_to_group("enemy")
 	pass # Replace with function body.
 
 func _on_fly_zone_body_exited(body):

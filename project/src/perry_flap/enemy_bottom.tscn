@@ -251,7 +251,7 @@ height = 400.0
 radius = 60.0
 height = 640.0
 
-[node name="EnemyBottom" type="CharacterBody2D"]
+[node name="EnemyBottom" type="Area2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_ewr3j")
@@ -262,7 +262,6 @@ position = Vector2(-7.62939e-06, -440)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ps5q7")
 autoplay = "default"
-flip_h = true
 flip_v = true
 
 [node name="BottomWall" type="AnimatedSprite2D" parent="."]

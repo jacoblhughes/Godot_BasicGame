@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cj0i3bqn4ap1r"]
+[gd_scene load_steps=12 format=3 uid="uid://cj0i3bqn4ap1r"]
 
 [ext_resource type="Script" path="res://src/perry_flap/perry_flap.gd" id="1_ym0sw"]
 [ext_resource type="PackedScene" uid="uid://cacfubsmhibrw" path="res://src/perry_flap/enemy.tscn" id="2_qjab4"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://src/perry_flap/enemy_despawn.gd" id="4_7jpv8"]
 [ext_resource type="Texture2D" uid="uid://bx5cma57kljk6" path="res://src/perry_flap/textures/background.png" id="4_abbuh"]
 [ext_resource type="PackedScene" uid="uid://cpcavmwe55upr" path="res://src/perry_flap/enemy_bottom.tscn" id="4_dd2nx"]
-[ext_resource type="PackedScene" uid="uid://gk7oxuyuxem3" path="res://src/reference/exploration_node.tscn" id="5_2nhab"]
 [ext_resource type="PackedScene" uid="uid://dtkr0v8bhef4k" path="res://src/reusable/parallax_background.tscn" id="5_noill"]
 [ext_resource type="PackedScene" uid="uid://bmuk80oxjv7v8" path="res://src/perry_flap/player.tscn" id="6_dekd4"]
 
@@ -23,8 +22,6 @@ size = Vector2(352, 1088)
 script = ExtResource("1_ym0sw")
 scenes = Array[PackedScene]([ExtResource("2_qjab4"), ExtResource("3_jfsbc"), ExtResource("4_dd2nx")])
 metadata/_edit_horizontal_guides_ = [640.0, 64.0, 640.0]
-
-[node name="ExplorationNode" parent="." instance=ExtResource("5_2nhab")]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_noill")]
 combined_texture = ExtResource("4_abbuh")
@@ -46,6 +43,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="EnemyScoring" type="Area2D" parent="."]
+unique_name_in_owner = true
 collision_layer = 8
 collision_mask = 2
 
@@ -73,5 +71,4 @@ gizmo_extents = 343.5
 
 [connection signal="body_entered" from="EnemyDespawn" to="EnemyDespawn" method="_on_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="body_entered" from="EnemyScoring" to="." method="_on_enemy_scoring_body_entered"]
 [connection signal="body_exited" from="FlyZone" to="." method="_on_fly_zone_body_exited"]

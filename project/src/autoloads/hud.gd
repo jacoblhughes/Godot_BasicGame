@@ -106,6 +106,7 @@ func _on_home_button_pressed():
 		for child in child_node_to_delete:
 			child.queue_free()
 	HUD.set_or_reset_level()
+	Interruptions.stop_interruptions()
 	self.hide()
 
 	pass # Replace with function body.

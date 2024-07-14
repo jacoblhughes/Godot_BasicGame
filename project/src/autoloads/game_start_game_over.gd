@@ -28,7 +28,7 @@ func out_of_lives():
 	set_gameover_panel(true)
 	GameManager.set_game_enabled(false)
 	GameManager.check_highscore_and_rank()
-	Interruptions.reset_glitch()
+	Interruptions.stop_interruptions()
 
 func game_start_game_over_initialize( this_start_button_callable, this_game_over_callable):
 	start_button_pressed.connect(this_start_button_callable)
@@ -62,7 +62,7 @@ func _on_countdown_timer_timeout():
 		%Countdown.hide()
 		%CountdownTimer.stop()
 		start_button_pressed.emit()
-		Interruptions.start_interruptions_timer()
+		Interruptions.start_interruptions()
 		countdown = 3
 		self.hide()
 		return

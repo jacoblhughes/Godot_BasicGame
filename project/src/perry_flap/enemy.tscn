@@ -251,10 +251,9 @@ height = 520.0
 radius = 60.0
 height = 520.0
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="Area2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 9
-motion_mode = 1
 script = ExtResource("1_cmkpt")
 metadata/_edit_horizontal_guides_ = [640.0, 320.0, 800.0, 880.0, 720.0, 560.0, 480.0, 400.0, 960.0, 640.0]
 
@@ -263,7 +262,6 @@ position = Vector2(0, -380)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_agppc")
 autoplay = "default"
-flip_h = true
 flip_v = true
 
 [node name="BottomWall" type="AnimatedSprite2D" parent="."]

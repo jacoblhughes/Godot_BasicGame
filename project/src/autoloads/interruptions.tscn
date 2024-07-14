@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://bcbdcyd1t4ns0"]
+[gd_scene load_steps=154 format=3 uid="uid://bcbdcyd1t4ns0"]
 
 [ext_resource type="Script" path="res://src/autoloads/interruptions.gd" id="1_du7cm"]
 [ext_resource type="Theme" uid="uid://s0srltpmhp6g" path="res://themes/main.tres" id="2_vg0oc"]
@@ -6,8 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cj00g1tbhalhy" path="res://src/interruptions/textures/perry_spaying.png" id="3_c1tqq"]
 [ext_resource type="Texture2D" uid="uid://t0hjttruuehr" path="res://src/interruptions/textures/perry_wiping_second_pass.png" id="4_tlsmo"]
 [ext_resource type="Texture2D" uid="uid://cdk7nrcbhbn2s" path="res://src/interruptions/textures/perry_wiping_third_pass.png" id="6_nkxxc"]
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_alvd0"]
+[ext_resource type="Texture2D" uid="uid://b6x273wmmdf2m" path="res://src/interruptions/textures/dead_pixels.png" id="7_54i5q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eem7x"]
 atlas = ExtResource("3_4ovbl")
@@ -816,18 +815,254 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Interruptions" type="CanvasLayer" node_paths=PackedStringArray("interruptions_timer", "glitch_timer", "glitch_label", "spraying_wiping_timer", "spraying_wiping_animation")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx0fj"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(0, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uifig"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(360, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu3bj"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(720, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04sv8"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(1080, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt6i5"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(1440, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51rcq"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(1800, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u8hy"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(2160, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi3v8"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(2520, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j2t4"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(2880, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71lsg"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(3240, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voa5v"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(3600, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hnai"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(3960, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps1jq"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(4320, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4utip"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(4680, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt4uj"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(5040, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaykq"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(5400, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r07xd"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(5760, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qceso"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(6120, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc7jb"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(6480, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_synn5"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(6840, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stfmp"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(7200, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wq62"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(7560, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1aypu"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(7920, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjsyx"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(8280, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6teiv"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(8640, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkjss"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(9000, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6d4s"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(9360, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42vl5"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(9720, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke61a"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(10080, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm18q"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(10440, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0c16"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(10800, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyrcg"]
+atlas = ExtResource("7_54i5q")
+region = Rect2(11160, 0, 360, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yg6rw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx0fj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uifig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu3bj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04sv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt6i5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51rcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u8hy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi3v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j2t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71lsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voa5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hnai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps1jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4utip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt4uj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaykq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r07xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qceso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc7jb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_synn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stfmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wq62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1aypu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjsyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6teiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkjss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6d4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42vl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke61a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm18q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0c16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyrcg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Interruptions" type="CanvasLayer" node_paths=PackedStringArray("interruptions_timer", "glitch_timer", "glitch_incoming_timer", "glitch_ending_timer", "glitch_label", "spraying_wiping_animation", "dead_pixels_animation")]
 layer = 10
 script = ExtResource("1_du7cm")
 interruptions_timer = NodePath("InterruptionsTimer")
 glitch_timer = NodePath("Glitch/GlitchTimer")
-glitch_label = NodePath("Glitch/GlitchLabel")
-spraying_wiping_timer = NodePath("SprayingWiping/SprayingWipingTimer")
+glitch_incoming_timer = NodePath("Glitch/GlitchIncomingTimer")
+glitch_ending_timer = NodePath("Glitch/GlitchEndingTimer")
+glitch_label = NodePath("Glitch/VBoxContainer/GlitchLabel")
 spraying_wiping_animation = NodePath("SprayingWiping/SprayingWipingAnimation")
+dead_pixels_animation = NodePath("DeadPixels/AnimatedSprite2D")
 
 [node name="InterruptionsTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Glitch" type="Control" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -835,29 +1070,100 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="GlitchTimer" type="Timer" parent="Glitch"]
 unique_name_in_owner = true
+one_shot = true
 
-[node name="GlitchLabel" type="Label" parent="Glitch"]
-unique_name_in_owner = true
+[node name="GlitchIncomingTimer" type="Timer" parent="Glitch"]
+wait_time = 3.0
+one_shot = true
+
+[node name="GlitchEndingTimer" type="Timer" parent="Glitch"]
+wait_time = 3.0
+one_shot = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Glitch"]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="Glitch/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="GlitchLabel" type="Label" parent="Glitch/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_vg0oc")
+theme_type_variation = &"LabelGlitches"
+text = "GLITCH SWITCH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="Glitch/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Control3" type="Control" parent="Glitch/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Control4" type="Control" parent="Glitch/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="SprayingWiping" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -242.0
-offset_top = -44.0
-offset_right = 242.0
-offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_vg0oc")
-theme_type_variation = &"LabelGlitches"
-text = "GLITCH SWITCH"
+mouse_filter = 2
 
-[node name="SprayingWiping" type="Control" parent="."]
+[node name="SprayingWipingAnimation" type="AnimatedSprite2D" parent="SprayingWiping"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_oh60y")
+animation = &"third_pass"
+
+[node name="LowPower" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="LowPower"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DeadPixels" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -867,14 +1173,8 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SprayingWiping"]
-libraries = {
-"": SubResource("AnimationLibrary_alvd0")
-}
-
-[node name="SprayingWipingTimer" type="Timer" parent="SprayingWiping"]
-
-[node name="SprayingWipingAnimation" type="AnimatedSprite2D" parent="SprayingWiping"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadPixels"]
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_oh60y")
-animation = &"third_pass"
+sprite_frames = SubResource("SpriteFrames_yg6rw")
+frame = 31
+frame_progress = 1.0

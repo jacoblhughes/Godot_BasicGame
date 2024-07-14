@@ -113,7 +113,7 @@ scale_min = 5.0
 scale_max = 5.0
 color_ramp = SubResource("GradientTexture1D_yn8so")
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 2
 script = ExtResource("1_j807i")
 
