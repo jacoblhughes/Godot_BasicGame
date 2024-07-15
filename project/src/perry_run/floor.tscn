@@ -1,29 +1,135 @@
-[gd_scene load_steps=6 format=3 uid="uid://dovtsr10tkaq7"]
+[gd_scene load_steps=21 format=3 uid="uid://dovtsr10tkaq7"]
 
 [ext_resource type="Script" path="res://src/perry_run/floor.gd" id="1_531s7"]
 [ext_resource type="Texture2D" uid="uid://cuaj04bqhq57i" path="res://src/perry_run/textures/floor.png" id="2_fqjtd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_csc6f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehfkk"]
 atlas = ExtResource("2_fqjtd")
 region = Rect2(0, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t72m6"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(180, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pveo"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(360, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf3di"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(540, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbgmw"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(720, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc7dt"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(900, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rit5n"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(1080, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvl47"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(1260, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e06ue"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(1440, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qogm"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(1620, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8hbr"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(1800, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sakfu"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(1980, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co2m5"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(2160, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32d4x"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(2340, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wriw"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(2520, 0, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hf2l"]
+atlas = ExtResource("2_fqjtd")
+region = Rect2(2700, 0, 180, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_al40r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_csc6f")
+"texture": SubResource("AtlasTexture_ehfkk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t72m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pveo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf3di")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbgmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc7dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rit5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvl47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e06ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qogm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8hbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sakfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co2m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32d4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wriw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hf2l")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 16.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
 size = Vector2(720, 128)
 
-[node name="Floor" type="AnimatableBody2D"]
+[node name="Floor" type="AnimatableBody2D" node_paths=PackedStringArray("animation") groups=["enemy"]]
 collision_mask = 0
 script = ExtResource("1_531s7")
+animation = NodePath("AnimatedSprite2D")
 metadata/_edit_vertical_guides_ = [360.0]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

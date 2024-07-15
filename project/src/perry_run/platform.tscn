@@ -118,7 +118,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hc77d")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -126,15 +126,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
 size = Vector2(520, 80)
 
-[node name="Platform" type="AnimatableBody2D"]
+[node name="Platform" type="AnimatableBody2D" node_paths=PackedStringArray("animation") groups=["enemy"]]
 script = ExtResource("1_ale58")
+animation = NodePath("AnimatedSprite2D")
 metadata/_edit_vertical_guides_ = [360.0]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(260, 40)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xndqg")
-autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(260, 40)

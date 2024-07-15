@@ -13,7 +13,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4dks8")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -21,9 +21,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qdx"]
 size = Vector2(720, 128)
 
-[node name="FloorStart" type="AnimatableBody2D"]
+[node name="FloorStart" type="AnimatableBody2D" node_paths=PackedStringArray("animation")]
 collision_mask = 0
 script = ExtResource("1_exyns")
+animation = NodePath("AnimatedSprite2D")
 metadata/_edit_vertical_guides_ = [360.0, 924.0, 930.0, 930.0]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

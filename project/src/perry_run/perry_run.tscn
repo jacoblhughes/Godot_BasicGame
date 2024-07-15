@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cf4xkqs74ytur"]
+[gd_scene load_steps=15 format=3 uid="uid://cf4xkqs74ytur"]
 
 [ext_resource type="Script" path="res://src/perry_run/perry_run.gd" id="2_1lkn6"]
 [ext_resource type="PackedScene" uid="uid://bxseg85es8o1u" path="res://src/perry_run/player.tscn" id="3_d1s5q"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://c5kgr28iarvx1" path="res://src/perry_run/platform.tscn" id="8_bllec"]
 [ext_resource type="PackedScene" uid="uid://c253kktvhan5h" path="res://src/perry_run/high_platform.tscn" id="9_7fsbn"]
 [ext_resource type="PackedScene" uid="uid://bpqa0c0w6jcdj" path="res://src/perry_run/coin.tscn" id="10_7kj5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy26r"]
+size = Vector2(18, 808)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmxft"]
 size = Vector2(10, 672)
@@ -29,18 +32,28 @@ combined_texture = ExtResource("4_1cltd")
 
 [node name="FloorTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 4.0
+wait_time = 2.0
+one_shot = true
 
 [node name="PlatformTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 2.0
+one_shot = true
 
 [node name="HighPlatformTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
+one_shot = true
 
 [node name="CoinTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 2.0
+
+[node name="EnemyAnimationArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(160, 850)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAnimationArea"]
+shape = SubResource("RectangleShape2D_uy26r")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true

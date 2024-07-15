@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d4cpf87cb1bs0"]
+[gd_scene load_steps=39 format=3 uid="uid://d4cpf87cb1bs0"]
 
 [ext_resource type="Script" path="res://src/autoloads/buttons.gd" id="1_bni1w"]
 [ext_resource type="PackedScene" uid="uid://bcxdvv4qwwmqm" path="res://src/perry_says/perry_says.tscn" id="2_p72e3"]
@@ -40,6 +40,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_c82pa"]
 atlas = ExtResource("23_p1kel")
 region = Rect2(320, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32h8p"]
+atlas = ExtResource("24_gh28p")
+region = Rect2(0, 0, 80, 80)
 
 [node name="Buttons" type="CanvasLayer"]
 layer = 3
@@ -143,7 +147,7 @@ game_title = "Perry Flap"
 
 [node name="PerryRun" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("17_10g4p")]
 layout_mode = 2
-game_image_texture = ExtResource("24_gh28p")
+game_image_texture = SubResource("AtlasTexture_32h8p")
 game_scene_selection = ExtResource("8_jcog7")
 game_key_selection = "7"
 game_title = "Perry Run"
