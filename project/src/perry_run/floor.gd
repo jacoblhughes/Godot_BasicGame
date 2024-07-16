@@ -1,7 +1,8 @@
 extends AnimatableBody2D
 class_name PerryRunFloor
 
-var speed = 5
+@export var base_speed : float
+var speed : float
 var direction44
 
 @export var animation : AnimatedSprite2D

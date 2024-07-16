@@ -102,6 +102,9 @@ size = Vector2(32, 80)
 floor_stop_on_slope = false
 floor_constant_speed = true
 script = ExtResource("1_yn1sn")
+jump_height = 400.0
+jump_time_to_peak = 0.7
+jump_time_to_descent = 0.4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -80)

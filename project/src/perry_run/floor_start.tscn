@@ -24,6 +24,7 @@ size = Vector2(720, 128)
 [node name="FloorStart" type="AnimatableBody2D" node_paths=PackedStringArray("animation")]
 collision_mask = 0
 script = ExtResource("1_exyns")
+base_speed = 500.0
 animation = NodePath("AnimatedSprite2D")
 metadata/_edit_vertical_guides_ = [360.0, 924.0, 930.0, 930.0]
 

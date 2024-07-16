@@ -128,6 +128,7 @@ size = Vector2(280, 40)
 
 [node name="HighPlatform" type="AnimatableBody2D" node_paths=PackedStringArray("animation") groups=["enemy"]]
 script = ExtResource("1_dqppt")
+base_speed = 650.0
 animation = NodePath("AnimatedSprite2D")
 metadata/_edit_vertical_guides_ = [360.0]
 
