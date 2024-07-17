@@ -50,19 +50,18 @@ func _physics_process(delta):
 		player_animation.play("jumping")
 
 	if velocity.y > 0.0 and should_jump and fly_time < MAX_FLY_TIME and GameManager.get_game_enabled() and motion_mode == 0:
-		flying = true
+		velocity.y = 20
 		fly_time += delta
-		player_animation.play("flying")s
+		player_animation.play("flying")
 	elif velocity.y > 0.0:
-		flying = false
+
 		player_animation.play("falling")
 
-	print(flying)
 	move_and_slide()
 	position.x = clamp(position.x, xpos, xpos)  # Keep the player at xpos
 
 func get_gravity() -> float:
-	return jump_gravity if velocity.y < 0.0 else (fall_gravity / 20 if flying else fall_gravity)
+	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func jump():
 	velocity.y = jump_velocity

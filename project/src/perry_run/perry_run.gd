@@ -22,9 +22,6 @@ signal game_start
 var base_floor_timer_time : Array = [2.5,4]
 var base_platform_timer_time : Array = [2,3]
 var base_high_floor_timer_time : Array = [1,2]
-var base_coin_timer_time = 1
-
-var base_coin_position_change_delta = 400
 
 var player
 
@@ -51,9 +48,7 @@ func _ready():
 		var objects_1 = %EnemySpawnPositions.get_children()
 		for node in objects_1:
 			node.position.y *= yatio
-		var objects_2 = %CoinSpawnPositions.get_children()
-		for node in objects_2:
-			node.position.y *= yatio
+
 		var nodes_to_move =[%StartPosition,%FloorCoinDespawn,%PlayerFell]
 		for node in nodes_to_move:
 			node.position.y *= yatio
@@ -65,9 +60,7 @@ func _ready():
 		var objects_1 = %EnemySpawnPositions.get_children()
 		for node in objects_1:
 			node.position.x *= xatio
-		var objects_2 = %CoinSpawnPositions.get_children()
-		for node in objects_2:
-			node.position.x *= xatio
+
 		var nodes_to_move =[%PlayerFell]
 		for node in nodes_to_move:
 			node.position.x *= xatio
@@ -86,7 +79,7 @@ func _ready():
 	%EnemyAnimationArea.body_entered.connect(_on_enemy_entered)
 	%PlayerFell.body_entered.connect(_on_player_fall_out)
 	%ObjectSpawn.set_xatio(xatio)
-
+	%ScoreTimer.timeout.connect(_on_score_timer_timeout)
 	%ObjectSpawn.set_new_times(base_floor_timer_time,base_platform_timer_time,base_high_floor_timer_time)
 	player_jump_scale = yatio
 
@@ -94,7 +87,7 @@ func _ready():
 	%FloorTimer.wait_time = base_floor_timer_time[0]
 	%PlatformTimer.wait_time = base_platform_timer_time[0]
 	%HighPlatformTimer.wait_time = base_high_floor_timer_time[0]
-	%CoinTimer.wait_time = base_coin_timer_time
+
 	player = player_scene.instantiate()
 	player.position = %StartPosition.position
 	player.motion_mode = 1
@@ -116,6 +109,7 @@ func _on_play_button_pressed():
 	game_start.emit()
 	player.set_collision_disabled(false)
 	player.motion_mode = 0
+	%ScoreTimer.start()
 	pass
 
 func _on_advance_level():
@@ -127,10 +121,6 @@ func _on_advance_level():
 	for time in base_high_floor_timer_time:
 		time *= pow(1.05,HUD.return_game_level())
 	%ObjectSpawn.set_new_times(base_floor_timer_time,base_platform_timer_time,base_high_floor_timer_time)
-	#%FloorTimer.wait_time = base_floor_timer_time * pow(1.05,HUD.return_game_level())
-	#%PlatformTimer.wait_time = base_platform_timer_time * pow(1.05,HUD.return_game_level())
-	#%HighPlatformTimer.wait_time = base_high_floor_timer_time * pow(1.05,HUD.return_game_level())
-	#%CoinTimer.wait_time = base_coin_timer_time * pow(1.05,HUD.return_game_level())
 	var old_speed = %ObjectSpawn.get_object_speed()
 	%ObjectSpawn.set_object_speed(old_speed*pow(1.05,HUD.return_game_level()))
 	for node in %ObjectSpawn.get_children():
@@ -142,8 +132,12 @@ func _on_player_fall_out(body):
 		HUD.update_lives()
 
 func _on_game_over():
+	%ScoreTimer.stop()
 	pass
 
 func _on_enemy_entered(body):
 	if body.is_in_group("enemy"):
 		body.animate()
+
+func _on_score_timer_timeout():
+	HUD.update_score()

@@ -1,17 +1,122 @@
-[gd_scene load_steps=6 format=3 uid="uid://b46ie0qbg858a"]
+[gd_scene load_steps=21 format=3 uid="uid://b46ie0qbg858a"]
 
 [ext_resource type="Script" path="res://src/perry_run/floor.gd" id="1_exyns"]
 [ext_resource type="Texture2D" uid="uid://6ihl6m6foyoa" path="res://src/perry_run/textures/starting_platform.png" id="2_bqju0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4dks8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rkxj"]
 atlas = ExtResource("2_bqju0")
-region = Rect2(0, 0, 180, 32)
+region = Rect2(0, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eg8i"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(360, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ragj"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(720, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcvrs"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(1080, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e0dq"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(1440, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hknx3"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(1800, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpy3u"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(2160, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lro78"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(2520, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33dls"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(2880, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2rvq"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(3240, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl4oa"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(3600, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3so3"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(3960, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edkv6"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(4320, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yef67"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(4680, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwacm"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(5040, 0, 360, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u48xx"]
+atlas = ExtResource("2_bqju0")
+region = Rect2(5400, 0, 360, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_37q7n"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4dks8")
+"texture": SubResource("AtlasTexture_1rkxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eg8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ragj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcvrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e0dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hknx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpy3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lro78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33dls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2rvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl4oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3so3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edkv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yef67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwacm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u48xx")
 }],
 "loop": false,
 "name": &"default",
@@ -30,7 +135,7 @@ metadata/_edit_vertical_guides_ = [360.0, 924.0, 930.0, 930.0]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(360, 64)
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_37q7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
