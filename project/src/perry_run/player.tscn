@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bxseg85es8o1u"]
+[gd_scene load_steps=20 format=3 uid="uid://bxseg85es8o1u"]
 
 [ext_resource type="Script" path="res://src/perry_run/player.gd" id="1_yn1sn"]
 [ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://src/perry_run/textures/player.png" id="2_8qjdp"]
@@ -51,6 +51,18 @@ region = Rect2(800, 0, 80, 80)
 atlas = ExtResource("2_8qjdp")
 region = Rect2(880, 0, 80, 80)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwaoh"]
+atlas = ExtResource("2_8qjdp")
+region = Rect2(1040, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6crc"]
+atlas = ExtResource("2_8qjdp")
+region = Rect2(1120, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0geql"]
+atlas = ExtResource("2_8qjdp")
+region = Rect2(960, 0, 80, 80)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_oy4wx"]
 animations = [{
 "frames": [{
@@ -93,15 +105,40 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwaoh")
+}],
+"loop": false,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6crc")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0geql")
+}],
+"loop": false,
+"name": &"jumping",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kj2p2"]
 size = Vector2(32, 80)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_animation")]
 floor_stop_on_slope = false
 floor_constant_speed = true
 script = ExtResource("1_yn1sn")
+player_animation = NodePath("AnimatedSprite2D")
 jump_height = 400.0
 jump_time_to_peak = 0.7
 jump_time_to_descent = 0.4
@@ -110,7 +147,7 @@ jump_time_to_descent = 0.4
 position = Vector2(0, -80)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_oy4wx")
-autoplay = "default"
+animation = &"flying"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
