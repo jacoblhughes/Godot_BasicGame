@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c253kktvhan5h" path="res://src/perry_run/high_platform.tscn" id="9_7fsbn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uy26r"]
-size = Vector2(18, 808)
+size = Vector2(15, 1235)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmxft"]
 size = Vector2(10, 672)
@@ -51,6 +51,7 @@ unique_name_in_owner = true
 position = Vector2(160, 850)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAnimationArea"]
+position = Vector2(1.5, -213.5)
 shape = SubResource("RectangleShape2D_uy26r")
 
 [node name="StartPosition" type="Marker2D" parent="."]
