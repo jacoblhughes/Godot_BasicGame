@@ -29,7 +29,8 @@ func out_of_lives():
 	GameManager.set_game_enabled(false)
 	GameManager.check_highscore_and_rank()
 	Interruptions.stop_interruptions()
-
+	print('stop interruptions')
+	
 func game_start_game_over_initialize( this_start_button_callable, this_game_over_callable):
 	start_button_pressed.connect(this_start_button_callable)
 	game_over.connect(this_game_over_callable)
@@ -63,6 +64,7 @@ func _on_countdown_timer_timeout():
 		%CountdownTimer.stop()
 		start_button_pressed.emit()
 		Interruptions.start_interruptions()
+		print('interruptions started')
 		countdown = 3
 		self.hide()
 		return

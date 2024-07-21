@@ -105,6 +105,7 @@ func _on_home_button_pressed():
 			child.queue_free()
 	HUD.set_or_reset_level()
 	Interruptions.stop_interruptions()
+	print('stop interruptions')
 	self.hide()
 
 	pass # Replace with function body.

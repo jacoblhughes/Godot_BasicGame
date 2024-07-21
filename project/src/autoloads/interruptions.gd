@@ -129,8 +129,12 @@ func start_dead_pixels_animation():
 	
 func stop_interruptions():
 	glitch_timer.stop()
-	glitch_ending_timer
+	glitch_ending_timer.stop()
 	glitch_incoming_timer.stop()
 	interruptions_timer.stop()
 	spraying_wiping_animation.stop()
+	%Glitch.hide()
+	%SprayingWiping.hide()
+	%LowPower.hide()
+	%DeadPixels.hide()
 	self.hide()
