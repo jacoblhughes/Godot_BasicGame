@@ -23,8 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://bpbsvxbbk4ce8" path="res://src/perry_dodge/textures/logo.png" id="22_o05ny"]
 [ext_resource type="Texture2D" uid="uid://cr156l77l8mqj" path="res://src/perry_llama/textures/logo.png" id="22_odxlo"]
 [ext_resource type="Texture2D" uid="uid://chtx7ejjj7k0w" path="res://src/perry_flap/textures/player.png" id="23_p1kel"]
-[ext_resource type="Texture2D" uid="uid://dso64w1l8ph74" path="res://src/perry_run/textures/player.png" id="24_gh28p"]
 [ext_resource type="Texture2D" uid="uid://b3dk38awhbahp" path="res://src/perry_space/textures/player.png" id="25_3shli"]
+[ext_resource type="Texture2D" uid="uid://bmdprkodv8a7y" path="res://src/perry_run/textures/player_2.png" id="25_q1iwd"]
 [ext_resource type="Texture2D" uid="uid://bf2rgeripqka6" path="res://src/perry_squash/textures/player.png" id="27_n1kpu"]
 [ext_resource type="Texture2D" uid="uid://bum6tln8w3p6v" path="res://src/perry_putt/textures/alligator.png" id="28_oiy2q"]
 [ext_resource type="PackedScene" uid="uid://c1hivhtg5s78l" path="res://src/perry_squash/perry_squash.tscn" id="28_tc350"]
@@ -42,8 +42,8 @@ atlas = ExtResource("23_p1kel")
 region = Rect2(320, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32h8p"]
-atlas = ExtResource("24_gh28p")
-region = Rect2(0, 0, 80, 80)
+atlas = ExtResource("25_q1iwd")
+region = Rect2(0, 0, 40, 40)
 
 [node name="Buttons" type="CanvasLayer"]
 layer = 3
